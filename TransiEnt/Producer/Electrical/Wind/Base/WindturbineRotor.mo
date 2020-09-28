@@ -51,7 +51,7 @@ model WindturbineRotor
   parameter SI.Velocity v_fullLoad=12 "nominal wind speed";
   parameter Modelica.Units.SI.Length D=(8*P_el_n/(Modelica.Constants.pi*rho*v_fullLoad^3*cp_opt))^0.5 "Rotor diameter";
 
-  parameter Real beta_start = 0 "Setpoint for pitch angle";
+  parameter SI.Angle beta_start(displayUnit = "deg") = 0 "Setpoint for pitch angle";
 
   parameter Modelica.Units.SI.Power P_el_n=3.5e6 "Rated (maximum) power";
 
@@ -81,7 +81,7 @@ model WindturbineRotor
   //                  Interfaces
   // _____________________________________________
   TransiEnt.Basics.Interfaces.Ambient.VelocityIn v_wind  "Wind velocity"   annotation (Placement(transformation(origin={-110,0}, extent={{-10,-10},{10,10}}), iconTransformation(origin={-94,-2}, extent={{-10,-10},{10,10}})));
-  Modelica.Blocks.Interfaces.RealInput beta_set(start=beta_start, final quantity= "Angle", final unit="rad", displayUnit="deg")    "Setpoint Pitch angle"                                    annotation (Placement(transformation(origin={-110,36}, extent={{-10,-10},{10,10}}), iconTransformation(
+  Modelica.Blocks.Interfaces.RealInput beta_set(start=beta_start, final quantity= "Angle", final unit="deg", displayUnit="deg")    "Setpoint Pitch angle"                                    annotation (Placement(transformation(origin={-110,36}, extent={{-10,-10},{10,10}}), iconTransformation(
         origin={0,96},
         extent={{-10,-10},{10,10}},
         rotation=270)));
