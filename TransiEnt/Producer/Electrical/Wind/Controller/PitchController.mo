@@ -128,7 +128,8 @@ Modelica.Blocks.Logical.Switch switchToFullLoad annotation (Placement(transforma
     Ni=Ni,
     controllerType=controllerTypePitchCtrl,
     Td=Td,
-    k=k)                                                      annotation (Placement(transformation(extent={{-60,-72},
+    k=k,
+    initType=Modelica.Blocks.Types.InitPID.InitialState)      annotation (Placement(transformation(extent={{-60,-72},
             {-40,-52}})));
   Modelica.Blocks.Interfaces.RealInput
             u_s "Connector of setpoint input signal" annotation (Placement(
@@ -151,7 +152,8 @@ Modelica.Blocks.Logical.Switch switchToHalt1
             {108,4}})));
   Modelica.StateGraph.StepWithSignal SafetyHalt(nIn=1, nOut=1) annotation (
       Placement(transformation(extent={{110,20},{130,40}}, rotation=0)));
-  Modelica.Blocks.Continuous.FirstOrder PitchControllerTimeConstant(T=5) annotation (Placement(transformation(extent={{76,-70},
+  Modelica.Blocks.Continuous.FirstOrder PitchControllerTimeConstant(T=5, initType=
+       Modelica.Blocks.Types.Init.SteadyState)                           annotation (Placement(transformation(extent={{76,-70},
             {90,-56}})));
   Modelica.Blocks.Math.MultiSum controlValue1(
                                              nu=2) annotation (Placement(transformation(extent={{100,-84},

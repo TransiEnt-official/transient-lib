@@ -81,7 +81,7 @@ model WindturbineRotor
   //                  Interfaces
   // _____________________________________________
   TransiEnt.Basics.Interfaces.Ambient.VelocityIn v_wind  "Wind velocity"   annotation (Placement(transformation(origin={-110,0}, extent={{-10,-10},{10,10}}), iconTransformation(origin={-94,-2}, extent={{-10,-10},{10,10}})));
-  Modelica.Blocks.Interfaces.RealInput beta_set(start=beta_start, final quantity= "Angle", final unit="deg", displayUnit="deg")    "Setpoint Pitch angle"                                    annotation (Placement(transformation(origin={-110,36}, extent={{-10,-10},{10,10}}), iconTransformation(
+  Modelica.Blocks.Interfaces.RealInput beta_set(start=beta_start, final quantity= "Angle", final unit="rad", displayUnit="deg")    "Setpoint Pitch angle"                                    annotation (Placement(transformation(origin={-110,36}, extent={{-10,-10},{10,10}}), iconTransformation(
         origin={0,96},
         extent={{-10,-10},{10,10}},
         rotation=270)));

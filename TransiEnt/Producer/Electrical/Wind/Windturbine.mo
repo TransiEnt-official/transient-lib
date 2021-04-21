@@ -111,8 +111,8 @@ public
     radius=Rotor.D/2,
     cp_opt=Rotor.cp_opt,
     v_cutIn=operationRanges.v_cutIn,
-    tau_n=P_el_n/omega_n) annotation (Placement(transformation(rotation=0, extent={{10,56},
-            {28,76}})));
+    tau_n=P_el_n/omega_n) annotation (Placement(transformation(rotation=0,
+          extent={{10,56},{28,76}})));
   Modelica.Blocks.Sources.RealExpression wind_fullload(y=operationRanges.v_fullLoad)
     annotation (Placement(transformation(extent={{-30,62},{-2,80}})));
 
@@ -154,14 +154,16 @@ equation
   connect(v_wind1.y, Rotor.v_wind) annotation (Line(points={{-55.2,-8},{-39.4,-8},
           {-39.4,-8.2}},  color={0,0,127}));
   connect(omega_is.y, torqueController_modified.omega_is) annotation (Line(
-        points={{-0.6,55},{4,55},{4,61.4545},{10,61.4545}}, color={0,0,127}));
+        points={{-0.6,55},{4,55},{4,61.4545},{10,61.4545}},
+                                                  color={0,0,127}));
 
   connect(P_set.y, pitchController.u_s) annotation (Line(points={{-83.3,69},{-80,69},{-80,68},{-80,50},{-80,48},{-68,48}},
                                                             color={0,0,127}));
   connect(P_is.y, pitchController.u_m) annotation (Line(points={{-83.2,32},{-82,
           32},{-82,62},{-68,62}}, color={0,0,127}));
   connect(wind_fullload.y, torqueController_modified.wind_fullload) annotation (
-     Line(points={{-0.6,71},{4,71},{4,72.3636},{10,72.3636}}, color={0,0,127}));
+     Line(points={{-0.6,71},{4,71},{4,72.3636},{10,72.3636}},
+                                                    color={0,0,127}));
   connect(Rotor.flange, Inertia.mpp_a) annotation (Line(points={{-19.8,-8},{-16,-8},{-16,-6.5},{-14,-6.5}}, color={0,0,0}));
   connect(Inertia.mpp_b, Generator.mpp) annotation (Line(points={{10,-6.5},{14,-6.5},{14,-7},{18,-7}},         color={95,95,95}));
   connect(torqueController_modified.y, Generator.tau_set) annotation (Line(
