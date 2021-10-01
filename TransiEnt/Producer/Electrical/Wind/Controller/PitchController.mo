@@ -129,7 +129,7 @@ Modelica.Blocks.Logical.Switch switchToFullLoad annotation (Placement(transforma
     controllerType=controllerTypePitchCtrl,
     Td=Td,
     k=k,
-    initType=Modelica.Blocks.Types.InitPID.InitialState)      annotation (Placement(transformation(extent={{-60,-72},
+    initType=Modelica.Blocks.Types.Init.InitialState)         annotation (Placement(transformation(extent={{-60,-72},
             {-40,-52}})));
   Modelica.Blocks.Interfaces.RealInput
             u_s "Connector of setpoint input signal" annotation (Placement(

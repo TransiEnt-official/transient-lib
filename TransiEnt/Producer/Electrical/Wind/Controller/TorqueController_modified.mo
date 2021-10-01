@@ -46,8 +46,8 @@ model TorqueController_modified
 
   parameter Real J "Wind turbine moment of inertia";
   parameter Real lambdaOpt "Optimal tip speed ratio";
-  parameter Modelica.SIunits.Density rho "Density";
-  parameter Modelica.SIunits.Length radius "Rotor Radius";
+  parameter SI.Density rho "Density";
+  parameter SI.Length radius "Rotor Radius";
   parameter Real cp_opt "Optimal capacity factor";
   parameter Boolean limitsAtInit = true "= false, if limits are ignored during initialization";
   parameter Boolean strict=false "= true, if strict limits with noEvent(..)";
@@ -85,7 +85,6 @@ model TorqueController_modified
                            limiter1(
     uMax=1e8,
     strict=true,
-    limitsAtInit=true,
     uMin=0)
     annotation (Placement(transformation(extent={{28,-16},{48,4}},  rotation=
             0)));
@@ -135,7 +134,6 @@ model TorqueController_modified
                            limiter2(
     uMax=1e8,
     strict=true,
-    limitsAtInit=true,
     uMin=0)
     annotation (Placement(transformation(extent={{160,-10},{180,10}},
                                                                     rotation=
