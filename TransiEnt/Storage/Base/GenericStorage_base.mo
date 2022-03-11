@@ -117,7 +117,7 @@ ClaRa.Components.Utilities.Blocks.VariableGradientLimiter
     annotation (Placement(transformation(extent={{-8,-30},{5,-16}})));
   Modelica.Blocks.Logical.And FullAndCharging
     annotation (Placement(transformation(extent={{-7,-8},{6,6}})));
-  Modelica.Blocks.Logical.LessEqualThreshold DischargeDemand
+  Modelica.Blocks.Logical.LessEqualThreshold DischargeDemand(threshold=-Modelica.Constants.eps)
     annotation (Placement(transformation(extent={{-33,35},{-22,47}})));
   Modelica.Blocks.Logical.Not ChargeDemand
     annotation (Placement(transformation(extent={{5,25},{-7,37}})));
@@ -143,14 +143,14 @@ ClaRa.Components.Utilities.Blocks.VariableGradientLimiter
                                                                                                     if use_inverterEfficiency annotation (Placement(transformation(extent={{-20,-97},{-7,-85}})));
   Modelica.Blocks.Logical.Greater greater annotation (Placement(transformation(extent={{-58,28},{-48,38}})));
   Modelica.Blocks.Logical.Less less annotation (Placement(transformation(extent={{-58,14},{-48,24}})));
-  Modelica.Blocks.Sources.RealExpression realExpression annotation (Placement(transformation(extent={{-74,18},{-68,28}})));
+  Modelica.Blocks.Sources.RealExpression realExpression(y=Modelica.Constants.eps) annotation (Placement(transformation(extent={{-74,18},{-68,28}})));
   Modelica.Blocks.Logical.Nor notActive annotation (Placement(transformation(extent={{-44,22},{-36,30}})));
-  Modelica.Blocks.Logical.Nor nor
-                                 annotation (Placement(transformation(extent={{-70,-66},{-60,-56}})));
-  Modelica.Blocks.Logical.LogicalSwitch logicalSwitch annotation (Placement(transformation(extent={{-46,-62},{-36,-52}})));
-  Modelica.Blocks.Sources.BooleanExpression booleanExpression(y=if stationaryLossOnlyIfInactive then false else true) annotation (Placement(transformation(extent={{-70,-58},{-54,-44}})));
+  Modelica.Blocks.Logical.Or or1 annotation (Placement(transformation(extent={{-88,-70},{-78,-60}})));
+  Modelica.Blocks.Logical.LogicalSwitch logicalSwitch annotation (Placement(transformation(extent={{-48,-62}, {-38,-52}})));
+  Modelica.Blocks.Sources.BooleanExpression booleanExpression(y=not stationaryLossOnlyIfInactive) annotation (Placement(transformation(extent={{-90,-62},{-74,-48}})));
   Modelica.Blocks.Logical.Not active annotation (Placement(transformation(extent={{-32,22},{-24,30}})));
-  Modelica.Blocks.Logical.Not not1 annotation (Placement(transformation(extent={{-56,-64},{-50,-58}})));
+  Modelica.Blocks.Sources.RealExpression realExpression1(y=-Modelica.Constants.eps) annotation (Placement(transformation(extent={{-74,10},{-68,20}})));
+  Modelica.Blocks.Logical.Or or2 annotation (Placement(transformation(extent={{-64,-50},{-58,-44}})));
 equation
 
   // _____________________________________________
@@ -229,22 +229,31 @@ equation
 
 
 
-  connect(realExpression.y, greater.u2) annotation (Line(points={{-67.7,23},{-63.85,23},{-63.85,29},{-59,29}}, color={0,0,127}));
-  connect(less.u2, realExpression.y) annotation (Line(points={{-59,15},{-62,15},{-62,23},{-67.7,23}},
-                                                                                                    color={0,0,127}));
+  connect(realExpression.y, greater.u2) annotation (Line(points={{-67.7,29},{-59,29}},                         color={0,0,127}));
   connect(greater.y, notActive.u1) annotation (Line(points={{-47.5,33},{-44.8,33},{-44.8,26}}, color={255,0,255}));
   connect(less.y, notActive.u2) annotation (Line(points={{-47.5,19},{-47.5,20},{-44.8,20},{-44.8,22.8}},color={255,0,255}));
-  connect(EmptyAndDischarging.y, nor.u2) annotation (Line(points={{5.65,-23},{5.65,-38},{-74,-38},{-74,-65},{-71,-65}}, color={255,0,255}));
-  connect(logicalSwitch.u1, EmptyAndDischarging.y) annotation (Line(points={{-47,-53},{-47,-38},{5.65,-38},{5.65,-23}}, color={255,0,255}));
-  connect(booleanExpression.y, logicalSwitch.u2) annotation (Line(points={{-53.2,-51},{-50,-51},{-50,-57},{-47,-57}},   color={255,0,255}));
+  connect(EmptyAndDischarging.y,or1. u2) annotation (Line(points={{5.65,-23},{4,-23},{4,-38},
+          {-94,-38},{-94,-69},{-89,-69}},                                                                               color={255,0,255}));
+  connect(booleanExpression.y, logicalSwitch.u2) annotation (Line(points={{-73.2,-55},{-56,
+          -55},{-56,-57},{-49,-57}},                                                                                    color={255,0,255}));
   connect(greater.u1, P_is_external.y) annotation (Line(points={{-59,33},{-64,33},{-64,52},{68.8,52},{68.8,-13}}, color={0,0,127}));
   connect(P_is_external.y, less.u1) annotation (Line(points={{68.8,-13},{68.8,52},{-76,52},{-76,19},{-59,19}},
                                                                                                              color={0,0,127}));
   connect(notActive.y, active.u) annotation (Line(points={{-35.6,26},{-32.8,26}}, color={255,0,255}));
-  connect(active.y, nor.u1) annotation (Line(points={{-23.6,26},{-22,26},{-22,12},{-78,12},{-78,-61},{-71,-61}},   color={255,0,255}));
-  connect(logicalSwitch.y, stationaryLoss_internal.u2) annotation (Line(points={{-35.5,-57},{-31.6,-57}},                           color={255,0,255}));
-  connect(nor.y, not1.u) annotation (Line(points={{-59.5,-61},{-56.6,-61}}, color={255,0,255}));
-  connect(not1.y, logicalSwitch.u3) annotation (Line(points={{-49.7,-61},{-47,-61}}, color={255,0,255}));
+  connect(active.y,or1. u1) annotation (Line(points={{-23.6,26},{-18,26},{-18,-36},{-96,-36},
+          {-96,-65},{-89,-65}},                                                                                    color={255,0,255}));
+  connect(logicalSwitch.y, stationaryLoss_internal.u2) annotation (Line(points={{-37.5,-57},{
+          -31.6,-57}},                                                                                                              color={255,0,255}));
+  connect(realExpression1.y, less.u2)
+    annotation (Line(points={{-67.7,15},{-59,15}}, color={0,0,127}));
+  connect(or1.y, logicalSwitch.u3) annotation (Line(points={{-77.5,-65},{-72,-65},{-72,-66},{
+          -49,-66},{-49,-61}}, color={255,0,255}));
+  connect(or2.u1, EmptyAndDischarging.y) annotation (Line(points={{-64.6,-47},{-64.6,-38},{4,
+          -38},{4,-26},{5.65,-26},{5.65,-23}}, color={255,0,255}));
+  connect(or2.y, logicalSwitch.u1)
+    annotation (Line(points={{-57.7,-47},{-49,-47},{-49,-53}}, color={255,0,255}));
+  connect(or2.u2, EmptyAndDischarging.u2) annotation (Line(points={{-64.6,-49.4},{-68,-49.4},
+          {-68,-50},{-70,-50},{-70,-32},{-9.3,-32},{-9.3,-28.6}}, color={255,0,255}));
   annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}}), graphics={
         Line(
