@@ -1,0 +1,14 @@
+Base
+Check
+Controller
+Specifications
+PrimaryControlStorage
+LoadSmoothingElectricStorage
+FlywheelPark_L2
+FlywheelStorage_L2
+LeadAcidBattery
+LithiumIonBattery
+CAES
+PumpedStorage
+PumpedStorage_Generator
+SuperCapacitor

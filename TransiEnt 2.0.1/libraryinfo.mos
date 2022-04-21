@@ -1,0 +1,17 @@
+LibraryInfoMenuSeparator(
+ category="libraries",
+pos=001)
+
+LibraryInfoMenuCommand(
+ category="libraries",
+ text = "TransiEnt",
+ reference= "TransiEnt",
+ version="2.0.1",
+ isModel=true,
+ description="Transient simulation of coupled energy networks with high share of renewable energy",
+ ModelicaVersion="4.0.0",
+ pos=001)
+
+ LibraryInfoMenuSeparator(
+ category="libraries",
+pos=002)

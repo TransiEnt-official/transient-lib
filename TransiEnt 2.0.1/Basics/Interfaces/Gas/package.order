@@ -1,0 +1,11 @@
+EnthalpyFlowRateIn
+EnthalpyFlowRateOut
+IdealGasEnthPort
+IdealGasEnthPortIn
+IdealGasEnthPortOut
+IdealGasTempPort
+IdealGasTempPortIn
+IdealGasTempPortOut
+RealGasPort
+RealGasPortIn
+RealGasPortOut

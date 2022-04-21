@@ -1,0 +1,5 @@
+PartialLine
+getLVCableData
+getMVCableData
+getHVCableData
+PartialTwoPortAdmittanceComplex
