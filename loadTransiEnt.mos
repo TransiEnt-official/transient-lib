@@ -16,8 +16,8 @@ RunScript(repopath + "/TransiEnt " + version + "/Scripts/loadTransiEntUnits.mos"
 
 // ==== Load frequently used libraries:
 //
-openModel(repopath + "/ClaRa1.7.0/TILMedia 1.7.0 ClaRa/package.mo");
-openModel(repopath + "/ClaRa1.7.0/ClaRa/package.mo");
+openModel(repopath + "/TILMedia/package.mo");
+openModel(repopath + "/ClaRa/package.mo");
 openModel(repopath + "/TransiEnt " + version + "/package.mo");
 
 // ==== Set environtment variables:

@@ -1,0 +1,6 @@
+[submodule "ClaRa"]
+	path = ClaRa
+	url = https://github.com/ClaRaLibrary/ClaRa.git
+[submodule "TILMedia"]
+	path = TILMedia
+	url = https://github.com/ClaRaLibrary/TILMedia.git
