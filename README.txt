@@ -1,4 +1,4 @@
-  //________________________________________________________________________________//
+﻿  //________________________________________________________________________________//
   // TransiEnt Library, version: 2.0.1                 		                    //
   //                                                                                //
   // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
@@ -25,11 +25,12 @@ Please read the following steps for a successful usage.
 *******************************************
 Installation:
 *******************************************
+
 1. Download transient-2.0.1 and copy the library to your preferred folder
 
 Currently, only Dymola provides full suppport of TransiEnt. The development team has tested all models carefully using Dymola 2022x.
 
-2. Download the ClaRa library from the official website https://www.claralib.com/ and copy unzipped library files into! the transient-2.0.1 folder
+2. Download the ClaRa library from the official website https://www.claralib.com/ and copy unzipped library files into! the transient-2.0.2 folder
 
 
 3. Open the Library using a MOS Script
@@ -73,14 +74,14 @@ Heating Components
 - Linearization of pressure calculations for Components.Heat.VolumesValvesFittings.Pipes.SinglePipe_L2 and Components.Heat.VolumesValvesFittings.Pipes.DoublePipePair_L2 to improve simulation speed
 - Exchanged Fluid Volume in Components.Heat.VolumesValvesFittings.Pipes.SinglePipe_L2 from ClaRa.Components.VolumesValvesFittings.Fittings.SplitVLE_L2_flex to Components.Heat.VolumesValvesFittings.Pipes.Base.Fluid_Volume
 
-
+Sysem Generation
+- Added consumer statics to GridConstructor in SystemGeneration.GridConstructor.Base.PartialTechnologies and SystemGeneration.GridConstructor.Base.IndependetTechnologies
 
 ***Renamed***
 
 Heating Components
 - Renamed model Producer.Heat.Heat2Heat.Indirect_HEX_L1 to Producer.Heat.Heat2Heat.Indirect_HEX_const_dT_L1
 - Renamed parameter dT_soll to dT_set in Producer.Heat.Heat2Heat.Indirect_Hex_const_dT_L1
-
 
 
 ***Fixed Bugs***
@@ -92,9 +93,11 @@ General
 - Corrected sign error in TransiEnt.Components.Statistics.Collectors.GlobalCollectors.HeatingPowerStatistics
 - Changed Typeof Resource in TransiEnt.Producer.Combined.SmallScaleCHP.SmallScaleCHP_simple to Cogeneration instead of Conventional
 - Added local collectors collectCosts and collectElectricPower to TransiEnt.Producer.Electrical.Photovoltaics.Advanced_PV.DNIDHI_Input.PVModule, TransiEnt.Producer.Electrical.Photovoltaics.Advanced_PV.DNIDHI_Input.PVPlant, TransiEnt.Producer.Electrical.Photovoltaics.Advanced_PV.GHI_Input.PVModule and  TransiEnt.Producer.Electrical.Photovoltaics.Advanced_PV.GHI_Input.PVPlant, TransiEnt.Producer.Electrical.Photovoltaics.DataSheetBasedPV
+- Corrected bus that prevented use of absolute paths for tables in Basics.Tables.Combined.CombinedTables.Demand_3Tables and Basics.Tables.Combined.CombinedTables.Demand_Table_combined
 
 Electrical Components
 - changed sign in Storage.Electrical.Check.TestLeadAcidBattery for proper operation
+- Corrected value in Producer.Electrical.Photovoltaics.Base.MPPEfficiencyModel 
 
 Storage
 - corrected equation in Storage.Heat.HotWaterStorage_constProp_L4.HotWaterStorage_constProp_L4 for correct calculation of the heat storage's volume
@@ -110,7 +113,7 @@ Heating Components
 - Moved parameter assignment to the Controller.Base.Controller in Producer.Heat.Power2Heat.Heatpump.BivalentHeatPumpWithControl to maintain the values when the controller model is changed
 - Calculation of the nominal thermal power of the ElectricBoiler from the given nominal electrical power in Producer.Heat.Power2Heat.Heatpump.BivalentHeatPumpWithControl
 - Aligned the Producer.Heat.Power2Heat.ElectricBoiler.ElectricBoiler model with the Producer.Heat.Power2Heat.Heatpump.Heatpump model by using replaceable models for the PowerPort and PowerBoundary model. Settings for the PowerBoundaryModel in SystemGeneration.GridConstructor.IndependentTechnologies were changed to make simulations with the setting „CalculateHeater=True“ work. The redeclaration of the PowerPortModel and the PowerBoundaryModel was adjusted in HotWaterStorage_const_Prop_L4 and Producer.Heat.Power2Heat.Heatpump.BivalentHeatPumpWithControl.
-
+- Corrected sign Error in Components.Statistics.Collectors.GlobalCollectors.HeatingPowerStatistics
 
 
 ***Others***

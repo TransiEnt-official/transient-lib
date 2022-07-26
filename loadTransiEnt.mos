@@ -1,7 +1,7 @@
 // define local paths (absolute paths with front slashes)
 repopath="ADD_YOUR_PATH_TO_TRANSIENT_HERE";
 resultpath="ADD_YOUR_PATH_FOR_RESULTS_HERE";
-version="2.0.1";
+version="2.0.2";
 
 // Some recommended options
 Advanced.ManhattanizeConnection = true;
