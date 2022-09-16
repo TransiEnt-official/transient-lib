@@ -1,5 +1,5 @@
 ﻿  //________________________________________________________________________________//
-  // TransiEnt Library, version: 2.0.1                 		                    //
+  // TransiEnt Library, version: 2.0.2  development version               		                    //
   //                                                                                //
   // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
   // Copyright 2021, Hamburg University of Technology.                              //
@@ -22,15 +22,17 @@
 Thank you for choosing the TransiEnt Library for your simulation purposes!
 Please read the following steps for a successful usage.
 
+This version of the TransiEnt library is the current development version based on the latest/stable version. It may contain some bugs or hasn't tested for all cases. For trouble-free simulation, we refer to the latest/stable version.
+
 *******************************************
 Installation:
 *******************************************
 
-1. Download transient-2.0.1 and copy the library to your preferred folder
+1. Download transient-lib and copy the library to your preferred folder
 
 Currently, only Dymola provides full suppport of TransiEnt. The development team has tested all models carefully using Dymola 2022x.
 
-2. Download the ClaRa library from the official website https://www.claralib.com/ and copy unzipped library files into! the transient-2.0.2 folder
+2. Download the ClaRa library from the official website https://www.claralib.com/ and copy unzipped library files into! the transient-lib folder
 
 
 3. Open the Library using a MOS Script
@@ -39,7 +41,7 @@ In order to use the TransiEnt Library a few external libraries have to be loaded
 
 Before doing this, you have to replace "ADD_YOUR_PATH_TO_TRANSIENT_HERE" (Line 2 of loadTransiEnt.mos) with the absolute path to the directory where the transient Library is located. Line 2 should look something like the following (use front slashes):
 
-repopath="d:/ModelicaLibraries/TransiEnt";
+repopath="d:$DYMOLA$/Modelica/Library/TransiEnt";
 
 Furthermore, you should replace "ADD_YOUR_PATH_FOR_RESULTS_HERE" (Line 3 of loadTransiEnt.mos)  with the absolute path to the directory where you want to save your results. This enables you to call the functions named 'plotResults' in the Examples and Testers of the Library which will show you some relevant simulation results. Line 3 should look something like this (use front slashes):
 
@@ -60,7 +62,7 @@ The script can be called from dymola by Simulation -> Simulation -> Script -> Ru
 
 Alternatively you can add the script to your dymola.mos to load TransiEnt automatically every time dymola is started. The dymola.mos is located in $DYMOLA_INSTALLATION_FOLDER$/insert/dymola.mos. The required line would look like this:
 
-RunScript("d:/ModelicaLibraries/TransiEnt/loadWorkspace.mos")
+RunScript("d:$DYMOLA$/Modelica/Library/TransiEnt/loadWorkspace.mos")
 
 *******************************************
 Release Notes :	
