@@ -247,8 +247,8 @@ annotation (uses(
     Modelica(version="4.0.0"),
     Modelica_LinearSystems2(version="2.4.0"),
     ModelicaReference(version="4.0.0"),
-    TILMedia(version="1.7.0 ClaRa"),
-    ClaRa(version="1.7.0"),
+    TILMedia(version="1.8.0 ClaRa"),
+    ClaRa(version="1.8.0"),
     DymolaCommands(version="1.11")),           Icon(coordinateSystem(
           preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
