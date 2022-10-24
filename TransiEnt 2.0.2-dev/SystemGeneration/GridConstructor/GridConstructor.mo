@@ -65,6 +65,20 @@ model GridConstructor
   parameter Integer start_c1=1 "Number of column in table Demand_Consumer_1 from which the assignment of load-profile data starts" annotation (Dialog(tab="Consumer"));
   parameter Integer start_c2=1 "Number of column in table Demand_Consumer_2 from which the assignment of load-profile data starts" annotation (Dialog(enable=second_row, tab="Consumer"));
 
+  parameter String relativepath_carDistance_c1="emobility/CarDistance.txt" "Path relative to source directory for car distance table" annotation (Dialog(tab="Electromobility", group="Data for upper row"));
+  parameter String relativepath_carLocation_c1="emobility/CarLocation.txt" "Path relative to source directory for car location table" annotation (Dialog(tab="Electromobility", group="Data for upper row"));
+  parameter String relativepath_carDistance_c2="emobility/CarDistance.txt" "Path relative to source directory for car distance table" annotation (Dialog(tab="Electromobility", group="Data for lower row", enable=second_row));
+  parameter String relativepath_carLocation_c2="emobility/CarLocation.txt" "Path relative to source directory for car location table" annotation (Dialog(tab="Electromobility", group="Data for lower row", enable=second_row));
+
+  parameter Integer column_Location_c1=1 "Table column for car location data" annotation (Dialog(tab="Electromobility", group="Data for upper row"), HideResult=true);
+  parameter Integer column_Location_c2=1 "Table column for car location data" annotation (Dialog(tab="Electromobility", group="Data for lower row", enable=second_row), HideResult=true);
+  parameter Integer column_Distance_c1=1 "Table column for car distance data" annotation (Dialog(tab="Electromobility", group="Data for upper row"), HideResult=true);
+  parameter Integer column_Distance_c2=1 "Table column for car distance data" annotation (Dialog(tab="Electromobility", group="Data for lower row", enable=second_row), HideResult=true);
+
+  parameter Real timeStepSize_c1(unit="min")=1 "Time step size of distance travelled" annotation (Dialog(tab="Electromobility", group="Data for upper row"), HideResult=true);
+  parameter Real timeStepSize_c2(unit="min")=1 "Time step size of distance travelled" annotation (Dialog(tab="Electromobility", group="Data for lower row", enable=second_row), HideResult=true);
+
+
   parameter Integer n_elements=1 "|System layout|Number of basic grid elements" annotation (HideResult=true);
 
   parameter Boolean second_row=false "|System layout|Activate second row of consumers" annotation (
@@ -98,6 +112,9 @@ public
   parameter TransiEnt.SystemGeneration.GridConstructor.DataRecords.SolarHeatingParameters SolarHeatingParameters_1[30]={TransiEnt.SystemGeneration.GridConstructor.DataRecords.SolarHeatingParameters() for i in 1:30} "Solar heating parameters in upper row" annotation (Dialog(tab="SolarThermal"), HideResult=true);
   parameter TransiEnt.SystemGeneration.GridConstructor.DataRecords.SolarHeatingParameters SolarHeatingParameters_2[30]={TransiEnt.SystemGeneration.GridConstructor.DataRecords.SolarHeatingParameters() for i in 1:30} "Solar heating parameters lower row" annotation (Dialog(tab="SolarThermal", enable=second_row), HideResult=true);
 
+  parameter TransiEnt.SystemGeneration.GridConstructor.DataRecords.WallboxParameters WallboxParameters_1[30]={TransiEnt.SystemGeneration.GridConstructor.DataRecords.WallboxParameters() for i in 1:30} "Wallbox and electric vehicle parameters in upper row" annotation (Dialog(tab="Electromobility"), HideResult=true);
+  parameter TransiEnt.SystemGeneration.GridConstructor.DataRecords.WallboxParameters WallboxParameters_2[30]={TransiEnt.SystemGeneration.GridConstructor.DataRecords.WallboxParameters() for i in 1:30} "Wallbox and electric vehicle parameters lower row" annotation (Dialog(tab="Electromobility", enable=second_row), HideResult=true);
+
   parameter TransiEnt.SystemGeneration.GridConstructor.DataRecords.CablePipeParameters CablePipeParameters[30]={TransiEnt.SystemGeneration.GridConstructor.DataRecords.CablePipeParameters() for i in 1:30} "Parameters of cables and piping" annotation (Dialog(tab="Cables and Piping"), HideResult=true);
 
   parameter Boolean second_Consumer[:]=fill(false, n_elements) "Activate/deactivate buildings in second row" annotation (Dialog(group="System layout", enable=second_row), HideResult=true);
@@ -130,6 +147,7 @@ protected
   parameter Integer NSH_1[:]=Technologies_1.NSH annotation (HideResult=true);
   parameter Integer Oil_1[:]=Technologies_1.Oil annotation (HideResult=true);
   parameter Integer Biomass_1[:]=Technologies_1.Biomass annotation (HideResult=true);
+  parameter Integer Wallbox_1[:]=Technologies_1.Wallbox annotation (HideResult=true);
 
   parameter Integer PV_2[:]=Technologies_2.PV annotation (HideResult=true);
   parameter Integer El_Consumer_2[:]=Technologies_2.El_Consumer annotation (HideResult=true);
@@ -141,6 +159,7 @@ protected
   parameter Integer NSH_2[:]=Technologies_2.NSH annotation (HideResult=true);
   parameter Integer Oil_2[:]=Technologies_2.Oil annotation (HideResult=true);
   parameter Integer Biomass_2[:]=Technologies_2.Biomass annotation (HideResult=true);
+  parameter Integer Wallbox_2[:]=Technologies_2.Wallbox annotation (HideResult=true);
 
   parameter Real cosphi_boundary_c1[:]=cosphi "Reactive power factor" annotation (Dialog(tab="El_Consumer"), HideResult=true);
   parameter Real cosphi_boundary_c2[:]=cosphi "Reactive power factor" annotation (Dialog(tab="El_Consumer", enable=second_row), HideResult=true);
@@ -295,6 +314,22 @@ protected
   parameter TransiEnt.Basics.Types.FuelType fuel_boiler_ST_c1[:]=SolarHeatingParameters_1.fuel "Fuel used in boiler" annotation (Dialog(tab="SolarHeating"), HideResult=true);
   parameter TransiEnt.Basics.Types.FuelType fuel_boiler_ST_c2[:]=SolarHeatingParameters_2.fuel "Fuel used in boiler" annotation (Dialog(tab="SolarHeating", enable=second_row), HideResult=true);
 
+  //Wallbox and electric vehicle parameters
+   parameter Real E_max_car_c1[:]=WallboxParameters_1.E_max_car "Battery Capacity" annotation (Dialog(tab="Electromobility"), HideResult=true);
+   parameter Real E_max_car_c2[:]=WallboxParameters_2.E_max_car "Battery Capacity" annotation (Dialog(tab="Electromobility", enable=second_row), HideResult=true);
+
+   parameter SI.Power P_max_car_drive_c1[:]=WallboxParameters_1.P_max_car_drive "Maximum driving power" annotation (Dialog(tab="Electromobility"), HideResult=true);
+   parameter SI.Power P_max_car_drive_c2[:]=WallboxParameters_2.P_max_car_drive "Maximum driving power" annotation (Dialog(tab="Electromobility", enable=second_row), HideResult=true);
+
+   parameter SI.Power P_max_car_charge_c1[:]=WallboxParameters_1.P_max_car_charge "Maximum charging power of the car" annotation (Dialog(tab="Electromobility"), HideResult=true);
+   parameter SI.Power P_max_car_charge_c2[:]=WallboxParameters_2.P_max_car_charge "Maximum charging power  of the car" annotation (Dialog(tab="Electromobility", enable=second_row), HideResult=true);
+
+   parameter Real carEfficiency_c1[:]=WallboxParameters_1.carEfficiency "Efficiency of the car [kWh/100km]" annotation (Dialog(tab="Electromobility"), HideResult=true);
+   parameter Real carEfficiency_c2[:]=WallboxParameters_2.carEfficiency "Efficiency of the car [kWh/100km]" annotation (Dialog(tab="Electromobility", enable=second_row), HideResult=true);
+
+   parameter SI.Power P_wallbox_c1[:]=WallboxParameters_1.P_wallbox "Wallbox charging power in W" annotation (Dialog(tab="Electromobility"), HideResult=true);
+   parameter SI.Power P_wallbox_c2[:]=WallboxParameters_2.P_wallbox "Wallbox charging power in W" annotation (Dialog(tab="Electromobility", enable=second_row), HideResult=true);
+
   // parameter gaspipe switches off gas pipes if no gas technology is present
   // to make model solveable, last element in grid needs to have gas pipe regardless of presence of gas technology
   parameter Integer gaspipe[:]=if Basic_Grid_Elements[1].Systems_1.onlyElectric then fill(0, n_elements) else Technologies_1.CHP + Technologies_1.Boiler + Technologies_2.CHP + Technologies_2.Boiler + {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1} annotation (HideResult=true);
@@ -439,6 +474,7 @@ public
         NSH=NSH_1,
         Oil=Oil_1,
         Biomass=Biomass_1,
+        Wallbox=Wallbox_1,
         cosphi_boundary=cosphi_boundary_c1,
         eta_boiler=eta_boiler_c1,
         P_inst_PV=P_inst_PV_c1,
@@ -483,6 +519,16 @@ public
         eta_Boiler_ST=eta_boiler_ST_c1,
         azimuth_ST=azimuth_ST_c1,
         slope_ST=slope_ST_c1,
+        carEfficiency_wallbox=carEfficiency_c1,
+        timeStepSize_wallbox=timeStepSize_c1,
+        P_wallbox=P_wallbox_c1,
+        E_max_car=E_max_car_c1,
+        P_max_car_drive=P_max_car_drive_c1,
+        P_max_car_charge=P_max_car_charge_c1,
+        column_Location_electricCar={i for i in column_Location_c1:(n_elements + column_Location_c1 - 1)},
+        column_Distance_electricCar={i for i in column_Distance_c1:(n_elements + column_Distance_c1 - 1)},
+        relativepath_carDistance=relativepath_carDistance_c1,
+        relativepath_carLocation=relativepath_carLocation_c1,
         each phi_PV=phi,
         each lambda_PV=lambda,
         each timezone_PV=timezone,
@@ -505,6 +551,7 @@ public
         NSH=NSH_2,
         Oil=Oil_2,
         Biomass=Biomass_2,
+        Wallbox=Wallbox_2,
         cosphi_boundary=cosphi_boundary_c2,
         eta_boiler=eta_boiler_c2,
         P_inst_PV=P_inst_PV_c2,
@@ -549,6 +596,16 @@ public
         eta_Boiler_ST=eta_boiler_ST_c2,
         azimuth_ST=azimuth_ST_c2,
         slope_ST=slope_ST_c2,
+        carEfficiency_wallbox=carEfficiency_c2,
+        timeStepSize_wallbox=timeStepSize_c2,
+        P_wallbox=P_wallbox_c2,
+        E_max_car=E_max_car_c2,
+        P_max_car_drive=P_max_car_drive_c2,
+        P_max_car_charge=P_max_car_charge_c2,
+        column_Location_electricCar={i for i in column_Location_c2:(n_elements + column_Location_c2 - 1)},
+        column_Distance_electricCar={i for i in column_Distance_c2:(n_elements + column_Distance_c2 - 1)},
+        relativepath_carDistance=relativepath_carDistance_c2,
+        relativepath_carLocation=relativepath_carLocation_c2,
         each phi_PV=phi,
         each lambda_PV=lambda,
         each timezone_PV=timezone,

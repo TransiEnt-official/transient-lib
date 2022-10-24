@@ -54,6 +54,8 @@ record TechnologyMatrix
 
  parameter Integer Biomass=0 "Biomass";
 
+ parameter Integer Wallbox=0 "Wallbox and electric vehicle";
+
   annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(preserveAspectRatio=false)),
     Documentation(info="<html>
 <p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">1. Purpose of model</span></b></p>

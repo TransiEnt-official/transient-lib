@@ -124,6 +124,19 @@ model IndependentTechnologies
   SI.Temperature T_source_other=283.15 "Other heat source temperature" annotation (Dialog(group="Heat pump"));
   parameter SI.Power P_el_backup_HP=10e3 "Nominal electric power of the backup heater" annotation (HideResult=true);
 
+  //Wallbox parameters
+  parameter String relativepath_carDistance="emobility/CarDistance.txt" "Path relative to source directory for car distance table" annotation (HideResult=true);
+  parameter String relativepath_carLocation="emobility/CarLocation.txt" "Path relative to source directory for car location table" annotation (HideResult=true);
+  parameter SI.Energy E_max_car=252000000 "Battery capacity" annotation (HideResult=true);
+  parameter SI.Power P_max_car_drive=200000 "Maximum driving power" annotation (HideResult=true);
+  parameter SI.Power P_max_car_charge=22000 "Maximum charging power" annotation (HideResult=true);
+  parameter Integer column_Location_electricCar=1 "Table column for car location data" annotation (HideResult=true);
+  parameter Integer column_Distance_electricCar=1 "Table column for car distance data" annotation (HideResult=true);
+  parameter SI.Power P_wallbox=11000 "Charging Power of the charging station" annotation (HideResult=true);
+  parameter Real carEfficiency_wallbox = 18 "Efficiency of Car [kWh/100km]" annotation (HideResult=true);
+  parameter Real timeStepSize_wallbox = 1 "[min] Time step size of input data" annotation (HideResult=true);
+
+
   // _____________________________________________
   //
   //           Instances of other Classes
@@ -259,6 +272,25 @@ public
   //Night storage heating
   TransiEnt.Producer.Heat.Power2Heat.Converter_Heat2Power converter_Heat2Power if NSH == 1 annotation (Placement(transformation(extent={{-32,28},{-12,48}})));
 
+     //Wallbox and electric vehicle
+   Consumer.Electrical.ElectricCar electricCar(
+     carEfficiency=carEfficiency_wallbox,
+     E_max_car=E_max_car,
+     P_max_car_drive=P_max_car_drive,
+     P_max_car_charge=P_max_car_charge,
+     relativepath_carDistance=relativepath_carDistance,
+     relativepath_carLocation=relativepath_carLocation,
+     timeStepSize=timeStepSize_wallbox,
+     column_Location=column_Location_electricCar,
+     column_Distance=column_Distance_electricCar,
+     P_chargingStation=P_wallbox,              useExternalControl=false) if Wallbox==1
+                                               annotation (Placement(transformation(extent={{36,-32},{56,-12}})));
+
+  Modelica.Blocks.Sources.RealExpression propControl(y=simCenter.PropControlFactor)
+                                                             annotation (Placement(transformation(extent={{16,-58},{30,-40}})));
+  Modelica.Blocks.Sources.RealExpression limitControl(y=simCenter.P_limit)
+                                                             annotation (Placement(transformation(extent={{16,-72},{30,-54}})));
+
 
  //Statistics
   Components.Statistics.Collectors.LocalCollectors.CollectHeatingPower collectHeatingPower(typeOfResource=TransiEnt.Basics.Types.TypeOfResource.Consumer)
@@ -386,7 +418,12 @@ equation
 
   connect(modelStatistics.powerCollector[TransiEnt.Basics.Types.TypeOfResource.Consumer],collectElectricPower.powerCollector);
   connect(modelStatistics.heatFlowCollector[TransiEnt.Basics.Types.TypeOfResource.Consumer],collectHeatingPower.heatFlowCollector);
-
+  connect(electricCar.epp, epp) annotation (Line(
+      points={{56,-22},{60,-22},{60,-80},{-80,-80},{-80,-98}},
+      color={0,127,0},
+      thickness=0.5));
+  connect(electricCar.p_control, propControl.y) annotation (Line(points={{35.4,-25.2},{34,-25.2},{34,-26},{32,-26},{32,-49},{30.7,-49}}, color={0,0,127}));
+  connect(limitControl.y, electricCar.P_limit) annotation (Line(points={{30.7,-63},{40,-63},{40,-36},{28,-36},{28,-19},{35.2,-19}}, color={0,0,127}));
   annotation (Documentation(info="<html>
 <p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">1. Purpose of model</span></b></p>
 <p>Accommodates all available technologies that are connected to gas, electricity and district heating grid networks. </p>

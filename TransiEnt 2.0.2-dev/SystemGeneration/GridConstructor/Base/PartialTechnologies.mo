@@ -78,6 +78,8 @@ partial model PartialTechnologies
 
   parameter Integer Biomass=1 annotation (HideResult=true, choices(__Dymola_checkBox=true));
 
+  parameter Integer Wallbox=1 annotation (HideResult=true, choices(__Dymola_checkBox=true));
+
   parameter TransiEnt.Basics.Types.FuelType fuel_ST=TransiEnt.Basics.Types.FuelType.Gas "choice of fuel";
 
   // _____________________________________________

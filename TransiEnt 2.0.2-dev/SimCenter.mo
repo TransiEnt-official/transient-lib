@@ -120,8 +120,18 @@ model SimCenter "SimCenter for global parameters, ambient conditions and collect
 
   //Modelica.SIunits.Frequency f_global(start=50) "global Frequency in the electric grid" annotation (Dialog(tab="Electric Grid", group="Nominal values (Top Level)"));
 
-  // ==== District heating network ====
 
+  parameter Boolean useExternalControl=false "Check box to enable external load control of consumers"   annotation (Evaluate=true, HideResult=true, choices(checkBox=true), Dialog(tab="Electric Grid", group="Load management"));
+  parameter String controlType="proportional" "Load control method"  annotation (Dialog(enable=useExternalControl, tab="Electric Grid", group="Load management"),
+                 choices(choice="limit",
+                 choice="proportional"));
+
+  Real PropControlFactor=1 "Proportional control factor to regulate consumer loads in case of overload" annotation (Dialog(tab="Electric Grid", group="Load management"));
+  Modelica.Units.SI.Power P_limit=1 "Maximum power to regulate consumer loads in case of overload" annotation (Dialog(tab="Electric Grid", group="Load management"));
+
+
+
+  // ==== District heating network ====
 
   parameter Boolean integrateHeatFlow=false "true if heat flows shall be integrated" annotation (Dialog(tab="District Heating Grid", group="General"));
   parameter Integer no_cells_per_pipe=3 "Number of discretisation cells per pipe" annotation (Dialog(tab="District Heating Grid", group="Nominal Values"));
