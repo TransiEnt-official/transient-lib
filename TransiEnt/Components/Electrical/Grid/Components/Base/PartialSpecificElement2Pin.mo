@@ -23,6 +23,8 @@ partial model PartialSpecificElement2Pin "Partial modell for two pin Inductor, C
 // Gas- und Wärme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
+//                                                                                //
+// Last Change: 23.02.2023 by Tom Steffen Email: tom.steffen@tuhh.de              //
 //________________________________________________________________________________//
 
 
@@ -45,6 +47,9 @@ partial model PartialSpecificElement2Pin "Partial modell for two pin Inductor, C
   // _____________________________________________
 
   parameter SI.Length l(min = 0) = 1 "length of element";
+  parameter String PhaseConvention = "1-Phase" "If the model is composed for one or three phase grids" annotation (choices(choice = "1-Phase", choice = "3-Phase"));
+
+
 
   // _____________________________________________
   //
@@ -91,12 +96,23 @@ equation
   U.re = epp_p.v;
   U.im = 0;
 
+  if Modelica.Utilities.Strings.isEqual(PhaseConvention, "1-Phase") then
     I = Modelica.ComplexMath.conj(S / U);
     U_drop = I * Z;
     S_lost = U_drop * Modelica.ComplexMath.conj(I);
-    epp_n.v =Modelica.ComplexMath.abs(U - U_drop);
+    epp_n.v = Modelica.ComplexMath.abs(U - U_drop);
     epp_n.P = -Modelica.ComplexMath.real(S - S_lost);
     epp_n.Q = -Modelica.ComplexMath.imag(S - S_lost);
+
+  elseif Modelica.Utilities.Strings.isEqual(PhaseConvention, "3-Phase") then
+    I = Modelica.ComplexMath.conj(S / (sqrt(3)* U));
+    U_drop = I * Z;
+    S_lost = 3 * U_drop * Modelica.ComplexMath.conj(I);
+    epp_n.v = Modelica.ComplexMath.abs(U - U_drop);
+    epp_n.P = -Modelica.ComplexMath.real(S - S_lost);
+    epp_n.Q = -Modelica.ComplexMath.imag(S - S_lost);
+
+  end if;
 
   // _____________________________________________
   //
