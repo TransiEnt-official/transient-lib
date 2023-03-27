@@ -66,6 +66,10 @@ public
   // _____________________________________________
   Modelica.Blocks.Interfaces.RealInput T_in if useHeatPort annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=90,      origin={0,-104}), iconTransformation(      extent={{-10,-10},{10,10}},       rotation=90,       origin={0,-30})));
   TransiEnt.Basics.Interfaces.Electrical.ElectricPowerOut P_loss  if electricOutput "Power Lost" annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=90, origin={0,104})));
+  TransiEnt.Basics.Interfaces.Electrical.ElectricPowerOut P_loss_thermalInduced  if electricOutput "Power Lost in comparison to no thermal induced heading" annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=90, origin={0,104}), iconTransformation(
+        extent={{-10,-10},{10,10}},
+        rotation=90,
+        origin={-40,104})));
   TransiEnt.Basics.Interfaces.Electrical.ElectricCurrentOut I_str if electricOutput "1-Phase Current or one of the three phase currents in 3-Phase" annotation (Placement(transformation(extent={{-10,-10},{10,10}},rotation=90,origin={40,104})));
   // _____________________________________________
   //
@@ -84,6 +88,7 @@ public
 
   //public
   TransiEnt.Basics.Interfaces.Electrical.ElectricPowerOut P_loss_internal;
+  TransiEnt.Basics.Interfaces.Electrical.ElectricPowerOut P_loss_thermalInduced_internal;
   TransiEnt.Basics.Interfaces.Electrical.ElectricCurrentOut I_str_internal;
   Modelica.Blocks.Interfaces.RealOutput T_internal(start=0) "Temperature";
   Modelica.Units.SI.Resistance R_actual;
@@ -106,6 +111,7 @@ equation
     Z.re = R_actual;
     Z.im = 0;
     P_loss_internal = S_lost.re;
+    P_loss_thermalInduced_internal = I_str_internal^2 * R * (alpha * (T_internal - T_ref));
     I_str_internal = Modelica.ComplexMath.abs(I);
   // _____________________________________________
   //
@@ -113,6 +119,7 @@ equation
   // _____________________________________________
 
   connect(P_loss, P_loss_internal);
+  connect(P_loss_thermalInduced_internal, P_loss_thermalInduced);
   connect(I_str, I_str_internal);
   connect(T_in, T_internal);
 

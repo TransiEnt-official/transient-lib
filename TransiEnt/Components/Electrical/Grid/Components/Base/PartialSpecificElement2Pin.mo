@@ -47,7 +47,7 @@ partial model PartialSpecificElement2Pin "Partial modell for two pin Inductor, C
   // _____________________________________________
 
   parameter SI.Length l(min = 0) = 1 "length of element";
-  parameter String PhaseConvention = "1-Phase" "If the model is composed for one or three phase grids" annotation (choices(choice = "1-Phase", choice = "3-Phase"));
+  parameter String PhaseConvention = "3-Phase" "If the model is composed for one or three phase grids" annotation (choices(choice = "1-Phase", choice = "3-Phase"));
 
 
 
