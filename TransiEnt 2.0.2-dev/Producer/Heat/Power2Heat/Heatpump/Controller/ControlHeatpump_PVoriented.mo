@@ -135,7 +135,8 @@ model ControlHeatpump_PVoriented "Operation preferably when excess PV energy ava
     controllerType=Modelica.Blocks.Types.SimpleController.P,
     yMin=0,
     k=5,
-    yMax=P_el_n) if Modulating  annotation (Placement(transformation(extent={{54,-44},{64,-34}})));
+    yMax=Q_flow_n) if
+                    Modulating  annotation (Placement(transformation(extent={{54,-44},{64,-34}})));
 
 
 equation
