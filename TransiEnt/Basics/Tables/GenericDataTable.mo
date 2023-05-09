@@ -110,7 +110,7 @@ model GenericDataTable "Parameterized version of MSL's CombiTimeTable. See Examp
 
    Modelica.Blocks.Sources.CombiTimeTable MSL_combiTimeTable(
     tableOnFile=true,
-    fileName=genericFileName,
+    fileName=Modelica.Utilities.Files.loadResource(genericFileName),
     smoothness=smoothness,
     extrapolation=extrapolation,
     columns=columns,
