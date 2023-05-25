@@ -79,7 +79,7 @@ extends TransiEnt.Basics.Icons.PartialModel;
 //                  Interfaces
 // _____________________________________________
 
-TransiEnt.Basics.Interfaces.Electrical.ElectricPowerIn P_SB_set if  isSecondaryControlActive and isExternalSecondaryController "Secondary balancing setpoint"
+TransiEnt.Basics.Interfaces.Electrical.ElectricPowerIn P_SB_set  if isSecondaryControlActive and isExternalSecondaryController "Secondary balancing setpoint"
                                                                                                   annotation (Placement(transformation(
       extent={{-20,-20},{20,20}},
       rotation=0,

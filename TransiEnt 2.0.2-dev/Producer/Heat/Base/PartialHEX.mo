@@ -1,4 +1,4 @@
-within TransiEnt.Producer.Heat.Base;
+﻿within TransiEnt.Producer.Heat.Base;
 partial model PartialHEX
 
 

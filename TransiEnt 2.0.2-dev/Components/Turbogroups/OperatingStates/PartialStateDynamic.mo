@@ -96,8 +96,8 @@ partial model PartialStateDynamic "State graph model with state-depentend maximu
   Modelica.Blocks.Sources.RealExpression P_grad_min_of_state(y=P_grad_min)                       annotation (Placement(transformation(extent={{20,-52},{40,-32}})));
   Modelica.Blocks.Sources.RealExpression P_grad_max_of_state(y=P_grad_max)                       annotation (Placement(transformation(extent={{20,-30},{40,-10}})));
 
-  Modelica.Blocks.Logical.Switch deactivatePower if
-                                            not useSlewRateLimiter annotation (Placement(transformation(extent={{30,-6},{42,6}})));
+  Modelica.Blocks.Logical.Switch deactivatePower
+                                         if not useSlewRateLimiter annotation (Placement(transformation(extent={{30,-6},{42,6}})));
 
 
   // _____________________________________________

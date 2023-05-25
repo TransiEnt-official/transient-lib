@@ -80,7 +80,7 @@ public
   TransiEnt.Basics.Interfaces.Electrical.ComplexPowerPort epp_p annotation (Placement(transformation(extent={{-110,-10},{-90,10}}), iconTransformation(extent={{-110,-10},{-90,10}})));
   TransiEnt.Basics.Interfaces.Electrical.ComplexPowerPort epp_n annotation (Placement(transformation(extent={{90,-10},{110,10}}), iconTransformation(extent={{90,-10},{110,10}})));
 
-  Modelica.Blocks.Interfaces.RealInput ratio_set if              UseInput "fixed ratio input"
+  Modelica.Blocks.Interfaces.RealInput ratio_set              if UseInput "fixed ratio input"
                                                                  annotation (Placement(transformation(extent={{-140,60},{-100,100}},
           rotation=0), iconTransformation(
         extent={{-20,-20},{20,20}},

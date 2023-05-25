@@ -83,8 +83,8 @@ model MassFlowFeedInSystemController
     k=2,
     Tau_d=1000,
     controllerType=Modelica.Blocks.Types.SimpleController.PI,
-    Tau_i=1e-5) if
-               useMassFlowControl                          annotation (Placement(transformation(extent={{-20,80},{0,100}})));
+    Tau_i=1e-5)
+            if useMassFlowControl                          annotation (Placement(transformation(extent={{-20,80},{0,100}})));
 
 
 Modelica.Blocks.Math.Division division if useMassFlowControl annotation (Placement(transformation(extent={{-20,52},{0,72}})));

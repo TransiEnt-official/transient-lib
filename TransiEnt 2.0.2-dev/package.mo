@@ -250,22 +250,7 @@ annotation (uses(
     TILMedia(version="1.8.0 ClaRa"),
     ClaRa(version="1.8.0"),
     DymolaCommands(version="1.11")),           Icon(coordinateSystem(
-          preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
-          Rectangle(
-          extent={{-56,-4},{52,-16}},
-          lineThickness=0.5,
-          fillColor={95,95,95},
-          fillPattern=FillPattern.Solid,
-        radius=3,
-        pattern=LinePattern.None),   Polygon(
-          points={{-56,24},{-37,24},{-27,22},{-19,20},{-8,16},{6,8},{14,2},{26,
-            -4},{33,-4},{47,-4},{52,-4},{52,16},{30,18},{22,22},{-6,38},{-44,48},
-            {-56,48},{-56,24}},
-          lineThickness=0.5,
-          smooth=Smooth.Bezier,
-          fillColor={0,134,134},
-          fillPattern=FillPattern.Solid,
-        pattern=LinePattern.None)}),
+          preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={Bitmap(extent={{-70,-62},{72,80}}, fileName="modelica://TransiEnt/Images/TransiEnt_Logo_Kreis_komprimiert.png")}),
   Documentation(info="<html>
 <p><img src=\"modelica://TransiEnt/Images/TransiEntLibraryInfo.png\"/></p>
 <h4><span style=\"color: #008000\">List of developers (since 2013)</span></h4>

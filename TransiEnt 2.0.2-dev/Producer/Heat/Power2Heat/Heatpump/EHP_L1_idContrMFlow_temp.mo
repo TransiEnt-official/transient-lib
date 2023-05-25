@@ -69,15 +69,15 @@ public
   TransiEnt.Components.Statistics.Collectors.LocalCollectors.CollectElectricPower collectElectricPower(typeOfResource=TransiEnt.Basics.Types.TypeOfResource.Consumer)
                                                                                                                                       annotation (Placement(transformation(extent={{40,-100},{60,-80}})));
   Modelica.Blocks.Sources.RealExpression realExpression(y=P_el) annotation (Placement(transformation(extent={{-72,52},{-52,72}})));
-  replaceable TransiEnt.Components.Boundaries.Electrical.ActivePower.Power powerBoundary if
-                                                                                usePowerPort constrainedby TransiEnt.Components.Boundaries.Electrical.ActivePower.Power "Choice of power boundary model. The power boundary model must match the power port." annotation (
+  replaceable TransiEnt.Components.Boundaries.Electrical.ActivePower.Power powerBoundary
+                                                                             if usePowerPort constrainedby TransiEnt.Components.Boundaries.Electrical.ActivePower.Power "Choice of power boundary model. The power boundary model must match the power port." annotation (
     choices(choice(redeclare TransiEnt.Components.Boundaries.Electrical.ActivePower.Power powerBoundary "PowerBoundary for ActivePowerPort"), choice(redeclare TransiEnt.Components.Boundaries.Electrical.ComplexPower.PQBoundary powerBoundary(useInputConnectorQ=false, cosphi_boundary=1) "Power Boundary for ComplexPowerPort")),
     Dialog(group="Replaceable Components"),
     Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=0,
         origin={-28,40})));
-  replaceable Basics.Interfaces.Electrical.ActivePowerPort epp if            usePowerPort constrainedby Basics.Interfaces.Electrical.ActivePowerPort "Choice of power port" annotation (
+  replaceable Basics.Interfaces.Electrical.ActivePowerPort epp            if usePowerPort constrainedby Basics.Interfaces.Electrical.ActivePowerPort "Choice of power port" annotation (
     choicesAllMatching=true,
     Dialog(group="Replaceable Components"),
     Placement(transformation(extent={{-110,-10},{-90,10}})));

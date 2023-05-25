@@ -71,11 +71,11 @@ partial model PartialHeatProvision
   //
   //           Instances of other Classes
   // _____________________________________________
-  Components.Boundaries.Heat.Heatflow_L1                             heatFlow_externalMassFlowControl(use_T_out_limit=true, useVariableToutlimit=true) if  useFluidCoolantPort and externalMassFlowControl   annotation (Placement(transformation(extent={{-5,-5},{5,5}},
+  Components.Boundaries.Heat.Heatflow_L1                             heatFlow_externalMassFlowControl(use_T_out_limit=true, useVariableToutlimit=true)  if useFluidCoolantPort and externalMassFlowControl   annotation (Placement(transformation(extent={{-5,-5},{5,5}},
         rotation=90,
         origin={69,-65})));
-  Modelica.Blocks.Sources.RealExpression Q_flow_positive(y=Q_flow_heatprovision) if
-                                                                        useHeatPort or useFluidCoolantPort annotation (Placement(transformation(extent={{48,-84},{60,-72}})));
+  Modelica.Blocks.Sources.RealExpression Q_flow_positive(y=Q_flow_heatprovision)
+                                                                     if useHeatPort or useFluidCoolantPort annotation (Placement(transformation(extent={{48,-84},{60,-72}})));
   Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow prescribedHeatFlow if useHeatPort annotation (Placement(transformation(extent={{82,-70},{90,-62}})));
   Components.Boundaries.Heat.Heatflow_L1_idContrMFlow_temp           heatflow_L1_idContrMFlow_temp(use_varTemp=true) if useFluidCoolantPort and (not externalMassFlowControl)   annotation (Placement(transformation(extent={{5,5},{-5,-5}},
         rotation=-90,

@@ -47,8 +47,8 @@ model Substation_indirect_noStorage_L1 "Simple model of a substation with indire
 
  parameter SI.Temperature T_start = simCenter.T_supply "Temperature at start of the simulation";
  parameter SI.MassFlowRate m_flow_min = simCenter.m_flow_min "Minimum mass flow rate to counteract possible zero massflow sitations, equals a simplified bypass";
- replaceable model room_heating_hex_model = TransiEnt.Producer.Heat.Heat2Heat.Indirect_HEX_const_T_out_L1  constrainedby  TransiEnt.Producer.Heat.Base.PartialHEX           annotation (Dialog(group="Heat Exchanger"), __Dymola_choicesAllMatching=true);
- replaceable model dhw_heating_hex_model = TransiEnt.Producer.Heat.Heat2Heat.Indirect_HEX_const_T_out_L1  constrainedby  TransiEnt.Producer.Heat.Base.PartialHEX           annotation (Dialog(group="Heat Exchanger"), __Dymola_choicesAllMatching=true);
+ replaceable model room_heating_hex_model = TransiEnt.Producer.Heat.Heat2Heat.Indirect_HEX_const_T_out_L1  constrainedby TransiEnt.Producer.Heat.Base.PartialHEX            annotation (Dialog(group="Heat Exchanger"), __Dymola_choicesAllMatching=true);
+ replaceable model dhw_heating_hex_model = TransiEnt.Producer.Heat.Heat2Heat.Indirect_HEX_const_T_out_L1  constrainedby TransiEnt.Producer.Heat.Base.PartialHEX            annotation (Dialog(group="Heat Exchanger"), __Dymola_choicesAllMatching=true);
  SI.Temperature T_mix "Mixing temperature from room and domestic hot water";
 
  room_heating_hex_model room_heating_hex(

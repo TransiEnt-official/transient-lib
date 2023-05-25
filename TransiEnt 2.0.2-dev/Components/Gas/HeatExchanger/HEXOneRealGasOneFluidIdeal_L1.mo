@@ -99,8 +99,8 @@ protected
     p=gasPortIn.p,
     h=noEvent(actualStream(gasPortIn.h_outflow)),
     xi=noEvent(actualStream(gasPortIn.xi_outflow)),
-    deactivateTwoPhaseRegion=deactivateTwoPhaseRegionForRealGas) if
-                                      useFluidModelsForSummary annotation (Placement(transformation(extent={{-80,-12},{-60,8}})));
+    deactivateTwoPhaseRegion=deactivateTwoPhaseRegionForRealGas)
+                                   if useFluidModelsForSummary annotation (Placement(transformation(extent={{-80,-12},{-60,8}})));
   TILMedia.Internals.VLEFluidConfigurations.FullyMixtureCompatible.VLEFluid_ph fluidIn(
     vleFluidType=mediumFluid,
     p=fluidPortIn.p,

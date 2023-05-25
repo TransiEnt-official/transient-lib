@@ -69,8 +69,8 @@ partial model PartialHeatPumpCharline "Partial heat pump model that produces a g
   // _____________________________________________
 
   TransiEnt.Basics.Interfaces.Thermal.HeatFlowRateIn Q_flow_set if use_Q_flow_input "Setpoint value of the heat flow, should be negative" annotation (Placement(transformation(extent={{-120,-20},{-80,20}}), iconTransformation(extent={{-120,-20},{-80,20}})));
-  TransiEnt.Basics.Interfaces.General.TemperatureIn T_source_input_K if
-                                                        use_T_source_input_K "Input ambient temperature in Kelvin" annotation (Placement(transformation(
+  TransiEnt.Basics.Interfaces.General.TemperatureIn T_source_input_K
+                                                     if use_T_source_input_K "Input ambient temperature in Kelvin" annotation (Placement(transformation(
         extent={{-20,-20},{20,20}},
         rotation=0,
         origin={-100,-40}), iconTransformation(
@@ -137,9 +137,9 @@ public
         origin={48,40})));
   Modelica.Blocks.Sources.RealExpression T_source(y=T_source_internal) annotation (Placement(transformation(extent={{6,30},{26,50}})));
   Modelica.Blocks.Math.Sum sum1(nin=2) if useFluidPorts annotation (Placement(transformation(extent={{70,46},{90,66}})));
-  Modelica.Blocks.Sources.RealExpression Temperature(y=heat.T) if     not (useFluidPorts) annotation (Placement(transformation(extent={{102,-18},{82,2}})));
-  Basics.Interfaces.Thermal.FluidPortOut waterPortOut(Medium=mediumWater) if           useFluidPorts annotation (Placement(transformation(extent={{30,-110},{50,-90}}), iconTransformation(extent={{30,-110},{50,-90}})));
-  Basics.Interfaces.Thermal.FluidPortIn waterPortIn(Medium=mediumWater) if           useFluidPorts annotation (Placement(transformation(extent={{-50,-110},{-30,-90}}), iconTransformation(extent={{-50,-110},{-30,-90}})));
+  Modelica.Blocks.Sources.RealExpression Temperature(y=heat.T)     if not (useFluidPorts) annotation (Placement(transformation(extent={{102,-18},{82,2}})));
+  Basics.Interfaces.Thermal.FluidPortOut waterPortOut(Medium=mediumWater)           if useFluidPorts annotation (Placement(transformation(extent={{30,-110},{50,-90}}), iconTransformation(extent={{30,-110},{50,-90}})));
+  Basics.Interfaces.Thermal.FluidPortIn waterPortIn(Medium=mediumWater)           if useFluidPorts annotation (Placement(transformation(extent={{-50,-110},{-30,-90}}), iconTransformation(extent={{-50,-110},{-30,-90}})));
   Components.Sensors.TemperatureSensor T_out_sensor if useFluidPorts annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,

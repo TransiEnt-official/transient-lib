@@ -68,8 +68,8 @@ model BoundaryVLE_pTxi "A boundary defining pressure, temperature and mass compo
   TransiEnt.Basics.Interfaces.General.PressureIn p=p_in if (variable_p) "Variable absolute pressure"    annotation (Placement(transformation(extent={{-120,40},{-80,80}})));
   TransiEnt.Basics.Interfaces.General.TemperatureIn T=T_in if (variable_T) "Variable temperature in K"
     annotation (Placement(transformation(extent={{-120,-20},{-80,20}})));
-  TransiEnt.Basics.Interfaces.General.MassFractionIn xi[medium.nc-1]=xi_in if
-       (variable_xi) "Variable mass composition"
+  TransiEnt.Basics.Interfaces.General.MassFractionIn xi[medium.nc-1]=xi_in
+    if (variable_xi) "Variable mass composition"
     annotation (Placement(transformation(extent={{-120,-80},{-80,-40}})));
   Basics.Interfaces.Thermal.FluidPortIn fluidPortIn(Medium=medium) annotation (Placement(transformation(extent={{90,-10},{110,10}}), iconTransformation(extent={{90,-10},{110,10}})));
   ClaRa.Basics.Interfaces.EyeOut eye if boundaryConditions.showData

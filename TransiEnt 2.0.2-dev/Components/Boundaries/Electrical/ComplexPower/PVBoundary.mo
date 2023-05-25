@@ -60,13 +60,13 @@ model PVBoundary "PV Bus in TransiEnt"
   //                   Interfaces
   // _____________________________________________
 
-    TransiEnt.Basics.Interfaces.Electrical.ElectricPowerIn P_el_set if              useInputConnectorP "active power input"
+    TransiEnt.Basics.Interfaces.Electrical.ElectricPowerIn P_el_set              if useInputConnectorP "active power input"
                                                                  annotation (Placement(transformation(extent={{-140,60},{-100,100}},
           rotation=0), iconTransformation(
         extent={{-20,-20},{20,20}},
         rotation=270,
         origin={-60,120})));
-    TransiEnt.Basics.Interfaces.Electrical.VoltageIn v_gen_set if              useInputConnectorv "fixed votlage input"
+    TransiEnt.Basics.Interfaces.Electrical.VoltageIn v_gen_set              if useInputConnectorv "fixed votlage input"
                                                                  annotation (Placement(transformation(extent={{-140,22},
             {-100,62}},
           rotation=0), iconTransformation(

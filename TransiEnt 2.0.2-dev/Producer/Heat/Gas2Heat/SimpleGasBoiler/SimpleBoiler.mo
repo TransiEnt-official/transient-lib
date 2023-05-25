@@ -108,7 +108,7 @@ public
   TransiEnt.Basics.Interfaces.General.EyeOut eye if useFluidPorts annotation (Placement(transformation(extent={{100,-100},{120,-80}})));
 
   TransiEnt.Components.Statistics.Collectors.LocalCollectors.CollectGwpEmissionsElectric collectGwpEmissions(typeOfEnergyCarrier=TransiEnt.Basics.Functions.getPrimaryEnergyCarrierFromHeat(typeOfPrimaryEnergyCarrier)) annotation (Placement(transformation(extent={{-26,-100},{-6,-80}})));
-  TransiEnt.Components.Sensors.RealGas.MassFlowSensor massflowSensor(medium=gasMedium, xiNumber=massflowSensor.medium.nc) if   useGasPort annotation (Placement(transformation(
+  TransiEnt.Components.Sensors.RealGas.MassFlowSensor massflowSensor(medium=gasMedium, xiNumber=massflowSensor.medium.nc)   if useGasPort annotation (Placement(transformation(
         extent={{7,-7},{-7,7}},
         rotation=90,
         origin={-7,57})));
@@ -133,8 +133,8 @@ public
   Modelica.Blocks.Math.Product product if useFluidPorts annotation (Placement(transformation(extent={{58,-42},{78,-22}})));
   Basics.Interfaces.Thermal.HeatFlowRateOut Q_flow_gen annotation (Placement(transformation(extent={{100,-42},{120,-22}})));
   Modelica.Blocks.Sources.RealExpression realExpression(y=outlet.p) if useFluidPorts annotation (Placement(transformation(extent={{-74,-102},{-54,-82}})));
-  Modelica.Blocks.Sources.RealExpression realExpression1(y=-heatPort.Q_flow) if
-                                                                               not (useFluidPorts) and (useHeatPort) annotation (Placement(transformation(extent={{52,-64},{72,-44}})));
+  Modelica.Blocks.Sources.RealExpression realExpression1(y=-heatPort.Q_flow)
+                                                                            if not (useFluidPorts) and (useHeatPort) annotation (Placement(transformation(extent={{52,-64},{72,-44}})));
   Modelica.Blocks.Sources.RealExpression realExpression3(y=sign.y) if not (useHeatPort) and not (useFluidPorts) annotation (Placement(transformation(extent={{52,-80},{72,-60}})));
   // _____________________________________________
   //

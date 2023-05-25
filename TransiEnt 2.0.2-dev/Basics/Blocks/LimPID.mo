@@ -150,7 +150,7 @@ public
               else if initOption == 797  then 504
               else if initOption == 795 or initOption == 501 then 501
               else if initOption == 502 then 502
-              else if initOption == 503 then 504 else 0) if  with_I annotation (Placement(transformation(extent={{-30,-92},{-10,-72}}, rotation=0)));
+              else if initOption == 503 then 504 else 0)  if with_I annotation (Placement(transformation(extent={{-30,-92},{-10,-72}}, rotation=0)));
 
   ClaRa.Components.Utilities.Blocks.DerivativeClaRa D_approx(
     k=Tau_d,
@@ -168,7 +168,7 @@ public
         extent={{-5,-5},{5,5}},
         rotation=0,
         origin={-60,-105})));
-  Modelica.Blocks.Math.Gain gainTrack(k=1/Ni) if   with_I
+  Modelica.Blocks.Math.Gain gainTrack(k=1/Ni)   if with_I
     annotation (Placement(transformation(extent={{3,-119},{-10,-132}},
                                                                      rotation=0)));
   Modelica.Blocks.Nonlinear.Limiter limiter(uMax=if perUnitConversion then y_max/y_ref else y_max, uMin=if perUnitConversion then y_min/y_ref else y_min) annotation (Placement(transformation(extent={{154,-2},{174,18}}, rotation=0)));
@@ -178,7 +178,7 @@ public
     annotation (Placement(transformation(extent={{-13,-25.5},{-6,-18.5}},
                                                                      rotation=0)));
   Modelica.Blocks.Sources.RealExpression
-                                   Izero(y=resetValueI) if      not with_I
+                                   Izero(y=resetValueI)      if not with_I
     annotation (Placement(transformation(
         extent={{-6,-4},{4,6}},
         rotation=0,
@@ -197,11 +197,11 @@ public
                                    rotation=0,
         origin={210,0})));
 
-  Modelica.Blocks.Logical.Switch switch_OnOff_I if  with_I
+  Modelica.Blocks.Logical.Switch switch_OnOff_I  if with_I
     annotation (Placement(transformation(extent={{-49,-76},{-38,-87}})));
 public
-  Modelica.Blocks.Sources.Constant I_off_zero(k=0) if
-                                                  with_I
+  Modelica.Blocks.Sources.Constant I_off_zero(k=0)
+                                               if with_I
     annotation (Placement(transformation(extent={{4.25,-4.5},{-4.25,4.5}},
                                                                      rotation=180,
         origin={-64.75,-67})));

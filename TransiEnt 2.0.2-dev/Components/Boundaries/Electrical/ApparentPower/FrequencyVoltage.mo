@@ -70,7 +70,7 @@ model FrequencyVoltage "Sets frequency and voltage without definition of flow va
   //                  Interfaces
   // _____________________________________________
 
-  TransiEnt.Basics.Interfaces.General.FrequencyIn f_set if                 Use_input_connector_f
+  TransiEnt.Basics.Interfaces.General.FrequencyIn f_set                 if Use_input_connector_f
     "Frequency input" annotation (Placement(transformation(
         extent={{-20,-20},{20,20}},
         rotation=270,
@@ -79,7 +79,7 @@ model FrequencyVoltage "Sets frequency and voltage without definition of flow va
         rotation=270,
         origin={-54,120})));
 
-  TransiEnt.Basics.Interfaces.Electrical.VoltageIn v_set if                 Use_input_connector_v
+  TransiEnt.Basics.Interfaces.Electrical.VoltageIn v_set                 if Use_input_connector_v
     "Voltage input" annotation (Placement(transformation(
         extent={{-20,-20},{20,20}},
         rotation=270,

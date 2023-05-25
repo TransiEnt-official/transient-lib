@@ -195,7 +195,7 @@ public
     quantity=quantity,
     P_min_star=P_min_star)                                                                                                                                                                                                     annotation (Placement(transformation(extent={{32,-100},{52,-80}})));
   Modelica.Blocks.Sources.RealExpression p_is(y=P_star) annotation (Placement(transformation(extent={{12,-100},{26,-80}})));
-  Modelica.Blocks.Nonlinear.VariableLimiter variableLimiter if  CO2_Deposition_Rate>0                annotation (Placement(transformation(extent={{-5,-5},{5,5}},
+  Modelica.Blocks.Nonlinear.VariableLimiter variableLimiter  if CO2_Deposition_Rate>0                annotation (Placement(transformation(extent={{-5,-5},{5,5}},
         rotation=-90,
         origin={-59,-7})));
   Modelica.Blocks.Sources.RealExpression P_max_with_CCS(y=-P_max_star)  annotation (Placement(transformation(

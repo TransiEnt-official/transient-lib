@@ -83,7 +83,7 @@ protected
  TransiEnt.Basics.Interfaces.Ambient.VelocityIn v_wind_internal "Velocity of wind for internal usage";
 
 public
-  TransiEnt.Basics.Interfaces.Ambient.VelocityIn v_wind if  use_v_wind_input "current wind velocity" annotation (Placement(
+  TransiEnt.Basics.Interfaces.Ambient.VelocityIn v_wind  if use_v_wind_input "current wind velocity" annotation (Placement(
         transformation(extent={{-120,-20},{-80,20}}),
                                                     iconTransformation(extent={{-100,50},
             {-78,72}})));

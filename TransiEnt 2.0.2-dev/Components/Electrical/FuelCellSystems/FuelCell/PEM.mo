@@ -242,8 +242,8 @@ model PEM "Model of PEM-Cell stack"
     gasType = Air) "Moist air is used which consists of N2, H2O and O2. This is why the component O2 can be used from it!"
     annotation (Placement(transformation(extent={{64,-58},{88,-28}})));
 
-  replaceable TransiEnt.Components.Boundaries.Electrical.ActivePower.Power powerBoundary if
-                                                                                  usePowerPort constrainedby TransiEnt.Components.Boundaries.Electrical.Base.PartialModelPowerBoundary "Choice of power boundary model. The power boundary model must match the power port." annotation (
+  replaceable TransiEnt.Components.Boundaries.Electrical.ActivePower.Power powerBoundary
+                                                                               if usePowerPort constrainedby TransiEnt.Components.Boundaries.Electrical.Base.PartialModelPowerBoundary "Choice of power boundary model. The power boundary model must match the power port." annotation (
     Dialog(group="Replaceable Components"),
     choices(
       choice(redeclare TransiEnt.Components.Boundaries.Electrical.ActivePower.Power powerBoundary "P-Boundary for ActivePowerPort"),

@@ -58,8 +58,8 @@ model DomesticHotWater "Modell to pass a domestic hot water heat demand profile 
         extent={{-21,-21},{21,21}},
         rotation=270,
         origin={1,-111})));
-  TransiEnt.Components.Boundaries.Electrical.ApparentPower.ApparentPower Electric_Consumer_dhw(useInputConnectorQ=false, cosphi_boundary=cosphi_boundary) if  NSH==1 annotation (Placement(transformation(extent={{-8,-8},{8,8}})));
-  TransiEnt.Basics.Interfaces.Electrical.ApparentPowerPort epp if  NSH==1 annotation (Placement(transformation(extent={{-44,-106},{-24,-86}}), iconTransformation(extent={{-118,-16},{-84,14}})));
+  TransiEnt.Components.Boundaries.Electrical.ApparentPower.ApparentPower Electric_Consumer_dhw(useInputConnectorQ=false, cosphi_boundary=cosphi_boundary)  if NSH==1 annotation (Placement(transformation(extent={{-8,-8},{8,8}})));
+  TransiEnt.Basics.Interfaces.Electrical.ApparentPowerPort epp  if NSH==1 annotation (Placement(transformation(extent={{-44,-106},{-24,-86}}), iconTransformation(extent={{-118,-16},{-84,14}})));
 
 equation
 

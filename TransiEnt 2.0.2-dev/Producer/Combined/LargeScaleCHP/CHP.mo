@@ -169,8 +169,8 @@ public
         extent={{4,-4},{-4,4}},
         rotation=0,
         origin={92,26})));
-  Modelica.Blocks.Sources.RealExpression fuelMassFlow_set(y=if P_set + Q_flow_set >= 0 then 0 else steamGenerator.y + Q_flow_peak.y/eta_peakload) if
-                                                                                                                      useGasPort annotation (Placement(transformation(extent={{-22,60},{-2,80}})));
+  Modelica.Blocks.Sources.RealExpression fuelMassFlow_set(y=if P_set + Q_flow_set >= 0 then 0 else steamGenerator.y + Q_flow_peak.y/eta_peakload)
+                                                                                                                   if useGasPort annotation (Placement(transformation(extent={{-22,60},{-2,80}})));
   Modelica.Blocks.Sources.RealExpression realExpression(y=gasPortIn.p) if useGasPort  annotation (Placement(transformation(extent={{110,76},{130,96}})));
   Modelica.Blocks.Logical.Hysteresis hysteresis(uLow=p_min_operating, uHigh=p_min_operating_backIn)
                                                 annotation (Placement(transformation(extent={{140,76},{160,96}})));

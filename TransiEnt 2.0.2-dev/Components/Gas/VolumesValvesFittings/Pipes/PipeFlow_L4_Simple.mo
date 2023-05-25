@@ -52,7 +52,7 @@ model PipeFlow_L4_Simple "A 1D tube-shaped control volume considering one-phase 
     powerIn=noEvent(if sum(heat.Q_flow) > 0 then sum(heat.Q_flow) else 0),
     powerOut_th=if not heatFlowIsLoss then -sum(heat.Q_flow) else 0,
     powerOut_elMech=0,
-    powerAux=0) if  contributeToCycleSummary;
+    powerAux=0)  if contributeToCycleSummary;
 
 //## P A R A M E T E R S #######################################################################################
 

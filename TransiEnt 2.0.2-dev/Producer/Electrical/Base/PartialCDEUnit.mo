@@ -62,8 +62,8 @@ partial model PartialCDEUnit "Adds a gas interface with a mass flow defining bou
     h_const=0,
     variable_m_flow=true,
     medium=medium_CDE_deposited,
-    xi_const={0,0,0,0,0,1}) if      useCDEPort annotation (Placement(transformation(extent={{20,30},{40,50}})));
-  Modelica.Blocks.Sources.RealExpression m_flow_set_CDE_deposited(y=-m_flow_gas_CDE_deposited_gasPort) if  useCDEPort "just for visualisation on diagram layer" annotation (Placement(transformation(extent={{-20,36},{2,56}})));
+    xi_const={0,0,0,0,0,1})      if useCDEPort annotation (Placement(transformation(extent={{20,30},{40,50}})));
+  Modelica.Blocks.Sources.RealExpression m_flow_set_CDE_deposited(y=-m_flow_gas_CDE_deposited_gasPort)  if useCDEPort "just for visualisation on diagram layer" annotation (Placement(transformation(extent={{-20,36},{2,56}})));
   SI.MassFlowRate m_flow_gas_CDE_deposited_gasPort=0*time;
 
   // _____________________________________________
@@ -75,7 +75,7 @@ partial model PartialCDEUnit "Adds a gas interface with a mass flow defining bou
   //
   //                Interfaces
   // _____________________________________________
-  TransiEnt.Basics.Interfaces.Gas.RealGasPortOut gasPortOut_CDE(Medium=medium_CDE_deposited) if  useCDEPort==true         annotation (Placement(transformation(extent={{92,32},{108,48}})));
+  TransiEnt.Basics.Interfaces.Gas.RealGasPortOut gasPortOut_CDE(Medium=medium_CDE_deposited)  if useCDEPort==true         annotation (Placement(transformation(extent={{92,32},{108,48}})));
 
 equation
   // _____________________________________________

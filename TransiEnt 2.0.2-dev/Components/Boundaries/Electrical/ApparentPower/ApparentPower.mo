@@ -90,14 +90,14 @@ model ApparentPower "L2 Active and reactive power by parameter or inputs"
   //                  Interfaces
   // _____________________________________________
 
-  TransiEnt.Basics.Interfaces.Electrical.ElectricPowerIn P_el_set if              useInputConnectorP
+  TransiEnt.Basics.Interfaces.Electrical.ElectricPowerIn P_el_set              if useInputConnectorP
     "Active power input" annotation (Placement(transformation(extent={{-140,60},
             {-100,100}}, rotation=0), iconTransformation(
         extent={{-20,-20},{20,20}},
         rotation=270,
         origin={-60,120})));
 
-  TransiEnt.Basics.Interfaces.Electrical.ReactivePowerIn Q_el_set if              useInputConnectorQ
+  TransiEnt.Basics.Interfaces.Electrical.ReactivePowerIn Q_el_set              if useInputConnectorQ
     "Reactive power input" annotation (Placement(transformation(extent={{-140,22},
             {-100,62}}, rotation=0), iconTransformation(
         extent={{-20,-20},{20,20}},

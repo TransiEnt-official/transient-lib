@@ -96,7 +96,7 @@ constant Complex j_comp(re=0,im=1);
   // _____________________________________________
 
   TransiEnt.Basics.Interfaces.General.MechanicalPowerPort mpp annotation (Placement(transformation(extent={{-108,-8},{-88,12}}), iconTransformation(extent={{-112,-12},{-88,12}})));
-  TransiEnt.Basics.Interfaces.General.FrequencyIn f_converter if  useConverter  "Frequency input from converter" annotation (Placement(transformation(extent={{-140,60},{-100,100}}, rotation=0), iconTransformation(
+  TransiEnt.Basics.Interfaces.General.FrequencyIn f_converter  if useConverter  "Frequency input from converter" annotation (Placement(transformation(extent={{-140,60},{-100,100}}, rotation=0), iconTransformation(
           extent={{-20,-20},{20,20}},
           rotation=270,
           origin={0,96})));

@@ -72,8 +72,8 @@ model EnergyConverter "Replaceable systems for household technologies based on t
   //           Instances of other Classes
   // _____________________________________________
 
-  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn waterPortIn(Medium=simCenter.fluid1) if  DHN annotation (Placement(transformation(extent={{-26,-70},{-6,-50}}), iconTransformation(extent={{-26,-70},{-6,-50}})));
-  TransiEnt.Basics.Interfaces.Thermal.FluidPortOut waterPortOut(Medium=simCenter.fluid1) if  DHN annotation (Placement(transformation(extent={{8,-70},{28,-50}}), iconTransformation(extent={{8,-70},{28,-50}})));
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn waterPortIn(Medium=simCenter.fluid1)  if DHN annotation (Placement(transformation(extent={{-26,-70},{-6,-50}}), iconTransformation(extent={{-26,-70},{-6,-50}})));
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortOut waterPortOut(Medium=simCenter.fluid1)  if DHN annotation (Placement(transformation(extent={{8,-70},{28,-50}}), iconTransformation(extent={{8,-70},{28,-50}})));
   replaceable TransiEnt.Consumer.Systems.HouseholdEnergyConverter.Systems.Boiler systems constrainedby Systems.Base.Systems annotation (choicesAllMatching=true, Placement(transformation(extent={{-10,20},{10,40}})));
 
   TransiEnt.Components.Statistics.Collectors.LocalCollectors.CollectHeatingPower collectHeatingPower(typeOfResource=TransiEnt.Basics.Types.TypeOfResource.Consumer) annotation (Placement(transformation(extent={{-10,-10},{10,10}},

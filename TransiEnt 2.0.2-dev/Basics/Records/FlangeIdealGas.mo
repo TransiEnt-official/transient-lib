@@ -51,12 +51,12 @@ model FlangeIdealGas "Model for generating summaries for a flange ideal gas"
   // _____________________________________________
 
   input SI.MassFlowRate m_flow "Mass flow rate" annotation (Dialog);
-  input SI.Temperature T if   useFluidModelsForSummary "Temperature" annotation (Dialog);
+  input SI.Temperature T   if useFluidModelsForSummary "Temperature" annotation (Dialog);
   input SI.Pressure p "Pressure" annotation (Dialog);
   input SI.SpecificEnthalpy h  "Specific enthalpy" annotation (Dialog);
   input SI.MassFraction xi[mediumModel.nc - 1] "Component mass fractions" annotation (Dialog);
-  input SI.MassFraction x[mediumModel.nc - 1] if   useFluidModelsForSummary "Component molar fractions" annotation (Dialog);
-  input SI.Density rho if   useFluidModelsForSummary "Density" annotation (Dialog);
+  input SI.MassFraction x[mediumModel.nc - 1]   if useFluidModelsForSummary "Component molar fractions" annotation (Dialog);
+  input SI.Density rho   if useFluidModelsForSummary "Density" annotation (Dialog);
 
   annotation (Documentation(info="<html>
 <h4><span style=\"color: #008000\">1. Purpose of model</span></h4>

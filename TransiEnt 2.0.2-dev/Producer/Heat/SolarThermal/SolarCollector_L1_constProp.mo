@@ -212,8 +212,8 @@ public
         extent={{11,-11},{-11,11}},
         rotation=90,
         origin={-93,91})));
-  Base.HeatFlow_SolarThermal heatFlow2fluid(Q_flow_collector=Q_flow_collector, h_in=h_in) if
-                                                                                  useFluidPorts annotation (Placement(transformation(extent={{-12,-4},{8,16}})));
+  Base.HeatFlow_SolarThermal heatFlow2fluid(Q_flow_collector=Q_flow_collector, h_in=h_in)
+                                                                               if useFluidPorts annotation (Placement(transformation(extent={{-12,-4},{8,16}})));
 
   ClaRa.Components.Sensors.SensorVLE_L1_m_flow massFlowSensorVLE if useFluidPorts annotation (Placement(transformation(extent={{-50,2},{-30,22}})));
   Basics.Interfaces.General.TemperatureIn T_inflow if not useFluidPorts annotation (Placement(transformation(

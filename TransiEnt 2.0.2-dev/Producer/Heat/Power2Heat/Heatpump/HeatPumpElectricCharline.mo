@@ -65,7 +65,7 @@ model HeatPumpElectricCharline "Electric heat pump model that produces a given h
   //
   //           Instances of other Classes
   // _____________________________________________
-  replaceable TransiEnt.Components.Boundaries.Electrical.ActivePower.Power powerBoundary if  usePowerPort constrainedby TransiEnt.Components.Boundaries.Electrical.ActivePower.Power "Choice of power boundary model. The power boundary model must match the power port." annotation (
+  replaceable TransiEnt.Components.Boundaries.Electrical.ActivePower.Power powerBoundary  if usePowerPort constrainedby TransiEnt.Components.Boundaries.Electrical.ActivePower.Power "Choice of power boundary model. The power boundary model must match the power port." annotation (
     Dialog(group="Replaceable Components", enable=usePowerPort),choicesAllMatching=true,
     choices(choice(redeclare TransiEnt.Components.Boundaries.Electrical.ActivePower.Power powerBoundary "PowerBoundary for ActivePowerPort"), choice(redeclare TransiEnt.Components.Boundaries.Electrical.ComplexPower.PQBoundary powerBoundary(useInputConnectorQ=false, cosphi_boundary=0.99) "Power Boundary for ComplexPowerPort")),
     Placement(transformation(

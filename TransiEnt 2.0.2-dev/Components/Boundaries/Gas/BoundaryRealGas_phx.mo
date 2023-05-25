@@ -71,10 +71,10 @@ protected
   SI.SpecificEnthalpy h_in;
   SI.MoleFraction x_in[medium.nc - 1];
 
-  TransiEnt.Basics.Media.RealGasGCV_xi_Block realGasGCV_xi(realGasType=medium) if
-                                                                   calculateH_GCV annotation (Placement(transformation(extent={{-30,76},{-10,96}})));
-  TransiEnt.Basics.Media.RealGasNCV_xi_Block realGasNCV_xi(realGasType=medium) if
-                                                                   calculateH_NCV annotation (Placement(transformation(extent={{-28,-44},{-8,-24}})));
+  TransiEnt.Basics.Media.RealGasGCV_xi_Block realGasGCV_xi(realGasType=medium)
+                                                                if calculateH_GCV annotation (Placement(transformation(extent={{-30,76},{-10,96}})));
+  TransiEnt.Basics.Media.RealGasNCV_xi_Block realGasNCV_xi(realGasType=medium)
+                                                                if calculateH_NCV annotation (Placement(transformation(extent={{-28,-44},{-8,-24}})));
 public
   SI.MolarMass[medium.nc] M_i;
   SI.MolarMass M;

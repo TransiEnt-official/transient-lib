@@ -189,23 +189,23 @@ if used_Ports_Int == 0 then Utilities.get_Ports_noSolar(
   TransiEnt.Basics.Interfaces.Thermal.FluidPortIn inletCHP(final Medium=medium) annotation (Placement(transformation(extent={{-110,46},{-90,66}}), iconTransformation(extent={{-110,50},{-90,70}})));
   TransiEnt.Basics.Interfaces.Thermal.FluidPortOut outletCHP(final Medium=medium) annotation (Placement(transformation(extent={{-110,-50},{-90,-30}}), iconTransformation(extent={{-110,-20},{-90,0}})));
   // Fluid if Use_Solar
-  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn inletSolar(final Medium=medium) if
-                            Use_Solar annotation (Placement(transformation(extent={{-110,0},{-90,20}}), iconTransformation(extent={{-110,20},{-90,40}})));
-  TransiEnt.Basics.Interfaces.Thermal.FluidPortOut outletSolar(final Medium=medium) if
-                            Use_Solar annotation (Placement(transformation(extent={{-110,-90},{-90,-70}}), iconTransformation(extent={{-110,-50},{-90,-30}})));
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn inletSolar(final Medium=medium)
+                         if Use_Solar annotation (Placement(transformation(extent={{-110,0},{-90,20}}), iconTransformation(extent={{-110,20},{-90,40}})));
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortOut outletSolar(final Medium=medium)
+                         if Use_Solar annotation (Placement(transformation(extent={{-110,-90},{-90,-70}}), iconTransformation(extent={{-110,-50},{-90,-30}})));
     //Fluid if add_FluidPorts
-  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn[nAdditionalFluidPorts] AdditionalFluidPorts(each final Medium=medium) if
-                                     Add_FluidPorts annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn[nAdditionalFluidPorts] AdditionalFluidPorts(each final Medium=medium)
+                                  if Add_FluidPorts annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
 
   // Thermal
   Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatLosses "Heat losses to ambient (Connect with ambient temperature)"
     annotation (Placement(transformation(extent={{14,74},{38,98}}),iconTransformation(extent={{50,75},{70,95}})));
-  Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPorts[nHeatPorts] if
-       Use_HeatPorts "Heat ports to connect storage with externals heat sources/sinks"
+  Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPorts[nHeatPorts]
+    if Use_HeatPorts "Heat ports to connect storage with externals heat sources/sinks"
     annotation (Placement(transformation(extent={{-26,74},{-2,98}}),iconTransformation(extent={{-10,75},{10,95}})));
   //Electrical
-   TransiEnt.Basics.Interfaces.Electrical.ApparentPowerPort epp if
-       Add_ElectricHeater annotation (Placement(transformation(extent={{-94,90},{-74,110}})));
+   TransiEnt.Basics.Interfaces.Electrical.ApparentPowerPort epp
+    if Add_ElectricHeater annotation (Placement(transformation(extent={{-94,90},{-74,110}})));
   // Outputs
   TransiEnt.Basics.Interfaces.General.TemperatureOut maxTemperature "Maximum temperature in tank"
                                   annotation (Placement(transformation(
@@ -317,8 +317,8 @@ if used_Ports_Int == 0 then Utilities.get_Ports_noSolar(
   Base.FlowSplit flowSplit(
     final nOutPorts=solarInPortGeometry.nSolar,
     final layerTemperatures=Tank_Volume[solarInPortGeometry.segment - solarInPortGeometry.nSolar + 1:solarInPortGeometry.segment].T,
-    final medium=medium) if
-    Use_Solar "distributes the fluid flow from the solar heating to the storage segments " annotation (Placement(transformation(extent={{-70,20},{-48,-2}})));
+    final medium=medium)
+ if Use_Solar "distributes the fluid flow from the solar heating to the storage segments " annotation (Placement(transformation(extent={{-70,20},{-48,-2}})));
 
     // Port geometries
   Base.PortGeometry Geo_outletCHP(
@@ -356,7 +356,7 @@ if used_Ports_Int == 0 then Utilities.get_Ports_noSolar(
     height_port={1,1}) annotation (Placement(transformation(extent={{-32,-100},{-16,-84}})));
     // Electric Heater if Add_ElectricHeater
 
-  Base.HeatingElectrode heatingElectrode if       Add_ElectricHeater annotation (Placement(transformation(extent={{-28,58},{-48,78}})));
+  Base.HeatingElectrode heatingElectrode       if Add_ElectricHeater annotation (Placement(transformation(extent={{-28,58},{-48,78}})));
   // _____________________________________________
   //
   //                Algorithms

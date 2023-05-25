@@ -123,7 +123,7 @@ model BivalentHeatPumpWithControl "Heatpump with selectable Controller and elect
 
   replaceable connector PowerPortModel = Basics.Interfaces.Electrical.ActivePowerPort constrainedby Basics.Interfaces.Electrical.ActivePowerPort "Choice of power port" annotation (choicesAllMatching=true, Dialog(group="Replaceable Components"));
 
-  PowerPortModel epp if  usePowerPort annotation (Placement(transformation(extent={{48,-108},{68,-88}})));
+  PowerPortModel epp  if usePowerPort annotation (Placement(transformation(extent={{48,-108},{68,-88}})));
 
   ElectricBoiler.ElectricBoiler electricBoiler(
     change_sign=true,
@@ -133,7 +133,7 @@ model BivalentHeatPumpWithControl "Heatpump with selectable Controller and elect
     useHeatPort=useHeatPort,
     usePowerPort=usePowerPort,
     redeclare connector PowerPortModel = PowerPortModel,
-    redeclare model PowerBoundaryModel = PowerBoundaryModel) if                                                       CalculatePHeater annotation (Placement(transformation(extent={{2,-78},{34,-46}})));
+    redeclare model PowerBoundaryModel = PowerBoundaryModel)                                                       if CalculatePHeater annotation (Placement(transformation(extent={{2,-78},{34,-46}})));
 
    //___________________________________________________________________________
    //
@@ -148,7 +148,7 @@ protected
   TransiEnt.Basics.Interfaces.General.TemperatureIn T_source_internal "Temperature of heat source used for calculation";
 
 public
-  TransiEnt.Basics.Interfaces.General.TemperatureIn T_source_input_K if   use_T_source_input_K "Input ambient temperature in Kelvin" annotation (Placement(transformation(
+  TransiEnt.Basics.Interfaces.General.TemperatureIn T_source_input_K   if use_T_source_input_K "Input ambient temperature in Kelvin" annotation (Placement(transformation(
         extent={{-20,-20},{20,20}},
         rotation=270,
         origin={0,106})));

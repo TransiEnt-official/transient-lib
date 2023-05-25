@@ -104,7 +104,7 @@ ClaRa.Components.Utilities.Blocks.VariableGradientLimiter
     thres=simCenter.thres,
     maxGrad_const=params.P_grad_max,
     minGrad_const=-params.P_grad_max,
-    Nd=Nd_powerRateLimiter) if           use_PowerRateLimiter==true
+    Nd=Nd_powerRateLimiter)           if use_PowerRateLimiter==true
     annotation (Placement(transformation(extent={{-30,56},{-10,76}})));
   Modelica.Blocks.Nonlinear.VariableLimiter
                                     PowerLimit(
@@ -138,10 +138,10 @@ ClaRa.Components.Utilities.Blocks.VariableGradientLimiter
   Basics.Blocks.FirstOrder plantDynamic(Tau=T_plant, initOption=4) if use_plantDynamic            annotation (Placement(transformation(extent={{76,-4},{84,4}})));
   Modelica.Blocks.Logical.Switch P_in_inverter if use_inverterEfficiency  annotation (Placement(transformation(extent={{6,-93},{22,-77}})));
   Modelica.Blocks.Math.Product eta_total if use_inverterEfficiency  annotation (Placement(transformation(extent={{56,-88},{70,-74}})));
-  Modelica.Blocks.Tables.CombiTable1Ds combiTable1Ds_inverterEfficiency(tableOnFile=false, table=efficiencyCurve_inverter) if                                      use_inverterEfficiency annotation (Placement(transformation(extent={{30,-92},{44,-78}})));
-  Modelica.Blocks.Sources.RealExpression P_in_inverter_unloading(y=min(1, max(0, -P_is_external.u1/params.P_max_load))) if         use_inverterEfficiency annotation (Placement(transformation(extent={{-20,-85},{-7,-73}})));
-  Modelica.Blocks.Sources.RealExpression P_in_inverter_loading(y=min(1, max(0, P_is_external.u1/(params.P_max_load)))) if
-                                                                                                       use_inverterEfficiency annotation (Placement(transformation(extent={{-20,-97},{-7,-85}})));
+  Modelica.Blocks.Tables.CombiTable1Ds combiTable1Ds_inverterEfficiency(tableOnFile=false, table=efficiencyCurve_inverter)                                      if use_inverterEfficiency annotation (Placement(transformation(extent={{30,-92},{44,-78}})));
+  Modelica.Blocks.Sources.RealExpression P_in_inverter_unloading(y=min(1, max(0, -P_is_external.u1/params.P_max_load)))         if use_inverterEfficiency annotation (Placement(transformation(extent={{-20,-85},{-7,-73}})));
+  Modelica.Blocks.Sources.RealExpression P_in_inverter_loading(y=min(1, max(0, P_is_external.u1/(params.P_max_load))))
+                                                                                                    if use_inverterEfficiency annotation (Placement(transformation(extent={{-20,-97},{-7,-85}})));
   Modelica.Blocks.Logical.Greater greater annotation (Placement(transformation(extent={{-58,28},{-48,38}})));
   Modelica.Blocks.Logical.Less less annotation (Placement(transformation(extent={{-58,14},{-48,24}})));
   Modelica.Blocks.Sources.RealExpression realExpression annotation (Placement(transformation(extent={{-74,18},{-68,28}})));

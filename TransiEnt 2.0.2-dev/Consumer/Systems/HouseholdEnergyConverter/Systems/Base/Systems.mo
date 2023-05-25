@@ -63,10 +63,10 @@ public
         extent={{-12,-12},{12,12}},
         rotation=270,
         origin={0,100})));
-  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn waterPortIn(Medium=medium) if  DHN annotation (Placement(transformation(extent={{-30,-108},{-10,-88}})));
-  TransiEnt.Basics.Interfaces.Thermal.FluidPortOut waterPortOut(Medium=medium) if  DHN annotation (Placement(transformation(extent={{10,-108},{30,-88}})));
-  TransiEnt.Basics.Interfaces.Electrical.ApparentPowerPort    epp if      el_grid annotation (Placement(transformation(extent={{-90,-108},{-70,-88}})));
-  TransiEnt.Basics.Interfaces.Gas.RealGasPortIn gasPortIn(Medium=medium1) if  gas_grid annotation (Placement(transformation(extent={{70,-106},{90,-86}})));
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn waterPortIn(Medium=medium)  if DHN annotation (Placement(transformation(extent={{-30,-108},{-10,-88}})));
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortOut waterPortOut(Medium=medium)  if DHN annotation (Placement(transformation(extent={{10,-108},{30,-88}})));
+  TransiEnt.Basics.Interfaces.Electrical.ApparentPowerPort    epp      if el_grid annotation (Placement(transformation(extent={{-90,-108},{-70,-88}})));
+  TransiEnt.Basics.Interfaces.Gas.RealGasPortIn gasPortIn(Medium=medium1)  if gas_grid annotation (Placement(transformation(extent={{70,-106},{90,-86}})));
 
   annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(preserveAspectRatio=false)),
     Documentation(info="<html>

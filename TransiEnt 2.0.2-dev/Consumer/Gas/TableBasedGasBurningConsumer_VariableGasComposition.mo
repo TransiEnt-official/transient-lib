@@ -98,8 +98,8 @@ protected
     deactivateDensityDerivatives=true,
     p=simCenter.p_amb_const,
     T=T_exhaustgas,
-    xi=noEvent(actualStream(gasIn.xi_outflow))) if
-                       consider_FlueGas_losses==true annotation (Placement(transformation(extent={{-10,74},{10,94}})));
+    xi=noEvent(actualStream(gasIn.xi_outflow)))
+                    if consider_FlueGas_losses==true annotation (Placement(transformation(extent={{-10,74},{10,94}})));
   TransiEnt.Components.Statistics.Functions.GetFuelSpecificCO2Emissions fuelSpecificCO2Emissions(typeOfPrimaryEnergyCarrier=TransiEnt.Basics.Types.TypeOfPrimaryEnergyCarrier.NaturalGas);
 public
   TransiEnt.Components.Statistics.Collectors.LocalCollectors.CollectGwpEmissionsElectric collectGwpEmissions(typeOfEnergyCarrier=TransiEnt.Basics.Types.TypeOfPrimaryEnergyCarrier.NaturalGas) annotation (Placement(transformation(extent={{2,-100},{22,-80}})));

@@ -67,10 +67,10 @@ model ElectricBoilerImpedance "Electric Boiler with constant efficiency, spatial
   // _____________________________________________
 
   TransiEnt.Basics.Interfaces.Electrical.ComplexPowerPort epp  "Choice of power port" annotation (Dialog(group="Replaceable Components"), Placement(transformation(extent={{-10,88},{10,108}}), iconTransformation(extent={{-10,-110},{10,-90}})));
-  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn fluidPortIn(Medium=medium) if
-                                                                          useFluidPorts annotation (Placement(transformation(extent={{90,-50},{110,-30}}), iconTransformation(extent={{-108,-10},{-88,10}})));
-  TransiEnt.Basics.Interfaces.Thermal.FluidPortOut fluidPortOut(Medium=medium) if
-                                                                            useFluidPorts annotation (Placement(transformation(extent={{90,30},{110,50}}), iconTransformation(extent={{90,-10},{110,10}})));
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn fluidPortIn(Medium=medium)
+                                                                       if useFluidPorts annotation (Placement(transformation(extent={{90,-50},{110,-30}}), iconTransformation(extent={{-108,-10},{-88,10}})));
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortOut fluidPortOut(Medium=medium)
+                                                                         if useFluidPorts annotation (Placement(transformation(extent={{90,30},{110,50}}), iconTransformation(extent={{90,-10},{110,10}})));
   TransiEnt.Basics.Interfaces.Thermal.HeatFlowRateIn Q_flow_set "Setpoint for thermal heat, should be negative"
     annotation (Placement(transformation(extent={{-114,-10},{-94,10}}),
         iconTransformation(extent={{-10,-10},{10,10}},

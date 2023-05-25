@@ -205,13 +205,13 @@ model HotWaterStorage_constProp_L4 "Temperature and heat flow rate based model o
         rotation=180,
         origin={0,82})));
   Modelica.Thermal.HeatTransfer.Sensors.TemperatureSensor[N_cv] temperatureSensor annotation (Placement(transformation(extent={{-14,-32},{-34,-12}})));
-  Modelica.Blocks.Sources.RealExpression[n_prodIn] realExpression3(y=waterPortIn_prod.m_flow.*(inStream(waterPortIn_prod.h_outflow) - waterPortOut_prod.h_outflow)) if
-                                                                      useFluidPorts   annotation (Placement(transformation(extent={{66,-32},{86,-12}})));
-  Modelica.Blocks.Sources.RealExpression realExpression2(y=sum(waterPortIn_grid[i].m_flow*(inStream(waterPortIn_grid[i].h_outflow) - waterPortOut_grid[i].h_outflow) for i in 1:n_gridIn)) if
-                                                                                                                                                                       useFluidPorts
+  Modelica.Blocks.Sources.RealExpression[n_prodIn] realExpression3(y=waterPortIn_prod.m_flow.*(inStream(waterPortIn_prod.h_outflow) - waterPortOut_prod.h_outflow))
+                                                                   if useFluidPorts   annotation (Placement(transformation(extent={{66,-32},{86,-12}})));
+  Modelica.Blocks.Sources.RealExpression realExpression2(y=sum(waterPortIn_grid[i].m_flow*(inStream(waterPortIn_grid[i].h_outflow) - waterPortOut_grid[i].h_outflow) for i in 1:n_gridIn))
+                                                                                                                                                                    if useFluidPorts
                                                          annotation (Placement(transformation(extent={{68,-82},{88,-62}})));
-  Modelica.Blocks.Sources.RealExpression realExpression4(y=sum(waterPortIn_prod[i].m_flow*(inStream(waterPortIn_prod[i].h_outflow) - waterPortOut_prod[i].h_outflow) for i in 1:n_prodIn) - sum(Q_flow_set_)) if
-                                                                      useFluidPorts
+  Modelica.Blocks.Sources.RealExpression realExpression4(y=sum(waterPortIn_prod[i].m_flow*(inStream(waterPortIn_prod[i].h_outflow) - waterPortOut_prod[i].h_outflow) for i in 1:n_prodIn) - sum(Q_flow_set_))
+                                                                   if useFluidPorts
                                                          annotation (Placement(transformation(extent={{68,-104},{88,-84}})));
 
   // _____________________________________________
@@ -258,8 +258,8 @@ model HotWaterStorage_constProp_L4 "Temperature and heat flow rate based model o
   Modelica.Blocks.Sources.RealExpression[n_gridIn] realExpression1(y=waterPortIn_grid.m_flow.*(inStream(waterPortIn_grid.h_outflow) - waterPortOut_grid.h_outflow)) if useFluidPorts
                                                          annotation (Placement(transformation(extent={{66,-10},{86,10}})));
 
-  TransiEnt.Basics.Interfaces.Thermal.HeatFlowRateOut Q_flow_load_total if  useFluidPorts annotation (Placement(transformation(extent={{96,-110},{128,-78}}),  iconTransformation(extent={{96,-54},{128,-22}})));
-  TransiEnt.Basics.Interfaces.Thermal.HeatFlowRateOut Q_flow_unload_total if  useFluidPorts annotation (Placement(transformation(extent={{96,-86},{124,-58}}),  iconTransformation(extent={{94,-30},{122,-2}})));
+  TransiEnt.Basics.Interfaces.Thermal.HeatFlowRateOut Q_flow_load_total  if useFluidPorts annotation (Placement(transformation(extent={{96,-110},{128,-78}}),  iconTransformation(extent={{96,-54},{128,-22}})));
+  TransiEnt.Basics.Interfaces.Thermal.HeatFlowRateOut Q_flow_unload_total  if useFluidPorts annotation (Placement(transformation(extent={{96,-86},{124,-58}}),  iconTransformation(extent={{94,-30},{122,-2}})));
 
 protected
   TransiEnt.Basics.Interfaces.Thermal.HeatFlowRateOut Q_flow_set_[n_elHeater] "Internal value for setpoint for thermal heat"  annotation (Placement(transformation(extent={{-10,-10},{10,10}},

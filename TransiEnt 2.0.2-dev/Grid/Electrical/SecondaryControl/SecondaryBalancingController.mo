@@ -59,11 +59,11 @@ model SecondaryBalancingController "Secondary balancing control model as propose
   //                  Interfaces
   // _____________________________________________
 
-   TransiEnt.Basics.Interfaces.Electrical.ElectricPowerIn P_tie_is if             not is_singleton "Requested power for exchange between multiple control areas" annotation (Placement(transformation(extent={{-111,80},{-91,100}}, rotation=0), iconTransformation(
+   TransiEnt.Basics.Interfaces.Electrical.ElectricPowerIn P_tie_is             if not is_singleton "Requested power for exchange between multiple control areas" annotation (Placement(transformation(extent={{-111,80},{-91,100}}, rotation=0), iconTransformation(
         extent={{10,-10},{-10,10}},
         rotation=90,
         origin={-42,91})));
-   TransiEnt.Basics.Interfaces.Electrical.ElectricPowerIn P_tie_set if            not is_singleton "Requested power for exchange between multiple control areas" annotation (Placement(transformation(extent={{-111,50},{-91,70}}, rotation=0), iconTransformation(
+   TransiEnt.Basics.Interfaces.Electrical.ElectricPowerIn P_tie_set            if not is_singleton "Requested power for exchange between multiple control areas" annotation (Placement(transformation(extent={{-111,50},{-91,70}}, rotation=0), iconTransformation(
         extent={{10,-10},{-10,10}},
         rotation=90,
         origin={-90,91})));

@@ -77,10 +77,10 @@ model ElectricBoiler "Electric Boiler with constant efficiency, spatial resoluti
    PowerPortModel epp if usePowerPort annotation (
     Placement(transformation(extent={{-10,88},{10,108}}), iconTransformation(extent={{-10,-112},{10,-92}})));
 
-  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn fluidPortIn(Medium=medium) if
-                                                                          useFluidPorts annotation (Placement(transformation(extent={{90,-50},{110,-30}}), iconTransformation(extent={{-114,-10},{-94,10}})));
-  TransiEnt.Basics.Interfaces.Thermal.FluidPortOut fluidPortOut(Medium=medium) if
-                                                                            useFluidPorts annotation (Placement(transformation(extent={{90,30},{110,50}}), iconTransformation(extent={{92,-10},{112,10}})));
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn fluidPortIn(Medium=medium)
+                                                                       if useFluidPorts annotation (Placement(transformation(extent={{90,-50},{110,-30}}), iconTransformation(extent={{-114,-10},{-94,10}})));
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortOut fluidPortOut(Medium=medium)
+                                                                         if useFluidPorts annotation (Placement(transformation(extent={{90,30},{110,50}}), iconTransformation(extent={{92,-10},{112,10}})));
   TransiEnt.Basics.Interfaces.Thermal.HeatFlowRateIn Q_flow_set if not usePelset "Setpoint for thermal heat, should be negative" annotation (Placement(transformation(extent={{-114,0},{-94,20}})));
 
   Basics.Interfaces.Electrical.ElectricPowerIn P_el_set if usePelset "Setpoint for electric power, should be negative" annotation (Placement(transformation(extent={{-106,-34},{-86,-14}}), iconTransformation(extent={{-106,-34},{-86,-14}})));
@@ -122,11 +122,11 @@ public
   Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow prescribedHeatFlow if useHeatPort annotation (Placement(transformation(extent={{52,-80},{72,-60}})));
   Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_b heat if useHeatPort annotation (Placement(transformation(extent={{94,28},{114,48}}),  iconTransformation(extent={{94,28},{114,48}})));
 
-  Modelica.Blocks.Nonlinear.Limiter P_el_set_limit(uMax=P_el_n, uMin=0) if
-                                                                         usePelset annotation (Placement(transformation(extent={{-58,-42},{-38,-22}})));
+  Modelica.Blocks.Nonlinear.Limiter P_el_set_limit(uMax=P_el_n, uMin=0)
+                                                                      if usePelset annotation (Placement(transformation(extent={{-58,-42},{-38,-22}})));
   Modelica.Blocks.Math.Gain signQ(k=if change_sign then 1 else -1) if not usePelset  annotation (Placement(transformation(extent={{-82,1},{-64,19}})));
   Modelica.Blocks.Math.Gain signP(k=if change_sign then 1 else -1) if usePelset  annotation (Placement(transformation(extent={{-84,-41},{-66,-23}})));
-  Modelica.Blocks.Math.Gain efficiency1(k=eta) if   usePelset annotation (Placement(transformation(extent={{-20,-80},{-2,-62}})));
+  Modelica.Blocks.Math.Gain efficiency1(k=eta)   if usePelset annotation (Placement(transformation(extent={{-20,-80},{-2,-62}})));
 
   TransiEnt.Components.Statistics.Collectors.LocalCollectors.HeatingPlantCost collectCosts_HeatProducer(
     redeclare model HeatingPlantCostModel = ProducerCosts,

@@ -78,10 +78,10 @@ model ControllerCompressor_dp "Controller to control the pressure difference of 
         origin={0,-110})));
 
 protected
-  Modelica.Blocks.Sources.Constant p_beforeCompConst(k=p_beforeCompParam) if
-                                                             p_paramBefore annotation (Placement(transformation(extent={{-100,20},{-80,40}})));
-  Modelica.Blocks.Sources.Constant p_afterCompConst(k=p_afterCompParam) if
-                                                            p_paramAfter annotation (Placement(transformation(extent={{100,20},{80,40}})));
+  Modelica.Blocks.Sources.Constant p_beforeCompConst(k=p_beforeCompParam)
+                                                          if p_paramBefore annotation (Placement(transformation(extent={{-100,20},{-80,40}})));
+  Modelica.Blocks.Sources.Constant p_afterCompConst(k=p_afterCompParam)
+                                                         if p_paramAfter annotation (Placement(transformation(extent={{100,20},{80,40}})));
 
   TransiEnt.Basics.Interfaces.General.PressureOut p_beforeComp annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
   TransiEnt.Basics.Interfaces.General.PressureOut p_afterComp annotation (Placement(transformation(extent={{60,-10},{40,10}})));

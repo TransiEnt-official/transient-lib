@@ -56,7 +56,7 @@ model Power "Active power boundary can be used for consumer of producer models c
   //                  Interfaces
   // _____________________________________________
 
-  TransiEnt.Basics.Interfaces.Electrical.ElectricPowerIn P_el_set if              useInputConnectorP "Active power input"
+  TransiEnt.Basics.Interfaces.Electrical.ElectricPowerIn P_el_set              if useInputConnectorP "Active power input"
                                                                  annotation (Placement(transformation(extent={{-140,60},{-100,100}},
           rotation=0), iconTransformation(
         extent={{-20,-20},{20,20}},

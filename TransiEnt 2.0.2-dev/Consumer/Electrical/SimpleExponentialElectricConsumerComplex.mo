@@ -50,7 +50,7 @@ model SimpleExponentialElectricConsumerComplex "Exponential voltage dependency, 
   TransiEnt.Basics.Interfaces.Electrical.ComplexPowerPort epp
     annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
 
-  TransiEnt.Basics.Interfaces.Electrical.ElectricPowerIn P_el_set if              useInputConnectorP
+  TransiEnt.Basics.Interfaces.Electrical.ElectricPowerIn P_el_set              if useInputConnectorP
     "active power input at nominal frequency" annotation (Placement(
         transformation(extent={{-140,60},{-100,100}}, rotation=0),
         iconTransformation(

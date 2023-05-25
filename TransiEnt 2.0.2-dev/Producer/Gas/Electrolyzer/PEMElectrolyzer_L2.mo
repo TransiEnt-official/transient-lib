@@ -237,14 +237,14 @@ public
   //                Interfaces
   // _____________________________________________
 
-  Modelica.Blocks.Interfaces.RealInput i_el_stack_set(displayUnit="A", final unit="A") if
-                   whichInput==1 annotation (Placement(transformation(
+  Modelica.Blocks.Interfaces.RealInput i_el_stack_set(displayUnit="A", final unit="A")
+                if whichInput==1 annotation (Placement(transformation(
         extent={{-20,-20},{20,20}},
         rotation=270,
         origin={34,120})));
 
-  Modelica.Blocks.Interfaces.RealInput i_dens_set(displayUnit="A/m2", final unit="A/m2") if
-                          whichInput==2 annotation (Placement(transformation(
+  Modelica.Blocks.Interfaces.RealInput i_dens_set(displayUnit="A/m2", final unit="A/m2")
+                       if whichInput==2 annotation (Placement(transformation(
         extent={{-40,-20},{0,20}},
         rotation=270,
         origin={10,100})));

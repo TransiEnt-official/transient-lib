@@ -86,16 +86,16 @@ public
     t_min_off=t_min_off) if MinTimes and not Modulating
     annotation (Placement(transformation(extent={{32,28},{44,40}})));
 public
-  Modelica.Blocks.Logical.Switch switch2 if  CalculatePHeater  annotation (Placement(transformation(
+  Modelica.Blocks.Logical.Switch switch2  if CalculatePHeater  annotation (Placement(transformation(
         extent={{7,-7},{-7,7}},
         rotation=180,
         origin={71,-69})));
-  Modelica.Blocks.Sources.RealExpression zero1(y=0) if  CalculatePHeater  annotation (Placement(transformation(extent={{32,-66},{50,-48}})));
-  Modelica.Blocks.Sources.RealExpression P_Heater(y=P_elHeater) if  CalculatePHeater  annotation (Placement(transformation(extent={{32,-92},{50,-72}})));
-  TransiEnt.Basics.Blocks.Hysteresis_inputVariable hysteresis_heater if  CalculatePHeater  annotation (Placement(transformation(extent={{-26,-76},{-10,-60}})));
-  Modelica.Blocks.Sources.RealExpression uHigh1(y=uHigh_Heater) if  CalculatePHeater
+  Modelica.Blocks.Sources.RealExpression zero1(y=0)  if CalculatePHeater  annotation (Placement(transformation(extent={{32,-66},{50,-48}})));
+  Modelica.Blocks.Sources.RealExpression P_Heater(y=P_elHeater)  if CalculatePHeater  annotation (Placement(transformation(extent={{32,-92},{50,-72}})));
+  TransiEnt.Basics.Blocks.Hysteresis_inputVariable hysteresis_heater  if CalculatePHeater  annotation (Placement(transformation(extent={{-26,-76},{-10,-60}})));
+  Modelica.Blocks.Sources.RealExpression uHigh1(y=uHigh_Heater)  if CalculatePHeater
     annotation (Placement(transformation(extent={{-66,-70},{-46,-48}})));
-  Modelica.Blocks.Sources.RealExpression uLow1(y=uLow_Heater) if  CalculatePHeater  annotation (Placement(transformation(extent={{-66,-90},{-46,-68}})));
+  Modelica.Blocks.Sources.RealExpression uLow1(y=uLow_Heater)  if CalculatePHeater  annotation (Placement(transformation(extent={{-66,-90},{-46,-68}})));
   Modelica.Blocks.Logical.Not Not1 if CalculatePHeater
     annotation (Placement(transformation(extent={{0,-76},{14,-62}})));
   Modelica.Blocks.Sources.RealExpression Setpoint_HP(y=uSet_HP) if Modulating annotation (Placement(transformation(extent={{-52,-28},{-34,-10}})));

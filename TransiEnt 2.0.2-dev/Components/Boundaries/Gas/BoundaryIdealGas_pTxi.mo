@@ -87,8 +87,8 @@ public
   TransiEnt.Basics.Interfaces.General.TemperatureIn T=T_in if (variable_T) "Variable temperature"
     annotation (Placement(transformation(extent={{-120,-20},{-80,20}}),
         iconTransformation(extent={{-140,-20},{-100,20}})));
-  TransiEnt.Basics.Interfaces.General.MassFractionIn xi[gasModel.nc - 1]=xi_in if
-       (variable_xi) "Variable mass composition"
+  TransiEnt.Basics.Interfaces.General.MassFractionIn xi[gasModel.nc - 1]=xi_in
+    if (variable_xi) "Variable mass composition"
     annotation (Placement(transformation(extent={{-120,-80},{-80,-40}}),
         iconTransformation(extent={{-140,-80},{-100,-40}})));
 

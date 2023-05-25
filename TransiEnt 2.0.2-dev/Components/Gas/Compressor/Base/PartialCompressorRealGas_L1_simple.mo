@@ -110,7 +110,7 @@ partial model PartialCompressorRealGas_L1_simple "Partial compressor model for r
     powerAux=P_shaft) if contributeToCycleSummary;
   TransiEnt.Basics.Interfaces.Gas.RealGasPortIn gasPortIn(Medium=medium, m_flow(min=if allow_reverseFlow then -Modelica.Constants.inf else 1e-5)) "inlet flow" annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
   TransiEnt.Basics.Interfaces.Gas.RealGasPortOut gasPortOut(Medium=medium, m_flow(max=if allow_reverseFlow then Modelica.Constants.inf else -1e-5)) "outlet flow" annotation (Placement(transformation(extent={{90,-10},{110,10}})));
-  TransiEnt.Basics.Interfaces.General.PressureDifferenceIn dp_in if  use_Delta_p_input "Prescribed pressure increase" annotation (Placement(transformation(extent={{-10,-10},{10,10}},  rotation=270,
+  TransiEnt.Basics.Interfaces.General.PressureDifferenceIn dp_in  if use_Delta_p_input "Prescribed pressure increase" annotation (Placement(transformation(extent={{-10,-10},{10,10}},  rotation=270,
         origin={80,110}),
                 iconTransformation(extent={{-10,-10},{10,10}},
         rotation=270,
@@ -120,7 +120,7 @@ partial model PartialCompressorRealGas_L1_simple "Partial compressor model for r
                 iconTransformation(extent={{-10,-10},{10,10}},
         rotation=270,
         origin={30,110})));
-  TransiEnt.Basics.Interfaces.General.VolumeFlowRateIn V_flow_in if  V_flowInput "Prescribed volume flow rate" annotation (Placement(transformation(extent={{-10,-10},{10,10}},   rotation=270,
+  TransiEnt.Basics.Interfaces.General.VolumeFlowRateIn V_flow_in  if V_flowInput "Prescribed volume flow rate" annotation (Placement(transformation(extent={{-10,-10},{10,10}},   rotation=270,
         origin={-40,110}),
                iconTransformation(extent={{-10,-10},{10,10}},
         rotation=270,

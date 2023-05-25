@@ -98,8 +98,8 @@ model FeedInStation_Methanation
   Basics.Interfaces.Thermal.FluidPortIn fluidPortIn(Medium=simCenter.fluid1) if useFluidCoolantPort annotation (Placement(transformation(extent={{90,-100},{110,-80}})));
   Basics.Interfaces.Thermal.FluidPortOut fluidPortOut(Medium=simCenter.fluid1) if useFluidCoolantPort     annotation (Placement(transformation(extent={{90,-50},{110,-30}})));
   TransiEnt.Basics.Interfaces.Gas.RealGasPortIn gasPortIn_CO2(Medium=medium_CO2) if useCO2Input annotation (Placement(transformation(extent={{-70,-110},{-50,-90}})));
-  Basics.Interfaces.General.TemperatureIn T_set_coolant_out if
-                                                           useFluidCoolantPort and useVariableCoolantOutputTemperature annotation (Placement(transformation(extent={{128,16},{88,56}}), iconTransformation(extent={{112,32},{88,56}})));
+  Basics.Interfaces.General.TemperatureIn T_set_coolant_out
+                                                        if useFluidCoolantPort and useVariableCoolantOutputTemperature annotation (Placement(transformation(extent={{128,16},{88,56}}), iconTransformation(extent={{112,32},{88,56}})));
   Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heat if useHeatPort annotation (Placement(transformation(extent={{90,-76},{110,-56}})));
   // _____________________________________________
   //
@@ -137,8 +137,8 @@ model FeedInStation_Methanation
     p=compositionSensor.gasPortOut.p,
     xi=compositionSensor.gasPortOut.xi_outflow,
     vleFluidType=medium) annotation (Placement(transformation(extent={{18,-100},{38,-80}})));
-  TransiEnt.Components.Boundaries.Gas.BoundaryRealGas_Txim_flow boundary_Txim_flow1(medium=medium, m_flow_const=m_flow_small*0.9) if
-                                                                                                                  useLeakageMassFlow  annotation (Placement(transformation(extent={{-22,-48},{-18,-44}})));
+  TransiEnt.Components.Boundaries.Gas.BoundaryRealGas_Txim_flow boundary_Txim_flow1(medium=medium, m_flow_const=m_flow_small*0.9)
+                                                                                                               if useLeakageMassFlow  annotation (Placement(transformation(extent={{-22,-48},{-18,-44}})));
   TransiEnt.Components.Boundaries.Gas.BoundaryRealGas_Txim_flow boundary_Txim_flow2(medium=medium, m_flow_const=-m_flow_small, xi_const={0,0,0,0,0,0}) if useSeperateHydrogenOutput and useLeakageMassFlow annotation (Placement(transformation(
         extent={{-2,-2},{2,2}},
         rotation=90,
@@ -210,16 +210,16 @@ public
       rho=gasOut.d))
        annotation (Placement(transformation(extent={{-100,-100},{-80,-80}})));
 
-  TransiEnt.Components.Gas.VolumesValvesFittings.Valves.ThreeWayValveRealGas_L1_simple TWV1(medium=medium, splitRatio_input=true) if
-                                                                                                                             useSeperateHydrogenOutput annotation (Placement(transformation(
+  TransiEnt.Components.Gas.VolumesValvesFittings.Valves.ThreeWayValveRealGas_L1_simple TWV1(medium=medium, splitRatio_input=true)
+                                                                                                                          if useSeperateHydrogenOutput annotation (Placement(transformation(
         extent={{-6.50001,6},{6.5,-6}},
         rotation=-90,
         origin={-3.5e-06,0.5})));
   TransiEnt.Components.Sensors.RealGas.MassFlowSensor massFlowSensor_SNG1(medium=medium) if useSeperateHydrogenOutput  annotation (Placement(transformation(extent={{-5,-5},{5,5}},
         rotation=0,
         origin={63,5})));
-  Modelica.Blocks.Sources.RealExpression realExpression1(y=if useLeakageMassFlow then min(max(m_flow_small/max(1e-4, -feedInStation_Hydrogen.gasPortOut.m_flow), (m_flow_small + ((-feedInStation_Hydrogen.gasPortOut.m_flow) - m_flow_feedIn_H2))/max(1e-4, -feedInStation_Hydrogen.gasPortOut.m_flow)), 1) else 1 - max(min(1, m_flow_feedIn_H2/max(1e-4, -feedInStation_Hydrogen.gasPortOut.m_flow)), 0)) if
-                                                                                                                                                         useSeperateHydrogenOutput                              annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
+  Modelica.Blocks.Sources.RealExpression realExpression1(y=if useLeakageMassFlow then min(max(m_flow_small/max(1e-4, -feedInStation_Hydrogen.gasPortOut.m_flow), (m_flow_small + ((-feedInStation_Hydrogen.gasPortOut.m_flow) - m_flow_feedIn_H2))/max(1e-4, -feedInStation_Hydrogen.gasPortOut.m_flow)), 1) else 1 - max(min(1, m_flow_feedIn_H2/max(1e-4, -feedInStation_Hydrogen.gasPortOut.m_flow)), 0))
+                                                                                                                                                      if useSeperateHydrogenOutput                              annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
   Modelica.Blocks.Sources.RealExpression Zero;
   replaceable MethanatorSystem_L4 methanation(medium=medium, medium_CO2=medium_CO2) constrainedby TransiEnt.Producer.Gas.MethanatorSystem.PartialMethanatorSystem(
     useFluidCoolantPort=useFluidCoolantPort and chooseHeatSources <> 2,

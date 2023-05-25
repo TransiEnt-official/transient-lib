@@ -81,8 +81,8 @@ model PartloadEfficiency "Block that calculates the partload efficiency from a c
     table=CCS_Characteristics.CCS_Absolute_Efficiency_Loss,
     smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative) if CO2_Deposition_Rate>0 annotation (Placement(transformation(extent={{-18,-18},{0,0}})));
   Modelica.Blocks.Math.Add add(k2=-1) if CO2_Deposition_Rate>0 annotation (Placement(transformation(extent={{36,-10},{56,10}})));
-  Modelica.Blocks.Nonlinear.Limiter limiter_TheoreticalRelativeLoadWithoutCCS(uMax=1, uMin=0) if
-                                                               CO2_Deposition_Rate>0 annotation (Placement(transformation(extent={{-46,10},{-30,26}})));
+  Modelica.Blocks.Nonlinear.Limiter limiter_TheoreticalRelativeLoadWithoutCCS(uMax=1, uMin=0)
+                                                            if CO2_Deposition_Rate>0 annotation (Placement(transformation(extent={{-46,10},{-30,26}})));
   Modelica.Blocks.Tables.CombiTable1Ds CCS_Efficiency_Losses_Scaling(
     columns={2},
     smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative,
@@ -90,18 +90,18 @@ model PartloadEfficiency "Block that calculates the partload efficiency from a c
   Modelica.Blocks.Math.Product product if CO2_Deposition_Rate>0 annotation (Placement(transformation(extent={{12,-40},{32,-20}})));
   Modelica.Blocks.Sources.RealExpression realExpression(y=CO2_Deposition_Rate) if CO2_Deposition_Rate>0  annotation (Placement(transformation(extent={{-88,-54},{-64,-34}})));
   Modelica.Blocks.Nonlinear.Limiter limiter1(uMax=1, uMin=0) if CO2_Deposition_Rate>0 annotation (Placement(transformation(extent={{62,-10},{82,10}})));
-  Modelica.Blocks.Logical.Switch switch1 if  CO2_Deposition_Rate>0 annotation (Placement(transformation(extent={{-22,-62},{-2,-42}})));
-  Modelica.Blocks.Sources.RealExpression realExpression1(y=0) if                  CO2_Deposition_Rate>0  annotation (Placement(transformation(extent={{-48,-82},{-26,-60}})));
-  Modelica.Blocks.Sources.RealExpression P_el_is_array_lastPowerPlant(y=max(P_min_star, P_needed_lastPowerPlant)) if          quantity>1 annotation (Placement(transformation(extent={{-132,8},{-112,28}})));
+  Modelica.Blocks.Logical.Switch switch1  if CO2_Deposition_Rate>0 annotation (Placement(transformation(extent={{-22,-62},{-2,-42}})));
+  Modelica.Blocks.Sources.RealExpression realExpression1(y=0)                  if CO2_Deposition_Rate>0  annotation (Placement(transformation(extent={{-48,-82},{-26,-60}})));
+  Modelica.Blocks.Sources.RealExpression P_el_is_array_lastPowerPlant(y=max(P_min_star, P_needed_lastPowerPlant))          if quantity>1 annotation (Placement(transformation(extent={{-132,8},{-112,28}})));
   Modelica.Blocks.Sources.RealExpression eta_is_array_withCCS(y=
   if UseCCS and constantEfficiency then nominal.y-CCS_Characteristics.CCS_Absolute_Efficiency_Loss[end,2]*Modelica.Math.Vectors.interpolate(CCS_Characteristics.Deviation_CO2_Absolute_Efficiency_Loss[:,1],CCS_Characteristics.Deviation_CO2_Absolute_Efficiency_Loss[:,2],CO2_Deposition_Rate)
   elseif not
             (UseCCS) and constantEfficiency then nominal.y
-  elseif UseCCS then (limiter1.y + integer(max(Modelica.Constants.eps, min(1, P_el_is))*quantity)*(eta_n - CCS_Characteristics.CCS_Absolute_Efficiency_Loss[end, 2]*CCS_Efficiency_Losses_Scaling.y[1]))/(max(0, integer(max(Modelica.Constants.eps, min(1, P_el_is))*quantity)) + 1) else (limiter1.y + integer(max(Modelica.Constants.eps, min(1, P_el_is))*quantity)*(eta_n))/(max(0, integer(max(Modelica.Constants.eps, min(1, P_el_is))*quantity)) + 1)) if
-                                                                                                                                                                                                        CO2_Deposition_Rate>0 and quantity>1 annotation (Placement(transformation(extent={{72,36},{92,56}})));
+  elseif UseCCS then (limiter1.y + integer(max(Modelica.Constants.eps, min(1, P_el_is))*quantity)*(eta_n - CCS_Characteristics.CCS_Absolute_Efficiency_Loss[end, 2]*CCS_Efficiency_Losses_Scaling.y[1]))/(max(0, integer(max(Modelica.Constants.eps, min(1, P_el_is))*quantity)) + 1) else (limiter1.y + integer(max(Modelica.Constants.eps, min(1, P_el_is))*quantity)*(eta_n))/(max(0, integer(max(Modelica.Constants.eps, min(1, P_el_is))*quantity)) + 1))
+                                                                                                                                                                                                     if CO2_Deposition_Rate>0 and quantity>1 annotation (Placement(transformation(extent={{72,36},{92,56}})));
   Modelica.Blocks.Sources.RealExpression eta_is_array_withoutCCS(y=
-  if constantEfficiency then nominal.y else noEvent((nominal.y + (integer(max(Modelica.Constants.eps, min(1,P_el_is))*quantity))*(eta_n))/(max(0, integer(max(Modelica.Constants.eps, min(1,P_el_is))*quantity)) + 1))) if
-                                                                                                                                                                   CO2_Deposition_Rate<=0 and quantity>1 annotation (Placement(transformation(extent={{72,22},{92,42}})));
+  if constantEfficiency then nominal.y else noEvent((nominal.y + (integer(max(Modelica.Constants.eps, min(1,P_el_is))*quantity))*(eta_n))/(max(0, integer(max(Modelica.Constants.eps, min(1,P_el_is))*quantity)) + 1)))
+                                                                                                                                                                if CO2_Deposition_Rate<=0 and quantity>1 annotation (Placement(transformation(extent={{72,22},{92,42}})));
   Modelica.Units.SI.Power P_needed_lastPowerPlant=if constantEfficiency then 1 else noEvent((max(Modelica.Constants.eps, min(1, P_el_is)) - integer(max(Modelica.Constants.eps, min(1, P_el_is))*quantity)*(1/quantity))*quantity);
   TransiEnt.Basics.Blocks.FirstOrder firstOrder(Tau=10) if quantity>1 and not constantEfficiency annotation (Placement(transformation(extent={{90,8},{96,14}})));
 equation

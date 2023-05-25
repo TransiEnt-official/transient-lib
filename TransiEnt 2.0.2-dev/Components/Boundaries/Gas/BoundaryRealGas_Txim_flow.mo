@@ -130,10 +130,10 @@ protected
           h = gas_pT.h,
           rho = gas_pT.d))   annotation (Placement(transformation(extent={{-100,-100},{-80,-80}})));*/
 
-  TransiEnt.Basics.Media.RealGasGCV_xi_Block realGasGCV_xi(realGasType=medium) if
-                                                                   calculateH_GCV annotation (Placement(transformation(extent={{-30,76},{-10,96}})));
-  TransiEnt.Basics.Media.RealGasNCV_xi_Block realGasNCV_xi(realGasType=medium) if
-                                                                   calculateH_NCV annotation (Placement(transformation(extent={{-28,-44},{-8,-24}})));
+  TransiEnt.Basics.Media.RealGasGCV_xi_Block realGasGCV_xi(realGasType=medium)
+                                                                if calculateH_GCV annotation (Placement(transformation(extent={{-30,76},{-10,96}})));
+  TransiEnt.Basics.Media.RealGasNCV_xi_Block realGasNCV_xi(realGasType=medium)
+                                                                if calculateH_NCV annotation (Placement(transformation(extent={{-28,-44},{-8,-24}})));
 initial equation
 
   if verbose and variable_xi then

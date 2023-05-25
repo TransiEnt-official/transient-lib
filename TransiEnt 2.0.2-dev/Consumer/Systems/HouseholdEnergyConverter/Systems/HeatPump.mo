@@ -120,8 +120,8 @@ model HeatPump "HeatPump with thermal storage"
     choicesAllMatching=true,
     Placement(transformation(extent={{-62,-26},{-40,-4}})));
 
-  Modelica.Blocks.Math.Add add1 if
-                                  heating and hotwater annotation (Placement(transformation(extent={{30,48},{46,64}})));
+  Modelica.Blocks.Math.Add add1
+                               if heating and hotwater annotation (Placement(transformation(extent={{30,48},{46,64}})));
   Modelica.Blocks.Math.Add add2 if not hotwater annotation (Placement(transformation(
         extent={{8,-8},{-8,8}},
         rotation=90,

@@ -131,12 +131,12 @@ public
     redeclare model PressureLoss = ClaRa.Basics.ControlVolumes.Fundamentals.PressureLoss.Generic_PL.LinearPressureLoss_L2 (Delta_p_nom=p_drop_nom),
     m_flow_nom=m_flow_nom,
     p_start=simCenter.p_nom[2],
-    initOption=0) if  useFluidPorts annotation (Placement(transformation(
+    initOption=0)  if useFluidPorts annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=-90,
         origin={-60,0})));
 
-  Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow heatToStorage(T_ref=343.15) if  useFluidPorts annotation (Placement(transformation(
+  Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow heatToStorage(T_ref=343.15)  if useFluidPorts annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={-32,0})));
@@ -147,7 +147,7 @@ public
     p_start=simCenter.p_nom[2],
     m_flow_nom=m_flow_nom,
     p_nom=simCenter.p_nom[2],
-    initOption=0) if  useFluidPorts annotation (Placement(transformation(
+    initOption=0)  if useFluidPorts annotation (Placement(transformation(
         extent={{-10,10},{10,-10}},
         rotation=-90,
         origin={60,0})));
@@ -160,17 +160,17 @@ public
         origin={32,0})));
   Modelica.Blocks.Math.Add add(k2=-1) if useFluidPorts annotation (Placement(transformation(extent={{-10,32},{6,48}})));
   Modelica.Blocks.Math.Add add1(k2=-1) if useFluidPorts annotation (Placement(transformation(extent={{-20,-38},{-4,-22}})));
-  TransiEnt.Basics.Blocks.Sources.TemperatureExpression T_return_gen(y=if noEvent(fpGridIn.m_flow > fpGenIn.m_flow) then temperatureGridIn.T else (fpGridIn.m_flow*temperatureGridIn.T + T_stor*(fpGenIn.m_flow - fpGridIn.m_flow))/fpGenIn.m_flow) if
-                                                                                                                                                                                                        useFluidPorts annotation (Placement(transformation(extent={{-48,22},{-28,42}})));
+  TransiEnt.Basics.Blocks.Sources.TemperatureExpression T_return_gen(y=if noEvent(fpGridIn.m_flow > fpGenIn.m_flow) then temperatureGridIn.T else (fpGridIn.m_flow*temperatureGridIn.T + T_stor*(fpGenIn.m_flow - fpGridIn.m_flow))/fpGenIn.m_flow)
+                                                                                                                                                                                                     if useFluidPorts annotation (Placement(transformation(extent={{-48,22},{-28,42}})));
   TransiEnt.Basics.Interfaces.Thermal.HeatFlowRateOut Q_flow_gen "Generated heat flow";
-  TransiEnt.Basics.Blocks.Sources.TemperatureExpression T_supply_grid(y=if noEvent(fpGridIn.m_flow < fpGenIn.m_flow) then min(temperatureGenIn.T, simCenter.heatingCurve.T_supply) else min((fpGenIn.m_flow*temperatureGenIn.T + (fpGridIn.m_flow - fpGenIn.m_flow)*T_stor)/fpGridIn.m_flow, simCenter.heatingCurve.T_supply)) if
-                                                                                                                                                                                                        useFluidPorts annotation (Placement(transformation(extent={{-54,-36},{-28,-14}})));
+  TransiEnt.Basics.Blocks.Sources.TemperatureExpression T_supply_grid(y=if noEvent(fpGridIn.m_flow < fpGenIn.m_flow) then min(temperatureGenIn.T, simCenter.heatingCurve.T_supply) else min((fpGenIn.m_flow*temperatureGenIn.T + (fpGridIn.m_flow - fpGenIn.m_flow)*T_stor)/fpGridIn.m_flow, simCenter.heatingCurve.T_supply))
+                                                                                                                                                                                                     if useFluidPorts annotation (Placement(transformation(extent={{-54,-36},{-28,-14}})));
   TransiEnt.Basics.Interfaces.Thermal.HeatFlowRateOut Q_flow_con "Consumed heat flow";
   TransiEnt.Basics.Interfaces.Thermal.HeatFlowRateIn Q_flow_store if not useFluidPorts "Heat flow into the storage" annotation (HideResult=true, Placement(transformation(extent={{-108,-14},{-80,14}}), iconTransformation(extent={{-108,-14},{-80,14}})));
-  TransiEnt.Basics.Interfaces.Thermal.HeatFlowRateIn Q_flow_demand if  not useFluidPorts "Heat flow from the storage" annotation (HideResult=true, Placement(transformation(extent={{114,-14},{86,14}}), iconTransformation(extent={{114,-14},{86,14}})));
+  TransiEnt.Basics.Interfaces.Thermal.HeatFlowRateIn Q_flow_demand  if not useFluidPorts "Heat flow from the storage" annotation (HideResult=true, Placement(transformation(extent={{114,-14},{86,14}}), iconTransformation(extent={{114,-14},{86,14}})));
   Modelica.Blocks.Math.Product product1 if useFluidPorts annotation (Placement(transformation(extent={{10,-38},{22,-26}})));
-  Modelica.Blocks.Sources.RealExpression heatCapacity_gen(y=fpGridIn.m_flow*cp) if                                                                                                                                                                                                         useFluidPorts annotation (Placement(transformation(extent={{-20,-64},{6,-42}})));
-  Modelica.Blocks.Sources.RealExpression heatCapacity_gen1(y=fpGenIn.m_flow*cp) if                                                                                                                                                                                                         useFluidPorts annotation (Placement(transformation(extent={{-4,52},{12,72}})));
+  Modelica.Blocks.Sources.RealExpression heatCapacity_gen(y=fpGridIn.m_flow*cp)                                                                                                                                                                                                         if useFluidPorts annotation (Placement(transformation(extent={{-20,-64},{6,-42}})));
+  Modelica.Blocks.Sources.RealExpression heatCapacity_gen1(y=fpGenIn.m_flow*cp)                                                                                                                                                                                                         if useFluidPorts annotation (Placement(transformation(extent={{-4,52},{12,72}})));
   Modelica.Blocks.Math.Product product2 if useFluidPorts annotation (Placement(transformation(extent={{24,30},{40,46}})));
   Modelica.Blocks.Math.Gain gain(k=-1) if useFluidPorts annotation (Placement(transformation(extent={{6,0},{-10,16}})));
 

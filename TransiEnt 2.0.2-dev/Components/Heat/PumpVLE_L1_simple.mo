@@ -97,15 +97,15 @@ model PumpVLE_L1_simple "A pump for VLE mixtures with a volume flow rate dependi
     powerOut_th=0,
     powerAux=P_drive) if contributeToCycleSummary;
   extends ClaRa.Basics.Icons.ComplexityLevel(complexity="L1");
-  TransiEnt.Basics.Interfaces.General.PressureDifferenceIn dp_in if
-    use_Delta_p_input "Prescribed pressure increase"
+  TransiEnt.Basics.Interfaces.General.PressureDifferenceIn dp_in
+ if use_Delta_p_input "Prescribed pressure increase"
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},  rotation=270,
         origin={80,110}),
                 iconTransformation(extent={{-10,-10},{10,10}},
         rotation=270,
         origin={80,110})));
-  TransiEnt.Basics.Interfaces.Electrical.ElectricPowerIn P_el_in if
-     use_P_elInput "Electric power input"
+  TransiEnt.Basics.Interfaces.Electrical.ElectricPowerIn P_el_in
+  if use_P_elInput "Electric power input"
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},  rotation=270,
         origin={34,110}),
                 iconTransformation(extent={{-10,-10},{10,10}},
@@ -117,8 +117,8 @@ model PumpVLE_L1_simple "A pump for VLE mixtures with a volume flow rate dependi
                iconTransformation(extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-30,110})));
-  TransiEnt.Basics.Interfaces.General.MassFlowRateIn m_flow_in if
-                                                  m_flowInput "Prescribed mass flow rate"
+  TransiEnt.Basics.Interfaces.General.MassFlowRateIn m_flow_in
+                                               if m_flowInput "Prescribed mass flow rate"
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},
           rotation=270,
         origin={-80,110}),

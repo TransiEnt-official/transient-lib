@@ -45,8 +45,8 @@ protected
     parameter Boolean showExpertSummary;
     input SI.VolumeFlowRate V_flow "Volume flow rate";
     input SI.PressureDifference Delta_p "Pressure difference p_out - p_in";
-    input Real PR if  showExpertSummary "Pressure ratio, always <1, i.e. dependent on flow direction";
-    input Real PR_choked if   showExpertSummary "Critical pressure ratio";
+    input Real PR  if showExpertSummary "Pressure ratio, always <1, i.e. dependent on flow direction";
+    input Real PR_choked   if showExpertSummary "Critical pressure ratio";
     input Real opening_ "Valve opening in p.u.";
     input Real flowIsChoked "1 if flow is choked, 0 if not";
   end Outline;

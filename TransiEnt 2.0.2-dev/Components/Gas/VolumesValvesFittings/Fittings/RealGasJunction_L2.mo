@@ -202,8 +202,8 @@ public
 
 public
   ClaRa.Basics.Interfaces.EyeOut
-                           eye1 if
-                                  showData
+                           eye1
+                               if showData
     annotation (Placement(transformation(extent={{100,-60},{120,-40}}),
         iconTransformation(extent={{-10,-10},{10,10}},
         rotation=0,
@@ -214,8 +214,8 @@ protected
     annotation (Placement(transformation(extent={{55,-51},{57,-49}})));
 public
   ClaRa.Basics.Interfaces.EyeOut
-                           eye2 if
-                                  showData
+                           eye2
+                               if showData
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},
         rotation=270,
         origin={30,-110}),

@@ -194,11 +194,11 @@ model PVModule "Simple efficiency-based PV model"
 
   Modelica.Blocks.Interfaces.RealInput POA_radiation_in if input_POA_irradiation "Radiation on module in W/m^2" annotation (Placement(transformation(extent={{-140,-20},{-100,20}}), iconTransformation(extent={{-126,-20},{-86,20}})));
 
-  TransiEnt.Basics.Interfaces.Ambient.IrradianceIn DNI_in if   not input_POA_irradiation==true
+  TransiEnt.Basics.Interfaces.Ambient.IrradianceIn DNI_in   if not input_POA_irradiation==true
     "Direct Normal Irradiation in W/m^2" annotation (Placement(transformation(
           extent={{-140,4},{-100,44}}), iconTransformation(extent={{-140,4},{-100,
             44}})));
-  TransiEnt.Basics.Interfaces.Ambient.IrradianceIn DHI_in if  not input_POA_irradiation==true
+  TransiEnt.Basics.Interfaces.Ambient.IrradianceIn DHI_in  if not input_POA_irradiation==true
     "Diffuse Horizontal Irradiation in W/m^2" annotation (Placement(
         transformation(extent={{-140,-46},{-100,-6}}), iconTransformation(
           extent={{-140,-46},{-100,-6}})));
@@ -251,8 +251,8 @@ model PVModule "Simple efficiency-based PV model"
   //From SAM: The average [efficiency] of MPPT-low and MPPT-high, as described in the CEC test protocol, Source: NREL2016
 
 
-  Modelica.Blocks.Sources.RealExpression realExpression1(y=max(0, (IAM.iam_dir*irradiance.irradiance_direct_tilted + IAM.iam_diff*irradiance.irradiance_diffuse_tilted + IAM.iam_ground*irradiance.irradiance_ground_tilted)*(100 - Soiling)/100)) if
-                                                                                                                                                                                                        not input_POA_irradiation
+  Modelica.Blocks.Sources.RealExpression realExpression1(y=max(0, (IAM.iam_dir*irradiance.irradiance_direct_tilted + IAM.iam_diff*irradiance.irradiance_diffuse_tilted + IAM.iam_ground*irradiance.irradiance_ground_tilted)*(100 - Soiling)/100))
+                                                                                                                                                                                                     if not input_POA_irradiation
                                                          annotation (Placement(transformation(extent={{-100,76},{-80,96}})));
 
   TransiEnt.Components.Statistics.Collectors.LocalCollectors.CollectElectricPower collectElectricPower(typeOfResource=TransiEnt.Basics.Types.TypeOfResource.Renewable, integrateElPower=simCenter.integrateElPower)

@@ -1352,11 +1352,11 @@ powerToGasRecord: parametrization records for PtGplants in region [nPowerToGasPl
           extent={{-5,-5},{5,5}},
           rotation=180,
           origin={-125,49})));
-    Modelica.Blocks.Sources.RealExpression expression_PtGFeed_m_flow_Hydrogen_Type1(y=powerToGasPlantType1.electrolyzer.gasPortOut.m_flow) if  powerToGasType == PowerToGasType(1) annotation (Placement(transformation(
+    Modelica.Blocks.Sources.RealExpression expression_PtGFeed_m_flow_Hydrogen_Type1(y=powerToGasPlantType1.electrolyzer.gasPortOut.m_flow)  if powerToGasType == PowerToGasType(1) annotation (Placement(transformation(
           extent={{-5,-5},{5,5}},
           rotation=180,
           origin={-125,43})));
-    Modelica.Blocks.Sources.RealExpression expression_PtG1_m_flow_Type1(y=powerToGasPlantType1.gasPortOut.m_flow) if  powerToGasType == PowerToGasType(1) annotation (Placement(transformation(
+    Modelica.Blocks.Sources.RealExpression expression_PtG1_m_flow_Type1(y=powerToGasPlantType1.gasPortOut.m_flow)  if powerToGasType == PowerToGasType(1) annotation (Placement(transformation(
           extent={{-5,-5},{5,5}},
           rotation=180,
           origin={-125,37})));
@@ -1364,7 +1364,7 @@ powerToGasRecord: parametrization records for PtGplants in region [nPowerToGasPl
           extent={{-5,-5},{5,5}},
           rotation=180,
           origin={-125,31})));
-    Modelica.Blocks.Sources.RealExpression expression_PtGFeedp_Type1(y=powerToGasPlantType1.gasPortOut.p) if  powerToGasType == PowerToGasType(1) annotation (Placement(transformation(
+    Modelica.Blocks.Sources.RealExpression expression_PtGFeedp_Type1(y=powerToGasPlantType1.gasPortOut.p)  if powerToGasType == PowerToGasType(1) annotation (Placement(transformation(
           extent={{-5,-5},{5,5}},
           rotation=180,
           origin={-125,25})));
@@ -1373,11 +1373,11 @@ powerToGasRecord: parametrization records for PtGplants in region [nPowerToGasPl
           extent={{-5,-5},{5,5}},
           rotation=180,
           origin={-111,49})));
-    Modelica.Blocks.Sources.RealExpression expression_PtGFeed_m_flow_Hydrogen_Type2(y=powerToGasPlantType2.electrolyzer.gasPortOut.m_flow) if  powerToGasType == PowerToGasType(2) annotation (Placement(transformation(
+    Modelica.Blocks.Sources.RealExpression expression_PtGFeed_m_flow_Hydrogen_Type2(y=powerToGasPlantType2.electrolyzer.gasPortOut.m_flow)  if powerToGasType == PowerToGasType(2) annotation (Placement(transformation(
           extent={{-5,-5},{5,5}},
           rotation=180,
           origin={-111,43})));
-    Modelica.Blocks.Sources.RealExpression expression_PtG1_m_flow_Type2(y=powerToGasPlantType2.gasPortOut.m_flow) if  powerToGasType == PowerToGasType(2) annotation (Placement(transformation(
+    Modelica.Blocks.Sources.RealExpression expression_PtG1_m_flow_Type2(y=powerToGasPlantType2.gasPortOut.m_flow)  if powerToGasType == PowerToGasType(2) annotation (Placement(transformation(
           extent={{-5,-5},{5,5}},
           rotation=180,
           origin={-111,37})));
@@ -1385,7 +1385,7 @@ powerToGasRecord: parametrization records for PtGplants in region [nPowerToGasPl
           extent={{-5,-5},{5,5}},
           rotation=180,
           origin={-111,31})));
-    Modelica.Blocks.Sources.RealExpression expression_PtGFeedp_Type2(y=powerToGasPlantType2.gasPortOut.p) if  powerToGasType == PowerToGasType(2) annotation (Placement(transformation(
+    Modelica.Blocks.Sources.RealExpression expression_PtGFeedp_Type2(y=powerToGasPlantType2.gasPortOut.p)  if powerToGasType == PowerToGasType(2) annotation (Placement(transformation(
           extent={{-5,-5},{5,5}},
           rotation=180,
           origin={-111,25})));
@@ -1394,11 +1394,11 @@ powerToGasRecord: parametrization records for PtGplants in region [nPowerToGasPl
           extent={{-5,-5},{5,5}},
           rotation=180,
           origin={-97,49})));
-    Modelica.Blocks.Sources.RealExpression expression_PtGFeed_m_flow_Hydrogen_Type3(y=powerToGasPlantType3.electrolyzer.gasPortOut.m_flow) if  powerToGasType == PowerToGasType(3) annotation (Placement(transformation(
+    Modelica.Blocks.Sources.RealExpression expression_PtGFeed_m_flow_Hydrogen_Type3(y=powerToGasPlantType3.electrolyzer.gasPortOut.m_flow)  if powerToGasType == PowerToGasType(3) annotation (Placement(transformation(
           extent={{-5,-5},{5,5}},
           rotation=180,
           origin={-97,43})));
-    Modelica.Blocks.Sources.RealExpression expression_PtG1_m_flow_Type3(y=powerToGasPlantType3.gasPortOut.m_flow) if  powerToGasType == PowerToGasType(3) annotation (Placement(transformation(
+    Modelica.Blocks.Sources.RealExpression expression_PtG1_m_flow_Type3(y=powerToGasPlantType3.gasPortOut.m_flow)  if powerToGasType == PowerToGasType(3) annotation (Placement(transformation(
           extent={{-5,-5},{5,5}},
           rotation=180,
           origin={-97,37})));
@@ -1406,7 +1406,7 @@ powerToGasRecord: parametrization records for PtGplants in region [nPowerToGasPl
           extent={{-5,-5},{5,5}},
           rotation=180,
           origin={-97,31})));
-    Modelica.Blocks.Sources.RealExpression expression_PtGFeedp_Type3(y=powerToGasPlantType3.gasPortOut.p) if  powerToGasType == PowerToGasType(3) annotation (Placement(transformation(
+    Modelica.Blocks.Sources.RealExpression expression_PtGFeedp_Type3(y=powerToGasPlantType3.gasPortOut.p)  if powerToGasType == PowerToGasType(3) annotation (Placement(transformation(
           extent={{-5,-5},{5,5}},
           rotation=180,
           origin={-97,25})));

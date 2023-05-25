@@ -135,7 +135,7 @@ model SmallScaleCHP_simple "Small scale CHP model using a constant efficiency an
     p_drop=p_drop,
     use_Q_flow_in=true,
     Medium=mediumWater,
-    change_sign=true) if  useFluidPorts constrainedby TransiEnt.Components.Boundaries.Heat.Heatflow_L1 annotation (
+    change_sign=true)  if useFluidPorts constrainedby TransiEnt.Components.Boundaries.Heat.Heatflow_L1 annotation (
     Dialog(group="Replaceable Components"),
     choicesAllMatching=true,
     Placement(transformation(

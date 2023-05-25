@@ -197,8 +197,8 @@ model SOFC "Model of one SOFC-Cell Stack with three states (Ramp up, Normal oper
 
 
    Modelica.Blocks.Sources.RealExpression realExpression(y=P_el) if usePowerPort annotation (Placement(transformation(extent={{-62,54},{-42,74}})));
-  replaceable TransiEnt.Components.Boundaries.Electrical.ActivePower.Power powerBoundary if
-                                                                                usePowerPort constrainedby TransiEnt.Components.Boundaries.Electrical.Base.PartialModelPowerBoundary "Choice of power boundary model. The power boundary model must match the power port." annotation (
+  replaceable TransiEnt.Components.Boundaries.Electrical.ActivePower.Power powerBoundary
+                                                                             if usePowerPort constrainedby TransiEnt.Components.Boundaries.Electrical.Base.PartialModelPowerBoundary "Choice of power boundary model. The power boundary model must match the power port." annotation (
     Dialog(group="Replaceable Components"),
     choices(
       choice(redeclare TransiEnt.Components.Boundaries.Electrical.ActivePower.Power powerBoundary "P-Boundary for ActivePowerPort"),

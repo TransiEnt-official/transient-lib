@@ -1185,8 +1185,7 @@ equation
           color={0,0,0},
           smooth=Smooth.None,
           origin={-430,177},
-          rotation=360),
-                                   Ellipse(
+          rotation=360),           Ellipse(
           lineColor={0,125,125},
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid,
@@ -1207,8 +1206,7 @@ equation
           color={255,255,255},
           smooth=Smooth.None,
           origin={-155,212},
-          rotation=360),
-                                   Ellipse(
+          rotation=360),           Ellipse(
           lineColor={0,125,125},
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid,
@@ -1229,8 +1227,7 @@ equation
           color={255,255,255},
           smooth=Smooth.None,
           origin={155,212},
-          rotation=360),
-                                   Ellipse(
+          rotation=360),           Ellipse(
           lineColor={0,125,125},
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid,
@@ -1251,8 +1248,7 @@ equation
           color={255,255,255},
           smooth=Smooth.None,
           origin={-85,-28},
-          rotation=360),
-                                   Ellipse(
+          rotation=360),           Ellipse(
           lineColor={0,125,125},
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid,
@@ -1279,8 +1275,7 @@ equation
           color={0,0,0},
           smooth=Smooth.None,
           origin={-432,-5},
-          rotation=360),
-                                   Ellipse(
+          rotation=360),           Ellipse(
           lineColor={0,125,125},
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid,
@@ -1307,8 +1302,7 @@ equation
           color={0,0,0},
           smooth=Smooth.None,
           origin={-474,99},
-          rotation=360),
-                                   Ellipse(
+          rotation=360),           Ellipse(
           lineColor={0,125,125},
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid,
@@ -1329,8 +1323,7 @@ equation
           color={255,255,255},
           smooth=Smooth.None,
           origin={325,212},
-          rotation=360),
-                                   Ellipse(
+          rotation=360),           Ellipse(
           lineColor={0,125,125},
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid,
@@ -1351,8 +1344,7 @@ equation
           color={255,255,255},
           smooth=Smooth.None,
           origin={395,-28},
-          rotation=360),
-                                   Ellipse(
+          rotation=360),           Ellipse(
           lineColor={0,125,125},
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid,
@@ -1373,8 +1365,7 @@ equation
           color={255,255,255},
           smooth=Smooth.None,
           origin={-85,-268},
-          rotation=360),
-                                   Ellipse(
+          rotation=360),           Ellipse(
           lineColor={0,125,125},
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid,
@@ -1401,8 +1392,7 @@ equation
           color={0,0,0},
           smooth=Smooth.None,
           origin={-430,-245},
-          rotation=360),
-                                   Ellipse(
+          rotation=360),           Ellipse(
           lineColor={0,125,125},
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid,
@@ -1423,8 +1413,7 @@ equation
           color={255,255,255},
           smooth=Smooth.None,
           origin={85,-268},
-          rotation=360),
-                                   Ellipse(
+          rotation=360),           Ellipse(
           lineColor={0,125,125},
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid,

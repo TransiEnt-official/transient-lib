@@ -60,7 +60,7 @@ model PowerVoltage "Sets power and voltage for ApparentPowerPort"
   //                  Interfaces
   // _____________________________________________
 
-  TransiEnt.Basics.Interfaces.Electrical.ElectricPowerIn P_el_set if              Use_input_connector_P "Active Power input" annotation (Placement(transformation(
+  TransiEnt.Basics.Interfaces.Electrical.ElectricPowerIn P_el_set              if Use_input_connector_P "Active Power input" annotation (Placement(transformation(
         extent={{-20,-20},{20,20}},
         rotation=270,
         origin={-60,120}), iconTransformation(
@@ -68,7 +68,7 @@ model PowerVoltage "Sets power and voltage for ApparentPowerPort"
         rotation=270,
         origin={-54,120})));
 
-  TransiEnt.Basics.Interfaces.Electrical.VoltageIn v_set if                  Use_input_connector_v "Voltage input"
+  TransiEnt.Basics.Interfaces.Electrical.VoltageIn v_set                  if Use_input_connector_v "Voltage input"
                               annotation (Placement(transformation(extent={{-20,-20},
             {20,20}},
           rotation=270,

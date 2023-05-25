@@ -116,7 +116,7 @@ model SolarThermalSystem_5LayerStorage "Energy based combination of solar collec
   //           Interfaces
   // _____________________________________________
 
-  TransiEnt.Basics.Interfaces.Gas.RealGasPortIn gasPortIn(Medium=GasMedium) if     fuel==FT.Gas and useGasPort annotation (Placement(transformation(extent={{66,-108},{86,-88}}), iconTransformation(extent={{64,-110},{86,-88}})));
+  TransiEnt.Basics.Interfaces.Gas.RealGasPortIn gasPortIn(Medium=GasMedium)     if fuel==FT.Gas and useGasPort annotation (Placement(transformation(extent={{66,-108},{86,-88}}), iconTransformation(extent={{64,-110},{86,-88}})));
   TransiEnt.Basics.Interfaces.Thermal.HeatFlowRateIn Q_flow_demand_heating annotation (Placement(transformation(
         extent={{-14,-14},{14,14}},
         rotation=270,

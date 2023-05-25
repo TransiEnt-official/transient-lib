@@ -80,17 +80,17 @@ protected
   //           Interfaces
   // _____________________________________________
 
-  TransiEnt.Basics.Media.RealGasGCV_xi_Block realGasGCV_xi(realGasType=medium) if
-                                                                   calculateH_GCV annotation (Placement(transformation(extent={{-30,76},{-10,96}})));
-  TransiEnt.Basics.Media.RealGasNCV_xi_Block realGasNCV_xi(realGasType=medium) if
-                                                                   calculateH_NCV annotation (Placement(transformation(extent={{-28,-44},{-8,-24}})));
+  TransiEnt.Basics.Media.RealGasGCV_xi_Block realGasGCV_xi(realGasType=medium)
+                                                                if calculateH_GCV annotation (Placement(transformation(extent={{-30,76},{-10,96}})));
+  TransiEnt.Basics.Media.RealGasNCV_xi_Block realGasNCV_xi(realGasType=medium)
+                                                                if calculateH_NCV annotation (Placement(transformation(extent={{-28,-44},{-8,-24}})));
 public
   TransiEnt.Basics.Interfaces.Gas.RealGasPortIn gasPort(Medium=medium) annotation (Placement(transformation(extent={{90,-10},{110,10}})));
 
   TransiEnt.Basics.Interfaces.General.MassFlowRateIn m_flow=m_flow_in if (variable_m_flow) "Variable mass flow rate" annotation (Placement(transformation(extent={{-120,40},{-80,80}}), iconTransformation(extent={{-140,40},{-100,80}})));
   TransiEnt.Basics.Interfaces.General.SpecificEnthalpyIn h=h_in if (variable_h) "Variable specific enthalpy" annotation (Placement(transformation(extent={{-120,-20},{-80,20}}), iconTransformation(extent={{-140,-20},{-100,20}})));
-  TransiEnt.Basics.Interfaces.General.MassFractionIn xi[medium.nc - 1]=xi_in if
-       (variable_xi) "Variable mass composition" annotation (Placement(transformation(extent={{-120,-80},{-80,-40}}), iconTransformation(extent={{-140,-80},{-100,-40}})));
+  TransiEnt.Basics.Interfaces.General.MassFractionIn xi[medium.nc - 1]=xi_in
+    if (variable_xi) "Variable mass composition" annotation (Placement(transformation(extent={{-120,-80},{-80,-40}}), iconTransformation(extent={{-140,-80},{-100,-40}})));
 
   // _____________________________________________
   //

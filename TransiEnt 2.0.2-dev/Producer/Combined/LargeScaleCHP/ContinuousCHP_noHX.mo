@@ -126,8 +126,8 @@ public
                                                                                                         annotation (Placement(transformation(extent={{-12,-62},{8,-42}})));
   Modelica.Blocks.Math.Sum Q_flow(nin=2) annotation (Placement(transformation(extent={{24,-29},{34,-19}})));
   Modelica.Blocks.Sources.RealExpression realExpression3[quantity](y=-P_set_single)                                                  annotation (Placement(transformation(extent={{-86,80},{-66,100}})));
-  Modelica.Blocks.Sources.RealExpression fuelMassFlow_set(y=if P_set + Q_flow_set >= 0 then 0 else steamGenerator.y + Q_flow_peak.y/eta_peakload) if
-                                                                                                                      useGasPort annotation (Placement(transformation(extent={{10,60},{30,80}})));
+  Modelica.Blocks.Sources.RealExpression fuelMassFlow_set(y=if P_set + Q_flow_set >= 0 then 0 else steamGenerator.y + Q_flow_peak.y/eta_peakload)
+                                                                                                                   if useGasPort annotation (Placement(transformation(extent={{10,60},{30,80}})));
 equation
 
   // _____________________________________________

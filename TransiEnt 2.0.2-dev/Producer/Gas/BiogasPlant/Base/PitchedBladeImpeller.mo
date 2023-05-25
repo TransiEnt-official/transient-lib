@@ -61,7 +61,7 @@ model PitchedBladeImpeller "stirrer model of a pitched blade Impeller"
   parameter SI.Angle alpha=Const.pi/4 "pitch angle of blades";
   parameter Boolean useBaffles=false "true if baffles are used to redirect flow";
 
-  parameter SI.Length b_S if      useBaffles "baffle width" annotation (Dialog(enable=(useBaffles)));
+  parameter SI.Length b_S      if useBaffles "baffle width" annotation (Dialog(enable=(useBaffles)));
 
   // _____________________________________________
   //

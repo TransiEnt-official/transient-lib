@@ -51,7 +51,7 @@ model Gasflow_L1 "Ideal gas flow boundary with constant or prescribed power and 
   //                  Interfaces
   // _____________________________________________
 
-  TransiEnt.Basics.Interfaces.Gas.EnthalpyFlowRateIn H_flow_set if        use_H_flow_in "RealInput (for specification of boundary power)"
+  TransiEnt.Basics.Interfaces.Gas.EnthalpyFlowRateIn H_flow_set        if use_H_flow_in "RealInput (for specification of boundary power)"
     annotation (Placement(transformation(extent={{120,-20},{80,20}}),
         iconTransformation(
         extent={{20,-20},{-20,20}},

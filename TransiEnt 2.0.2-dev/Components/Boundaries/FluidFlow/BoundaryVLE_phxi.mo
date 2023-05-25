@@ -68,8 +68,8 @@ model BoundaryVLE_phxi "A boundary defining pressure, specific enthalpy and mass
   TransiEnt.Basics.Interfaces.General.PressureIn p=p_in if (variable_p) "Variable absolute pressure"    annotation (Placement(transformation(extent={{-120,40},{-80,80}})));
   TransiEnt.Basics.Interfaces.General.SpecificEnthalpyIn h=h_in if (variable_h) "Variable specific enthalpy"
     annotation (Placement(transformation(extent={{-120,-20},{-80,20}})));
-  TransiEnt.Basics.Interfaces.General.MassFractionIn xi[medium.nc-1]=xi_in if
-       (variable_xi) "Variable mass composition"
+  TransiEnt.Basics.Interfaces.General.MassFractionIn xi[medium.nc-1]=xi_in
+    if (variable_xi) "Variable mass composition"
     annotation (Placement(transformation(extent={{-120,-80},{-80,-40}})));
   Basics.Interfaces.Thermal.FluidPortIn fluidPortIn(Medium=medium) annotation (Placement(transformation(extent={{90,-10},{110,10}}), iconTransformation(extent={{90,-10},{110,10}})));
 

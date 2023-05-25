@@ -81,8 +81,8 @@ public
 
   TransiEnt.Basics.Interfaces.General.PressureIn p=p_in if (variable_p) "Variable absolute pressure" annotation (Placement(transformation(extent={{-120,40},{-80,80}}), iconTransformation(extent={{-140,40},{-100,80}})));
   TransiEnt.Basics.Interfaces.General.TemperatureIn T=T_in if (variable_T) "Variable temperature" annotation (Placement(transformation(extent={{-120,-20},{-80,20}}), iconTransformation(extent={{-140,-20},{-100,20}})));
-  TransiEnt.Basics.Interfaces.General.MassFractionIn xi[medium.nc - 1]=xi_in if
-       (variable_xi) "Variable mass composition" annotation (Placement(transformation(extent={{-120,-80},{-80,-40}}), iconTransformation(extent={{-140,-80},{-100,-40}})));
+  TransiEnt.Basics.Interfaces.General.MassFractionIn xi[medium.nc - 1]=xi_in
+    if (variable_xi) "Variable mass composition" annotation (Placement(transformation(extent={{-120,-80},{-80,-40}}), iconTransformation(extent={{-140,-80},{-100,-40}})));
 
   // _____________________________________________
   //
@@ -132,10 +132,10 @@ protected
       h=gas_pT_input.h,
       rho=gas_pT_input.d)) annotation (Placement(transformation(extent={{-100,-100},{-80,-80}})));*/
 
-  TransiEnt.Basics.Media.RealGasNCV_xi_Block realGasNCV_xi(realGasType=medium) if
-                                                                   calculateH_NCV annotation (Placement(transformation(extent={{-28,-44},{-8,-24}})));
-  TransiEnt.Basics.Media.RealGasGCV_xi_Block realGasGCV_xi(realGasType=medium) if
-                                                                   calculateH_GCV annotation (Placement(transformation(extent={{-30,76},{-10,96}})));
+  TransiEnt.Basics.Media.RealGasNCV_xi_Block realGasNCV_xi(realGasType=medium)
+                                                                if calculateH_NCV annotation (Placement(transformation(extent={{-28,-44},{-8,-24}})));
+  TransiEnt.Basics.Media.RealGasGCV_xi_Block realGasGCV_xi(realGasType=medium)
+                                                                if calculateH_GCV annotation (Placement(transformation(extent={{-30,76},{-10,96}})));
 initial equation
 
   if verbose and variable_xi then

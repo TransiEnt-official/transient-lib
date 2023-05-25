@@ -82,7 +82,7 @@ model AverageLoadConsumer "Constant current for active power and constant impeda
   //                  Interfaces
   // _____________________________________________
 
-  TransiEnt.Basics.Interfaces.Electrical.ElectricPowerIn P_el_set if              useInputConnectorP
+  TransiEnt.Basics.Interfaces.Electrical.ElectricPowerIn P_el_set              if useInputConnectorP
     "active power input at nominal frequency" annotation (Placement(
         transformation(extent={{-140,60},{-100,100}}, rotation=0),
         iconTransformation(

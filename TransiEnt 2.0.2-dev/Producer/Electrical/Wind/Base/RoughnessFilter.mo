@@ -68,12 +68,12 @@ protected
   TransiEnt.Basics.Interfaces.Ambient.VelocityIn v_wind_internal;
 
 public
-  TransiEnt.Basics.Interfaces.Ambient.VelocityIn v_wind_m if
-                                                 use_v_wind_input "measured wind velocity" annotation (Placement(transformation(extent={{-120,-20},{-80,20}}), iconTransformation(extent={{-100,-12},{-78,10}})));
+  TransiEnt.Basics.Interfaces.Ambient.VelocityIn v_wind_m
+                                              if use_v_wind_input "measured wind velocity" annotation (Placement(transformation(extent={{-120,-20},{-80,20}}), iconTransformation(extent={{-100,-12},{-78,10}})));
 
 public
-  TransiEnt.Basics.Interfaces.Ambient.VelocityOut v_wind_hub if
-                                                 use_v_wind_input "wind velocity at hub height" annotation (Placement(transformation(extent={{100,-20},{140,20}}), iconTransformation(extent={{100,-12},{122,10}})));
+  TransiEnt.Basics.Interfaces.Ambient.VelocityOut v_wind_hub
+                                              if use_v_wind_input "wind velocity at hub height" annotation (Placement(transformation(extent={{100,-20},{140,20}}), iconTransformation(extent={{100,-12},{122,10}})));
 equation
   // _____________________________________________
   //

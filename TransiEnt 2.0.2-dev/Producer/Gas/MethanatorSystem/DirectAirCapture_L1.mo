@@ -98,7 +98,7 @@ model DirectAirCapture_L1
         1,
         zeros(idx_CO2 - 1),
         {1},
-        zeros(medium.nc - 1 - idx_CO2))) if                                                                   not useInput annotation (Placement(transformation(extent={{54,18},{74,38}})));
+        zeros(medium.nc - 1 - idx_CO2)))                                                                   if not useInput annotation (Placement(transformation(extent={{54,18},{74,38}})));
   TransiEnt.Components.Sensors.RealGas.MassFlowSensor massFlowSensor(medium=medium,xiNumber=0) if not useInput annotation (Placement(transformation(extent={{100,28},{80,48}})));
 
   // _____________________________________________

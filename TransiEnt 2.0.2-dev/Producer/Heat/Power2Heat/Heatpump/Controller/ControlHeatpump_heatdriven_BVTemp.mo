@@ -62,8 +62,8 @@ model ControlHeatpump_heatdriven_BVTemp "Heat-driven operation with optional sta
     init_state=init_state,
     t_min_on=t_min_on,
     t_min_off=t_min_off) if MinTimes and not Modulating annotation (Placement(transformation(extent={{-24,2},{-12,14}})));
-  Modelica.Blocks.Math.BooleanToReal P_el_HP(realFalse=0, realTrue=Q_flow_n) if
-                                                                              not Modulating annotation (Placement(transformation(extent={{18,-2},{34,14}})));
+  Modelica.Blocks.Math.BooleanToReal P_el_HP(realFalse=0, realTrue=Q_flow_n)
+                                                                           if not Modulating annotation (Placement(transformation(extent={{18,-2},{34,14}})));
   Modelica.Blocks.Continuous.FirstOrder shutdown(T=60) if Startupramp annotation (Placement(transformation(extent={{30,-30},{42,-18}})));
   Modelica.Blocks.Sources.BooleanExpression booleanExpression(y=onOffRelais.switch_to_on.outPort.set) if Startupramp and MinTimes and not Modulating annotation (Placement(transformation(extent={{18,-50},{38,-30}})));
   Modelica.Blocks.Continuous.FirstOrder startup(T=10) if Startupramp annotation (Placement(transformation(extent={{28,-66},{44,-50}})));
@@ -76,8 +76,8 @@ model ControlHeatpump_heatdriven_BVTemp "Heat-driven operation with optional sta
     controllerType=Modelica.Blocks.Types.SimpleController.P,
     yMin=0,
     k=1000,
-    yMax=Q_flow_n) if
-                     Modulating annotation (Placement(transformation(extent={{-74,-44},{-60,-30}})));
+    yMax=Q_flow_n)
+                  if Modulating annotation (Placement(transformation(extent={{-74,-44},{-60,-30}})));
   Modelica.Blocks.Sources.RealExpression zero(y=0) if Modulating annotation (Placement(transformation(extent={{-54,-70},{-38,-52}})));
   Basics.Blocks.Hysteresis_inputVariable controller(pre_y_start=true) annotation (Placement(transformation(extent={{-40,2},{-28,14}})));
   Modelica.Blocks.Sources.RealExpression uHigh(y=if control_SoC then SoCHigh_HP else Delta_T_db/2) annotation (Placement(transformation(extent={{-74,16},{-58,34}})));
@@ -85,8 +85,8 @@ model ControlHeatpump_heatdriven_BVTemp "Heat-driven operation with optional sta
   Modelica.Blocks.Sources.Constant zero1(k=0) annotation (Placement(transformation(extent={{42,19},{52,29}})));
   Modelica.Blocks.Logical.Switch Q_flow_peakload if CalculatePHeater annotation (Placement(transformation(extent={{66,29},{80,43}})));
   Modelica.Blocks.Sources.RealExpression P_heater(y=P_elHeater) annotation (Placement(transformation(extent={{39,58},{59,78}})));
-  Modelica.Blocks.Logical.And and_heater if                                         CalculatePHeater annotation (Placement(transformation(extent={{26,48},{38,60}})));
-  Modelica.Blocks.Logical.Not isBaseload2 if                                        CalculatePHeater annotation (Placement(transformation(extent={{4,66},{16,78}})));
+  Modelica.Blocks.Logical.And and_heater                                         if CalculatePHeater annotation (Placement(transformation(extent={{26,48},{38,60}})));
+  Modelica.Blocks.Logical.Not isBaseload2                                        if CalculatePHeater annotation (Placement(transformation(extent={{4,66},{16,78}})));
   Modelica.Blocks.Sources.RealExpression uLow1(y=if control_SoC then SoCSet_HP else T_set) annotation (Placement(transformation(extent={{-126,-50},{-110,-32}})));
 equation
   // _____________________________________________

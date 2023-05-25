@@ -93,7 +93,7 @@ model GenericDataTable "Parameterized version of MSL's CombiTimeTable. See Examp
   //                  Interfaces
   // _____________________________________________
 
- Modelica.Blocks.Interfaces.RealOutput y[MSL_combiTimeTable.nout] if  multiple_outputs
+ Modelica.Blocks.Interfaces.RealOutput y[MSL_combiTimeTable.nout]  if multiple_outputs
     annotation (Placement(transformation(
           extent={{100,-10},{120,10}}),
                                       iconTransformation(extent={{100,-10},{120,

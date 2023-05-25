@@ -54,7 +54,7 @@ model Frequency "Sets frequency can be used for simple electric grid model"
   //                  Interfaces
   // _____________________________________________
 
-  TransiEnt.Basics.Interfaces.General.FrequencyIn f_set if                  useInputConnector  "Frequency input"
+  TransiEnt.Basics.Interfaces.General.FrequencyIn f_set                  if useInputConnector  "Frequency input"
                                                               annotation (Placement(transformation(extent={{-140,60},{-100,100}},
           rotation=0), iconTransformation(
         extent={{-20,-20},{20,20}},

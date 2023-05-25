@@ -74,8 +74,8 @@ model BoundaryVLE_hxim_flow "A boundary defining temperature, mass composition a
   TransiEnt.Basics.Interfaces.General.SpecificEnthalpyIn h=h_in if (variable_h) "Variable specific enthalpy"
     annotation (Placement(transformation(extent={{-120,-20},{-80,20}}),
         iconTransformation(extent={{-140,-20},{-100,20}})));
-  TransiEnt.Basics.Interfaces.General.MassFractionIn xi[medium.nc-1]=xi_in if
-       (variable_xi) "Variable mass composition"
+  TransiEnt.Basics.Interfaces.General.MassFractionIn xi[medium.nc-1]=xi_in
+    if (variable_xi) "Variable mass composition"
     annotation (Placement(transformation(extent={{-120,-80},{-80,-40}}),
         iconTransformation(extent={{-140,-80},{-100,-40}})));
 

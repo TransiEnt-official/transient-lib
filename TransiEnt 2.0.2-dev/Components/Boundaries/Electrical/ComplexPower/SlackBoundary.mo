@@ -59,7 +59,7 @@ model SlackBoundary "Slack Bus in TransiEnt"
   //                   Interfaces
   // _____________________________________________
 
- TransiEnt.Basics.Interfaces.Electrical.VoltageIn v_gen_set if              useInputConnectorv "fixed votlage input"
+ TransiEnt.Basics.Interfaces.Electrical.VoltageIn v_gen_set              if useInputConnectorv "fixed votlage input"
                                                                  annotation (Placement(transformation(extent={{-140,60},{-100,100}},
           rotation=0), iconTransformation(
         extent={{-20,-20},{20,20}},
