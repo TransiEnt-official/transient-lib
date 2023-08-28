@@ -168,6 +168,7 @@ equation
   end if;
 
   connect(T_source_internal, T_source_input_K);
+  connect(heatPump.T_source_input_K, T_source_input_K);
   connect(controller.Q_flow_set_HP, heatPump.Q_flow_set) annotation (Line(
       points={{-22.95,-19.21},{-10,-19.21},{-10,-18.8},{0.74,-18.8}},
       color={0,135,135},
