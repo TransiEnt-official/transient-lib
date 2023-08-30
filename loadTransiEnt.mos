@@ -1,7 +1,7 @@
 // define local paths (absolute paths with front slashes)
 repopath="ADD_YOUR_PATH_TO_TRANSIENT_HERE";
 resultpath="ADD_YOUR_PATH_FOR_RESULTS_HERE";
-version = "2.0.2-dev";
+//version = "2.0.2-dev"; //only in Release Versions
 
 
 // Some recommended options
@@ -13,22 +13,22 @@ Advanced.SmartConnect=false;
 
 // Define units
 RunScript("$DYMOLA/insert/displayunit.mos", true);
-RunScript(repopath + "/TransiEnt " + version + "/Scripts/loadTransiEntUnits.mos", true);
+RunScript(repopath + "/TransiEnt/Scripts/loadTransiEntUnits.mos", true);
 
 // ==== Load frequently used libraries:
 //
 openModel(repopath + "/ClaRa1.8.0/TILMedia 1.8.0 ClaRa/package.mo");
 openModel(repopath + "/ClaRa1.8.0/ClaRa/package.mo");
-openModel(repopath + "/TransiEnt " + version + "/package.mo");
+openModel(repopath + "/TransiEnt/package.mo");
 
 // ==== Set environtment variables:
 //
 Modelica.Utilities.System.setEnvironmentVariable("workingdir", resultpath);
 Modelica.Utilities.System.setEnvironmentVariable("startupscript", repopath + "/loadTransiEnt.mos");
-Modelica.Utilities.System.setEnvironmentVariable("public-data", repopath + "/TransiEnt " + version + "/Tables/");
-Modelica.Utilities.System.setEnvironmentVariable("private-data", repopath + "/TransiEnt " + version + "/Tables/");
-Modelica.Utilities.System.setEnvironmentVariable("superstructure-tables", repopath+"/TransiEnt " + version + "/Tables/superstructure/Tables/");
-Modelica.Utilities.System.setEnvironmentVariable("superstructure-input", repopath+"/TransiEnt " + version + "/Tables/superstructure/RegionInformation/")
+Modelica.Utilities.System.setEnvironmentVariable("public-data", repopath + "/TransiEnt/Tables/");
+Modelica.Utilities.System.setEnvironmentVariable("private-data", repopath + "/TransiEnt/Tables/");
+Modelica.Utilities.System.setEnvironmentVariable("superstructure-tables", repopath+"/TransiEnt/Tables/superstructure/Tables/");
+Modelica.Utilities.System.setEnvironmentVariable("superstructure-input", repopath+"/TransiEnt/Tables/superstructure/RegionInformation/")
 
 // ==== Change working directory:
 //
