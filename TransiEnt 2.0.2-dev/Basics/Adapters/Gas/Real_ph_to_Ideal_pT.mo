@@ -1,4 +1,4 @@
-﻿within Hy4GreenIT;
+﻿within TransiEnt.Basics.Adapters.Gas;
 model Real_ph_to_Ideal_pT "Adapter that switches from real to ideal fluid models"
 
 //________________________________________________________________________________//
