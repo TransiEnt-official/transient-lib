@@ -242,13 +242,13 @@ import      Modelica.Units.SI
 annotation (uses(
     Modelica_StateGraph2(version="2.0.4"),
     DataFiles(version="1.0.5"),
-    Design(version="1.0.7"),
+    Design(version="1.2.1"),
     Buildings(version="7.0.0"),
     Modelica(version="4.0.0"),
     Modelica_LinearSystems2(version="2.4.0"),
     ModelicaReference(version="4.0.0"),
-    TILMedia(version="1.8.0 ClaRa"),
-    ClaRa(version="1.8.0"),
+    TILMedia(version="1.8.1 ClaRa"),
+    ClaRa(version="1.8.1"),
     DymolaCommands(version="1.11")),           Icon(coordinateSystem(
           preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={Bitmap(extent={{-70,-62},{72,80}}, fileName="modelica://TransiEnt/Images/TransiEnt_Logo_Kreis_komprimiert.png")}),
   Documentation(info="<html>
@@ -258,6 +258,7 @@ annotation (uses(
 <ul>
 <li>Gillner, Markus</li>
 <li>Heckel, Jan-Peter</li>
+<li>Westphal, Jan</li>
 </ul>
 <p>Consulting developers:</p>
 <ul>
@@ -302,12 +303,13 @@ annotation (uses(
 <li>Schuelting, Oliver</li>
 <li>Senkel, Anne</li>
 <li>Settgast, Christine</li>
+<li>Steffen, Tom</li>
 <li>Toerber, Tobias</li>
 <li>Urbansky, Julian</li>
 <li>Wagner, Philipp</li>
 <li>Webster, John</li>
-<li>Westphal, Jan</li>
 <li>Weilbach, Simon</li>
+<li>Wiegel, Béla</li>
 <li>Vojacek, Ales</li>
 <li>Zaczek, Alexander</li>
 </ul>
