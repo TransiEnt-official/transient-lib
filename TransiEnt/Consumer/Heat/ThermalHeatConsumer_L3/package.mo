@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Heat;
+within TransiEnt.Consumer.Heat;
 package ThermalHeatConsumer_L3
 
 

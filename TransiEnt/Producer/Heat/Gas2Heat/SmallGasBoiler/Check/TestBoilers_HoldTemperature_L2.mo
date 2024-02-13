@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.Gas2Heat.SmallGasBoiler.Check;
+within TransiEnt.Producer.Heat.Gas2Heat.SmallGasBoiler.Check;
 model TestBoilers_HoldTemperature_L2 "Comparison of two boilers to hold a set temperature"
 
 

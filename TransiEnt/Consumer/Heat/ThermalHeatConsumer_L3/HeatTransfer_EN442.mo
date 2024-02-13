@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Heat.ThermalHeatConsumer_L3;
+within TransiEnt.Consumer.Heat.ThermalHeatConsumer_L3;
 model HeatTransfer_EN442 "EN4442_2"
 
 
@@ -19,7 +19,7 @@ model HeatTransfer_EN442 "EN4442_2"
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und Wärme-Institut Essen						  //
+// Gas- und Wärme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -31,8 +31,8 @@ model HeatTransfer_EN442 "EN4442_2"
 
   extends ClaRa.Basics.ControlVolumes.Fundamentals.HeatTransport.Generic_HT.HeatTransfer_L2;
 
-  extends ClaRa.Basics.ControlVolumes.Fundamentals.HeatTransport.TubeType_L2;
-  extends ClaRa.Basics.ControlVolumes.Fundamentals.HeatTransport.ShellType_L2;
+  extends ClaRa.Basics.ControlVolumes.Fundamentals.HeatTransport.TubeTypeVLE_L2;
+  extends ClaRa.Basics.ControlVolumes.Fundamentals.HeatTransport.ShellTypeVLE_L2;
   import SM = ClaRa.Basics.Functions.Stepsmoother;
   import SZT = ClaRa.Basics.Functions.SmoothZeroTransition;
 
