@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Media.Solids;
+within TransiEnt.Basics.Media.Solids;
 model GravelStonesSandDry "Gravel, stones, sand, dry "
 
 
@@ -19,7 +19,7 @@ model GravelStonesSandDry "Gravel, stones, sand, dry "
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und Wärme-Institut Essen						  //
+// Gas- und Wärme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -30,7 +30,7 @@ model GravelStonesSandDry "Gravel, stones, sand, dry "
 
   //[1] VDI 4640 Blatt 1: Thermische Nutzung des Untergrunds - Grundlagen, Genehmigungen, Umweltaspekte. In: Verein Deutscher Ingenieure e.V. Duesseldorf (2010)
   //[2] Grimm, Rdiger: Effiziente Loesungen fuer die Wohnungs- und Immobilienwirtschaft Beispiel: Sanierung Talstrae 5-9 in Freiberg/Sa. Bochum (2011)
-  extends TILMedia.SolidTypes.BaseSolid(
+  extends ClaRa.Basics.Media.Solids.BaseSolid(
     final d = 2120 "from [1], linear interpolated with lambda=0.8",
     final cp_nominal = 726.45 "from [1], linear interpolated with lambda=0.8",
     final lambda_nominal = 0.8 "from [2]",

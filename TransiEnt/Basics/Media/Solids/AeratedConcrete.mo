@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Media.Solids;
+within TransiEnt.Basics.Media.Solids;
 model AeratedConcrete "Aerated Concrete"
 
 
@@ -19,7 +19,7 @@ model AeratedConcrete "Aerated Concrete"
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und Wärme-Institut Essen						  //
+// Gas- und Wärme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -28,7 +28,7 @@ model AeratedConcrete "Aerated Concrete"
 
 
 
-  extends TILMedia.SolidTypes.BaseSolid(
+  extends ClaRa.Basics.Media.Solids.BaseSolid(
     final d = 400.0,
     final cp_nominal = 1000.0,
     final lambda_nominal = 0.13,

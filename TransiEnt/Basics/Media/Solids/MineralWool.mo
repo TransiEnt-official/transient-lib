@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Media.Solids;
+within TransiEnt.Basics.Media.Solids;
 model MineralWool "Mineral Wool"
 
 
@@ -19,7 +19,7 @@ model MineralWool "Mineral Wool"
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und Wärme-Institut Essen						  //
+// Gas- und Wärme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -34,7 +34,7 @@ model MineralWool "Mineral Wool"
   //          Imports and Class Hierarchy
   // _____________________________________________
 
-  extends TILMedia.SolidTypes.BaseSolid(
+  extends ClaRa.Basics.Media.Solids.BaseSolid(
     final d = 125.0,
     final cp_nominal = 840.0,
     final lambda_nominal = 0.060,
