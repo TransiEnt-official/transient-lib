@@ -30,7 +30,7 @@ Installation:
 
 1. Download transient-lib and copy the library to your preferred folder
 
-Currently, only Dymola provides full suppport of TransiEnt. The development team has tested all models carefully using Dymola 2024x.
+Currently, only Dymola provides full suppport of TransiEnt. The development team has tested all models carefully using Dymola 2023x Refresh1.
 
 2. Download the ClaRa library 1.8.1 from the official github page (https://github.com/xrg-simulation/ClaRa-official/releases/tag/1.8.1). Copy the content of the unzipped folder ClaRa-official-1.8.1 into! the transient-lib folder named ClaRa.
 
