@@ -5,7 +5,7 @@ record Gas_ExhaustGas "var{H2O,CO2,CO,H2,O2,NO,NO2,SO2,N2} VDIWA, exhaust"
 
 
 //________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 2.0.2                             //
+// Component of the TransiEnt Library, version: 2.0.3                             //
 //                                                                                //
 // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
 // Copyright 2021, Hamburg University of Technology.                              //
@@ -20,11 +20,10 @@ record Gas_ExhaustGas "var{H2O,CO2,CO,H2,O2,NO,NO2,SO2,N2} VDIWA, exhaust"
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und Wärme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen						  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
-
 
 
 

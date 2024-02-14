@@ -104,7 +104,7 @@ within ;
 package TransiEnt "Library for transient simulation of integrated energy networks with a high share of renewable energies"
 
 //________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 2.0.2                             //
+// Component of the TransiEnt Library, version: 2.0.3                             //
 //                                                                                //
 // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
 // Copyright 2021, Hamburg University of Technology.                              //
@@ -119,11 +119,10 @@ package TransiEnt "Library for transient simulation of integrated energy network
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und Wärme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen						  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
-
 
 
 
@@ -314,7 +313,7 @@ annotation (uses(
 <li>Zaczek, Alexander</li>
 </ul>
 </html>"),
-  version="2.0.2",
+  version="2.0.3",
   conversion(from(version="0.3", to="1.1.0", script="modelica://TransiEnt/Scripts/ConvertTransiEnt_from_1.0_to_1.1.mos"),
   from(version="1.0.1", to="1.1.0", script="modelica://TransiEnt/Scripts/ConvertTransiEnt_from_1.0_to_1.1.mos"),
   from(version="1.1.0", to="1.2.0", script="modelica://TransiEnt/Scripts/ConvertTransiEnt_from_1.1.0_to_1.2.0.mos"),
