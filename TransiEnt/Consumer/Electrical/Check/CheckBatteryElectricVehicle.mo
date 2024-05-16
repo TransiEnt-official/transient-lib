@@ -38,14 +38,14 @@ model CheckBatteryElectricVehicle
                                       tableInterpolationSmoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments)
                                       annotation (Placement(transformation(extent={{-90,80},{-70,100}})));
 
-// _____________________________________________
-//
-//           Functions
-// _____________________________________________
-
-  BatteryElectricVehicle batteryElectricVehicle(useExternalControl=false, controlType="limit in Watt") annotation (Placement(transformation(extent={{-64,6},{-44,26}})));
-  TransiEnt.Components.Boundaries.Electrical.ComplexPower.SlackBoundary slackBoundary annotation (Placement(transformation(extent={{22,-12},{42,8}})));
   inner TransiEnt.ModelStatistics modelStatistics annotation (Placement(transformation(extent={{-40,80},{-20,100}})));
+
+  BatteryElectricVehicle batteryElectricVehicle(
+    inputDataType="SoC",
+    useExternalControl=false,
+    controlType="Power limit")                                                                         annotation (Placement(transformation(extent={{-72,2},{-46,28}})));
+  TransiEnt.Components.Boundaries.Electrical.ComplexPower.SlackBoundary slackBoundary annotation (Placement(transformation(extent={{22,-12},{42,8}})));
+
 equation
 
   // _____________________________________________
@@ -54,7 +54,7 @@ equation
   // _____________________________________________
 
   connect(batteryElectricVehicle.epp, slackBoundary.epp) annotation (Line(
-      points={{-44.2,15.8},{14,15.8},{14,-2},{22,-2}},
+      points={{-46.26,14.74},{16,14.74},{16,-2},{22,-2}},
       color={28,108,200},
       thickness=0.5));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(preserveAspectRatio=false)),

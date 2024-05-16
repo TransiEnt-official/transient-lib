@@ -66,10 +66,10 @@ model BatteryElectricVehicle "Electricity consumption of a home wallbox"
       choices(checkBox=true),
       Dialog(group="Load Management"));
 
-  parameter String controlType = "limit in Watt" "Load control method" annotation (
+  parameter String controlType = "Power limit" "Load control method" annotation (
        Dialog(enable=useExternalControl, group="Load Management"),
-       choices(choice="limit in Watt",
-               choice="proportional"));
+       choices(choice="Power limit" "Absolute power limit",
+               choice="Proportional" "Relative power reduction to given percentage"));
 
   // _____________________________________________
   //
@@ -97,9 +97,9 @@ model BatteryElectricVehicle "Electricity consumption of a home wallbox"
   TransiEnt.Components.Boundaries.Electrical.ActivePower.Frequency vehiclePowerBoundary(
       useInputConnector=false) annotation (Placement(transformation(extent={{26,4},{10,-12}})));
 
-  Modelica.Blocks.Math.Min min1 if useExternalControl and controlType == "limit in Watt"  annotation (Placement(transformation(extent={{-64,-22},{-50,-8}})));
+  Modelica.Blocks.Math.Min min1 if useExternalControl and controlType == "Power limit"  annotation (Placement(transformation(extent={{-64,-22},{-50,-8}})));
 
-  Modelica.Blocks.Math.Product product1 if  useExternalControl and controlType == "proportional" annotation (Placement(transformation(extent={{-66,-48},{-52,-34}})));
+  Modelica.Blocks.Math.Product product1 if  useExternalControl and controlType == "Proportional" annotation (Placement(transformation(extent={{-66,-48},{-52,-34}})));
 
   Modelica.Blocks.Logical.Switch P_set_battery  annotation (Placement(transformation(extent={{62,68},{80,50}})));
 
@@ -107,7 +107,7 @@ model BatteryElectricVehicle "Electricity consumption of a home wallbox"
                                                                                                                       inputDataType=="Distance" annotation (Placement(transformation(extent={{46,70},
             {76,90}})));
 
-  Modelica.Blocks.Sources.RealExpression    presence(y=DistanceLocationData.y[2]) if
+  Modelica.Blocks.Sources.RealExpression    location(y=DistanceLocationData.y[2]) if
                                                                          inputDataType=="Distance" annotation (Placement(transformation(extent={{-10,44},{10,60}})));
 
   Modelica.Blocks.Sources.RealExpression zero(y=0) if inputDataType=="SoC"   annotation (Placement(transformation(extent={{46,84},{76,104}})));
@@ -137,8 +137,8 @@ model BatteryElectricVehicle "Electricity consumption of a home wallbox"
 
   //Data tables
 
-   replaceable model DistanceLocationTable = TransiEnt.Basics.Tables.ElectricGrid.Electromobility.DistanceLocationProfiles_family_15min    constrainedby TransiEnt.Basics.Tables.ElectricGrid.Electromobility.Base.DistanceLocationTable(
-                                                                                    multiple_outputs=true, columns={2*(column-1) + 2, 2*(column-1)+3}) "Data table for data time series of distance travelled" annotation (choicesAllMatching=true,Dialog(group="Data",
+   replaceable model DistanceLocationTable = TransiEnt.Basics.Tables.ElectricGrid.Electromobility.DistanceLocationProfiles_family_15min    constrainedby
+    TransiEnt.Basics.Tables.ElectricGrid.Electromobility.Base.DistanceLocationTable(multiple_outputs=true, columns={2*(column-1) + 2, 2*(column-1)+3}) "Data table for data time series of distance travelled" annotation (choicesAllMatching=true,Dialog(group="Data",
         enable=inputDataType == "Distance"));
      DistanceLocationTable DistanceLocationData if inputDataType=="Distance" "y[1]=Distance, y[2]=Location" annotation (Placement(transformation(extent={{-94,-90},{-80,-76}})));
 
@@ -147,14 +147,25 @@ model BatteryElectricVehicle "Electricity consumption of a home wallbox"
         enable=inputDataType == "SoC"));
    soCTable soC_data if inputDataType=="SoC" annotation (Placement(transformation(extent={{8,28},{20,40}})));
 
+  replaceable model PowerBoundaryModel = TransiEnt.Components.Boundaries.Electrical.ComplexPower.PQBoundary constrainedby
+    TransiEnt.Components.Boundaries.Electrical.Base.PartialModelPowerBoundary                                                                                                                        "Choice of power boundary model. The power boundary model must match the power port."     annotation (
+    choicesAllMatching=true,
+    Dialog(group="Replaceable Components"));
+
+  PowerBoundaryModel Power(useInputConnectorQ=false) "Choice of power boundary model. The power boundary model must match the power port."     annotation (
+    Placement(transformation(extent={{84,-88},{64,-68}})));
+
+  TransiEnt.Basics.Blocks.FilterPosNeg Filter annotation (Placement(transformation(extent={{54,-62},{74,-42}})));
+  Modelica.Blocks.Math.RealToBoolean charging if      inputDataType == "Distance" annotation (Placement(transformation(extent={{20,48},{28,56}})));
+
   // _____________________________________________
   //
   //              Interfaces
   // _____________________________________________
 
-  Modelica.Blocks.Interfaces.RealInput P_limit if useExternalControl and controlType == "limit in Watt"  "Interface for Load Regulation" annotation (Placement(transformation(extent={{-128,-24},{-90,14}}),
+  TransiEnt.Basics.Interfaces.Electrical.ElectricPowerIn P_limit if useExternalControl and controlType == "Power limit"  "Interface for Load Regulation" annotation (Placement(transformation(extent={{-128,-24},{-90,14}}),
                         iconTransformation(extent={{-128,-24},{-90,14}})));
-  Modelica.Blocks.Interfaces.RealInput p_control if useExternalControl and controlType == "proportional" "Interface for Load Regulation" annotation (Placement(transformation(extent={{-128,-58},
+  Modelica.Blocks.Interfaces.RealInput p_control if useExternalControl and controlType == "Proportional" "Interface for Load Regulation" annotation (Placement(transformation(extent={{-128,-58},
             {-90,-20}}),    iconTransformation(extent={{-128,-58},{-90,-20}})));
 //  TransiEnt.Basics.Interfaces.Electrical.ApparentPowerPort epp annotation (Placement(transformation(extent={{90,-10},{110,10}})));
   Modelica.Blocks.Interfaces.RealInput SoC_consumption_internal "Test";
@@ -165,16 +176,8 @@ model BatteryElectricVehicle "Electricity consumption of a home wallbox"
   PowerPortModel epp annotation (
     Placement(transformation(extent={{88,-12},{108,8}})));
 
-public
-  replaceable model PowerBoundaryModel = TransiEnt.Components.Boundaries.Electrical.ComplexPower.PQBoundary constrainedby TransiEnt.Components.Boundaries.Electrical.Base.PartialModelPowerBoundary  "Choice of power boundary model. The power boundary model must match the power port."     annotation (
-    choicesAllMatching=true,
-    Dialog(group="Replaceable Components"));
 
-  PowerBoundaryModel Power(useInputConnectorQ=false) "Choice of power boundary model. The power boundary model must match the power port."     annotation (
-    Placement(transformation(extent={{84,-88},{64,-68}})));
 
-  TransiEnt.Basics.Blocks.FilterPosNeg Filter annotation (Placement(transformation(extent={{54,-62},{74,-42}})));
-  Modelica.Blocks.Math.RealToBoolean realToBoolean if inputDataType == "Distance" annotation (Placement(transformation(extent={{20,48},{28,56}})));
 equation
 
   //equations for input type Soc
@@ -187,6 +190,7 @@ equation
   end if;
 
   //equations for input type Distance
+
     if inputDataType=="Distance" then
      SoC_consumption_internal=0;
     end if;
@@ -219,23 +223,31 @@ equation
   connect(product1.y, add.u2) annotation (Line(points={{-51.3,-41},{-44,-41},{-44,-27.2},{-31.4,-27.2}},
                                                                                                      color={0,0,127}));
   connect(P_other.y, add.u1) annotation (Line(points={{-64.6,35},{-36,35},{-36,-18.8},{-31.4,-18.8}},                 color={0,0,127}));
-    if not useExternalControl then
-  connect(P_home.y, add.u2) annotation (Line(points={{-64.6,22},{-64.6,-27.2},{-31.4,-27.2}},                        color={0,0,127}));
-    end if;
   connect(add.y, P_charge_SoC.u3) annotation (Line(points={{-15.3,-23},{-12,-23},{-12,73.6},{-1.6,73.6}},          color={0,0,127}));
-  connect(p_control, P_charge_SoC.u3) annotation (Line(points={{-109,-39},{-88,-39},{-88,-52},{-12,-52},{-12,73.6},{-1.6,73.6}},                             color={0,0,127}));
   connect(P_limit, min1.u2) annotation (Line(points={{-109,-5},{-72,-5},{-72,-19.2},{-65.4,-19.2}},
                                                                                                   color={0,0,127}));
   connect(P_home.y, min1.u1) annotation (Line(points={{-64.6,22},{-64.6,-10.8},{-65.4,-10.8}},                                        color={0,0,127}));
-  connect(P_charge.y, P_charge_SoC.u3) annotation (Line(points={{-64.6,46},{-12,46},{-12,73.6},{-1.6,73.6}}, color={0,0,127}));
   connect(Power.epp, epp) annotation (Line(
       points={{84,-78},{88,-78},{88,-16},{84,-16},{84,-2},{98,-2}},
       color={0,135,135},
       thickness=0.5));
   connect(Filter.y, Power.P_el_set) annotation (Line(points={{75,-52},{80,-52},{80,-66}}, color={0,0,127}));
   connect(P_batteryToGrid.y, Filter.u) annotation (Line(points={{46.6,-52},{52,-52}}, color={0,0,127}));
-  connect(presence.y, realToBoolean.u) annotation (Line(points={{11,52},{19.2,52}}, color={0,0,127}));
-  connect(realToBoolean.y, P_set_battery.u2) annotation (Line(points={{28.4,52},{42,52},{42,59},{60.2,59}}, color={255,0,255}));
+  connect(location.y, charging.u) annotation (Line(points={{11,52},{19.2,52}}, color={0,0,127}));
+  connect(charging.y, P_set_battery.u2) annotation (Line(points={{28.4,52},{42,52},{42,59},{60.2,59}}, color={255,0,255}));
+
+   if not inputDataType=="Distance" then
+   connect(min1.y, P_charge_SoC.u3);
+   connect(product1.y, P_charge_SoC.u3);
+   connect(P_charge.y, min1.u1);
+   connect(P_charge.y, product1.u1);
+ end if;
+
+ if not useExternalControl then
+      connect(P_home.y, add.u2) annotation (Line(points={{-64.6,22},{-64.6,-27.2},{-31.4,-27.2}},                        color={0,0,127}));
+      connect(P_charge.y, P_charge_SoC.u3) annotation (Line(points={{-64.6,46},{-12,46},{-12,73.6},{-1.6,73.6}}, color={0,0,127}));
+  end if;
+
   annotation (
       Diagram(graphics={
         Line(
