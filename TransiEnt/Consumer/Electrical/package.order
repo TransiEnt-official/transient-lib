@@ -10,3 +10,4 @@ TableBasedElectricConsumer
 ExponentialElectricConsumerComplex
 DynamicExponentialElectricConsumerComplex
 SimpleExponentialElectricConsumerComplex
+BatteryElectricVehicle
