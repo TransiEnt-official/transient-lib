@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas;
+within TransiEnt.Producer.Gas;
 package BiogasPlant "Package for components of a biogas plant and reactor models"
 
 

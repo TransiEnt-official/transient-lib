@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.BiogasPlant.Base.ADM1;
+within TransiEnt.Producer.Gas.BiogasPlant.Base.ADM1;
 model ADM1_CSTR "Modelling anaerobic digestion model number 1 equations"
 
 
@@ -419,26 +419,57 @@ equation
     Icon(coordinateSystem(preserveAspectRatio=false)),
     Diagram(coordinateSystem(preserveAspectRatio=false)),
     Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
-<p>This model contains different equatios for modeling the processes of anaerobic digestion. It can be chosen between the parameters of Bulkowska et al. and the bsm2 parameters.</p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
-<p>(Description)</p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
-<p>(Description)</p>
-<h4><span style=\"color: #008000\">4. Interfaces</span></h4>
-<p>(none)</p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
-<p>(no equations)</p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
+<p>This model calculates the gas volume flow and the reaction energy released from all biochemical reactions and processes of an anaerobic digestion.</p>
+<p>This model contains different equatios for modeling the processes of anaerobic digestion. It can be chosen between the parameters of Bulkowska et al.[1] and the bsm2 parameters[2]. Concentration balance equation are calculated in .</p>
+<h4><span style=\"color: #008000\">Level of detail, physical effects considered, and physical insight</span></h4>
+<p>Biochemical processes are calculated in model <a href=\"modelica://TransiEnt/Producer/Gas/BiogasPlant/Base/ADM1/ADM1_PetersenMatrix.mo\">PetersenMatrix</a>. </p>
+<h4><span style=\"color: #008000\">Limits of validity </span></h4>
+<p>The process rates are first order and the equations are only valid for a constant temperature between 35 and 60&deg;C (mesophilic - thermophilic)</p>
+<h4><span style=\"color: #008000\">Interfaces</span></h4>
+<p><img src=\"modelica://TransiEnt/Images/scheme_adm1-gas_producer.png\" alt=\"scheme_adm1\" style=\"width: 25%; heigth: auto;\"/> </p>
+<h4><span style=\"color: #008000\">Nomenclature</span></h4>
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"1\" width=\"100%\"><tr>
+<td><h4>Variable Name </h4></td>
+<td><h4>Variable</h4></td>
+</tr>
+<tr>
+<td><p>composition of Inflow</p></td>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-B353DHfA.png\" alt=\"X_in\"/></p></td>
+</tr>
+<tr>
+<td><p>composition of Outflow</p></td>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-hxMop7ZI.png\" alt=\"X_out\"/></p></td>
+</tr>
+<tr>
+<td><p>Temperature of decomposition</p></td>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-HQlaXuNT.png\" alt=\"T\"/></p></td>
+</tr>
+<tr>
+<td><p>density of Inflow</p></td>
+<td><p>&rho;</p></td>
+</tr>
+<tr>
+<td><p>Energy flow released by metabolism reactions</p></td>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-OByABOkg.png\" alt=\"Q_R\"/></p></td>
+</tr>
+<tr>
+<td><p>Gas volume flow of nominal pressure</p></td>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-boPwTYhI.png\" alt=\"q_gasout\"/></p></td>
+</tr>
+<tr>
+<td><p>Organic fraction of solids in tank and inflow</p></td>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-n7bzRrWK.png\" alt=\"VS\"/></p></td>
+</tr>
+</table>
+<h4><span style=\"color: #008000\">Remarks for Usage</span></h4>
 <p>It is important to check if the parameters of the record and inflow parameters of the adm1 model fit to each other so that only bsm2 parameters or only bulkowska parameters are used.</p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
-<p>This model has been validated as part of the master thesis of Philip Jahneke and it was tested in the check model &quot;TestADM1&quot; (look there for further information about the validation). Only the mesophilic operation mode has been validated.</p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
+<h4><span style=\"color: #008000\">Validation</span></h4>
+<p>This model has been validated as part of the master thesis of Philip Jahneke and it was tested in <a href=\"TransiEnt.Producer.Gas.BiogasPlant.Check.TestADM1\">Check.TestADM1</a>; (look there for further information about the validation). Only the mesophilic operation mode has been validated.</p>
+<h4><span style=\"color: #008000\">References</span></h4>
 <p>[1] Bułkowska, K., et al. (2015). .ADM1-based modeling of anaerobic codigestion of maize silage and cattle manure &ndash; a feedstock characterisation for model implementation (part I) </p>
 <p>[2] Ros&eacute;n, C., &amp; Jeppsson, U. (2006). Aspects on ADM1 Implementation within the BSM2 Framework</p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
+<h4><span style=\"color: #008000\">Version History</span></h4>
 <p>Model created by Philipp Jahneke (philipp.koziol@tuhhl.de), Sept 2018</p>
 <p>Model adapted for TransiEnt by Jan Westphal (j.westphal@tuhh.de) in May 2020</p>
 </html>"),

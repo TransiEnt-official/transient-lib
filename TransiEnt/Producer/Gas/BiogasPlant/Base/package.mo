@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.BiogasPlant;
+within TransiEnt.Producer.Gas.BiogasPlant;
 package Base "Base class for biogas plant"
 
 

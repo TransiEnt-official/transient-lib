@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.BiogasPlant.Base.ADM1;
+within TransiEnt.Producer.Gas.BiogasPlant.Base.ADM1;
 model ADM1_PetersenMatrix "Constructing the Petersen Matrix of ADM1"
 
 
@@ -133,26 +133,27 @@ model ADM1_PetersenMatrix "Constructing the Petersen Matrix of ADM1"
 
    annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(preserveAspectRatio=false)),
     Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
-<p>(Description) </p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
-<p>(Description)</p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
-<p>(Description)</p>
-<h4><span style=\"color: #008000\">4. Interfaces</span></h4>
-<p>(none)</p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
-<p>(no equations)</p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
-<p>(none)</p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
-<p>(no validation or testing necessary)</p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
+<p>This model describes the biochemical equations of a fermentation process in the manner of the Petersen matrix [1]. This model is called up in model <a href=\"TransiEnt.Producer.Gas.BiogasPlant.Base.ADM1.ADM1_CSTR\"a> ADM1_CSTR</a>.  </p>
+<h4><span style=\"color: #008000\">Level of detail, physical effects considered, and physical insight</span></h4>
+<p>24 Concentrations of dissolved or suspended substances in the fermentation substrate are balanced. A distinction is made as to whether the biochemical processes are mesophilic or thermophilic. In the Petersen matrix, 19 biochemical processes are mapped, which can be divided into the following categories:
+1 Digestion of solids (disintegration)
+2-4 Hydrolysis of polymers to monomers
+5-7 Fermentative processes of acidogenesis
+8-10 Acetogenesis
+11+12 Methanogenesis
+13-19 Decomposition processes of the microorganisms.</p>
+<h4><span style=\"color: #008000\">Limits of validity </span></h4>
+<p>The process rates are first order and the equations are only valid for a constant temperature between 35 and 60°C (mesophilic - thermophilic)</p>
+<h4><span style=\"color: #008000\">Governing Equations</span></h4>
+<p>19 concentration balance equation. More information in [1].</p>
+<h4><span style=\"color: #008000\">Validation</span></h4>
+<p>Model is part of model <a href=\"TransiEnt.Producer.Gas.BiogasPlant.Base.ADM1.ADM1_CSTR\"a> ADM1_CSTR</a> and is therefore validated in <a href=\"TransiEnt.Producer.Gas.BiogasPlant.Check.TestADM1\">Check.TestADM1</a></p>
+<h4><span style=\"color: #008000\">References</span></h4>
 <p>[1] <span style=\"font-family: (Default);\">D.J. Batstone, J. Keller*, I. Angelidaki, S.V. Kalyuzhnyi, S.G. Pavlostathis, A. Rozzi, W.T.M. Sanders, H. Siegrist and V.A. Vavilin, (2002),</span> &quot;The IWA Anaerobic Digestion Model No 1 (ADM1)&quot;</p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
+<h4><span style=\"color: #008000\">Version History</span></h4>
 <p>Model created by Philipp Jahneke (philipp.koziol@tuhhl.de), Sept 2018</p>
 <p>Model adapted for TransiEnt by Jan Westphal (j.westphal@tuhh.de) in May 2020</p>
+<p>Changed documentation by Markus Gillner (markus.gillner@tuhh.de) in Jan 2025</p>
 </html>"));
 end ADM1_PetersenMatrix;

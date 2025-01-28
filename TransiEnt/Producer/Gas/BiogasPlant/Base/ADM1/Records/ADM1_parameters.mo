@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.BiogasPlant.Base.ADM1.Records;
+within TransiEnt.Producer.Gas.BiogasPlant.Base.ADM1.Records;
 partial record ADM1_parameters "Partial record for the parameters of the adm1 model"
 
 
@@ -236,26 +236,11 @@ partial record ADM1_parameters "Partial record for the parameters of the adm1 mo
   parameter Real k_p(final unit="m3/(s.Pa)") "pipe resistance coefficient ";
 
   annotation (Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
-<p>(Description) </p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
-<p>(Description)</p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
-<p>(Description)</p>
-<h4><span style=\"color: #008000\">4. Interfaces</span></h4>
-<p>(none)</p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
-<p>(no equations)</p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
-<p>(none)</p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
-<p>(no validation or testing necessary)</p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
-<p>(none)</p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
-<p>Model created by Philipp Jahneke (philipp.koziol@tuhhl.de), Sept 2018</p>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
+<p>List of all stoichiometric, biochemical and physical parameters need for mesophil or thermophil anaerobic digestion.</p>
+<h4><span style=\"color: #008000\"> Version History</span></h4>
+<p>Model created by Philipp Jahneke (philipp.koziol@tuhh.de), Sept 2018</p>
 <p>Model adapted for TransiEnt by Jan Westphal (j.westphal@tuhh.de) in May 2020</p>
+<p>Changed documentation by Markus Gillner (markus.gillner@tuhh.de) in Jan 2025</p>
 </html>"));
 end ADM1_parameters;
