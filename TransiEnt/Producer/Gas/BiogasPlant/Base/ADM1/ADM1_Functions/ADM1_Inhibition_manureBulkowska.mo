@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.BiogasPlant.Base.ADM1.ADM1_Functions;
+within TransiEnt.Producer.Gas.BiogasPlant.Base.ADM1.ADM1_Functions;
 function ADM1_Inhibition_manureBulkowska
   "A Function calculating the inhibition Coefficients using constants from Bułkowska, K., et al. (2015). ADM1-based modeling of anaerobic codigestion of maize silage and cattle manure–calibration of parameters and model verification (part II)"
 
@@ -115,25 +115,12 @@ algorithm
 
   I := {I_su,I_aa,I_fa,I_c4,I_pro,I_ac,I_h2} "vector of inhibition Coefficients";
   annotation (Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
-<p>This function calculates the inhibition coefficients for the adm1 model. It considers inhibtion due to an unfavorable pH-value, an excessive concentration of hydrogen or ammonia and an insufficient nitrogen concentration.</p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
-<p>(Description)</p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
-<p>(Description)</p>
-<h4><span style=\"color: #008000\">4. Interfaces</span></h4>
-<p>(none)</p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
-<p>(no equations)</p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
-<p>(none)</p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
-<p>(no validation or testing necessary)</p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
-<p>(none)</p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
+<p>This function calculates the inhibition coefficients for the adm1 model using constants from [1,2]. It considers inhibtion due to an unfavorable pH-value, an excessive concentration of hydrogen or ammonia and an insufficient nitrogen concentration.</p>
+<h4><span style=\"color: #008000\">Refences</span></h4>
+<p><span style=\"font-family: Arial;\">[1] Bułkowska, K., et al. (2015). ADM1-based modeling of anaerobic codigestion of maize silage and cattle manure&ndash;calibration of parameters and model verification (part II)</span></p>
+<p><span style=\"font-family: Arial;\">[2] Bułkowska, K., et al. (2015).ADM1-based modeling of anaerobic codigestion of maize silage and cattle manure &ndash; a feedstock characterisation for model implementation (part I)</span></p>
+<h4><span style=\"color: #008000\">Version History</span></h4>
 <p>Model created by Philipp Jahneke (philipp.koziol@tuhh.de), August 2018</p>
 </html>"));
 end ADM1_Inhibition_manureBulkowska;

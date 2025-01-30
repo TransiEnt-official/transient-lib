@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.BiogasPlant.MaterialValues;
+within TransiEnt.Producer.Gas.BiogasPlant.MaterialValues;
 model SuspensionProperties_pT "Model calculating material properties of anaerobic sludge"
 
 
@@ -125,29 +125,18 @@ equation
           textString="%name")}),
     Diagram(coordinateSystem(preserveAspectRatio=false)),
     Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
-<p>(Description) </p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
-<p>(Description)</p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
-<p>(Description)</p>
-<h4><span style=\"color: #008000\">4. Interfaces</span></h4>
-<p>(none)</p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
-<p>(no equations)</p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
-<p>(none)</p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
-<p>(no validation or testing necessary)</p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
+<p>medium model that calculates material properties for sludge.</p>
+<h4><span style=\"color: #008000\">Level of detail, physical effects considered, and physical insight</span></h4>
+<p>Density is calculated according to [1], specific heat capacity is calculated according to [2], thermal conductivity is calculated according [3], consistancy and flow index are calculated according [4]. viscosity is calculated with Power-Law approach.</p>
+<h4><span style=\"color: #008000\">References</span></h4>
 <p>[1] Wills,&nbsp;B.&nbsp;A.,&nbsp;&amp;&nbsp;Napier-Munn,&nbsp;T.&nbsp;(2005)&nbsp;Metallurgical&nbsp;accounting,&nbsp;control&nbsp;and&nbsp;simulation</p>
 <p>[2]Kim,&nbsp;Y.,&nbsp;&amp;&nbsp;Parker,&nbsp;W.&nbsp;(2008)&nbsp;of&nbsp;sludge&nbsp;acc.&nbsp;to&nbsp;Chen,&nbsp;Y.&nbsp;R.&nbsp;(1983).&nbsp;Thermal&nbsp;properties&nbsp;of&nbsp;beef&nbsp;cattle&nbsp;manure</p>
 <p>[3]Chen,&nbsp;Y.&nbsp;R.&nbsp;(1983).&nbsp;Thermal&nbsp;properties&nbsp;of&nbsp;beef&nbsp;cattle&nbsp;manure</p>
 <p>[4]Achkari-Begdouri,&nbsp;A.,&nbsp;&amp;&nbsp;Goodrich,&nbsp;P.&nbsp;R.&nbsp;(1992).&nbsp;Rheological&nbsp;properties&nbsp;of&nbsp;Moroccan&nbsp;dairy&nbsp;cattle&nbsp;manure</p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
+<h4><span style=\"color: #008000\">Version History</span></h4>
 <p>Model created by Philipp Jahneke (philipp.koziol@tuhh.de), August 2018</p>
 <p>Model adapted for TransiEnt by Jan Westphal (j.westphal@tuhh.de), May 2020</p>
+<p>Add documentation by Markus Gillner (markus.gillner@tuhh.de) in Jan 2025</p>
 </html>"));
 end SuspensionProperties_pT;

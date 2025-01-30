@@ -423,22 +423,22 @@ equation
 <p>This model calculates the gas volume flow and the reaction energy released from all biochemical reactions and processes of an anaerobic digestion.</p>
 <p>This model contains different equatios for modeling the processes of anaerobic digestion. It can be chosen between the parameters of Bulkowska et al.[1] and the bsm2 parameters[2]. Concentration balance equation are calculated in .</p>
 <h4><span style=\"color: #008000\">Level of detail, physical effects considered, and physical insight</span></h4>
-<p>Biochemical processes are calculated in model <a href=\"modelica://TransiEnt/Producer/Gas/BiogasPlant/Base/ADM1/ADM1_PetersenMatrix.mo\">PetersenMatrix</a>. </p>
+<p>Biochemical processes are calculated in model <a href=\"modelica://TransiEnt/Producer/Gas/BiogasPlant/Base/ADM1/ADM1_PetersenMatrix.mo\">PetersenMatrix</a>. The pH value of the substrate is determined via the acid-base reactions. In simplified terms, the gas phase consists of the four components hydrogen, carbon dioxide, methane and water vapour. Impurities in the gas such as hydrogen sulphide, ammonia, oxygen or nitrogen are ignored here. The liquid-gas equilibrium of hydrogen, methane and carbon dioxide is taken into account</p>
 <h4><span style=\"color: #008000\">Limits of validity </span></h4>
 <p>The process rates are first order and the equations are only valid for a constant temperature between 35 and 60&deg;C (mesophilic - thermophilic)</p>
 <h4><span style=\"color: #008000\">Interfaces</span></h4>
-<p><img src=\"modelica://TransiEnt/Images/scheme_adm1-gas_producer.png\" alt=\"scheme_adm1\" style=\"width: 25%; heigth: auto;\"/> </p>
+<p><img src=\"modelica://TransiEnt/Images/scheme_adm1-gas_producer.png\" alt=\"scheme_adm1\"/> </p>
 <h4><span style=\"color: #008000\">Nomenclature</span></h4>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"1\" width=\"100%\"><tr>
 <td><h4>Variable Name </h4></td>
 <td><h4>Variable</h4></td>
 </tr>
 <tr>
-<td><p>composition of Inflow</p></td>
+<td><p>Composition of Inflow</p></td>
 <td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-B353DHfA.png\" alt=\"X_in\"/></p></td>
 </tr>
 <tr>
-<td><p>composition of Outflow</p></td>
+<td><p>Composition of Outflow</p></td>
 <td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-hxMop7ZI.png\" alt=\"X_out\"/></p></td>
 </tr>
 <tr>
@@ -446,7 +446,7 @@ equation
 <td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-HQlaXuNT.png\" alt=\"T\"/></p></td>
 </tr>
 <tr>
-<td><p>density of Inflow</p></td>
+<td><p>Density of Inflow</p></td>
 <td><p>&rho;</p></td>
 </tr>
 <tr>
@@ -459,9 +459,48 @@ equation
 </tr>
 <tr>
 <td><p>Organic fraction of solids in tank and inflow</p></td>
-<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-n7bzRrWK.png\" alt=\"VS\"/></p></td>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-uqcmw1rw.png\" alt=\"VS\"/> </p></td>
+</tr>
+<tr>
+<td><p>Volume of liquid phase</p></td>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-7wx0oB9Q.png\" alt=\"V_liq\"/></p></td>
+</tr>
+<tr>
+<td><p>Volume of gaseous phase</p></td>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-nuY374vN.png\" alt=\"V_gas\"/></p></td>
+</tr>
+<tr>
+<td><p>Concentration of substance <i>i</i> in liquid phase</p></td>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-jXFIDZdS.png\" alt=\"S_i\"/></p></td>
+</tr>
+<tr>
+<td><p>Concentration of substance <i>i</i> in gaseous phase</p></td>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-qsvFb3s6.png\" alt=\"S_gasi\"/></p></td>
+</tr>
+<tr>
+<td><p>stoichiometric coefficient</p></td>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-UmLkxJkv.png\" alt=\"a_ij\"/></p></td>
+</tr>
+<tr>
+<td><p>Process rates</p></td>
+<td><p>&rho;<sub>ij</sub></p></td>
+</tr>
+<tr>
+<td><p>Concentration of substance <i>i</i> in inflow</p></td>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-jwHp6vM6.png\" alt=\"S_in\"/></p></td>
+</tr>
+<tr>
+<td><p>Volume flow rate</p></td>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-lpj6Wmz4.png\" alt=\"q\"/></p></td>
+</tr>
+<tr>
+<td><p>transfer rate liquid to gaseaous phase</p></td>
+<td><p>&rho;<sub>T,i</sub></p></td>
 </tr>
 </table>
+<h4><span style=\"color: #008000\">Governing Equations</span></h4>
+<p>Change of concentration of substance i in liquid phase: <img src=\"modelica://TransiEnt/Images/equations/DifferentialEquationLiquidConcentration.png\"/> </p>
+<p>Change of concentration of substance i in gaseous phase: <img src=\"modelica://TransiEnt/Images/equations/DifferentialEquationGasConcentration.png\"/> </p>
 <h4><span style=\"color: #008000\">Remarks for Usage</span></h4>
 <p>It is important to check if the parameters of the record and inflow parameters of the adm1 model fit to each other so that only bsm2 parameters or only bulkowska parameters are used.</p>
 <h4><span style=\"color: #008000\">Validation</span></h4>
@@ -472,6 +511,7 @@ equation
 <h4><span style=\"color: #008000\">Version History</span></h4>
 <p>Model created by Philipp Jahneke (philipp.koziol@tuhhl.de), Sept 2018</p>
 <p>Model adapted for TransiEnt by Jan Westphal (j.westphal@tuhh.de) in May 2020</p>
+<p>Add documentation by Markus Gillner (markus.gillner@tuhh.de) in Jan 2025</p>
 </html>"),
     experiment(
       StopTime=17280000,

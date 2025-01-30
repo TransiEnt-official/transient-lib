@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.BiogasPlant.HeatTransfer.FreeConvection;
+within TransiEnt.Producer.Gas.BiogasPlant.HeatTransfer.FreeConvection;
 partial model FreeConvectionHeatTransfer_Gas "Heat Transfer due to natural Convection"
 
 
@@ -21,7 +21,7 @@ partial model FreeConvectionHeatTransfer_Gas "Heat Transfer due to natural Conve
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und Wärme-Institut Essen						  //
+// Gas- und Wärme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -48,7 +48,7 @@ partial model FreeConvectionHeatTransfer_Gas "Heat Transfer due to natural Conve
   //             Variable Declarations
   // _____________________________________________
 
-  Modelica.Units.SI.ThermalConductivity lamda=gas.transp.lambda "Thermal conductivity of fluid at T_m";
+  Modelica.Units.SI.ThermalConductivity lambda=gas.transp.lambda "Thermal conductivity of fluid at T_m";
   Modelica.Units.SI.Density rho=gas.d "Density of fluid at T_m";
   Modelica.Units.SI.PrandtlNumber Pr=gas.transp.Pr "Prandtl number of the fluid";
   Modelica.Units.SI.KinematicViscosity nue=gas.transp.eta/gas.d;
@@ -130,33 +130,15 @@ equation
         Line(points={{56,10},{76,20}}, color={191,0,0}),
         Line(points={{56,30},{76,20}}, color={191,0,0})}),
     Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
-<p>This is a model of linear heat convection, e.g., the heat transfer between a plate and the surrounding air; see also: ConvectiveResistor. It may be used for complicated solid geometries and fluid flow over the solid by determining the convective thermal conductance Gc by measurements.</p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
-<p>(Description)</p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
-<p>(Description)</p>
-<h4><span style=\"color: #008000\">4. Interfaces</span></h4>
-<p><span style=\"font-family: (Default);\">HeatPort_a:&nbsp;heat_solid</span></p>
-<p><span style=\"font-family: (Default);\">HeatPort_b:&nbsp;heat_fluid</span></p>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
+<p>This is a partial model of linear heat convection, e.g., the heat transfer between a plate and the surrounding air according to [1]; see also: ConvectiveResistor. It may be used for complicated solid geometries and fluid flow over the solid by determining the convective thermal conductance Gc by measurements.</p>
+<h4><span style=\"color: #008000\">Interfaces</span></h4>
+<p>HeatPort_a:&nbsp;heat_solid</p>
+<p>HeatPort_b:&nbsp;heat_fluid</p>
 <h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
-<p>The basic constitutive equation for convection is </p>
-<p>Q_flow = A * alpha *(solid.T - fluid.T);</p>
-<p>Q_flow: Heat flow rate from connector &apos;solid&apos; (e.g., a plate)</p>
-<p>to connector &apos;fluid&apos; (e.g., the surrounding air)</p>
-<p><br>A: Convection area (e.g., perimeter*length of a box)</p>
-<p>alpha: Heat transfer coefficient</p>
-<p>where the heat transfer coefficient alpha is calculated from properties of the fluid flowing over the solid. Examples: </p>
-<p>Heat transfer by Free convection: External Flows (acording to W.Kast, et al.: VDI Heat Atlas, 2nd english edition, Springerl, 2010, p.667): </p>
-<p>alpha = Nu*lamda/l;</p>
-<p>Nu = f(Ra, Pr, Geometry)</p>
-<p>where</p>
-<p>alpha : Heat transfer coefficient</p>
-<p>Nu : = alpha*l/lambda (Nusselt number)</p>
-<p>Ra : = g*l^3*beta*dT (Rayleigh number)</p>
-<p>Pr : = cp*eta/lambda (Prandtl number)</p>
+<p>Q_flow: Heat flow rate from connector &apos;solid&apos; (e.g., a plate) to connector &apos;fluid&apos; (e.g., the surrounding air)</p>
+<p>A: Convection area (e.g., perimeter*length of a box)</p>
+<p>alpha: Heat transfer coefficient where the heat transfer coefficient alpha is calculated from properties of the fluid flowing over the solid</p>
 <p>g : = Accelaration of gravity</p>
 <p>l : characteristic length</p>
 <p>height: height (characteristic lenght of vertical cylinder)</p>
@@ -165,10 +147,14 @@ equation
 <p>eta : dynamic viscosity of fluid (material constant)</p>
 <p>cp : specific heat capacity of fluid (material constant)</p>
 <p>lambda : thermal conductivity of fluid (material constant)</p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
-<p>(none)</p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
-<p>(no validation or testing necessary)</p>
+<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
+<p>The basic constitutive equation for convection is </p>
+<p>Q_flow = A * alpha *(solid.T - fluid.T);</p>
+<p>alpha = Nu*lambda/l;</p>
+<p>Nu = f(Ra, Pr, Geometry)</p>
+<p>Nu : = alpha*l/lambda (Nusselt number)</p>
+<p>Ra : = g*l^3*beta*dT (Rayleigh number)</p>
+<p>Pr : = cp*eta/lambda (Prandtl number)</p>
 <h4><span style=\"color: #008000\">9. References</span></h4>
 <p>[1] W.Kast, et al.: VDI Heat Atlas, 2nd english edition, Springerl, 2010, p.667</p>
 <h4><span style=\"color: #008000\">10. Version History</span></h4>

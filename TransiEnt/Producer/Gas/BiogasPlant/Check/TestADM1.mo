@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.BiogasPlant.Check;
+within TransiEnt.Producer.Gas.BiogasPlant.Check;
 model TestADM1 "Test model for adm1"
 
 
@@ -104,29 +104,13 @@ model TestADM1 "Test model for adm1"
           lineColor={28,108,200},
           textString="Adm1 model within the  manure bulkowska framework")}),
     Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
-<p>Check model for testing the adm1 model. The model is tetsted with the parameters within the bsm2 framework and the parameters of Bulkowska. It can be seen that the steady state output values of the adm1 model have a </p>
-<p>high accordance with the output values from Ros&eacute;n, C., &amp; Jeppsson, U. (2006). &quot;Aspects on ADM1 Implementation within the BSM2 Framework&quot; if the same input parameters are used. Moreover several output variables of the simulation result like the pH-value, the gas volume flow and different soluble </p>
-<p>components have been compared with Bułkowska, K., et al. (2015). ADM1-based modeling of anaerobic codigestion of maize silage and cattle manure&ndash;calibration of parameters and model verification (part II).</p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
-<p>(Description)</p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
-<p>(Description)</p>
-<h4><span style=\"color: #008000\">4. Interfaces</span></h4>
-<p>(none)</p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
-<p>(no equations)</p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
-<p>(none)</p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
-<p>(none)</p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
+<p>Check model for testing the adm1 model. The model is tetsted with the parameters within the bsm2 framework and the parameters of Bulkowska. It can be seen that the steady state output values of the adm1 model have a high accordance with the output values from Ros&eacute;n, C., &amp; Jeppsson, U. (2006). &quot;Aspects on ADM1 Implementation within the BSM2 Framework&quot; if the same input parameters are used. Moreover several output variables of the simulation result like the pH-value, the gas volume flow and different soluble components have been compared with Bułkowska, K., et al. (2015). ADM1-based modeling of anaerobic codigestion of maize silage and cattle manure&ndash;calibration of parameters and model verification (part II).</p>
+<h4><span style=\"color: #008000\">References</span></h4>
 <p>[1] Philip Jahneke,&quot;Modellierung einer Biogasanalge und Untersuchung der energetischen Kopplung mit einer Power-to-Gas Anlage in Modelica&quot;,master thesis, Hamburg 2018</p>
 <p>[2] Bułkowska,&nbsp;K.,&nbsp;et&nbsp;al.&nbsp;(2015).&nbsp;ADM1-based&nbsp;modeling&nbsp;of&nbsp;anaerobic&nbsp;codigestion&nbsp;of&nbsp;maize&nbsp;silage&nbsp;and&nbsp;cattle&nbsp;manure&ndash;calibration&nbsp;of&nbsp;parameters&nbsp;and&nbsp;model&nbsp;verification&nbsp;(part&nbsp;II)</p>
 <p>[3] Ros&eacute;n, C., &amp; Jeppsson, U. (2006). Aspects on ADM1 Implementation within the BSM2 Framework</p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
+<h4><span style=\"color: #008000\">Version History</span></h4>
 <p>Model created by Jan Westphal (j.westphal@tuhh.de) in jan 2020</p>
 </html>"));
 end TestADM1;

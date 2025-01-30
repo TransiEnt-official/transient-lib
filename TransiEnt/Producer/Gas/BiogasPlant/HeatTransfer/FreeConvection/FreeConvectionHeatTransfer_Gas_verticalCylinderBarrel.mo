@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.BiogasPlant.HeatTransfer.FreeConvection;
+within TransiEnt.Producer.Gas.BiogasPlant.HeatTransfer.FreeConvection;
 model FreeConvectionHeatTransfer_Gas_verticalCylinderBarrel "Heat transfer due to natural convection for a vertical cylinder barrel"
 
 
@@ -54,25 +54,11 @@ model FreeConvectionHeatTransfer_Gas_verticalCylinderBarrel "Heat transfer due t
 equation
   Nu = TransiEnt.Producer.Gas.BiogasPlant.HeatTransfer.FreeConvection.NusseltFreeConvection_verticalSurface(Ra=abs(Ra), Pr=Pr) + 0.435*Height/d;
   annotation (Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
-<p>This model contains the equation for calculating the nusselt number of a vertical cylinder barrel. It extends from FreeConvectionHeatTransfer_Gas.</p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
-<p>(Description)</p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
-<p>(Description)</p>
-<h4><span style=\"color: #008000\">4. Interfaces</span></h4>
-<p>(none)</p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
-<p>(no equations)</p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
-<p>(none)</p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
-<p>(no validation or testing necessary)</p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
-<p>(none)</p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
+<p>This model contains the equation for calculating the nusselt number of a vertical area of a cylinder barrel. It extends from FreeConvectionHeatTransfer_Gas.</p>
+<h4><span style=\"color: #008000\">Level of detail, physical effects considered, and physical insight</span></h4>
+<p>Look at function <a href=\"TransiEnt.Producer.Gas.BiogasPlant.HeatTransfer.FreeConvection.FreeConvectionHeatTransfer_Gas_verticalCylinderBarrel\">NusseltFreeConvection_verticalSurface</a></p>
+<h4><span style=\"color: #008000\">Version History</span></h4>
 <p>Model created by Philipp Jahneke (philipp.koziol@tuhh.de), August 2018</p>
 </html>"));
 end FreeConvectionHeatTransfer_Gas_verticalCylinderBarrel;

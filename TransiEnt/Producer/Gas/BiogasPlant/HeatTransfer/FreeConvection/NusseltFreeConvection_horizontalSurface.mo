@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.BiogasPlant.HeatTransfer.FreeConvection;
+within TransiEnt.Producer.Gas.BiogasPlant.HeatTransfer.FreeConvection;
 function NusseltFreeConvection_horizontalSurface "Function for calculating the nusselt number of a horizontal surface"
 
 
@@ -73,19 +73,13 @@ algorithm
     Nu := 0.6*(Ra*f1)^(1/5);
   end if;
   annotation (Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
 <p>Evaluates the Nusselt Correlation for Natural Convection Heat Transfer at horizontall surfaces. </p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
-<p>(Description)</p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
-<p>L (characteristic length) must be chosen according to geometry</p>
-<h4><span style=\"color: #008000\">4. Interfaces</span></h4>
-<p>(none)</p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
+<h4><span style=\"color: #008000\">Nomenclature</span></h4>
 <p>Ra := Rayleigh number,</p>
 <p>Pr := Prandtl number</p>
 <p>Nu := Nusselt number</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
+<h4><span style=\"color: #008000\">Governing Equations</span></h4>
 <p>Heat flow from surface to fluid on upper surface</p>
 <p>for Ra * f_2(Pr) &lt;=7e4 (laminar)</p>
 <p>Nu := 0.766 [Ra *f_2(Pr)]^{1/5}</p>
@@ -95,14 +89,12 @@ algorithm
 <p>Heat flow from surface to fluid on lower surface</p>
 <p>Nu := 0.6 [Ra * f_1(Pr)]^{1/5}</p>
 <p>f_1(Pr) := [1+(0.492/Pr)^{9/16}]^{-16/9}</p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
-<p>important to determine whether geometry helping (case 1) or hindering (case2) the flow driven by buoancy.</p>
+<h4><span style=\"color: #008000\">Remarks for Usage</span></h4>
+<p>important to determine whether geometry helping (case 1) or hindering (case2) the flow driven by buoyancy.</p>
 <p>use together with functions calculating correct Rayleigh and Prandtl numbers</p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
-<p>(no validation or testing necessary)</p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
+<h4><span style=\"color: #008000\">References</span></h4>
 <p>[1] Klan, H., &amp; Thess, A. (2013). F2 W&auml;rme&uuml;bertragung durch freie Konvektion: Au&szlig;enstr&ouml;mung. In <i>VDI-W&auml;rmeatlas</i> (pp. 757-764). Springer Vieweg, Berlin, Heidelberg.</p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
+<h4><span style=\"color: #008000\">Version History</span></h4>
 <p>Created by Philipp Jahneke (philipp.koziol@tuhh.de), Aug 2018</p>
 </html>"));
 end NusseltFreeConvection_horizontalSurface;

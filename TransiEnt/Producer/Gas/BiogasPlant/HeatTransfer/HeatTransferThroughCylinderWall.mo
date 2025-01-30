@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.BiogasPlant.HeatTransfer;
+within TransiEnt.Producer.Gas.BiogasPlant.HeatTransfer;
 model HeatTransferThroughCylinderWall "heat model for stirred tank reactor"
 
 
@@ -202,8 +202,8 @@ equation
   connect(HeatTransfer_gasToWall.heat_solid, WallInContactWithGas.innerPhase) annotation (Line(points={{3.6,20},{5.95,20},{5.95,20.2},{9.3,20.2}}, color={191,0,0}));
   connect(heatTransferSludgeToWall.heat_fluid, fluidTemperature.port) annotation (Line(points={{-26.8,-52},{-38,-52}}, color={191,0,0}));
   connect(heatTransferSludgeToWall.heat_solid, wallInContactWithSludge.innerPhase) annotation (Line(points={{-10,-52},{4,-52},{4,-52.2},{7.28,-52.2}}, color={191,0,0}));
-  connect(HeatTransfer_TopCoverToAir.heat_fluid, totalHeatLoss.port_a[1]) annotation (Line(points={{90,58},{90,0},{95.5,0}}, color={191,0,0}));
-  connect(HeatTransfer_wallToAir.heat_fluid, totalHeatLoss.port_a[2]) annotation (Line(points={{92,-28.5},{92,4.44089e-16},{96.5,4.44089e-16}}, color={191,0,0}));
+  connect(HeatTransfer_TopCoverToAir.heat_fluid, totalHeatLoss.port_a[1]) annotation (Line(points={{90,58},{90,0},{96.25,0}},color={191,0,0}));
+  connect(HeatTransfer_wallToAir.heat_fluid, totalHeatLoss.port_a[2]) annotation (Line(points={{92,-28.5},{92,0},{95.75,4.44089e-16}},          color={191,0,0}));
   connect(TopCover.outerPhase, HeatInsulationTopCover.innerPhase) annotation (Line(
       points={{21,58},{49,58}},
       color={167,25,48},
@@ -212,15 +212,15 @@ equation
       points={{59,58},{70.2,58}},
       color={167,25,48},
       thickness=0.5));
-  connect(HeatTransfer_gasToTopCover.heat_fluid, heatLossGas.port_a[1]) annotation (Line(points={{-18,58},{-24,58},{-24,38},{-23.5,38}}, color={191,0,0}));
-  connect(HeatTransfer_gasToWall.heat_fluid, heatLossGas.port_a[2]) annotation (Line(points={{-18,20},{-24,20},{-24,38},{-24.5,38}}, color={191,0,0}));
+  connect(HeatTransfer_gasToTopCover.heat_fluid, heatLossGas.port_a[1]) annotation (Line(points={{-18,58},{-24,58},{-24,38},{-24.25,38}},color={191,0,0}));
+  connect(HeatTransfer_gasToWall.heat_fluid, heatLossGas.port_a[2]) annotation (Line(points={{-18,20},{-24,20},{-24,38},{-23.75,38}},color={191,0,0}));
   connect(heatLossGas.port_b, gasTemperature.port) annotation (Line(points={{-44,38},{-48,38}}, color={191,0,0}));
   connect(WallInContactWithGas.outerPhase, heatLossSidewall.port_a[1]) annotation (Line(
-      points={{24.1,20},{28,20},{28,-28},{29.5,-28}},
+      points={{24.1,20},{28,20},{28,-28},{30.25,-28}},
       color={167,25,48},
       thickness=0.5));
   connect(wallInContactWithSludge.outerPhase, heatLossSidewall.port_a[2]) annotation (Line(
-      points={{21.0933,-52},{28,-52},{28,-28},{30.5,-28}},
+      points={{21.0933,-52},{28,-52},{28,-28},{29.75,-28}},
       color={167,25,48},
       thickness=0.5));
   connect(heatLossSidewall.port_b, HeatInsulationSideWall.innerPhase) annotation (Line(points={{50,-28},{52,-28},{52,-28.82},{55.26,-28.82}}, color={191,0,0}));
@@ -232,26 +232,12 @@ equation
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-80,-80},{140,80}})),
     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-80,-80},{140,80}})),
     Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
-<p>This model calculates the heat transfer through the cylinder wall of the tank reactor</p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
-<p>(Description)</p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
-<p>(Description)</p>
-<h4><span style=\"color: #008000\">4. Interfaces</span></h4>
-<p>TemperatureInput<span style=\"font-family: Courier New; color: #ff0000;\"> </span>InsideTemperature(unit=&quot;K&quot;)&nbsp;&quot;Temperature&nbsp;inside&nbsp;the&nbsp;reactor&quot;</p>
-<p>TemperatureInput &nbsp;AmbientTemperature(unit=&quot;K&quot;)&nbsp;&quot;Ambient&nbsp;temperature&quot;</p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
-<p>(no equations)</p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
-<p>(none)</p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
-<p>(no validation or testing necessary)</p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
-<p>(none)</p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
+<p>This model calculates the heat transfer through the cylinder wall of the tank reactor. </p>
+<h4><span style=\"color: #008000\">Level of detail, physical effects considered, and physical insight</span></h4>
+<p>It takes into account the heat transfer by free convection in the area of the reactor with the gas phase and forced convection in the liquid phase by the impeller, the heat conduction in the reactor wall and free convection on the outside of the reactor. Dimensionless quantities are used to describe the heat transport. More detailed information on physics can be found in the sub-models</p>
+<h4><span style=\"color: #008000\">Version History</span></h4>
 <p>Model created by Philipp Jahneke (philipp.koziol@tuhh.de), August 2018</p>
+<p>Add documentation by Markus Gillner (markus.gillner@tuhh.de) in Jan 2025</p>
 </html>"));
 end HeatTransferThroughCylinderWall;

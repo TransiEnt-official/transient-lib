@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.BiogasPlant.Base.ADM1.Records;
+within TransiEnt.Producer.Gas.BiogasPlant.Base.ADM1.Records;
 record ADM1_parameters_manure_bulkowska "Record with the parameters of Bulkowska et al."
 
 
@@ -181,26 +181,12 @@ extends TransiEnt.Producer.Gas.BiogasPlant.Base.ADM1.Records.ADM1_parameters(
     ThOD_bac=1.416 "ThOD in kgCOD per kg Microorganisms from Lübken et al. (2007). Modelling the energy balance of an anaerobic digester fed with cattle manure and renewable energy crops.",
     k_p=0.5/86400 "pipe resistance coefficient ");
   annotation (Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
-<p>(Description) </p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
-<p>(Description)</p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
-<p>(Description)</p>
-<h4><span style=\"color: #008000\">4. Interfaces</span></h4>
-<p>(none)</p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
-<p>(no equations)</p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
-<p>(none)</p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
-<p>(no validation or testing necessary)</p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
+<p>List of all relevant physical and biochemical parameters for the anaerobic codigestion of maize silage and calltle <b>manure</b> according to [1,2].</p>
+<h4><span style=\"color: #008000\">References</span></h4>
 <p>[1] Bułkowska, K., et al. (2015). ADM1-based modeling of anaerobic codigestion of maize silage and cattle manure&ndash;calibration of parameters and model verification (part II)</p>
 <p>[2] Bułkowska, K., et al. (2015).ADM1-based modeling of anaerobic codigestion of maize silage and cattle manure &ndash; a feedstock characterisation for model implementation (part I)</p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
+<h4><span style=\"color: #008000\">Version History</span></h4>
 <p>Model created by Philipp Jahneke (philipp.koziol@tuhhl.de), Sept 2018</p>
 <p>Model adapted for TransiEnt by Jan Westphal (j.westphal@tuhh.de) in May 2020</p>
 </html>"));

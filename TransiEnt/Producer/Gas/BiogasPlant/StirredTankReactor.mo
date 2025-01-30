@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.BiogasPlant;
+within TransiEnt.Producer.Gas.BiogasPlant;
 model StirredTankReactor "Model of a stirred tank reactor"
 
 
@@ -353,7 +353,7 @@ equation
 <p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">1. Purpose of model</span></b></p>
 <p>Model of a stirred tank reactor. It produces a biogas massflow due to fermentation of organic materials.</p>
 <p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">2. Level of detail, physical effects considered, and physical insight</span></b></p>
-<p><span style=\"font-family: MS Shell Dlg 2;\">(no remarks)</span></p>
+<p><span style=\"font-family: MS Shell Dlg 2;\">Model can be roughly divided in </span></p>
 <p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">3. Limits of validity </span></b></p>
 <p>(no remarks)</p>
 <p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">4. Interfaces</span></b></p>
@@ -366,7 +366,7 @@ equation
 <p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">6. Governing Equations</span></b></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">(no remarks)</span></p>
 <p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">7. Remarks for Usage</span></b></p>
-<p>It is important to check if the parameters of the record and inflow parameters of the adm1 model fit to each other so that only bsm2 parameters  or bulkowska parameters are used.</p>
+<p>It is important to check if the parameters of the record and inflow parameters of the adm1 model fit to each other so that only bsm2 parameters or bulkowska parameters are used. It is recommended to use small tolerances (&lt;10^(-8)) so that the model is stable.</p>
 <p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">8. Validation</span></b></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">This model was validated as part of a master thesis. The adm1 model used in this reactor and the heat components have been validated separately. For further information see master thesis of Philip Jahneke (Nov 2018), Hamburg. This model was tested in the chedk model Check_StirredTankReactor.</span></p>
 <p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">9. References</span></b></p>

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.BiogasPlant.Base;
+within TransiEnt.Producer.Gas.BiogasPlant.Base;
 model Control_m_flow "Mass flow controller model"
 
 
@@ -79,27 +79,14 @@ equation
     Icon(coordinateSystem(preserveAspectRatio=false)),
     Diagram(coordinateSystem(preserveAspectRatio=false)),
     Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
-<p>Model for controlling the mass flow of the heat exchanger in the reactor using a PID controller</p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
-<p>(Description)</p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
-<p>(Description)</p>
-<h4><span style=\"color: #008000\">4. Interfaces</span></h4>
-<p>TemperatureInput&nbsp;T_reac_target</p>
-<p>TemperatureInput&nbsp;T_reac</p>
-<p>Input for mass flow rate&nbsp;m_flow</p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
-<p>(no equations)</p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
-<p>(none)</p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
-<p>(no validation or testing necessary)</p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
-<p>(none)</p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
-<p>Model created by Philipp Jahneke (philipp.koziol@tuhh.de), August 2018</p>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
+<p>Model for controlling the mass flow of the heat exchanger in the reactor using a PID controller.</p>
+<h4><span style=\"color: #008000\">Interfaces</span></h4>
+<p>Input:&nbsp;T_reac_target - Set point of temperature in reactor</p>
+<p>Input: T_reac - Temperature in reactor</p>
+<p>Output: mass flow rate&nbsp;m_flow</p>
+<h4><span style=\"color: #008000\">Version History</span></h4>
+<p>Model created by Philipp Jahneke (philipp.koziol@tuhh.de) in August 2018</p>
+<p>Change documentation by Markus Gillner (markus.gillner@tuhh.de) in Jan 2025</p>
 </html>"));
 end Control_m_flow;

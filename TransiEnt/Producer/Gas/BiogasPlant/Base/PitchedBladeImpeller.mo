@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.BiogasPlant.Base;
+within TransiEnt.Producer.Gas.BiogasPlant.Base;
 model PitchedBladeImpeller "stirrer model of a pitched blade Impeller"
 
 
@@ -243,26 +243,83 @@ equation
   Fr = n^2*d/Const.g_n;
 
   annotation (Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
-<p>Model of a pitched blade impeller for the CSTR</p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
-<p>(Description) </p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
-<p>(Description) </p>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
+<p>Model of a pitched blade impeller for the CSTR. Model calculates the stirring performance of the impeller and also the dimensionless quantities Reynold, Newton, Froude and two Constants need for calculation of Nusselt number.</p>
+<h4><span style=\"color: #008000\">Level of detail, physical effects considered, and physical insight</span></h4>
+<p>Influence of Froude Number on stirring performance is neglected.</p>
+<h4><span style=\"color: #008000\">Limits of validity </span></h4>
+<p>1 &lt; Re &lt; 10<sup>5</sup></p>
 <h4><span style=\"color: #008000\">4. Interfaces</span></h4>
-<p>(none)</p>
+<p><img src=\"modelica://TransiEnt/Images/scheme_gas_producer_pitchedimpeller.png\" alt=\"pitchedImpeller\" style=\"width: 25%; heigth: auto;\"/></p>
 <h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
-<p>(no equations)</p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
-<p>(none)</p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
-<p>(no validation or testing necessary)</p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
-<p>[1] L. Andresen, P. Dubucq, R. Peniche, G. Ackermann, A. Kather, and G. Schmitz, &ldquo;Status of the TransiEnt Library: Transient simulation of coupled energy networks with high share of renewable energy,&rdquo; in <i>Proceedings of the 11th International Modelica Conference</i>, 2015, pp. 695&ndash;705.</p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
-<p>Model created by Philipp Jahneke (philipp.koziol@tuhh.de), August 2018</p>
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"1\" width=\"100%\"><tr>
+<td><h4>Variable</h4></td>
+<td><h4>Variable Name</h4></td>
+</tr>
+<tr>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-LRsKygNf.png\" alt=\"d\"/>￼</p></td>
+<td><p>Diameter&nbsp;of&nbsp;agitator/impeller</p></td>
+</tr>
+<tr>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-IKQjNRo6.png\" alt=\"D\"/></p></td>
+<td><p>Diameter&nbsp;of&nbsp;StirredTankReactor</p></td>
+</tr>
+<tr>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-92TaFrPY.png\" alt=\"n\"/>￼</p></td>
+<td><p>Stirring&nbsp;speed&nbsp;as&nbsp;revelutions&nbsp;per&nbsp;second</p></td>
+</tr>
+<tr>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-tWoLmN47.png\" alt=\"h\"/></p></td>
+<td><p>Height of impeller blade</p></td>
+</tr>
+<tr>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-3lDw0hXL.png\" alt=\"Z\"/></p></td>
+<td><p>Number of blades</p></td>
+</tr>
+<tr>
+<td><p>&rho;</p></td>
+<td><p>Density of liquid phase</p></td>
+</tr>
+<tr>
+<td><p>&eta;</p></td>
+<td><p>Dynamic viscosity of liquid phase</p></td>
+</tr>
+<tr>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-xoQoq87R.png\" alt=\"P\"/></p></td>
+<td><p>Power/stirring performance</p></td>
+</tr>
+<tr>
+<td><p>Ne</p></td>
+<td><p>Newton Number</p></td>
+</tr>
+<tr>
+<td><p>Re</p></td>
+<td><p>Reynold Number</p></td>
+</tr>
+<tr>
+<td><p>Fr</p></td>
+<td><p>Froude Number</p></td>
+</tr>
+<tr>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-INlGm9n6.png\" alt=\"C_1\"/></p></td>
+<td><p>Geometrical coefficient in Nusselt Equation</p></td>
+</tr>
+<tr>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-cK1jqUeo.png\" alt=\"C_2\"/></p></td>
+<td><p>Geometrical coefficient in Nusselt Equation</p></td>
+</tr>
+</table>
+<h4><span style=\"color: #008000\">Governing Equations</span></h4>
+<p>Newton Number: Ne (Re) look at calculation in function <a href=\"TransiEnt.Producer.Gas.BiogasPlant.Base.PitchedBladeImpeller.PitchedBladeImpeller_Ne\">PitchedBladeImpeller_Ne</a></p>
+<p>Power: <img src=\"modelica://TransiEnt/Images/equations/NewtonNumberImpeller.png\"/></p>
+<p>Reynold: <img src=\"modelica://TransiEnt/Images/equations/ReynoldNumberImpeller.png\"/></p>
+<p>Froude: <img src=\"modelica://TransiEnt/Images/equations/FroudeNumberImpeller.png\"/></p>
+<h4><span style=\"color: #008000\">References</span></h4>
+<p>[1] E.S. Gaddis, &ldquo;N3 W&auml;rme&uuml;bertragung und Leistungsaufnahme in R&uuml;hrkesseln&rdquo;, in <i>VDI-W&auml;rmeatlas</i>, 2013, pp. 1621&ndash;1654, Springer.</p>
+<p>[2] M. Zlokarnik, &quot;Stirrer Power&quot;, in <i>Stirring</i>, 2001, John Wiley &amp; Sons.</p>
+<h4><span style=\"color: #008000\">Version History</span></h4>
+<p>Model created by Philipp Jahneke (philipp.koziol@tuhh.de) in August 2018</p>
+<p>Add documentation by Markus Gillner (markus.gillner@tuhh.de) in Jan 2025</p>
 </html>"), Icon(graphics={
         Ellipse(
           extent={{-50,-24},{0,-44}},

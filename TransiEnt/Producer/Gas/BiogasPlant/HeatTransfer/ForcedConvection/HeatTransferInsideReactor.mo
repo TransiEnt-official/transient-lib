@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.BiogasPlant.HeatTransfer.ForcedConvection;
+within TransiEnt.Producer.Gas.BiogasPlant.HeatTransfer.ForcedConvection;
 model HeatTransferInsideReactor "Model calculating the heat transfered between fluid and vessel walls"
 
 
@@ -125,26 +125,53 @@ equation
     Diagram(coordinateSystem(preserveAspectRatio=false)),
     Documentation(info="<html>
 <h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
-<p>(Description) </p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
-<p>(Description)</p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
-<p>(Description)</p>
-<h4><span style=\"color: #008000\">4. Interfaces</span></h4>
+<p>Model calculates Heat Transfer Rate due forced convection in liquid phase of reactor.</p>
+<h4><span style=\"color: #008000\">Interfaces</span></h4>
 <p>HeatPort_a: heat_solid</p>
 <p>HeatPort_b: heat_fluid</p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
-<p>(no equations)</p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
-<p>(none)</p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
-<p>(no validation or testing necessary)</p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
+<h4><span style=\"color: #008000\">Nomenclature</span></h4>
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"1\" width=\"100%\"><tr>
+<td><h4>Variable</h4></td>
+<td><h4>Variable name</h4></td>
+</tr>
+<tr>
+<td><p>Nu</p></td>
+<td><p>Nusselt Number calculated in <a href=\"TransiEnt.Producer.Gas.BiogasPlant.HeatTransfer.ForcedConvection.NusseltInsideCSTR\">NusseltInsideCSTR</a></p></td>
+</tr>
+<tr>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-Y1ehLinm.png\" alt=\"A\"/></p></td>
+<td><p>Area</p></td>
+</tr>
+<tr>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-wHToNPO9.png\" alt=\"alpha\"/></p></td>
+<td><p>Heat transfer coefficient</p></td>
+</tr>
+<tr>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-ojPR5TkZ.png\" alt=\"T_s\"/></p></td>
+<td><p>Temperature of solid</p></td>
+</tr>
+<tr>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-gXf2sZzK.png\" alt=\"T_l\"/></p></td>
+<td><p>Temperature of liquid</p></td>
+</tr>
+<tr>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-0Af8BCJS.png\" alt=\"lambda\"/></p></td>
+<td><p>Thermal conductivity</p></td>
+</tr>
+<tr>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-QGVOhJZS.png\" alt=\"l\"/></p></td>
+<td><p>Characteristic length (here: inner diameter of reactor)</p></td>
+</tr>
+</table>
+<p><br><br><br><br><b><span style=\"color: #008000;\">Governing Equations</span></b></p>
+<p><img src=\"modelica://TransiEnt/Images/equations/HeatTransferRate-Convection.png\"/></p>
+<p><img src=\"modelica://TransiEnt/Images/equations/HeatTransferCoefficient_NusseltRelation.png\"/></p>
+<p>Nusselt equation is calculated in function <a href=\"TransiEnt.Producer.Gas.BiogasPlant.HeatTransfer.ForcedConvection.NusseltInsideCSTR\">NusseltInsideCSTR</a></p>
+<h4><span style=\"color: #008000\">References</span></h4>
 <p>[1] Kim, Y., &amp; Parker, W. (2008). A technical and economic evaluation of the pyrolysis of sewage sludge for the production of bio-oil. Bioresource technology, 99(5), 1409-1416.</p>
 <p>[2] Vesilind, P. A., &amp; Martel, C. J. (1989). Thermal conductivity of sludges. Water research, 23(2), 241-245.</p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
+<h4><span style=\"color: #008000\">Version History</span></h4>
 <p>Model created by Philipp Jahneke (philipp.koziol@tuhh.de), August 2018</p>
+<p>Changed documentation by Markus Gillner (markus.gillner@tuhh.de) in Jan 2025</p>
 </html>"));
 end HeatTransferInsideReactor;

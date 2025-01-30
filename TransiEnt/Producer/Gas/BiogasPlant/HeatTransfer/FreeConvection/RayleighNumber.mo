@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.BiogasPlant.HeatTransfer.FreeConvection;
+within TransiEnt.Producer.Gas.BiogasPlant.HeatTransfer.FreeConvection;
 function RayleighNumber "function for calculating the rayleigh number"
 
 
@@ -60,27 +60,45 @@ algorithm
   Ra := g*beta*dT*(l^3)*Pr/(nue^2);
   annotation (Documentation(info="<html>
 <h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
-<p>This model calculates the rayleigh number for the heat models of the CSTR</p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
-<p>(Description)</p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
-<p>(Description)</p>
-<h4><span style=\"color: #008000\">4. Interfaces</span></h4>
-<p>(none)</p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<p>kinematic viscosity&nbsp;nue</p>
-<p>prandtl number Pr</p>
-<p>temperature difference dT</p>
-<p>linear expansion coefficient beta</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
-<p>Ra&nbsp;:=g*beta*dT*(l^3)*Pr/(nue^2);</p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
-<p>(none)</p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
-<p>(no validation or testing necessary)</p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
-<p>(none)</p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
-<p>Model created by Philipp Jahneke (philipp.koziol@tuhh.de), August 2018</p>
+<p>This model calculates the rayleigh number <i>Ra</i> for the heat models of the CSTR.</p>
+<h4><span style=\"color: #008000\">Nomenclature</span></h4>
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"1\" width=\"100%\"><tr>
+<td><p>Variable</p></td>
+<td><p>Variable name</p></td>
+</tr>
+<tr>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-ykbuKgri.png\" alt=\"nu\"/></p></td>
+<td><p>Kinematic viscosity</p></td>
+</tr>
+<tr>
+<td><p>Re</p></td>
+<td><p>Rayleigh Number</p></td>
+</tr>
+<tr>
+<td><p>Pr</p></td>
+<td><p>Prantl Number</p></td>
+</tr>
+<tr>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-ms3CR7QM.png\" alt=\"dT\"/></p></td>
+<td><p>Temperature difference</p></td>
+</tr>
+<tr>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-UfDfqwjB.png\" alt=\"beta\"/></p></td>
+<td><p>linear expansion coefficient</p></td>
+</tr>
+<tr>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-0A64F49w.png\" alt=\"l\"/></p></td>
+<td><p>characteristic length</p></td>
+</tr>
+<tr>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-C25R3wLT.png\" alt=\"g\"/></p></td>
+<td><p>gravitational constant</p></td>
+</tr>
+</table>
+<p><br><h4><span style=\"color: #008000\">Governing Equations</span></h4></p>
+<p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-KGh44rQZ.png\" alt=\"Ra = g*beta * dT* l^3*Pr/nu^2\"/></p>
+<h4><span style=\"color: #008000\">Version History</span></h4>
+<p>Model created by Philipp Jahneke (philipp.koziol@tuhh.de) in August 2018</p>
+<p>Change documentation by Markus Gillner (markus.gillner@tuhh.de) in Jan 2025</p>
 </html>"));
 end RayleighNumber;

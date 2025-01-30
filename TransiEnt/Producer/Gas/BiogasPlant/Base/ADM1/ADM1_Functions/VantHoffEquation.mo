@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.BiogasPlant.Base.ADM1.ADM1_Functions;
+within TransiEnt.Producer.Gas.BiogasPlant.Base.ADM1.ADM1_Functions;
 function VantHoffEquation "applies the van't Hoff Equation to a temperature-sensitive equilibrium constant"
 
 
@@ -65,29 +65,43 @@ function VantHoffEquation "applies the van't Hoff Equation to a temperature-sens
 algorithm
   K := K_ref*exp(deltH0/R*(1/T_ref - 1/T));
   annotation (Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
-<p>(Description) </p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
-<p>(Description)</p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
-<p>(Description)</p>
-<h4><span style=\"color: #008000\">4. Interfaces</span></h4>
-<p>(none)</p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<p>K_ref&nbsp;: &quot;Equilibrium&nbsp;constant&nbsp;at&nbsp;reference&nbsp;temperature&quot;</p>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
+<p>The function calculates the position of the liquid-gas equilibrium <i>K</i> as a function of temperature and constant pressure. The equation is called Van&apos;t-Hoff-equation.</p>
+<h4><span style=\"color: #008000\">Nomenclature</span></h4>
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"1\" width=\"100%\"><tr>
+<td><h4>Variable</h4></td>
+<td><h4>Variable Name</h4></td>
+</tr>
+<tr>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-K8ReTsIV.png\" alt=\"K_ref\"/></p></td>
+<td><p>Equilibrium constant at reference temperature</p></td>
+</tr>
+<tr>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-H4RAfBOS.png\" alt=\"K\"/></p></td>
+<td><p>Equilibrium constant at temperature <i>T </i></p></td>
+</tr>
+<tr>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-AgBaqBJ9.png\" alt=\"T\"/></p></td>
+<td><p>Temperature at which equilibrium constant is calculated</p></td>
+</tr>
+<tr>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-mTCCqwuA.png\" alt=\"T_ref\"/></p></td>
+<td><p>Reference Temperature for equilibrium constant</p></td>
+</tr>
+<tr>
+<td><p>&Delta;H<sub>0 </sub></p></td>
+<td><p>Enthalpy of reaction for determination of equilibrium</p></td>
+</tr>
+</table>
+<p><br><br><br>K_ref&nbsp;: &quot;Equilibrium&nbsp;constant&nbsp;at&nbsp;reference&nbsp;temperature&quot;</p>
 <p>deltH0:&nbsp;&quot;Enthalpy&nbsp;of&nbsp;Reaction&nbsp;for&nbsp;determination&nbsp;of&nbsp;equilibrium&quot;</p>
 <p>T:&nbsp;&quot;Temperature&nbsp;at&nbsp;which&nbsp;equilibrium&nbsp;constant&nbsp;is&nbsp;calculated&quot;</p>
 <p>K:&nbsp;&quot;Equilibrium&nbsp;constant&nbsp;at&nbsp;Temperature&nbsp;T&quot;</p>
-<p><span style=\"font-family: (Default);\">T_ref&nbsp;=&nbsp;298.15&nbsp;&quot;Reference&nbsp;Temperature&nbsp;for&nbsp;equilibrium&nbsp;constant&quot;</span></p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
-<p>&nbsp;K&nbsp;:=K_ref*exp(deltH0/R*(1/T_ref&nbsp;-&nbsp;1/T))</p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
-<p>(none)</p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
-<p>(no validation or testing necessary)</p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
-<p>(none)</p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
+<p>T_ref&nbsp;=&nbsp;298.15&nbsp;&quot;Reference&nbsp;Temperature&nbsp;for&nbsp;equilibrium&nbsp;constant&quot;</p>
+<h4><span style=\"color: #008000\">Governing Equations</span></h4>
+<p>Van&apos;t-Hoff-Equation <img src=\"modelica://TransiEnt/Images/equations/Van'tHoffEquation.png\"/></p>
+<h4><span style=\"color: #008000\">Version History</span></h4>
 <p>Model created by Philipp Jahneke (philipp.koziol@tuhh.de), August 2018</p>
+<p>Change documentation by Markus Gillner (markus.gillner@tuhh.de) in Jan 2025</p>
 </html>"));
 end VantHoffEquation;

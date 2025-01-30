@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.BiogasPlant.HeatTransfer.ForcedConvection;
+within TransiEnt.Producer.Gas.BiogasPlant.HeatTransfer.ForcedConvection;
 function NusseltCSTR_Coil
   "Function calculating Nusselt Number for Heat Transfer from coil to medium"
 
@@ -72,32 +72,52 @@ algorithm
   Nu := C2*(d/D)^(-0.3)*Re^a*Pr^b*(eta/eta_w)^c;
 
   annotation (Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
-<p>Calculates the Nusselt number of an impeller driven flow inside a CSTR. </p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
-<p>(Description)</p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
-<p>(none)</p>
-<h4><span style=\"color: #008000\">4. Interfaces</span></h4>
-<p>(none)</p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<p>Nu := Nusselt number,</p>
-<p>Pr := Prandtl number</p>
-<p>D := Inner Diameter of CSTR</p>
-<p>P := power of the stirrer </p>
-<p>V := Volume of CSTR filled with medium</p>
-<p>rho := density of fluid</p>
-<p>eta := dynamic viscosity of fluid</p>
-<p>eta_w := dynamic viscosity of fluid at the wall</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
-<p>Nu := K * (pi/4)^(a/3) * (P*D^4*rho^2/V/eta^3)^(a/3) * Pr^b * (eta/eta_w)^c</p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
-<p>(none)</p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
-<p>(no validation or testing necessary)</p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
+<p>Calculates the Nusselt number of an impeller driven flow inside a CSTR from coil to medium.</p>
+<h4><span style=\"color: #008000\">Nomenclature</span></h4>
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"1\" width=\"100%\"><tr>
+<td><p>Variable</p></td>
+<td><p>Variable Name</p></td>
+</tr>
+<tr>
+<td><p>Nu</p></td>
+<td><p>Nusselt Number</p></td>
+</tr>
+<tr>
+<td><p>Pr</p></td>
+<td><p>Prandtl Number</p></td>
+</tr>
+<tr>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-MH5HvdWe.png\" alt=\"D\"/></p></td>
+<td><p>Inner diameter of CSTR</p></td>
+</tr>
+<tr>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-u8jaqaAx.png\" alt=\"rho\"/></p></td>
+<td><p>Density of fluid</p></td>
+</tr>
+<tr>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-O8M4VIPp.png\" alt=\"P\"/></p></td>
+<td><p>Power of stirrer</p></td>
+</tr>
+<tr>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-43d0REzf.png\" alt=\"V\"/></p></td>
+<td><p>Volume of CSTR filled with fluid</p></td>
+</tr>
+<tr>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-G4CqOM2H.png\" alt=\"eta\"/></p></td>
+<td><p>Dynamic viscosity of fluid</p></td>
+</tr>
+<tr>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-MEwrcNKl.png\" alt=\"eta_w\"/></p></td>
+<td><p>Dynamic viscosity of fluid at the wall</p></td>
+</tr>
+</table>
+<p><br><h4><span style=\"color: #008000\">Governing Equations</span></h4></p>
+<p><img src=\"modelica://TransiEnt/Images/equations/Nusselt_CSTR-coil.png\"/></p>
+<h4><span style=\"color: #008000\">References</span></h4>
 <p>[1] Judat, H. and Sperling, R. (2005). W&auml;rme&uuml;bergang im R&uuml;hrkessel. In M. Kraume (Ed.) <i>Mischen und R&uuml;hren </i>(pp. 123-145), Wiley-Blackwell</p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
+<h4><span style=\"color: #008000\">Version History</span></h4>
 <p>Created by Philipp Jahneke (philipp.koziol@tuhh.de), Sep 2018</p>
+<p>Changed documentation by Markus Gillner (markus.gillner@tuhh.de) in Jan 2025</p>
 </html>"));
 end NusseltCSTR_Coil;
