@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.Ambient;
+within TransiEnt.Basics.Tables.Ambient;
 model Temperature_Berlin_3600s_2012 "Berlin 2012, 1 h  resolution. Source: WebWerdis"
 
 
@@ -33,7 +33,8 @@ model Temperature_Berlin_3600s_2012 "Berlin 2012, 1 h  resolution. Source: WebWe
   //          Imports and Class Hierarchy
   // _____________________________________________
 
-extends TransiEnt.Basics.Tables.GenericDataTable(relativepath="/ambient/Temperature_Berlin_Tempelhof_3600s_01012012_31122012.txt", datasource=DataPrivacy.isPublic);
+  extends TransiEnt.Basics.Tables.GenericDataTable(path=
+        "/ambient/Temperature_Berlin_Tempelhof_3600s_01012012_31122012.txt");
 extends TransiEnt.Components.Boundaries.Ambient.Base.PartialTemperature;
 
   // _____________________________________________

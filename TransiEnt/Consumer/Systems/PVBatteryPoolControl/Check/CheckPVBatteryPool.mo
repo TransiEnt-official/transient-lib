@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Systems.PVBatteryPoolControl.Check;
+within TransiEnt.Consumer.Systems.PVBatteryPoolControl.Check;
 model CheckPVBatteryPool "Tester for PVBatteryPool"
 
 
@@ -52,13 +52,15 @@ extends TransiEnt.Basics.Icons.Checkmodel;
     nSystems=20,
     SOC_start=1) annotation (Placement(transformation(extent={{-24,80},{2,104}})));
   Basics.Tables.GenericDataTable loadProfiles(
-    relativepath="electricity/ElectricDemandSingleHouseTypicalProfiles.txt",
+    path="electricity/ElectricDemandSingleHouseTypicalProfiles.txt",
     multiple_outputs=true,
-    columns=2:6) annotation (Placement(transformation(extent={{-34,26},{-14,46}})));
+    columns=2:6)
+    annotation (Placement(transformation(extent={{-34,26},{-14,46}})));
   Basics.Tables.GenericDataTable pvProfiles(
-    relativepath="electricity/PhotovoltaicSingleHouseTypicalProfiles.txt",
+    path="electricity/PhotovoltaicSingleHouseTypicalProfiles.txt",
     multiple_outputs=true,
-    columns=2:5) annotation (Placement(transformation(extent={{-34,-12},{-14,8}})));
+    columns=2:5)
+    annotation (Placement(transformation(extent={{-34,-12},{-14,8}})));
   Modelica.Blocks.Math.Gain P_Load[5](k=(2500:500:4500).*3.6e6) annotation (Placement(transformation(extent={{-4,30},{8,42}})));
   Modelica.Blocks.Math.Gain P_PV[4](k=(1:0.5:2.5)*1e3) annotation (Placement(transformation(extent={{-2,-8},{10,4}})));
   inner SimCenter simCenter annotation (Placement(transformation(extent={{-90,80},{-70,100}})));

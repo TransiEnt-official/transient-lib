@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.Ambient;
+within TransiEnt.Basics.Tables.Ambient;
 model DNI_Cologne_3600s_TRY "DNI Cologne TRY, 1 h resolution, Source: DWD/calculation"
 
 
@@ -35,10 +35,9 @@ model DNI_Cologne_3600s_TRY "DNI Cologne TRY, 1 h resolution, Source: DWD/calcul
   // _____________________________________________
 
   extends GenericDataTable(
-  relativepath="ambient/Cologne_3600s_TRY.txt",
-  datasource=DataPrivacy.isPublic,
-  tableName="tab1",
-  columns = {5});
+    path="ambient/Cologne_3600s_TRY.txt",
+    tableName="tab1",
+    columns={5});
 
   extends TransiEnt.Components.Boundaries.Ambient.Base.PartialGlobalSolarRadiation;
 

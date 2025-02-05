@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.Ambient;
+within TransiEnt.Basics.Tables.Ambient;
 model Temperature_Cologne_3600s_TRY "Temperature Cologne, 1 h resolution, Source: DWD"
 
 
@@ -35,10 +35,9 @@ model Temperature_Cologne_3600s_TRY "Temperature Cologne, 1 h resolution, Source
   // _____________________________________________
 
   extends GenericDataTable(
-  relativepath="/ambient/Cologne_3600s_TRY.txt",
-  datasource=DataPrivacy.isPublic,
-  tableName="tab1",
-  columns={2});
+    path="/ambient/Cologne_3600s_TRY.txt",
+    tableName="tab1",
+    columns={2});
   extends TransiEnt.Components.Boundaries.Ambient.Base.PartialTemperature;
 
   // _____________________________________________

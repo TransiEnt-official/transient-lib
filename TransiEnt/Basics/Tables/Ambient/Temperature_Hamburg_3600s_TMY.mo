@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.Ambient;
+within TransiEnt.Basics.Tables.Ambient;
 model Temperature_Hamburg_3600s_TMY "Hamburg TMY, 1 h resolution, Source: IWEC"
 
 
@@ -34,10 +34,9 @@ model Temperature_Hamburg_3600s_TMY "Hamburg TMY, 1 h resolution, Source: IWEC"
   //          Imports and Class Hierarchy
   // _____________________________________________
   extends GenericDataTable(
-  relativepath="/ambient/Temperature_Hamburg_3600s_TMY.txt",
-  datasource=DataPrivacy.isPublic,
-  tableName="default",
-  columns={2});
+    path="/ambient/Temperature_Hamburg_3600s_TMY.txt",
+    tableName="default",
+    columns={2});
   extends TransiEnt.Components.Boundaries.Ambient.Base.PartialTemperature;
 
   // _____________________________________________

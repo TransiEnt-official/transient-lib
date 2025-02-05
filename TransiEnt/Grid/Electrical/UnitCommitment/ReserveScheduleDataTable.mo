@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Electrical.UnitCommitment;
+within TransiEnt.Grid.Electrical.UnitCommitment;
 model ReserveScheduleDataTable "Unit commitment schedule"
 
 
@@ -28,8 +28,7 @@ model ReserveScheduleDataTable "Unit commitment schedule"
 
 
   extends TransiEnt.Basics.Tables.GenericDataTable(
-    datasource=TransiEnt.Basics.Tables.DataPrivacy.isPrivate,
-    relativepath="strom\\UnitCommitmentSchedule_3600s_01012033_31122033_.txt",
+    path="strom\\UnitCommitmentSchedule_3600s_01012033_31122033_.txt",
     multiple_outputs=true,
     columns=2:3,
     change_of_sign=true,

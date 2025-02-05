@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Electrical.Profiles;
+within TransiEnt.Consumer.Electrical.Profiles;
 model SLPLoader "Loads standard load profiles from csv files"
 
 
@@ -38,9 +38,14 @@ model SLPLoader "Loads standard load profiles from csv files"
   import TransiEnt.Basics.Types.SLP;
 
   extends TransiEnt.Basics.Tables.GenericDataTable(
-                                                 final relativepath="electricity/StandardLoadProfiles/" + String(standardLoadProfile) + "_Hamburg_Normalized_1kWh_900s_2012.txt",
-      final datasource=TransiEnt.Basics.Tables.DataPrivacy.isPublic,
-                                                                  final tableName="default", final multiple_outputs = false, final columns=2:2, final use_absolute_path = false, final absolute_path="", constantfactor = scaling);
+    final path="electricity/StandardLoadProfiles/" + String(standardLoadProfile)
+         + "_Hamburg_Normalized_1kWh_900s_2012.txt",
+    final tableName="default",
+    final multiple_outputs=false,
+    final columns=2:2,
+    final use_absolute_path=false,
+    final absolute_path="",
+    constantfactor=scaling);
 
   // _____________________________________________
   //

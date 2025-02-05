@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.Ambient;
+within TransiEnt.Basics.Tables.Ambient;
 model DHI_Cologne_3600s_TRY "DHI Cologne TRY, 1 h resolution, Source: DWD"
 
 
@@ -34,11 +34,10 @@ model DHI_Cologne_3600s_TRY "DHI Cologne TRY, 1 h resolution, Source: DWD"
   //          Imports and Class Hierarchy
   // _____________________________________________
 
-extends GenericDataTable(
-relativepath="ambient/Cologne_3600s_TRY.txt",
-datasource=DataPrivacy.isPublic,
-tableName="tab1",
-columns={6});
+  extends GenericDataTable(
+    path="ambient/Cologne_3600s_TRY.txt",
+    tableName="tab1",
+    columns={6});
 
 extends TransiEnt.Components.Boundaries.Ambient.Base.PartialGlobalSolarRadiation;
 

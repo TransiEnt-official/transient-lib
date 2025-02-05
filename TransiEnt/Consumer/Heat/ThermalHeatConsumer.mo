@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Heat;
+within TransiEnt.Consumer.Heat;
 model ThermalHeatConsumer "Thermal Heat Consumer based on a room with capacity and heat losses"
 
 
@@ -67,8 +67,9 @@ model ThermalHeatConsumer "Thermal Heat Consumer based on a room with capacity a
   parameter Real yMax=1 "Upper limit of output";
   parameter Real yMin=-CTRL_T_room.y_max "Lower limit of output";
 
-  replaceable model PressureLoss = ClaRa.Components.VolumesValvesFittings.Valves.Fundamentals.Quadratic_EN60534_incompressible (
-        paraOption=2,
+  replaceable model PressureLoss =
+      ClaRa.Components.VolumesValvesFittings.Valves.Fundamentals.Quadratic_EN60534_incompressible
+      ( paraOption=2,
         m_flow_nom=m_flow_nom,
         Delta_p_nom=Delta_p_nom) constrainedby ClaRa.Components.VolumesValvesFittings.Valves.Fundamentals.GenericPressureLoss
                                                                                                     annotation (__Dymola_choicesAllMatching=true);
@@ -95,7 +96,9 @@ model ThermalHeatConsumer "Thermal Heat Consumer based on a room with capacity a
   Modelica.Thermal.HeatTransfer.Celsius.PrescribedTemperature
     prescribedTemperature
     annotation (Placement(transformation(extent={{28,-40},{8,-20}})));
-  TransiEnt.Basics.Tables.Ambient.Temperature_Hamburg_900s_2012 tamb(datasource=TransiEnt.Basics.Tables.DataPrivacy.isPublic, relativepath="ambient/Temperature_Hamburg-Fuhlsbuettel_3600s_01012012_31122012.txt") annotation (Placement(transformation(extent={{-17,-67},{3,-47}})));
+  TransiEnt.Basics.Tables.Ambient.Temperature_Hamburg_900s_2012 tamb(path=
+        "ambient/Temperature_Hamburg-Fuhlsbuettel_3600s_01012012_31122012.txt")
+    annotation (Placement(transformation(extent={{-17,-67},{3,-47}})));
   Modelica.Thermal.HeatTransfer.Celsius.TemperatureSensor T_Room "Temperature to be controlled"
                                    annotation (Placement(transformation(
         origin={-54,-38},
@@ -131,7 +134,8 @@ model ThermalHeatConsumer "Thermal Heat Consumer based on a room with capacity a
     p_nom=dp_HX_nom,
     h_nom=h_nom,
     redeclare model HeatTransfer =
-        ClaRa.Basics.ControlVolumes.Fundamentals.HeatTransport.Generic_HT.Constant_L2 (                      alpha_nom=kc_nom),
+        ClaRa.Basics.ControlVolumes.Fundamentals.HeatTransport.Generic_HT.Constant_L2
+        (                                                                                                    alpha_nom=kc_nom),
     length=L,
     diameter_t=d_t,
     N_tubes=Nt,

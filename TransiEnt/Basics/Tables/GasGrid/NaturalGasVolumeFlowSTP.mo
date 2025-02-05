@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.GasGrid;
+within TransiEnt.Basics.Tables.GasGrid;
 model NaturalGasVolumeFlowSTP "Model for describing the average volume flow of natural gas"
 
 
@@ -33,7 +33,8 @@ model NaturalGasVolumeFlowSTP "Model for describing the average volume flow of n
   //          Imports and Class Hierarchy
   // _____________________________________________
 
-  extends TransiEnt.Basics.Tables.GasGrid.GenericGasVolumeFlowDataTable(relativepath="/gas/NaturalGasVolumeFlow_RingSupplyLineHHReitbrook_2009_2011_Average_Monotonic.txt", datasource=DataPrivacy.isPublic);
+  extends TransiEnt.Basics.Tables.GasGrid.GenericGasVolumeFlowDataTable(path=
+        "/gas/NaturalGasVolumeFlow_RingSupplyLineHHReitbrook_2009_2011_Average_Monotonic.txt");
   annotation (Documentation(info="<html>
 <h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
 <p>Average volume flow in Nm3/h from 2009 until 2011 for the Reitbrook Ring-supply line. It has been converted to m3/s.</p>

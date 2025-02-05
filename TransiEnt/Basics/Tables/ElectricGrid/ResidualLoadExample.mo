@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.ElectricGrid;
+within TransiEnt.Basics.Tables.ElectricGrid;
 model ResidualLoadExample "Residual load of volatile renewable powers (measured 2015) with fixed powers for Hamburg 2050"
 
 
@@ -63,12 +63,14 @@ model ResidualLoadExample "Residual load of volatile renewable powers (measured 
   //           Instances of other Classes
   // _____________________________________________
 
-  TransiEnt.Basics.Tables.ElectricGrid.PowerData.ElectricityDemand_HH_900s_2012 RunOffWater(
-    relativepath="electricity/RunOfWaterPlant_normalized_1J_2012.txt",
+  TransiEnt.Basics.Tables.ElectricGrid.PowerData.ElectricityDemand_HH_900s_2012
+    RunOffWater(
+    path="electricity/RunOfWaterPlant_normalized_1J_2012.txt",
     change_of_sign=true,
     startTime=0,
     smoothness=smoothness,
-    constantfactor=3600*5010*86e6) annotation (Placement(transformation(extent={{-78,-22},{-58,-2}})));
+    constantfactor=3600*5010*86e6)
+    annotation (Placement(transformation(extent={{-78,-22},{-58,-2}})));
   Modelica.Blocks.Math.MultiSum multiSum(                                  nu=7, k=fill(1, 7))
                                                              annotation (Placement(transformation(extent={{-12,-12},{0,0}})));
   Modelica.Blocks.Math.Add add(k1=+1) annotation (Placement(transformation(extent={{12,-10},{32,10}})));
@@ -102,12 +104,14 @@ public
   TransiEnt.Basics.Tables.ElectricGrid.PowerData.ElectricityDemand_HH_900s_2012 DemandTable(startTime=0, smoothness=smoothness) annotation (Placement(transformation(extent={{-78,78},{-58,98}})));
   Modelica.Blocks.Sources.Constant reservePower(k=-P_R) annotation (Placement(transformation(extent={{-78,-94},{-58,-74}})));
   Modelica.Blocks.Sources.RealExpression P_el_BM_base(y=-227e6*share_BM_base*availability_BM_base)                   annotation (Placement(transformation(extent={{-80,-46},{-56,-28}})));
-  TransiEnt.Basics.Tables.ElectricGrid.PowerData.ElectricityDemand_HH_900s_2012 CHPTable(
+  TransiEnt.Basics.Tables.ElectricGrid.PowerData.ElectricityDemand_HH_900s_2012
+    CHPTable(
     change_of_sign=true,
     startTime=0,
     smoothness=smoothness,
-    relativepath="electricity/CHPPowerCurve_SLPGasHMF_capacityFactor_2012_3600s.txt",
-    constantfactor=share_BM_chp*227e6) annotation (Placement(transformation(extent={{-80,-64},{-60,-44}})));
+    path="electricity/CHPPowerCurve_SLPGasHMF_capacityFactor_2012_3600s.txt",
+    constantfactor=share_BM_chp*227e6)
+    annotation (Placement(transformation(extent={{-80,-64},{-60,-44}})));
 
   // _____________________________________________
   //

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.Ambient;
+within TransiEnt.Basics.Tables.Ambient;
 model GHI_Miesbach_3600s_TRY_tilt35
   "GHI Miesbach TRY, 1 h resolution, tilt = 35"
 
@@ -34,9 +34,8 @@ model GHI_Miesbach_3600s_TRY_tilt35
   //          Imports and Class Hierarchy
   // _____________________________________________
 
-  extends GenericDataTable(
-  relativepath="ambient/Radiation_PVModule_TRY-Miesbach_Az=0_Tilt=35.txt",
-  datasource=DataPrivacy.isPublic);
+  extends GenericDataTable(path=
+        "ambient/Radiation_PVModule_TRY-Miesbach_Az=0_Tilt=35.txt");
 
   extends TransiEnt.Components.Boundaries.Ambient.Base.PartialGlobalSolarRadiation;
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.Ambient;
+within TransiEnt.Basics.Tables.Ambient;
 model Wind_Hamburg_3600s_TMY "Hamburg TMY, Source: DOE/ASHRAE2015"
 
 
@@ -33,9 +33,7 @@ model Wind_Hamburg_3600s_TMY "Hamburg TMY, Source: DOE/ASHRAE2015"
   //          Imports and Class Hierarchy
   // _____________________________________________
 
-extends GenericDataTable(
-relativepath="/ambient/Wind_Hamburg_3600s_TMY.txt",
-datasource=DataPrivacy.isPublic);
+  extends GenericDataTable(path="/ambient/Wind_Hamburg_3600s_TMY.txt");
 extends TransiEnt.Components.Boundaries.Ambient.Base.PartialWindspeed;
 
   // _____________________________________________

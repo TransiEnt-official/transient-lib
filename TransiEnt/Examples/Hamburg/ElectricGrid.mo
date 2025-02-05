@@ -1,4 +1,4 @@
-﻿within TransiEnt.Examples.Hamburg;
+within TransiEnt.Examples.Hamburg;
 model ElectricGrid "Example of an electric grid with several generators, frequency control and economic dispatch models"
 
 
@@ -219,23 +219,26 @@ model ElectricGrid "Example of an electric grid with several generators, frequen
   end plotResult;
 
   TransiEnt.Basics.Tables.GenericDataTable normalizedWindPredictionError(
-    relativepath="electricity/NormalisedWindPredictionError_900s.txt",
+    path="electricity/NormalisedWindPredictionError_900s.txt",
     constantfactor=1,
-    startTime=t_start_set.k) annotation (Placement(transformation(extent={{-228,106},{-208,126}})));
+    startTime=t_start_set.k)
+    annotation (Placement(transformation(extent={{-228,106},{-208,126}})));
   Modelica.Blocks.Sources.RealExpression e_wind_prediction_on(y=(normalizedWindPredictionError.y1 + 0.11/100)*simCenter.generationPark.P_el_n_WindOn) annotation (Placement(transformation(extent={{-162,100},{-142,120}})));
   Modelica.Blocks.Sources.RealExpression e_wind_prediction_off(y=(normalizedWindPredictionError2.y1 + 0.11/100)*simCenter.generationPark.P_el_n_WindOff) annotation (Placement(transformation(extent={{-160,84},{-140,104}})));
   TransiEnt.Basics.Tables.GenericDataTable normalizedWindPredictionError2(
     constantfactor=1,
-    relativepath="electricity/NormalisedWindPredictionError2_900s.txt",
-    startTime=t_start_set.k) annotation (Placement(transformation(extent={{-198,106},{-178,126}})));
+    path="electricity/NormalisedWindPredictionError2_900s.txt",
+    startTime=t_start_set.k)
+    annotation (Placement(transformation(extent={{-198,106},{-178,126}})));
 
 
   TransiEnt.Basics.Tables.GenericDataTable ThermalUnitCommitment(
     multiple_outputs=true,
     startTime=t_start_set.k,
-    relativepath="heat/ThermalUnitCommitmentSchedule_3600s_REF35.txt",
+    path="heat/ThermalUnitCommitmentSchedule_3600s_REF35.txt",
     constantfactor=-1,
-    columns=2:4) "Q_flow_set for WT / WW1 / WW2" annotation (Placement(transformation(extent={{-132,-226},{-112,-206}})));
+    columns=2:4) "Q_flow_set for WT / WW1 / WW2"
+    annotation (Placement(transformation(extent={{-132,-226},{-112,-206}})));
   TransiEnt.Grid.Electrical.EconomicDispatch.DiscretizePrediction discretizePrediction(t_shift=0, samplePeriod=900) annotation (Placement(transformation(extent={{-206,-24},{-186,-4}})));
   TransiEnt.Grid.Electrical.EconomicDispatch.LoadPredictionAdaption H_lpa(P_lpa_init=sum(P_init_set.k[simCenter.generationPark.isMOD])) annotation (Placement(transformation(extent={{-242,-24},{-222,-4}})));
   TransiEnt.Grid.Electrical.UnitCommitment.BinaryScheduleDataTable UC(
@@ -247,9 +250,9 @@ model ElectricGrid "Example of an electric grid with several generators, frequen
         fill(false, simCenter.generationPark.nDispPlants - 2),
         {true,true}),
     reserveAllocation(
-      relativepath="electricity/UnitCommitmentSchedules/ReservePowerCommitmentSchedule_3600s_REF35.txt",
       smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments,
-      use_absolute_path=false),
+      use_absolute_path=false,
+      path        ="electricity/UnitCommitmentSchedules/ReservePowerCommitmentSchedule_3600s_REF35.txt"),
     schedule(
       BC=5,
       CCP=6,
@@ -267,10 +270,11 @@ model ElectricGrid "Example of an electric grid with several generators, frequen
       WindOff=20,
       Curt=15,
       Import=16,
-      relativepath="electricity/UnitCommitmentSchedules/UnitCommitmentSchedule_3600s_smoothed_REF35.txt",
       use_absolute_path=false,
       smoothness=Modelica.Blocks.Types.Smoothness.MonotoneContinuousDerivative1,
-      columns=(2:simCenter.generationPark.nPlants + 1))) annotation (Placement(transformation(extent={{-192,14},{-172,34}})));
+      columns=(2:simCenter.generationPark.nPlants + 1),
+      path        ="electricity/UnitCommitmentSchedules/UnitCommitmentSchedule_3600s_smoothed_REF35.txt"))
+                                                         annotation (Placement(transformation(extent={{-192,14},{-172,34}})));
   Modelica.Blocks.Sources.RealExpression P_residual_pred_1h(y=-sum(UC.prediction.y[simCenter.generationPark.isMOD])) annotation (Placement(transformation(extent={{-228,4},{-208,24}})));
   TransiEnt.Grid.Electrical.EconomicDispatch.MeritOrderDispatcher mod(
     ntime=discretizePrediction.ntime,
@@ -299,9 +303,10 @@ model ElectricGrid "Example of an electric grid with several generators, frequen
     change_of_sign=true,
     startTime=t_start_set.k) annotation (Placement(transformation(extent={{42,134},{56,146}})));
   TransiEnt.Basics.Tables.GenericDataTable normalizedPVPredictionError(
-    relativepath="electricity/NormalisedWindPredictionError_900s.txt",
+    path="electricity/NormalisedWindPredictionError_900s.txt",
     constantfactor=1,
-    startTime=t_start_set.k) annotation (Placement(transformation(extent={{-228,74},{-208,94}})));
+    startTime=t_start_set.k)
+    annotation (Placement(transformation(extent={{-228,74},{-208,94}})));
   Modelica.Blocks.Sources.RealExpression e_pv_prediction(y=normalizedPVPredictionError.y1*simCenter.generationPark.P_el_n_PV) annotation (Placement(transformation(extent={{-160,66},{-140,86}})));
   TransiEnt.Basics.Tables.ElectricGrid.PowerData.ElectricityDemand_HH_900s_2012
                                                                       P_Load(startTime=t_start_set.k) annotation (Placement(transformation(extent={{280,-8},{260,12}})));

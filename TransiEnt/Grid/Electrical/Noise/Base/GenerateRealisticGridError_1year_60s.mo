@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Electrical.Noise.Base;
+within TransiEnt.Grid.Electrical.Noise.Base;
 model GenerateRealisticGridError_1year_60s
 
 
@@ -29,10 +29,10 @@ model GenerateRealisticGridError_1year_60s
 
   extends TransiEnt.Basics.Icons.Example;
   LumpedGridDynamicModel lumpedGridDynamicsModel(k_pf=0.5, delta_P_pr=0.18/50/(0.02 - 0.18*0.01)) annotation (Placement(transformation(extent={{-12,-12},{12,12}})));
-  TransiEnt.Basics.Tables.GenericDataTable f_1year_60s(
-    datasource=TransiEnt.Basics.Tables.DataPrivacy.isPublic,
-    relativepath="electricity/GridFrequencyMeasurement_60s_01012012_31122012.txt",
-    use_absolute_path=false) annotation (Placement(transformation(extent={{-66,-12},{-42,12}})));
+  TransiEnt.Basics.Tables.GenericDataTable f_1year_60s(path=
+        "electricity/GridFrequencyMeasurement_60s_01012012_31122012.txt",
+      use_absolute_path=false)
+    annotation (Placement(transformation(extent={{-66,-12},{-42,12}})));
 
   LumpedGridDynamicModel ValidationModel(k_pf=0.5, delta_P_pr=0.18/50/(0.02 - 0.18*0.01)) annotation (Placement(transformation(extent={{42,-12},{66,12}})));
 equation

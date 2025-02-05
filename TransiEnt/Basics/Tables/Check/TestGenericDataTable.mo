@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.Check;
+within TransiEnt.Basics.Tables.Check;
 model TestGenericDataTable "Model for testing a generic data table"
 
 
@@ -32,7 +32,9 @@ model TestGenericDataTable "Model for testing a generic data table"
 
   inner TransiEnt.SimCenter simCenter annotation (Placement(transformation(extent={{-90,80},{-70,100}})));
 
-  TransiEnt.Basics.Tables.GenericDataTable genericDataTable(relativepath="electricity/ElectricityDemandHH_900s_01.01.20120-01.01.20130.txt") annotation (Placement(transformation(extent={{-10,-8},{10,12}})));
+  TransiEnt.Basics.Tables.GenericDataTable genericDataTable(path=
+        "electricity/ElectricityDemandHH_900s_01.01.20120-01.01.20130.txt")
+    annotation (Placement(transformation(extent={{-10,-8},{10,12}})));
 equation
 
   annotation (experiment(

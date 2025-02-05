@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Electrical.Profiles;
+within TransiEnt.Consumer.Electrical.Profiles;
 model ExampleHousehold_ElectricityDemand_VDI4665_60s "Example single family house electric demand (VDI4665, RG1, 150m2, 4 person, build in 1991)"
 
 
@@ -33,8 +33,9 @@ model ExampleHousehold_ElectricityDemand_VDI4665_60s "Example single family hous
   //          Imports and Class Hierarchy
   // _____________________________________________
   extends TransiEnt.Basics.Tables.ElectricGrid.PowerData.GenericPowerDataTable(
-                                                           relativepath="electricity/ElectricityDemand_VDI4665_Normalized_1J_HH_2012_60s.txt", datasource=TransiEnt.Basics.Tables.DataPrivacy.isPublic,
-                                                                                                                                                                                              constantfactor=4640e3*3600*366/360);
+      path=
+        "electricity/ElectricityDemand_VDI4665_Normalized_1J_HH_2012_60s.txt",
+      constantfactor=4640e3*3600*366/360);
   annotation (defaultComponentName="DemandTable", Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}}), graphics),
     Documentation(info="<html>

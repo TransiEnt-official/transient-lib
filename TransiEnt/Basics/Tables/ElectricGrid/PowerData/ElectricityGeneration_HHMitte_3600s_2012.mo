@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.ElectricGrid.PowerData;
+within TransiEnt.Basics.Tables.ElectricGrid.PowerData;
 model ElectricityGeneration_HHMitte_3600s_2012 "Hourly electricity generation data in Hamburg-Mitte. Source: Energie Portal Hamburg"
 
 
@@ -33,9 +33,8 @@ model ElectricityGeneration_HHMitte_3600s_2012 "Hourly electricity generation da
   //          Imports and Class Hierarchy
   // _____________________________________________
 
-  extends PowerData.GenericPowerDataTable(
-                                      relativepath="electricity/ElectricityGeneration_Mitte_3600s_01012012_31122012.txt",
-      datasource=DataPrivacy.isPublic);
+  extends PowerData.GenericPowerDataTable(path=
+        "electricity/ElectricityGeneration_Mitte_3600s_01012012_31122012.txt");
   annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}}), graphics), Documentation(info="<html>
 <h4><span style=\"color: #008000\">1. Purpose of model</span></h4>

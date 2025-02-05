@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.SolarThermal;
+within TransiEnt.Producer.Heat.SolarThermal;
 model SolarThermal_L0 "Table-based solar thermal module with collecting statistics"
 
 
@@ -68,15 +68,18 @@ model SolarThermal_L0 "Table-based solar thermal module with collecting statisti
 
   TransiEnt.Basics.Tables.GenericDataTable solarThermalData(
     change_of_sign=true,
-    relativepath=relativepath,
-    constantfactor=scaleData) annotation (Placement(transformation(extent={{-80,40},{-60,60}})));
+    path=relativepath,
+    constantfactor=scaleData)
+    annotation (Placement(transformation(extent={{-80,40},{-60,60}})));
   TransiEnt.Components.Statistics.Collectors.LocalCollectors.CollectHeatingPower collectHeatingPower(typeOfResource=TransiEnt.Basics.Types.TypeOfResource.Renewable) annotation (Placement(transformation(extent={{-100,100},{-80,80}})));
   TransiEnt.Components.Statistics.Collectors.LocalCollectors.HeatingPlantCost simpleEconomicsModel_Heater(
     Q_flow_n=Q_flow_n,
     Q_flow_is=heatFlowRateOut,
     Q_flow_fuel_is=0,
     m_flow_CDE_is=0,
-    redeclare model HeatingPlantCostModel = Components.Statistics.ConfigurationData.PowerProducerCostSpecs.Biomass (
+    redeclare model HeatingPlantCostModel =
+        Components.Statistics.ConfigurationData.PowerProducerCostSpecs.Biomass
+        (
         Cspec_inv_der_E=0,
         factor_OM=0,
         Cspec_OM_W_el=0,

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.Ambient;
+within TransiEnt.Basics.Tables.Ambient;
 model UndergroundTemperature_Duesseldorf_1m_3600s_TMY "Duesseldorf 1m depth 2017, 1 h resolution, Source: DWD-CDC"
 
 
@@ -35,10 +35,9 @@ model UndergroundTemperature_Duesseldorf_1m_3600s_TMY "Duesseldorf 1m depth 2017
   // _____________________________________________
 
   extends GenericDataTable(
-  relativepath="/ambient/UndergroundTemperature_Duesseldorf_1m_2017.txt",
-  datasource=DataPrivacy.isPublic,
-  tableName="default",
-  columns={2});
+    path="/ambient/UndergroundTemperature_Duesseldorf_1m_2017.txt",
+    tableName="default",
+    columns={2});
   extends TransiEnt.Components.Boundaries.Ambient.Base.PartialTemperature;
 
   // _____________________________________________

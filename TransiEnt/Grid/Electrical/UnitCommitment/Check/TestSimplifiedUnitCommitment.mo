@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Electrical.UnitCommitment.Check;
+within TransiEnt.Grid.Electrical.UnitCommitment.Check;
 model TestSimplifiedUnitCommitment
 
 
@@ -44,9 +44,9 @@ model TestSimplifiedUnitCommitment
         fill(false, simCenter.generationPark.nDispPlants - 2),
         {true,true}),
     reserveAllocation(
-      relativepath="electricity/UnitCommitmentSchedules/ReservePowerCommitmentSchedule_3600s_REF35.txt",
       smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments,
-      use_absolute_path=false),
+      use_absolute_path=false,
+      path        ="electricity/UnitCommitmentSchedules/ReservePowerCommitmentSchedule_3600s_REF35.txt"),
     schedule(
       BC=5,
       CCP=6,
@@ -64,10 +64,10 @@ model TestSimplifiedUnitCommitment
       WindOff=20,
       Curt=15,
       Import=16,
-      relativepath="electricity/UnitCommitmentSchedules/UnitCommitmentSchedule_3600s_smoothed_REF35.txt",
       use_absolute_path=false,
       smoothness=Modelica.Blocks.Types.Smoothness.MonotoneContinuousDerivative1,
-      columns=(2:simCenter.generationPark.nPlants + 1)),
+      columns=(2:simCenter.generationPark.nPlants + 1),
+      path        ="electricity/UnitCommitmentSchedules/UnitCommitmentSchedule_3600s_smoothed_REF35.txt"),
     t_start=0)                                           annotation (Placement(transformation(extent={{-20,14},{0,34}})));
   Modelica.Blocks.Sources.RealExpression P_load(y=-sum(UC.schedule.y[simCenter.generationPark.isMOD])) annotation (Placement(transformation(extent={{-88,-10},{-68,10}})));
   Basics.Blocks.Sources.ConstantVectorSource P_init_set(nout=simCenter.generationPark.nPlants, k={0.00,184844600.00,0.00,264596300.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,65349610.00,67121080.00,-0.00,-0.00,0.00,45750000.00,0.00,436034500.00,176187200.00}) annotation (Placement(transformation(extent={{-88,-32},{-68,-12}})));

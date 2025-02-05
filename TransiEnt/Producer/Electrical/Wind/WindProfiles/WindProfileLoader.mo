@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Wind.WindProfiles;
+within TransiEnt.Producer.Electrical.Wind.WindProfiles;
 model WindProfileLoader "Loads wind profiles from csv files for 2011-2015, scaled by installed power.
   
   Data for 2011-2014 is scaled by total installed power at end of the year.
@@ -40,9 +40,13 @@ model WindProfileLoader "Loads wind profiles from csv files for 2011-2015, scale
   // _____________________________________________
   import TransiEnt;
   extends TransiEnt.Basics.Tables.GenericDataTable(
-                                                 final relativepath="electricity/REProfiles/" + String(REProfile) + ".txt",
-      final datasource=TransiEnt.Basics.Tables.DataPrivacy.isPublic,
-                                                                  final tableName="default", final multiple_outputs = false, final columns=2:2, final use_absolute_path = false, final absolute_path="", constantfactor = P_el_n);
+    final path="electricity/REProfiles/" + String(REProfile) + ".txt",
+    final tableName="default",
+    final multiple_outputs=false,
+    final columns=2:2,
+    final use_absolute_path=false,
+    final absolute_path="",
+    constantfactor=P_el_n);
 
   // _____________________________________________
   //

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Examples.Hamburg;
+within TransiEnt.Examples.Hamburg;
 model SectorCouplingPtX "Coupled electric, district heating and gas grids for Hamburg with PtX 2035"
 
 
@@ -79,7 +79,8 @@ model SectorCouplingPtX "Coupled electric, district heating and gas grids for Ha
       choice=2 "TransiEnt formulation 1a",
       choice=3 "TransiEnt formulation 1b",
       choice=4 "Quasi-Stationary"));
-  replaceable model PressureLoss = TransiEnt.Components.Gas.VolumesValvesFittings.Base.PhysicalPL_L4           constrainedby ClaRa.Basics.ControlVolumes.Fundamentals.PressureLoss.PressureLossBaseVLE_L4 "Pressure loss model" annotation (Dialog(group="Fundamental Definitions"), choicesAllMatching);
+  replaceable model PressureLoss =
+      TransiEnt.Components.Gas.VolumesValvesFittings.Base.PhysicalPL_L4                                        constrainedby ClaRa.Basics.ControlVolumes.Fundamentals.PressureLoss.PressureLossBaseVLE_L4 "Pressure loss model" annotation (Dialog(group="Fundamental Definitions"), choicesAllMatching);
 
   //Consumers
   parameter Modelica.Blocks.Types.SimpleController controllerType=Modelica.Blocks.Types.SimpleController.P "|Controller|Type of controller";
@@ -149,7 +150,8 @@ model SectorCouplingPtX "Coupled electric, district heating and gas grids for Ha
     Q_flow_n_CHP(displayUnit="W") = 285e6,
     P_el_n(displayUnit="W") = 206000000,
     typeOfPrimaryEnergyCarrier=TransiEnt.Basics.Types.TypeOfPrimaryEnergyCarrier.BlackCoal,
-    redeclare model ProducerCosts = TransiEnt.Components.Statistics.ConfigurationData.PowerProducerCostSpecs.HardCoal,
+    redeclare model ProducerCosts =
+        TransiEnt.Components.Statistics.ConfigurationData.PowerProducerCostSpecs.HardCoal,
     P_grad_max_star=0.06/60,
     PQCharacteristics=TransiEnt.Producer.Combined.LargeScaleCHP.Base.Characteristics.PQ_Characteristics_WT(),
     Q_flow_init=100e6,
@@ -235,19 +237,23 @@ model SectorCouplingPtX "Coupled electric, district heating and gas grids for Ha
 
   TransiEnt.Producer.Heat.Gas2Heat.SimpleGasBoiler.TwoFuelBoiler twoFuelBoiler(redeclare TransiEnt.Producer.Heat.Gas2Heat.SimpleGasBoiler.SimpleBoiler boiler2(typeOfPrimaryEnergyCarrier=TransiEnt.Basics.Types.TypeOfPrimaryEnergyCarrierHeat.NaturalGas, Q_flow_n=160e6 + 160e6), redeclare TransiEnt.Producer.Heat.Gas2Heat.SimpleGasBoiler.SimpleBoiler boiler1(
       Q_flow_n=100e6,
-      redeclare model BoilerCostModel = TransiEnt.Components.Statistics.ConfigurationData.PowerProducerCostSpecs.GarbageBoiler,
+      redeclare model BoilerCostModel =
+          TransiEnt.Components.Statistics.ConfigurationData.PowerProducerCostSpecs.GarbageBoiler,
       typeOfPrimaryEnergyCarrier=TransiEnt.Basics.Types.TypeOfPrimaryEnergyCarrierHeat.Garbage)) annotation (Placement(transformation(extent={{122,-164},{106,-150}})));
   TransiEnt.Producer.Heat.Gas2Heat.SimpleGasBoiler.SimpleBoiler wuWSpaldingStr(
     Q_flow_n=100e6,
     typeOfPrimaryEnergyCarrier=TransiEnt.Basics.Types.TypeOfPrimaryEnergyCarrierHeat.Garbage,
     useGasPort=false,
-    redeclare model BoilerCostModel = TransiEnt.Components.Statistics.ConfigurationData.PowerProducerCostSpecs.GarbageBoiler) annotation (Placement(transformation(extent={{102,-224},{82,-204}})));
+    redeclare model BoilerCostModel =
+        TransiEnt.Components.Statistics.ConfigurationData.PowerProducerCostSpecs.GarbageBoiler)
+                                                                                                                              annotation (Placement(transformation(extent={{102,-224},{82,-204}})));
   TransiEnt.Components.Visualization.InfoBoxLargeCHP infoBoxLargeCHP5 annotation (Placement(transformation(extent={{225,-196},{207,-176}})));
   TransiEnt.Producer.Combined.LargeScaleCHP.ContinuousCHP HKW_Wedel(
     PQCharacteristics=TransiEnt.Producer.Combined.LargeScaleCHP.Base.Characteristics.PQ_Characteristics_WWGuD(),
     sigma=0.95,
     P_el_n=470e6,
-    redeclare model ProducerCosts = TransiEnt.Components.Statistics.ConfigurationData.PowerProducerCostSpecs.GasCCGT,
+    redeclare model ProducerCosts =
+        TransiEnt.Components.Statistics.ConfigurationData.PowerProducerCostSpecs.GasCCGT,
     typeOfPrimaryEnergyCarrier=TransiEnt.Basics.Types.TypeOfPrimaryEnergyCarrier.NaturalGas,
     P_grad_max_star=0.08/60,
     P_el_init=UC.P_init[UC.schedule.WW1]) annotation (Placement(transformation(extent={{-85,-158},{-65,-138}})));
@@ -291,14 +297,16 @@ model SectorCouplingPtX "Coupled electric, district heating and gas grids for Ha
   TransiEnt.Components.Sensors.ElectricActivePower P_12(change_of_sign=false) annotation (Placement(transformation(extent={{227,-31},{256,-56}})));
   TransiEnt.Producer.Electrical.Conventional.BrownCoal BrownCoal(
     P_max_star=1,
-    redeclare model ProducerCosts = TransiEnt.Components.Statistics.ConfigurationData.PowerProducerCostSpecs.BrownCoal,
+    redeclare model ProducerCosts =
+        TransiEnt.Components.Statistics.ConfigurationData.PowerProducerCostSpecs.BrownCoal,
     primaryBalancingController(providedDroop=0.2/50/(3/150 - 0.2*0.01)),
     isPrimaryControlActive=true,
     t_startup=0,
     P_init_set=UC.P_init[UC.schedule.BCG],
     isSecondaryControlActive=true) annotation (Placement(transformation(extent={{-95,71},{-55,109}})));
   TransiEnt.Producer.Electrical.Conventional.Gasturbine Gasturbine2(
-    redeclare model ProducerCosts = TransiEnt.Components.Statistics.ConfigurationData.PowerProducerCostSpecs.GasTurbine,
+    redeclare model ProducerCosts =
+        TransiEnt.Components.Statistics.ConfigurationData.PowerProducerCostSpecs.GasTurbine,
     isPrimaryControlActive=false,
     isSecondaryControlActive=true,
     t_startup=0,
@@ -321,7 +329,8 @@ model SectorCouplingPtX "Coupled electric, district heating and gas grids for Ha
   TransiEnt.Producer.Electrical.Conventional.Garbage GAR(
     primaryBalancingController(providedDroop=0.2/50/(3/150 - 0.2*0.01)),
     isPrimaryControlActive=true,
-    redeclare model ProducerCosts = TransiEnt.Components.Statistics.ConfigurationData.PowerProducerCostSpecs.BrownCoal,
+    redeclare model ProducerCosts =
+        TransiEnt.Components.Statistics.ConfigurationData.PowerProducerCostSpecs.BrownCoal,
     t_startup=0,
     isSecondaryControlActive=true,
     P_init_set=UC.P_init[UC.schedule.GAR]) "Garbage" annotation (Placement(transformation(extent={{25,71},{65,109}})));
@@ -333,11 +342,13 @@ model SectorCouplingPtX "Coupled electric, district heating and gas grids for Ha
     startTime=60) annotation (Placement(transformation(extent={{-208,-82},{-170,-119}})));
   TransiEnt.Producer.Electrical.Conventional.CCP CCP(
     isSecondaryControlActive=true,
-    redeclare model ProducerCosts = TransiEnt.Components.Statistics.ConfigurationData.PowerProducerCostSpecs.GasCCGT,
+    redeclare model ProducerCosts =
+        TransiEnt.Components.Statistics.ConfigurationData.PowerProducerCostSpecs.GasCCGT,
     t_startup=0,
     P_init_set=UC.P_init[UC.schedule.CCP]) annotation (Placement(transformation(extent={{-169,-37},{-129,1}})));
   TransiEnt.Producer.Electrical.Conventional.Oil OIL(
-    redeclare model ProducerCosts = TransiEnt.Components.Statistics.ConfigurationData.PowerProducerCostSpecs.GasCCGT,
+    redeclare model ProducerCosts =
+        TransiEnt.Components.Statistics.ConfigurationData.PowerProducerCostSpecs.GasCCGT,
     primaryBalancingController(providedDroop=0.2/50/(3/150 - 0.2*0.01)),
     isPrimaryControlActive=true,
     t_startup=0,
@@ -347,22 +358,29 @@ model SectorCouplingPtX "Coupled electric, district heating and gas grids for Ha
   TransiEnt.Producer.Electrical.Wind.PowerProfileWindPlant WindOffshorePlant(
     P_el_n=simCenter.generationPark.P_el_n_WindOff,
     typeOfPrimaryEnergyCarrier=TransiEnt.Basics.Types.TypeOfPrimaryEnergyCarrier.WindOffshore,
-    redeclare model ProducerCosts = TransiEnt.Components.Statistics.ConfigurationData.PowerProducerCostSpecs.WindOffshore) annotation (Placement(transformation(extent={{-95,177},{-55,215}})));
+    redeclare model ProducerCosts =
+        TransiEnt.Components.Statistics.ConfigurationData.PowerProducerCostSpecs.WindOffshore)
+                                                                                                                           annotation (Placement(transformation(extent={{-95,177},{-55,215}})));
   TransiEnt.Producer.Electrical.Photovoltaics.PhotovoltaicProfilePlant PVPlant(P_el_n=simCenter.generationPark.P_el_n_PV) annotation (Placement(transformation(extent={{25,177},{65,215}})));
   TransiEnt.Producer.Electrical.Others.Biomass Biomass(
     P_max_star=1,
     primaryBalancingController(providedDroop=0.2/50/(3/150 - 0.2*0.01)),
     isPrimaryControlActive=false,
-    redeclare model ProducerCosts = TransiEnt.Components.Statistics.ConfigurationData.PowerProducerCostSpecs.Biomass,
+    redeclare model ProducerCosts =
+        TransiEnt.Components.Statistics.ConfigurationData.PowerProducerCostSpecs.Biomass,
     isSecondaryControlActive=true,
     isExternalSecondaryController=true,
     t_startup=200,
     P_init_set=UC.P_init[UC.schedule.BM]) annotation (Placement(transformation(extent={{83,71},{123,109}})));
   TransiEnt.Producer.Electrical.Others.PumpedStoragePlant PumpedStorage(
-    redeclare model ProducerCosts = TransiEnt.Components.Statistics.ConfigurationData.PowerProducerCostSpecs.PumpedStorage,
+    redeclare model ProducerCosts =
+        TransiEnt.Components.Statistics.ConfigurationData.PowerProducerCostSpecs.PumpedStorage,
     t_startup=60,
     P_init_set=-(UC.P_init[UC.schedule.PS] + UC.P_init[UC.schedule.PS_Pump])) annotation (Placement(transformation(extent={{139,-39},{179,-1}})));
-  TransiEnt.Producer.Electrical.Others.IdealContinuousHydropowerPlant RunOfWaterPlant(P_el_n=simCenter.generationPark.P_el_n_ROH, redeclare model ProducerCosts = TransiEnt.Components.Statistics.ConfigurationData.PowerProducerCostSpecs.RunOffHydro) annotation (Placement(transformation(extent={{85,177},{125,215}})));
+  TransiEnt.Producer.Electrical.Others.IdealContinuousHydropowerPlant RunOfWaterPlant(P_el_n=simCenter.generationPark.P_el_n_ROH, redeclare
+      model                                                                                                                                       ProducerCosts =
+        TransiEnt.Components.Statistics.ConfigurationData.PowerProducerCostSpecs.RunOffHydro)
+                                                                                                                                                                                                            annotation (Placement(transformation(extent={{85,177},{125,215}})));
   Modelica.Blocks.Sources.RealExpression P_set_BM(y=UC.schedule.y[UC.schedule.BM]) annotation (Placement(transformation(extent={{74,116},{94,136}})));
   Modelica.Blocks.Sources.RealExpression P_set_Offshore(y=UC.schedule.y[UC.schedule.WindOff] + e_wind_prediction_off.y) annotation (Placement(transformation(extent={{-106,212},{-86,232}})));
   Modelica.Blocks.Sources.RealExpression P_set_Onshore(y=UC.schedule.y[UC.schedule.WindOn] + e_wind_prediction_on.y) annotation (Placement(transformation(extent={{-48,210},{-28,230}})));
@@ -398,7 +416,8 @@ model SectorCouplingPtX "Coupled electric, district heating and gas grids for Ha
   Modelica.Blocks.Sources.RealExpression P_set_BC(y=-mod.y[UC.schedule.BC]) annotation (Placement(transformation(extent={{146,118},{166,138}})));
   Modelica.Blocks.Sources.RealExpression P_set_SB_BC(y=aGC.P_sec_set[UC.schedule.BC]) annotation (Placement(transformation(extent={{128,104},{148,124}})));
   TransiEnt.Producer.Electrical.Conventional.Gasturbine Gasturbine3(
-    redeclare model ProducerCosts = TransiEnt.Components.Statistics.ConfigurationData.PowerProducerCostSpecs.GasTurbine,
+    redeclare model ProducerCosts =
+        TransiEnt.Components.Statistics.ConfigurationData.PowerProducerCostSpecs.GasTurbine,
     isPrimaryControlActive=false,
     isSecondaryControlActive=true,
     t_startup=0,
@@ -407,7 +426,8 @@ model SectorCouplingPtX "Coupled electric, district heating and gas grids for Ha
   Modelica.Blocks.Sources.RealExpression P_set_GT3(y=-mod.y[UC.schedule.GT3]) annotation (Placement(transformation(extent={{94,4},{74,24}})));
   Modelica.Blocks.Sources.RealExpression P_set_SB_GT1(y=aGC.P_sec_set[UC.schedule.GT1]) annotation (Placement(transformation(extent={{36,2},{56,22}})));
   TransiEnt.Producer.Electrical.Conventional.Gasturbine Gasturbine1(
-    redeclare model ProducerCosts = TransiEnt.Components.Statistics.ConfigurationData.PowerProducerCostSpecs.GasTurbine,
+    redeclare model ProducerCosts =
+        TransiEnt.Components.Statistics.ConfigurationData.PowerProducerCostSpecs.GasTurbine,
     isPrimaryControlActive=false,
     isSecondaryControlActive=true,
     t_startup=0,
@@ -426,10 +446,15 @@ model SectorCouplingPtX "Coupled electric, district heating and gas grids for Ha
     mu=0,
     sigma=0*0.85/100*simCenter.generationPark.P_el_n_PV) annotation (Placement(transformation(extent={{-200,170},{-180,190}})));
 
-  TransiEnt.Basics.Tables.GenericDataTable normalizedWindPredictionError(relativepath="electricity/NormalisedWindPredictionError_900s.txt", constantfactor=1) annotation (Placement(transformation(extent={{-230,206},{-210,226}})));
+  TransiEnt.Basics.Tables.GenericDataTable normalizedWindPredictionError(path=
+        "electricity/NormalisedWindPredictionError_900s.txt", constantfactor=1)
+    annotation (Placement(transformation(extent={{-230,206},{-210,226}})));
   Modelica.Blocks.Sources.RealExpression e_wind_prediction_on(y=(normalizedWindPredictionError.y1 + 0.11/100)*simCenter.generationPark.P_el_n_WindOn) annotation (Placement(transformation(extent={{-164,200},{-144,220}})));
   Modelica.Blocks.Sources.RealExpression e_wind_prediction_off(y=(normalizedWindPredictionError2.y1 + 0.11/100)*simCenter.generationPark.P_el_n_WindOff) annotation (Placement(transformation(extent={{-162,184},{-142,204}})));
-  TransiEnt.Basics.Tables.GenericDataTable normalizedWindPredictionError2(constantfactor=1, relativepath="electricity/NormalisedWindPredictionError2_900s.txt") annotation (Placement(transformation(extent={{-200,206},{-180,226}})));
+  TransiEnt.Basics.Tables.GenericDataTable normalizedWindPredictionError2(
+      constantfactor=1, path=
+        "electricity/NormalisedWindPredictionError2_900s.txt")
+    annotation (Placement(transformation(extent={{-200,206},{-180,226}})));
   Modelica.Blocks.Sources.RealExpression P_residual_is(y=Demand.epp.P + P_RE_curtailement.epp_out.P + PumpedStorage.epp.P + Biomass.epp.P + P_tieline_set.y) annotation (Placement(transformation(extent={{-268,76},{-248,96}})));
   Modelica.Blocks.Sources.RealExpression P_residual_pred(y=-sum(UC.schedule.y[simCenter.generationPark.isMOD])) "All disponible plants (Conventional apart from Pumped Storage and CHP)" annotation (Placement(transformation(extent={{-262,98},{-242,118}})));
   TransiEnt.Grid.Electrical.EconomicDispatch.DiscretizePrediction discretizePrediction(t_shift=0, samplePeriod=900) annotation (Placement(transformation(extent={{-202,76},{-182,96}})));
@@ -455,9 +480,10 @@ model SectorCouplingPtX "Coupled electric, district heating and gas grids for Ha
       WindOff=20,
       Curt=15,
       Import=16,
-      relativepath="electricity/UnitCommitmentSchedules/UnitCommitmentSchedule_3600s_smoothed_REF35.txt",
-      use_absolute_path=false),
-    reserveAllocation(relativepath="electricity/UnitCommitmentSchedules/ReservePowerCommitmentSchedule_3600s_REF35.txt", use_absolute_path=false),
+      use_absolute_path=false,
+      path        ="electricity/UnitCommitmentSchedules/UnitCommitmentSchedule_3600s_smoothed_REF35.txt"),
+    reserveAllocation(                                                                                                   use_absolute_path=false,
+                      path        ="electricity/UnitCommitmentSchedules/ReservePowerCommitmentSchedule_3600s_REF35.txt"),
     unit_blocked=cat(
         1,
         fill(false, simCenter.generationPark.nDispPlants - 2),

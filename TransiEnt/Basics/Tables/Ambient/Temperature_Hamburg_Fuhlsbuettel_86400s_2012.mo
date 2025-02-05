@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.Ambient;
+within TransiEnt.Basics.Tables.Ambient;
 model Temperature_Hamburg_Fuhlsbuettel_86400s_2012 "Hamburg 2012, 1 day resolution"
 
 
@@ -33,9 +33,8 @@ model Temperature_Hamburg_Fuhlsbuettel_86400s_2012 "Hamburg 2012, 1 day resoluti
   //          Imports and Class Hierarchy
   // _____________________________________________
 
-extends GenericDataTable(
-relativepath="/ambient/TemperatureHH_86400s_01012012_0000_31122012_2345.txt",
-datasource=DataPrivacy.isPublic);
+  extends GenericDataTable(path=
+        "/ambient/TemperatureHH_86400s_01012012_0000_31122012_2345.txt");
 extends TransiEnt.Components.Boundaries.Ambient.Base.PartialTemperature;
 
   // _____________________________________________

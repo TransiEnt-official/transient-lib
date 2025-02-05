@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.SteamMethaneReformerSystem;
+within TransiEnt.Producer.Gas.SteamMethaneReformerSystem;
 model SMRSystem_noH2Loop "Steam methane reformer system with sufficient H2 in feed containing prereformer, SMR, WGS, dryer, PSA and heat exchangers"
 
 
@@ -140,8 +140,10 @@ model SMRSystem_noH2Loop "Steam methane reformer system with sufficient H2 in fe
 
   outer TransiEnt.SimCenter simCenter;
   outer TransiEnt.ModelStatistics modelStatistics;
-  replaceable model CostSpecsGeneral = TransiEnt.Components.Statistics.ConfigurationData.GeneralCostSpecs.Empty constrainedby TransiEnt.Components.Statistics.ConfigurationData.GeneralCostSpecs.PartialCostSpecs "General Cost Record" annotation (Dialog(group="Statistics"), choicesAllMatching);
-  replaceable model ControllerH2OForReformer = Components.Gas.Reactor.Controller.ControllerH2OForReformer_StoCbeforeSMR constrainedby TransiEnt.Components.Gas.Reactor.Controller.Base.PartialControllerH2OForReformer "Controller for steam for reformer" annotation (Dialog(group="Statistics"), choicesAllMatching);
+  replaceable model CostSpecsGeneral =
+      TransiEnt.Components.Statistics.ConfigurationData.GeneralCostSpecs.Empty                                  constrainedby TransiEnt.Components.Statistics.ConfigurationData.GeneralCostSpecs.PartialCostSpecs "General Cost Record" annotation (Dialog(group="Statistics"), choicesAllMatching);
+  replaceable model ControllerH2OForReformer =
+      Components.Gas.Reactor.Controller.ControllerH2OForReformer_StoCbeforeSMR                                          constrainedby TransiEnt.Components.Gas.Reactor.Controller.Base.PartialControllerH2OForReformer "Controller for steam for reformer" annotation (Dialog(group="Statistics"), choicesAllMatching);
 
   // _____________________________________________
   //
@@ -257,7 +259,8 @@ protected
     medium=water,
     eta_mech=eta_mech_pump_H2O,
     eta_el=eta_el_pump_H2O,
-    redeclare model CostSpecsGeneral = TransiEnt.Components.Statistics.ConfigurationData.GeneralCostSpecs.Empty,
+    redeclare model CostSpecsGeneral =
+        TransiEnt.Components.Statistics.ConfigurationData.GeneralCostSpecs.Empty,
     Cspec_demAndRev_el=Cspec_demAndRev_el) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
@@ -519,10 +522,10 @@ public
   Modelica.Blocks.Sources.BooleanExpression booleanExpression(y=steamToCarbonRatioFromTable)        annotation (Placement(transformation(extent={{-220,-62},{-200,-42}})));
   Basics.Tables.GenericDataTable tableSteamToCarbonRatio(
     change_of_sign=false,
-    datasource=datasourceSteamToCarbonRatio,
-    relativepath=relativepathSteamToCarbonRatio,
+    path=relativepathSteamToCarbonRatio,
     use_absolute_path=use_absolute_path_SteamToCarbonRatio,
-    absolute_path=absolute_path_SteamToCarbonRatio)                annotation (Placement(transformation(extent={{-220,-36},{-200,-16}})));
+    absolute_path=absolute_path_SteamToCarbonRatio)
+    annotation (Placement(transformation(extent={{-220,-36},{-200,-16}})));
 
 
 equation

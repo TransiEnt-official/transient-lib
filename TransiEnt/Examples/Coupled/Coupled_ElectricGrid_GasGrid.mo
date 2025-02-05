@@ -1,4 +1,4 @@
-﻿within TransiEnt.Examples.Coupled;
+within TransiEnt.Examples.Coupled;
 model Coupled_ElectricGrid_GasGrid "Example for sector coupling in TransiEnt library"
 
 
@@ -61,7 +61,10 @@ model Coupled_ElectricGrid_GasGrid "Example for sector coupling in TransiEnt lib
         extent={{-20,-20},{20,20}},
         rotation=0,
         origin={40,24})));
-    TransiEnt.Basics.Tables.GenericDataTable heatDemandTable(relativepath="heat/HeatDemand_HHWilhelmsburg_MFH3000_900s_01012012_31122012.txt", constantfactor=-1.2) annotation (Placement(transformation(extent={{-384,-6},{-344,34}})));
+  TransiEnt.Basics.Tables.GenericDataTable heatDemandTable(path=
+        "heat/HeatDemand_HHWilhelmsburg_MFH3000_900s_01012012_31122012.txt",
+      constantfactor=-1.2)
+    annotation (Placement(transformation(extent={{-384,-6},{-344,34}})));
   Modelica.Blocks.Sources.RealExpression electricityDemandCHP(y=-min(max(0, electricDemand.epp.P + electricGrid_SubSystem.pVPlant.epp.P + electricGrid_SubSystem.windProduction.epp.P), 1e6)) annotation (Placement(transformation(
         extent={{-52,-13},{52,13}},
         rotation=0,
@@ -73,7 +76,9 @@ model Coupled_ElectricGrid_GasGrid "Example for sector coupling in TransiEnt lib
         origin={-208.263,107.45})));
   TransiEnt.Producer.Electrical.Photovoltaics.PVProfiles.SolarProfileLoader solarProfile(change_of_sign=true, P_el_n=2e4) annotation (Placement(transformation(extent={{-386,-171},{-346,-130}})));
   TransiEnt.Producer.Electrical.Wind.WindProfiles.WindProfileLoader windProfile(change_of_sign=true, P_el_n=2e6) annotation (Placement(transformation(extent={{-384,-228},{-346,-188}})));
-  TransiEnt.Basics.Tables.GenericDataTable electricDemandTable(relativepath="electricity/ElectricityDemand_VDI4665_ExampleHousehold_RG1_HH_2012_900s.txt") annotation (Placement(transformation(extent={{-382,-70},{-342,-30}})));
+  TransiEnt.Basics.Tables.GenericDataTable electricDemandTable(path=
+        "electricity/ElectricityDemand_VDI4665_ExampleHousehold_RG1_HH_2012_900s.txt")
+    annotation (Placement(transformation(extent={{-382,-70},{-342,-30}})));
   Modelica.Blocks.Math.Gain gain(k=1500) annotation (Placement(transformation(extent={{-324,-60},{-304,-40}})));
   TransiEnt.Components.Sensors.ElectricActivePower P_12(change_of_sign=true) annotation (Placement(transformation(extent={{-20,-166},{8,-194}})));
   TransiEnt.Grid.Electrical.LumpedPowerGrid.LumpedGrid UCTE(
@@ -119,7 +124,10 @@ model Coupled_ElectricGrid_GasGrid "Example for sector coupling in TransiEnt lib
   Modelica.Blocks.Sources.RealExpression m_flow_DHN(y=-38) annotation (Placement(transformation(extent={{342,164},{276,192}})));
   TransiEnt.Components.Boundaries.FluidFlow.BoundaryVLE_pTxi dHN_sink(boundaryConditions(p_const=24e5, T_const=100 + 273.15)) annotation (Placement(transformation(extent={{246,74},{206,114}})));
   Modelica.Blocks.Sources.RealExpression T_VL(y=273.15 + 60) annotation (Placement(transformation(extent={{340,136},{276,162}})));
-  ClaRa.Components.VolumesValvesFittings.Valves.GenericValveVLE_L1 valveVLE_L1_1(redeclare model PressureLoss = ClaRa.Components.VolumesValvesFittings.Valves.Fundamentals.Quadratic_EN60534_incompressible (Kvs_in=38/1000*3600, m_flow_nom=38))
+  ClaRa.Components.VolumesValvesFittings.Valves.GenericValveVLE_L1 valveVLE_L1_1(redeclare
+      model                                                                                      PressureLoss =
+        ClaRa.Components.VolumesValvesFittings.Valves.Fundamentals.Quadratic_EN60534_incompressible
+        (                                                                                                                                                                                                    Kvs_in=38/1000*3600, m_flow_nom=38))
                                                                                                                                                                                                         annotation (Placement(transformation(extent={{112,58},{132,70}})));
   ClaRa.Components.Sensors.SensorVLE_L1_T T_vl_is(unitOption=2) annotation (Placement(transformation(extent={{178,94},{198,114}})));
 equation

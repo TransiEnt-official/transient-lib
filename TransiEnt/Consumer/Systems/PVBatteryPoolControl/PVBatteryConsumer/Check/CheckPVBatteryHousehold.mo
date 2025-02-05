@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Systems.PVBatteryPoolControl.PVBatteryConsumer.Check;
+within TransiEnt.Consumer.Systems.PVBatteryPoolControl.PVBatteryConsumer.Check;
 model CheckPVBatteryHousehold
 
 
@@ -51,13 +51,15 @@ extends TransiEnt.Basics.Icons.Checkmodel;
   SOC_min=0.20,
   SOC_start=1)            annotation (Placement(transformation(extent={{-24,80},{2,104}})));
   Basics.Tables.GenericDataTable loadProfiles(
-    relativepath="electricity/ElectricDemandSingleHouseTypicalProfiles.txt",
+    path="electricity/ElectricDemandSingleHouseTypicalProfiles.txt",
     columns=2:6,
-    multiple_outputs=false) annotation (Placement(transformation(extent={{-78,34},{-58,54}})));
+    multiple_outputs=false)
+    annotation (Placement(transformation(extent={{-78,34},{-58,54}})));
   Basics.Tables.GenericDataTable pvProfiles(
-    relativepath="electricity/PhotovoltaicSingleHouseTypicalProfiles.txt",
+    path="electricity/PhotovoltaicSingleHouseTypicalProfiles.txt",
     columns=2:5,
-    multiple_outputs=false) annotation (Placement(transformation(extent={{-68,-4},{-48,16}})));
+    multiple_outputs=false)
+    annotation (Placement(transformation(extent={{-68,-4},{-48,16}})));
   Modelica.Blocks.Math.Gain P_Load(k=2500*3.6e6) annotation (Placement(transformation(extent={{-38,38},{-26,50}})));
   Modelica.Blocks.Math.Gain P_PV(k=2.5e3)
                                         annotation (Placement(transformation(extent={{-36,0},{-24,12}})));

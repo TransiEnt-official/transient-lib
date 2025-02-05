@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.ElectricGrid.ElectricityPrices;
+within TransiEnt.Basics.Tables.ElectricGrid.ElectricityPrices;
 model SpotPriceElectricity_Phelix_3600s_2012 "Spotprice electricity - Day ahead market - Germany 2012"
 
 
@@ -33,8 +33,8 @@ model SpotPriceElectricity_Phelix_3600s_2012 "Spotprice electricity - Day ahead 
   //          Imports and Class Hierarchy
   // _____________________________________________
 
-  extends ElectricityPrices.GenericElectricityPriceTable(      relativepath="electricity/ElectricityPricesSpotMarket_3600s_2012.txt",
-      datasource=DataPrivacy.isPublic);
+  extends ElectricityPrices.GenericElectricityPriceTable(path=
+        "electricity/ElectricityPricesSpotMarket_3600s_2012.txt");
   annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}}), graphics), Documentation(info="<html>
 <h4><span style=\"color: #008000\">1. Purpose of model</span></h4>

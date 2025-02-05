@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Heat.HeatGridControl.Controllers;
+within TransiEnt.Grid.Heat.HeatGridControl.Controllers;
 model SimpleDHNDispatcher
 
 
@@ -40,7 +40,9 @@ model SimpleDHNDispatcher
   //          Components
   // _____________________________________________
 
-  TransiEnt.Basics.Tables.Ambient.Temperature_Hamburg_900s_2012 temperatureHH_900s_01012012_0000_31122012_2345(datasource=TransiEnt.Basics.Tables.DataPrivacy.isPublic) annotation (Placement(transformation(extent={{-97,24},{-77,44}})));
+  TransiEnt.Basics.Tables.Ambient.Temperature_Hamburg_900s_2012
+    temperatureHH_900s_01012012_0000_31122012_2345
+    annotation (Placement(transformation(extent={{-97,24},{-77,44}})));
 //  TransiEnt.Grid.Heat.HeatGridControl.HeatDemandPrediction.HeatingLoadCharline heatingLoadCharline(CharLine=HeatDemandPrediction.HeatingDemandCharacteristic.CharLineHeatDemandHH()) annotation (Placement(transformation(extent={{-67,27},{-47,47}})));
   TransiEnt.Grid.Heat.HeatGridControl.Controllers.DHNPowerScheduler_L0 dHN_PowerScheduler_L1 annotation (Placement(transformation(extent={{17,-17},{63,21}})));
   TransiEnt.Basics.Blocks.HoldBlock holdBlock annotation (Placement(transformation(extent={{17,35},{37,55}})));

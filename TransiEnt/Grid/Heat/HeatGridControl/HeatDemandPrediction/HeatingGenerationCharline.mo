@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Heat.HeatGridControl.HeatDemandPrediction;
+within TransiEnt.Grid.Heat.HeatGridControl.HeatDemandPrediction;
 model HeatingGenerationCharline "Characteristic line of the heating load in function of the ambient temperature"
 
 
@@ -70,11 +70,16 @@ model HeatingGenerationCharline "Characteristic line of the heating load in func
   //             Components
   // _____________________________________________
 
-  Basics.Tables.GenericDataTable SummerDayTypicalHeatLoad(relativepath="\\heat\\TypicalHeatLoadDay_AbsoluteValues_MonoIncreasing.txt", extrapolation=Modelica.Blocks.Types.Extrapolation.Periodic,
-    constantfactor=1/637.6e6*CharLine.a)                                                                                                                                                         annotation (Placement(transformation(extent={{-10,8},{10,28}})));
+  Basics.Tables.GenericDataTable SummerDayTypicalHeatLoad(
+    path="\\heat\\TypicalHeatLoadDay_AbsoluteValues_MonoIncreasing.txt",
+    extrapolation=Modelica.Blocks.Types.Extrapolation.Periodic,
+    constantfactor=1/637.6e6*CharLine.a)
+    annotation (Placement(transformation(extent={{-10,8},{10,28}})));
 
   Basics.Blocks.Sources.WeekendPulse_Trapezoid weekendPulse(BeginningWeekday=BeginWeekday, k_weekend=Damping_Weekend) annotation (Placement(transformation(extent={{-10,42},{10,62}})));
-  Basics.Tables.GenericDataTable OffsetvalueDailyprofile(extrapolation=Modelica.Blocks.Types.Extrapolation.Periodic, relativepath="\\heat\\TypicalHeatLoad_DHN_Normalized.txt") annotation (Placement(transformation(extent={{-10,-22},{10,-2}})));
+  Basics.Tables.GenericDataTable OffsetvalueDailyprofile(extrapolation=Modelica.Blocks.Types.Extrapolation.Periodic,
+      path="\\heat\\TypicalHeatLoad_DHN_Normalized.txt")
+    annotation (Placement(transformation(extent={{-10,-22},{10,-2}})));
   Modelica.Blocks.Sources.Trapezoid hour_of_day(
     falling=0,
     width=0,

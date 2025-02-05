@@ -1,4 +1,4 @@
-﻿within TransiEnt.Examples.Electric;
+within TransiEnt.Examples.Electric;
 model ElectricGrid_StandAlone
 
 
@@ -52,7 +52,10 @@ model ElectricGrid_StandAlone
     PQCharacteristics=TransiEnt.Producer.Combined.LargeScaleCHP.Base.Characteristics.PQ_Characteristics_STGeneric(),
     p_nom=18e5,
     T_feed_init=373.15) annotation (Placement(transformation(extent={{-236,80},{-176,20}})));
-  TransiEnt.Basics.Tables.GenericDataTable heatDemandTable(relativepath="heat/HeatDemand_HHWilhelmsburg_MFH3000_900s_01012012_31122012.txt", constantfactor=-1.2) annotation (Placement(transformation(extent={{-280,190},{-240,230}})));
+  TransiEnt.Basics.Tables.GenericDataTable heatDemandTable(path=
+        "heat/HeatDemand_HHWilhelmsburg_MFH3000_900s_01012012_31122012.txt",
+      constantfactor=-1.2)
+    annotation (Placement(transformation(extent={{-280,190},{-240,230}})));
   Modelica.Blocks.Sources.RealExpression constHeatDemandCHP(y=max(heatDemandTable.y1 - 5e5, -CHP.Q_flow_n_CHP)) annotation (Placement(transformation(
         extent={{20,-10},{-20,10}},
         rotation=270,
@@ -69,7 +72,10 @@ model ElectricGrid_StandAlone
   TransiEnt.Producer.Electrical.Photovoltaics.PVProfiles.SolarProfileLoader solarProfileLoader(change_of_sign=true, P_el_n=2e4) annotation (Placement(transformation(extent={{-278,-130},{-238,-90}})));
   TransiEnt.Producer.Electrical.Wind.WindProfiles.WindProfileLoader windProfileLoader(change_of_sign=true, P_el_n=2e6) annotation (Placement(transformation(extent={{-278,-212},{-240,-172}})));
   TransiEnt.Producer.Electrical.Photovoltaics.PhotovoltaicProfilePlant pVPlant(P_el_n=2e4) annotation (Placement(transformation(extent={{-220,-160},{-180,-120}})));
-  TransiEnt.Basics.Tables.GenericDataTable electricDemandTable(relativepath="electricity/ElectricityDemand_VDI4665_ExampleHousehold_RG1_HH_2012_900s.txt", constantfactor=1500) annotation (Placement(transformation(extent={{-272,128},{-232,168}})));
+  TransiEnt.Basics.Tables.GenericDataTable electricDemandTable(path=
+        "electricity/ElectricityDemand_VDI4665_ExampleHousehold_RG1_HH_2012_900s.txt",
+      constantfactor=1500)
+    annotation (Placement(transformation(extent={{-272,128},{-232,168}})));
   TransiEnt.Components.Electrical.Grid.Line line_L1_1 annotation (Placement(transformation(extent={{-150,-134},{-120,-102}})));
   TransiEnt.Components.Sensors.ElectricActivePower P_12(change_of_sign=true) annotation (Placement(transformation(extent={{-100,-108},{-80,-128}})));
   TransiEnt.Grid.Electrical.LumpedPowerGrid.LumpedGrid UCTE(

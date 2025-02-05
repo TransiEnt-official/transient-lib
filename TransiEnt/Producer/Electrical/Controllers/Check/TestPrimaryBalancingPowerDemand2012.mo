@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Controllers.Check;
+within TransiEnt.Producer.Electrical.Controllers.Check;
 model TestPrimaryBalancingPowerDemand2012 "Example how to calculate the demand of primary balancing power"
 
 
@@ -39,10 +39,9 @@ model TestPrimaryBalancingPowerDemand2012 "Example how to calculate the demand o
   PrimaryBalancingController PrimaryBalancingController60(plantType=TransiEnt.Basics.Types.ControlPlantType.Provided) annotation (Placement(transformation(extent={{28,-29},{56,-3}})));
   Modelica.Blocks.Math.Feedback feedback60
     annotation (Placement(transformation(extent={{-26,-6},{-6,-26}})));
-  TransiEnt.Basics.Tables.GenericDataTable fmeasured60(
-    change_of_sign=false,
-    datasource=TransiEnt.Basics.Tables.DataPrivacy.isPublic,
-    relativepath="/electricity/GridFrequencyMeasurement_60s_01012012_31122012.txt") annotation (Placement(transformation(extent={{-68,-26},{-48,-6}})));
+  TransiEnt.Basics.Tables.GenericDataTable fmeasured60(change_of_sign=false,
+      path="/electricity/GridFrequencyMeasurement_60s_01012012_31122012.txt")
+    annotation (Placement(transformation(extent={{-68,-26},{-48,-6}})));
 equation
   connect(feedback60.y, PrimaryBalancingController60.delta_f) annotation (Line(
       points={{-7,-16},{26.6,-16}},

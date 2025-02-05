@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Electrical.UnitCommitment.Check;
+within TransiEnt.Grid.Electrical.UnitCommitment.Check;
 model TestBinarySchedule
 
 
@@ -47,9 +47,9 @@ model TestBinarySchedule
         fill(false, simCenter.generationPark.nDispPlants - 2),
         {true,true}),
     reserveAllocation(
-      relativepath="electricity/UnitCommitmentSchedules/ReservePowerCommitmentSchedule_3600s_REF35.txt",
       smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments,
-      use_absolute_path=false),
+      use_absolute_path=false,
+      path        ="electricity/UnitCommitmentSchedules/ReservePowerCommitmentSchedule_3600s_REF35.txt"),
     schedule(
       BC=5,
       CCP=6,
@@ -67,10 +67,11 @@ model TestBinarySchedule
       WindOff=20,
       Curt=15,
       Import=16,
-      relativepath="electricity/UnitCommitmentSchedules/UnitCommitmentSchedule_3600s_smoothed_REF35.txt",
       use_absolute_path=false,
       smoothness=Modelica.Blocks.Types.Smoothness.MonotoneContinuousDerivative1,
-      columns=(2:simCenter.generationPark.nPlants + 1))) annotation (Placement(transformation(extent={{-18,-14},{2,6}})));
+      columns=(2:simCenter.generationPark.nPlants + 1),
+      path        ="electricity/UnitCommitmentSchedules/UnitCommitmentSchedule_3600s_smoothed_REF35.txt"))
+                                                         annotation (Placement(transformation(extent={{-18,-14},{2,6}})));
   annotation (Icon(graphics,
                    coordinateSystem(preserveAspectRatio=false)), Diagram(graphics,
                                                                          coordinateSystem(preserveAspectRatio=false)),

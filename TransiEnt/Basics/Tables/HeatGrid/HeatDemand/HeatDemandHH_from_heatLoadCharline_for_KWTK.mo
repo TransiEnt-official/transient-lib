@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.HeatGrid.HeatDemand;
+within TransiEnt.Basics.Tables.HeatGrid.HeatDemand;
 model HeatDemandHH_from_heatLoadCharline_for_KWTK
 
 
@@ -33,9 +33,8 @@ model HeatDemandHH_from_heatLoadCharline_for_KWTK
   //          Imports and Class Hierarchy
   // _____________________________________________
 
-extends GenericDataTable(
-relativepath="/heat/HeatDemand_HH_from_heatingLoadCharline_Q_flow.txt",
-datasource=DataPrivacy.isPublic);
+  extends GenericDataTable(path=
+        "/heat/HeatDemand_HH_from_heatingLoadCharline_Q_flow.txt");
   annotation (Documentation(info="<html>
 <h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
 <p>Extends Tools.GenericDataTable. Heat Demand in Hamburg in 2012. For the Power Plant Technology Colloquium (Kraftwerkstechnisches Kolloquium).</p>

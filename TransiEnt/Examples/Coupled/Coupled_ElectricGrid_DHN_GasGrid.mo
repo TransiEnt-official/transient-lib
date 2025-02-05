@@ -1,4 +1,4 @@
-﻿within TransiEnt.Examples.Coupled;
+within TransiEnt.Examples.Coupled;
 model Coupled_ElectricGrid_DHN_GasGrid "Example for sector coupling in TransiEnt library"
 
 
@@ -44,7 +44,9 @@ model Coupled_ElectricGrid_DHN_GasGrid "Example for sector coupling in TransiEnt
         origin={-208.263,107.45})));
   TransiEnt.Producer.Electrical.Photovoltaics.PVProfiles.SolarProfileLoader solarProfile(change_of_sign=true, P_el_n=2e4) annotation (Placement(transformation(extent={{-386,-171},{-346,-130}})));
   TransiEnt.Producer.Electrical.Wind.WindProfiles.WindProfileLoader windProfile(change_of_sign=true, P_el_n=2e6) annotation (Placement(transformation(extent={{-384,-228},{-346,-188}})));
-  TransiEnt.Basics.Tables.GenericDataTable electricDemandTable(relativepath="electricity/ElectricityDemand_VDI4665_ExampleHousehold_RG1_HH_2012_900s.txt") annotation (Placement(transformation(extent={{-382,-70},{-342,-30}})));
+  TransiEnt.Basics.Tables.GenericDataTable electricDemandTable(path=
+        "electricity/ElectricityDemand_VDI4665_ExampleHousehold_RG1_HH_2012_900s.txt")
+    annotation (Placement(transformation(extent={{-382,-70},{-342,-30}})));
   Modelica.Blocks.Math.Gain gain(k=1500) annotation (Placement(transformation(extent={{-324,-60},{-304,-40}})));
   TransiEnt.Components.Sensors.ElectricActivePower P_12(change_of_sign=true) annotation (Placement(transformation(extent={{-20,-166},{8,-194}})));
   TransiEnt.Grid.Electrical.LumpedPowerGrid.LumpedGrid UCTE(
@@ -94,7 +96,9 @@ model Coupled_ElectricGrid_DHN_GasGrid "Example for sector coupling in TransiEnt
         rotation=0,
         origin={40,34})));
   TransiEnt.Components.Boundaries.Heat.Heatflow_L1 heatDemand(use_Q_flow_in=true, p_drop=simCenter.p_nom[2] - simCenter.p_nom[1] - 0.07e5) annotation (Placement(transformation(extent={{358,242},{318,282}})));
-  TransiEnt.Basics.Tables.GenericDataTable heatDemandTable(relativepath="heat/HeatDemand_HHWilhelmsburg_MFH3000_900s_01012012_31122012.txt") annotation (Placement(transformation(extent={{-384,-6},{-344,34}})));
+  TransiEnt.Basics.Tables.GenericDataTable heatDemandTable(path=
+        "heat/HeatDemand_HHWilhelmsburg_MFH3000_900s_01012012_31122012.txt")
+    annotation (Placement(transformation(extent={{-384,-6},{-344,34}})));
   Modelica.Blocks.Sources.RealExpression electricityDemandCHP(y=-min(max(0, electricDemand.epp.P + electricGrid_SubSystem.pVPlant.epp.P + electricGrid_SubSystem.windProduction.epp.P), 1e6)) annotation (Placement(transformation(
         extent={{-50,-14},{50,14}},
         rotation=0,

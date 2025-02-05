@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Heat.HeatGridControl.Controllers;
+within TransiEnt.Grid.Heat.HeatGridControl.Controllers;
 model DHNControlLumpedGrid "DHN Control model (provides setpoint values) for a lumped grid model (total mass flow, total heat flow rate...)"
   import TransiEnt;
 
@@ -41,7 +41,9 @@ model DHNControlLumpedGrid "DHN Control model (provides setpoint values) for a l
   //          Components
   // _____________________________________________
 
-  Basics.Tables.Ambient.Temperature_Hamburg_900s_2012 tamb(datasource=TransiEnt.Basics.Tables.DataPrivacy.isPublic, relativepath="ambient/Temperature_Hamburg-Fuhlsbuettel_3600s_01012012_31122012.txt") annotation (Placement(transformation(extent={{-109,6},{-89,26}})));
+  Basics.Tables.Ambient.Temperature_Hamburg_900s_2012 tamb(path=
+        "ambient/Temperature_Hamburg-Fuhlsbuettel_3600s_01012012_31122012.txt")
+    annotation (Placement(transformation(extent={{-109,6},{-89,26}})));
   TransiEnt.Grid.Heat.HeatGridControl.SupplyAndReturnTemperatureDHG T_supply_return_target annotation (Placement(transformation(extent={{-8,-10},{12,10}})));
   Modelica.Blocks.Math.Feedback delta_T_target
     annotation (Placement(transformation(extent={{-10,47},{10,67}})));

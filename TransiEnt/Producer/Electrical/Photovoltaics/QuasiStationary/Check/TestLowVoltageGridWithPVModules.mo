@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Photovoltaics.QuasiStationary.Check;
+within TransiEnt.Producer.Electrical.Photovoltaics.QuasiStationary.Check;
 model TestLowVoltageGridWithPVModules
 
 
@@ -123,10 +123,16 @@ model TestLowVoltageGridWithPVModules
         rotation=180,
         extent={{-10,-10},{10,10}},
         origin={98,32})));
-  inner TransiEnt.Components.Boundaries.Ambient.AmbientConditions ambientConditions(
-    redeclare TransiEnt.Basics.Tables.Ambient.GHI_Hamburg_3600s_2012_TMY globalSolarRadiation,
-    redeclare TransiEnt.Basics.Tables.Ambient.Temperature_Hamburg_900s_2012 temperature,
-    redeclare TransiEnt.Basics.Tables.Ambient.Wind_Hamburg_Fuhlsbuettel_3600s_2012 wind(relativepath="/ambient/Wind_Hamburg_3600s_TMY.txt")) annotation (Placement(transformation(extent={{-40,80},{-20,100}})));
+  inner TransiEnt.Components.Boundaries.Ambient.AmbientConditions
+    ambientConditions(
+    redeclare TransiEnt.Basics.Tables.Ambient.GHI_Hamburg_3600s_2012_TMY
+      globalSolarRadiation,
+    redeclare TransiEnt.Basics.Tables.Ambient.Temperature_Hamburg_900s_2012
+      temperature,
+    redeclare
+      TransiEnt.Basics.Tables.Ambient.Wind_Hamburg_Fuhlsbuettel_3600s_2012 wind(
+        path="/ambient/Wind_Hamburg_3600s_TMY.txt"))
+    annotation (Placement(transformation(extent={{-40,80},{-20,100}})));
   TransiEnt.Producer.Electrical.Photovoltaics.QuasiStationary.PhotovoltaicModuleQS pV_Module_2(A_module=100) annotation (Placement(transformation(
         rotation=180,
         extent={{-10,-10},{10,10}},

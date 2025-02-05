@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Photovoltaics.QuasiStationary.Check;
+within TransiEnt.Producer.Electrical.Photovoltaics.QuasiStationary.Check;
 model TestConstantEfficiencyPVModule
 
 
@@ -61,10 +61,16 @@ model TestConstantEfficiencyPVModule
     startTime=4e4,
     height=46) annotation (Placement(transformation(extent={{-92,30},{-72,50}})));
   PhotovoltaicModuleQS pV_Module annotation (Placement(transformation(rotation=0, extent={{14,-66},{34,-46}})));
-  inner TransiEnt.Components.Boundaries.Ambient.AmbientConditions ambientConditions(
-    redeclare TransiEnt.Basics.Tables.Ambient.GHI_Hamburg_3600s_2012_TMY globalSolarRadiation,
-    redeclare TransiEnt.Basics.Tables.Ambient.Temperature_Hamburg_900s_2012 temperature,
-    redeclare TransiEnt.Basics.Tables.Ambient.Wind_Hamburg_Fuhlsbuettel_3600s_2012 wind(relativepath="/ambient/Wind_Hamburg_3600s_TMY.txt")) annotation (Placement(transformation(extent={{-40,80},{-20,100}})));
+  inner TransiEnt.Components.Boundaries.Ambient.AmbientConditions
+    ambientConditions(
+    redeclare TransiEnt.Basics.Tables.Ambient.GHI_Hamburg_3600s_2012_TMY
+      globalSolarRadiation,
+    redeclare TransiEnt.Basics.Tables.Ambient.Temperature_Hamburg_900s_2012
+      temperature,
+    redeclare
+      TransiEnt.Basics.Tables.Ambient.Wind_Hamburg_Fuhlsbuettel_3600s_2012 wind(
+        path="/ambient/Wind_Hamburg_3600s_TMY.txt"))
+    annotation (Placement(transformation(extent={{-40,80},{-20,100}})));
 equation
   connect(Adapter.epp, Grid.epp) annotation (Line(points={{-44,8},{-50,8},{-50,8},{-52,8}},
                          color={0,127,0}));

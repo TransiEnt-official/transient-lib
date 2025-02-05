@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.ElectricGrid.PowerData;
+within TransiEnt.Basics.Tables.ElectricGrid.PowerData;
 model ElectricityDemand_Berlin_900s_2012 "Electricity demand data in Berlin. Time resolution: 15 Minutes. Source: Stromnetz Berlin GmbH"
 
 
@@ -34,7 +34,7 @@ model ElectricityDemand_Berlin_900s_2012 "Electricity demand data in Berlin. Tim
   // _____________________________________________
 
   extends TransiEnt.Basics.Tables.ElectricGrid.PowerData.GenericPowerDataTable(
-                                                                     relativepath="electricity/Electricity_Demand_BER_900s_01012012_31122012_.txt", datasource=DataPrivacy.isPublic);
+      path="electricity/Electricity_Demand_BER_900s_01012012_31122012_.txt");
   annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}}), graphics), Documentation(info="<html>
 <h4><span style=\"color: #008000\">1. Purpose of model</span></h4>

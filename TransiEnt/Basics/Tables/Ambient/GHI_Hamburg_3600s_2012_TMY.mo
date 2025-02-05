@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.Ambient;
+within TransiEnt.Basics.Tables.Ambient;
 model GHI_Hamburg_3600s_2012_TMY "Hamburg's global horizontal, 1 h resolution, Source: IWEC"
 
 
@@ -33,9 +33,7 @@ model GHI_Hamburg_3600s_2012_TMY "Hamburg's global horizontal, 1 h resolution, S
   //          Imports and Class Hierarchy
   // _____________________________________________
 
-extends GenericDataTable(
-relativepath="ambient/GHI_Hamburg_3600s_TMY.txt",
-datasource=DataPrivacy.isPublic);
+  extends GenericDataTable(path="ambient/GHI_Hamburg_3600s_TMY.txt");
 
 extends TransiEnt.Components.Boundaries.Ambient.Base.PartialGlobalSolarRadiation;
 

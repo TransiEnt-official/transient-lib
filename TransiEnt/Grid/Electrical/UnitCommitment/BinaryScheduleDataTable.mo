@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Electrical.UnitCommitment;
+within TransiEnt.Grid.Electrical.UnitCommitment;
 model BinaryScheduleDataTable "Adds constants for easy allocation of outputs"
 
 
@@ -83,9 +83,9 @@ model BinaryScheduleDataTable "Adds constants for easy allocation of outputs"
   //           Instances of other Classes
   // _____________________________________________
 
-  replaceable TransiEnt.Grid.Electrical.UnitCommitment.ScheduleDataTable schedule(
+  replaceable TransiEnt.Grid.Electrical.UnitCommitment.ScheduleDataTable
+    schedule(
     smoothness=simCenter.tableInterpolationSmoothness,
-    datasource=TransiEnt.Basics.Tables.DataPrivacy.isPublic,
     constantfactor=1e6,
     WT=2,
     CCP=5,
@@ -93,7 +93,9 @@ model BinaryScheduleDataTable "Adds constants for easy allocation of outputs"
     WW2=-1,
     GT1=6,
     columns=(2:nPlants + 1),
-    relativepath="electricity/UnitCommitmentSchedules/UnitCommitmentSchedule_3600s_smoothed_REF35.txt",
+    path=
+        "electricity/UnitCommitmentSchedules/UnitCommitmentSchedule_3600s_smoothed_REF35.txt",
+
     BM=9,
     PS=10,
     Curt=12,
@@ -109,25 +111,28 @@ model BinaryScheduleDataTable "Adds constants for easy allocation of outputs"
     startTime=t_start,
     GUDTS=3,
     GT2=7,
-    GT3=8) constrainedby TransiEnt.Grid.Electrical.UnitCommitment.ScheduleDataTable "Tabled schedule from day ahead planning" annotation (
+    GT3=8) constrainedby
+    TransiEnt.Grid.Electrical.UnitCommitment.ScheduleDataTable
+    "Tabled schedule from day ahead planning" annotation (
     __Dymola_editText=false,
     choicesAllMatching=true,
     Placement(transformation(extent={{-21,23},{19,61}})));
 
-    replaceable TransiEnt.Grid.Electrical.UnitCommitment.ReserveScheduleDataTable reserveAllocation(
+  replaceable TransiEnt.Grid.Electrical.UnitCommitment.ReserveScheduleDataTable
+    reserveAllocation(
     smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments,
-    datasource=schedule.datasource,
     columns=(2:3*nPlants + 1),
-    relativepath=schedule.relativepath,
+    path=schedule.path,
     startTime=schedule.startTime,
-    constantfactor=-schedule.constantfactor) constrainedby TransiEnt.Grid.Electrical.UnitCommitment.ReserveScheduleDataTable "Tabled control power allocation from day ahead planning" annotation (
+    constantfactor=-schedule.constantfactor) constrainedby
+    TransiEnt.Grid.Electrical.UnitCommitment.ReserveScheduleDataTable
+    "Tabled control power allocation from day ahead planning" annotation (
     __Dymola_editText=false,
     choicesAllMatching=true,
     Placement(transformation(extent={{-21,-55},{19,-17}})));
 
-    ScheduleDataTable prediction(
+  ScheduleDataTable prediction(
     smoothness=schedule.smoothness,
-    datasource=schedule.datasource,
     constantfactor=schedule.constantfactor,
     WT=schedule.WT,
     CCP=schedule.CCP,
@@ -135,8 +140,8 @@ model BinaryScheduleDataTable "Adds constants for easy allocation of outputs"
     WW2=schedule.WW2,
     GT2=schedule.GT2,
     GT1=schedule.GT1,
-    columns=(2:nPlants+1),
-    relativepath=schedule.relativepath,
+    columns=(2:nPlants + 1),
+    path=schedule.path,
     absolute_path=schedule.absolute_path,
     use_absolute_path=schedule.use_absolute_path,
     BM=schedule.BM,
@@ -151,7 +156,9 @@ model BinaryScheduleDataTable "Adds constants for easy allocation of outputs"
     Import=schedule.Import,
     WW1=schedule.WW1,
     BC=schedule.BC,
-    startTime=t_prediction + schedule.startTime) "Generated with matlab script: \\\\transientee-sources\\matlab\\pd\\fahrplanoptimierung\\tageseinsatzplanung\\main.m" annotation (Placement(transformation(extent={{-91,27},{-51,65}})));
+    startTime=t_prediction + schedule.startTime)
+    "Generated with matlab script: \\\\transientee-sources\\matlab\\pd\\fahrplanoptimierung\\tageseinsatzplanung\\main.m"
+    annotation (Placement(transformation(extent={{-91,27},{-51,65}})));
 
 equation
   // _____________________________________________

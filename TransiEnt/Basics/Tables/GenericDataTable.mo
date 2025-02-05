@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables;
+within TransiEnt.Basics.Tables;
 model GenericDataTable "Parameterized version of MSL's CombiTimeTable. See Examples.Basics.GenericTable_How_to for explanation"
 
 
@@ -20,7 +20,7 @@ model GenericDataTable "Parameterized version of MSL's CombiTimeTable. See Examp
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -46,22 +46,17 @@ model GenericDataTable "Parameterized version of MSL's CombiTimeTable. See Examp
   parameter Boolean multiple_outputs = false "If set true multiple outputs are enabled (but useage of MultiSum block will fail)"
                                                                                               annotation(Evaluate=true, choices(__Dymola_checkBox=true), Dialog(group="Basics"));
 
-  parameter Integer columns[:]=2:size(MSL_combiTimeTable.table, 2) "columns of table to be interpolated (*** has to be modified before usage! ***)"
-                                                                                        annotation(Evaluate=true, HideResult=true, Dialog(enable=multiple_outputs, group="Basics"));
-
-  parameter DataPrivacy datasource=DataPrivacy.isPublic "Source of table data"   annotation (
+  parameter Integer columns[:]=2:size(MSL_combiTimeTable.table, 2)
+    "columns of table to be interpolated (*** has to be modified before usage! ***)"
+    annotation (
     Evaluate=true,
     HideResult=true,
-    Dialog(enable=not use_absolute_path, group="Data location"));
+    Dialog(enable=multiple_outputs, group="Basics"));
 
-  final parameter String environment_variable_name=if datasource ==DataPrivacy.isPublic then Types.PUBLIC_DATA else Types.PRIVATE_DATA  annotation(Evaluate=true, HideResult=true, Dialog(enable=not use_absolute_path, group="Data location"));
-
-  parameter String relativepath = "" "Path relative to source directory"
-                                                                        annotation(Evaluate=true, HideResult=true, Dialog(enable=not use_absolute_path, group="Data location"));
-
-  parameter Boolean use_absolute_path = false "Should only be used for testing purposes" annotation (Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true), Dialog(group="Data location"));
-  parameter String absolute_path = ""
-  annotation(Evaluate=true, HideResult=true, Dialog(enable=use_absolute_path, group="Data location"));
+  parameter String path="" annotation (
+    Evaluate=true,
+    HideResult=true,
+    Dialog(group="Data location"));
 
   parameter Boolean change_of_sign = false "Change sign of output signal relative to table data"
         annotation(choices(__Dymola_checkBox=true), Dialog(group="Basics"));
@@ -80,10 +75,6 @@ model GenericDataTable "Parameterized version of MSL's CombiTimeTable. See Examp
   parameter Modelica.Blocks.Types.TimeEvents timeEvents=Modelica.Blocks.Types.TimeEvents.AtDiscontinuities
     "Time event handling of table interpolation"
     annotation (Dialog(group="Table data interpretation", enable=smoothness == Modelica.Blocks.Types.Smoothness.LinearSegments));
-
-  final parameter String complete_relative_path = Functions.fullPathName(               Modelica.Utilities.System.getEnvironmentVariable(environment_variable_name) + relativepath);
-
-  final parameter String genericFileName = if use_absolute_path then absolute_path else complete_relative_path;
 
   outer TransiEnt.SimCenter simCenter;
 
@@ -110,7 +101,7 @@ model GenericDataTable "Parameterized version of MSL's CombiTimeTable. See Examp
 
    Modelica.Blocks.Sources.CombiTimeTable MSL_combiTimeTable(
     tableOnFile=true,
-    fileName=genericFileName,
+    fileName=Modelica.Utilities.Files.loadResource(path_f),
     smoothness=smoothness,
     extrapolation=extrapolation,
     columns=columns,
@@ -122,6 +113,9 @@ model GenericDataTable "Parameterized version of MSL's CombiTimeTable. See Examp
     annotation (Placement(transformation(extent={{-90,-52},{14,52}})));
   Modelica.Blocks.Math.Gain sign_changer[MSL_combiTimeTable.nout](each k=if change_of_sign then -1*constantfactor else constantfactor)
     annotation (Placement(transformation(extent={{40,-10},{60,10}})));
+
+protected
+  final parameter String path_f="modelica://TransiEnt/Tables/" + path;
 
 equation
   // _____________________________________________

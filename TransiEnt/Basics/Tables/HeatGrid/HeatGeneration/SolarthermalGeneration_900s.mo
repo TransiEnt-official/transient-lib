@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.HeatGrid.HeatGeneration;
+within TransiEnt.Basics.Tables.HeatGrid.HeatGeneration;
 model SolarthermalGeneration_900s "Example of solarthermal heat flow"
 
 
@@ -33,7 +33,8 @@ model SolarthermalGeneration_900s "Example of solarthermal heat flow"
   //          Imports and Class Hierarchy
   // _____________________________________________
 
-  extends TransiEnt.Basics.Tables.GenericDataTable(relativepath="/heat/SolarThermalHeatFlow_900s.txt");
+  extends TransiEnt.Basics.Tables.GenericDataTable(path=
+        "/heat/SolarThermalHeatFlow_900s.txt");
   annotation (Documentation(info="<html>
 <h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
 <p>Solarthermal Heat Generation of Energiebunker Hamburg with 15 minutes time resolution.</p>

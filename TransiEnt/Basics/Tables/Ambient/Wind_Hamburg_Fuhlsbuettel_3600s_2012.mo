@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.Ambient;
+within TransiEnt.Basics.Tables.Ambient;
 model Wind_Hamburg_Fuhlsbuettel_3600s_2012 "Hamburg-Fuhlsbuettel 2012, 1 h resolution, Source: WebWerdis"
 
 
@@ -33,9 +33,8 @@ model Wind_Hamburg_Fuhlsbuettel_3600s_2012 "Hamburg-Fuhlsbuettel 2012, 1 h resol
   //          Imports and Class Hierarchy
   // _____________________________________________
 
-extends GenericDataTable(
-relativepath="/ambient/Wind_Hamburg-Fuhlsbuettel_3600s_01012012_31122012_10m.txt",
-datasource=DataPrivacy.isPublic);
+  extends GenericDataTable(path=
+        "/ambient/Wind_Hamburg-Fuhlsbuettel_3600s_01012012_31122012_10m.txt");
 extends TransiEnt.Components.Boundaries.Ambient.Base.PartialWindspeed;
 
   // _____________________________________________

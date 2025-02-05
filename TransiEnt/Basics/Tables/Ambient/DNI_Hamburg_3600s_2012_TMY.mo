@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.Ambient;
+within TransiEnt.Basics.Tables.Ambient;
 model DNI_Hamburg_3600s_2012_TMY "Hamburg's direct normal irradiation, 1 h resolution, Source: IWEC"
 
 
@@ -33,9 +33,7 @@ model DNI_Hamburg_3600s_2012_TMY "Hamburg's direct normal irradiation, 1 h resol
   //          Imports and Class Hierarchy
   // _____________________________________________
 
-extends GenericDataTable(
-relativepath="ambient/DNI_Hamburg_3600s_TMY.txt",
-datasource=DataPrivacy.isPublic);
+  extends GenericDataTable(path="ambient/DNI_Hamburg_3600s_TMY.txt");
 
 extends TransiEnt.Components.Boundaries.Ambient.Base.PartialGlobalSolarRadiation;
 

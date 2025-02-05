@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.HeatGrid.HeatDemand;
+within TransiEnt.Basics.Tables.HeatGrid.HeatDemand;
 model HeatDemand_SLPGas_MFH_2012_3600s "SLP Gas for heating and hot-Water energy demand for multi-family houses scaled to 1 J"
 
 
@@ -33,10 +33,8 @@ model HeatDemand_SLPGas_MFH_2012_3600s "SLP Gas for heating and hot-Water energy
   //          Imports and Class Hierarchy
   // _____________________________________________
 
-extends GenericDataTable(
-relativepath="gas/HMF_Gas_1J_2012_3600s.txt",
-datasource=DataPrivacy.isPublic,
-constantfactor = Q_demand);
+  extends GenericDataTable(path="gas/HMF_Gas_1J_2012_3600s.txt", constantfactor
+      =Q_demand);
 
   // _____________________________________________
   //

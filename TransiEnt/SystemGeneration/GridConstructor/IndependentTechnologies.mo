@@ -1,4 +1,4 @@
-﻿within TransiEnt.SystemGeneration.GridConstructor;
+within TransiEnt.SystemGeneration.GridConstructor;
 model IndependentTechnologies
 
 
@@ -181,7 +181,10 @@ public
 
   Modelica.Blocks.Math.Add add_dhw(k2=+1) if PV == 1 and E_max_PV > 0 annotation (Placement(transformation(extent={{-76,-28},{-64,-16}})));
 
-  TransiEnt.Basics.Tables.Ambient.POAIrradiaton_Az0_Tilt0_Hamburg_3600s_2012_TMY radiationData(tableName="default", relativepath=Radiation_data) if PV == 1 and simple_PV annotation (Placement(transformation(extent={{-108,20},{-88,40}})));
+  TransiEnt.Basics.Tables.Ambient.POAIrradiaton_Az0_Tilt0_Hamburg_3600s_2012_TMY
+    radiationData(tableName="default", path=Radiation_data)
+    if PV == 1 and simple_PV
+    annotation (Placement(transformation(extent={{-108,20},{-88,40}})));
 
   //Heat pump
   TransiEnt.Producer.Heat.Power2Heat.Heatpump.HeatPumpSystem HeatPumpSystem(
@@ -195,8 +198,11 @@ public
     k=k_s_HP,
     T_source=T_source_HP,
     P_el_n=P_el_backup_HP,
-    redeclare model PowerBoundaryModel = TransiEnt.Components.Boundaries.Electrical.ApparentPower.ApparentPower (useInputConnectorQ=false, useCosPhi=false),
-    redeclare connector PowerPortModel = TransiEnt.Basics.Interfaces.Electrical.ApparentPowerPort,
+    redeclare model PowerBoundaryModel =
+        TransiEnt.Components.Boundaries.Electrical.ApparentPower.ApparentPower
+        (                                                                                                        useInputConnectorQ=false, useCosPhi=false),
+    redeclare connector PowerPortModel =
+        TransiEnt.Basics.Interfaces.Electrical.ApparentPowerPort,
     heatPumpWithControl(heatPump(Power(
           useInputConnectorP=true,
           useInputConnectorQ=false,
@@ -217,8 +223,11 @@ public
     eta_el=P_CHP/(P_CHP + Q_CHP)*eta_CHP,
     eta_th=Q_CHP/(P_CHP + Q_CHP)*eta_CHP,
     eta_boiler=eta_boiler_CHP,
-    redeclare connector PowerPortModel = TransiEnt.Basics.Interfaces.Electrical.ApparentPowerPort,
-    redeclare model PowerBoundaryModel = TransiEnt.Components.Boundaries.Electrical.ApparentPower.ApparentPower (useInputConnectorQ=false, useCosPhi=false)) if CHP == 1 annotation (Placement(transformation(extent={{78,-2},{98,18}})));
+    redeclare connector PowerPortModel =
+        TransiEnt.Basics.Interfaces.Electrical.ApparentPowerPort,
+    redeclare model PowerBoundaryModel =
+        TransiEnt.Components.Boundaries.Electrical.ApparentPower.ApparentPower
+        (                                                                                                        useInputConnectorQ=false, useCosPhi=false)) if CHP == 1 annotation (Placement(transformation(extent={{78,-2},{98,18}})));
 
   //Solar heating
   TransiEnt.Producer.Heat.SolarThermal.SystemModels.SolarThermalSystem_5LayerStorage solarThermalSystem(

@@ -1,0 +1,14 @@
+﻿// start process of conversion
+clear
+
+// Changes in GenericDataTable
+
+// change variable name of path
+convertElement("TransiEnt.Basics.Tables.GenericDataTable",
+	"relativepath", "path");
+
+// remove data source variable
+convertElement("TransiEnt.Basics.Tables.GenericDataTable",
+	"datasource", "");
+
+openModel("C:/Git/transient-lib/TransiEnt/package.mo");

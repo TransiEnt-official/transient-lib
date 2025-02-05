@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Photovoltaics.PVProfiles;
+within TransiEnt.Producer.Electrical.Photovoltaics.PVProfiles;
 model SolarProfileLoader "Loads PV profiles from csv files for 2011, 2012, 2014 and 2015
  'Meassured Data' refers to wind power generation meassured by the TSOs"
 
@@ -36,9 +36,13 @@ model SolarProfileLoader "Loads PV profiles from csv files for 2011, 2012, 2014 
   // _____________________________________________
   import TransiEnt;
   extends TransiEnt.Basics.Tables.GenericDataTable(
-                                                 final relativepath="electricity/REProfiles/" + String(REProfile) + ".txt",
-      final datasource=TransiEnt.Basics.Tables.DataPrivacy.isPublic,
-                                                                  final tableName="default", final multiple_outputs = false, final columns=2:2, final use_absolute_path = false, final absolute_path="", constantfactor = P_el_n);
+    final path="electricity/REProfiles/" + String(REProfile) + ".txt",
+    final tableName="default",
+    final multiple_outputs=false,
+    final columns=2:2,
+    final use_absolute_path=false,
+    final absolute_path="",
+    constantfactor=P_el_n);
 
   // _____________________________________________
   //

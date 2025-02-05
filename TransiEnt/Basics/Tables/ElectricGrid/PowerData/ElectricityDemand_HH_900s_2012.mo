@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.ElectricGrid.PowerData;
+within TransiEnt.Basics.Tables.ElectricGrid.PowerData;
 model ElectricityDemand_HH_900s_2012 "Electricity demand data in Hamburg. Time resolution: 15 Minutes. Source: Stromnetz Hamburg GmbH"
 
 
@@ -33,9 +33,8 @@ model ElectricityDemand_HH_900s_2012 "Electricity demand data in Hamburg. Time r
   //          Imports and Class Hierarchy
   // _____________________________________________
 
-  extends PowerData.GenericPowerDataTable(
-                                      relativepath="electricity/ElectricityDemandHH_900s_01.01.20120-01.01.20130.txt",
-      datasource=DataPrivacy.isPublic);
+  extends PowerData.GenericPowerDataTable(path=
+        "electricity/ElectricityDemandHH_900s_01.01.20120-01.01.20130.txt");
   annotation (defaultComponentName="DemandTable", Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}}), graphics),
     Documentation(info="<html>
