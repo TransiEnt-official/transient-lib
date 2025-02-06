@@ -1,4 +1,4 @@
-﻿within TransiEnt.SystemGeneration.Superstructure.Components;
+within TransiEnt.SystemGeneration.Superstructure.Components;
 model Superstructure "Representation of a certain region in terms of consumption and production of electrical power and gas"
 
 
@@ -282,16 +282,14 @@ model Superstructure "Representation of a certain region in terms of consumption
     localGasDemand_constantMultiplier=localGasDemand_constantMultiplier,
     localSolarthermalProduction_pathToTable=localSolarthermalProduction_pathToTable,
     localSolarthermalProduction_constantMultiplier=localSolarthermalProduction_constantMultiplier) annotation (Placement(transformation(extent={{-10,-116},{10,-94}})));
-  TransiEnt.Basics.Tables.GenericDataTable DataTable_HeatDemand(
-    use_absolute_path=true,
-    absolute_path=localHeatDemand_pathToTable,
-    constantfactor=localHeatDemand_constantMultiplier) annotation (Placement(transformation(extent={{-96,-116},{-86,-106}})));
+  TransiEnt.Basics.Tables.GenericDataTable DataTable_HeatDemand(constantfactor=
+        localHeatDemand_constantMultiplier)
+    annotation (Placement(transformation(extent={{-96,-116},{-86,-106}})));
   Modelica.Blocks.Math.Gain gain_HeatingDemand_HeatingGrid(k=splitHeatingDemand_heatingGrid) annotation (Placement(transformation(extent={{-78,-106},{-72,-100}})));
   Modelica.Blocks.Math.Gain gain_HeatingDemand_LocalDemand(k=splitHeatingDemand_localHeating) annotation (Placement(transformation(extent={{-78,-118},{-72,-112}})));
-  TransiEnt.Basics.Tables.GenericDataTable DataTable_Temperature(
-    use_absolute_path=true,
-    absolute_path=localTemperature_pathToTable,
-    constantfactor=localTemperature_constantMultiplier) annotation (Placement(transformation(extent={{-96,-102},{-86,-92}})));
+  TransiEnt.Basics.Tables.GenericDataTable DataTable_Temperature(constantfactor
+      =localTemperature_constantMultiplier)
+    annotation (Placement(transformation(extent={{-96,-102},{-86,-92}})));
 
   inner Modelica.Units.SI.Temperature T_region=DataTable_Temperature.y1;
 

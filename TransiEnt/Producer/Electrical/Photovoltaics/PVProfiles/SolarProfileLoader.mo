@@ -40,8 +40,6 @@ model SolarProfileLoader "Loads PV profiles from csv files for 2011, 2012, 2014 
     final tableName="default",
     final multiple_outputs=false,
     final columns=2:2,
-    final use_absolute_path=false,
-    final absolute_path="",
     constantfactor=P_el_n);
 
   // _____________________________________________

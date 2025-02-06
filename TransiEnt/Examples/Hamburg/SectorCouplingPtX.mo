@@ -480,14 +480,17 @@ model SectorCouplingPtX "Coupled electric, district heating and gas grids for Ha
       WindOff=20,
       Curt=15,
       Import=16,
-      use_absolute_path=false,
-      path        ="electricity/UnitCommitmentSchedules/UnitCommitmentSchedule_3600s_smoothed_REF35.txt"),
-    reserveAllocation(                                                                                                   use_absolute_path=false,
-                      path        ="electricity/UnitCommitmentSchedules/ReservePowerCommitmentSchedule_3600s_REF35.txt"),
+      path=
+          "electricity/UnitCommitmentSchedules/UnitCommitmentSchedule_3600s_smoothed_REF35.txt"),
+
+    reserveAllocation(path=
+          "electricity/UnitCommitmentSchedules/ReservePowerCommitmentSchedule_3600s_REF35.txt"),
+
     unit_blocked=cat(
         1,
         fill(false, simCenter.generationPark.nDispPlants - 2),
-        {true,true})) annotation (Placement(transformation(extent={{-188,114},{-168,134}})));
+        {true,true}))
+    annotation (Placement(transformation(extent={{-188,114},{-168,134}})));
   Modelica.Blocks.Sources.RealExpression P_residual_pred_1h(y=-sum(UC.prediction.y[simCenter.generationPark.isMOD])) annotation (Placement(transformation(extent={{-224,104},{-204,124}})));
   TransiEnt.Grid.Electrical.EconomicDispatch.MeritOrderDispatcher mod(
     ntime=discretizePrediction.ntime,

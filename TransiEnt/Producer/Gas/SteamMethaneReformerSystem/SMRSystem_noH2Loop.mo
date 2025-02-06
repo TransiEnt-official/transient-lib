@@ -520,11 +520,8 @@ public
                                                                              annotation (Placement(transformation(extent={{-220,-78},{-200,-58}})));
   Modelica.Blocks.Logical.Switch switch1 annotation (Placement(transformation(extent={{-182,-62},{-162,-42}})));
   Modelica.Blocks.Sources.BooleanExpression booleanExpression(y=steamToCarbonRatioFromTable)        annotation (Placement(transformation(extent={{-220,-62},{-200,-42}})));
-  Basics.Tables.GenericDataTable tableSteamToCarbonRatio(
-    change_of_sign=false,
-    path=relativepathSteamToCarbonRatio,
-    use_absolute_path=use_absolute_path_SteamToCarbonRatio,
-    absolute_path=absolute_path_SteamToCarbonRatio)
+  Basics.Tables.GenericDataTable tableSteamToCarbonRatio(change_of_sign=false,
+      path=relativepathSteamToCarbonRatio)
     annotation (Placement(transformation(extent={{-220,-36},{-200,-16}})));
 
 

@@ -30,10 +30,9 @@ model TestFrequencyStandardDeviation
   extends TransiEnt.Basics.Icons.Checkmodel;
   FrequencyStandardDeviation frequencyStandardDeviation annotation (Placement(transformation(extent={{-16,6},{4,26}})));
   Boundaries.Electrical.ActivePower.Frequency constantFrequency_L1_1 annotation (Placement(transformation(extent={{44,-10},{64,10}})));
-  Basics.Tables.GenericDataTable f_1year_60s(
-    path="electricity/GridFrequencyMeasurement_60s_01012012_31122012.txt",
-    use_absolute_path=false,
-    smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments)
+  Basics.Tables.GenericDataTable f_1year_60s(path=
+        "electricity/GridFrequencyMeasurement_60s_01012012_31122012.txt",
+      smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments)
     annotation (Placement(transformation(extent={{10,40},{30,60}})));
   Modelica.Blocks.Sources.Constant expected(k=0.021561) annotation (Placement(transformation(extent={{-54,42},{-34,62}})));
   Modelica.Blocks.Sources.RealExpression error_in_percent(y=(frequencyStandardDeviation.y - expected.k)/expected.k*100) annotation (Placement(transformation(extent={{-34,-74},{16,-32}})));

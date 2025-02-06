@@ -249,10 +249,10 @@ model ElectricGrid "Example of an electric grid with several generators, frequen
         1,
         fill(false, simCenter.generationPark.nDispPlants - 2),
         {true,true}),
-    reserveAllocation(
-      smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments,
-      use_absolute_path=false,
-      path        ="electricity/UnitCommitmentSchedules/ReservePowerCommitmentSchedule_3600s_REF35.txt"),
+    reserveAllocation(smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments,
+        path=
+          "electricity/UnitCommitmentSchedules/ReservePowerCommitmentSchedule_3600s_REF35.txt"),
+
     schedule(
       BC=5,
       CCP=6,
@@ -270,11 +270,12 @@ model ElectricGrid "Example of an electric grid with several generators, frequen
       WindOff=20,
       Curt=15,
       Import=16,
-      use_absolute_path=false,
       smoothness=Modelica.Blocks.Types.Smoothness.MonotoneContinuousDerivative1,
+
       columns=(2:simCenter.generationPark.nPlants + 1),
-      path        ="electricity/UnitCommitmentSchedules/UnitCommitmentSchedule_3600s_smoothed_REF35.txt"))
-                                                         annotation (Placement(transformation(extent={{-192,14},{-172,34}})));
+      path=
+          "electricity/UnitCommitmentSchedules/UnitCommitmentSchedule_3600s_smoothed_REF35.txt"))
+    annotation (Placement(transformation(extent={{-192,14},{-172,34}})));
   Modelica.Blocks.Sources.RealExpression P_residual_pred_1h(y=-sum(UC.prediction.y[simCenter.generationPark.isMOD])) annotation (Placement(transformation(extent={{-228,4},{-208,24}})));
   TransiEnt.Grid.Electrical.EconomicDispatch.MeritOrderDispatcher mod(
     ntime=discretizePrediction.ntime,

@@ -7,8 +7,11 @@ clear
 convertElement("TransiEnt.Basics.Tables.GenericDataTable",
 	"relativepath", "path");
 
-// remove data source variable
+// remove data source variables
 convertElement("TransiEnt.Basics.Tables.GenericDataTable",
 	"datasource", "");
+convertElement("TransiEnt.Basics.Tables.GenericDataTable",
+	"use_absolute_path", "");
+convertElement("TransiEnt.Basics.Tables.GenericDataTable",
+	"absolute_path", "");
 
-openModel("C:/Git/transient-lib/TransiEnt/package.mo");

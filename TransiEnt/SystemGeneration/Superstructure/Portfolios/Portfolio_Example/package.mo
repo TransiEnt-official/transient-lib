@@ -1,4 +1,4 @@
-﻿within TransiEnt.SystemGeneration.Superstructure.Portfolios;
+within TransiEnt.SystemGeneration.Superstructure.Portfolios;
 package Portfolio_Example
 
 
@@ -688,7 +688,8 @@ powerToGasRecord: parametrization records for PtGplants in region [nPowerToGasPl
     Gasturbine_with_Gasport_constantEff   "Gasturbine_with_Gasport and constant efficiency",
     CCP_with_Gasport_constantEff   "CCP_with_Gasport and constant efficiency") "Choose power plant type";
 
-  redeclare model extends PowerPlantSystem(redeclare package Config = Portfolio_Example)
+  redeclare model extends PowerPlantSystem(redeclare package Config =
+        Portfolio_Example)
 
     // _____________________________________________
     //
@@ -953,7 +954,8 @@ powerToGasRecord: parametrization records for PtGplants in region [nPowerToGasPl
     lithiumIonBattery "Model of a ltihium ion battery",
     battery "Typical characteristic of battery storage") "Choose electrical storage type";
 
-  redeclare model extends ElectricalStorageSystem(redeclare package Config = Portfolio_Example)
+  redeclare model extends ElectricalStorageSystem(redeclare package Config =
+        Portfolio_Example)
      // _____________________________________________
     //
     //              Visible Parameters
@@ -973,11 +975,13 @@ powerToGasRecord: parametrization records for PtGplants in region [nPowerToGasPl
       use_PowerRateLimiter=false,
       redeclare TransiEnt.Basics.Interfaces.Electrical.ComplexPowerPort epp,
       redeclare TransiEnt.Components.Boundaries.Electrical.ComplexPower.PQBoundary powerBoundary(useInputConnectorQ=false, cosphi_boundary=1) "PQ-Boundary for ComplexPowerPort",
-      redeclare model StorageModel = TransiEnt.Storage.Base.GenericStorageHyst (
+      redeclare model StorageModel = TransiEnt.Storage.Base.GenericStorageHyst
+          (
           params=electricalStorage1.StorageModelParams,
           use_PowerRateLimiter=false,
           stationaryLossOnlyIfInactive=true,
-          redeclare model StationaryLossModel = TransiEnt.Storage.Base.SelfDischargeRateRelative,
+          redeclare model StationaryLossModel =
+              TransiEnt.Storage.Base.SelfDischargeRateRelative,
           relDeltaEnergyHystFull=0.02),
       StorageModelParams(
         E_start=electricalStorageRecord.E_start,
@@ -993,17 +997,20 @@ powerToGasRecord: parametrization records for PtGplants in region [nPowerToGasPl
         b=electricalStorageRecord.b,
         c=electricalStorageRecord.c,
         d=electricalStorageRecord.d),
-      redeclare model StationaryLossModel = TransiEnt.Storage.Base.SelfDischargeRateRelative) if electricalStorageType == ElectricalStorageType.battery annotation (Placement(transformation(extent={{-78,82},{-62,98}})));
+      redeclare model StationaryLossModel =
+          TransiEnt.Storage.Base.SelfDischargeRateRelative)                                   if electricalStorageType == ElectricalStorageType.battery annotation (Placement(transformation(extent={{-78,82},{-62,98}})));
 
     TransiEnt.Storage.Electrical.LeadAcidBattery electricalStorage2(
       use_PowerRateLimiter=false,
       redeclare TransiEnt.Basics.Interfaces.Electrical.ComplexPowerPort epp,
       redeclare TransiEnt.Components.Boundaries.Electrical.ComplexPower.PQBoundary powerBoundary(useInputConnectorQ=false, cosphi_boundary=1) "PQ-Boundary for ComplexPowerPort",
-      redeclare model StorageModel = TransiEnt.Storage.Base.GenericStorageHyst (
+      redeclare model StorageModel = TransiEnt.Storage.Base.GenericStorageHyst
+          (
           params=electricalStorage2.StorageModelParams,
           use_PowerRateLimiter=false,
           stationaryLossOnlyIfInactive=true,
-          redeclare model StationaryLossModel = TransiEnt.Storage.Base.SelfDischargeRateRelative,
+          redeclare model StationaryLossModel =
+              TransiEnt.Storage.Base.SelfDischargeRateRelative,
           relDeltaEnergyHystFull=0.02),
       StorageModelParams=TransiEnt.Storage.Electrical.Specifications.LeadAcidBattery(
                 E_start=electricalStorageRecord.E_start,
@@ -1024,11 +1031,13 @@ powerToGasRecord: parametrization records for PtGplants in region [nPowerToGasPl
       use_PowerRateLimiter=false,
       redeclare TransiEnt.Basics.Interfaces.Electrical.ComplexPowerPort epp,
       redeclare TransiEnt.Components.Boundaries.Electrical.ComplexPower.PQBoundary powerBoundary(useInputConnectorQ=false, cosphi_boundary=1) "PQ-Boundary for ComplexPowerPort",
-      redeclare model StorageModel = TransiEnt.Storage.Base.GenericStorageHyst (
+      redeclare model StorageModel = TransiEnt.Storage.Base.GenericStorageHyst
+          (
           params=electricalStorage3.StorageModelParams,
           use_PowerRateLimiter=false,
           stationaryLossOnlyIfInactive=true,
-          redeclare model StationaryLossModel = TransiEnt.Storage.Base.SelfDischargeRateRelative,
+          redeclare model StationaryLossModel =
+              TransiEnt.Storage.Base.SelfDischargeRateRelative,
           relDeltaEnergyHystFull=0.02),
       StorageModelParams=TransiEnt.Storage.Electrical.Specifications.LithiumIon(
                 E_start=electricalStorageRecord.E_start,
@@ -1140,7 +1149,8 @@ powerToGasRecord: parametrization records for PtGplants in region [nPowerToGasPl
     FeedInStation_Methanation_woStorage
                             "FeedInStation_Methanation_woStorage") "Choose power to gas type";
 
-  redeclare model extends PowerToGasSystem(redeclare package Config = Portfolio_Example)
+  redeclare model extends PowerToGasSystem(redeclare package Config =
+        Portfolio_Example)
 
     // _____________________________________________
     //
@@ -1187,7 +1197,9 @@ powerToGasRecord: parametrization records for PtGplants in region [nPowerToGasPl
       P_el_n=powerToGasRecord.P_el_n,
       P_el_max=powerToGasRecord.P_el_n,
       eta_n=powerToGasRecord.eta_n,
-      redeclare model Charline = TransiEnt.Producer.Gas.Electrolyzer.Base.ElectrolyzerEfficiencyCharlineSilyzer200 (use_arrayefficiency=true),
+      redeclare model Charline =
+          TransiEnt.Producer.Gas.Electrolyzer.Base.ElectrolyzerEfficiencyCharlineSilyzer200
+          (                                                                                                         use_arrayefficiency=true),
       useFluidCoolantPort=if usageOfWasteHeatOfPtG >= 2 then true else false,
       electrolyzer(redeclare TransiEnt.Basics.Interfaces.Electrical.ComplexPowerPort epp, redeclare replaceable TransiEnt.Components.Boundaries.Electrical.ComplexPower.PQBoundary powerBoundary(useInputConnectorQ=false, cosphi_boundary=1)),
       T_out_coolant_target=273.15 + 67) if powerToGasType == PowerToGasType.FeedInStation_woStorage annotation (Placement(transformation(extent={{0,80},{-20,60}})));
@@ -1199,7 +1211,9 @@ powerToGasRecord: parametrization records for PtGplants in region [nPowerToGasPl
       P_el_n=powerToGasRecord.P_el_n,
       P_el_max=powerToGasRecord.P_el_n,
       eta_n=powerToGasRecord.eta_n,
-      redeclare model Charline = TransiEnt.Producer.Gas.Electrolyzer.Base.ElectrolyzerEfficiencyCharlineSilyzer200 (use_arrayefficiency=true),
+      redeclare model Charline =
+          TransiEnt.Producer.Gas.Electrolyzer.Base.ElectrolyzerEfficiencyCharlineSilyzer200
+          (                                                                                                         use_arrayefficiency=true),
       p_maxLow=powerToGasRecord.p_maxLow,
       p_maxHigh=powerToGasRecord.p_maxHigh,
       p_minLow_constantDemand=powerToGasRecord.p_minLow_constantDemand,
@@ -1215,7 +1229,9 @@ powerToGasRecord: parametrization records for PtGplants in region [nPowerToGasPl
       P_el_n=powerToGasRecord.P_el_n,
       P_el_max=powerToGasRecord.P_el_n,
       eta_n=powerToGasRecord.eta_n,
-      redeclare model Charline = TransiEnt.Producer.Gas.Electrolyzer.Base.ElectrolyzerEfficiencyCharlineSilyzer200 (use_arrayefficiency=true),
+      redeclare model Charline =
+          TransiEnt.Producer.Gas.Electrolyzer.Base.ElectrolyzerEfficiencyCharlineSilyzer200
+          (                                                                                                         use_arrayefficiency=true),
       p_maxLow=powerToGasRecord.p_maxLow,
       p_maxHigh=powerToGasRecord.p_maxHigh,
       p_minLow=powerToGasRecord.p_minLow,
@@ -1250,7 +1266,9 @@ powerToGasRecord: parametrization records for PtGplants in region [nPowerToGasPl
         p_minHigh=powerToGasRecord.p_minHigh,
         p_minLow_constantDemand=powerToGasRecord.p_minLow_constantDemand,
         m_flow_hydrogenDemand_constant=powerToGasRecord.m_flow_internaldemand_constant,
-        redeclare model Charline = TransiEnt.Producer.Gas.Electrolyzer.Base.ElectrolyzerEfficiencyCharlineSilyzer200 (use_arrayefficiency=true),
+        redeclare model Charline =
+            TransiEnt.Producer.Gas.Electrolyzer.Base.ElectrolyzerEfficiencyCharlineSilyzer200
+            (                                                                                                         use_arrayefficiency=true),
         electrolyzer(redeclare TransiEnt.Basics.Interfaces.Electrical.ComplexPowerPort epp, redeclare TransiEnt.Components.Boundaries.Electrical.ComplexPower.PQBoundary powerBoundary(useInputConnectorQ=false, cosphi_boundary=1) "Power Boundary for ComplexPowerPort")),
       chooseHeatSources=3) if (powerToGasType == PowerToGasType.FeedInStation_Methanation_CvnCmp or powerToGasType == PowerToGasType.FeedInStation_Methanation_CvnCmp_hydPort) annotation (Placement(transformation(extent={{-14,-40},{-34,-20}})));
 
@@ -1273,7 +1291,9 @@ powerToGasRecord: parametrization records for PtGplants in region [nPowerToGasPl
         P_el_max=powerToGasRecord.P_el_n,
         P_el_min=powerToGasRecord.P_el_n*powerToGasRecord.P_el_min_rel,
         eta_n=powerToGasRecord.eta_n,
-        redeclare model Charline = TransiEnt.Producer.Gas.Electrolyzer.Base.ElectrolyzerEfficiencyCharlineSilyzer200 (use_arrayefficiency=true),
+        redeclare model Charline =
+            TransiEnt.Producer.Gas.Electrolyzer.Base.ElectrolyzerEfficiencyCharlineSilyzer200
+            (                                                                                                         use_arrayefficiency=true),
         electrolyzer(redeclare TransiEnt.Basics.Interfaces.Electrical.ComplexPowerPort epp, redeclare TransiEnt.Components.Boundaries.Electrical.ComplexPower.PQBoundary powerBoundary(useInputConnectorQ=false, cosphi_boundary=1) "Power Boundary for ComplexPowerPort")),
       chooseHeatSources=3) if powerToGasType == PowerToGasType.FeedInStation_Methanation_woStorage annotation (Placement(transformation(extent={{18,-40},{-2,-20}})));
 
@@ -1969,7 +1989,8 @@ powerToGasRecord: parametrization records for PtGplants in region [nPowerToGasPl
     GasStorage_constXi_L2   "L2: Model of a simple gas storage volume for constant composition",
     GasStorage_varXi_L2   "L2: Model of a simple gas storage volume for variable composition") "Choose gas storage";
 
-  redeclare model extends GasStorageSystem(redeclare package Config = Portfolio_Example)
+  redeclare model extends GasStorageSystem(redeclare package Config =
+        Portfolio_Example)
 
     // _____________________________________________
     //
@@ -2209,7 +2230,8 @@ powerToGasRecord: parametrization records for PtGplants in region [nPowerToGasPl
 </html>"));
   end GasStorageSystem;
 
-  redeclare model extends LocalDemand(redeclare package Config = Portfolio_Example)
+  redeclare model extends LocalDemand(redeclare package Config =
+        Portfolio_Example)
 
     // _____________________________________________
     //
@@ -2266,9 +2288,8 @@ powerToGasRecord: parametrization records for PtGplants in region [nPowerToGasPl
     inner Modelica.Units.SI.HeatFlowRate Q_flow_solarthermal_pu=gain_SolarthermalProduction.y;
 
     TransiEnt.Basics.Tables.GenericDataTable DataTable_ElectricDemand(
-      use_absolute_path=true,
-      absolute_path=localElectricDemand_pathToTable,
-      constantfactor=localElectricDemand_constantMultiplier) annotation (Placement(transformation(extent={{-102,-132},{-82,-112}})));
+        constantfactor=localElectricDemand_constantMultiplier)
+      annotation (Placement(transformation(extent={{-102,-132},{-82,-112}})));
 
     TransiEnt.Consumer.Electrical.ExponentialElectricConsumerComplex load(useInputConnectorP=true, variability(
         kpf=localDemandRecord.loadVariability_kpf,
@@ -2333,9 +2354,9 @@ powerToGasRecord: parametrization records for PtGplants in region [nPowerToGasPl
       mode="Consumer",
       usePIDcontroller=false) if LocalGasDemandMaterialUse annotation (Placement(transformation(extent={{16,-174},{-4,-154}})));
     TransiEnt.Basics.Tables.GenericDataTable DataTable_GasDemandMaterialUse(
-      use_absolute_path=true,
-      absolute_path=localGasDemand_pathToTable,
-      constantfactor=localGasDemand_constantMultiplier) if LocalGasDemandMaterialUse annotation (Placement(transformation(extent={{-102,-174},{-82,-154}})));
+        constantfactor=localGasDemand_constantMultiplier)
+      if LocalGasDemandMaterialUse
+      annotation (Placement(transformation(extent={{-102,-174},{-82,-154}})));
     Modelica.Blocks.Math.Gain gain_HeatPumpSole(k=if sum(Fraction) == 0 then 0 else -Fraction[5]/sum(Fraction)) annotation (Placement(transformation(extent={{-50,18},{-40,28}})));
     Modelica.Blocks.Math.Gain gain_HeatPumpAndSolarSole(k=if sum(Fraction) == 0 then 0 else -Fraction[6]/sum(Fraction)) annotation (Placement(transformation(extent={{-50,-12},{-40,-2}})));
     Modelica.Blocks.Math.Gain gain_GasHeatPump(k=if sum(Fraction) == 0 then 0 else -Fraction[7]/sum(Fraction)) annotation (Placement(transformation(extent={{-50,-46},{-40,-36}})));
@@ -2353,9 +2374,8 @@ powerToGasRecord: parametrization records for PtGplants in region [nPowerToGasPl
           origin={56,40})));
     Modelica.Blocks.Math.Gain gain_SolarthermalProduction(k=1) annotation (Placement(transformation(extent={{-94,120},{-86,128}})));
     TransiEnt.Basics.Tables.GenericDataTable DataTable_SolarthermalProduction(
-      use_absolute_path=true,
-      absolute_path=localSolarthermalProduction_pathToTable,
-      constantfactor=localSolarthermalProduction_constantMultiplier) annotation (Placement(transformation(extent={{-134,114},{-114,134}})));
+        constantfactor=localSolarthermalProduction_constantMultiplier)
+      annotation (Placement(transformation(extent={{-134,114},{-114,134}})));
     Modelica.Blocks.Math.Gain gain_ElectricalHeater(k=if sum(Fraction) == 0 then 0 else -Fraction[9]/sum(Fraction)) annotation (Placement(transformation(extent={{-52,-104},{-42,-94}})));
     Components.Controller.ControlGasPressure controlGasPressure(
       p_min=p_min,
@@ -2539,7 +2559,8 @@ powerToGasRecord: parametrization records for PtGplants in region [nPowerToGasPl
 </html>"));
   end LocalDemand;
 
-  redeclare model extends LocalRenewableProduction(redeclare package Config = Portfolio_Example)
+  redeclare model extends LocalRenewableProduction(redeclare package Config =
+        Portfolio_Example)
 
     // _____________________________________________
     //
@@ -2587,15 +2608,13 @@ powerToGasRecord: parametrization records for PtGplants in region [nPowerToGasPl
     //           Instances of other Classes
     // _____________________________________________
 
-    TransiEnt.Basics.Tables.GenericDataTable WindOnshore_Profile(
-      use_absolute_path=true,
-      absolute_path=localWindOnshoreProduction_pathToTable,
-      constantfactor=localWindOnshoreProduction_constantMultiplier) annotation (Placement(transformation(extent={{-100,68},{-80,88}})));
+    TransiEnt.Basics.Tables.GenericDataTable WindOnshore_Profile(constantfactor
+        =localWindOnshoreProduction_constantMultiplier)
+      annotation (Placement(transformation(extent={{-100,68},{-80,88}})));
 
-    TransiEnt.Basics.Tables.GenericDataTable PV_Profile(
-      use_absolute_path=true,
-      absolute_path=localPhotovoltaicProduction_pathToTable,
-      constantfactor=localPhotovoltaicProduction_constantMultiplier) annotation (Placement(transformation(extent={{-100,26},{-80,46}})));
+    TransiEnt.Basics.Tables.GenericDataTable PV_Profile(constantfactor=
+          localPhotovoltaicProduction_constantMultiplier)
+      annotation (Placement(transformation(extent={{-100,26},{-80,46}})));
     TransiEnt.Producer.Electrical.Wind.PowerProfileWindPlant windOnshorePlant(
       P_el_n=1,
       redeclare TransiEnt.Basics.Interfaces.Electrical.ComplexPowerPort epp,
@@ -2605,9 +2624,9 @@ powerToGasRecord: parametrization records for PtGplants in region [nPowerToGasPl
       redeclare TransiEnt.Basics.Interfaces.Electrical.ComplexPowerPort epp,
       redeclare TransiEnt.Components.Boundaries.Electrical.ComplexPowerAdvanced.InverterQcurve powerBoundary) annotation (Placement(transformation(extent={{40,20},{60,40}})));
     TransiEnt.Basics.Tables.GenericDataTable WindOffshore_Profile(
-      use_absolute_path=true,
-      absolute_path=localWindOffshoreProduction_pathToTable,
-      constantfactor=localWindOffshoreProduction_constantMultiplier) if useWindOffshoreInThisRegion annotation (Placement(transformation(extent={{-100,-74},{-80,-54}})));
+        constantfactor=localWindOffshoreProduction_constantMultiplier)
+      if useWindOffshoreInThisRegion
+      annotation (Placement(transformation(extent={{-100,-74},{-80,-54}})));
 
     TransiEnt.Producer.Electrical.Wind.PowerProfileWindPlant WindOffshorePlant(
       P_el_n=1,
@@ -2625,10 +2644,9 @@ powerToGasRecord: parametrization records for PtGplants in region [nPowerToGasPl
       J=1e7,
       primaryBalancingController(useHomotopyVarSlewRateLim=false)) annotation (Placement(transformation(extent={{26,-32},{46,-12}})));
 
-    TransiEnt.Basics.Tables.GenericDataTable Bio_Profile(
-      use_absolute_path=true,
-      absolute_path=localBiomassProduction_pathToTable,
-      constantfactor=localBiomassProduction_constantMultiplier) annotation (Placement(transformation(extent={{-100,-24},{-80,-4}})));
+    TransiEnt.Basics.Tables.GenericDataTable Bio_Profile(constantfactor=
+          localBiomassProduction_constantMultiplier)
+      annotation (Placement(transformation(extent={{-100,-24},{-80,-4}})));
     Modelica.Blocks.Math.MultiSum multiSum(nu=if useWindOffshoreInThisRegion then 4 else 3) annotation (Placement(transformation(extent={{-8,102},{4,114}})));
 
     Modelica.Blocks.Math.Add curtailmentMinusWindOffshore if useWindOffshoreInThisRegion annotation (Placement(transformation(extent={{-38,-68},{-18,-48}})));
@@ -2674,10 +2692,9 @@ powerToGasRecord: parametrization records for PtGplants in region [nPowerToGasPl
       xi_const=if simCenter.gasModel1.nc == 1 then simCenter.gasModel1.xi_default elseif simCenter.gasModel1.nc == 2 then {1} else {0.874,0,0,0,0,1 - 0.874},
       mode="Producer",
       usePIDcontroller=false) annotation (Placement(transformation(extent={{60,-110},{40,-90}})));
-    TransiEnt.Basics.Tables.GenericDataTable Biogas_Profile(
-      use_absolute_path=true,
-      absolute_path=localBiogasProduction_pathToTable,
-      constantfactor=localBiogasProduction_constantMultiplier) annotation (Placement(transformation(extent={{-100,-110},{-80,-90}})));
+    TransiEnt.Basics.Tables.GenericDataTable Biogas_Profile(constantfactor=
+          localBiogasProduction_constantMultiplier)
+      annotation (Placement(transformation(extent={{-100,-110},{-80,-90}})));
     TransiEnt.Components.Electrical.Grid.IdealCoupling transmissionLine if simCenter.idealSuperstructLocalGrid annotation (Placement(transformation(extent={{54,-40},{68,-26}})));
 
   equation
@@ -2792,7 +2809,8 @@ powerToGasRecord: parametrization records for PtGplants in region [nPowerToGasPl
 </html>"));
   end LocalRenewableProduction;
 
-  redeclare model extends CO2System(redeclare package Config = Portfolio_Example)
+  redeclare model extends CO2System(redeclare package Config =
+        Portfolio_Example)
 
     // _____________________________________________
     //

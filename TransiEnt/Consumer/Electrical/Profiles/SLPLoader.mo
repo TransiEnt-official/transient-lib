@@ -43,8 +43,6 @@ model SLPLoader "Loads standard load profiles from csv files"
     final tableName="default",
     final multiple_outputs=false,
     final columns=2:2,
-    final use_absolute_path=false,
-    final absolute_path="",
     constantfactor=scaling);
 
   // _____________________________________________

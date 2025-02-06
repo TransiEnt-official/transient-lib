@@ -95,7 +95,6 @@ model BinaryScheduleDataTable_fwd "Adds constants for easy allocation of outputs
     columns=(2:nPlants + 1),
     path=
         "electricity/UnitCommitmentSchedules/UnitCommitmentSchedule_3600s_smoothed_REF35.txt",
-
     BM=9,
     PS=10,
     Curt=12,
@@ -142,8 +141,6 @@ model BinaryScheduleDataTable_fwd "Adds constants for easy allocation of outputs
     GT1=schedule.GT1,
     columns=(2:nPlants + 1),
     path=schedule.path,
-    absolute_path=schedule.absolute_path,
-    use_absolute_path=schedule.use_absolute_path,
     BM=schedule.BM,
     PS=schedule.PS,
     Curt=schedule.Curt,

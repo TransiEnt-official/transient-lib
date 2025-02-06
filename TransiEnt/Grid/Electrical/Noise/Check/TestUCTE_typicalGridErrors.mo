@@ -42,8 +42,7 @@ model TestUCTE_typicalGridErrors "Example of the component PowerPlant_PoutGrad_L
   LumpedPowerGrid.LumpedGrid uCTEModel(P_L=simCenter.P_n_ref_2, redeclare TypicalLumpedGridError genericGridError(P_L=simCenter.P_n_ref_2)) annotation (Placement(transformation(extent={{-66,0},{0,62}})));
   Components.Boundaries.Electrical.ActivePower.Power constantFrequency_L1_1(useInputConnectorP=false) annotation (Placement(transformation(extent={{42,21},{62,41}})));
   Basics.Tables.GenericDataTable f_1year_60s(path=
-        "electricity/GridFrequencyMeasurement_60s_01012012_31122012.txt",
-      use_absolute_path=false)
+        "electricity/GridFrequencyMeasurement_60s_01012012_31122012.txt")
     annotation (Placement(transformation(extent={{-18,-50},{2,-30}})));
   Modelica.Blocks.Interaction.Show.RealValue realValue(use_numberPort=false, number=(f_1year_60s.y1 - uCTEModel.epp.f)/f_1year_60s.y1*100) annotation (Placement(transformation(extent={{26,-44},{74,4}})));
 equation
