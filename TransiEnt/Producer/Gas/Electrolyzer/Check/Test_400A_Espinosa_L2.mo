@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer.Check;
+within TransiEnt.Producer.Gas.Electrolyzer.Check;
 model Test_400A_Espinosa_L2 "Test functionality of new electrolyzer model structure with Espinosa physics subcomponents"
 
 
@@ -84,6 +84,7 @@ public
         988.81,106.397; 1025.87,106.706; 1061.45,106.706; 1098.5,106.397;
         1135.56,106.088; 1171.13,106.706])
     annotation (Placement(transformation(extent={{76,42},{96,62}})));
+  inner TransiEnt.ModelStatistics modelStatistics annotation (Placement(transformation(extent={{122,78},{142,98}})));
 equation
   connect(ElectricGrid_0thOrder.epp, EM.epp) annotation (Line(
       points={{-20,30},{0,30},{0,30}},
