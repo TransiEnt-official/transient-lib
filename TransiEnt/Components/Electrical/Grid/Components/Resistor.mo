@@ -5,7 +5,7 @@ model Resistor "Modell for a specific Resistor. Resistance will be calculated fr
 
 
 //________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 2.0.2                             //
+// Component of the TransiEnt Library, version: 2.0.3                             //
 //                                                                                //
 // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
 // Copyright 2021, Hamburg University of Technology.                              //
@@ -20,11 +20,10 @@ model Resistor "Modell for a specific Resistor. Resistance will be calculated fr
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und Wärme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen						  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
-
 
 
 

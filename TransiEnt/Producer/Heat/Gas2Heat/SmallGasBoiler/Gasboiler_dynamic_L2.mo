@@ -1,11 +1,11 @@
-﻿within TransiEnt.Producer.Heat.Gas2Heat.SmallGasBoiler;
+within TransiEnt.Producer.Heat.Gas2Heat.SmallGasBoiler;
 model Gasboiler_dynamic_L2 "Full modulating or staged gasboiler with fluid volume"
 
 
 
 
 //________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 2.0.2                             //
+// Component of the TransiEnt Library, version: 2.0.3                             //
 //                                                                                //
 // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
 // Copyright 2021, Hamburg University of Technology.                              //
@@ -20,11 +20,10 @@ model Gasboiler_dynamic_L2 "Full modulating or staged gasboiler with fluid volum
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und Wärme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen						  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
-
 
 
 
@@ -70,7 +69,7 @@ protected
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={0,-42})));
-  ClaRa.Basics.ControlVolumes.FluidVolumes.VolumeVLE_2 volumeHeatExchanger(
+  ClaRa.Basics.ControlVolumes.FluidVolumes.VolumeVLE_L2 volumeHeatExchanger(
     redeclare model Geometry = ClaRa.Basics.ControlVolumes.Fundamentals.Geometry.GenericGeometry (volume=volume),
     redeclare model PressureLoss = PressureLoss,
     m_flow_nom=m_flow_nom,
@@ -122,7 +121,7 @@ equation
   // _____________________________________________
 
   connect(limiter.y, duty2EfficiencyCharline.Q_flow_set) annotation (Line(
-      points={{-17.4,90},{9.6,90}},
+      points={{14.6,90},{19.6,90}},
       color={0,0,127},
       smooth=Smooth.None));
   connect(waterPortIn, volumeHeatExchanger.inlet) annotation (Line(
@@ -138,7 +137,7 @@ equation
       points={{0,-52},{0,-61},{0,-70}},
       color={167,25,48},
       thickness=0.5));
-  connect(prescribedHeatFlow.Q_flow, duty2EfficiencyCharline.Q_flow_set) annotation (Line(points={{0,-32},{0,90},{9.6,90}}, color={0,0,127}));
+  connect(prescribedHeatFlow.Q_flow, duty2EfficiencyCharline.Q_flow_set) annotation (Line(points={{0,-32},{0,90},{19.6,90}},color={0,0,127}));
   annotation (defaultComponentName="gasBoiler",
     Documentation(info="<html>
 <p><b><span style=\"color: #008000;\">1. Purpose of model</span></b> </p>

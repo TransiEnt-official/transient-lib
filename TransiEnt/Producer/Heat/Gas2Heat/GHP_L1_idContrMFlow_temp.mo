@@ -4,7 +4,7 @@ model GHP_L1_idContrMFlow_temp "Model for gas heat pumps with a pump with ideal 
 
 
 //________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 2.0.2                             //
+// Component of the TransiEnt Library, version: 2.0.3                             //
 //                                                                                //
 // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
 // Copyright 2021, Hamburg University of Technology.                              //
@@ -19,11 +19,10 @@ model GHP_L1_idContrMFlow_temp "Model for gas heat pumps with a pump with ideal 
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und Wärme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen						  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
-
 
 
 

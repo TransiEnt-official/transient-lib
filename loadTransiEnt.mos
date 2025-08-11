@@ -1,7 +1,6 @@
 // define local paths (absolute paths with front slashes)
 repopath="ADD_YOUR_PATH_TO_TRANSIENT_HERE";
 resultpath="ADD_YOUR_PATH_FOR_RESULTS_HERE";
-//version = "2.0.2-dev"; //only in Release Versions
 
 
 // Some recommended options
@@ -17,8 +16,8 @@ RunScript(repopath + "/TransiEnt/Scripts/loadTransiEntUnits.mos", true);
 
 // ==== Load frequently used libraries:
 //
-openModel(repopath + "/ClaRa1.8.0/TILMedia 1.8.0 ClaRa/package.mo");
-openModel(repopath + "/ClaRa1.8.0/ClaRa/package.mo");
+openModel(repopath + "/ClaRa/TILMedia 1.8.1 ClaRa/package.mo");
+openModel(repopath + "/ClaRa/ClaRa/package.mo");
 openModel(repopath + "/TransiEnt/package.mo");
 
 // ==== Set environtment variables:

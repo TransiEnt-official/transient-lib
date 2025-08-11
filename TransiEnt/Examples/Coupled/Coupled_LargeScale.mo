@@ -1,10 +1,10 @@
-﻿within TransiEnt.Examples.Coupled;
+within TransiEnt.Examples.Coupled;
 model Coupled_LargeScale "Coupled small-scale example with CPP and meshed electric power grid"
 
 
 
 //________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 2.0.2                             //
+// Component of the TransiEnt Library, version: 2.0.3                             //
 //                                                                                //
 // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
 // Copyright 2021, Hamburg University of Technology.                              //
@@ -19,11 +19,10 @@ model Coupled_LargeScale "Coupled small-scale example with CPP and meshed electr
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und Wärme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen						  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
-
 
 
 
@@ -463,7 +462,7 @@ model Coupled_LargeScale "Coupled small-scale example with CPP and meshed electr
   TransiEnt.Components.Sensors.TemperatureSensor tempBeforeCons annotation (Placement(transformation(extent={{-286,-144},{-302,-128}})));
 
   // Hydraulic Components
-  ClaRa.Basics.ControlVolumes.FluidVolumes.VolumeVLE_2 hEXHeatCons(
+  ClaRa.Basics.ControlVolumes.FluidVolumes.VolumeVLE_L2 hEXHeatCons(
     redeclare model HeatTransfer = TransiEnt.Consumer.Heat.ThermalHeatConsumer_L3.HeatTransfer_EN442 (
         T_mean_supply=353.15,
         DT_nom=30,

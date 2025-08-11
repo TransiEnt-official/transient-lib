@@ -1,10 +1,10 @@
-﻿within TransiEnt.Basics.Media.Solids;
+within TransiEnt.Basics.Media.Solids;
 model MineralWool "Mineral Wool"
 
 
 
 //________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 2.0.2                             //
+// Component of the TransiEnt Library, version: 2.0.3                             //
 //                                                                                //
 // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
 // Copyright 2021, Hamburg University of Technology.                              //
@@ -19,11 +19,10 @@ model MineralWool "Mineral Wool"
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und Wärme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen						  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
-
 
 
 
@@ -34,7 +33,7 @@ model MineralWool "Mineral Wool"
   //          Imports and Class Hierarchy
   // _____________________________________________
 
-  extends TILMedia.SolidTypes.BaseSolid(
+  extends ClaRa.Basics.Media.Solids.BaseSolid(
     final d = 125.0,
     final cp_nominal = 840.0,
     final lambda_nominal = 0.060,

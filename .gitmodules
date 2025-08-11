@@ -1,0 +1,3 @@
+[submodule "ClaRa"]
+	path = ClaRa
+	url = https://github.com/xrg-simulation/ClaRa-official
