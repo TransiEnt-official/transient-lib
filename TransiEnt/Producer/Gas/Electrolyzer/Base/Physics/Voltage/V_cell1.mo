@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer.Base.Physics.Voltage;
+within TransiEnt.Producer.Gas.Electrolyzer.Base.Physics.Voltage;
 model V_cell1 "PEM cell voltage as modeled by Espinosa, 2018"
   //The following must all be calculated in the Voltage model.
   // V_el_stack, V_cell, V_tn
@@ -21,7 +21,7 @@ model V_cell1 "PEM cell voltage as modeled by Espinosa, 2018"
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -141,7 +141,8 @@ equation
   V_ohmic = R_mem*i_dens_a;
 
   //Overall cell voltage
-  if not i_dens_a == 0 then
+  //   if not i_dens_a == 0 then
+  if i_dens_a < const.eps and i_dens_a > -const.eps then
     V_cell = V_rev + V_nernst + V_activation + V_ohmic + V_conc;
   else
     V_cell = 0;
@@ -152,27 +153,21 @@ equation
     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}})),
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
 <p>This is a model for electrolyzer dynamics with varying voltage dependent on pressure, current density, and temperature. </p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
+<h4><span style=\"color: #008000\">Level of detail, physical effects considered, and physical insight</span></h4>
 <p>Voltage is modeled according to Espinosa-L&oacute;pez et al 2018 based on pressure, temperature, and current. Contains overvoltage components from Nernst potential, activation, and ohmic overpotentials.</p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
+<h4><span style=\"color: #008000\">Limits of validity </span></h4>
 <p>Original model developed and validated in the range of 20-60 &deg;C with operating pressure of 15-35 bar. </p>
-<h4><span style=\"color: #008000\">4. Interfaces</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
+<h4><span style=\"color: #008000\">Governing Equations</span></h4>
 <p>Consist of voltage equations from Espinosa-L&oacute;pez et al 2018 by default. Can modify membrane conductivity, reverse voltage, concentration overvoltage, and thermoneutral expresssions if desired.</p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
+<h4><span style=\"color: #008000\">Validation</span></h4>
 <p>Results have been validated against Espinosa-L&oacute;pez et al 2018 published figures. </p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
+<h4><span style=\"color: #008000\">References</span></h4>
 <p>Z. Abdin, E. MacA. Gray, and C.J. Webb. Modelling and simulation of a proton exchange membrane (PEM) electrolyzer cell. <i>International Journal of Hydrogen Energy</i>, 40(39):13243-13257, 2015. doi:<a href=\"https://www.sciencedirect.com/science/article/pii/S0360319915019321\">10.1016/j.ijhydene.2015.07.129</a>. </p>
 <p>Manuel Espinosa-L&oacute;pez, Philippe Baucour, Serge Besse, Christophe Darras, Raynal Glises, Philippe Poggi, Andr&eacute; Rakotondrainibe, and Pierre Serre-Combe. Modelling and experimental validation of a 46 kW PEM high pressure water electrolyser. <i>Renewable Energy, </i>119, pp. 160-173, 2018. doi: <a href=\"https://doi.org/10.1016/J.RENENE.2017.11.081\">10.1016/J.RENENE.2017.11.081</a>. </p>
 <p>R. Garc&iacute;a-Valverde, N. Espinosa, and A. Urbina. Simple PEM water electrolyzer model and experimental validation. <i>International Journal of Hydrogen Energy</i>, 37(2):1927-1938, 2012. doi:<a href=\"https://doi.org/10.1016/j.ijhydene.2011.09.027\">10.1016/j.ijhydene.2011.09.027</a>. </p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
+<h4><span style=\"color: #008000\">Version History</span></h4>
 <p>Created by John Webster (jcwebste@edu.uwaterloo.ca) October 2018.</p>
 </html>"));
 end V_cell1;

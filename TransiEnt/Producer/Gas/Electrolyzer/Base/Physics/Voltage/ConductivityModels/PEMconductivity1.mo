@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer.Base.Physics.Voltage.ConductivityModels;
+within TransiEnt.Producer.Gas.Electrolyzer.Base.Physics.Voltage.ConductivityModels;
 model PEMconductivity1 "PEM conductivity as modeled by Espinosa, 2018"
 
 
@@ -65,25 +65,56 @@ equation
     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}})),
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
 <p>This is a model for PEM conductivity.</p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
+<h4><span style=\"color: #008000\">Level of detail, physical effects considered, and physical insight</span></h4>
 <p>PEM Conductivity as modeled by Espinosa-Lopez et al, 2018.</p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
+<h4><span style=\"color: #008000\">Limits of validity </span></h4>
 <p>Original model developed and validated in the range of 20-60 &deg;C with operating pressure of 15-35 bar. </p>
-<h4><span style=\"color: #008000\">4. Interfaces</span></h4>
-<p>(no remarks) </p>
 <h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"1\" width=\"100%\"><tr>
+<td><h4>Variable</h4></td>
+<td><h4>Explanation</h4></td>
+<td><h4>Definition in model</h4></td>
+</tr>
+<tr>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-A9Ghf5DY.png\" alt=\"lambda_mem\"/></p></td>
+<td><p>conductivity of membrane</p></td>
+<td><p>mem_conductivity</p></td>
+</tr>
+<tr>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-ZSxD5FBg.png\" alt=\"lambda_ref\"/></p></td>
+<td><p>reference conductivity of membrane</p></td>
+<td><p>mem_conductivity_ref</p></td>
+</tr>
+<tr>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-G5aWG9PG.png\" alt=\"E_pro\"/></p></td>
+<td><p>chemical potential </p></td>
+<td><p>E_pro</p></td>
+</tr>
+<tr>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-AJQJT737.png\" alt=\"R\"/></p></td>
+<td><p>molar gas constant</p></td>
+<td><p>Modelica.Constants.R</p></td>
+</tr>
+<tr>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-UWblB0X6.png\" alt=\"T_op\"/></p></td>
+<td><p>operating stack temperature</p></td>
+<td><p>T_op</p></td>
+</tr>
+<tr>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-oUFg4WAG.png\" alt=\"T_std\"/></p></td>
+<td><p>STD temperature</p></td>
+<td><p>T_std</p></td>
+</tr>
+</table>
+<h4><span style=\"color: #008000\">Governing Equations</span></h4>
+<p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-beZltq55.png\" alt=\"lambda_mem = lambda_ref*exp(-(E_pro/R)*((1/T_op) - (1/T_std)))\"/></p>
+<h4><span style=\"color: #008000\">Validation</span></h4>
 <p>Results have been validated against Espinosa-L&oacute;pez et al 2018 published figures. </p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
+<h4><span style=\"color: #008000\">References</span></h4>
 <p>Manuel Espinosa-L&oacute;pez, Philippe Baucour, Serge Besse, Christophe Darras, Raynal Glises, Philippe Poggi, Andr&eacute; Rakotondrainibe, and Pierre Serre-Combe. Modelling and experimental validation of a 46 kW PEM high pressure water electrolyser. <i>Renewable Energy, </i>119, pp. 160-173, 2018. doi: <a href=\"https://doi.org/10.1016/J.RENENE.2017.11.081\">10.1016/J.RENENE.2017.11.081</a>. </p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
+<h4><span style=\"color: #008000\">Version History</span></h4>
 <p>Created by John Webster (jcwebste@edu.uwaterloo.ca) October 2018.</p>
 </html>"));
 end PEMconductivity1;

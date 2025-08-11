@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer.Base.Physics.Temperature;
+within TransiEnt.Producer.Gas.Electrolyzer.Base.Physics.Temperature;
 model Temperature1
   "PEMElectrolyzer thermal model as implemented by Espinosa, 2018"
     //The following must all be calculated in the Temperature model or else provided externally.
@@ -166,9 +166,9 @@ equation
     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}})),
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
 <p>This is a model for AREVA Inc. Giner electrolyzer system temperature. </p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
+<h4><span style=\"color: #008000\">Level of detail, physical effects considered, and physical insight</span></h4>
 <p>Temperature is modeled according to Espinosa-L&oacute;pez et al 2018 based on heat generated from electrolysis, pump, and heat lost due to convection, cooling system, and enthalpy loss. The contribution of the pump is modeled differently.</p>
 <p>Cooling:</p>
 <ul>
@@ -176,21 +176,15 @@ equation
 <li>zone&nbsp;2:&nbsp;T_op&nbsp;&lt;&nbsp;T_max&nbsp;and&nbsp;temperature&nbsp;increasing,&nbsp;turn&nbsp;on&nbsp;PID&nbsp;cooling</li>
 <li>zone&nbsp;3:&nbsp;T_op&nbsp;&lt;&nbsp;T_max&nbsp;and&nbsp;temperature&nbsp;decreasing&nbsp;or&nbsp;T_op&nbsp;&lt;&nbsp;T_cool_set&nbsp;turn&nbsp;off&nbsp;cooling</li>
 </ul>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
+<h4><span style=\"color: #008000\">Limits of validity </span></h4>
 <p>Original model developed and validated in the range of 20-60 &deg;C, with operating pressure of 15-35 bar and a maximum cooling power for operating current of 400A. </p>
-<h4><span style=\"color: #008000\">4. Interfaces</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
+<h4><span style=\"color: #008000\">Governing Equations</span></h4>
 <p>Consist of thermal equations from Espinosa-L&oacute;pez et al 2018 with new PID-cooling power model from ClaRa LimPID block.</p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
+<h4><span style=\"color: #008000\">Validation</span></h4>
 <p>Results have been validated against Espinosa-L&oacute;pez et al 2018 published figures. </p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
+<h4><span style=\"color: #008000\">References</span></h4>
 <p>Manuel Espinosa-L&oacute;pez, Philippe Baucour, Serge Besse, Christophe Darras, Raynal Glises, Philippe Poggi, Andr&eacute; Rakotondrainibe, and Pierre Serre-Combe. Modelling and experimental validation of a 46 kW PEM high pressure water electrolyser. Renewable Energy, 119, pp. 160-173, 2018. doi: 10.1016/J.RENENE.2017.11.081. </p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
+<h4><span style=\"color: #008000\">Version History</span></h4>
 <p>Created by John Webster (jcwebste@edu.uwaterloo.ca) October 2018.</p>
 </html>"));
 end Temperature1;

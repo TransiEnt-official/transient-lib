@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer.Base.Physics.Temperature;
+within TransiEnt.Producer.Gas.Electrolyzer.Base.Physics.Temperature;
 partial model PartialTemperature
   "partial model for PEM electrolyzer Temperature model"
 
@@ -66,25 +66,9 @@ partial model PartialTemperature
           color={0,0,0},
           pattern=LinePattern.None)}),
     Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
 <p>partial model containing the essential variables to be defined by each electrolyzer temperature class implementation </p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color: #008000\">4. Interfaces</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
+<h4><span style=\"color: #008000\">Version History</span></h4>
 <p>Created by John Webster (jcwebste@edu.uwaterloo.ca) October 2018.</p>
 </html>"));
 end PartialTemperature;

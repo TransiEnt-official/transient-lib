@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer.Base.Physics.Voltage.ConcentrationVoltageModels;
+within TransiEnt.Producer.Gas.Electrolyzer.Base.Physics.Voltage.ConcentrationVoltageModels;
 partial model PartialConcentrationModel
 
 
@@ -38,25 +38,9 @@ partial model PartialConcentrationModel
           textString="%name")}),                                 Diagram(
         coordinateSystem(preserveAspectRatio=false)),
     Documentation(info="<html>
-<h4><span style=\"color: #008300\">1. Purpose of model</span></h4>
-<p>partial model containing the essential variables for concentration overvoltage.</p>
-<h4><span style=\"color: #008300\">2. Level of detail, physical effects considered, and physical insight</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008300\">3. Limits of validity </span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color: #008300\">4. Interfaces</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color: #008300\">5. Nomenclature</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color: #008300\">6. Governing Equations</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008300\">7. Remarks for Usage</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color: #008300\">8. Validation</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color: #008300\">9. References</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color: #008300\">10. Version History</span></h4>
+<h4><span style=\"color: #008300\">Purpose of model</span></h4>
+<p>Partial model containing the essential variables for concentration overvoltage.</p>
+<h4><span style=\"color: #008300\">Version History</span></h4>
 <p>Created by John Webster (jcwebste@edu.uwaterloo.ca) October 2018.</p>
 </html>"));
 end PartialConcentrationModel;
