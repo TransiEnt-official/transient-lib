@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer.Base.Specifications;
+within TransiEnt.Producer.Gas.Electrolyzer.Base.Specifications;
 record BaseElectrolyzerL2Specification "Record used for specification of an Electrolyzer system"
 
 
@@ -66,25 +66,9 @@ record BaseElectrolyzerL2Specification "Record used for specification of an Elec
   parameter SI.HeatFlowRate Q_flow_cool_max=6911 "Maximum cooling power" annotation(Dialog(group="Cooling circuit"));
 
   annotation (Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
-<p>Partial record for electrolyzer system specific data.</p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">4. Interfaces</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
-<p>(no validation or testing necessary)</p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
+<p>Base record for electrolyzer system specific data with default values for AREVA Giner 46 kW electrolyzer.</p>
+<h4><span style=\"color: #008000\">Version History</span></h4>
 <p>Adopted from BaseCHPRecord. Created by John Webster (jcwebste@edu.uwaterloo.ca) Oct. 2018</p>
 </html>"));
 end BaseElectrolyzerL2Specification;

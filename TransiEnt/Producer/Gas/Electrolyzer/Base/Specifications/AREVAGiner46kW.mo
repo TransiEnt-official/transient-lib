@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer.Base.Specifications;
+within TransiEnt.Producer.Gas.Electrolyzer.Base.Specifications;
 record AREVAGiner46kW "Areva Energy Storage Giner Electrolyzer system specific parameters"
 
 
@@ -59,25 +59,11 @@ record AREVAGiner46kW "Areva Energy Storage Giner Electrolyzer system specific p
     Q_flow_cool_max=6911);
 
   annotation (Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
-<p>Record containing system specifications of an AREVA Inc. configuration of a Giner 46KW Electrolyzer system</p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color: #008000\">4. Interfaces</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
+<p>Record containing system specifications of an AREVA Inc. configuration of a Giner 46KW Electrolyzer system.</p>
+<h4><span style=\"color: #008000\">References</span></h4>
 <p>Manuel Espinosa-L&oacute;pez, Philippe Baucour, Serge Besse, Christophe Darras, Raynal Glises, Philippe Poggi, Andr&eacute; Rakotondrainibe, and Pierre Serre-Combe. Modelling and experimental validation of a 46 kW PEM high pressure water electrolyser. Renewable Energy, 119, pp. 160-173, 2018. doi: 10.1016/J.RENENE.2017.11.081.</p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
+<h4><span style=\"color: #008000\">Version History</span></h4>
 <p>Created by John Webster (jcwebste@edu.uwaterloo.ca) October 2018.</p>
 </html>"));
 end AREVAGiner46kW;

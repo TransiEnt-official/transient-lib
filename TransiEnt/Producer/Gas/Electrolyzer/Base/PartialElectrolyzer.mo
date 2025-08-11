@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer.Base;
+within TransiEnt.Producer.Gas.Electrolyzer.Base;
 partial model PartialElectrolyzer "partial class for electrolyzer"
 
 
@@ -157,26 +157,12 @@ equation
   connect(modelStatistics.costsCollector, collectCosts.costsCollector);
   annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(preserveAspectRatio=false)),
     Documentation(info="<html>
-<h4><span style=\"color: #008300\">1. Purpose of model</span></h4>
-<p>Partial class for electrolyzer</p>
-<h4><span style=\"color: #008300\">2. Level of detail, physical effects considered, and physical insight</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008300\">3. Limits of validity </span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color: #008300\">4. Interfaces</span></h4>
+<h4><span style=\"color: #008300\">Purpose of model</span></h4>
+<p>Partial class for electrolyzer containing essential variables and parameters.</p>
+<h4><span style=\"color: #008300\">Interfaces</span></h4>
 <p>gasPortOut: gas port for hydrogen</p>
 <p>PowerPort epp: power port for electric power </p>
-<h4><span style=\"color: #008300\">5. Nomenclature</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color: #008300\">6. Governing Equations</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008300\">7. Remarks for Usage</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color: #008300\">8. Validation</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color: #008300\">9. References</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color: #008300\">10. Version History</span></h4>
+<h4><span style=\"color: #008300\">Version History</span></h4>
 <p>Created by Jan Westphal (j.westphal@tuhh.de), dec 2019 </p>
 </html>"));
 end PartialElectrolyzer;

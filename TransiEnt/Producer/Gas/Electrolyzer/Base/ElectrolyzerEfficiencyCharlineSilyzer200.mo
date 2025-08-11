@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer.Base;
+within TransiEnt.Producer.Gas.Electrolyzer.Base;
 model ElectrolyzerEfficiencyCharlineSilyzer200 "Efficiency charline for Silyzer 200"
 
 
@@ -63,25 +63,13 @@ equation
           points={{-90,-40},{-82,0},{-70,42},{-38,48},{-6,24},{40,10},{94,4}},
           color={255,0,0},
           smooth=Smooth.Bezier)}),Documentation(info="<html>
-<h4><span style=\"color:#008000\">1. Purpose of model</span></h4>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
 <p>This is a model for the efficiency curve of a Silyzer 200 electrolyzer. </p>
-<h4><span style=\"color:#008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
+<h4><span style=\"color: #008000\">Level of detail, physical effects considered, and physical insight</span></h4>
 <p>The curve can be modified by setting the nominal efficiency eta_n and a linear factor eta_cl. </p>
-<h4><span style=\"color:#008000\">3. Limits of validity </span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color:#008000\">4. Interfaces</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color:#008000\">5. Nomenclature</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color:#008000\">6. Governing Equations</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color:#008000\">7. Remarks for Usage</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color:#008000\">8. Validation</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color:#008000\">9. References</span></h4>
-<p>[1] M. Kopp, D. Coleman, C. Stiller, K. Scheffer, J. Aichinger, and B. Scheppat, “Energiepark Mainz: Technical and economic analysis of the worldwide largest Power-to-Gas plant with PEM electrolysis,” Int. J. Hydrogen Energy, vol. 42, no. 19, pp. 13311–13320, 2017. </p>
-<h4><span style=\"color:#008000\">10. Version History</span></h4>
-<p>Model created by Carsten Bode (c.bode@tuhh.de) in March 2017<br> </p>
+<h4><span style=\"color: #008000\">References</span></h4>
+<p>[1] M. Kopp, D. Coleman, C. Stiller, K. Scheffer, J. Aichinger, and B. Scheppat, &ldquo;Energiepark Mainz: Technical and economic analysis of the worldwide largest Power-to-Gas plant with PEM electrolysis,&rdquo; Int. J. Hydrogen Energy, vol. 42, no. 19, pp. 13311&ndash;13320, 2017. </p>
+<h4><span style=\"color: #008000\">Version History</span></h4>
+<p><br>Model created by Carsten Bode (c.bode@tuhh.de) in March 2017</p>
 </html>"));
 end ElectrolyzerEfficiencyCharlineSilyzer200;

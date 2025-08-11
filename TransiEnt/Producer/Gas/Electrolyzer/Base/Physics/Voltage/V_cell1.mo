@@ -169,5 +169,6 @@ equation
 <p>R. Garc&iacute;a-Valverde, N. Espinosa, and A. Urbina. Simple PEM water electrolyzer model and experimental validation. <i>International Journal of Hydrogen Energy</i>, 37(2):1927-1938, 2012. doi:<a href=\"https://doi.org/10.1016/j.ijhydene.2011.09.027\">10.1016/j.ijhydene.2011.09.027</a>. </p>
 <h4><span style=\"color: #008000\">Version History</span></h4>
 <p>Created by John Webster (jcwebste@edu.uwaterloo.ca) October 2018.</p>
+<p>Correct type error in if condition by Markus Gillner (markus.gillner@tuhh.de) August 2025.</p>
 </html>"));
 end V_cell1;

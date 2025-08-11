@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer.Base;
+within TransiEnt.Producer.Gas.Electrolyzer.Base;
 partial model PartialFeedInStation
 
 
@@ -65,29 +65,15 @@ partial model PartialFeedInStation
   annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics),                    Diagram(graphics,
                                                                        coordinateSystem(preserveAspectRatio=false)),
     Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
 <p>This partial model can be used for feed in stations where hydrogen and/or methane is produced with an electrolyzer (and methanator) and fed into a natural gas grid. </p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">4. Interfaces</span></h4>
+<h4><span style=\"color: #008000\">Interfaces</span></h4>
 <p>P_el_set: input for the set value for the electric power </p>
 <p>m_flow_feedIn: input for the possible feed-in mass flow into the natural grid etc. </p>
 <p>epp: electric power port for the electrolyzer, type can be chosen </p>
 <p>gasPortOut: outlet of the hydrogen </p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
-<p><br>Model created by Oliver Schülting (oliver.schuelting@tuhh.de) in April 2018</p>
+<h4><span style=\"color: #008000\">Version History</span></h4>
+<p><br>Model created by Oliver Sch&uuml;lting (oliver.schuelting@tuhh.de) in April 2018</p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">Model generalized for different electrical power ports by Jan-Peter Heckel (jan.heckel@tuhh.de) in July 2018 </span></p>
 </html>"));
 end PartialFeedInStation;
