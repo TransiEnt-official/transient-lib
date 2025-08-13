@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer.Controller;
+within TransiEnt.Producer.Gas.Electrolyzer.Controller;
 model FeedInStorageTWVController "Controller to control the three way valve after the electrolyzer to grid and storage"
 
 
@@ -130,27 +130,12 @@ equation
   annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}})), Icon(graphics,
                                                                                                          coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}})),
   Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
 <p>This is a controller to control the split ratio in a three way valve which splits the mass flow coming from the electrolyzer into the mass flow into the storage and through the bypass around it. </p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color: #008000\">4. Interfaces</span></h4>
+<h4><span style=\"color: #008000\">Interfaces</span></h4>
 <p>m_flow_feedIn: input for the possible feed-in mass flow into the natural grid etc. </p>
 <p>m_flow_ely: input for the mass flow coming from the electrolyzer </p>
 <p>splitRatio: output for the split ratio of the three way valve </p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
-<p><br>Model created by Carsten Bode (c.bode@tuhh.de) in April 2016</p>
+<p><b><span style=\"color: #008000;\">Version History</span></b></p><p>Model created by Carsten Bode (c.bode@tuhh.de) in April 2016</p>
 </html>"));
 end FeedInStorageTWVController;

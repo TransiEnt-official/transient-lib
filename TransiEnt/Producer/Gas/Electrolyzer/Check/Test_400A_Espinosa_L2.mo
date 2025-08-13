@@ -97,30 +97,22 @@ equation
           14,42},{14,72},{-31,72}}, color={0,0,127}));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -40},{180,100}})),                                   Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-            -40},{180,100}})),
+            -40},{180,100}}), graphics={Text(
+          extent={{-122,8},{-24,-14}},
+          textColor={28,108,200},
+          textString="Test of a 400A elektrolyser model.
+Comparison of voltage and temperature of electrolyser with the experimental datas taken from Espinosa-Lopez et al., 2018. 
+Experimental datas are given in the combi-time-table")}),
     experiment(StopTime=1200),
     __Dymola_experimentSetupOutput,
     __Dymola_Commands(executeCall=TransiEnt.Components.Convertor.Power2Gas.Check.TestPEMElectrolyzer_L1_1DDynamics.plotResult() "Plot example results"),
     Documentation(info="<html>
-<h4><span style=\"color: #008300\">1. Purpose of model</span></h4>
-<p>Runs on a constant 400A input current and contains an integrated squared deviation for comparison with (Espinosa-Lopez et al., 2018)&apos;s results.</p>
-<h4><span style=\"color: #008300\">2. Level of detail, physical effects considered, and physical insight</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008300\">3. Limits of validity </span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color: #008300\">4. Interfaces</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color: #008300\">5. Nomenclature</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color: #008300\">6. Governing Equations</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008300\">7. Remarks for Usage</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color: #008300\">8. Validation</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color: #008300\">9. References</span></h4>
+<h4><span style=\"color: #008300\">Purpose of model</span></h4>
+<p>Runs on a constant 400A input current and contains an integrated squared deviation for comparison with (Espinosa-Lopez et al., 2018)&apos;s results. Comparison is given in [2]</p>
+<h4><span style=\"color: #008300\">References</span></h4>
 <p>[1] Manuel Espinosa-L&oacute;pez, Philippe Baucour, Serge Besse, Christophe Darras, Raynal Glises, Philippe Poggi, Andr&eacute; Rakotondrainibe, and Pierre Serre-Combe. Modelling and experimental validation of a 46 kW PEM high pressure water electrolyser. Renewable Energy, 119, pp. 160-173, 2018. doi: 10.1016/J.RENENE.2017.11.081. </p>
-<h4><span style=\"color: #008300\">10. Version History</span></h4>
+<p>[2] J. Webster and C. Bode, &ldquo;Implementation of a Non-Discretized Multiphysics PEM Electrolyzer Model in Modelica,&rdquo; in Proceedings of the 13th International Modelica Conference, Regensburg, Germany, March 4&ndash;6, 2019, no. 157, pp. 833&ndash;840, DOI: 10.3384/ecp19157833.</p>
+<h4><span style=\"color: #008300\">Version History</span></h4>
 <p>Created by John Webster (jcwebste@edu.uwaterloo.ca) October 2018.</p>
 </html>"));
 end Test_400A_Espinosa_L2;

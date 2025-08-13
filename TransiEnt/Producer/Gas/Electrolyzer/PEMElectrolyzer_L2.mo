@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer;
+within TransiEnt.Producer.Gas.Electrolyzer;
 model PEMElectrolyzer_L2 "PEMElectrolyzer_L2 Proton exchange membrane electrolyzer with selectable physics submodels"
 
 
@@ -453,10 +453,11 @@ equation
       pattern=LinePattern.Dash));
   annotation(defaultComponentName="electrolyzer",
   Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
-<p>This model electrolyzer uses modular physics classes and a Specification record to describe a real-life electrolyzer system. The default model uses physical relationships taken from (Espinosa-L&oacute;pez et al, 2018).</p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
+<p>This model electrolyzer uses modular physics classes and a Specification record to describe a real-life proton excange memebrane electrolyzer system. The default model uses physical relationships taken from (Espinosa-L&oacute;pez et al, 2018).</p>
+<h4><span style=\"color: #008000\">Level of detail, physical effects considered, and physical insight</span></h4>
 <p>The user can select or create a model with system specific parameters. The desired input (electric power, current, current density or hydrogen mass flow) can be varied. Physics submodels can be replaced as desired, with essential definitions annotated. The water consumption, hydrogen output, and net- and gross-calorific energy conversion efficiency can be calculated. The user has the option of controlling pressure through gasPortOut and/or temperature through T_input as well.</p>
+<p><img src=\"modelica://TransiEnt/Resources/Images/equations/structure-electrolysis-model.png\"/> [3]</p>
 <h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
 <p>Original model developed and validated in the range of 20-60 &deg;C with operating pressure of 15-35 bar. </p>
 <h4><span style=\"color: #008000\">4. Interfaces</span></h4>
@@ -469,19 +470,15 @@ equation
 <p>T_input: input for temperature</p>
 <p>excessHeatFlowOut: Heat flow rate out port, equal to the cooling power used to regulate temperature at max temp.</p>
 <p>temperatureOut: temperatureOut interface equal to operating temperature</p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
+<h4><span style=\"color: #008000\">Governing Equations</span></h4>
 <p>Selectable physics equations allow for different governing equations to be used, and consist of equations from (Espinosa-L&oacute;pez et al, 2018) by default.</p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
+<h4><span style=\"color: #008000\">Validation</span></h4>
 <p>Results have been validated against (Espinosa-L&oacute;pez et al, 2018) published figures. </p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
+<h4><span style=\"color: #008000\">References</span></h4>
 <p>[1] Manuel Espinosa-L&oacute;pez, Philippe Baucour, Serge Besse, Christophe Darras, Raynal Glises, Philippe Poggi, Andr&eacute; Rakotondrainibe, and Pierre Serre-Combe. Modelling and experimental validation of a 46 kW PEM high pressure water electrolyser. Renewable Energy, 119, pp. 160-173, 2018. doi: 10.1016/J.RENENE.2017.11.081. </p>
 <p>[2] efficiency curve of the inverter taken from the data sheet of SMA &quot;Technische Wirkungsgrade und Derating&quot; URL: https://files.sma.de/dl/1348/WirkungDerat-TI-de-46.pdf page 71, 26.11.2019</p>
 <p>[3] J. Webster and C. Bode, &ldquo;Implementation of a Non-Discretized Multiphysics PEM Electrolyzer Model in Modelica,&rdquo; in Proceedings of the 13th International Modelica Conference, Regensburg, Germany, March 4&ndash;6, 2019, no. 157, pp. 833&ndash;840, DOI: 10.3384/ecp19157833.</p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
+<h4><span style=\"color: #008000\">Version History</span></h4>
 <p>Model created by John Webster (jcwebste@edu.uwaterloo.ca) in October 2018</p>
 <p>Model adjusted for TransiEnt by Jan Westphal (j.westphal@tuhh.de) in dec 2019</p>
 </html>"));

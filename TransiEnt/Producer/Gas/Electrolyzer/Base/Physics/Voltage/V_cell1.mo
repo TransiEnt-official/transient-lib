@@ -156,17 +156,130 @@ equation
 <h4><span style=\"color: #008000\">Purpose of model</span></h4>
 <p>This is a model for electrolyzer dynamics with varying voltage dependent on pressure, current density, and temperature. </p>
 <h4><span style=\"color: #008000\">Level of detail, physical effects considered, and physical insight</span></h4>
-<p>Voltage is modeled according to Espinosa-L&oacute;pez et al 2018 based on pressure, temperature, and current. Contains overvoltage components from Nernst potential, activation, and ohmic overpotentials.</p>
+<p>Voltage is modeled according to Espinosa-L&oacute;pez et al 2018 based on pressure, temperature, and current. Contains overvoltage components from Nernst potential, activation, and ohmic overpotentials. Concentration overvoltage (diffusion overvoltage) ist neglected because of its minimal effects at the operating current densities. At higher pressures and higher current densities it can&apos;t be neglected anymore.</p>
 <h4><span style=\"color: #008000\">Limits of validity </span></h4>
 <p>Original model developed and validated in the range of 20-60 &deg;C with operating pressure of 15-35 bar. </p>
-<h4><span style=\"color: #008000\">Governing Equations</span></h4>
+<h4><span style=\"color: #008000\">Nomenclature</span></h4>
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"1\" width=\"100%\"><tr>
+<td><h4>Variable</h4></td>
+<td><h4>Explanation</h4></td>
+<td><h4>Definition in Model</h4></td>
+</tr>
+<tr>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-VTx3Nwl8.png\" alt=\"V_cell\"/></p></td>
+<td><p>overall voltage of electrolyseur</p></td>
+<td><p>V_cell</p></td>
+</tr>
+<tr>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-XKUhHu2D.png\" alt=\"V_rev\"/></p></td>
+<td><p>reversible cell voltage</p></td>
+<td><p>V_rev</p></td>
+</tr>
+<tr>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-66ieYXA9.png\" alt=\"V_nernst\"/></p></td>
+<td><p>voltage of Nernst equation --&gt; in combination with V_rev: open-circuit voltage (voltage that is need to initiate electrolysis reaction under ideal conditions</p></td>
+<td><p>V_nernst</p></td>
+</tr>
+<tr>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-DAvYxuIU.png\" alt=\"V_activation\"/></p></td>
+<td><p>activation overvoltage that consider the contribution from the anode</p></td>
+<td><p>V_activation</p></td>
+</tr>
+<tr>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-lCfitxqw.png\" alt=\"V_ohmic\"/></p></td>
+<td><p>ohmic overpotential that consider resistance of ion flow in cell components</p></td>
+<td><p>V_ohmic</p></td>
+</tr>
+<tr>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-KjPT8d8i.png\" alt=\"V_conc\"/></p></td>
+<td><p>Concentration/diffusion overpotential contribution (is zero)</p></td>
+<td><p>V_conc</p></td>
+</tr>
+<tr>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-6r6PL2Pc.png\" alt=\"R\"/></p></td>
+<td><p>ideal gas constant</p></td>
+<td><p>const.R</p></td>
+</tr>
+<tr>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-Z163kbCb.png\" alt=\"T_op\"/></p></td>
+<td><p>operational temperature</p></td>
+<td><p>T_op</p></td>
+</tr>
+<tr>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-WLMXtbRs.png\" alt=\"F\"/></p></td>
+<td><p>Faraday&apos;s constant</p></td>
+<td><p>const.F</p></td>
+</tr>
+<tr>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-MvYS09qV.png\" alt=\"pp_H2\"/></p></td>
+<td><p>partial pressure of hydrogen at cathode (important: pressure in atm)</p></td>
+<td><p>pp_H2</p></td>
+</tr>
+<tr>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-kqvQLzMq.png\" alt=\"pp_O2\"/></p></td>
+<td><p>partial pressure of oxygen at anode (important: pressure in atm)</p></td>
+<td><p>pp_O2</p></td>
+</tr>
+<tr>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-cmgj91rE.png\" alt=\"pp_HO2\"/></p></td>
+<td><p>partial pressure of water vapor (important: pressure in atm)</p></td>
+<td><p>pp_H2O</p></td>
+</tr>
+<tr>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-tn3rQDEL.png\" alt=\"alpha_an\"/></p></td>
+<td><p>charge transfer coefficient for anode, experimentally determined by [2]</p></td>
+<td><p>alpha_an</p></td>
+</tr>
+<tr>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-AGiSKVwC.png\" alt=\"i_dens\"/></p></td>
+<td><p>current density on the PEM stack electrodes in A/m<sup>2</sup></p></td>
+<td><p>i_dens_a</p></td>
+</tr>
+<tr>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-EEfiMzXs.png\" alt=\"i_0an\"/></p></td>
+<td><p>exchange current desity</p></td>
+<td><p>i_dens_0_an</p></td>
+</tr>
+<tr>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-e8uU95AL.png\" alt=\"i_0anstd\"/></p></td>
+<td><p>reference exchange current density (1.08e-4 A/m<sup>2</sup>)</p></td>
+<td><p>i_dens_o_an_std</p></td>
+</tr>
+<tr>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-F5OsRs7B.png\" alt=\"E_exc\"/></p></td>
+<td><p>activation energy for anode reaction by [2]</p></td>
+<td><p>E_exc</p></td>
+</tr>
+<tr>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-wQkNjMYb.png\" alt=\"R_mem\"/></p></td>
+<td><p>membrane resistance</p></td>
+<td><p>R_mem </p></td>
+</tr>
+<tr>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-WTwjQUfw.png\" alt=\"delta_mem\"/></p></td>
+<td><p>membrane thickness</p></td>
+<td><p>t_mem</p></td>
+</tr>
+<tr>
+<td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-w2k38auU.png\" alt=\"sigma_mem\"/></p></td>
+<td><p>membrane conductivity</p></td>
+<td><p>mem_conductivity</p></td>
+</tr>
+</table>
+<p><br><h4><span style=\"color: #008000\">Governing Equations</span></h4></p>
 <p>Consist of voltage equations from Espinosa-L&oacute;pez et al 2018 by default. Can modify membrane conductivity, reverse voltage, concentration overvoltage, and thermoneutral expresssions if desired.</p>
+<p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-h4JMJxWg.png\" alt=\"V_cell = V_rev + V_nernst + V_activation + V_ohmic + V_conc\"/> </p>
+<p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-07j5TzSk.png\" alt=\"V_nernst = R*T_op/(2*F) * ln(pp_H2 * pp_O2^0.5/(pp_H2O)) \"/> </p>
+<p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-ij0kHjCw.png\" alt=\"V_act = R * T_op/(2 * alpha_an * F) * asinh(i_dens/(2 * i_0an))\"/> </p>
+<p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-5MYt84hd.png\" alt=\"i_0an = i_0anstd * exp(-E_exc/R * (1/T_op - 1/T_std))\"/></p>
+<p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-A1BQCvJO.png\" alt=\"V_ohm = R_mem * i_dens\"/> </p>
+<p><br><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-lNrnGlYU.png\" alt=\"R_mem = delta_mem/sigma_mem\"/></p>
 <h4><span style=\"color: #008000\">Validation</span></h4>
 <p>Results have been validated against Espinosa-L&oacute;pez et al 2018 published figures. </p>
 <h4><span style=\"color: #008000\">References</span></h4>
-<p>Z. Abdin, E. MacA. Gray, and C.J. Webb. Modelling and simulation of a proton exchange membrane (PEM) electrolyzer cell. <i>International Journal of Hydrogen Energy</i>, 40(39):13243-13257, 2015. doi:<a href=\"https://www.sciencedirect.com/science/article/pii/S0360319915019321\">10.1016/j.ijhydene.2015.07.129</a>. </p>
-<p>Manuel Espinosa-L&oacute;pez, Philippe Baucour, Serge Besse, Christophe Darras, Raynal Glises, Philippe Poggi, Andr&eacute; Rakotondrainibe, and Pierre Serre-Combe. Modelling and experimental validation of a 46 kW PEM high pressure water electrolyser. <i>Renewable Energy, </i>119, pp. 160-173, 2018. doi: <a href=\"https://doi.org/10.1016/J.RENENE.2017.11.081\">10.1016/J.RENENE.2017.11.081</a>. </p>
-<p>R. Garc&iacute;a-Valverde, N. Espinosa, and A. Urbina. Simple PEM water electrolyzer model and experimental validation. <i>International Journal of Hydrogen Energy</i>, 37(2):1927-1938, 2012. doi:<a href=\"https://doi.org/10.1016/j.ijhydene.2011.09.027\">10.1016/j.ijhydene.2011.09.027</a>. </p>
+<p>[1] Z. Abdin, E. MacA. Gray, and C.J. Webb. Modelling and simulation of a proton exchange membrane (PEM) electrolyzer cell. <i>International Journal of Hydrogen Energy</i>, 40(39):13243-13257, 2015. doi:<a href=\"https://www.sciencedirect.com/science/article/pii/S0360319915019321\">10.1016/j.ijhydene.2015.07.129</a>. </p>
+<p>[2] Manuel Espinosa-L&oacute;pez, Philippe Baucour, Serge Besse, Christophe Darras, Raynal Glises, Philippe Poggi, Andr&eacute; Rakotondrainibe, and Pierre Serre-Combe. Modelling and experimental validation of a 46 kW PEM high pressure water electrolyser. <i>Renewable Energy, </i>119, pp. 160-173, 2018. doi: <a href=\"https://doi.org/10.1016/J.RENENE.2017.11.081\">10.1016/J.RENENE.2017.11.081</a>. </p>
+<p>[3] R. Garc&iacute;a-Valverde, N. Espinosa, and A. Urbina. Simple PEM water electrolyzer model and experimental validation. <i>International Journal of Hydrogen Energy</i>, 37(2):1927-1938, 2012. doi:<a href=\"https://doi.org/10.1016/j.ijhydene.2011.09.027\">10.1016/j.ijhydene.2011.09.027</a>. </p>
 <h4><span style=\"color: #008000\">Version History</span></h4>
 <p>Created by John Webster (jcwebste@edu.uwaterloo.ca) October 2018.</p>
 <p>Correct type error in if condition by Markus Gillner (markus.gillner@tuhh.de) August 2025.</p>

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer.Controller;
+within TransiEnt.Producer.Gas.Electrolyzer.Controller;
 model FeedInStorageController "Controller model for limited hydrogen output with mass flow feedback and storage pressure"
 
 
@@ -174,32 +174,22 @@ equation
   connect(booleanExpression.y, switch.u2) annotation (Line(points={{57.3,0},{61.65,0},{66,0}}, color={255,0,255}));
   connect(booleanExpression2.y, switch2.u2) annotation (Line(points={{-135.1,46},{-122,46}}, color={255,0,255}));
   connect(switch2.u1, m_flow_bypass) annotation (Line(points={{-122,54},{-132,54},{-132,84},{60,84},{60,110}}, color={0,0,127}));
-  connect(switch2.y, limPID.u_m) annotation (Line(points={{-99,46},{-58,46}},                   color={0,0,127}));
+  connect(switch2.y, limPID.u_m) annotation (Line(points={{-99,46},{-57.9,46}},                 color={0,0,127}));
   connect(m_flow_feedIn, switch2.u3) annotation (Line(points={{-84,110},{-158,110},{-158,38},{-122,38}}, color={0,0,127}));
   annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}})),
                                           Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
 <p>Model of a controller for the PtG plant in operation mode RE with limited hydrogen output.</p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
+<h4><span style=\"color: #008000\">Level of detail, physical effects considered, and physical insight</span></h4>
 <p>Controller considers minimum and maximum power of electrolyzer. If desired power is too low, output signal is zero.</p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">4. Interfaces</span></h4>
+<h4><span style=\"color: #008000\">Interfaces</span></h4>
 <p>Three inputs: mass flow from PtG plant; maximum permitted mass flow; available RE power</p>
 <p>One output: desired electrical power of PtG plant</p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
+<h4><span style=\"color: #008000\">Remarks for Usage</span></h4>
 <p>Definiton of minimum and maximum power of PtG plant is required. </p>
 <p>Depending on application adjustment of PID controller will be helpful.</p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
+<h4><span style=\"color: #008000\">Version History</span></h4>
 <p>Model created by Lisa Andresen (andresen@tuhh.de) in Sep 2016</p>
-<p>Model modified by Oliver Schülting (oliver.schuelting@tuhh.de) in Nov 2018: PID-controller input signal deactivated if not needed to increase dimulation speed</p>
+<p>Model modified by Oliver Sch&uuml;lting (oliver.schuelting@tuhh.de) in Nov 2018: PID-controller input signal deactivated if not needed to increase dimulation speed</p>
 </html>"));
 end FeedInStorageController;

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer.Controller;
+within TransiEnt.Producer.Gas.Electrolyzer.Controller;
 model OverloadControllerAdvanced "Control operation of electrolyzer with overload behaviour"
 
 
@@ -121,28 +121,24 @@ equation
                       coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}})), Icon(graphics,
                                                                                                          coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">1. Purpose of model</span></b></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Purpose of model</span></b></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">Controller for electrolyzer considering overheating of electrolyzer</span></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">2. Level of detail, physical effects considered, and physical insight</span></b></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Level of detail, physical effects considered, and physical insight</span></b></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">The model defines the electrical power for an electrolizer (P_el_ely) depending on the electrical set value (P_el_set). Hereby an overload operation is possible. The maximum duration in overload operation can be defined for three different operation points.</span></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">3. Limits of validity </span></b></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">4. Interfaces</span></b></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Interfaces</span></b></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">Input P_el_set: Defines avaible elektrical power</span></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">Output P_el_ely: Defines electrical power for electrolizer </span></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">5. Nomenclature</span></b></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Nomenclature</span></b></p>
 <p><b><span style=\"font-family: MS Shell Dlg 2;\">Variables:</span></b></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">overloadlevel: meassures the time in overload operation</span></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">hysteresis_coolingDown.y: if true: electrolyzer must be cooled down; if false: overload operation is possible</span></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">6. Governing Equations</span></b></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Governing Equations</span></b></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">The parameter P_rel_1 defines one relative load point in overload operation. Via the parameter t_1 the maximum time in overload operation at this point can be set. The same applies for the relative load point P_rel_2 and P_rel_3 with the respective times t_2 and t_3 whereby P_rel_3&gt;P_rel_2&gt;P_rel_1 and t_3&lt;t_2&lt;t_1. In between those points the maximum time in overload operation is lineraly interpolated. The blue line in the following image illustrates this characteristic.</span></p>
 <p><img src=\"modelica://TransiEnt/Images/OverloadControllerElectrolysis.png\"/></p>
 <p>The duration in overload ist meassured via the variable overloadlevel which derivative depends on the defined maximum overload times at the three operation points as illustrated in the image in red. The value of the variable overloadlevel is needed for the definition of the electical power of the electrolizer P_el_ely. As soon as the variable overloadlevel has the value t_1 the maximum overload operation time is reached and the power for the electrolizer must be reduced up to the maximum relativ power P_rel_cooldown. For values P_el_ely/P_el_n&lt;P_rel_cooldown the electrolizers cools down which means the derivative of overloadlevel is negative as long as overloadlevel&gt;0. This is why for P_el_ely/P_el_n&lt;P_rel_cooldown two possible derivates of the variable overloadlevel exist. </p>
 <p>Operation in overload after overheating is only possible once the variable overloadlevel reaches the value 0. This means that P_el_ely is equal to P_el_set in as long as P_el_set&lt;P_rel_3*P_el_n and the electrolizer must not be cooled down. If the electrolizer must be cooled down the maximum achievable power is P_el_ely=P_rel_cooldown*P_el_n whereby P_rel_cooldown&lt;P_rel_1.</p>
 <p>For relative operation points in between P_rel_cooldown and P_rel_1 the derivate of overloadlevel has the value 0 which means that the elctrolyseur does neither heat up nor cool down.</p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">7. Remarks for Usage</span></b></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">8. Validation</span></b></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">9. References</span></b></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">10. Version History</span></b></p>
-<p><span style=\"font-family: MS Shell Dlg 2;\">Model created by Oliver Schülting (oliver.schuelting@tuhh.de) on 07.02.2017</span></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Version History</span></b></p>
+<p><span style=\"font-family: MS Shell Dlg 2;\">Model created by Oliver Sch&uuml;lting (oliver.schuelting@tuhh.de) on 07.02.2017</span></p>
 </html>"));
 end OverloadControllerAdvanced;

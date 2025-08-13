@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer.Controller;
+within TransiEnt.Producer.Gas.Electrolyzer.Controller;
 model MinMaxController "Control minimum and maximum electric power of electrolyzer"
 
 
@@ -112,27 +112,12 @@ equation
                       coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}})),
   Documentation(info="<html>
-<h4><span style=\"color:#008000\">1. Purpose of model</span></h4>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
 <p>This is a controller to limit the electric power of the electrolyzer to its maximum and minimum power. </p>
-<h4><span style=\"color:#008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color:#008000\">3. Limits of validity </span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color:#008000\">4. Interfaces</span></h4>
+<h4><span style=\"color: #008000\">Interfaces</span></h4>
 <p>P_el_set: set value for the electric power </p>
 <p>P_el_ely: limited electric power for the electrolyzer </p>
-<h4><span style=\"color:#008000\">5. Nomenclature</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color:#008000\">6. Governing Equations</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color:#008000\">7. Remarks for Usage</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color:#008000\">8. Validation</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color:#008000\">9. References</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color:#008000\">10. Version History</span></h4>
-<p>Model created by Carsten Bode (c.bode@tuhh.de) in April 2016<br> </p>
+<p><b><span style=\"color: #008000;\">Version History</span></b></p><p>Model created by Carsten Bode (c.bode@tuhh.de) in April 2016</p>
 </html>"),                                                                     Icon(graphics,
                                                                                     coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}})));
 end MinMaxController;

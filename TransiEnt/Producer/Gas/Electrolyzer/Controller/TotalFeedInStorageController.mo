@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer.Controller;
+within TransiEnt.Producer.Gas.Electrolyzer.Controller;
 model TotalFeedInStorageController "Controller to control the electrolyzer and storage system for feeding into a natural gas grid"
 
 
@@ -199,13 +199,13 @@ equation
   connect(feedback.y, m_flowDes_valve) annotation (Line(points={{60,-73},{60,-110}}, color={0,0,127}));
   annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}})),
   Documentation(info="<html>
-<h4><span style=\"color:#008000\">1. Purpose of model</span></h4>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
 <p>This is a controller to control for a system with storage the electric power of the electrolyzer, the three way valve and outlet valve of the storage. it combines the FeedInStorageTWVController, FeedInStorageController and OverloadController. </p>
-<h4><span style=\"color:#008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
+<h4><span style=\"color: #008000\">Level of detail, physical effects considered, and physical insight</span></h4>
 <p>see sub models </p>
-<h4><span style=\"color:#008000\">3. Limits of validity </span></h4>
+<h4><span style=\"color: #008000\">Limits of validity </span></h4>
 <p>see sub models </p>
-<h4><span style=\"color:#008000\">4. Interfaces</span></h4>
+<h4><span style=\"color: #008000\">Interfaces</span></h4>
 <p>P_el_set: input for the set value for the electric power </p>
 <p>m_flow_feedIn: input for the possible feed-in mass flow into the natural grid etc. </p>
 <p>m_flow_ely: input for the mass flow coming from the electrolyzer </p>
@@ -213,17 +213,9 @@ equation
 <p>P_el_ely: output for the limited electric power for the electrolyzer </p>
 <p>splitRatio: output for the split ratio of the three way valve </p>
 <p>m_flowDes_valve: output for the mass flow through the valve after the storage </p>
-<h4><span style=\"color:#008000\">5. Nomenclature</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color:#008000\">6. Governing Equations</span></h4>
+<h4><span style=\"color: #008000\">Governing Equations</span></h4>
 <p>The desired mass flow through valve after the storage is simply the difference between feed-in mass flow and bypass mass flow. </p>
-<h4><span style=\"color:#008000\">7. Remarks for Usage</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color:#008000\">8. Validation</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color:#008000\">9. References</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color:#008000\">10. Version History</span></h4>
-<p>Model created by Carsten Bode (c.bode@tuhh.de) in April 2016<br> </p>
+<h4><span style=\"color: #008000\">Version History</span></h4>
+<p><br>Model created by Carsten Bode (c.bode@tuhh.de) in April 2016</p>
 </html>"));
 end TotalFeedInStorageController;

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer;
+within TransiEnt.Producer.Gas.Electrolyzer;
 model PEMElectrolyzer_L1 "PEMElectrolyzer_L1 Proton exchange membrane electrolyzer"
 
 
@@ -221,30 +221,28 @@ equation
   connect(getInputs.m_flow_H2_set, m_flow_H2_set) annotation (Line(points={{4,72},{4,82},{40,82},{40,120}}, color={0,0,127}));
   annotation(defaultComponentName="electrolyzer",
   Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
 <p>This is a model for an electrolyzer with a replaceable efficiency curve and replaceable dynamic behavior. </p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
+<h4><span style=\"color: #008000\">Level of detail, physical effects considered, and physical insight</span></h4>
 <p>The efficiency curve, the dynamic behaviour and the wanted input (electric power or hydrogen mass flow) can be chosen. The water consumption is calculated using a constant factor. </p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color: #008000\">4. Interfaces</span></h4>
+<h4><span style=\"color: #008000\">Interfaces</span></h4>
 <p>epp: electric power port, type can be chosen </p>
 <p>gasPortOut: hydrogen outlet </p>
 <p>P_el_set: input for electric power </p>
 <p>m_flow_H2_set: input for hydrogen mass flow </p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
+<h4><span style=\"color: #008000\">Nomenclature</span></h4>
 <p>(no elements)</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
+<h4><span style=\"color: #008000\">Governing Equations</span></h4>
 <p>The hydrogen mass flow or the electric power is calculated depending on the given input and chosen efficiency curve and dynamic behavior. </p>
 <p>Heat outcoupling is calculated via the efficiency curve and a simplified correlation for heat losses depending on the electrical power, the operating temperature and the ambient temperature. The default value for the temperature coefficient is based on [1].</p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
+<h4><span style=\"color: #008000\">Remarks for Usage</span></h4>
 <p>Via parameter &apos;useLeakageMassFlow&apos; a small mass flow of &apos;m_flow_small&apos; is always flowing out of gas port (to avoid Zero-Mass-Flow problems). </p>
 <p>The model works with any fluids which contain hydrogen as the last component.</p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
+<h4><span style=\"color: #008000\">Validation</span></h4>
 <p>Tested in the check models &quot;TransiEnt.Producer.Gas.Electrolyzer.Check.TestPEMElectrolyzer_L1_Charline&quot; and &quot;TransiEnt.Producer.Gas.Electrolyzer.Check.TestPEMElectrolyzer_L1_Dynamics&quot;</p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
+<h4><span style=\"color: #008000\">References</span></h4>
 <p>[1] Espinosa-L&oacute;pez, M. et al., Modelling and experimental validation of a 46 kW PEM high pressure water electrolyzer, 2018</p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
+<h4><span style=\"color: #008000\">Version History</span></h4>
 <p>Model created by Carsten Bode (c.bode@tuhh.de) in March 2017</p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">Model generalized for different electrical power ports by Jan-Peter Heckel (jan.heckel@tuhh.de) in July 2018 </span></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">Model modified by Oliver Sch&uuml;lting (oliver.schuelting@tuhh.de) on Nov 2018: added useLeakageMassFlow</span></p>

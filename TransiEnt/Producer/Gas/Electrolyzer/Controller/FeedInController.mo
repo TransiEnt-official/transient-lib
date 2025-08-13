@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer.Controller;
+within TransiEnt.Producer.Gas.Electrolyzer.Controller;
 model FeedInController "Controlling electrolyzer power comparing set power with maximum allowed H2 that can be fed into the grid, limited to min and max electrolyzer power"
 
 
@@ -137,7 +137,7 @@ equation
       points={{-30,110},{-30,60},{-24,60}},
       color={0,0,127},
       smooth=Smooth.None));
-  connect(m_flow_H2,limPID. u_m) annotation (Line(points={{30,110},{30,110},{30,42},{-12,42},{-12,48}},      color={0,0,127}));
+  connect(m_flow_H2,limPID. u_m) annotation (Line(points={{30,110},{30,110},{30,42},{-11.9,42},{-11.9,48}},  color={0,0,127}));
   connect(booleanExpression.y, switch.u2) annotation (Line(points={{42.9,0},{66,0},{66,0}}, color={255,0,255}));
   connect(limiter.y, minimum.u2) annotation (Line(points={{-53,14},{12,14}}, color={0,0,127}));
   else
@@ -149,29 +149,19 @@ equation
   connect(P_el_set, limiter.u) annotation (Line(points={{-110,0},{-88,0},{-88,14},{-76,14}}, color={0,127,127}));
   annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}})),
                                           Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
 <p>Model of a controller for the PtG plant in operation mode RE with limited hydrogen output.</p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
+<h4><span style=\"color: #008000\">Level of detail, physical effects considered, and physical insight</span></h4>
 <p>Controller considers minimum and maximum power of electrolyzer. If desired power is too low, output signal is zero.</p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">4. Interfaces</span></h4>
+<h4><span style=\"color: #008000\">Interfaces</span></h4>
 <p>Three inputs: mass flow from PtG plant; maximum permitted mass flow; available RE power</p>
 <p>One output: desired electrical power of PtG plant</p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
+<h4><span style=\"color: #008000\">Remarks for Usage</span></h4>
 <p>Definiton of minimum and maximum power of PtG plant is required. </p>
 <p>Depending on application adjustment of PID controller will be helpful.</p>
 <p>If useMassFlowControl=true, the electrical power of the electrolyzer will no more be limited by given m_flow_feed. This simplifies the controller if limitation is not needed.</p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
+<h4><span style=\"color: #008000\">Version History</span></h4>
 <p>Model created by Lisa Andresen (andresen@tuhh.de) in Sep 2016</p>
-<p>Model modified by Oliver Schülting (oliver.schuelting@tuhh.de) in April 2019: added Boolean useMassFlowControl</p>
+<p>Model modified by Oliver Sch&uuml;lting (oliver.schuelting@tuhh.de) in April 2019: added Boolean useMassFlowControl</p>
 </html>"));
 end FeedInController;

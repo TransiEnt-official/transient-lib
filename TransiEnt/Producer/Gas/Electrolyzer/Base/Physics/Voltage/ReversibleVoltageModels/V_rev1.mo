@@ -91,7 +91,7 @@ equation
 </tr>
 <tr>
 <td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-tQlpcVoG.png\" alt=\"V_std\"/></p></td>
-<td><p>std reverse voltage of electrolysis</p></td>
+<td><p>standard reverse voltage of electrolysis (1.23V for water electrolysis)</p></td>
 <td><p>V_std</p></td>
 </tr>
 <tr>
@@ -101,11 +101,11 @@ equation
 </tr>
 <tr>
 <td><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-3neLWsed.png\" alt=\"T_std\"/></p></td>
-<td><p>std temperature</p></td>
+<td><p>standard temperature is defined as 298.15K</p></td>
 <td><p>T_std</p></td>
 </tr>
 </table>
-<h4><span style=\"color: #008000\">Governing Equations</span></h4>
+<p><br><h4><span style=\"color: #008000\">Governing Equations</span></h4></p>
 <p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-XnFc4vB1.png\" alt=\"V_rev = V_std - 0.0009*(T_op - T_std)\"/> [1]</p>
 <h4><span style=\"color: #008000\">References</span></h4>
 <p>[1] Manuel Espinosa-L&oacute;pez, Philippe Baucour, Serge Besse, Christophe Darras, Raynal Glises, Philippe Poggi, Andr&eacute; Rakotondrainibe, and Pierre Serre-Combe. Modelling and experimental validation of a 46 kW PEM high pressure water electrolyser. <i>Renewable Energy, </i>119, pp. 160-173, 2018. doi: <a href=\"https://doi.org/10.1016/J.RENENE.2017.11.081\">10.1016/J.RENENE.2017.11.081</a>. </p>
