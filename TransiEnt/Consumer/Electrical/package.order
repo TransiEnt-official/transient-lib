@@ -2,6 +2,7 @@ Base
 Characteristics
 Check
 Profiles
+ElectricVehicle
 AverageLoadConsumer
 ExponentialElectricConsumer
 LinearElectricConsumer
