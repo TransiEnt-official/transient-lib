@@ -96,7 +96,7 @@ model SmartMeter "Smart Meter model for realistic mesaurements"
     mu=mu_Delay,
     sigma=sigma_Delay,
     useGlobalSeed=true,
-    useAutomaticLocalSeed=false)
+    useAutomaticLocalSeed=false) if useDelay
     annotation (Placement(transformation(extent={{-90,30},{-70,50}})));
 
   Basics.Interfaces.General.ControlBus                    controlBus annotation (Placement(transformation(extent={{-20,-88},{20,-48}}), iconTransformation(extent={{-20,-88},{20,-48}})));
@@ -163,7 +163,7 @@ model SmartMeter "Smart Meter model for realistic mesaurements"
         rotation=180,
         origin={130,-130})));
 
-  Modelica.Blocks.Math.Abs abs_Delay             annotation (Placement(transformation(extent={{40,50},{60,70}})));
+  Modelica.Blocks.Math.Abs abs_Delay if useDelay annotation (Placement(transformation(extent={{-40,30},{-20,50}})));
 
   Modelica.Blocks.Math.Mean V_mean(f=1/900) if (configuration == "TAF7")
                                                         annotation (Placement(transformation(
@@ -221,6 +221,12 @@ public
   //           Characteristic Equations
   // _____________________________________________
 
+  Modelica.Blocks.Nonlinear.VariableDelay variableDelay_V(delayMax=maxDelay) if useDelay annotation (Placement(transformation(extent={{10,60},{30,80}})));
+  Modelica.Blocks.Nonlinear.VariableDelay variableDelay_P(delayMax=maxDelay) if useDelay annotation (Placement(transformation(extent={{40,60},{60,80}})));
+  Modelica.Blocks.Nonlinear.VariableDelay variableDelay_delta(delayMax=maxDelay) if useDelay annotation (Placement(transformation(extent={{70,60},{90,80}})));
+  Modelica.Blocks.Nonlinear.VariableDelay variableDelay_I(delayMax=maxDelay) if useDelay annotation (Placement(transformation(extent={{10,30},{30,50}})));
+  Modelica.Blocks.Nonlinear.VariableDelay variableDelay_Q(delayMax=maxDelay) if useDelay annotation (Placement(transformation(extent={{42,30},{62,50}})));
+  Modelica.Blocks.Nonlinear.VariableDelay variableDelay_f(delayMax=maxDelay) if useDelay annotation (Placement(transformation(extent={{70,30},{90,50}})));
 algorithm
   when initial() then
     state128 := Modelica.Math.Random.Generators.Xorshift128plus.initialState(
@@ -238,30 +244,37 @@ equation
   end if;
 
   // Add the normal distributed noise to the sensors
-  if useDelay then
-    V = delay(abs(epp_b.v)*noiseVoltage_internal, abs_Delay.y, maxDelay);
-    delta = delay(epp_b.delta*noiseVoltage_internal, abs_Delay.y, maxDelay);
-    f = delay(epp_b.f, abs_Delay.y, maxDelay);
-    P = delay(epp_b.P*noiseVoltage_internal*noiseCurrent_internal, abs_Delay.y, maxDelay);
-    Q = delay(epp_b.Q*noiseVoltage_internal*noiseCurrent_internal, abs_Delay.y, maxDelay);
-    I = delay(sqrt((P^2) + (Q^2))/V, abs_Delay.y, maxDelay);
-  else
-    V = abs(epp_b.v)*noiseVoltage_internal;
-    delta = epp_b.delta*noiseVoltage_internal;
-    f = epp_b.f;
-    P = epp_b.P*noiseVoltage_internal*noiseCurrent_internal;
-    Q = epp_b.Q*noiseVoltage_internal*noiseCurrent_internal;
-    I = sqrt((P^2) + (Q^2))/V;
-  end if;
+  V = abs(epp_b.v)*noiseVoltage_internal;
+  delta = epp_b.delta*noiseVoltage_internal;
+  f = epp_b.f;
+  P = epp_b.P*noiseVoltage_internal*noiseCurrent_internal;
+  Q = epp_b.Q*noiseVoltage_internal*noiseCurrent_internal;
+  I = sqrt((P^2) + (Q^2))/V;
+
   // _____________________________________________
   //
   //           Connect Statements
   // _____________________________________________
 
+  if useDelay then
+    connect(variableDelay_V.y, controlBus.V) annotation();
+    connect(variableDelay_I.y, controlBus.I) annotation();
+    connect(variableDelay_P.y, controlBus.P) annotation();
+    connect(variableDelay_Q.y, controlBus.Q) annotation();
+    connect(variableDelay_delta.y, controlBus.delta) annotation();
+    connect(variableDelay_f.y, controlBus.f) annotation();
+  else
+    connect(V_.y, controlBus.V) annotation();
+    connect(I_.y, controlBus.I) annotation();
+    connect(P_.y, controlBus.P) annotation();
+    connect(f_.y, controlBus.f) annotation();
+    connect(delta_.y, controlBus.delta) annotation();
+    connect(Q_.y, controlBus.Q) annotation();
+  end if;
+
   connect(noiseCurrent_internal, Noise_Current.y);
   connect(noiseVoltage_internal, Noise_Voltage.y);
-  connect(Noise_Delay.y, abs_Delay.u) annotation (Line(points={{-69,40},{28,40},{28,60},{38,60}},
-                                                                                   color={0,0,127}));
+  connect(Noise_Delay.y, abs_Delay.u) annotation (Line(points={{-69,40},{-42,40}}, color={0,0,127}));
   connect(epp_a, epp_b) annotation (Line(
       points={{-100,0},{92,0}},
       color={28,108,200},
@@ -324,37 +337,24 @@ equation
       index=1,
       extent={{-6,3},{-6,3}},
       horizontalAlignment=TextAlignment.Right));
-  connect(V_.y, controlBus.V) annotation (Line(points={{119,-30},{52,-30},{52,-38},{50,-38},{50,-50},{-24,-50},{-24,-96},{0,-96},{0,-68}},  color={0,0,127}), Text(
+  connect(abs_Delay.y, variableDelay_V.delayTime) annotation (Line(points={{-19,40},{-2,40},{-2,64},{8,64}}, color={0,0,127}));
+  connect(abs_Delay.y, variableDelay_P.delayTime) annotation (Line(points={{-19,40},{-2,40},{-2,86},{38,86},{38,64}}, color={0,0,127}));
+  connect(abs_Delay.y, variableDelay_delta.delayTime) annotation (Line(points={{-19,40},{-2,40},{-2,86},{68,86},{68,64}}, color={0,0,127}));
+  connect(abs_Delay.y, variableDelay_I.delayTime) annotation (Line(points={{-19,40},{-2,40},{-2,34},{8,34}}, color={0,0,127}));
+  connect(abs_Delay.y, variableDelay_Q.delayTime) annotation (Line(points={{-19,40},{-2,40},{-2,22},{40,22},{40,34}}, color={0,0,127}));
+  connect(abs_Delay.y, variableDelay_f.delayTime) annotation (Line(points={{-19,40},{-2,40},{-2,22},{68,22},{68,34}}, color={0,0,127}));
+  connect(V_.y, variableDelay_V.u) annotation (Line(points={{119,-30},{110,-30},{110,90},{4,90},{4,78},{0,78},{0,70},{8,70}}, color={0,0,127}));
+  connect(I_.y, variableDelay_I.u) annotation (Line(points={{119,-50},{108,-50},{108,24},{0,24},{0,40},{8,40}}, color={0,0,127}));
+  connect(P_.y, variableDelay_P.u) annotation (Line(points={{119,-70},{112,-70},{112,72},{96,72},{96,86},{70,86},{70,88},{38,88},{38,70}}, color={0,0,127}));
+  connect(f_.y, variableDelay_f.u) annotation (Line(points={{119,-90},{92,-90},{92,-16},{72,-16},{72,22},{70,22},{70,26},{68,26},{68,40}}, color={0,0,127}));
+  connect(delta_.y, variableDelay_delta.u) annotation (Line(points={{119,-110},{112,-110},{112,-72},{110,-72},{110,-68},{114,-68},{114,74},{98,74},{98,88},{70,88},{70,86},{68,86},{68,70}}, color={0,0,127}));
+  connect(Q_.y, variableDelay_Q.u) annotation (Line(points={{119,-130},{108,-130},{108,-52},{90,-52},{90,-18},{68,-18},{68,20},{40,20},{40,40}}, color={0,0,127}));
+   annotation (Line(points={{119,-130},{24,-130},{24,-144},{0,-144},{0,-68}},  color={0,0,127}), Text(
       string="%second",
       index=1,
       extent={{-6,3},{-6,3}},
-      horizontalAlignment=TextAlignment.Right));
-  connect(I_.y, controlBus.I) annotation (Line(points={{119,-50},{56,-50},{56,-58},{54,-58},{54,-98},{24,-98},{24,-96},{2,-96},{2,-98},{0,-98},{0,-68}},  color={0,0,127}), Text(
-      string="%second",
-      index=1,
-      extent={{-6,3},{-6,3}},
-      horizontalAlignment=TextAlignment.Right));
-  connect(P_.y, controlBus.P) annotation (Line(points={{119,-70},{92,-70},{92,-122},{22,-122},{22,-68},{0,-68}},   color={0,0,127}), Text(
-      string="%second",
-      index=1,
-      extent={{-6,3},{-6,3}},
-      horizontalAlignment=TextAlignment.Right));
-  connect(f_.y, controlBus.f) annotation (Line(points={{119,-90},{60,-90},{60,-68},{0,-68}},   color={0,0,127}), Text(
-      string="%second",
-      index=1,
-      extent={{-6,3},{-6,3}},
-      horizontalAlignment=TextAlignment.Right));
-  connect(delta_.y, controlBus.delta) annotation (Line(points={{119,-110},{94,-110},{94,-146},{-24,-146},{-24,-68},{0,-68}},   color={0,0,127}), Text(
-      string="%second",
-      index=1,
-      extent={{-6,3},{-6,3}},
-      horizontalAlignment=TextAlignment.Right));
-  connect(Q_.y, controlBus.Q) annotation (Line(points={{119,-130},{24,-130},{24,-144},{0,-144},{0,-68}},  color={0,0,127}), Text(
-      string="%second",
-      index=1,
-      extent={{-6,3},{-6,3}},
-      horizontalAlignment=TextAlignment.Right));
-  annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={Text(
+      horizontalAlignment=TextAlignment.Right),
+              Icon(coordinateSystem(preserveAspectRatio=false), graphics={Text(
           extent={{-102,24},{-80,12}},
           textColor={0,149,152},
           textString="In"), Text(
@@ -368,7 +368,7 @@ equation
           pattern=LinePattern.Dash,
           lineThickness=0.5),
         Text(
-          extent={{-60,40},{0,20}},
+          extent={{-60,30},{-2,20}},
           textColor={0,149,152},
           textString="Noise Generation"),
         Rectangle(
@@ -408,7 +408,7 @@ equation
           textColor={0,149,152},
           textString="TAF Sources"),
         Text(
-          extent={{120,-6},{154,-20}},
+          extent={{120,-6},{164,-20}},
           textColor={0,149,152},
           textString="Standard Sources"),
         Rectangle(
