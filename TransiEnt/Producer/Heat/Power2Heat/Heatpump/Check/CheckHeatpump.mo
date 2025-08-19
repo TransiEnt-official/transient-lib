@@ -1,8 +1,6 @@
-﻿within TransiEnt.Producer.Heat.Power2Heat.Heatpump.Check;
-model TestHeatpump
+within TransiEnt.Producer.Heat.Power2Heat.Heatpump.Check;
+model CheckHeatpump
   import TransiEnt;
-
-
 
 //________________________________________________________________________________//
 // Component of the TransiEnt Library, version: 2.0.3                             //
@@ -25,14 +23,12 @@ model TestHeatpump
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
 
-
-
-
   extends TransiEnt.Basics.Icons.Checkmodel;
   inner SimCenter simCenter annotation (Placement(transformation(extent={{-90,80},{-70,100}})));
 
   TransiEnt.Producer.Heat.Power2Heat.Heatpump.Heatpump                 heatpump(
     usePowerPort=true,
+    useHeatOutput=false,
     useFluidPorts=true,
     p_drop=0,
     useHeatPort=false,
@@ -60,26 +56,6 @@ model TestHeatpump
                                                       annotation (Placement(transformation(extent={{26,12},{46,32}})));
 equation
 
-public
-function plotResult
-
-  constant String resultFileName = "TestHeatpump_L2.mat";
-
-  output String resultFile;
-
-algorithm
-  clearlog();
-    assert(cd(Modelica.Utilities.System.getEnvironmentVariable(TransiEnt.Basics.Types.WORKINGDIR)), "Error changing directory: Working directory must be set as environment variable with name 'workingdir' for this script to work.");
-  resultFile :=TransiEnt.Basics.Functions.fullPathName(Modelica.Utilities.System.getEnvironmentVariable(TransiEnt.Basics.Types.WORKINGDIR) + "/" + resultFileName);
-  removePlots();
-
-createPlot(id=1, position={809, 0, 791, 817}, y={"electricGrid.epp.P"}, range={0.0, 7500.0, -1000.0, 200.0}, grid=true, colors={{28,108,200}},filename=resultFileName);
-createPlot(id=1, position={809, 0, 791, 269}, y={"source.eye.T", "temperature.T_celsius"}, range={0.0, 7500.0, 28.0, 42.0}, grid=true, subPlot=2, colors={{28,108,200}, {238,46,47}},filename=resultFileName);
-createPlot(id=1, position={809, 0, 791, 269}, y={"T_room_is_K.y"}, range={0.0, 7500.0, 291.0, 296.0}, grid=true, subPlot=3, colors={{28,108,200}},filename=resultFileName);
-   resultFile := "Successfully plotted results for file: " + resultFile;
-
-end plotResult;
-equation
   connect(heatpump.epp, electricGrid1.epp) annotation (Line(
       points={{3.6,-10},{3.6,-36},{20,-36}},
       color={0,135,135},
@@ -125,4 +101,4 @@ equation
 <p>(no remarks)</p>
 <p><b><span style=\"color: #008000;\">10. Version History</span></b></p>
 </html>"));
-end TestHeatpump;
+end CheckHeatpump;
