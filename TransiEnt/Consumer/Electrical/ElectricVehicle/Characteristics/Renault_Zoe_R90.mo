@@ -1,6 +1,6 @@
 within TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics;
 record Renault_Zoe_R90
-  extends Models_CyEntEE.CellModels.ElectricVehicle.Data.BEV_measurements;
+  extends TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_measurements;
   //________________________________________________________________________________//
   // Component of the TransiEnt Library, version: 3.0.0                             //
   //                                                                                //
