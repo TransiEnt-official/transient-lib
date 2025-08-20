@@ -27,8 +27,8 @@ model CheckHeatpump
   inner SimCenter simCenter annotation (Placement(transformation(extent={{-90,80},{-70,100}})));
 
   TransiEnt.Producer.Heat.Power2Heat.Heatpump.Heatpump                 heatpump(
+    use_T_supply_input=false,
     usePowerPort=true,
-    useHeatOutput=false,
     useFluidPorts=true,
     p_drop=0,
     useHeatPort=false,

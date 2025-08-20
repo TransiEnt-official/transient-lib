@@ -40,19 +40,19 @@ model Heatpump "Simple heatpump model that calculates the heat output from the e
     "False, use outer ambient conditions"
     annotation (Dialog(group="Heat pump parameters"));
 
-  parameter Boolean usePowerPort=true "True if power port shall be used"
-    annotation (Dialog(group="Fundamental Definitions"), choices(checkBox=true));
-
-  parameter Boolean useHeatOutput=true "True if heat output shall be used"
-    annotation (Dialog(group="Fundamental Definitions"), choices(checkBox=true));
-
-  parameter Boolean useQlimits=false
-    "True if minimum and maximum Q shall be calculated" annotation (Dialog(
-        group="Fundamental Definitions"), choices(checkBox=true));
-
-  parameter Boolean useTinput=true
+  parameter Boolean use_T_supply_input=false
     "True if supply temperature is taken from input, false if heat or fluid port is used"
-    annotation (Dialog(group="Fundamental Definitions"), choices(checkBox=true));
+    annotation (Dialog(group="Heat pump parameters"));
+
+  parameter Boolean usePowerPort=true "True if power port shall be used"
+    annotation (Dialog(group="Fundamental Definitions"));
+
+  parameter Boolean useHeatPort=true "True if heat port shall be used"
+    annotation (Dialog(group="Fundamental Definitions", enable=not
+          useFluidPorts));
+
+  parameter Boolean useFluidPorts=false "True if fluid ports shall be used"
+    annotation (Dialog(group="Fundamental Definitions"));
 
   parameter Modelica.Units.SI.TemperatureDifference Delta_T_internal=5
     "Temperature difference between refrigerant and source/sink temperature"
@@ -67,7 +67,7 @@ model Heatpump "Simple heatpump model that calculates the heat output from the e
     annotation (Dialog(group="Heat pump parameters"));
 
   parameter Boolean useEta=false
-    annotation (Dialog(group="Heat pump parameters"), choices(checkBox=true));
+    annotation (Dialog(group="Heat pump parameters"));
 
   parameter Real COP_n=3.7
     "Coefficient of performance at nominal conditions according to EN14511"
@@ -85,7 +85,7 @@ model Heatpump "Simple heatpump model that calculates the heat output from the e
     annotation (Dialog(group="Heat pump parameters"));
 
   parameter Boolean useInertia=false "True if intertia is used"
-    annotation (Dialog(group="Heat pump parameters"), choices(checkBox=true));
+    annotation (Dialog(group="Heat pump parameters"));
 
   parameter Modelica.Units.SI.Time T_inertia=30 if useInertia
     "Inertia of heat pump" annotation (Dialog(group="Heat pump parameters"));
@@ -113,15 +113,8 @@ model Heatpump "Simple heatpump model that calculates the heat output from the e
   parameter TILMedia.VLEFluidTypes.BaseVLEFluid medium=simCenter.fluid1
     "Medium to be used" annotation (choicesAllMatching=true, Dialog(group="Fundamental Definitions"));
 
-  parameter Boolean useFluidPorts=true "True if fluid ports shall be used"
-    annotation (Dialog(group="Fundamental Definitions"));
-
   parameter SI.Pressure p_drop=simCenter.p_nom[2] - simCenter.p_nom[1]
     annotation (Dialog(group="Fundamental Definitions", enable=useFluidPorts));
-
-  parameter Boolean useHeatPort=true "True if heat port shall be used"
-    annotation (Dialog(group="Fundamental Definitions", enable=not
-          useFluidPorts));
 
   parameter Init initType=Init.NoInit
     "Type of initialization (1: no init, 2: steady state, others do not apply)"
@@ -142,9 +135,9 @@ model Heatpump "Simple heatpump model that calculates the heat output from the e
   //                      Variables
   //___________________________________________________________________________
 
-  input SI.Temperature T_set=50 + 273.15 if useTinput
+  input SI.Temperature T_set=50 + 273.15
     "Heatpump supply temperature"
-    annotation (Dialog(group="Heat pump parameters"));
+    annotation (Dialog(group="Heat pump parameters", enable=not use_T_supply_input));
 
   final parameter SI.ActivePower P_min=Q_flow_n/COP_n*p_min_rel;
   SI.HeatFlowRate Q_min_calc=COP.y*P_min;
@@ -169,13 +162,13 @@ model Heatpump "Simple heatpump model that calculates the heat output from the e
         iconTransformation(extent={{-126,-74},{-86,-34}})));
 
   TransiEnt.Basics.Interfaces.Thermal.HeatFlowRateOut Heat_output
-    if useHeatOutput "Setpoint value, e.g. Storage setpoint temperature"
+    "Setpoint value, e.g. Storage setpoint temperature"
     annotation (Placement(transformation(extent={{96,38},{136,78}}),
         iconTransformation(extent={{96,38},{136,78}})));
 
   replaceable connector PowerPortModel =
       Basics.Interfaces.Electrical.ActivePowerPort constrainedby
-    Basics.Interfaces.Electrical.ActivePowerPort "Choice of power port"
+    Basics.Interfaces.Electrical.PartialPowerPort "Choice of power port"
     annotation (choicesAllMatching=true, Dialog(group="Replaceable Components"));
 
   PowerPortModel epp if usePowerPort
@@ -192,7 +185,7 @@ model Heatpump "Simple heatpump model that calculates the heat output from the e
     if useHeatPort and not useFluidPorts
     annotation (Placement(transformation(extent={{90,68},{110,88}})));
 
-  TransiEnt.Basics.Interfaces.Thermal.HeatFlowRateOut Q_min if useQlimits
+  TransiEnt.Basics.Interfaces.Thermal.HeatFlowRateOut Q_min
     "Setpoint value, e.g. Storage setpoint temperature" annotation (Placement(
         transformation(
         extent={{-20,-20},{20,20}},
@@ -201,7 +194,7 @@ model Heatpump "Simple heatpump model that calculates the heat output from the e
         extent={{-20,-20},{20,20}},
         rotation=270,
         origin={-8,-104})));
-  TransiEnt.Basics.Interfaces.Thermal.HeatFlowRateOut Q_max if useQlimits
+  TransiEnt.Basics.Interfaces.Thermal.HeatFlowRateOut Q_max
     "Setpoint value, e.g. Storage setpoint temperature" annotation (Placement(
         transformation(
         extent={{-20,-20},{20,20}},
@@ -286,7 +279,8 @@ public
     "Choice of power boundary model. The power boundary model must match the power port."
     annotation (choicesAllMatching=true, Dialog(group="Replaceable Components"));
 
-  PowerBoundaryModel Power if usePowerPort
+  PowerBoundaryModel Power(v_n=400, useInputConnectorP=true)
+                           if usePowerPort
     "Choice of power boundary model. The power boundary model must match the power port."
     annotation (Placement(transformation(extent={{-6,-90},{-26,-70}})));
 
@@ -319,6 +313,9 @@ public
 
   Modelica.Blocks.Nonlinear.VariableLimiter Q_limiter
     annotation (Placement(transformation(extent={{-44,-22},{-32,-10}})));
+  Modelica.Thermal.HeatTransfer.Sensors.TemperatureSensor heatPort_T
+    if useHeatPort and not useFluidPorts
+    annotation (Placement(transformation(extent={{76,80},{90,94}})));
 equation
 
   // _____________________________________________
@@ -335,8 +332,8 @@ equation
 
   connect(T_source_internal, T_source_input_K);
 
-  if useTinput and not useFluidPorts and not useHeatPort then
-    T_set = T_supply_internal;
+  if not use_T_supply_input and not useFluidPorts and not useHeatPort then
+    T_supply_internal = T_set;
   end if;
 
   if not useInertia then
@@ -344,10 +341,9 @@ equation
         points={{-106,-54},{-80,-54},{-80,-40},{-54,-40},{-54,-16},{-45.2,-16}},
         color={175,0,0},
         pattern=LinePattern.Dash));
-
   end if;
 
-  connect(heatPort.T, T_supply_internal);
+  connect(heatPort_T.T, T_supply_internal);
   connect(T_in_sensor.T, T_supply_internal);
 
   connect(modelStatistics.powerCollector[collectElectricPower.typeOfResource],
@@ -424,6 +420,8 @@ equation
           {-26,78},{40,78},{40,58},{116,58}}, color={0,0,127}));
   connect(Q_limiter.y, heatFlowBoundary.Q_flow_prescribed) annotation (Line(
         points={{-31.4,-16},{2,-16},{2,-50},{10,-50}}, color={0,0,127}));
+  connect(heatPort_T.port, heatPort) annotation (Line(points={{76,87},{72,87},{72,
+          78},{100,78}}, color={191,0,0}));
   annotation (
     Icon(coordinateSystem(preserveAspectRatio=false), graphics={
         Ellipse(
