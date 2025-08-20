@@ -4,8 +4,10 @@ DeadZoneLinear
 HoldBlock
 PD
 IntegratorReset
+DerivativeReset
 LimPIDReset
 SmoothLimPID
+PID_reset_lim
 VariableSlewRateLimiter
 SplineLim
 SwitchNoEvent
@@ -31,3 +33,5 @@ SwitchLessThresholdNoEvent
 SwitchAtTimeOfDay
 SwitchAtSeason
 Hysteresis_inputVariable
+OnOff
+Hysteresis_withDelay
