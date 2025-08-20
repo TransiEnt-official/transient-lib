@@ -73,9 +73,9 @@ model Heatpump "Simple heatpump model that calculates the heat output from the e
     "Coefficient of performance at nominal conditions according to EN14511"
     annotation (Dialog(group="Heat pump parameters", enable=not useEta));
 
-  parameter Real T_supply_n=273.15 + 50 "Nominal supply temperature";
+  parameter Modelica.Units.SI.Temperature T_supply_n(displayUnit="degC")=273.15 + 50 "Nominal supply temperature";
 
-  parameter Real T_source_n=273.15 - 5
+  parameter Modelica.Units.SI.Temperature T_source_n(displayUnit="degC")=273.15 - 5
     "Nominal ambient temperature (DIN EN 12831)";
 
   parameter Real eta_n=0.5 "Efficiency factor"

@@ -146,6 +146,7 @@ model Heating "Building Heating System"
     useFluidPorts=false,
     Delta_T_internal=1,
     Q_flow_n=Q_HP,
+    T_source_n=263.15,
     eta_n=0.40,
     p_min_rel=0.2,
     useEta=true,
