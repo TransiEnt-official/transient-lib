@@ -26,7 +26,7 @@ partial model PartialModelPowerBoundary
 
 
 
-
+  parameter SI.Voltage v_n(displayUnit="kV");
 
   replaceable TransiEnt.Basics.Interfaces.Electrical.ActivePowerPort epp annotation (Placement(transformation(extent={{-102,-10},{-82,10}}), iconTransformation(extent={{-118,-18},{-82,18}})));
 
