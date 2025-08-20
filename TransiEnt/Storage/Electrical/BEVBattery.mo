@@ -64,11 +64,10 @@ model BEVBattery "Storage for BatteryElectricVehicle model"
   // ------------------------------------------------------------------------------------------
   //   Other Classes
   // ------------------------------------------------------------------------------------------
-  TransiEnt.Components.Boundaries.Electrical.ComplexPower.PQBoundary
+  TransiEnt.Components.Boundaries.Electrical.ComplexPower.PQBoundary_new
                                                       pq_boundary(
+    useInputConnectorP=true,
     useInputConnectorQ=false,
-    Q_el_set_const=0,
-    useCosPhi=false,
     v_n=V_nominal)
     annotation (Placement(transformation(extent={{80,-10},{100,10}})));
 
@@ -137,7 +136,8 @@ equation
   connect(SOC_.y, SOC_out) annotation (Line(points={{-11,-60},{-100,-60}}, color={0,0,127}));
   connect(P_request_.y, P_request_out) annotation (Line(points={{41,20},{46,20},{46,-30},{-100,-30}}, color={0,0,127}));
   connect(min.u1, P_set) annotation (Line(points={{58,56},{-76,56},{-76,60},{-100,60}}, color={0,0,127}));
-  connect(min.y, pq_boundary.P_el_set) annotation (Line(points={{81,50},{86,50},{86,20},{84,20},{84,12}}, color={0,0,127}));
+  connect(min.y, pq_boundary.P_el_set) annotation (Line(points={{81,50},{86,50},
+          {86,20},{84,20},{84,11}},                                                                       color={0,0,127}));
   annotation (Icon(graphics={
         Ellipse(
           extent={{-40,-46},{40,-72}},

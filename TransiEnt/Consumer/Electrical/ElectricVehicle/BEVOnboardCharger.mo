@@ -83,8 +83,13 @@ model BEVOnboardCharger
   // _____________________________________________
   Modelica.Blocks.Tables.CombiTable2Ds eta_over_P_grid(table=Charger_Params.eta_mean_over_P_grid_and_V_grid, extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint) "Inverter setpoint efficiency" annotation (Placement(transformation(extent={{0,80},{20,100}})));
   Modelica.Blocks.Tables.CombiTable2Ds Q_grid_over_P_bat_and_V_grid(table=Charger_Params.Q_grid_over_P_bat_and_V_grid, extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint) "Reactive power of the inverter setpoint" annotation (Placement(transformation(extent={{0,40},{20,60}})));
-  Modelica.Blocks.Sources.RealExpression V_grid_(y=epp_grid.v) annotation (Placement(transformation(extent={{-140,40},{-120,60}})));
-  TransiEnt.Components.Boundaries.Electrical.ComplexPower.PQBoundary pq_charger(v_n=V_nominal) annotation (Placement(transformation(
+  Modelica.Blocks.Sources.RealExpression V_grid_(y=epp_grid.v)
+    annotation (Placement(transformation(extent={{-140,40},{-120,60}})));
+  TransiEnt.Components.Boundaries.Electrical.ComplexPower.PQBoundary_new
+    pq_charger(
+    v_n=V_nominal,
+    useInputConnectorP=true,
+    useInputConnectorQ=true) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={70,30})));
@@ -228,8 +233,10 @@ equation
   connect(P_set_.u1, firstOrder.y) annotation (Line(points={{58,98},{50,98},{50,106},{-10,106},{-10,80},{-19,80}}, color={0,0,127}));
   connect(P_loss_.u2, firstOrder.y) annotation (Line(points={{58,54},{50,54},{50,106},{-10,106},{-10,80},{-19,80}}, color={0,0,127}));
   connect(P_set_.y, P_loss_.u1) annotation (Line(points={{81,92},{86,92},{86,74},{58,74},{58,66}}, color={0,0,127}));
-  connect(pq_charger.Q_el_set, Q_grid_over_P_bat_and_V_grid.y) annotation (Line(points={{64,18},{28,18},{28,50},{21,50}}, color={0,127,127}));
-  connect(P_loss_.y, pq_charger.P_el_set) annotation (Line(points={{81,60},{86,60},{86,18},{76,18}}, color={0,0,127}));
+  connect(pq_charger.Q_el_set, Q_grid_over_P_bat_and_V_grid.y) annotation (Line(points={{64,19},
+          {28,19},{28,50},{21,50}},                                                                                       color={0,127,127}));
+  connect(P_loss_.y, pq_charger.P_el_set) annotation (Line(points={{81,60},{86,
+          60},{86,19},{76,19}},                                                                      color={0,0,127}));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
         Ellipse(
           extent={{-100,102},{100,-98}},

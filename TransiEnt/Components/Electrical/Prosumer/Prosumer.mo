@@ -196,7 +196,7 @@ model Prosumer
 
   // --- Controller -------------------------------------------------------------------------
 
-  Models_CyEntEE.CellModels.Controller.BES_Controller BES_Controller(
+  Storage.Electrical.Controller.BES_Controller        BES_Controller(
       Bat_PowerLimit=Bat_PowerLimit, controlType=batteryControlType)
     if useBattery
     annotation (Placement(transformation(extent={{-90,-10},{-70,10}})));
@@ -214,19 +214,13 @@ model Prosumer
     samplePeriod=samplePeriod,
     maxDelay=maxDelay)         annotation (Placement(transformation(extent={{-10,-78},{10,-58}})));
 
-  Models_CyEntEE.CellModels.SmartMeter HeatingMeter if useEHP annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
-        rotation=270,
-        origin={70,30})));
-
-  Models_CyEntEE.CellModels.SmartMeter StorageMeter if useBattery annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
-        rotation=0,
-        origin={-30,-32})));
-
   // --- Load -------------------------------------------------------------------------------
 
-  Boundaries.Electrical.ComplexPower.PQBoundary inflexibleLoad(v_n=400) annotation (Placement(transformation(extent={{-70,-76},{-50,-56}})));
+  Boundaries.Electrical.ComplexPower.PQBoundary_new inflexibleLoad(
+    v_n=400,
+    useInputConnectorP=true,
+    useInputConnectorQ=true)
+    annotation (Placement(transformation(extent={{-70,-76},{-50,-56}})));
 
   // --- Electric connection ----------------------------------------------------------------
 
@@ -235,7 +229,7 @@ model Prosumer
 
   // --- Battery ----------------------------------------------------------------------------
 
-  Models_CyEntEE.CellModels.BatterySimple batterySimple(
+  Storage.Electrical.BatterySimple        batterySimple(
     Bat_Capacity=Bat_Capacity,
     Bat_SOCStart=Bat_SOCStart,
     Bat_PowerLimit=Bat_PowerLimit) if useBattery annotation (Placement(transformation(
@@ -259,7 +253,7 @@ model Prosumer
 
   // --- Heating ----------------------------------------------------------------------------
 
-  Models_CyEntEE.CellModels.Heat.Heating heating(
+  Consumer.Heat.SpaceHeating.Heating     heating(
     Q_HP=Q_HP_nom,
     A_living=A_living,
     A_wall=A_wall,
@@ -344,18 +338,18 @@ equation
 
     // Battery
     if (batteryControlType == ControlType.Limit_P) then
-      connect(controlBus.BES.P_limit, BES_Controller.P_BES) annotation();
-      connect(controlBus.BES.SignalActive, BES_Controller.Signal_P_external) annotation();
+      connect(controlBus.BES.P_limit, BES_Controller.P_BES) annotation ();
+      connect(controlBus.BES.SignalActive, BES_Controller.Signal_P_external) annotation ();
     end if;
 
     if (batteryControlType == ControlType.External_P) then
-      connect(controlBus.BES.P_external, BES_Controller.P_BES) annotation();
-      connect(controlBus.BES.SignalActive, BES_Controller.Signal_P_external) annotation();
+      connect(controlBus.BES.P_external, BES_Controller.P_BES) annotation ();
+      connect(controlBus.BES.SignalActive, BES_Controller.Signal_P_external) annotation ();
     end if;
 
     if (batteryControlType == ControlType.Priority) then
-      connect(controlBus.BES.Signal_Priority_Charge, BES_Controller.Signal_Priority_Charge) annotation();
-      connect(controlBus.BES.Signal_Priority_Discharge, BES_Controller.Signal_Priority_Discharge) annotation();
+      connect(controlBus.BES.Signal_Priority_Charge, BES_Controller.Signal_Priority_Charge) annotation ();
+      connect(controlBus.BES.Signal_Priority_Discharge, BES_Controller.Signal_Priority_Discharge) annotation ();
     end if;
 
     // Heating
@@ -369,10 +363,8 @@ equation
     end if;
 
     // Outputs
-    connect(smartMeter.controlBus, controlBus.Meter) annotation();
-    connect(HeatingMeter.controlBus, controlBus.Heating) annotation();
-    connect(StorageMeter.controlBus, controlBus.BES) annotation();
-    connect(batterySimple.P_max, controlBus.BES.P_max) annotation();
+    connect(smartMeter.controlBus, controlBus.Meter) annotation ();
+    connect(batterySimple.P_max, controlBus.BES.P_max) annotation ();
 
   end if;
 
@@ -391,26 +383,11 @@ equation
           51},{-22,51},{-22,50},{-20.8,50},{-20.8,50.4}},                                                                       color={0,0,127}));
   connect(table_Temperature.value, add_Kelvin_to_Celsius.u2) annotation (Line(points={{-40.6,45},{-26,45},{-26,45.6},{-20.8,45.6}},      color={0,0,127}));
   connect(add_Kelvin_to_Celsius.y, PV.T_in) annotation (Line(points={{-11.6,48},{-22,48},{-22,38}},   color={0,0,127}));
-  connect(heating.T_amb, table_Temperature.value) annotation (Line(points={{40.8571,75.7143},{36,75.7143},{36,60},{-40,60},{-40,45},{-40.6,45}},
+  connect(heating.T_amb, table_Temperature.value) annotation (Line(points={{40.8571,
+          75.7143},{36,75.7143},{36,60},{-40,60},{-40,45},{-40.6,45}},
                                                                   color={0,0,127}));
   connect(inflexibleLoad.epp, smartMeter.epp_a) annotation (Line(
       points={{-70,-66},{-74,-66},{-74,-80},{-30,-80},{-30,-68},{-9.2,-68}},
-      color={28,108,200},
-      thickness=0.5));
-  connect(StorageMeter.epp_b, smartMeter.epp_a) annotation (Line(
-      points={{-20.8,-32},{-20.8,-68},{-9.2,-68}},
-      color={28,108,200},
-      thickness=0.5));
-  connect(StorageMeter.epp_a, batterySimple.epp) annotation (Line(
-      points={{-39.2,-32},{-54,-32},{-54,0},{-50,0}},
-      color={28,108,200},
-      thickness=0.5));
-  connect(heating.epp, HeatingMeter.epp_a) annotation (Line(
-      points={{58.5714,62.8571},{70,62.8571},{70,39.2}},
-      color={28,108,200},
-      thickness=0.5));
-  connect(HeatingMeter.epp_b, smartMeter.epp_a) annotation (Line(
-      points={{70,20.8},{16,20.8},{16,-30},{-16,-30},{-16,-68},{-9.2,-68}},
       color={28,108,200},
       thickness=0.5));
   connect(BES_Controller.P_BES_out, batterySimple.P_set) annotation (Line(
@@ -443,11 +420,20 @@ equation
       horizontalAlignment=TextAlignment.Right));
 
   connect(table_LoadProfilePQ.P, inflexibleLoad.P_el_set) annotation (Line(
-      points={{-75.2,-32},{-66,-32},{-66,-54}},
+      points={{-75.2,-32},{-66,-32},{-66,-55}},
       color={0,135,135},
       pattern=LinePattern.Dash));
   connect(table_LoadProfilePQ.Q, inflexibleLoad.Q_el_set) annotation (Line(
-      points={{-75.2,-40},{-54,-40},{-54,-54}},
+      points={{-75.2,-40},{-54,-40},{-54,-55}},
       color={0,135,135},
       pattern=LinePattern.Dash));
+  connect(heating.epp, smartMeter.epp_a) annotation (Line(
+      points={{58.5714,62.8571},{58.5714,12},{4,12},{4,-30},{-16,-30},{-16,-68},
+          {-9.2,-68}},
+      color={28,108,200},
+      thickness=0.5));
+  connect(batterySimple.epp, smartMeter.epp_a) annotation (Line(
+      points={{-50,0},{-54,0},{-54,-30},{-16,-30},{-16,-68},{-9.2,-68}},
+      color={28,108,200},
+      thickness=0.5));
 end Prosumer;
