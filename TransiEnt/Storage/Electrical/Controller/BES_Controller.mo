@@ -1,9 +1,7 @@
 within TransiEnt.Storage.Electrical.Controller;
 model BES_Controller
   "BES controller with different control types according to ControlTypes"
-
-  import Models_CyEntEE.CellModels.Controller.Base.ControlType;
-
+  import TransiEnt.Basics.Types.ControlType;
   extends TransiEnt.Basics.Icons.Controller;
 
   // ----------------------------------------------------------------------------------------
@@ -22,13 +20,13 @@ model BES_Controller
           ={{-120,60},{-80,100}})));
 
   Modelica.Blocks.Interfaces.BooleanInput Signal_P_external
-    if (controlType == Models_CyEntEE.CellModels.Controller.Base.ControlType.External_P) or (controlType == Models_CyEntEE.CellModels.Controller.Base.ControlType.Limit_P)
+    if (controlType == TransiEnt.Basics.Types.ControlType.External_P) or (controlType == TransiEnt.Basics.Types.ControlType.Limit_P)
     "If Control_Signal = true, then the Output P_bat_out externally controlled over P_bat"
     annotation (Placement(transformation(extent={{-120,0},{-80,40}}),
         iconTransformation(extent={{-120,0},{-80,40}})));
 
   TransiEnt.Basics.Interfaces.Electrical.ElectricPowerIn P_BES
-    if (controlType == Models_CyEntEE.CellModels.Controller.Base.ControlType.External_P) or (controlType == Models_CyEntEE.CellModels.Controller.Base.ControlType.Limit_P)
+    if (controlType == TransiEnt.Basics.Types.ControlType.External_P) or (controlType == TransiEnt.Basics.Types.ControlType.Limit_P)
     "Externally set battery power"
     annotation (Placement(transformation(extent={{-120,-24},{-80,16}}),
         iconTransformation(extent={{-120,-24},{-80,16}})));
@@ -59,11 +57,11 @@ model BES_Controller
     annotation (Placement(transformation(extent={{46,72},{62,88}})));
 
   Modelica.Blocks.Logical.Switch Switch_External_P
-    if controlType == Models_CyEntEE.CellModels.Controller.Base.ControlType.External_P
+    if controlType == TransiEnt.Basics.Types.ControlType.External_P
     annotation (Placement(transformation(extent={{-10,22},{10,42}})));
 
   Modelica.Blocks.Interfaces.BooleanInput Signal_Priority_Charge
-    if controlType == Models_CyEntEE.CellModels.Controller.Base.ControlType.Priority
+    if controlType == TransiEnt.Basics.Types.ControlType.Priority
     "If Control_Signal = true, then the Output P_bat_out externally controlled over P_bat"
     annotation (Placement(transformation(
         extent={{-20,-20},{20,20}},
@@ -86,22 +84,22 @@ model BES_Controller
     annotation (Placement(transformation(extent={{34,-34},{54,-14}})));
 
   Modelica.Blocks.Sources.BooleanExpression has_priority_(y=has_priority) if controlType ==
-    Models_CyEntEE.CellModels.Controller.Base.ControlType.Priority
+    TransiEnt.Basics.Types.ControlType.Priority
     annotation (Placement(transformation(extent={{-44,-34},{-10,-14}})));
 
   Modelica.Blocks.Nonlinear.VariableLimiter variableLimiter
     annotation (Placement(transformation(extent={{84,-4},{92,4}})));
 
   Modelica.Blocks.Logical.Switch Switch_Limit_P
-  if controlType == Models_CyEntEE.CellModels.Controller.Base.ControlType.Limit_P
+  if controlType == TransiEnt.Basics.Types.ControlType.Limit_P
     annotation (Placement(transformation(extent={{-10,-12},{10,8}})));
 
   Modelica.Blocks.Sources.RealExpression UpperBatteryPowerLimitSwitch(y=Bat_PowerLimit)
-  if controlType == Models_CyEntEE.CellModels.Controller.Base.ControlType.Limit_P
+  if controlType == TransiEnt.Basics.Types.ControlType.Limit_P
     annotation (Placement(transformation(extent={{-48,-20},{-28,0}})));
 
   Modelica.Blocks.Sources.RealExpression UpperBatteryPowerLimit(y=Bat_PowerLimit)
-  if not controlType == Models_CyEntEE.CellModels.Controller.Base.ControlType.Limit_P
+  if not controlType == TransiEnt.Basics.Types.ControlType.Limit_P
     annotation (Placement(transformation(extent={{58,-2},{72,12}})));
 
   Modelica.Blocks.Sources.RealExpression LowerBatteryPowerLimit(y=-Bat_PowerLimit)
@@ -109,7 +107,7 @@ model BES_Controller
 
   // --- External control ---
 
-  parameter ControlType controlType=Models_CyEntEE.CellModels.Controller.Base.ControlType.Internal
+  parameter ControlType controlType=TransiEnt.Basics.Types.ControlType.Internal
     "Type of control (see enumeration)"
     annotation (Evaluate=true, Dialog(group="External Control"));
 
@@ -135,7 +133,7 @@ equation
   connect(Signal_Priority_Charge, Signal_Priority_Charge_internal);
   connect(Signal_Priority_Discharge, Signal_Priority_Discharge_internal);
 
-  if not controlType ==Models_CyEntEE.CellModels.Controller.Base.ControlType.Priority then
+  if not controlType ==TransiEnt.Basics.Types.ControlType.Priority then
     Signal_Priority_Charge_internal = false;
     Signal_Priority_Discharge_internal = false;
   end if;
@@ -151,14 +149,14 @@ equation
     has_priority = false;
   end if;
 
-  if controlType == Models_CyEntEE.CellModels.Controller.Base.ControlType.Internal or controlType == Models_CyEntEE.CellModels.Controller.Base.ControlType.Limit_P then
+  if controlType == TransiEnt.Basics.Types.ControlType.Internal or controlType == TransiEnt.Basics.Types.ControlType.Limit_P then
     connect(breakAlgebraicLoop.y, variableLimiter.u) annotation (Line(points={{62.8,80},{66,80},{66,32},{78,32},{78,0},{83.2,0}},
                                      color={0,0,127}));
   end if;
 
   // check if control type is allowed
-  //assert(controlType == Models_CyEntEE.CellModels.Controller.Base.ControlType.Internal  or controlType == Models_CyEntEE.CellModels.Controller.Base.ControlType.External_P
-  //   or controlType == Models_CyEntEE.CellModels.Controller.Base.ControlType.Priority,  "Control Type is not allowed.");
+  //assert(controlType == TransiEnt.Basics.Types.ControlType.Internal  or controlType == TransiEnt.Basics.Types.ControlType.External_P
+  //   or controlType == TransiEnt.Basics.Types.ControlType.Priority,  "Control Type is not allowed.");
 
   // --- connect statements -----------------------------------------------------------------
 

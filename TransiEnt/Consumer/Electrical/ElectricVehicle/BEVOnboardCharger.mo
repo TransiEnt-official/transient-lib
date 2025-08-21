@@ -1,7 +1,6 @@
 within TransiEnt.Consumer.Electrical.ElectricVehicle;
 model BEVOnboardCharger
-  extends Models_CyEntEE.CellModels.Controller.Base.Partial_ControlledModel;
-  import Models_CyEntEE.CellModels.Controller.Base.ControlType;
+  import TransiEnt.Basics.Types.ControlType;
   //________________________________________________________________________________//
   // Component of the TransiEnt Library, version: 3.0.0                             //
   //                                                                                //
@@ -22,7 +21,7 @@ model BEVOnboardCharger
   // and                                                                            //
   // XRG Simulation GmbH (Hamburg, Germany).                                        //
   //                                                                                //
-  // Last Author: Tom Steffen, Last Update: 11.08.2025, Email: tom.steffen@tuhh.de  //
+  // Last Author: Tom Steffen, Last Update: 21.08.2025, Email: tom.steffen@tuhh.de  //
   //________________________________________________________________________________//
   // _____________________________________________
   //
@@ -56,6 +55,9 @@ model BEVOnboardCharger
       choice=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Nissan_Leaf() "Nissan Leaf",
       choice=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Peugeot_ION() "Peugeot ION"));
 
+  parameter ControlType controlType=TransiEnt.Basics.Types.ControlType.Internal
+    "Type of control (see enumeration)"
+    annotation (Evaluate=true, Dialog(group="External Control"));
   // _____________________________________________
   //
   //             Interfaces

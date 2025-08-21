@@ -115,7 +115,7 @@ model RoomHeating
   Modelica.Thermal.HeatTransfer.Sensors.TemperatureSensor T_room
     annotation (Placement(transformation(extent={{-32,28},{-12,48}})));
 
-  Models_CyEntEE.CellModels.Heat.Controller.PID_reset_lim PI(
+  TransiEnt.Basics.Blocks.PID_reset_lim PI(
     controllerType=Modelica.Blocks.Types.SimpleController.PI,
     k=NHL,
     Ti=3000,

@@ -20,6 +20,10 @@ model Check_Prosumer "Test Model for automated generatrion from CDB and Prosumer
     annotation (Placement(transformation(extent={{-50,78},{-30,98}})));
 
 TransiEnt.Components.Electrical.Prosumer.Prosumer household_noController(
+    photovoltaicControlType=TransiEnt.Basics.Types.ControlType.Limit_P,
+    batteryControlType=TransiEnt.Basics.Types.ControlType.Limit_P,
+    heatingControlType=TransiEnt.Basics.Types.ControlType.Limit_P,
+    bevControlType=TransiEnt.Basics.Types.ControlType.Limit_P,
     data_local=data_local,
     tappingProfileName="LV_rural_1/TappingCycle_A_1",
     data_weatherLocation="Hamelin",
@@ -48,24 +52,32 @@ TransiEnt.Components.Electrical.Prosumer.Prosumer household_noController(
     U_ground=0.360655,
     thermalMass=31841400.0,
     num_BEVs=2,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=1,
         Bat_Capacity=132480000.0,
         Bat_SOCStart=0.5,
         Bat_PowerLimit=7200.0,
-        Bev_type=Models_CyEntEE.CellModels.ElectricVehicle.Data.Renault_Zoe_R90()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         id=2,
-        Bat_PowerLimit=11000.0,
-        Bev_type=Models_CyEntEE.CellModels.ElectricVehicle.Data.Renault_Zoe_R90())}) annotation (Placement(transformation(extent={{-19.8,-19.73},{20,20}})));
+        Bat_PowerLimit=11000,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3())})
+                                                                                     annotation (Placement(transformation(extent={{-19.8,-19.73},{20,20}})));
 
-  TransiEnt.Components.Boundaries.Electrical.ComplexPower.SlackBoundary ElectricGrid(v_gen=400, f_n=50) annotation (Placement(transformation(
+  TransiEnt.Components.Boundaries.Electrical.ComplexPower.SlackBoundary_new
+                                                                        ElectricGrid(
+    v_n=400,
+    isFrequencyRoot=true,                                                                       f_n=50) annotation (Placement(transformation(
         extent={{-20,-20},{20,20}},
         rotation=0,
         origin={100,0})));
 
   TransiEnt.Basics.Interfaces.General.ControlBus controlBus annotation (Placement(transformation(extent={{-120,-20},{-80,20}}), iconTransformation(extent={{-66,8},{-54,20}})));
+  Modelica.Blocks.Sources.Step step(height=1000, startTime=43200) annotation (Placement(transformation(extent={{-180,20},{-160,40}})));
+  Modelica.Blocks.Sources.BooleanStep booleanStep(startTime=43200) annotation (Placement(transformation(extent={{-180,-40},{-160,-20}})));
+  TransiEnt.Basics.Interfaces.General.ControlBus bevBus[2];
 equation
+
 
   connect(household_noController.epp, ElectricGrid.epp) annotation (Line(
       points={{0.1,-19.73},{0.1,-30},{0,-30},{0,-40},{70,-40},{70,0},{80,0}},
@@ -79,5 +91,18 @@ equation
       index=-1,
       extent={{6,3},{6,3}},
       horizontalAlignment=TextAlignment.Left));
-  annotation (experiment(StopTime=86400, __Dymola_Algorithm="Dassl"));
+
+  for i in 1:2 loop
+    connect(bevBus[i], controlBus.BEV[i]);
+    connect(step.y, bevBus[i].P_limit);
+    connect(booleanStep.y, bevBus[i].SignalActive);
+  end for;
+
+  connect(step.y, controlBus.BES.P_limit) annotation(Line(points={{-159,30},{-100,30},{-100,0}}));
+  connect(step.y, controlBus.Heating.P_limit);
+  connect(step.y, controlBus.PV.P_limit);
+  connect(booleanStep.y, controlBus.BES.SignalActive) annotation(Line(points={{-159,-30},{-100,-30},{-100,0}}));
+  connect(booleanStep.y, controlBus.Heating.SignalActive);
+  connect(booleanStep.y, controlBus.PV.SignalActive);
+  annotation (experiment(StopTime=259200, __Dymola_Algorithm="Dassl"));
 end Check_Prosumer;

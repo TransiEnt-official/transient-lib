@@ -1,9 +1,29 @@
 within TransiEnt.Components.Electrical.Prosumer;
 model Prosumer
-  extends TransiEnt.Basics.Icons.Household;
+  //________________________________________________________________________________//
+  // Component of the TransiEnt Library, version: 3.0.0                             //
+  //                                                                                //
+  // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
+  // Copyright 2021, Hamburg University of Technology.                              //
+  //________________________________________________________________________________//
+  //                                                                                //
+  // TransiEnt.EE, ResiliEntEE, IntegraNet and IntegraNet II are research projects  //
+  // supported by the German Federal Ministry of Economics and Energy               //
+  // (FKZ 03ET4003, 03ET4048, 0324027 and 03EI1008).                                //
+  // The TransiEnt Library research team consists of the following project partners://
+  // Institute of Engineering Thermodynamics (Hamburg University of Technology),    //
+  // Institute of Energy Systems (Hamburg University of Technology),                //
+  // Institute of Electrical Power and Energy Technology                            //
+  // (Hamburg University of Technology)                                             //
+  // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
+  // Gas- und Wärme-Institut Essen                                                  //
+  // and                                                                            //
+  // XRG Simulation GmbH (Hamburg, Germany).                                        //
+  //________________________________________________________________________________//
 
+  extends TransiEnt.Basics.Icons.Household;
   import Modelica.Blocks.Types.Init;
-  import Models_CyEntEE.CellModels.Controller.Base.ControlType;
+  import TransiEnt.Basics.Types.ControlType;
 
   // ----------------------------------------------------------------------------------------
   //   Parameter
@@ -37,7 +57,7 @@ model Prosumer
 
   parameter Boolean usePVSwitch=false annotation (Dialog(enable=usePV, group="Generation"));
 
-  parameter ControlType photovoltaicControlType=Models_CyEntEE.CellModels.Controller.Base.ControlType.Internal
+  parameter ControlType photovoltaicControlType=TransiEnt.Basics.Types.ControlType.Internal
     "Type of control for PV"
     annotation (Dialog(enable=usePV, group="Generation"));
 
@@ -55,7 +75,7 @@ model Prosumer
   parameter Real Bat_SOCStart=0.5 "SOC at simulation start"
     annotation (Dialog(enable=useBattery, group="Battery"));
 
-  parameter ControlType batteryControlType=Models_CyEntEE.CellModels.Controller.Base.ControlType.Internal
+  parameter ControlType batteryControlType=TransiEnt.Basics.Types.ControlType.Internal
     "Type of control for BES"
     annotation (Dialog(enable=useBattery, group="Battery"));
 
@@ -108,7 +128,7 @@ model Prosumer
   parameter Modelica.Units.SI.HeatCapacity thermalMass=19e6 "total thermal mass of building"
     annotation (Dialog(enable=useEHP, group="Heating System"));
 
-  parameter ControlType heatingControlType=Models_CyEntEE.CellModels.Controller.Base.ControlType.Internal
+  parameter ControlType heatingControlType=TransiEnt.Basics.Types.ControlType.Internal
     "Type of control for heating system"
     annotation (Evaluate=true, Dialog(enable=useEHP, group="Heating System"));
 
@@ -121,16 +141,13 @@ model Prosumer
   parameter Integer num_BEVs=1 "number of BEVs"
   annotation (Dialog(group="Electric Vehicle"));
 
-  Models_CyEntEE.CellModels.Data.Records.BEV_Data bev_data[num_BEVs]={Models_CyEntEE.CellModels.Data.Records.BEV_Data(id=1)} if (num_BEVs > 0) "Data of BEVs" annotation (Dialog(group="Electric Vehicle"));
+  TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data bev_data[num_BEVs]={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(id=1)} if (num_BEVs > 0) "Data of BEVs" annotation (Dialog(group="Electric Vehicle"));
 
-  parameter ControlType bevControlType=Models_CyEntEE.CellModels.Controller.Base.ControlType.Internal
+  parameter ControlType bevControlType=TransiEnt.Basics.Types.ControlType.Internal
     "Type of control for BEVs"
     annotation (Evaluate=true, Dialog(enable=useEHP, group="Electric Vehicle"));
 
   // --- Controller -------------------------------------------------------------------------
-
-  parameter Boolean useHouseholdController = false
-   annotation(choices(__Dymola_checkBox=true), Dialog(enable=((batteryControlType == Models_CyEntEE.CellModels.Controller.Base.ControlType.Limit_P) or (bevControlType == Models_CyEntEE.CellModels.Controller.Base.ControlType.Limit_P) or (heatingControlType == Models_CyEntEE.CellModels.Controller.Base.ControlType.Limit_P)),group="Controller"));
 
   parameter Boolean useControlBus = true
     annotation(choices(__Dymola_checkBox=true), Dialog(group="Controller"));
@@ -199,7 +216,7 @@ model Prosumer
   Storage.Electrical.Controller.BES_Controller        BES_Controller(
       Bat_PowerLimit=Bat_PowerLimit, controlType=batteryControlType)
     if useBattery
-    annotation (Placement(transformation(extent={{-90,-10},{-70,10}})));
+    annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
 
   // --- Smart Meter ------------------------------------------------------------------------
 
@@ -235,7 +252,7 @@ model Prosumer
     Bat_PowerLimit=Bat_PowerLimit) if useBattery annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=0,
-        origin={-40,0})));
+        origin={-20,0})));
 
   // --- PV ---------------------------------------------------------------------------------
 
@@ -245,11 +262,6 @@ model Prosumer
     slope=PV_slope,
     surfaceAzimuthAngle=PV_azimuth,
     useControlBus=useControlBus) if usePV annotation (Placement(transformation(extent={{-20,20},{0,40}})));
-
-  Modelica.Blocks.Math.Add add_Kelvin_to_Celsius if usePV annotation (Placement(transformation(extent={{-20,44},
-            {-12,52}})));
-  Modelica.Blocks.Sources.RealExpression realExpression(y=-273.15) if usePV annotation (Placement(transformation(extent={{-40,44},
-            {-24,58}})));
 
   // --- Heating ----------------------------------------------------------------------------
 
@@ -290,18 +302,20 @@ model Prosumer
 
   // --- Data -------------------------------------------------------------------------------
 
-  Models_CyEntEE.CellModels.Data.Tables.Table_Temperature table_Temperature(fileName=data_local + "WeatherData/" + data_weatherLocation + "_" + data_weatherYear + "_Temp.txt") if usePV or useEHP annotation (Placement(transformation(extent={{-50,40},{-40,50}})));
+  TransiEnt.Basics.Tables.Ambient.GenericTemperatureDataTableResource
+                                                          genericTemperatureDataTableResource(
+                                                                            fileName=data_local + "WeatherData/" + data_weatherLocation + "_" + data_weatherYear + "_Temp.txt") if usePV or useEHP annotation (Placement(transformation(extent={{-100,80},{-80,100}})));
 
-  Basics.Tables.Ambient.GenericDHIDNIDataTable genericDHIDNIDataTable(fileName_dir=data_local + "WeatherData/" + data_weatherLocation + "_" + data_weatherYear + "_Solar_Dir.txt", fileName_diff=data_local + "WeatherData/" + data_weatherLocation + "_" + data_weatherYear + "_Solar_Diff.txt") if usePV annotation (Placement(transformation(extent={{-52,24},{-42,34}})));
+  TransiEnt.Basics.Tables.Ambient.GenericDHIDNIDataTableResource genericDHIDNIDataTable(fileName_dir=data_local + "WeatherData/" + data_weatherLocation + "_" + data_weatherYear + "_Solar_Dir.txt", fileName_diff=data_local + "WeatherData/" + data_weatherLocation + "_" + data_weatherYear + "_Solar_Diff.txt") if usePV annotation (Placement(transformation(extent={{-100,50},{-80,70}})));
 
-  Basics.Tables.Ambient.GenericWindspeedDataTable genericWindspeedDataTable(fileName=data_local + "WeatherData/" + data_weatherLocation + "_" + data_weatherYear + "_Wind.txt") if usePV annotation (Placement(transformation(extent={{-52,12},{-40,24}})));
+  TransiEnt.Basics.Tables.Ambient.GenericWindspeedDataTableResource genericWindspeedDataTable(fileName=data_local + "WeatherData/" + data_weatherLocation + "_" + data_weatherYear + "_Wind.txt") if usePV annotation (Placement(transformation(extent={{-100,20},{-80,40}})));
 
-  Models_CyEntEE.CellModels.Data.Tables.Table_LoadProfilePQ table_LoadProfilePQ(
+  TransiEnt.Basics.Tables.ElectricGrid.GenericLoadProfileDataTableResource table_LoadProfilePQ(
     powerScaleP=loadProfileScaleP,
     powerScaleQ=loadProfileScaleQ,
     fileName=data_local + "LoadProfiles/" + loadProfileName + ".txt") annotation (Placement(transformation(extent={{-94,-46},{-74,-26}})));
 
-  Models_CyEntEE.CellModels.Data.Tables.Table_Vehicle table_Vehicle_V2[num_BEVs](fileName={data_local + "/VehicleData/BEV_Profile_" + String(bev_data[i].id) + ".txt" for i in 1:num_BEVs}) if num_BEVs > 0;
+  TransiEnt.Basics.Tables.DrivingProfiles.GenericDrivingProfileDataTableResource table_Vehicle_V2[num_BEVs](fileName={data_local + "/VehicleData/BEV_Profile_" + String(bev_data[i].id) + ".txt" for i in 1:num_BEVs}) if num_BEVs > 0;
 
   // ----------------------------------------------------------------------------------------
   //   Variables
@@ -314,6 +328,7 @@ model Prosumer
   Modelica.Blocks.Sources.BooleanExpression BES_bool(y=useBattery) annotation (Placement(transformation(extent={{-140,-100},{-120,-80}})));
   Modelica.Blocks.Sources.BooleanExpression EHP_bool(y=useEHP) annotation (Placement(transformation(extent={{-140,-120},{-120,-100}})));
   Modelica.Blocks.Sources.RealExpression Number_of_BEVs(y=num_BEVs) annotation (Placement(transformation(extent={{-140,-140},{-120,-120}})));
+  Modelica.Blocks.Sources.RealExpression Battery_power(y=batterySimple.epp.P) annotation (Placement(transformation(extent={{-140,-160},{-120,-140}})));
 equation
   // iterate over all BEVs
   for i in 1:num_BEVs loop
@@ -322,7 +337,6 @@ equation
     connect(batteryElectricVehicle[i].isConnected, table_Vehicle_V2[i].isConnected);
     connect(batteryElectricVehicle[i].SOC_consumption, table_Vehicle_V2[i].SOC_Consumption);
     connect(batteryElectricVehicle[i].controlBus, controlBus.BEV[i]);
-    connect(batteryElectricVehicle[i].epp, smartMeter.epp_a);
     connect(batteryElectricVehicle[i].epp, smartMeter.epp_a) annotation (Line(
       points={{40.2,-2},{16,-2},{16,-30},{-16,-30},{-16,-68},{-9.2,-68}},
       color={28,108,200},
@@ -338,60 +352,53 @@ equation
 
     // Battery
     if (batteryControlType == ControlType.Limit_P) then
-      connect(controlBus.BES.P_limit, BES_Controller.P_BES) annotation ();
-      connect(controlBus.BES.SignalActive, BES_Controller.Signal_P_external) annotation ();
+      connect(controlBus.BES.P_limit, BES_Controller.P_BES) annotation();
+      connect(controlBus.BES.SignalActive, BES_Controller.Signal_P_external) annotation();
     end if;
 
     if (batteryControlType == ControlType.External_P) then
-      connect(controlBus.BES.P_external, BES_Controller.P_BES) annotation ();
-      connect(controlBus.BES.SignalActive, BES_Controller.Signal_P_external) annotation ();
+      connect(controlBus.BES.P_external, BES_Controller.P_BES) annotation();
+      connect(controlBus.BES.SignalActive, BES_Controller.Signal_P_external) annotation();
     end if;
 
     if (batteryControlType == ControlType.Priority) then
-      connect(controlBus.BES.Signal_Priority_Charge, BES_Controller.Signal_Priority_Charge) annotation ();
-      connect(controlBus.BES.Signal_Priority_Discharge, BES_Controller.Signal_Priority_Discharge) annotation ();
+      connect(controlBus.BES.Signal_Priority_Charge, BES_Controller.Signal_Priority_Charge) annotation();
+      connect(controlBus.BES.Signal_Priority_Discharge, BES_Controller.Signal_Priority_Discharge) annotation();
     end if;
 
     // Heating
     if heatingBusActive then
-      connect(controlBus.heatingBus, heating.controlBus);
+      connect(controlBus.Heating, heating.controlBus);
     end if;
-
-    // BEV
-    if bevControlType == ControlType.Limit_P then
-    elseif bevControlType == ControlType.External_P then
-    end if;
-
     // Outputs
-    connect(smartMeter.controlBus, controlBus.Meter) annotation ();
-    connect(batterySimple.P_max, controlBus.BES.P_max) annotation ();
-
+    connect(smartMeter.controlBus, controlBus.Meter) annotation();
+    connect(batterySimple.P_max, controlBus.BES.P_max) annotation();
+    connect(Battery_power.y, controlBus.BES.P) annotation (Line(points={{-119,-150},{-110,-150},{-110,-152},{-100,-152},{-100,0}}, color={0,0,127}), Text(
+      string="%second",
+      index=1,
+      extent={{6,3},{6,3}},
+      horizontalAlignment=TextAlignment.Left));
   end if;
 
   // Internal Controller Connections
 
   // --- normal connections -----------------------------------------------------------------
 
-  connect(genericDHIDNIDataTable.direct, PV.DNI_in) annotation (Line(points={{-42.6,31},{-42.6,32.4},{-22,32.4}}, color={0,0,127}));
-  connect(genericDHIDNIDataTable.diffuse, PV.DHI_in) annotation (Line(points={{-42.6,27},{-22,27},{-22,27.4}}, color={0,0,127}));
-  connect(genericWindspeedDataTable.value, PV.WindSpeed_in) annotation (Line(points={{-40,17.88},{-24,17.88},{-24,22},{-22,22}}, color={0,0,127}));
+  connect(genericDHIDNIDataTable.direct, PV.DNI_in) annotation (Line(points={{-81.2,64},{-72,64},{-72,32.4},{-22,32.4}},
+                                                                                                                  color={0,0,127}));
+  connect(genericDHIDNIDataTable.diffuse, PV.DHI_in) annotation (Line(points={{-81.2,56},{-32,56},{-32,27.4},{-22,27.4}},
+                                                                                                               color={0,0,127}));
+  connect(genericWindspeedDataTable.value, PV.WindSpeed_in) annotation (Line(points={{-80,29.8},{-36,29.8},{-36,22},{-22,22}},   color={0,0,127}));
   connect(smartMeter.epp_b, epp) annotation (Line(
       points={{9.2,-68},{9.2,-84},{0,-84},{0,-100}},
       color={0,127,0},
       thickness=0.5));
-  connect(realExpression.y, add_Kelvin_to_Celsius.u1) annotation (Line(points={{-23.2,
-          51},{-22,51},{-22,50},{-20.8,50},{-20.8,50.4}},                                                                       color={0,0,127}));
-  connect(table_Temperature.value, add_Kelvin_to_Celsius.u2) annotation (Line(points={{-40.6,45},{-26,45},{-26,45.6},{-20.8,45.6}},      color={0,0,127}));
-  connect(add_Kelvin_to_Celsius.y, PV.T_in) annotation (Line(points={{-11.6,48},{-22,48},{-22,38}},   color={0,0,127}));
-  connect(heating.T_amb, table_Temperature.value) annotation (Line(points={{40.8571,
-          75.7143},{36,75.7143},{36,60},{-40,60},{-40,45},{-40.6,45}},
-                                                                  color={0,0,127}));
   connect(inflexibleLoad.epp, smartMeter.epp_a) annotation (Line(
       points={{-70,-66},{-74,-66},{-74,-80},{-30,-80},{-30,-68},{-9.2,-68}},
       color={28,108,200},
       thickness=0.5));
   connect(BES_Controller.P_BES_out, batterySimple.P_set) annotation (Line(
-      points={{-68,0},{-58,0},{-58,-16},{-48,-16},{-48,-10.6}},
+      points={{-58,0},{-36,0},{-36,-14},{-28,-14},{-28,-10.6}},
       color={0,135,135},
       pattern=LinePattern.Dash));
   connect(BES_bool.y, controlBus.Configuration.BESActive) annotation (Line(points={{-119,-90},{-100,-90},{-100,0}},   color={255,0,255}), Text(
@@ -413,7 +420,7 @@ equation
       points={{-0.7,29.4},{4,29.4},{4,-30},{-16,-30},{-16,-68},{-9.2,-68}},
       color={28,108,200},
       thickness=0.5));
-  connect(BES_Controller.P_smartMeter, controlBus.Meter.P) annotation (Line(points={{-90,8},{-100,8},{-100,0}},   color={0,127,127}), Text(
+  connect(BES_Controller.P_smartMeter, controlBus.Meter.P) annotation (Line(points={{-80,8},{-100,8},{-100,0}},   color={0,127,127}), Text(
       string="%second",
       index=1,
       extent={{-3,-6},{-3,-6}},
@@ -428,12 +435,14 @@ equation
       color={0,135,135},
       pattern=LinePattern.Dash));
   connect(heating.epp, smartMeter.epp_a) annotation (Line(
-      points={{58.5714,62.8571},{58.5714,12},{4,12},{4,-30},{-16,-30},{-16,-68},
-          {-9.2,-68}},
+      points={{58.5714,62.8571},{58.5714,12},{4,12},{4,-30},{-16,-30},{-16,-68},{-9.2,-68}},
       color={28,108,200},
       thickness=0.5));
   connect(batterySimple.epp, smartMeter.epp_a) annotation (Line(
-      points={{-50,0},{-54,0},{-54,-30},{-16,-30},{-16,-68},{-9.2,-68}},
+      points={{-30,0},{-34,0},{-34,-68},{-9.2,-68}},
       color={28,108,200},
       thickness=0.5));
+
+  connect(genericTemperatureDataTableResource.Kelvin, heating.T_amb) annotation (Line(points={{-81,93},{34,93},{34,75.7143},{40.8571,75.7143}}, color={0,0,127}));
+  connect(genericTemperatureDataTableResource.Celsius, PV.T_in) annotation (Line(points={{-81,87},{-30,87},{-30,38},{-22,38}}, color={0,0,127}));
 end Prosumer;

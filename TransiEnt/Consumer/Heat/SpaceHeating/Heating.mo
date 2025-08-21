@@ -100,7 +100,7 @@ model Heating "Building Heating System"
 
   // --- External control ---
 
-  parameter ControlType controlType=Models_CyEntEE.CellModels.Controller.Base.ControlType.Internal
+  parameter ControlType controlType=TransiEnt.Basics.Types.ControlType.Internal
     "Type of control (see enumeration)"
     annotation (Evaluate=true, Dialog(group="External Control"));
 
@@ -310,7 +310,7 @@ model Heating "Building Heating System"
   //   Constants
   // ------------------------------------------------------------------------------------------
 
-  constant Models_CyEntEE.CellModels.Units.AirChangeRate airChangeRate=0.5;
+  constant TransiEnt.Basics.Units.AirChangeRate airChangeRate=0.5;
   constant Modelica.Units.SI.SpecificHeatCapacity cp_air=1012;
   constant Modelica.Units.SI.Density rho_air=1.225;
   constant Modelica.Units.SI.Density rho_water=998;

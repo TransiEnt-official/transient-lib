@@ -27,8 +27,10 @@ model Check_PVPlantControllable
     annotation (Placement(transformation(extent={{-90,80},{-70,100}})));
   inner TransiEnt.ModelStatistics modelStatistics
     annotation (Placement(transformation(extent={{-60,80},{-40,100}})));
-  TransiEnt.Components.Boundaries.Electrical.ComplexPower.SlackBoundary
-    slackBoundary(v_gen=400, f_n=50)
+  TransiEnt.Components.Boundaries.Electrical.ComplexPower.SlackBoundary_new
+    vDelta1(
+    v_n=400,
+    isFrequencyRoot=true,    f_n=50)
     annotation (Placement(transformation(extent={{34,-12},{54,8}})));
   TransiEnt.Basics.Tables.Ambient.Temperature_Hamburg_Fuhlsbuettel_3600s_2012
     temperature_Hamburg_3600s_IWEC_from_SAM
@@ -116,10 +118,6 @@ public
 
   end plotResult;
 equation
-  connect(slackBoundary.epp, pVPlantControllable.epp) annotation (Line(
-      points={{34,-2},{32,-2.6},{-0.7,-2.6}},
-      color={28,108,200},
-      thickness=0.5));
   connect(booleanStep.y, controlBus.SignalActive) annotation (Line(points={{101,-50},{106,-50},{106,-70},{30,-70}}, color={255,0,255}), Text(
       string="%second",
       index=1,
@@ -143,6 +141,10 @@ equation
       index=1,
       extent={{-6,3},{-6,3}},
       horizontalAlignment=TextAlignment.Right));
+  connect(vDelta1.epp, pVPlantControllable.epp) annotation (Line(
+      points={{34,-2},{32,-2.6},{-0.7,-2.6}},
+      color={28,108,200},
+      thickness=0.5));
   annotation (
     Diagram(          coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}})),

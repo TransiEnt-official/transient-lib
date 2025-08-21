@@ -1,7 +1,6 @@
 within TransiEnt.Producer.Electrical.Photovoltaics.Advanced_PV.DNIDHI_Input;
 model PVPlantControllable "Simple controllable efficiency-based PV model with complex power port"
-  extends Models_CyEntEE.CellModels.Controller.Base.Partial_ControlledModel;
-  import Models_CyEntEE.CellModels.Controller.Base.ControlType;
+  import TransiEnt.Basics.Types.ControlType;
 
 //________________________________________________________________________________//
 // Component of the TransiEnt Library, version: 2.0.2                             //
@@ -95,8 +94,8 @@ model PVPlantControllable "Simple controllable efficiency-based PV model with co
 
   //Parameters for IAM
   parameter Integer kind(
-    min=1,
-    max=4) = 1 "IAM for direct Irradiance" annotation (Dialog(tab="IAM", group="General", enable=not input_POA_irradiation),
+    max=4,
+    min=1)=1   "IAM for direct Irradiance" annotation (Dialog(tab="IAM", group="General", enable=not input_POA_irradiation),
       choices(
       choice=1 "Constant IAM",
       choice=2 "IAM as function of b0",
@@ -141,6 +140,10 @@ model PVPlantControllable "Simple controllable efficiency-based PV model with co
   parameter Boolean integratePowerDc=false "true if power shall be integrated";
   parameter Boolean integratePowerOut=false
     "true if output power shall be integrated";
+
+  parameter ControlType controlType=TransiEnt.Basics.Types.ControlType.Internal
+    "Type of control (see enumeration)"
+    annotation (Evaluate=true, Dialog(group="External Control"));
 
   parameter Boolean useControlBus=false "enable expandable controller with ability to control power output" annotation (Dialog(group="External Control"));
 
@@ -298,11 +301,13 @@ model PVPlantControllable "Simple controllable efficiency-based PV model with co
 public
   Modelica.Blocks.Sources.RealExpression realExpression1(y=max(0,(IAM.iam_dir*irradiance.irradiance_direct_tilted + IAM.iam_diff*irradiance.irradiance_diffuse_tilted + IAM.iam_ground*irradiance.irradiance_ground_tilted)*(100 - Soiling)/100)) if not input_POA_irradiation
                                                          annotation (Placement(transformation(extent={{-100,74},{-80,94}})));
-  Models_CyEntEE.CellModels.Controller.ProsumerControlBus controlBus if useControlBus annotation (Placement(transformation(extent={{-20,-120},{20,-80}}), iconTransformation(extent={{-20,-120},{20,-80}})));
-  Models_CyEntEE.CellModels.CPP.Boundaries.PQBoundary pq1(
-    useInputP=true,
-    useInputQ=true,
-    v_n=V_nominal) annotation (Placement(transformation(
+  TransiEnt.Basics.Interfaces.General.ControlBus          controlBus if useControlBus annotation (Placement(transformation(extent={{-20,-120},{20,-80}}), iconTransformation(extent={{-20,-120},{20,-80}})));
+  TransiEnt.Components.Boundaries.Electrical.ComplexPower.PQBoundary_new
+                                                      pq1(
+    v_n=V_nominal,
+    useInputConnectorP=true,
+    useInputConnectorQ=true)
+                   annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={70,0})));
@@ -433,7 +438,6 @@ equation
   end if;
   connect(POA_radiation_in, POA_Irradiation) annotation (Line(points={{-120,-2},{-68,-2},{-68,-6},{-18,-6}}, color={0,0,127}));
   connect(realExpression1.y, POA_Irradiation) annotation (Line(points={{-79,84},{-20,84},{-20,8},{-18,8},{-18,-6}}, color={0,0,127}));
-  connect(P_out_standard.y, pq1.inputP) annotation (Line(points={{109,-30},{76,-30},{76,-11}},                     color={0,0,127}));
   connect(pq1.epp, epp) annotation (Line(
       points={{80,0},{100,0}},
       color={28,108,200},
@@ -453,13 +457,10 @@ equation
       horizontalAlignment=TextAlignment.Right));
   connect(P_out_limit.y, LimitSwitch.u3) annotation (Line(points={{-71,-60},{-64,-60},{-64,-72},{-26,-72},{-26,-68},{-14,-68}}, color={0,0,127}));
   connect(gain.u, LimitSwitch.y) annotation (Line(points={{24,-60},{9,-60}},  color={0,0,127}));
-  connect(gain.y, pq1.inputP) annotation (Line(points={{47,-60},{76,-60},{76,-11}},                   color={0,0,127}));
   connect(Q_out_standard_2.y, maxQ_Limit.u) annotation (Line(points={{179,-90},{162,-90}}, color={0,0,127}));
   connect(maxQ_Limit.y, QLimiter.u) annotation (Line(points={{139,-90},{122,-90}}, color={0,0,127}));
-  connect(QLimiter.y, pq1.inputQ) annotation (Line(points={{99,-90},{78,-90},{78,-50},{64,-50},{64,-11}}, color={0,0,127}));
   connect(Q_limit.y, QLimiter.limit1) annotation (Line(points={{179,-110},{122,-110},{122,-98}}, color={0,0,127}));
   connect(Q_limit2.y, QLimiter.limit2) annotation (Line(points={{179,-70},{122,-70},{122,-82}}, color={0,0,127}));
-  connect(Q_out_standard.y, pq1.inputQ) annotation (Line(points={{109,-50},{64,-50},{64,-11}},                                     color={0,0,127}));
   connect(maxQ_Limit.u, controlBus.Q_input) annotation (Line(points={{162,-90},{170,-90},{170,-112},{26,-112},{26,-100},{0,-100}}, color={0,0,127}), Text(
       string="%second",
       index=1,
@@ -480,6 +481,10 @@ equation
       index=1,
       extent={{-6,3},{-6,3}},
       horizontalAlignment=TextAlignment.Right));
+  connect(QLimiter.y, pq1.Q_el_set) annotation (Line(points={{99,-90},{64,-90},{64,-11}}, color={0,0,127}));
+  connect(Q_out_standard.y, pq1.Q_el_set) annotation (Line(points={{109,-50},{64,-50},{64,-11}}, color={0,0,127}));
+  connect(P_out_standard.y, pq1.P_el_set) annotation (Line(points={{109,-30},{76,-30},{76,-11}}, color={0,0,127}));
+  connect(gain.y, pq1.P_el_set) annotation (Line(points={{47,-60},{76,-60},{76,-11}}, color={0,0,127}));
   annotation (
     Diagram(          coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}}), graphics={

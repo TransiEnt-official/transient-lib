@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Icons;
+within TransiEnt.Basics.Icons;
 model Temperature
 
 
@@ -34,10 +34,6 @@ extends TransiEnt.Basics.Icons.Model;
 
 
   annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
-        Text(
-          extent={{-46,-173},{254,-213}},
-          lineColor={0,134,134},
-          textString="%name"),
         Ellipse(
           extent={{-36,-100},{36,-32}},
           fillColor={238,46,47},
