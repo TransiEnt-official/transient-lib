@@ -19,7 +19,7 @@ model Check_Prosumer "Test Model for automated generatrion from CDB and Prosumer
   inner TransiEnt.ModelStatistics modelStatistics
     annotation (Placement(transformation(extent={{-50,78},{-30,98}})));
 
-TransiEnt.Components.Electrical.Prosumer.Prosumer household_noController(
+TransiEnt.Components.Electrical.Prosumer.Prosumer Prosumer(
     photovoltaicControlType=TransiEnt.Basics.Types.ControlType.Limit_P,
     batteryControlType=TransiEnt.Basics.Types.ControlType.Limit_P,
     heatingControlType=TransiEnt.Basics.Types.ControlType.Limit_P,
@@ -61,8 +61,7 @@ TransiEnt.Components.Electrical.Prosumer.Prosumer household_noController(
         Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         id=2,
         Bat_PowerLimit=11000,
-        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3())})
-                                                                                     annotation (Placement(transformation(extent={{-19.8,-19.73},{20,20}})));
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3())}) annotation (Placement(transformation(extent={{-19.8,-19.73},{20,20}})));
 
   TransiEnt.Components.Boundaries.Electrical.ComplexPower.SlackBoundary_new
                                                                         ElectricGrid(
@@ -79,11 +78,11 @@ TransiEnt.Components.Electrical.Prosumer.Prosumer household_noController(
 equation
 
 
-  connect(household_noController.epp, ElectricGrid.epp) annotation (Line(
+  connect(Prosumer.epp, ElectricGrid.epp) annotation (Line(
       points={{0.1,-19.73},{0.1,-30},{0,-30},{0,-40},{70,-40},{70,0},{80,0}},
       color={28,108,200},
       thickness=0.5));
-  connect(controlBus, household_noController.controlBus) annotation (Line(
+  connect(controlBus, Prosumer.controlBus) annotation (Line(
       points={{-100,0},{-26,0},{-26,0.135},{-19.8,0.135}},
       color={255,204,51},
       thickness=0.5), Text(
