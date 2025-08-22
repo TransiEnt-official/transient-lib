@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat.VolumesValvesFittings.Pipes;
+within TransiEnt.Components.Heat.VolumesValvesFittings.Pipes;
 model SinglePipe_L2 "Model of a pipe for use in district heating networks"
 
 
@@ -20,7 +20,7 @@ model SinglePipe_L2 "Model of a pipe for use in district heating networks"
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -64,8 +64,8 @@ model SinglePipe_L2 "Model of a pipe for use in district heating networks"
                                                                       annotation(Dialog(group="Geometry"));
   parameter SI.Length diameter_o = 0.09 "Outer Diameter of the pipe"
                                                                     annotation(Dialog(group="Geometry"));
-  parameter SI.Height z_in = 1 "Inlet Height of the pipe";
-  parameter SI.Height z_out = 1 "Outlet Height of the pipe";
+  parameter SI.Height z_in = 1 "Inlet Height of the pipe" annotation (Dialog(group="Geometry"));
+  parameter SI.Height z_out = 1 "Outlet Height of the pipe" annotation (Dialog(group="Geometry"));
   parameter SI.Length pipe_wall_thickness = 0.0026 "Pipe Wall Thickness"
                                                                         annotation(Dialog(group="Geometry"));
   parameter SI.Length K = simCenter.K "average height of surface asperities"
