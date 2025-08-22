@@ -3,7 +3,7 @@ model TestHeatConsumerNode
   extends TransiEnt.Basics.Icons.Checkmodel;
   inner SimCenter            simCenter(
     p_nom={60000000000,160000000000},
-    activate_consumer_pipes=0,
+    activate_consumer_pipes=1,
     activate_volumes=false,
     T_supply=383.15,
     T_return=363.15,                   K(displayUnit="mm") = 2e-05,
@@ -25,7 +25,8 @@ model TestHeatConsumerNode
         origin={-78,-30})));
   HeatConsumerSubstation consumer annotation (Placement(transformation(extent={{60,36},{80,56}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DoublePipePair_L2 doublePipePair_L2 annotation (Placement(transformation(extent={{4,-22},{24,-2}})));
-  TransiEnt.Components.Heat.node node annotation (Placement(transformation(
+  TransiEnt.Components.Heat.node node(n=2)
+                                      annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={70,10})));
@@ -46,19 +47,19 @@ equation
   connect(T_ground.port, doublePipePair_L2.heat_supply) annotation (Line(points={{-16,42},{14,42},{14,-2}}, color={191,0,0}));
   connect(T_ground.port, doublePipePair_L2.heat_return) annotation (Line(points={{-16,42},{8,42},{8,2},{-6,2},{-6,-26},{14,-26},{14,-22}}, color={191,0,0}));
   connect(doublePipePair_L2.waterPortOut_supply, node.waterPort_supply[1]) annotation (Line(
-      points={{24,-8},{65,-8},{65,10}},
+      points={{24,-8},{65.4,-8},{65.4,10}},
       color={175,0,0},
       thickness=0.5));
   connect(node.waterPort_supply[2], consumer.waterPortIn) annotation (Line(
-      points={{65,10},{64,10},{64,36}},
+      points={{64.6,10},{64,10},{64,36}},
       color={175,0,0},
       thickness=0.5));
   connect(doublePipePair_L2.waterPortIn_return, node.waterPort_return[2]) annotation (Line(
-      points={{24.2,-16},{82,-16},{82,10.1},{74.5,10.1}},
+      points={{24.2,-16},{82,-16},{82,10.1},{74.075,10.1}},
       color={175,0,0},
       thickness=0.5));
   connect(consumer.waterPortOut, node.waterPort_return[1]) annotation (Line(
-      points={{76.1,35.9},{76.1,10.1},{74.5,10.1}},
+      points={{76.1,35.9},{76.1,10.1},{74.925,10.1}},
       color={175,0,0},
       thickness=0.5));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(preserveAspectRatio=false)),

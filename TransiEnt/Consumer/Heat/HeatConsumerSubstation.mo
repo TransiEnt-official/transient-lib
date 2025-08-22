@@ -58,10 +58,9 @@ model HeatConsumerSubstation
       {1,0,0}) "Constant Water Density";
 
   parameter Modelica.Units.SI.Length d_i=sqrt((4*Q_max)/(Modelica.Constants.pi*simCenter.v_nom*rho*cp_w*(simCenter.T_supply - simCenter.T_return)));
-  //parameter Integer rowIdx= IntegraNet.Basics.Functions.getClosest(d_i * 1000,
-                                                               //    simCenter.DHN_Pipe_Manufacturer.rowAmount,
-                                                               //    simCenter.DNmat);
-  parameter Integer DN =20; //integer(simCenter.DNmat[rowIdx, 1]);
+  parameter Integer rowIdx = TransiEnt.Basics.Functions.getClosest(     d_i * 1000,
+                                                                   simCenter.DNmat);
+  parameter Integer DN = integer(simCenter.DNmat[rowIdx, 1]);
 
   parameter Integer activate_ha = simCenter.activate_consumer_pipes;
 
