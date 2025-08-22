@@ -43,7 +43,6 @@ model HeatConsumerSubstation
   parameter Integer column_dhw=2;
 
   parameter Modelica.Units.SI.HeatFlowRate Q_max=90*1000;
-  parameter Real imperfection_rate = 0.1;
   parameter Modelica.Units.SI.Length l_supply_pipes=20;
   parameter Integer useNode = 1;
   final parameter Modelica.Units.SI.SpecificHeatCapacity cp_w=TILMedia.VLEFluidFunctions.specificIsobaricHeatCapacity_pTxi(

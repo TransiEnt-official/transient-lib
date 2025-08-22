@@ -125,7 +125,7 @@ equation
           fillPattern=FillPattern.Solid)}), Diagram(coordinateSystem(preserveAspectRatio=false)),
     Documentation(info="<html>
 <p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">1. Purpose of model</span></b></p>
-<p><span style=\"font-family: MS Shell Dlg 2;\">This model represents a district-heating node. It performs ideal mixing of several supply and return branches and applies a first-order dynamic on specific enthalpy and mass flows at the connection points to simulate transport delays.</span></p>
+<p><span style=\"font-family: MS Shell Dlg 2;\">This model represents a district-heating node. It performs ideal mixing separately for the supply side and the return side. It applies a first-order dynamic on specific enthalpy and mass flows at the connection points to simulate transport delays.</span></p>
 <p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">2. Level of detail, physical effects considered, and physical insight</span></b></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">Ideal mixing of mass fractions and enthalpy.</span></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">Mass conservation for supply and return.</span></p>
@@ -138,7 +138,7 @@ equation
 <p><span style=\"font-family: MS Shell Dlg 2;\">(no remarks)</span></p>
 <p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">6. Governing Equations</span></b></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">Mass balance: Total inflows equal zero.</span></p>
-<p><span style=\"font-family: MS Shell Dlg 2;\">Equal pressure across all port.</span></p>
+<p><span style=\"font-family: MS Shell Dlg 2;\">Equal pressure: All supply ports share the same pressure and all return ports share the same pressure</span></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">Ideal mixing (mass-flow-weighted).</span></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">First-order delay for enthalpy and mass flow.</span></p>
 <p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">7. Remarks for Usage</span></b> </p>
