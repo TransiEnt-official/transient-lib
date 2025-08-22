@@ -23,7 +23,7 @@ model TestHeatConsumerNode
         extent={{-10,-10},{10,10}},
         rotation=0,
         origin={-78,-30})));
-  Consumer.Heat.heat_consumer consumer annotation (Placement(transformation(extent={{60,36},{80,56}})));
+  HeatConsumerSubstation consumer annotation (Placement(transformation(extent={{60,36},{80,56}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DoublePipePair_L2 doublePipePair_L2 annotation (Placement(transformation(extent={{4,-22},{24,-2}})));
   TransiEnt.Components.Heat.node node annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},

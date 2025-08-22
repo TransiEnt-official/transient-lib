@@ -148,7 +148,7 @@ equation
 <p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">9. References</span></b></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">(no remarks)</span></p>
 <p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">10. Version History</span></b></p>
-<p><span style=\"font-family: MS Shell Dlg 2;\">Model created by Gas- und W&auml;rme-Institut Essen und XRG, 2020 </span></p>
+<p><span style=\"font-family: MS Shell Dlg 2;\">Model created by Gas- und W&auml;rme-Institut Essen and XRG, 2022 </span></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">Modified by Stefanie Ruppert, 2025</span></p>
 </html>"));
 end node;

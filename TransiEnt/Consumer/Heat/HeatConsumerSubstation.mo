@@ -1,5 +1,5 @@
 within TransiEnt.Consumer.Heat;
-model heat_consumer
+model HeatConsumerSubstation
 
 //________________________________________________________________________________//
 // Component of the TransiEnt Library, version: 2.0.3                             //
@@ -45,7 +45,7 @@ model heat_consumer
   parameter Modelica.Units.SI.HeatFlowRate Q_max=90*1000;
   parameter Real imperfection_rate = 0.1;
   parameter Modelica.Units.SI.Length l_supply_pipes=20;
-  parameter Integer useNodes = 1;
+  parameter Integer useNode = 1;
   final parameter Modelica.Units.SI.SpecificHeatCapacity cp_w=TILMedia.VLEFluidFunctions.specificIsobaricHeatCapacity_pTxi(
       simCenter.fluid1,
       simCenter.p_nom[2],
@@ -108,7 +108,7 @@ model heat_consumer
         extent={{18.1277,17.8723},{-18.1277,-17.8723}},
         rotation=270,
         origin={-0.1277,-68.1277})));
-  TransiEnt.Components.Heat.node node(n=2) if activate_ha == 1 and useNodes == 1 annotation (Placement(transformation(
+  TransiEnt.Components.Heat.node node(n=2) if activate_ha == 1 and useNode == 1 annotation (Placement(transformation(
         extent={{-15.188,16.0099},{15.188,-16.0099}},
         rotation=180,
         origin={2.812,-35.9901})));
@@ -158,7 +158,7 @@ equation
         color={175,0,0},
         thickness=0.5));
 
-  elseif activate_ha == 1 and useNodes == 0 then
+  elseif activate_ha == 1 and useNode == 0 then
     connect(pipe_ha.waterPortOut_supply, substation.waterPortIn);
     connect(substation.waterPortOut, pipe_ha.waterPortIn_return);
      connect(T_ground.port, pipe_ha.heat_supply) annotation (Line(points={{-42,-67.5},{-24,-67.5},{-24,-68.1277},{-18,-68.1277}}, color={191,0,0}));
@@ -230,13 +230,13 @@ equation
 <p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">6. Governing Equations</span></b></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">(no remarks)</span></p>
 <p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">7. Remarks for Usage</span></b> </p>
-<p><span style=\"font-family: MS Shell Dlg 2;\">provide file paths for profiles; set activate_ha/useNodes according to the desired network configuration; ensure realistic simCenter temperature and pressure levels. </span></p>
+<p><span style=\"font-family: MS Shell Dlg 2;\">provide file paths for profiles; set activate_ha/useNode according to the desired network configuration; ensure realistic simCenter temperature and pressure levels. </span></p>
 <p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">8. Validation</span></b></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">(no remarks)</span></p>
 <p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">9. References</span></b></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">(no remarks)</span></p>
 <p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">10. Version History</span></b></p>
-<p><span style=\"font-family: MS Shell Dlg 2;\">Model created by Gas- und W&auml;rme-Institut Essen und XRG, 2020 </span></p>
+<p><span style=\"font-family: MS Shell Dlg 2;\">Model created by Gas- und W&auml;rme-Institut Essen and XRG, 2022 </span></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">Modified by Stefanie Ruppert, 2025</span></p>
 </html>"));
-end heat_consumer;
+end HeatConsumerSubstation;
