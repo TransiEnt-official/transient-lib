@@ -67,7 +67,7 @@ model Join_L2_Y "Join model extended from the ClaRa library"
 <p>The volume of the split has to be known. Moreover, the chosen pressure loss model has to fit the investigation purpose.</p>
 <h4><span style=\"color: #008000\">Interfaces</span></h4>
 <p>The model of the split and the join are similiar.</p>
-<p><img src=\"modelica://TransiEnt/../../../JanWestphalLaufwerk/TransiEnt/Split.jpg\"/></p>
+<p><img src=\"modelica://TransiEnt/Images/Schemes/Split.jpg\"/></p>
 <h4><span style=\"color: #008000\">Governing Equations</span></h4>
 <p>The equations have been simplified for an easier description of the model.</p>
 <p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-oBLcMls4.png\" alt=\"V*rho*(dh/dt)=m_in*h_in+m_out1*h_out1+m_out2*h_out2\"/></p>

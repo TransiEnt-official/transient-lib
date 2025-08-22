@@ -324,13 +324,13 @@ equation
 <p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-VZftZepB.png\" alt=\"m_in=V*rho\"/></p>
 <p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-2Juk3pEh.png\" alt=\"p_in-P_out=dp\"/></p>
 <p><img src=\"modelica://TransiEnt/Images/equations/equation_CompressorRealGasesIsentropicEff.png\"/></p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
-<p>(no remarks)</p>
+<h4><span style=\"color: #008000\">Remarks for Usage</span></h4>
+<p>No reverse flow possible</p>
 <h4><span style=\"color: #008000\">Validation</span></h4>
 <p>(no remarks) </p>
 <h4><span style=\"color: #008000\">References</span></h4>
 <p>(no remarks) </p>
-<h4><span style=\"color: #008000\">Version History</span></h4>
-<p><br>Model created by Carsten Bode (c.bode@tuhh.de) in Apr 2017</p>
+<p><b><span style=\"color: #008000;\">Version History</span></b></p><p>Model created by Carsten Bode (c.bode@tuhh.de) in Apr 2017</p>
+<p>Model documented by Jan Westphal (j.westphal@tuhh.de) in August 2025</p>
 </html>"),Icon(graphics));
 end PumpVLE_L1_simple;

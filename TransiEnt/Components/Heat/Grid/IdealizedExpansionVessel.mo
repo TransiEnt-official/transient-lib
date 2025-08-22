@@ -108,6 +108,9 @@ equation
 <p><span style=\"font-family: MS Shell Dlg 2;\">p_out=p_set</span></p>
 <p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Remarks for Usage</span></b></p>
 <p>This model is basically a pressure boundary. It is important to note that it is often necessary to dictate the pressure in a hydraulic model for the model to simulated. </p>
+<h4><span style=\"color: #008c48\">Validation</span></h4>
+<p>This model was tested in the following test model:</p>
+<p>TransiEnt.Components.Heat.Grid.Check.Test_ExpansionVessel</p>
 <p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Version History</span></b></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">Model created by Tobias Ramm (tobias.ramm@tuhh.de), Jun 2015</span></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">Modified by Lisa Andresen (andresen@tuhh.de), Dec 2015</span></p>

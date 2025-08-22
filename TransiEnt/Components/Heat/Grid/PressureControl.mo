@@ -143,26 +143,20 @@ equation
                                                coordinateSystem(
           preserveAspectRatio=false, extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">1. Purpose of model</span></b></p>
-<p><span style=\"font-family: MS Shell Dlg 2;\">Pump regulated by fixed target pressure difference in hydraulic grid. </span></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">2. Level of detail, physical effects considered, and physical insight</span></b></p>
-<p><span style=\"font-family: MS Shell Dlg 2;\">(Purely technical component without physical modeling.)</span></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">3. Limits of validity </span></b></p>
-<p><span style=\"font-family: MS Shell Dlg 2;\">(Purely technical component without physical modeling.)</span></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">4. Interfaces</span></b></p>
-<p><span style=\"font-family: MS Shell Dlg 2;\">fPReturnConsumer, fPSupplyConsumer - fluid ports</span></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">5. Nomenclature</span></b></p>
-<p><span style=\"font-family: MS Shell Dlg 2;\">(no elements)</span></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">6. Governing Equations</span></b></p>
-<p><span style=\"font-family: MS Shell Dlg 2;\">(no equations)</span></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">7. Remarks for Usage</span></b></p>
-<p><span style=\"font-family: MS Shell Dlg 2;\">(no remarks)</span></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">8. Validation</span></b></p>
-<p><span style=\"font-family: MS Shell Dlg 2;\">(no validation or testing necessary)</span></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">9. References</span></b></p>
-<p><span style=\"font-family: MS Shell Dlg 2;\">(no remarks)</span></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">10. Version History</span></b></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Purpose of model</span></b></p>
+<p><span style=\"font-family: MS Shell Dlg 2;\">A model of a pump that is used to regulate a fixed pressure difference in a hydraulic grid. A constant pressure difference (dp_target) can be set by the user. The pressure difference is measured with two pressure sensors before and after the pump. A PI-Controler is used to set the power of the pump so that the target pressure difference is kept. The pump model is from the ClaRa Library and documented there. Furthermore a similiar pump model is used in the TransiEnt Library and explained in the documentation here: </span></p>
+<p><span style=\"font-family: MS Shell Dlg 2;\">TransiEnt.Components.Heat.PumpVLE_L1_simple</span></p>
+<p><span style=\"font-family: MS Shell Dlg 2;\">The PI-Controler is from the Modelica Standard Library. There are three other models with a similiar purpose located here: TransiEnt.Components.Heat.Grid</span></p>
+<h4><span style=\"color: #008c48\">Remarks for Usage</span></h4>
+<p>The pressure at the outlet of the model can not be determined by the hydraulic grid. Otherwise a simulation won&apos;t run. </p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Interfaces</span></b></p>
+<p>waterPortIn: fluid inlet connected to the hydraulic grid</p>
+<p>waterPortOut: fluid outlet connected to the hydraulic grid</p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">References</span></b></p>
+<p><span style=\"font-family: MS Shell Dlg 2;\">The pump model is from the ClaRa Library and documented there.</span></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Version History</span></b></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">Model created by Arne Koeppen (arne.koeppen@tuhh.de) June 2014</span></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">Model modified by Lisa Andresen (andresen@tuhh.de) October 2014</span></p>
+<p><span style=\"font-family: MS Shell Dlg 2;\">Model documented by Jan Westphal (j.westphal@tuhh.de) August 2025</span></p>
 </html>"));
 end PressureControl;

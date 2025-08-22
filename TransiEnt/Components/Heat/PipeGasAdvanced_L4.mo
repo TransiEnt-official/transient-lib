@@ -270,28 +270,25 @@ annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-140,-40},
                             Diagram(coordinateSystem(preserveAspectRatio=false,
                  extent={{-140,-40},{140,40}})),
     Documentation(info="<html>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">1. Purpose of model</span></b></p>
-<p>Pipe model using the advanced gas control volumes with dynamic momentum balance from the ClaRa and a thermal insulation model.</p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">2. Level of detail, physical effects considered, and physical insight</span></b></p>
-<p>(no remarks)</p>
-<p><br><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">3. Limits of validity </span></b></p>
-<p>(no remarks)</p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">4. Interfaces</span></b></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Purpose of model</span></b></p>
+<p>Pipe model using the advanced gas control volumes with dynamic momentum balance, a dynamic mass balance and a dynamic energy balance from the ClaRa and a thermal insulation model. The control volume considers a pressure loss due to friction according to the chosen pressure loss model and occuring heat transfer. The gas properties are calculated with fluid models from TIL media. </p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Level of detail, physical effects considered, and physical insight</span></b></p>
+<ul>
+<li>pressure losses due to friction</li>
+<li>occuring heat transfer and heat conduction through the pipe wall</li>
+<li>dynamic energy, mass and momentum balance</li>
+</ul>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Interfaces</span></b></p>
 <ol>
 <li>Fluid Inlet</li>
-<li>Fluidr Outlet</li>
+<li>Fluid Outlet</li>
 </ol>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">5. Nomenclature</span></b></p>
-<p><span style=\"font-family: MS Shell Dlg 2;\">(no remarks)</span></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">6. Governing Equations</span></b></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Governing Equations</span></b></p>
 <p>(no remarks)</p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">7. Remarks for Usage</span></b></p>
-<p><span style=\"font-family: MS Shell Dlg 2;\">(no remarks)</span></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">8. Validation</span></b></p>
-<p>(no remarks)</p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">9. References</span></b></p>
-<p><span style=\"font-family: MS Shell Dlg 2;\">(no remarks)</span></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">10. Version History</span></b></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">References</span></b></p>
+<p><span style=\"font-family: MS Shell Dlg 2;\">The used component models like the control volume and the insulation are from the ClaRa Library and documented there. </span></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Version History</span></b></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">First Version in 04.2020 for the research project Future Energy Solution (FES) by Michael von der Heyde (heyde@tuhh.de)</span></p>
+<p><span style=\"font-family: MS Shell Dlg 2;\">Model documented by Jan Westphal in August 2025 (j.westphal@tuhh.de)</span></p>
 </html>"));
 end PipeGasAdvanced_L4;

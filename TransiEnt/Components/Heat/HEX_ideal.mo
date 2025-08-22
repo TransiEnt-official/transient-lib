@@ -20,7 +20,7 @@ model HEX_ideal "Ideal static heat exchanger model"
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -95,7 +95,7 @@ equation
   inStream(waterPortIn.xi_outflow) = waterPortOut.xi_outflow;
   inStream(waterPortOut.xi_outflow) = waterPortIn.xi_outflow;
 
-  //Impulse balance
+  //Momentum balance
   waterPortIn.p = waterPortOut.p+Delta_p;
 
   //Energy balance

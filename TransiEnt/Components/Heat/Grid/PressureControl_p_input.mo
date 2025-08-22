@@ -91,7 +91,8 @@ model PressureControl_p_input "ClaRa pump regulated by pressure in heat grid "
         rotation=90,
         origin={32,-66})));
 
-  Modelica.Blocks.Sources.Constant p_set_Consumer(k=p_set)  annotation (Placement(transformation(extent={{6,-6},{-6,6}}, rotation=90)));
+  Modelica.Blocks.Sources.Constant p_set_Consumer(k=p_set)  annotation (Placement(transformation(extent={{6,-6},{-6,6}}, rotation=90,
+        origin={-10,76})));
   Modelica.Blocks.Math.Feedback feedbackLoop
     annotation (Placement(transformation(extent={{-6,-6},{6,6}},
         rotation=270,
@@ -105,7 +106,7 @@ model PressureControl_p_input "ClaRa pump regulated by pressure in heat grid "
   Modelica.Blocks.Math.Gain pascal2Bar(k=1e-5) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=-90,
-        origin={-10,20})));
+        origin={-10,22})));
   Modelica.Blocks.Nonlinear.Limiter limiter(uMax=P_max, uMin=P_min)
                                                                    annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
@@ -150,15 +151,14 @@ equation
       color={0,131,169},
       thickness=0.5,
       smooth=Smooth.None));
-  connect(feedbackLoop.u1,p_set_Consumer.y)  annotation (Line(points={{-10,54.8},{-10,24},{-10,-6.6},{0,-6.6}}, color={0,0,127}));
+  connect(feedbackLoop.u1,p_set_Consumer.y)  annotation (Line(points={{-10,54.8},{-10,69.4}},                   color={0,0,127}));
   connect(gain.y, feedbackLoop.u2) annotation (Line(points={{-53.2,50},{-53.2,50},{-14.8,50}},      color={0,0,127}));
   connect(gain.u, p_measured) annotation (Line(points={{-71.6,50},{-71.6,50},{-108,50}},
                                                                                      color={0,0,127}));
   connect(deadZone.y, PI.u) annotation (Line(points={{-10,-51},{-10,-51},{-10,-84},{32,-84},{32,-78}},
                                                                                                     color={0,0,127}));
-  connect(feedbackLoop.y, pascal2Bar.u) annotation (Line(points={{-10,44.6},{-10,44.6},{-10,32}},
-                                                                                       color={0,0,127}));
-  connect(pascal2Bar.y, deadZone.u) annotation (Line(points={{-10,9},{-10,9},{-10,-28}},   color={0,0,127}));
+  connect(feedbackLoop.y, pascal2Bar.u) annotation (Line(points={{-10,44.6},{-10,34}}, color={0,0,127}));
+  connect(pascal2Bar.y, deadZone.u) annotation (Line(points={{-10,11},{-10,-28}},          color={0,0,127}));
   connect(limiter.y, pump_L1_simple.P_drive) annotation (Line(points={{32,-21},{32,-12}}, color={0,0,127}));
   connect(limiter.u, PI.y) annotation (Line(points={{32,-44},{32,-44},{32,-55}}, color={0,0,127}));
 
@@ -173,28 +173,17 @@ equation
           points={{-60,80},{100,2},{-60,-80}},
           color={0,0,255},
           smooth=Smooth.None)}),Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
-<p>Regulated pump due to a target pressure in hydraulic grid.</p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
-<p>(Purely technical component without physical modeling.)</p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
-<p>(Purely technical component without physical modeling.)</p>
-<h4><span style=\"color: #008000\">4. Interfaces</span></h4>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
+<p>Regulated pump due to a target pressure in hydraulic grid. The model contains of a pump, two pressure sensors and a PI-Controller. The power of the pump is set by the PI-Controller so that the pressure difference at the bad point of the hydraulic grid remains constant at a target pressure difference. The pressure difference at the bad point is given by a RealInput. This control concept is often used in district heating networks. The Input for the PI-Controller is calculated with that input, the target pressure difference and a feedback block. The pump model is from the ClaRa Library and documented there. Furthermore a similiar pump model is used in the TransiEnt Library and explained in the documentation here: </p>
+<p>TransiEnt.Components.Heat.PumpVLE_L1_simple</p>
+<p>The PI-Controller is from the Modelica Standard Library. A limiter block is used to limit the output of the PI-Controller.</p>
+<h4><span style=\"color: #008000\">Interfaces</span></h4>
 <p>waterPortIn: fluidport supply on consumer side</p>
 <p>waterPortOut: fluidport return on consumer side</p>
 <p>p_measured: input for pressure in Pa</p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
-<p>(no equations)</p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
-<p>(no validation or testing necessary)</p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
+<h4><span style=\"color: #008000\">Version History</span></h4>
 <p><span style=\"font-family: MS Shell Dlg 2;\">Model created by Tobias Ramm (tobias.ramm@tuhh.de) November 2015</span></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">Model modified by Lisa Andresen (andresen@tuhh.de) December 2015</span></p>
+<p><span style=\"font-family: MS Shell Dlg 2;\">Model documented by Jan Westphal (j.westphal@tuhh.de) August 2025</span></p>
 </html>"));
 end PressureControl_p_input;

@@ -50,7 +50,7 @@ model Valve "Valve model. Extends from ClaRa ValveVLE_L1"
 <p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-MOWAYCTK.png\" alt=\"0=m_in+m_out\"/></p>
 <p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-DczccXEk.png\" alt=\"h_in=h_out\"/></p>
 <p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-quOP81Oj.png\" alt=\"p_in-p_out=delta_p\"/></p>
-<p>delta_p is calculated according to the chosen pressure loss model</p>
+<p>delta_p is calculated according to the chosen pressure loss model and the opening of the valve</p>
 <h4><span style=\"color: #008000\">References</span></h4>
 <p>The model was extended from the ClaRa library.</p>
 <h4><span style=\"color: #008000\">Version History</span></h4>

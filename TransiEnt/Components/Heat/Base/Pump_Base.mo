@@ -126,26 +126,13 @@ equation
       thickness=0.5,
       smooth=Smooth.None));
   annotation (Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
-<p>base class for pump models</p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">4. Interfaces</span></h4>
-<p>fluidPortIn</p>
-<p>fluidPortOut</p>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
+<p>A base class for pump models. It contains of two fluid ports with two fluid models for each. A pressure difference, a volume flow rate and a hydraulic power are defined. </p>
+<h4><span style=\"color: #008000\">Interfaces</span></h4>
+<p>fluidPortIn: fluid inlet connected to the hydraulic circuit</p>
+<p>fluidPortOut: fluid outlet connected to the hydraulic circuit</p>
 <p>eye: EyeOut</p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
-<p>(no equations)</p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
-<p>(no validation or testing necessary)</p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
+<h4><span style=\"color: #008000\">Version History</span></h4>
+<p>This model was documented by Jan Westphal (j.westphal@tuhh.de) August 2025</p>
 </html>"));
 end Pump_Base;

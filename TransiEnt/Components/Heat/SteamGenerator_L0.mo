@@ -78,6 +78,8 @@ equation
     Documentation(info="<html>
 <h4><span style=\"color: #008000\">Purpose of model</span></h4>
 <p>A generic model of a steam generator. It calculates the heat flow output of a basic steam generator from a set heat flow rate. The thermal inertia of the steam generator is considered with the combination of a firstOrder and a delay model from the Modelica Standard Library. The time constant T_G of the first order block and the delay time T_u can be set by the user. </p>
+<p>The model is used to create the model of a power plant, that can be found here:</p>
+<p>TransiEnt.Producer.Electrical.Conventional.Components.VDI3508Plant</p>
 <h4><span style=\"color: #008000\">Level of detail, physical effects considered, and physical insight</span></h4>
 <p>L0 (defined in the CodingConventions)</p>
 <ul>

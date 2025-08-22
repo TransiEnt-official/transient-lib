@@ -132,31 +132,25 @@ equation
       color={167,25,48},
       thickness=0.5));
   annotation (Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
 <p>Model for thermal insulation to the environment if static heat transfer, 1 heat flow path and 1 material layer is considered</p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
+<h4><span style=\"color: #008000\">Level of detail, physical effects considered, and physical insight</span></h4>
 <ul>
 <li>L4 discretization in axial direction</li>
 <li>lateral static heat transfer</li>
 </ul>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
+<h4><span style=\"color: #008000\">Limits of validity </span></h4>
 <ul>
 <li>constant insulation thickness in axial direction</li>
 <li>constant insulation surface in lateral direction</li>
 </ul>
-<h4><span style=\"color: #008000\">4. Interfaces</span></h4>
-<p>(none)</p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
-<p>(no equations)</p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
-<p>(none)</p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
-<p>(no validation or testing necessary)</p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
-<p>(none)</p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
+<h4><span style=\"color: #008000\">Interfaces</span></h4>
+<p>Heat port</p>
+<h4><span style=\"color: #008c48\">References</span></h4>
+<p>The model was tested in this test model:</p>
+<p>TransiEnt.Components.Heat.ThermalInsulation.Check.TestThermalInsulation</p>
+<p>It was created for the Research Projekt &quot;Future Energy Solution&quot;</p>
+<h4><span style=\"color: #008000\">Version History</span></h4>
 <p>Model created by Michael von der Heyde (heyde@tuhh.de) for the Research Project &quot;Future Energy Solution&quot; (FES), 2020</p>
 </html>"));
 end ThermalInsulation_static_1way_1layer;

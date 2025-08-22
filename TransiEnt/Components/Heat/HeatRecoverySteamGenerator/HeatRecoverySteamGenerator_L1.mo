@@ -465,45 +465,43 @@ equation
           color={0,0,0},
           thickness=0.5)}), Diagram(coordinateSystem(preserveAspectRatio=false)),
     Documentation(info="<html>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">1. Purpose of model</span></b></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Purpose of model</span></b></p>
 <p>Model for heat recovery steam generator based on pinch point analysis.</p>
 <p>The model has been developed to account for the load dependend effect of the water-steam side on the gas outlet temperature without the necessity to use dynamic balance equations for the water/steam side.</p>
 <p>It is thus a compromise of numerical robustness and calucations speed as well as physical insight.</p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">2. Level of detail, physical effects considered, and physical insight</span></b></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Level of detail, physical effects considered, and physical insight</span></b></p>
 <ul>
 <li>The outlet temperatures of air and steam are determined from pinch-point analysis. </li>
 <li>No detailled design information, such as surface areas have to be known.</li>
 <li><span style=\"font-family: MS Shell Dlg 2;\">Air side outlet temperature dynamics is artificially corrected with PT1, according to thermal energy storage in internal steel mass.</span></li>
 </ul>
-<p><br><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">3. Limits of validity </span></b></p>
+<p><br><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Limits of validity </span></b></p>
 <ul>
 <li><span style=\"font-family: MS Shell Dlg 2;\">This model is only valid for once through/benson type heat recovery steam generator with a single pressure level. For these, the pinch point is at the evaporator outlet (in gas flow direction).</span></li>
 <li><span style=\"font-family: MS Shell Dlg 2;\">The air flow direction is assumed as vertical.</span></li>
 <li><span style=\"font-family: MS Shell Dlg 2;\">A constant pinch point and approach point temperature difference is used.</span></li>
 <li><span style=\"font-family: MS Shell Dlg 2;\">At very low loads, such as during start up and cool down, a minimum water flow rate is assured in the evaporator by means of a blow down flow. </span></li>
 </ul>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">4. Interfaces</span></b></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Interfaces</span></b></p>
 <ol>
 <li>Air Inlet</li>
 <li>Air Outlet</li>
 <li>Water inlet</li>
 <li>Steam Outlet</li>
 </ol>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">5. Nomenclature</span></b></p>
-<p><span style=\"font-family: MS Shell Dlg 2;\">(no remarks)</span></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">6. Governing Equations</span></b></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Governing Equations</span></b></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">The air temperature at the pinch point is determined from the water saturation temperature at the steam outlet pressure, as set by steam turbine or bypass.</span></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">The heat available from the gas flow upstream of this point is used for steam generation and superheating and determines the steam and feedwater massflow. </span></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">7. Remarks for Usage</span></b></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Remarks for Usage</span></b></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">(no remarks)</span></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">8. Validation</span></b></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Validation</span></b></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">The model has been validated with the heat recovery steam generator of the Electric Thermal Energy Storage demonstration plant of Siemens Gamesa Renewable Energy in Hamburg-Bergedorf, Germany.</span></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">9. References</span></b></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">References</span></b></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">[1] V.L. Eriksen (Ed.), Heat recovery steam generator technology, Woodhead Publishing, an imprint of Elsevier, Duxford, United Kingdom, 2017.</span></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">[2] V. Ganapathy, Waste heat boiler deskbook, Fairmont Press, Lilburn, GA, 1991.</span></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">[3] M. von der Heyde, Abschlussbericht zum Teilprojekt der TUHH im Verbundforschungsprojekt Future Energy Solution (FES), BMWI 03ET6072C, 2021</span></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">[4] M. von der Heyde, Electric Thermal Energy Storage based on Packed Beds for Renewable Energy Integration, Dissertation, Hamburg University of Technology, 2021</span></p>
-<p><br><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">10. Version History</span></b></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Version History</span></b></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">First Version in 04.2020 for the research project Future Energy Solution (FES) by Michael von der Heyde (heyde@tuhh.de)</span></p>
 </html>"));
 end HeatRecoverySteamGenerator_L1;

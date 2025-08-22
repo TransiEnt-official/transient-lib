@@ -75,34 +75,38 @@ equation
   // _____________________________________________
 
   connect(energyBalance.y, y) annotation (Line(points={{60.72,0},{108,0}}, color={0,0,127}));
-  connect(firstOrder.y, energyBalance.u[1]) annotation (Line(points={{-0.4,0},{12,0},{12,5.6},{26,5.6}}, color={0,0,127}));
+  connect(firstOrder.y, energyBalance.u[1]) annotation (Line(points={{-0.4,0},{12,0},{12,-2.8},{26,-2.8}},
+                                                                                                         color={0,0,127}));
   connect(Q_flow_in, firstOrder.u) annotation (Line(points={{-104,0},{-37.2,0}}, color={0,0,127}));
   connect(Q_flow_in, highPressureStage.u) annotation (Line(points={{-104,0},{-84,0},{-58,0},{-58,54},{-37.2,54}}, color={0,0,127}));
-  connect(highPressureStage.y, energyBalance.u[2]) annotation (Line(points={{-0.4,54},{10,54},{10,-5.6},{26,-5.6}}, color={0,0,127}));
+  connect(highPressureStage.y, energyBalance.u[2]) annotation (Line(points={{-0.4,54},{10,54},{10,2.8},{26,2.8}},   color={0,0,127}));
   annotation (defaultComponentName="SteamTurbine", Diagram(graphics,
                                                            coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
-<p>Basic model for a steam turbine unit.</p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
-<p>(Description)</p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
-<p>(Description)</p>
-<h4><span style=\"color: #008000\">4. Interfaces</span></h4>
+<h4><span style=\"color: #008c48\">Purpose of model</span></h4>
+<p>Basic model for a steam turbine unit that represents the dynamics of a turbine with a given Input. It contains of a first order block and a gain block. The gain block represents the fast response of the turbine (the high pressure part) while the first order block represents the delayed response of the turbine. No efficiencies are considered in this model. </p>
+<p>The model is used to create the model of a power plant, that can be found here:</p>
+<p>TransiEnt.Producer.Electrical.Conventional.Components.VDI3508Plant</p>
+<h4><span style=\"color: #008c48\">Level of detail, physical effects considered, and physical insight</span></h4>
+<p>L0 (defined in the CodingConventions)</p>
+<ul>
+<li>the thermal inertia of the generator is modelled</li>
+<li>no efficiencies have been considered</li>
+</ul>
+<h4><span style=\"color: #008c48\">Limits of validity </span></h4>
+<p>A basic model that only considers dynamics. </p>
+<h4><span style=\"color: #008000\">Interfaces</span></h4>
 <p>RealInput: Q_flow_in (Steam Energy at input) in W</p>
 <p>RealOutput: y (Real Output signal)</p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<p>T_lowPressure is the time</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
-<p>(no equations)</p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
-<p>(none)</p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
-<p>(no validation or testing necessary)</p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
-<p>VDI 3508</p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
-<p>(no remarks)</p>
+<h4><span style=\"color: #008000\">Nomenclature</span></h4>
+<p>T_lowPressure is the time not a temperature</p>
+<h4><span style=\"color: #008000\">Validation</span></h4>
+<p>The model was tested in the test model:</p>
+<p>TransiEnt.Components.Heat.Check.TestSteamTurbine</p>
+<h4><span style=\"color: #008000\">References</span></h4>
+<p>VDI 3508, &quot;Verein Deutscher Ingenieure&quot; </p>
+<h4><span style=\"color: #008000\">Version History</span></h4>
+<p>The model was documented by Jan Westphal (j.westphal@tuhh.de) in August 2025</p>
 </html>"),
     Icon(graphics={
         Polygon(
