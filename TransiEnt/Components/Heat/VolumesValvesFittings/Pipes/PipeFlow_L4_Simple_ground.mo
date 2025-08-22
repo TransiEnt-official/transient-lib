@@ -74,29 +74,30 @@ model PipeFlow_L4_Simple_ground "Model of underground pipe"
   parameter SI.Length roughness= 0.045e-3 "Roughness" annotation(Dialog(tab="Additional Parameters",group="Pressure Loss"));
 
    annotation (Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
-<p>Model extends the ClaRa.Components.VolumesValvesFittings.Pipes.PipeFlow_L4_Simple model. Pipe model for underground model. Nominal pressure loss and heat transfer coefficent are calculated inside the model.</p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
+<p>A simple model of a pipe flow with a VLE-fluid (Vapor liquid equilibrium) based on the three balance equations of energy, momentum and mass. The mass and the energy balance are dynamic, while the momentum balance is considered static. The balance equations are discretized with a finite volume method. The model uses n+2 fluid models from the TIL media to compute the fluid states at the inlet, outlet, and inside the control volumes of the pipe. Moreover, it uses a replaceable pressure loss model and a replaceable heat transfer model. The main difference compared to the PipeFlow_L4_Simple model is that it calculated parameters like alpha or delta_p for the calculation of the heat and pressure losse. Therefore, heat and pressure losses are considered. Heat losses are transferred through a heat port if the heat port is connected. However, the heat port doesn&rsquo;t have to be connected for the model to function. The pipe model can be connected to other models via two fluid ports, which pass the pressure, the specific enthalpy, the mass fraction and the mass flow rate as variables. The model allows reverse flow. In the model are instances of iCom and summary, that are not relevant for the physical understanding of the model. The model was extended from the ClaRa library.</p>
+<h4><span style=\"color: #008000\">Level of detail, physical effects considered, and physical insight</span></h4>
 <p>The general physics of the model are described in ClaRa.Components.VolumesValvesFittings.Pipes.PipeFlow_L4_Simple. </p>
 <p>The heat model is defined with constant heat transfer coefficent. The coefficient is calculated considering just heat conduction. The influence of the pipe wall on the heat conduction is assumed to be small. Just the insulation of the pipe and the underground are considered.</p>
 <p>The nominal pressure loss is calculated using the method shown in [Krimmling,2011].</p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
-<p>Physics of model are described in ClaRa.Components.VolumesValvesFittings.Pipes.PipeFlow_L4_Simple.</p>
-<h4><span style=\"color: #008000\">4. Interfaces</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
-<p>(no equations)</p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
+<h4><span style=\"color: #008000\">Limits of validity </span></h4>
+<p>The accuracy of the dynamic effects of the model depends on the number of control volumes. The thermal inertia of the pipe wall is neglected. </p>
+<h4><span style=\"color: #008000\">Interfaces</span></h4>
+<p><img src=\"modelica://TransiEnt/Images/Schemes/PipeL4.jpg\"/></p>
+<h4><span style=\"color: #008000\">Governing Equations</span></h4>
+<p>The equations have been simplified for an easier description. </p>
+<p>V*rho*dh/dt=m_in*h_in+m_out*h_out+Q_flow_out</p>
+<p>drho/dt=m_in+m_out</p>
+<p>p_in-p_out=delta_p</p>
+<p>T and rho are determined with the fluid models</p>
+<h4><span style=\"color: #008000\">Validation</span></h4>
 <p>see ClaRa pipe for validation</p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
+<h4><span style=\"color: #008000\">References</span></h4>
+<p>The model was extended from the ClaRa library</p>
+<h4><span style=\"color: #008000\">Version History</span></h4>
 <p><span style=\"font-family: MS Shell Dlg 2;\">Model created by Tobias Ramm (tobias.ramm@tuhh.de) November 2015</span></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">Model modified by Lisa Andresen (andresen@tuhh.de) December 2015</span></p>
+<p><span style=\"font-family: MS Shell Dlg 2;\">Model documented by Jan Westphal (j.westphal@tuhh.de) January 2025</span></p>
 </html>"), Icon(graphics={
         Polygon(
           points={{88,58},{88,58}},

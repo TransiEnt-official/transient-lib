@@ -37,24 +37,22 @@ model Pump "Pump model. Extends from ClaRa Pump_L2_shaftQuadratic"
           fillColor={0,0,0},
           fillPattern=FillPattern.Solid,
           textString="L2")}), Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
-<p>A simple model of a pump</p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
+<p>This model is a combination of a fluid volume L2 and a pump model that can be used to calculate the efficiency and the needed power of a pump. It contains two fluid ports to model the fluid flow through the pump. Both fluid ports should be connected with a port that sets the pressure. The volume flow rate can then be calculated via the given pressure difference. &nbsp;A static mass and momentum balance are used. The specific enthalpy at the outlet of the pump is calculated via an isentropic dependence. There are no changes of composition in this component. The model does not support flow reversal. </p>
+<h4><span style=\"color: #008000\">Level of detail, physical effects considered, and physical insight</span></h4>
+<p>L2 (defined in CodingConventions)</p>
+<ul>
+<li>Thermal inertia</li>
+<li>Variable fluid properties</li>
+</ul>
+<h4><span style=\"color: #008000\">Limits of validity </span></h4>
 <p>(no remarks)</p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">4. Interfaces</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
-<p>(no equations)</p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
-<p>(no validation or testing necessary)</p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
+<h4><span style=\"color: #008000\">Interfaces</span></h4>
+<p><img src=\"modelica://TransiEnt/Images/Schemes/Pump2.jpg\"/></p>
+<h4><span style=\"color: #008000\">Governing Equations</span></h4>
+<h4><span style=\"color: #008000\">References</span></h4>
+<p>The model was extended from the ClaRa library. Look there for further documentation or verfication.</p>
+<h4><span style=\"color: #008000\">Version History</span></h4>
+<p>Model was documented by Jan Westphal (j.westphal@tuhh.de) in January 2025</p>
 </html>"));
 end Pump;

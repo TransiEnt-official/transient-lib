@@ -1,6 +1,6 @@
 // define local paths (absolute paths with front slashes)
-repopath="ADD_YOUR_PATH_TO_TRANSIENT_HERE";
-resultpath="ADD_YOUR_PATH_FOR_RESULTS_HERE";
+repopath="C:/Users/cjw1704/Documents/Git/transient-lib";
+resultpath="C:/Users/cjw1704/Documents/Dymola";
 
 
 // Some recommended options

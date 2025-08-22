@@ -56,26 +56,19 @@ equation
           fillColor={191,0,0},
           fillPattern=FillPattern.Solid)}), Diagram(coordinateSystem(preserveAspectRatio=false)),
     Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
-<p>The model simply multiplies the heat flow at port_a with a given factor.</p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
-<p>(none)</p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
-<p>see 7.</p>
-<h4><span style=\"color: #008000\">4. Interfaces</span></h4>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
+<p>The model contains to heat ports. It simply multiplies the heat flow at port_a with a given factor to determin the heat flow at port b. The temperature of the heat flow doesn&apos;t change. </p>
+<h4><span style=\"color: #008000\">Level of detail, physical effects considered, and physical insight</span></h4>
+<p>It is a purely technical component. No physical behaviour is considered. </p>
+<h4><span style=\"color: #008000\">Interfaces</span></h4>
 <p>port_a: input heat flow to be multiplied</p>
 <p>port_b: output heat flow (multiplied)</p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
-<p>(no equations)</p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
+<h4><span style=\"color: #008000\">Governing Equations</span></h4>
+<p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-pWZrhxqu.png\" alt=\"-factor*Q_flow_a=Q_flow_b\"/></p>
+<h4><span style=\"color: #008000\">Remarks for Usage</span></h4>
 <p>This model can lead to unphysical behavior since it contains an invalid energy balance.</p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
-<p>(no validation or testing necessary)</p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
-<p>(none)</p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
+<h4><span style=\"color: #008000\">Version History</span></h4>
 <p>Model created by Carsten Bode (c.bode@tuhh.de), Jun 2019</p>
+<p>Model documented by Jan Westphal (j.westphal@tuhh.de) January 2025</p>
 </html>"));
 end HeatFlowMultiplier;

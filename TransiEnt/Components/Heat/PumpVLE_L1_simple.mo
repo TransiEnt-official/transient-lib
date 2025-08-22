@@ -301,31 +301,36 @@ equation
       color={0,0,127},
       smooth=Smooth.None));
   annotation (Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
-<p>This model represents a vle fluid pump. It is a modified version of the model ClaRa.Components.TurboMachines.Pumps.PumpVLE_L1_simple from ClaRa version 1.2.1. The model is documented there and here only the changes are described. </p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
+<p>This model represents a vle fluid pump. It is a modified version of the model ClaRa.Components.TurboMachines.Pumps.PumpVLE_L1_simple from ClaRa version 1.2.1. The model is documented there. It is a simple model of a pump that can be used to calculate the electric power necessary to set a given pressure difference, mass flow rate or volume flow rate. It uses a static mass, energy and momentum balance. </p>
+<h4><span style=\"color: #008000\">Level of detail, physical effects considered, and physical insight</span></h4>
 <p>The model was changed to work with changing compositions and a constant electrical efficiency was added. Also, more inputs are available. </p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
+<ul>
+<li>mechanical and electrical efficiency of the pump</li>
+<li>enthalpy changes over the pump</li>
+<li>variable fluid properties</li>
+</ul>
+<h4><span style=\"color: #008000\">Limits of validity </span></h4>
 <p>Only valid for real gases and positive pressure differences. Variable efficiencies and time-dependent behavior are not considered.</p>
-<h4><span style=\"color: #008000\">4. Interfaces</span></h4>
-<p>fluidPortIn: vle fluid inlet </p>
-<p>fluidPortOut: vle fluid outlet </p>
+<h4><span style=\"color: #008000\">Interfaces</span></h4>
 <p>m_flow_in: input for mass flow rate in kg/s</p>
 <p>V_flow_in: input for volume flow rate in m3/s</p>
 <p>P_el_in: input for electrical power in W</p>
 <p>dp_in: input for pressure difference in Pa</p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
-<p>The electrical power is determined using the mechanical and electrical efficiencies.</p>
-<p><br><br><img src=\"modelica://TransiEnt/Images/equations/equation_CompressorRealGasesIsentropicEff.png\"/></p>
+<p><br><img src=\"modelica://TransiEnt/Images/Schemes/Pump.jpg\"/></p>
+<h4><span style=\"color: #008000\">Governing Equations</span></h4>
+<p><br>The electrical power is determined using the mechanical and electrical efficiencies.</p>
+<p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-jcvSjeSv.png\" alt=\"V_flow= P_hyd/Delta_p\"/></p>
+<p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-VZftZepB.png\" alt=\"m_in=V*rho\"/></p>
+<p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-2Juk3pEh.png\" alt=\"p_in-P_out=dp\"/></p>
+<p><img src=\"modelica://TransiEnt/Images/equations/equation_CompressorRealGasesIsentropicEff.png\"/></p>
 <h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
 <p>(no remarks)</p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
+<h4><span style=\"color: #008000\">Validation</span></h4>
 <p>(no remarks) </p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
+<h4><span style=\"color: #008000\">References</span></h4>
 <p>(no remarks) </p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
+<h4><span style=\"color: #008000\">Version History</span></h4>
 <p><br>Model created by Carsten Bode (c.bode@tuhh.de) in Apr 2017</p>
 </html>"),Icon(graphics));
 end PumpVLE_L1_simple;
