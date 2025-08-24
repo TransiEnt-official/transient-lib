@@ -1,13 +1,11 @@
-within TransiEnt.Examples.DistributionGrids.LowVoltageGrids.LV_TIA;
-model LV_rural_2_T "This model was automatically generated"
+within TransiEnt.Examples.DistributionGrids.LowVoltageGrids.BaseScenarios;
+model LV_rural_2_Today "Large rural low voltage distribution grid scenario with 2024 technology penetration scenario."
   import TransiEnt.Basics.Types.ControlType;
   // ------------------------------------------------------------------------------------------
   //   Parameter
   // ------------------------------------------------------------------------------------------
 
-  parameter String condition_scenario="originalesSzenario";
-
-  parameter String data_local="modelica://Scenarios_CyEntEE/LocalData/" + "LV_rural_2/" + condition_scenario + "/" "Directory containing simulation data";
+  parameter String data_local="modelica://TransiEnt/Tables/distribution/" "Directory containing simulation data" annotation (Evaluate=true, Dialog(group="Scenario"));
 
   parameter ControlType photovoltaicControlType=TransiEnt.Basics.Types.ControlType.Limit_P "Type of control for photovoltaic system" annotation (Evaluate=true, Dialog(group="External Control"));
 
@@ -17,15 +15,15 @@ model LV_rural_2_T "This model was automatically generated"
 
   parameter ControlType bevControlType=TransiEnt.Basics.Types.ControlType.Internal "Type of control for vehicle system" annotation (Evaluate=true, Dialog(group="External Control"));
 
-  parameter String weatherLocation = "Hamelin" "Choose a weather location to simulate the grid" annotation (Evaluate=true, Dialog(group="Weather"));
+  parameter String weatherLocation="Hamelin" "Choose a weather location to simulate the grid" annotation (Evaluate=true, Dialog(group="Weather"));
 
-  parameter String weatherYear = "2019" "Choose a weather location to simulate the grid" annotation (Evaluate=true, Dialog(group="Weather"));
+  parameter String weatherYear="2019" "Choose a weather location to simulate the grid" annotation (Evaluate=true, Dialog(group="Weather"));
 
-  parameter Boolean useTTEC=false "If lines shall use transient thermal equivalent circuit" annotation (Evaluate=true, Dialog(group="Line"));
+  parameter String smartMeterConfiguration="Ideal" "choose the basic configuration" annotation (Dialog(group="Metering"), choices(
+      choice="Ideal" "Ideal measurements",
+      choice="TAF10" "Tarifanwendungsfall 10 (German standard)",
+      choice="TAF7" "Tarifanwendungsfall 7 (German standard)"));
 
-  parameter Boolean useUndergroundTemperature=false "If lines shall use transient thermal equivalent circuit" annotation (Evaluate=true, Dialog(group="Line"));
-
-  parameter Boolean useUndergroundMoisture=false "If lines shall use transient thermal equivalent circuit" annotation (Evaluate=true, Dialog(group="Line"));
 
   // ------------------------------------------------------------------------------------------
   //   Components
@@ -430,8 +428,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=5.262000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-85.08,125.46},{-80.08,130.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{-85.08,125.46},{-80.08,130.46}})));
 
   // Basic Parameters
 
@@ -441,8 +438,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=17.910000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-176.08,265.46},{-171.08,270.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{-176.08,265.46},{-171.08,270.46}})));
 
   // Basic Parameters
 
@@ -452,8 +448,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=29.952000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{117.92,-420.54},{122.92,-415.54}})));
+    parallel=1) annotation (Placement(transformation(extent={{117.92,-420.54},{122.92,-415.54}})));
 
   // Basic Parameters
 
@@ -463,8 +458,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=21.237000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{121.42,-329.54},{126.42,-324.54}})));
+    parallel=1) annotation (Placement(transformation(extent={{121.42,-329.54},{126.42,-324.54}})));
 
   // Basic Parameters
 
@@ -474,8 +468,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=15.715000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-85.08,160.46},{-80.08,165.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{-85.08,160.46},{-80.08,165.46}})));
 
   // Basic Parameters
 
@@ -485,8 +478,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=5.057000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{145.92,-501.04},{150.92,-496.04}})));
+    parallel=1) annotation (Placement(transformation(extent={{145.92,-501.04},{150.92,-496.04}})));
 
   // Basic Parameters
 
@@ -496,8 +488,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=3.000000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{121.42,139.46},{126.42,144.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{121.42,139.46},{126.42,144.46}})));
 
   // Basic Parameters
 
@@ -507,8 +498,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=15.377000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{121.42,-298.04},{126.42,-293.04}})));
+    parallel=1) annotation (Placement(transformation(extent={{121.42,-298.04},{126.42,-293.04}})));
 
   // Basic Parameters
 
@@ -518,8 +508,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=26.059000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{145.92,-641.04},{150.92,-636.04}})));
+    parallel=1) annotation (Placement(transformation(extent={{145.92,-641.04},{150.92,-636.04}})));
 
   // Basic Parameters
 
@@ -529,8 +518,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=18.539000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{117.92,-361.04},{122.92,-356.04}})));
+    parallel=1) annotation (Placement(transformation(extent={{117.92,-361.04},{122.92,-356.04}})));
 
   // Basic Parameters
 
@@ -540,8 +528,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=16.837000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{121.42,-116.04},{126.42,-111.04}})));
+    parallel=1) annotation (Placement(transformation(extent={{121.42,-116.04},{126.42,-111.04}})));
 
   // Basic Parameters
 
@@ -551,8 +538,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=17.818000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{145.92,-585.04},{150.92,-580.04}})));
+    parallel=1) annotation (Placement(transformation(extent={{145.92,-585.04},{150.92,-580.04}})));
 
   // Basic Parameters
 
@@ -562,8 +548,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=2.367000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-211.08,-32.04},{-206.08,-27.04}})));
+    parallel=1) annotation (Placement(transformation(extent={{-211.08,-32.04},{-206.08,-27.04}})));
 
   // Basic Parameters
 
@@ -573,8 +558,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=19.453000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{93.42,-613.04},{98.42,-608.04}})));
+    parallel=1) annotation (Placement(transformation(extent={{93.42,-613.04},{98.42,-608.04}})));
 
   // Basic Parameters
 
@@ -584,8 +568,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=21.881000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{12.92,412.46},{17.92,417.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{12.92,412.46},{17.92,417.46}})));
 
   // Basic Parameters
 
@@ -595,8 +578,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=6.509000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{44.42,447.46},{49.42,452.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{44.42,447.46},{49.42,452.46}})));
 
   // Basic Parameters
 
@@ -606,8 +588,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=32.814000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{107.42,-473.04},{112.42,-468.04}})));
+    parallel=1) annotation (Placement(transformation(extent={{107.42,-473.04},{112.42,-468.04}})));
 
   // Basic Parameters
 
@@ -617,8 +598,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=21.581000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-211.08,-60.04},{-206.08,-55.04}})));
+    parallel=1) annotation (Placement(transformation(extent={{-211.08,-60.04},{-206.08,-55.04}})));
 
   // Basic Parameters
 
@@ -628,8 +608,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=24.323000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-197.08,160.46},{-192.08,165.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{-197.08,160.46},{-192.08,165.46}})));
 
   // Basic Parameters
 
@@ -639,8 +618,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=5.251000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{121.42,9.96},{126.42,14.96}})));
+    parallel=1) annotation (Placement(transformation(extent={{121.42,9.96},{126.42,14.96}})));
 
   // Basic Parameters
 
@@ -650,8 +628,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=17.728000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-172.58,230.46},{-167.58,235.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{-172.58,230.46},{-167.58,235.46}})));
 
   // Basic Parameters
 
@@ -661,8 +638,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=3.038000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{16.42,272.46},{21.42,277.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{16.42,272.46},{21.42,277.46}})));
 
   // Basic Parameters
 
@@ -672,8 +648,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=6.751000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{117.92,-389.04},{122.92,-384.04}})));
+    parallel=1) annotation (Placement(transformation(extent={{117.92,-389.04},{122.92,-384.04}})));
 
   // Basic Parameters
 
@@ -683,8 +658,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=16.608000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-85.08,300.46},{-80.08,305.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{-85.08,300.46},{-80.08,305.46}})));
 
   // Basic Parameters
 
@@ -694,8 +668,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=16.102000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-85.08,265.46},{-80.08,270.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{-85.08,265.46},{-80.08,270.46}})));
 
   // Basic Parameters
 
@@ -705,8 +678,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=26.048000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{12.92,373.96},{17.92,378.96}})));
+    parallel=1) annotation (Placement(transformation(extent={{12.92,373.96},{17.92,378.96}})));
 
   // Basic Parameters
 
@@ -716,8 +688,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=41.570000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-207.58,-154.54},{-202.58,-149.54}})));
+    parallel=1) annotation (Placement(transformation(extent={{-207.58,-154.54},{-202.58,-149.54}})));
 
   // Basic Parameters
 
@@ -727,8 +698,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=5.169000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{16.42,-70.54},{21.42,-65.54}})));
+    parallel=1) annotation (Placement(transformation(extent={{16.42,-70.54},{21.42,-65.54}})));
 
   // Basic Parameters
 
@@ -738,8 +708,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=1.839000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{121.42,170.96},{126.42,175.96}})));
+    parallel=1) annotation (Placement(transformation(extent={{121.42,170.96},{126.42,175.96}})));
 
   // Basic Parameters
 
@@ -749,8 +718,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=6.210000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-85.08,-11.04},{-80.08,-6.04}})));
+    parallel=1) annotation (Placement(transformation(extent={{-85.08,-11.04},{-80.08,-6.04}})));
 
   // Basic Parameters
 
@@ -760,8 +728,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=6.011000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{117.92,202.46},{122.92,207.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{117.92,202.46},{122.92,207.46}})));
 
   // Basic Parameters
 
@@ -771,8 +738,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=19.414000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-176.08,300.46},{-171.08,305.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{-176.08,300.46},{-171.08,305.46}})));
 
   // Basic Parameters
 
@@ -782,8 +748,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=1.774000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{121.42,-53.04},{126.42,-48.04}})));
+    parallel=1) annotation (Placement(transformation(extent={{121.42,-53.04},{126.42,-48.04}})));
 
   // Basic Parameters
 
@@ -793,8 +758,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=23.362000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{145.92,-613.04},{150.92,-608.04}})));
+    parallel=1) annotation (Placement(transformation(extent={{145.92,-613.04},{150.92,-608.04}})));
 
   // Basic Parameters
 
@@ -804,8 +768,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=24.416000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{117.92,307.46},{122.92,312.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{117.92,307.46},{122.92,312.46}})));
 
   // Basic Parameters
 
@@ -815,8 +778,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=27.891000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-85.08,20.46},{-80.08,25.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{-85.08,20.46},{-80.08,25.46}})));
 
   // Basic Parameters
 
@@ -826,8 +788,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=29.198000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-172.58,335.46},{-167.58,340.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{-172.58,335.46},{-167.58,340.46}})));
 
   // Basic Parameters
 
@@ -837,8 +798,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=1.558000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-211.08,-91.54},{-206.08,-86.54}})));
+    parallel=1) annotation (Placement(transformation(extent={{-211.08,-91.54},{-206.08,-86.54}})));
 
   // Basic Parameters
 
@@ -848,8 +808,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=18.172000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-85.08,55.46},{-80.08,60.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{-85.08,55.46},{-80.08,60.46}})));
 
   // Basic Parameters
 
@@ -859,8 +818,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=6.689000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{117.92,377.46},{122.92,382.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{117.92,377.46},{122.92,382.46}})));
 
   // Basic Parameters
 
@@ -870,8 +828,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=19.730000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{149.42,-532.54},{154.42,-527.54}})));
+    parallel=1) annotation (Placement(transformation(extent={{149.42,-532.54},{154.42,-527.54}})));
 
   // Basic Parameters
 
@@ -881,8 +838,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=15.275000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-8.08,447.46},{-3.08,452.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{-8.08,447.46},{-3.08,452.46}})));
 
   // Basic Parameters
 
@@ -892,8 +848,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=15.667000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{16.42,237.46},{21.42,242.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{16.42,237.46},{21.42,242.46}})));
 
   // Basic Parameters
 
@@ -903,8 +858,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=6.011000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-85.08,195.46},{-80.08,200.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{-85.08,195.46},{-80.08,200.46}})));
 
   // Basic Parameters
 
@@ -914,8 +868,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=3.171000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{12.92,58.96},{17.92,63.96}})));
+    parallel=1) annotation (Placement(transformation(extent={{12.92,58.96},{17.92,63.96}})));
 
   // Basic Parameters
 
@@ -925,8 +878,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=6.097000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{121.42,-235.04},{126.42,-230.04}})));
+    parallel=1) annotation (Placement(transformation(extent={{121.42,-235.04},{126.42,-230.04}})));
 
   // Basic Parameters
 
@@ -936,8 +888,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=6.835000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{12.92,167.46},{17.92,172.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{12.92,167.46},{17.92,172.46}})));
 
   // Basic Parameters
 
@@ -947,8 +898,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=6.852000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{12.92,335.46},{17.92,340.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{12.92,335.46},{17.92,340.46}})));
 
   // Basic Parameters
 
@@ -958,8 +908,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=2.224000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-169.08,160.46},{-164.08,165.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{-169.08,160.46},{-164.08,165.46}})));
 
   // Basic Parameters
 
@@ -969,8 +918,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=1.522000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{12.92,202.46},{17.92,207.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{12.92,202.46},{17.92,207.46}})));
 
   // Basic Parameters
 
@@ -980,8 +928,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=23.385000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{12.92,27.46},{17.92,32.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{12.92,27.46},{17.92,32.46}})));
 
   // Basic Parameters
 
@@ -991,8 +938,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=5.145000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{117.92,237.46},{122.92,242.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{117.92,237.46},{122.92,242.46}})));
 
   // Basic Parameters
 
@@ -1002,8 +948,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=2.381000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{121.42,-207.04},{126.42,-202.04}})));
+    parallel=1) annotation (Placement(transformation(extent={{121.42,-207.04},{126.42,-202.04}})));
 
   // Basic Parameters
 
@@ -1013,8 +958,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=15.931000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-211.08,125.46},{-206.08,130.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{-211.08,125.46},{-206.08,130.46}})));
 
   // Basic Parameters
 
@@ -1024,8 +968,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=2.937000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-211.08,-0.54},{-206.08,4.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{-211.08,-0.54},{-206.08,4.46}})));
 
   // Basic Parameters
 
@@ -1035,8 +978,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=22.078000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{117.92,412.46},{122.92,417.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{117.92,412.46},{122.92,417.46}})));
 
   // Basic Parameters
 
@@ -1046,8 +988,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=21.950000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-155.08,125.46},{-150.08,130.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{-155.08,125.46},{-150.08,130.46}})));
 
   // Basic Parameters
 
@@ -1057,8 +998,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=18.923000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{117.92,72.96},{122.92,77.96}})));
+    parallel=1) annotation (Placement(transformation(extent={{117.92,72.96},{122.92,77.96}})));
 
   // Basic Parameters
 
@@ -1068,8 +1008,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=19.804000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{117.92,-266.54},{122.92,-261.54}})));
+    parallel=1) annotation (Placement(transformation(extent={{117.92,-266.54},{122.92,-261.54}})));
 
   // Basic Parameters
 
@@ -1079,8 +1018,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=27.478000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{145.92,-665.54},{150.92,-660.54}})));
+    parallel=1) annotation (Placement(transformation(extent={{145.92,-665.54},{150.92,-660.54}})));
 
   // Basic Parameters
 
@@ -1090,8 +1028,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=21.935000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{93.42,-501.04},{98.42,-496.04}})));
+    parallel=1) annotation (Placement(transformation(extent={{93.42,-501.04},{98.42,-496.04}})));
 
   // Basic Parameters
 
@@ -1101,8 +1038,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=3.300000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-207.58,-123.04},{-202.58,-118.04}})));
+    parallel=1) annotation (Placement(transformation(extent={{-207.58,-123.04},{-202.58,-118.04}})));
 
   // Basic Parameters
 
@@ -1112,8 +1048,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=21.972000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{96.92,-564.04},{101.92,-559.04}})));
+    parallel=1) annotation (Placement(transformation(extent={{96.92,-564.04},{101.92,-559.04}})));
 
   // Basic Parameters
 
@@ -1123,8 +1058,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=6.089000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-85.08,408.96},{-80.08,413.96}})));
+    parallel=1) annotation (Placement(transformation(extent={{-85.08,408.96},{-80.08,413.96}})));
 
   // Basic Parameters
 
@@ -1134,8 +1068,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=25.453000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-85.08,90.46},{-80.08,95.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{-85.08,90.46},{-80.08,95.46}})));
 
   // Basic Parameters
 
@@ -1145,8 +1078,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=25.518000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{12.92,303.96},{17.92,308.96}})));
+    parallel=1) annotation (Placement(transformation(extent={{12.92,303.96},{17.92,308.96}})));
 
   // Basic Parameters
 
@@ -1156,8 +1088,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=5.173000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{121.42,41.46},{126.42,46.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{121.42,41.46},{126.42,46.46}})));
 
   // Basic Parameters
 
@@ -1167,8 +1098,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=22.055000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{124.92,-84.54},{129.92,-79.54}})));
+    parallel=1) annotation (Placement(transformation(extent={{124.92,-84.54},{129.92,-79.54}})));
 
   // Basic Parameters
 
@@ -1178,8 +1108,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=1.594000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{12.92,-7.54},{17.92,-2.54}})));
+    parallel=1) annotation (Placement(transformation(extent={{12.92,-7.54},{17.92,-2.54}})));
 
   // Basic Parameters
 
@@ -1189,8 +1118,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=2.501000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{12.92,-39.04},{17.92,-34.04}})));
+    parallel=1) annotation (Placement(transformation(extent={{12.92,-39.04},{17.92,-34.04}})));
 
   // Basic Parameters
 
@@ -1200,8 +1128,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=28.142000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{149.42,-560.54},{154.42,-555.54}})));
+    parallel=1) annotation (Placement(transformation(extent={{149.42,-560.54},{154.42,-555.54}})));
 
   // Basic Parameters
 
@@ -1211,8 +1138,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=20.065000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-176.08,195.46},{-171.08,200.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{-176.08,195.46},{-171.08,200.46}})));
 
   // Basic Parameters
 
@@ -1222,8 +1148,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=3.134000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{117.92,-144.04},{122.92,-139.04}})));
+    parallel=1) annotation (Placement(transformation(extent={{117.92,-144.04},{122.92,-139.04}})));
 
   // Basic Parameters
 
@@ -1233,8 +1158,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=17.123000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-176.08,405.46},{-171.08,410.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{-176.08,405.46},{-171.08,410.46}})));
 
   // Basic Parameters
 
@@ -1244,8 +1168,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=21.857000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{93.42,-532.54},{98.42,-527.54}})));
+    parallel=1) annotation (Placement(transformation(extent={{93.42,-532.54},{98.42,-527.54}})));
 
   // Basic Parameters
 
@@ -1255,8 +1178,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=6.093000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-81.58,373.96},{-76.58,378.96}})));
+    parallel=1) annotation (Placement(transformation(extent={{-81.58,373.96},{-76.58,378.96}})));
 
   // Basic Parameters
 
@@ -1266,8 +1188,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=17.136000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-211.08,58.96},{-206.08,63.96}})));
+    parallel=1) annotation (Placement(transformation(extent={{-211.08,58.96},{-206.08,63.96}})));
 
   // Basic Parameters
 
@@ -1277,8 +1198,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=1.689000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-155.08,90.46},{-150.08,95.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{-155.08,90.46},{-150.08,95.46}})));
 
   // Basic Parameters
 
@@ -1288,8 +1208,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=28.766000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{117.92,-448.54},{122.92,-443.54}})));
+    parallel=1) annotation (Placement(transformation(extent={{117.92,-448.54},{122.92,-443.54}})));
 
   // Basic Parameters
 
@@ -1299,8 +1218,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=22.026000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{12.92,93.96},{17.92,98.96}})));
+    parallel=1) annotation (Placement(transformation(extent={{12.92,93.96},{17.92,98.96}})));
 
   // Basic Parameters
 
@@ -1310,8 +1228,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=19.882000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{117.92,104.46},{122.92,109.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{117.92,104.46},{122.92,109.46}})));
 
   // Basic Parameters
 
@@ -1321,8 +1238,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=24.169000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{117.92,-175.54},{122.92,-170.54}})));
+    parallel=1) annotation (Placement(transformation(extent={{117.92,-175.54},{122.92,-170.54}})));
 
   // Basic Parameters
 
@@ -1332,8 +1248,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=3.080000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-172.58,370.46},{-167.58,375.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{-172.58,370.46},{-167.58,375.46}})));
 
   // Basic Parameters
 
@@ -1343,8 +1258,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=17.980000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-85.08,230.46},{-80.08,235.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{-85.08,230.46},{-80.08,235.46}})));
 
   // Basic Parameters
 
@@ -1354,8 +1268,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=1.632000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{117.92,-21.54},{122.92,-16.54}})));
+    parallel=1) annotation (Placement(transformation(extent={{117.92,-21.54},{122.92,-16.54}})));
 
   // Basic Parameters
 
@@ -1365,8 +1278,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=20.789000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{117.92,342.46},{122.92,347.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{117.92,342.46},{122.92,347.46}})));
 
   // Basic Parameters
 
@@ -1376,8 +1288,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=3.386000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{117.92,272.46},{122.92,277.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{117.92,272.46},{122.92,277.46}})));
 
   // Basic Parameters
 
@@ -1387,8 +1298,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=6.426000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{12.92,132.46},{17.92,137.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{12.92,132.46},{17.92,137.46}})));
 
   // Basic Parameters
 
@@ -1398,8 +1308,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=15.068000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-211.08,30.96},{-206.08,35.96}})));
+    parallel=1) annotation (Placement(transformation(extent={{-211.08,30.96},{-206.08,35.96}})));
 
   // Basic Parameters
 
@@ -1409,8 +1318,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=2.261000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-81.58,335.46},{-76.58,340.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{-81.58,335.46},{-76.58,340.46}})));
 
   // Basic Parameters
 
@@ -1420,8 +1328,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=17.470000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-211.08,90.46},{-206.08,95.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{-211.08,90.46},{-206.08,95.46}})));
 
   // Basic Parameters
 
@@ -1431,8 +1338,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=49.449000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{131.92,-473.04},{136.92,-468.04}})));
+    parallel=1) annotation (Placement(transformation(extent={{131.92,-473.04},{136.92,-468.04}})));
 
   // Basic Parameters
 
@@ -1442,8 +1348,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=75.000000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-57.08,443.96},{-52.08,448.96}})));
+    parallel=1) annotation (Placement(transformation(extent={{-57.08,443.96},{-52.08,448.96}})));
 
   // Basic Parameters
 
@@ -1453,8 +1358,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=6.700000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-102.58,443.96},{-97.58,448.96}})));
+    parallel=1) annotation (Placement(transformation(extent={{-102.58,443.96},{-97.58,448.96}})));
 
   // Basic Parameters
 
@@ -1464,8 +1368,7 @@ model LV_rural_2_T "This model was automatically generated"
     b=2.60752e-07,
     length=32.201000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{93.42,-588.54},{98.42,-583.54}})));
+    parallel=1) annotation (Placement(transformation(extent={{93.42,-588.54},{98.42,-583.54}})));
 
   // Basic Parameters
 
@@ -1481,6 +1384,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH20",
@@ -1489,7 +1393,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_T_1",
     num_BEVs=0) annotation (Placement(transformation(extent={{-135.08,107.96},{-120.08,122.96}})));
 
@@ -1509,6 +1413,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH11",
@@ -1517,7 +1422,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.95,
+    V_BST=0.95,
     tappingProfileName="TappingCycle_T_2",
     num_BEVs=0) annotation (Placement(transformation(extent={{137.92,359.96},{152.92,374.96}})));
 
@@ -1537,6 +1442,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH21",
@@ -1545,7 +1451,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.95,
+    V_BST=0.95,
     tappingProfileName="TappingCycle_T_3",
     num_BEVs=0) annotation (Placement(transformation(extent={{137.92,289.96},{152.92,304.96}})));
 
@@ -1565,6 +1471,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH31",
@@ -1573,7 +1480,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.6,
+    V_BST=0.6,
     tappingProfileName="TappingCycle_T_4",
     num_BEVs=0) annotation (Placement(transformation(extent={{144.92,-67.04},{159.92,-52.04}})));
 
@@ -1593,6 +1500,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH27",
@@ -1601,7 +1509,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.6,
+    V_BST=0.6,
     tappingProfileName="TappingCycle_T_5",
     num_BEVs=0) annotation (Placement(transformation(extent={{32.92,114.96},{47.92,129.96}})));
 
@@ -1621,6 +1529,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH11",
@@ -1630,7 +1539,7 @@ model LV_rural_2_T "This model was automatically generated"
     PV_peakPower=5252.28,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.3,
+    V_BST=0.3,
     tappingProfileName="TappingCycle_T_6",
     num_BEVs=0) annotation (Placement(transformation(extent={{137.92,184.96},{152.92,199.96}})));
 
@@ -1650,6 +1559,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH10",
@@ -1658,7 +1568,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_T_7",
     num_BEVs=0) annotation (Placement(transformation(extent={{116.92,-550.04},{131.92,-535.04}})));
 
@@ -1678,6 +1588,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH3",
@@ -1687,7 +1598,7 @@ model LV_rural_2_T "This model was automatically generated"
     PV_peakPower=6475.99,
     useBattery=false,
     useEHP=true,
-    V_BST = 0.3,
+    V_BST=0.3,
     tappingProfileName="TappingCycle_T_8",
     Q_HP_nom=5574.43,
     A_living=109.353,
@@ -1719,6 +1630,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH40",
@@ -1727,7 +1639,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.95,
+    V_BST=0.95,
     tappingProfileName="TappingCycle_T_9",
     num_BEVs=0) annotation (Placement(transformation(extent={{137.92,254.96},{152.92,269.96}})));
 
@@ -1747,6 +1659,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH4",
@@ -1755,7 +1668,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.75,
+    V_BST=0.75,
     tappingProfileName="TappingCycle_T_10",
     num_BEVs=0) annotation (Placement(transformation(extent={{137.92,-438.04},{152.92,-423.04}})));
 
@@ -1775,6 +1688,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH27",
@@ -1783,7 +1697,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.6,
+    V_BST=0.6,
     tappingProfileName="TappingCycle_T_11",
     num_BEVs=0) annotation (Placement(transformation(extent={{-149.08,352.96},{-134.08,367.96}})));
 
@@ -1803,6 +1717,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH25",
@@ -1811,7 +1726,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.6,
+    V_BST=0.6,
     tappingProfileName="TappingCycle_T_12",
     num_BEVs=0) annotation (Placement(transformation(extent={{-135.08,72.96},{-120.08,87.96}})));
 
@@ -1831,6 +1746,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH40",
@@ -1839,7 +1755,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.75,
+    V_BST=0.75,
     tappingProfileName="TappingCycle_T_13",
     num_BEVs=0) annotation (Placement(transformation(extent={{32.92,219.96},{47.92,234.96}})));
 
@@ -1859,6 +1775,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH14",
@@ -1867,7 +1784,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.6,
+    V_BST=0.6,
     tappingProfileName="TappingCycle_T_14",
     num_BEVs=0) annotation (Placement(transformation(extent={{144.92,-102.04},{159.92,-87.04}})));
 
@@ -1887,6 +1804,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH5",
@@ -1895,7 +1813,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.6,
+    V_BST=0.6,
     tappingProfileName="TappingCycle_T_15",
     num_BEVs=0) annotation (Placement(transformation(extent={{-65.08,142.96},{-50.08,157.96}})));
 
@@ -1915,6 +1833,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH39",
@@ -1923,7 +1842,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.6,
+    V_BST=0.6,
     tappingProfileName="TappingCycle_T_16",
     num_BEVs=0) annotation (Placement(transformation(extent={{172.92,-550.04},{187.92,-535.04}})));
 
@@ -1943,6 +1862,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH3",
@@ -1951,7 +1871,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.6,
+    V_BST=0.6,
     tappingProfileName="TappingCycle_T_17",
     num_BEVs=0) annotation (Placement(transformation(extent={{144.92,-221.04},{159.92,-206.04}})));
 
@@ -1971,6 +1891,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH14",
@@ -1979,7 +1900,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=true,
-    V_BST = 0.3,
+    V_BST=0.3,
     tappingProfileName="TappingCycle_T_18",
     Q_HP_nom=5435.91,
     A_living=108.008,
@@ -2011,6 +1932,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH11",
@@ -2019,7 +1941,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.6,
+    V_BST=0.6,
     tappingProfileName="TappingCycle_T_19",
     num_BEVs=0) annotation (Placement(transformation(extent={{-65.08,107.96},{-50.08,122.96}})));
 
@@ -2039,6 +1961,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH36",
@@ -2047,7 +1970,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_T_20",
     num_BEVs=0) annotation (Placement(transformation(extent={{-191.08,44.96},{-176.08,59.96}})));
 
@@ -2067,6 +1990,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH8",
@@ -2075,7 +1999,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.2,
+    V_BST=0.2,
     tappingProfileName="TappingCycle_T_21",
     num_BEVs=0) annotation (Placement(transformation(extent={{39.92,254.96},{54.92,269.96}})));
 
@@ -2095,6 +2019,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH28",
@@ -2103,7 +2028,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_T_22",
     num_BEVs=0) annotation (Placement(transformation(extent={{164.92,-221.04},{179.92,-206.04}})));
 
@@ -2123,6 +2048,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH5",
@@ -2131,15 +2057,16 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.6,
+    V_BST=0.6,
     tappingProfileName="TappingCycle_T_23",
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=1,
         Bat_Capacity=196920000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R110())}) annotation (Placement(transformation(extent={{137.92,-39.04},{152.92,-24.04}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R110())}) annotation (Placement(transformation(extent={{137.92,-39.04},{152.92,-24.04}})));
 
   // Basic Parameters
 
@@ -2159,6 +2086,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH27",
@@ -2167,7 +2095,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.3,
+    V_BST=0.3,
     tappingProfileName="TappingCycle_T_24",
     num_BEVs=0) annotation (Placement(transformation(extent={{137.92,-347.04},{152.92,-332.04}})));
 
@@ -2187,6 +2115,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH32",
@@ -2195,7 +2124,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 1.5,
+    V_BST=1.5,
     tappingProfileName="TappingCycle_T_25",
     num_BEVs=0) annotation (Placement(transformation(extent={{137.92,324.96},{152.92,339.96}})));
 
@@ -2215,6 +2144,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH27",
@@ -2223,7 +2153,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_T_26",
     num_BEVs=0) annotation (Placement(transformation(extent={{137.92,-158.04},{152.92,-143.04}})));
 
@@ -2243,6 +2173,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH23",
@@ -2251,7 +2182,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.6,
+    V_BST=0.6,
     tappingProfileName="TappingCycle_T_27",
     num_BEVs=0) annotation (Placement(transformation(extent={{-65.08,422.96},{-50.08,437.96}})));
 
@@ -2271,6 +2202,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH18",
@@ -2279,7 +2211,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_T_28",
     num_BEVs=0) annotation (Placement(transformation(extent={{144.92,156.96},{159.92,171.96}})));
 
@@ -2299,6 +2231,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH21",
@@ -2307,7 +2240,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.75,
+    V_BST=0.75,
     tappingProfileName="TappingCycle_T_29",
     num_BEVs=0) annotation (Placement(transformation(extent={{32.92,-25.04},{47.92,-10.04}})));
 
@@ -2327,6 +2260,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH19",
@@ -2335,7 +2269,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=true,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_T_30",
     Q_HP_nom=7650.45,
     A_living=149.871,
@@ -2367,6 +2301,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH32",
@@ -2375,7 +2310,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.3,
+    V_BST=0.3,
     tappingProfileName="TappingCycle_T_31",
     num_BEVs=0) annotation (Placement(transformation(extent={{32.92,-53.04},{47.92,-38.04}})));
 
@@ -2395,6 +2330,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH12",
@@ -2403,7 +2339,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_T_32",
     num_BEVs=0) annotation (Placement(transformation(extent={{-191.08,107.96},{-176.08,122.96}})));
 
@@ -2423,6 +2359,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH8",
@@ -2431,7 +2368,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.3,
+    V_BST=0.3,
     tappingProfileName="TappingCycle_T_33",
     num_BEVs=0) annotation (Placement(transformation(extent={{137.92,219.96},{152.92,234.96}})));
 
@@ -2451,6 +2388,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH21",
@@ -2459,7 +2397,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_T_34",
     num_BEVs=0) annotation (Placement(transformation(extent={{-65.08,247.96},{-50.08,262.96}})));
 
@@ -2479,6 +2417,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH9",
@@ -2488,7 +2427,7 @@ model LV_rural_2_T "This model was automatically generated"
     PV_peakPower=6184.98,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.3,
+    V_BST=0.3,
     tappingProfileName="TappingCycle_T_35",
     num_BEVs=0) annotation (Placement(transformation(extent={{-191.08,-74.04},{-176.08,-59.04}})));
 
@@ -2508,6 +2447,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH17",
@@ -2516,7 +2456,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.6,
+    V_BST=0.6,
     tappingProfileName="TappingCycle_T_36",
     num_BEVs=0) annotation (Placement(transformation(extent={{144.92,-312.04},{159.92,-297.04}})));
 
@@ -2536,6 +2476,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH23",
@@ -2544,7 +2485,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.95,
+    V_BST=0.95,
     tappingProfileName="TappingCycle_T_37",
     num_BEVs=0) annotation (Placement(transformation(extent={{-184.08,-137.04},{-169.08,-122.04}})));
 
@@ -2564,6 +2505,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH3",
@@ -2572,7 +2514,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_T_38",
     num_BEVs=0) annotation (Placement(transformation(extent={{-156.08,282.96},{-141.08,297.96}})));
 
@@ -2592,6 +2534,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH34",
@@ -2600,7 +2543,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_T_39",
     num_BEVs=0) annotation (Placement(transformation(extent={{-191.08,-18.04},{-176.08,-3.04}})));
 
@@ -2620,6 +2563,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH21",
@@ -2628,7 +2572,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_T_40",
     num_BEVs=0) annotation (Placement(transformation(extent={{32.92,352.96},{47.92,367.96}})));
 
@@ -2648,6 +2592,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH18",
@@ -2656,7 +2601,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.3,
+    V_BST=0.3,
     tappingProfileName="TappingCycle_T_41",
     num_BEVs=0) annotation (Placement(transformation(extent={{116.92,-487.04},{131.92,-472.04}})));
 
@@ -2676,6 +2621,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH10",
@@ -2684,7 +2630,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.6,
+    V_BST=0.6,
     tappingProfileName="TappingCycle_T_42",
     num_BEVs=0) annotation (Placement(transformation(extent={{137.92,-284.04},{152.92,-269.04}})));
 
@@ -2704,6 +2650,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH3",
@@ -2712,7 +2659,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.2,
+    V_BST=0.2,
     tappingProfileName="TappingCycle_T_43",
     num_BEVs=0) annotation (Placement(transformation(extent={{165.92,-571.04},{180.92,-556.04}})));
 
@@ -2732,6 +2679,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH35",
@@ -2740,7 +2688,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.75,
+    V_BST=0.75,
     tappingProfileName="TappingCycle_T_44",
     num_BEVs=0) annotation (Placement(transformation(extent={{116.92,-578.04},{131.92,-563.04}})));
 
@@ -2760,6 +2708,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH27",
@@ -2768,15 +2717,16 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.3,
+    V_BST=0.3,
     tappingProfileName="TappingCycle_T_45",
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=2,
         Bat_Capacity=132480000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=7200.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Nissan_Leaf())}) annotation (Placement(transformation(extent={{-58.08,352.96},{-43.08,367.96}})));
+        Bat_PowerLimit=7200.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Nissan_Leaf())}) annotation (Placement(transformation(extent={{-58.08,352.96},{-43.08,367.96}})));
 
   // Basic Parameters
 
@@ -2796,6 +2746,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH28",
@@ -2804,15 +2755,16 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.3,
+    V_BST=0.3,
     tappingProfileName="TappingCycle_T_46",
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=3,
         Bat_Capacity=360000000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90())}) annotation (Placement(transformation(extent={{-191.08,72.96},{-176.08,87.96}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90())}) annotation (Placement(transformation(extent={{-191.08,72.96},{-176.08,87.96}})));
 
   // Basic Parameters
 
@@ -2832,6 +2784,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH22",
@@ -2840,7 +2793,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_T_47",
     num_BEVs=0) annotation (Placement(transformation(extent={{32.92,317.96},{47.92,332.96}})));
 
@@ -2860,6 +2813,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH17",
@@ -2869,7 +2823,7 @@ model LV_rural_2_T "This model was automatically generated"
     PV_peakPower=10626.4,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_T_48",
     num_BEVs=0) annotation (Placement(transformation(extent={{165.92,-599.04},{180.92,-584.04}})));
 
@@ -2889,6 +2843,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH22",
@@ -2898,7 +2853,7 @@ model LV_rural_2_T "This model was automatically generated"
     PV_peakPower=4310.67,
     useBattery=true,
     useEHP=false,
-    V_BST = 0.3,
+    V_BST=0.3,
     tappingProfileName="TappingCycle_T_49",
     num_BEVs=0) annotation (Placement(transformation(extent={{-65.08,-25.04},{-50.08,-10.04}})));
 
@@ -2918,6 +2873,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH28",
@@ -2926,7 +2882,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=true,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_T_50",
     Q_HP_nom=6837.81,
     A_living=154.681,
@@ -2958,6 +2914,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH9",
@@ -2966,7 +2923,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.6,
+    V_BST=0.6,
     tappingProfileName="TappingCycle_T_51",
     num_BEVs=0) annotation (Placement(transformation(extent={{-191.08,-109.04},{-176.08,-94.04}})));
 
@@ -2986,6 +2943,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH29",
@@ -2994,7 +2952,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_T_52",
     num_BEVs=0) annotation (Placement(transformation(extent={{164.92,156.96},{179.92,171.96}})));
 
@@ -3014,6 +2972,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH38",
@@ -3022,7 +2981,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.3,
+    V_BST=0.3,
     tappingProfileName="TappingCycle_T_53",
     num_BEVs=0) annotation (Placement(transformation(extent={{164.92,-102.04},{179.92,-87.04}})));
 
@@ -3042,6 +3001,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH7",
@@ -3050,7 +3010,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_T_54",
     num_BEVs=0) annotation (Placement(transformation(extent={{39.92,-88.04},{54.92,-73.04}})));
 
@@ -3070,6 +3030,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH8",
@@ -3078,7 +3039,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.75,
+    V_BST=0.75,
     tappingProfileName="TappingCycle_T_55",
     num_BEVs=0) annotation (Placement(transformation(extent={{137.92,-375.04},{152.92,-360.04}})));
 
@@ -3098,6 +3059,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH4",
@@ -3107,7 +3069,7 @@ model LV_rural_2_T "This model was automatically generated"
     PV_peakPower=10107.7,
     useBattery=true,
     useEHP=false,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_T_56",
     num_BEVs=0) annotation (Placement(transformation(extent={{116.92,-627.04},{131.92,-612.04}})));
 
@@ -3127,6 +3089,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH4",
@@ -3135,7 +3098,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_T_57",
     num_BEVs=0) annotation (Placement(transformation(extent={{-149.08,212.96},{-134.08,227.96}})));
 
@@ -3155,6 +3118,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH7",
@@ -3163,7 +3127,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.6,
+    V_BST=0.6,
     tappingProfileName="TappingCycle_T_58",
     num_BEVs=0) annotation (Placement(transformation(extent={{109.92,-515.04},{124.92,-500.04}})));
 
@@ -3183,6 +3147,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH3",
@@ -3191,7 +3156,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.3,
+    V_BST=0.3,
     tappingProfileName="TappingCycle_T_59",
     num_BEVs=0) annotation (Placement(transformation(extent={{137.92,-4.04},{152.92,10.96}})));
 
@@ -3211,6 +3176,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH18",
@@ -3219,7 +3185,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.3,
+    V_BST=0.3,
     tappingProfileName="TappingCycle_T_60",
     num_BEVs=0) annotation (Placement(transformation(extent={{32.92,289.96},{47.92,304.96}})));
 
@@ -3239,6 +3205,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH23",
@@ -3247,7 +3214,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_T_61",
     num_BEVs=0) annotation (Placement(transformation(extent={{109.92,-599.04},{124.92,-584.04}})));
 
@@ -3267,6 +3234,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH40",
@@ -3275,7 +3243,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=true,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_T_62",
     Q_HP_nom=7698.73,
     A_living=151.011,
@@ -3307,6 +3275,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH12",
@@ -3315,7 +3284,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=true,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_T_63",
     Q_HP_nom=7066.5,
     A_living=139.671,
@@ -3347,6 +3316,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH20",
@@ -3355,7 +3325,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.3,
+    V_BST=0.3,
     tappingProfileName="TappingCycle_T_64",
     num_BEVs=0) annotation (Placement(transformation(extent={{165.92,-676.04},{180.92,-661.04}})));
 
@@ -3375,6 +3345,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH32",
@@ -3383,7 +3354,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_T_65",
     num_BEVs=0) annotation (Placement(transformation(extent={{-65.08,2.96},{-50.08,17.96}})));
 
@@ -3403,6 +3374,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH16",
@@ -3411,7 +3383,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_T_66",
     num_BEVs=0) annotation (Placement(transformation(extent={{137.92,86.96},{152.92,101.96}})));
 
@@ -3431,6 +3403,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH31",
@@ -3439,7 +3412,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_T_67",
     num_BEVs=0) annotation (Placement(transformation(extent={{165.92,-627.04},{180.92,-612.04}})));
 
@@ -3459,6 +3432,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH25",
@@ -3467,7 +3441,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_T_68",
     num_BEVs=0) annotation (Placement(transformation(extent={{165.92,-515.04},{180.92,-500.04}})));
 
@@ -3487,6 +3461,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH31",
@@ -3495,7 +3470,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.3,
+    V_BST=0.3,
     tappingProfileName="TappingCycle_T_69",
     num_BEVs=0) annotation (Placement(transformation(extent={{137.92,58.96},{152.92,73.96}})));
 
@@ -3515,6 +3490,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH25",
@@ -3523,7 +3499,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_T_70",
     num_BEVs=0) annotation (Placement(transformation(extent={{-191.08,16.96},{-176.08,31.96}})));
 
@@ -3543,6 +3519,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH32",
@@ -3552,7 +3529,7 @@ model LV_rural_2_T "This model was automatically generated"
     PV_peakPower=10552.9,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.6,
+    V_BST=0.6,
     tappingProfileName="TappingCycle_T_71",
     num_BEVs=0) annotation (Placement(transformation(extent={{-65.08,37.96},{-50.08,52.96}})));
 
@@ -3572,6 +3549,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH34",
@@ -3580,7 +3558,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_T_72",
     num_BEVs=0) annotation (Placement(transformation(extent={{-135.08,142.96},{-120.08,157.96}})));
 
@@ -3600,6 +3578,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH3",
@@ -3609,7 +3588,7 @@ model LV_rural_2_T "This model was automatically generated"
     PV_peakPower=11160.3,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.6,
+    V_BST=0.6,
     tappingProfileName="TappingCycle_T_73",
     num_BEVs=0) annotation (Placement(transformation(extent={{137.92,-403.04},{152.92,-388.04}})));
 
@@ -3629,6 +3608,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH10",
@@ -3637,7 +3617,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.3,
+    V_BST=0.3,
     tappingProfileName="TappingCycle_T_74",
     num_BEVs=0) annotation (Placement(transformation(extent={{137.92,-193.04},{152.92,-178.04}})));
 
@@ -3657,6 +3637,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH19",
@@ -3665,7 +3646,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.3,
+    V_BST=0.3,
     tappingProfileName="TappingCycle_T_75",
     num_BEVs=0) annotation (Placement(transformation(extent={{-45.08,212.96},{-30.08,227.96}})));
 
@@ -3685,6 +3666,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH14",
@@ -3693,7 +3675,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.3,
+    V_BST=0.3,
     tappingProfileName="TappingCycle_T_76",
     num_BEVs=0) annotation (Placement(transformation(extent={{-191.08,-46.04},{-176.08,-31.04}})));
 
@@ -3713,6 +3695,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH11",
@@ -3721,7 +3704,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.3,
+    V_BST=0.3,
     tappingProfileName="TappingCycle_T_77",
     num_BEVs=0) annotation (Placement(transformation(extent={{164.92,-67.04},{179.92,-52.04}})));
 
@@ -3741,6 +3724,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH7",
@@ -3749,7 +3733,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_T_78",
     num_BEVs=0) annotation (Placement(transformation(extent={{165.92,-655.04},{180.92,-640.04}})));
 
@@ -3769,6 +3753,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH39",
@@ -3778,7 +3763,7 @@ model LV_rural_2_T "This model was automatically generated"
     PV_peakPower=9012.49,
     useBattery=true,
     useEHP=false,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_T_79",
     num_BEVs=0) annotation (Placement(transformation(extent={{-191.08,142.96},{-176.08,157.96}})));
 
@@ -3798,6 +3783,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH7",
@@ -3806,7 +3792,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.3,
+    V_BST=0.3,
     tappingProfileName="TappingCycle_T_80",
     num_BEVs=0) annotation (Placement(transformation(extent={{32.92,9.96},{47.92,24.96}})));
 
@@ -3826,6 +3812,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH20",
@@ -3834,7 +3821,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.3,
+    V_BST=0.3,
     tappingProfileName="TappingCycle_T_81",
     num_BEVs=0) annotation (Placement(transformation(extent={{165.92,-487.04},{180.92,-472.04}})));
 
@@ -3854,6 +3841,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH14",
@@ -3862,7 +3850,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_T_82",
     num_BEVs=0) annotation (Placement(transformation(extent={{-65.08,177.96},{-50.08,192.96}})));
 
@@ -3882,6 +3870,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH25",
@@ -3890,7 +3879,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_T_83",
     num_BEVs=0) annotation (Placement(transformation(extent={{137.92,-130.04},{152.92,-115.04}})));
 
@@ -3910,6 +3899,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH31",
@@ -3918,7 +3908,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_T_84",
     num_BEVs=0) annotation (Placement(transformation(extent={{136.92,-627.04},{151.92,-612.04}})));
 
@@ -3938,6 +3928,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH7",
@@ -3946,7 +3937,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_T_85",
     num_BEVs=0) annotation (Placement(transformation(extent={{137.92,121.96},{152.92,136.96}})));
 
@@ -3966,6 +3957,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH38",
@@ -3974,7 +3966,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.6,
+    V_BST=0.6,
     tappingProfileName="TappingCycle_T_86",
     num_BEVs=0) annotation (Placement(transformation(extent={{32.92,394.96},{47.92,409.96}})));
 
@@ -3994,6 +3986,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH35",
@@ -4002,7 +3995,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.75,
+    V_BST=0.75,
     tappingProfileName="TappingCycle_T_87",
     num_BEVs=0) annotation (Placement(transformation(extent={{-191.08,-172.04},{-176.08,-157.04}})));
 
@@ -4022,6 +4015,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH16",
@@ -4030,7 +4024,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.3,
+    V_BST=0.3,
     tappingProfileName="TappingCycle_T_88",
     num_BEVs=0) annotation (Placement(transformation(extent={{144.92,23.96},{159.92,38.96}})));
 
@@ -4050,6 +4044,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH29",
@@ -4059,7 +4054,7 @@ model LV_rural_2_T "This model was automatically generated"
     PV_peakPower=16138.7,
     useBattery=true,
     useEHP=false,
-    V_BST = 0.95,
+    V_BST=0.95,
     tappingProfileName="TappingCycle_T_89",
     num_BEVs=0) annotation (Placement(transformation(extent={{137.92,429.96},{152.92,444.96}})));
 
@@ -4079,6 +4074,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH31",
@@ -4087,7 +4083,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.6,
+    V_BST=0.6,
     tappingProfileName="TappingCycle_T_90",
     num_BEVs=0) annotation (Placement(transformation(extent={{32.92,184.96},{47.92,199.96}})));
 
@@ -4107,6 +4103,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH36",
@@ -4116,7 +4113,7 @@ model LV_rural_2_T "This model was automatically generated"
     PV_peakPower=8878.47,
     useBattery=true,
     useEHP=true,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_T_91",
     Q_HP_nom=6654.2,
     A_living=149.921,
@@ -4148,6 +4145,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH27",
@@ -4156,15 +4154,16 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.75,
+    V_BST=0.75,
     tappingProfileName="TappingCycle_T_92",
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=4,
         Bat_Capacity=360000000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90())}) annotation (Placement(transformation(extent={{-65.08,72.96},{-50.08,87.96}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90())}) annotation (Placement(transformation(extent={{-65.08,72.96},{-50.08,87.96}})));
 
   // Basic Parameters
 
@@ -4184,6 +4183,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH34",
@@ -4192,7 +4192,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.95,
+    V_BST=0.95,
     tappingProfileName="TappingCycle_T_93",
     num_BEVs=0) annotation (Placement(transformation(extent={{137.92,394.96},{152.92,409.96}})));
 
@@ -4212,6 +4212,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH32",
@@ -4221,7 +4222,7 @@ model LV_rural_2_T "This model was automatically generated"
     PV_peakPower=8144.59,
     useBattery=true,
     useEHP=false,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_T_94",
     num_BEVs=0) annotation (Placement(transformation(extent={{32.92,72.96},{47.92,87.96}})));
 
@@ -4241,6 +4242,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH27",
@@ -4249,7 +4251,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=true,
-    V_BST = 0.6,
+    V_BST=0.6,
     tappingProfileName="TappingCycle_T_95",
     Q_HP_nom=8447.77,
     A_living=168.909,
@@ -4281,6 +4283,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH3",
@@ -4289,7 +4292,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.6,
+    V_BST=0.6,
     tappingProfileName="TappingCycle_T_96",
     num_BEVs=0) annotation (Placement(transformation(extent={{-156.08,247.96},{-141.08,262.96}})));
 
@@ -4309,6 +4312,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH30",
@@ -4317,7 +4321,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_T_97",
     num_BEVs=0) annotation (Placement(transformation(extent={{-156.08,387.96},{-141.08,402.96}})));
 
@@ -4337,6 +4341,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH9",
@@ -4345,7 +4350,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.75,
+    V_BST=0.75,
     tappingProfileName="TappingCycle_T_98",
     num_BEVs=0) annotation (Placement(transformation(extent={{-156.08,422.96},{-141.08,437.96}})));
 
@@ -4365,6 +4370,7 @@ model LV_rural_2_T "This model was automatically generated"
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH29",
@@ -4373,7 +4379,7 @@ model LV_rural_2_T "This model was automatically generated"
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.3,
+    V_BST=0.3,
     tappingProfileName="TappingCycle_T_99",
     num_BEVs=0) annotation (Placement(transformation(extent={{-65.08,394.96},{-50.08,409.96}})));
 
@@ -4399,8 +4405,7 @@ model LV_rural_2_T "This model was automatically generated"
     epp_p(v(start=20000)),
     epp_n(v(start=400))) annotation (Placement(transformation(extent={{-116,492},{-96,512}})));
   TransiEnt.Basics.Interfaces.Electrical.ComplexPowerPort epp annotation (Placement(transformation(extent={{-10,98},{10,118}})));
-  Models_CyEntEE.CellModels.CPP.DecouplingGrids decouplingGrids annotation (Placement(transformation(extent={{-78,492},{-58,512}})));
-  Bus.LVGridControlBus controlBus annotation (Placement(transformation(extent={{-110,40},{-90,60}})));
+  TransiEnt.Basics.Interfaces.General.ControlBus controlBus annotation (Placement(transformation(extent={{-110,40},{-90,60}})));
   TransiEnt.Components.Sensors.SmartMeter GridMeter annotation (Placement(transformation(extent={{-40,492},{-20,512}})));
 equation
   // ---- Connect Interfaces ------------------------------------------------------------------
@@ -4503,101 +4508,7 @@ equation
   connect(controlBus.household_97, household_97.controlBus) annotation();
   connect(controlBus.household_98, household_98.controlBus) annotation();
   connect(controlBus.household_99, household_99.controlBus) annotation();
-  connect(controlBus.line_1, line_1.controlBus) annotation();
-  connect(controlBus.line_2, line_2.controlBus) annotation();
-  connect(controlBus.line_3, line_3.controlBus) annotation();
-  connect(controlBus.line_4, line_4.controlBus) annotation();
-  connect(controlBus.line_5, line_5.controlBus) annotation();
-  connect(controlBus.line_6, line_6.controlBus) annotation();
-  connect(controlBus.line_7, line_7.controlBus) annotation();
-  connect(controlBus.line_8, line_8.controlBus) annotation();
-  connect(controlBus.line_9, line_9.controlBus) annotation();
-  connect(controlBus.line_10, line_10.controlBus) annotation();
-  connect(controlBus.line_11, line_11.controlBus) annotation();
-  connect(controlBus.line_12, line_12.controlBus) annotation();
-  connect(controlBus.line_13, line_13.controlBus) annotation();
-  connect(controlBus.line_14, line_14.controlBus) annotation();
-  connect(controlBus.line_15, line_15.controlBus) annotation();
-  connect(controlBus.line_16, line_16.controlBus) annotation();
-  connect(controlBus.line_17, line_17.controlBus) annotation();
-  connect(controlBus.line_18, line_18.controlBus) annotation();
-  connect(controlBus.line_19, line_19.controlBus) annotation();
-  connect(controlBus.line_20, line_20.controlBus) annotation();
-  connect(controlBus.line_21, line_21.controlBus) annotation();
-  connect(controlBus.line_22, line_22.controlBus) annotation();
-  connect(controlBus.line_23, line_23.controlBus) annotation();
-  connect(controlBus.line_24, line_24.controlBus) annotation();
-  connect(controlBus.line_25, line_25.controlBus) annotation();
-  connect(controlBus.line_26, line_26.controlBus) annotation();
-  connect(controlBus.line_27, line_27.controlBus) annotation();
-  connect(controlBus.line_28, line_28.controlBus) annotation();
-  connect(controlBus.line_29, line_29.controlBus) annotation();
-  connect(controlBus.line_30, line_30.controlBus) annotation();
-  connect(controlBus.line_31, line_31.controlBus) annotation();
-  connect(controlBus.line_32, line_32.controlBus) annotation();
-  connect(controlBus.line_33, line_33.controlBus) annotation();
-  connect(controlBus.line_34, line_34.controlBus) annotation();
-  connect(controlBus.line_35, line_35.controlBus) annotation();
-  connect(controlBus.line_36, line_36.controlBus) annotation();
-  connect(controlBus.line_37, line_37.controlBus) annotation();
-  connect(controlBus.line_38, line_38.controlBus) annotation();
-  connect(controlBus.line_39, line_39.controlBus) annotation();
-  connect(controlBus.line_40, line_40.controlBus) annotation();
-  connect(controlBus.line_41, line_41.controlBus) annotation();
-  connect(controlBus.line_42, line_42.controlBus) annotation();
-  connect(controlBus.line_43, line_43.controlBus) annotation();
-  connect(controlBus.line_44, line_44.controlBus) annotation();
-  connect(controlBus.line_45, line_45.controlBus) annotation();
-  connect(controlBus.line_46, line_46.controlBus) annotation();
-  connect(controlBus.line_47, line_47.controlBus) annotation();
-  connect(controlBus.line_48, line_48.controlBus) annotation();
-  connect(controlBus.line_49, line_49.controlBus) annotation();
-  connect(controlBus.line_50, line_50.controlBus) annotation();
-  connect(controlBus.line_51, line_51.controlBus) annotation();
-  connect(controlBus.line_52, line_52.controlBus) annotation();
-  connect(controlBus.line_53, line_53.controlBus) annotation();
-  connect(controlBus.line_54, line_54.controlBus) annotation();
-  connect(controlBus.line_55, line_55.controlBus) annotation();
-  connect(controlBus.line_56, line_56.controlBus) annotation();
-  connect(controlBus.line_57, line_57.controlBus) annotation();
-  connect(controlBus.line_58, line_58.controlBus) annotation();
-  connect(controlBus.line_59, line_59.controlBus) annotation();
-  connect(controlBus.line_60, line_60.controlBus) annotation();
-  connect(controlBus.line_61, line_61.controlBus) annotation();
-  connect(controlBus.line_62, line_62.controlBus) annotation();
-  connect(controlBus.line_63, line_63.controlBus) annotation();
-  connect(controlBus.line_64, line_64.controlBus) annotation();
-  connect(controlBus.line_65, line_65.controlBus) annotation();
-  connect(controlBus.line_66, line_66.controlBus) annotation();
-  connect(controlBus.line_67, line_67.controlBus) annotation();
-  connect(controlBus.line_68, line_68.controlBus) annotation();
-  connect(controlBus.line_69, line_69.controlBus) annotation();
-  connect(controlBus.line_70, line_70.controlBus) annotation();
-  connect(controlBus.line_71, line_71.controlBus) annotation();
-  connect(controlBus.line_72, line_72.controlBus) annotation();
-  connect(controlBus.line_73, line_73.controlBus) annotation();
-  connect(controlBus.line_74, line_74.controlBus) annotation();
-  connect(controlBus.line_75, line_75.controlBus) annotation();
-  connect(controlBus.line_76, line_76.controlBus) annotation();
-  connect(controlBus.line_77, line_77.controlBus) annotation();
-  connect(controlBus.line_78, line_78.controlBus) annotation();
-  connect(controlBus.line_79, line_79.controlBus) annotation();
-  connect(controlBus.line_80, line_80.controlBus) annotation();
-  connect(controlBus.line_81, line_81.controlBus) annotation();
-  connect(controlBus.line_82, line_82.controlBus) annotation();
-  connect(controlBus.line_83, line_83.controlBus) annotation();
-  connect(controlBus.line_84, line_84.controlBus) annotation();
-  connect(controlBus.line_85, line_85.controlBus) annotation();
-  connect(controlBus.line_86, line_86.controlBus) annotation();
-  connect(controlBus.line_87, line_87.controlBus) annotation();
-  connect(controlBus.line_88, line_88.controlBus) annotation();
-  connect(controlBus.line_89, line_89.controlBus) annotation();
-  connect(controlBus.line_90, line_90.controlBus) annotation();
-  connect(controlBus.line_91, line_91.controlBus) annotation();
-  connect(controlBus.line_92, line_92.controlBus) annotation();
-  connect(controlBus.line_93, line_93.controlBus) annotation();
-  connect(controlBus.line_94, line_94.controlBus) annotation();
-  connect(controlBus.line_95, line_95.controlBus) annotation();
+
   connect(controlBus.node_1, node_1.controlBus) annotation();
   connect(controlBus.node_2, node_2.controlBus) annotation();
   connect(controlBus.node_3, node_3.controlBus) annotation();
@@ -5000,25 +4911,15 @@ equation
       points={{-116,502},{-124,502},{-124,420},{-72,420},{-72,416},{0,416},{0,108}},
       color={28,108,200},
       thickness=0.5));
-  connect(simpleTransformerComplex.epp_n, decouplingGrids.epp_p) annotation (Line(
-      points={{-96,502},{-78,502}},
-      color={28,108,200},
-      thickness=0.5));
-  connect(GridMeter.epp_a, decouplingGrids.epp_n) annotation (Line(
-      points={{-39.2,502},{-58,502}},
+  connect(GridMeter.epp_a, simpleTransformerComplex.epp_n) annotation (Line(
+      points={{-39.2,502},{-96,502}},
       color={28,108,200},
       thickness=0.5));
   connect(GridMeter.epp_b, node_63.epp) annotation (Line(
-      points={{-30,492},{-26.58,492},{-26.58,464.96}},
+      points={{-20.8,502},{-26.58,502},{-26.58,464.96}},
       color={28,108,200},
       thickness=0.5));
   connect(GridMeter.controlBus, controlBus.GridMeter) annotation();
-   annotation();
-   annotation();
-   annotation();
-   annotation();
-   annotation();
-   annotation();
   annotation (
     experiment(StopTime=86400, __Dymola_Algorithm="Dassl"),
     Diagram(coordinateSystem(extent={{-100.0,-100.0},{100.0,100.0}}), graphics={Rectangle(
@@ -5072,4 +4973,4 @@ Number of BEV: 4")}),
           extent={{-250,-93},{250,-133}},
           lineColor={0,134,134},
           textString="%LV_rural_2_T")}));
-end LV_rural_2_T;
+end LV_rural_2_Today;

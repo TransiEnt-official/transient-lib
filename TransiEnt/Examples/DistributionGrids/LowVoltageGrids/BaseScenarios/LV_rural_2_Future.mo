@@ -1,13 +1,11 @@
-within TransiEnt.Examples.DistributionGrids.LowVoltageGrids.LV_TIA;
-model LV_rural_2_A
+within TransiEnt.Examples.DistributionGrids.LowVoltageGrids.BaseScenarios;
+model LV_rural_2_Future "Large rural low voltage distribution grid scenario with future technology penetration scenario."
   import TransiEnt.Basics.Types.ControlType;
   // ------------------------------------------------------------------------------------------
   //   Parameter
   // ------------------------------------------------------------------------------------------
 
-  parameter String condition_scenario="originalesSzenario";
-
-  parameter String data_local="modelica://Scenarios_CyEntEE/LocalData/" + "LV_rural_2/" + condition_scenario + "/" "Directory containing simulation data";
+  parameter String data_local="modelica://TransiEnt/Tables/distribution/" "Directory containing simulation data" annotation (Evaluate=true, Dialog(group="Scenario"));
 
   parameter ControlType photovoltaicControlType=TransiEnt.Basics.Types.ControlType.Internal "Type of control for photovoltaic system" annotation (Evaluate=true, Dialog(group="External Control"));
 
@@ -17,15 +15,14 @@ model LV_rural_2_A
 
   parameter ControlType bevControlType=TransiEnt.Basics.Types.ControlType.Internal "Type of control for vehicle system" annotation (Evaluate=true, Dialog(group="External Control"));
 
-  parameter String weatherLocation = "Hamelin" "Choose a weather location to simulate the grid" annotation (Evaluate=true, Dialog(group="Weather"));
+  parameter String weatherLocation="Hamelin" "Choose a weather location to simulate the grid" annotation (Evaluate=true, Dialog(group="Weather"));
 
-  parameter String weatherYear = "2019" "Choose a weather location to simulate the grid" annotation (Evaluate=true, Dialog(group="Weather"));
+  parameter String weatherYear="2019" "Choose a weather location to simulate the grid" annotation (Evaluate=true, Dialog(group="Weather"));
 
-  parameter Boolean useTTEC=false "If lines shall use transient thermal equivalent circuit" annotation (Evaluate=true, Dialog(group="Line"));
-
-  parameter Boolean useUndergroundTemperature=false "If lines shall use transient thermal equivalent circuit" annotation (Evaluate=true, Dialog(group="Line"));
-
-  parameter Boolean useUndergroundMoisture=false "If lines shall use transient thermal equivalent circuit" annotation (Evaluate=true, Dialog(group="Line"));
+  parameter String smartMeterConfiguration="Ideal" "choose the basic configuration" annotation (Dialog(group="Metering"), choices(
+      choice="Ideal" "Ideal measurements",
+      choice="TAF10" "Tarifanwendungsfall 10 (German standard)",
+      choice="TAF7" "Tarifanwendungsfall 7 (German standard)"));
 
   // ------------------------------------------------------------------------------------------
   //   Components
@@ -430,8 +427,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=5.262000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-85.08,125.46},{-80.08,130.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{-85.08,125.46},{-80.08,130.46}})));
 
   // Basic Parameters
 
@@ -441,8 +437,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=17.910000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-176.08,265.46},{-171.08,270.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{-176.08,265.46},{-171.08,270.46}})));
 
   // Basic Parameters
 
@@ -452,8 +447,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=29.952000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{117.92,-420.54},{122.92,-415.54}})));
+    parallel=1) annotation (Placement(transformation(extent={{117.92,-420.54},{122.92,-415.54}})));
 
   // Basic Parameters
 
@@ -463,8 +457,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=21.237000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{121.42,-329.54},{126.42,-324.54}})));
+    parallel=1) annotation (Placement(transformation(extent={{121.42,-329.54},{126.42,-324.54}})));
 
   // Basic Parameters
 
@@ -474,8 +467,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=15.715000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-85.08,160.46},{-80.08,165.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{-85.08,160.46},{-80.08,165.46}})));
 
   // Basic Parameters
 
@@ -485,8 +477,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=5.057000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{145.92,-501.04},{150.92,-496.04}})));
+    parallel=1) annotation (Placement(transformation(extent={{145.92,-501.04},{150.92,-496.04}})));
 
   // Basic Parameters
 
@@ -496,8 +487,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=3.000000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{121.42,139.46},{126.42,144.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{121.42,139.46},{126.42,144.46}})));
 
   // Basic Parameters
 
@@ -507,8 +497,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=15.377000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{121.42,-298.04},{126.42,-293.04}})));
+    parallel=1) annotation (Placement(transformation(extent={{121.42,-298.04},{126.42,-293.04}})));
 
   // Basic Parameters
 
@@ -518,8 +507,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=26.059000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{145.92,-641.04},{150.92,-636.04}})));
+    parallel=1) annotation (Placement(transformation(extent={{145.92,-641.04},{150.92,-636.04}})));
 
   // Basic Parameters
 
@@ -529,8 +517,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=18.539000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{117.92,-361.04},{122.92,-356.04}})));
+    parallel=1) annotation (Placement(transformation(extent={{117.92,-361.04},{122.92,-356.04}})));
 
   // Basic Parameters
 
@@ -540,8 +527,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=16.837000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{121.42,-116.04},{126.42,-111.04}})));
+    parallel=1) annotation (Placement(transformation(extent={{121.42,-116.04},{126.42,-111.04}})));
 
   // Basic Parameters
 
@@ -551,8 +537,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=17.818000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{145.92,-585.04},{150.92,-580.04}})));
+    parallel=1) annotation (Placement(transformation(extent={{145.92,-585.04},{150.92,-580.04}})));
 
   // Basic Parameters
 
@@ -562,8 +547,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=2.367000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-211.08,-32.04},{-206.08,-27.04}})));
+    parallel=1) annotation (Placement(transformation(extent={{-211.08,-32.04},{-206.08,-27.04}})));
 
   // Basic Parameters
 
@@ -573,8 +557,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=19.453000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{93.42,-613.04},{98.42,-608.04}})));
+    parallel=1) annotation (Placement(transformation(extent={{93.42,-613.04},{98.42,-608.04}})));
 
   // Basic Parameters
 
@@ -584,8 +567,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=21.881000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{12.92,412.46},{17.92,417.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{12.92,412.46},{17.92,417.46}})));
 
   // Basic Parameters
 
@@ -595,8 +577,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=6.509000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{44.42,447.46},{49.42,452.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{44.42,447.46},{49.42,452.46}})));
 
   // Basic Parameters
 
@@ -606,8 +587,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=32.814000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{107.42,-473.04},{112.42,-468.04}})));
+    parallel=1) annotation (Placement(transformation(extent={{107.42,-473.04},{112.42,-468.04}})));
 
   // Basic Parameters
 
@@ -617,8 +597,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=21.581000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-211.08,-60.04},{-206.08,-55.04}})));
+    parallel=1) annotation (Placement(transformation(extent={{-211.08,-60.04},{-206.08,-55.04}})));
 
   // Basic Parameters
 
@@ -628,8 +607,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=24.323000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-197.08,160.46},{-192.08,165.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{-197.08,160.46},{-192.08,165.46}})));
 
   // Basic Parameters
 
@@ -639,8 +617,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=5.251000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{121.42,9.96},{126.42,14.96}})));
+    parallel=1) annotation (Placement(transformation(extent={{121.42,9.96},{126.42,14.96}})));
 
   // Basic Parameters
 
@@ -650,8 +627,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=17.728000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-172.58,230.46},{-167.58,235.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{-172.58,230.46},{-167.58,235.46}})));
 
   // Basic Parameters
 
@@ -661,8 +637,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=3.038000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{16.42,272.46},{21.42,277.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{16.42,272.46},{21.42,277.46}})));
 
   // Basic Parameters
 
@@ -672,8 +647,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=6.751000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{117.92,-389.04},{122.92,-384.04}})));
+    parallel=1) annotation (Placement(transformation(extent={{117.92,-389.04},{122.92,-384.04}})));
 
   // Basic Parameters
 
@@ -683,8 +657,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=16.608000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-85.08,300.46},{-80.08,305.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{-85.08,300.46},{-80.08,305.46}})));
 
   // Basic Parameters
 
@@ -694,8 +667,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=16.102000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-85.08,265.46},{-80.08,270.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{-85.08,265.46},{-80.08,270.46}})));
 
   // Basic Parameters
 
@@ -705,8 +677,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=26.048000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{12.92,373.96},{17.92,378.96}})));
+    parallel=1) annotation (Placement(transformation(extent={{12.92,373.96},{17.92,378.96}})));
 
   // Basic Parameters
 
@@ -716,8 +687,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=41.570000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-207.58,-154.54},{-202.58,-149.54}})));
+    parallel=1) annotation (Placement(transformation(extent={{-207.58,-154.54},{-202.58,-149.54}})));
 
   // Basic Parameters
 
@@ -727,8 +697,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=5.169000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{16.42,-70.54},{21.42,-65.54}})));
+    parallel=1) annotation (Placement(transformation(extent={{16.42,-70.54},{21.42,-65.54}})));
 
   // Basic Parameters
 
@@ -738,8 +707,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=1.839000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{121.42,170.96},{126.42,175.96}})));
+    parallel=1) annotation (Placement(transformation(extent={{121.42,170.96},{126.42,175.96}})));
 
   // Basic Parameters
 
@@ -749,8 +717,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=6.210000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-85.08,-11.04},{-80.08,-6.04}})));
+    parallel=1) annotation (Placement(transformation(extent={{-85.08,-11.04},{-80.08,-6.04}})));
 
   // Basic Parameters
 
@@ -760,8 +727,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=6.011000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{117.92,202.46},{122.92,207.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{117.92,202.46},{122.92,207.46}})));
 
   // Basic Parameters
 
@@ -771,8 +737,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=19.414000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-176.08,300.46},{-171.08,305.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{-176.08,300.46},{-171.08,305.46}})));
 
   // Basic Parameters
 
@@ -782,8 +747,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=1.774000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{121.42,-53.04},{126.42,-48.04}})));
+    parallel=1) annotation (Placement(transformation(extent={{121.42,-53.04},{126.42,-48.04}})));
 
   // Basic Parameters
 
@@ -793,8 +757,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=23.362000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{145.92,-613.04},{150.92,-608.04}})));
+    parallel=1) annotation (Placement(transformation(extent={{145.92,-613.04},{150.92,-608.04}})));
 
   // Basic Parameters
 
@@ -804,8 +767,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=24.416000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{117.92,307.46},{122.92,312.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{117.92,307.46},{122.92,312.46}})));
 
   // Basic Parameters
 
@@ -815,8 +777,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=27.891000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-85.08,20.46},{-80.08,25.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{-85.08,20.46},{-80.08,25.46}})));
 
   // Basic Parameters
 
@@ -826,8 +787,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=29.198000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-172.58,335.46},{-167.58,340.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{-172.58,335.46},{-167.58,340.46}})));
 
   // Basic Parameters
 
@@ -837,8 +797,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=1.558000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-211.08,-91.54},{-206.08,-86.54}})));
+    parallel=1) annotation (Placement(transformation(extent={{-211.08,-91.54},{-206.08,-86.54}})));
 
   // Basic Parameters
 
@@ -848,8 +807,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=18.172000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-85.08,55.46},{-80.08,60.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{-85.08,55.46},{-80.08,60.46}})));
 
   // Basic Parameters
 
@@ -859,8 +817,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=6.689000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{117.92,377.46},{122.92,382.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{117.92,377.46},{122.92,382.46}})));
 
   // Basic Parameters
 
@@ -870,8 +827,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=19.730000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{149.42,-532.54},{154.42,-527.54}})));
+    parallel=1) annotation (Placement(transformation(extent={{149.42,-532.54},{154.42,-527.54}})));
 
   // Basic Parameters
 
@@ -881,8 +837,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=15.275000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-8.08,447.46},{-3.08,452.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{-8.08,447.46},{-3.08,452.46}})));
 
   // Basic Parameters
 
@@ -892,8 +847,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=15.667000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{16.42,237.46},{21.42,242.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{16.42,237.46},{21.42,242.46}})));
 
   // Basic Parameters
 
@@ -903,8 +857,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=6.011000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-85.08,195.46},{-80.08,200.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{-85.08,195.46},{-80.08,200.46}})));
 
   // Basic Parameters
 
@@ -914,8 +867,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=3.171000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{12.92,58.96},{17.92,63.96}})));
+    parallel=1) annotation (Placement(transformation(extent={{12.92,58.96},{17.92,63.96}})));
 
   // Basic Parameters
 
@@ -925,8 +877,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=6.097000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{121.42,-235.04},{126.42,-230.04}})));
+    parallel=1) annotation (Placement(transformation(extent={{121.42,-235.04},{126.42,-230.04}})));
 
   // Basic Parameters
 
@@ -936,8 +887,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=6.835000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{12.92,167.46},{17.92,172.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{12.92,167.46},{17.92,172.46}})));
 
   // Basic Parameters
 
@@ -947,8 +897,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=6.852000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{12.92,335.46},{17.92,340.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{12.92,335.46},{17.92,340.46}})));
 
   // Basic Parameters
 
@@ -958,8 +907,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=2.224000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-169.08,160.46},{-164.08,165.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{-169.08,160.46},{-164.08,165.46}})));
 
   // Basic Parameters
 
@@ -969,8 +917,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=1.522000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{12.92,202.46},{17.92,207.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{12.92,202.46},{17.92,207.46}})));
 
   // Basic Parameters
 
@@ -980,8 +927,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=23.385000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{12.92,27.46},{17.92,32.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{12.92,27.46},{17.92,32.46}})));
 
   // Basic Parameters
 
@@ -991,8 +937,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=5.145000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{117.92,237.46},{122.92,242.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{117.92,237.46},{122.92,242.46}})));
 
   // Basic Parameters
 
@@ -1002,8 +947,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=2.381000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{121.42,-207.04},{126.42,-202.04}})));
+    parallel=1) annotation (Placement(transformation(extent={{121.42,-207.04},{126.42,-202.04}})));
 
   // Basic Parameters
 
@@ -1013,8 +957,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=15.931000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-211.08,125.46},{-206.08,130.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{-211.08,125.46},{-206.08,130.46}})));
 
   // Basic Parameters
 
@@ -1024,8 +967,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=2.937000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-211.08,-0.54},{-206.08,4.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{-211.08,-0.54},{-206.08,4.46}})));
 
   // Basic Parameters
 
@@ -1035,8 +977,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=22.078000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{117.92,412.46},{122.92,417.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{117.92,412.46},{122.92,417.46}})));
 
   // Basic Parameters
 
@@ -1046,8 +987,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=21.950000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-155.08,125.46},{-150.08,130.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{-155.08,125.46},{-150.08,130.46}})));
 
   // Basic Parameters
 
@@ -1057,8 +997,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=18.923000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{117.92,72.96},{122.92,77.96}})));
+    parallel=1) annotation (Placement(transformation(extent={{117.92,72.96},{122.92,77.96}})));
 
   // Basic Parameters
 
@@ -1068,8 +1007,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=19.804000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{117.92,-266.54},{122.92,-261.54}})));
+    parallel=1) annotation (Placement(transformation(extent={{117.92,-266.54},{122.92,-261.54}})));
 
   // Basic Parameters
 
@@ -1079,8 +1017,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=27.478000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{145.92,-665.54},{150.92,-660.54}})));
+    parallel=1) annotation (Placement(transformation(extent={{145.92,-665.54},{150.92,-660.54}})));
 
   // Basic Parameters
 
@@ -1090,8 +1027,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=21.935000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{93.42,-501.04},{98.42,-496.04}})));
+    parallel=1) annotation (Placement(transformation(extent={{93.42,-501.04},{98.42,-496.04}})));
 
   // Basic Parameters
 
@@ -1101,8 +1037,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=3.300000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-207.58,-123.04},{-202.58,-118.04}})));
+    parallel=1) annotation (Placement(transformation(extent={{-207.58,-123.04},{-202.58,-118.04}})));
 
   // Basic Parameters
 
@@ -1112,8 +1047,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=21.972000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{96.92,-564.04},{101.92,-559.04}})));
+    parallel=1) annotation (Placement(transformation(extent={{96.92,-564.04},{101.92,-559.04}})));
 
   // Basic Parameters
 
@@ -1123,8 +1057,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=6.089000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-85.08,408.96},{-80.08,413.96}})));
+    parallel=1) annotation (Placement(transformation(extent={{-85.08,408.96},{-80.08,413.96}})));
 
   // Basic Parameters
 
@@ -1134,8 +1067,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=25.453000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-85.08,90.46},{-80.08,95.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{-85.08,90.46},{-80.08,95.46}})));
 
   // Basic Parameters
 
@@ -1145,8 +1077,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=25.518000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{12.92,303.96},{17.92,308.96}})));
+    parallel=1) annotation (Placement(transformation(extent={{12.92,303.96},{17.92,308.96}})));
 
   // Basic Parameters
 
@@ -1156,8 +1087,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=5.173000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{121.42,41.46},{126.42,46.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{121.42,41.46},{126.42,46.46}})));
 
   // Basic Parameters
 
@@ -1167,8 +1097,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=22.055000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{124.92,-84.54},{129.92,-79.54}})));
+    parallel=1) annotation (Placement(transformation(extent={{124.92,-84.54},{129.92,-79.54}})));
 
   // Basic Parameters
 
@@ -1178,8 +1107,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=1.594000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{12.92,-7.54},{17.92,-2.54}})));
+    parallel=1) annotation (Placement(transformation(extent={{12.92,-7.54},{17.92,-2.54}})));
 
   // Basic Parameters
 
@@ -1189,8 +1117,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=2.501000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{12.92,-39.04},{17.92,-34.04}})));
+    parallel=1) annotation (Placement(transformation(extent={{12.92,-39.04},{17.92,-34.04}})));
 
   // Basic Parameters
 
@@ -1200,8 +1127,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=28.142000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{149.42,-560.54},{154.42,-555.54}})));
+    parallel=1) annotation (Placement(transformation(extent={{149.42,-560.54},{154.42,-555.54}})));
 
   // Basic Parameters
 
@@ -1211,8 +1137,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=20.065000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-176.08,195.46},{-171.08,200.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{-176.08,195.46},{-171.08,200.46}})));
 
   // Basic Parameters
 
@@ -1222,8 +1147,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=3.134000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{117.92,-144.04},{122.92,-139.04}})));
+    parallel=1) annotation (Placement(transformation(extent={{117.92,-144.04},{122.92,-139.04}})));
 
   // Basic Parameters
 
@@ -1233,8 +1157,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=17.123000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-176.08,405.46},{-171.08,410.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{-176.08,405.46},{-171.08,410.46}})));
 
   // Basic Parameters
 
@@ -1244,8 +1167,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=21.857000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{93.42,-532.54},{98.42,-527.54}})));
+    parallel=1) annotation (Placement(transformation(extent={{93.42,-532.54},{98.42,-527.54}})));
 
   // Basic Parameters
 
@@ -1255,8 +1177,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=6.093000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-81.58,373.96},{-76.58,378.96}})));
+    parallel=1) annotation (Placement(transformation(extent={{-81.58,373.96},{-76.58,378.96}})));
 
   // Basic Parameters
 
@@ -1266,8 +1187,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=17.136000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-211.08,58.96},{-206.08,63.96}})));
+    parallel=1) annotation (Placement(transformation(extent={{-211.08,58.96},{-206.08,63.96}})));
 
   // Basic Parameters
 
@@ -1277,8 +1197,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=1.689000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-155.08,90.46},{-150.08,95.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{-155.08,90.46},{-150.08,95.46}})));
 
   // Basic Parameters
 
@@ -1288,8 +1207,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=28.766000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{117.92,-448.54},{122.92,-443.54}})));
+    parallel=1) annotation (Placement(transformation(extent={{117.92,-448.54},{122.92,-443.54}})));
 
   // Basic Parameters
 
@@ -1299,8 +1217,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=22.026000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{12.92,93.96},{17.92,98.96}})));
+    parallel=1) annotation (Placement(transformation(extent={{12.92,93.96},{17.92,98.96}})));
 
   // Basic Parameters
 
@@ -1310,8 +1227,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=19.882000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{117.92,104.46},{122.92,109.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{117.92,104.46},{122.92,109.46}})));
 
   // Basic Parameters
 
@@ -1321,8 +1237,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=24.169000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{117.92,-175.54},{122.92,-170.54}})));
+    parallel=1) annotation (Placement(transformation(extent={{117.92,-175.54},{122.92,-170.54}})));
 
   // Basic Parameters
 
@@ -1332,8 +1247,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=3.080000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-172.58,370.46},{-167.58,375.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{-172.58,370.46},{-167.58,375.46}})));
 
   // Basic Parameters
 
@@ -1343,8 +1257,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=17.980000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-85.08,230.46},{-80.08,235.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{-85.08,230.46},{-80.08,235.46}})));
 
   // Basic Parameters
 
@@ -1354,8 +1267,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=1.632000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{117.92,-21.54},{122.92,-16.54}})));
+    parallel=1) annotation (Placement(transformation(extent={{117.92,-21.54},{122.92,-16.54}})));
 
   // Basic Parameters
 
@@ -1365,8 +1277,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=20.789000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{117.92,342.46},{122.92,347.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{117.92,342.46},{122.92,347.46}})));
 
   // Basic Parameters
 
@@ -1376,8 +1287,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=3.386000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{117.92,272.46},{122.92,277.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{117.92,272.46},{122.92,277.46}})));
 
   // Basic Parameters
 
@@ -1387,8 +1297,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=6.426000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{12.92,132.46},{17.92,137.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{12.92,132.46},{17.92,137.46}})));
 
   // Basic Parameters
 
@@ -1398,8 +1307,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=15.068000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-211.08,30.96},{-206.08,35.96}})));
+    parallel=1) annotation (Placement(transformation(extent={{-211.08,30.96},{-206.08,35.96}})));
 
   // Basic Parameters
 
@@ -1409,8 +1317,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=2.261000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-81.58,335.46},{-76.58,340.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{-81.58,335.46},{-76.58,340.46}})));
 
   // Basic Parameters
 
@@ -1420,8 +1327,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=17.470000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-211.08,90.46},{-206.08,95.46}})));
+    parallel=1) annotation (Placement(transformation(extent={{-211.08,90.46},{-206.08,95.46}})));
 
   // Basic Parameters
 
@@ -1431,8 +1337,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=49.449000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{131.92,-473.04},{136.92,-468.04}})));
+    parallel=1) annotation (Placement(transformation(extent={{131.92,-473.04},{136.92,-468.04}})));
 
   // Basic Parameters
 
@@ -1442,8 +1347,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=75.000000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-57.08,443.96},{-52.08,448.96}})));
+    parallel=1) annotation (Placement(transformation(extent={{-57.08,443.96},{-52.08,448.96}})));
 
   // Basic Parameters
 
@@ -1453,8 +1357,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=6.700000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-102.58,443.96},{-97.58,448.96}})));
+    parallel=1) annotation (Placement(transformation(extent={{-102.58,443.96},{-97.58,448.96}})));
 
   // Basic Parameters
 
@@ -1464,8 +1367,7 @@ model LV_rural_2_A
     b=2.60752e-07,
     length=32.201000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{93.42,-588.54},{98.42,-583.54}})));
+    parallel=1) annotation (Placement(transformation(extent={{93.42,-588.54},{98.42,-583.54}})));
 
   // Basic Parameters
 
@@ -1481,6 +1383,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH11",
@@ -1493,7 +1396,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000.0,
     Bat_SOCStart=1.0,
     useEHP=true,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_A_1",
     Q_HP_nom=7645.01,
     A_living=157.238,
@@ -1508,12 +1411,13 @@ model LV_rural_2_A
     U_ground=0.413578,
     thermalMass=23050100.0,
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=1,
         Bat_Capacity=196920000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R110())}) annotation (Placement(transformation(extent={{-135.08,107.96},{-120.08,122.96}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R110())}) annotation (Placement(transformation(extent={{-135.08,107.96},{-120.08,122.96}})));
 
   // Basic Parameters
 
@@ -1533,6 +1437,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH29",
@@ -1545,7 +1450,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000,
     Bat_SOCStart=1.0,
     useEHP=false,
-    V_BST = 0.95,
+    V_BST=0.95,
     tappingProfileName="TappingCycle_A_2",
     Q_HP_nom=15452.9,
     A_living=330.004,
@@ -1560,12 +1465,13 @@ model LV_rural_2_A
     U_ground=0.440959,
     thermalMass=40896400.0,
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=2,
         Bat_Capacity=295200000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3())}) annotation (Placement(transformation(extent={{137.92,359.96},{152.92,374.96}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3())}) annotation (Placement(transformation(extent={{137.92,359.96},{152.92,374.96}})));
 
   // Basic Parameters
 
@@ -1585,6 +1491,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH8",
@@ -1593,7 +1500,7 @@ model LV_rural_2_A
     usePV=false,
     useBattery=false,
     useEHP=true,
-    V_BST = 0.95,
+    V_BST=0.95,
     tappingProfileName="TappingCycle_A_3",
     Q_HP_nom=15528.5,
     A_living=382.239,
@@ -1608,17 +1515,19 @@ model LV_rural_2_A
     U_ground=0.352879,
     thermalMass=46002000.0,
     num_BEVs=2,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=3,
         Bat_Capacity=360000000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=4,
         Bat_Capacity=295200000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3())}) annotation (Placement(transformation(extent={{137.92,289.96},{152.92,304.96}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3())}) annotation (Placement(transformation(extent={{137.92,289.96},{152.92,304.96}})));
 
   // Basic Parameters
 
@@ -1640,6 +1549,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH9",
@@ -1652,7 +1562,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000.0,
     Bat_SOCStart=1.0,
     useEHP=true,
-    V_BST = 0.6,
+    V_BST=0.6,
     tappingProfileName="TappingCycle_A_4",
     Q_HP_nom=7928.42,
     A_living=169.159,
@@ -1667,17 +1577,19 @@ model LV_rural_2_A
     U_ground=0.395236,
     thermalMass=24353500.0,
     num_BEVs=2,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=5,
         Bat_Capacity=360000000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=6,
         Bat_Capacity=360000000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90())}) annotation (Placement(transformation(extent={{144.92,-67.04},{159.92,-52.04}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90())}) annotation (Placement(transformation(extent={{144.92,-67.04},{159.92,-52.04}})));
 
   // Basic Parameters
 
@@ -1699,6 +1611,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH36",
@@ -1711,7 +1624,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000.0,
     Bat_SOCStart=1.0,
     useEHP=true,
-    V_BST = 0.6,
+    V_BST=0.6,
     tappingProfileName="TappingCycle_A_5",
     Q_HP_nom=8173.38,
     A_living=159.826,
@@ -1726,17 +1639,19 @@ model LV_rural_2_A
     U_ground=0.449026,
     thermalMass=23334400.0,
     num_BEVs=2,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=7,
         Bat_Capacity=360000000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=8,
         Bat_Capacity=360000000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90())}) annotation (Placement(transformation(extent={{32.92,114.96},{47.92,129.96}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90())}) annotation (Placement(transformation(extent={{32.92,114.96},{47.92,129.96}})));
 
   // Basic Parameters
 
@@ -1758,6 +1673,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH16",
@@ -1770,7 +1686,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000.0,
     Bat_SOCStart=1.0,
     useEHP=true,
-    V_BST = 0.3,
+    V_BST=0.3,
     tappingProfileName="TappingCycle_A_6",
     Q_HP_nom=4503.34,
     A_living=88.7051,
@@ -1785,12 +1701,13 @@ model LV_rural_2_A
     U_ground=0.393512,
     thermalMass=15154800.0,
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=9,
         Bat_Capacity=295200000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3())}) annotation (Placement(transformation(extent={{137.92,184.96},{152.92,199.96}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3())}) annotation (Placement(transformation(extent={{137.92,184.96},{152.92,199.96}})));
 
   // Basic Parameters
 
@@ -1810,6 +1727,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH27",
@@ -1822,7 +1740,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000.0,
     Bat_SOCStart=1.0,
     useEHP=true,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_A_7",
     Q_HP_nom=7071.97,
     A_living=136.889,
@@ -1837,12 +1755,13 @@ model LV_rural_2_A
     U_ground=0.442702,
     thermalMass=20785900.0,
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=10,
         Bat_Capacity=132480000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{116.92,-550.04},{131.92,-535.04}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{116.92,-550.04},{131.92,-535.04}})));
 
   // Basic Parameters
 
@@ -1862,6 +1781,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH18",
@@ -1870,7 +1790,7 @@ model LV_rural_2_A
     usePV=false,
     useBattery=false,
     useEHP=true,
-    V_BST = 0.3,
+    V_BST=0.3,
     tappingProfileName="TappingCycle_A_8",
     Q_HP_nom=5574.43,
     A_living=109.353,
@@ -1885,22 +1805,25 @@ model LV_rural_2_A
     U_ground=0.414315,
     thermalMass=17623900.0,
     num_BEVs=3,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=11,
         Bat_Capacity=360000000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=12,
         Bat_Capacity=295200000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=13,
         Bat_Capacity=132480000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{137.92,-249.04},{152.92,-234.04}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{137.92,-249.04},{152.92,-234.04}})));
 
   // Basic Parameters
 
@@ -1924,6 +1847,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH28",
@@ -1933,7 +1857,7 @@ model LV_rural_2_A
     PV_peakPower=21031.0,
     useBattery=false,
     useEHP=true,
-    V_BST = 0.95,
+    V_BST=0.95,
     tappingProfileName="TappingCycle_A_9",
     Q_HP_nom=14911.0,
     A_living=355.19,
@@ -1948,17 +1872,19 @@ model LV_rural_2_A
     U_ground=0.370321,
     thermalMass=43369900.0,
     num_BEVs=2,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=14,
         Bat_Capacity=360000000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=15,
         Bat_Capacity=132480000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{137.92,254.96},{152.92,269.96}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{137.92,254.96},{152.92,269.96}})));
 
   // Basic Parameters
 
@@ -1980,6 +1906,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH31",
@@ -1992,7 +1919,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000.0,
     Bat_SOCStart=1.0,
     useEHP=true,
-    V_BST = 0.75,
+    V_BST=0.75,
     tappingProfileName="TappingCycle_A_10",
     Q_HP_nom=11775.4,
     A_living=263.247,
@@ -2024,6 +1951,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH23",
@@ -2036,7 +1964,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000,
     Bat_SOCStart=1.0,
     useEHP=false,
-    V_BST = 0.6,
+    V_BST=0.6,
     tappingProfileName="TappingCycle_A_11",
     Q_HP_nom=8180.37,
     A_living=163.601,
@@ -2068,6 +1996,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH4",
@@ -2077,7 +2006,7 @@ model LV_rural_2_A
     PV_peakPower=11626.4,
     useBattery=false,
     useEHP=true,
-    V_BST = 0.6,
+    V_BST=0.6,
     tappingProfileName="TappingCycle_A_12",
     Q_HP_nom=9657.56,
     A_living=196.357,
@@ -2092,17 +2021,19 @@ model LV_rural_2_A
     U_ground=0.438631,
     thermalMass=27273800.0,
     num_BEVs=2,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=16,
         Bat_Capacity=295200000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=17,
         Bat_Capacity=295200000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3())}) annotation (Placement(transformation(extent={{-135.08,72.96},{-120.08,87.96}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3())}) annotation (Placement(transformation(extent={{-135.08,72.96},{-120.08,87.96}})));
 
   // Basic Parameters
 
@@ -2124,6 +2055,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH20",
@@ -2133,7 +2065,7 @@ model LV_rural_2_A
     PV_peakPower=12729.4,
     useBattery=false,
     useEHP=true,
-    V_BST = 0.75,
+    V_BST=0.75,
     tappingProfileName="TappingCycle_A_13",
     Q_HP_nom=10432.0,
     A_living=214.985,
@@ -2165,6 +2097,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH30",
@@ -2177,7 +2110,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000.0,
     Bat_SOCStart=1.0,
     useEHP=true,
-    V_BST = 0.6,
+    V_BST=0.6,
     tappingProfileName="TappingCycle_A_14",
     Q_HP_nom=8305.19,
     A_living=163.042,
@@ -2209,6 +2142,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH38",
@@ -2218,7 +2152,7 @@ model LV_rural_2_A
     PV_peakPower=10130.7,
     useBattery=false,
     useEHP=true,
-    V_BST = 0.6,
+    V_BST=0.6,
     tappingProfileName="TappingCycle_A_15",
     Q_HP_nom=8663.28,
     A_living=171.097,
@@ -2233,12 +2167,13 @@ model LV_rural_2_A
     U_ground=0.447815,
     thermalMass=24563800.0,
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=18,
         Bat_Capacity=196920000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R110())}) annotation (Placement(transformation(extent={{-65.08,142.96},{-50.08,157.96}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R110())}) annotation (Placement(transformation(extent={{-65.08,142.96},{-50.08,157.96}})));
 
   // Basic Parameters
 
@@ -2258,6 +2193,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH25",
@@ -2270,7 +2206,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000.0,
     Bat_SOCStart=1.0,
     useEHP=true,
-    V_BST = 0.6,
+    V_BST=0.6,
     tappingProfileName="TappingCycle_A_16",
     Q_HP_nom=8133.66,
     A_living=168.342,
@@ -2285,12 +2221,13 @@ model LV_rural_2_A
     U_ground=0.414713,
     thermalMass=24264600.0,
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=19,
         Bat_Capacity=360000000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90())}) annotation (Placement(transformation(extent={{172.92,-550.04},{187.92,-535.04}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90())}) annotation (Placement(transformation(extent={{172.92,-550.04},{187.92,-535.04}})));
 
   // Basic Parameters
 
@@ -2310,6 +2247,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH7",
@@ -2318,7 +2256,7 @@ model LV_rural_2_A
     usePV=false,
     useBattery=false,
     useEHP=true,
-    V_BST = 0.6,
+    V_BST=0.6,
     tappingProfileName="TappingCycle_A_17",
     Q_HP_nom=8151.11,
     A_living=150.489,
@@ -2333,12 +2271,13 @@ model LV_rural_2_A
     U_ground=0.484482,
     thermalMass=22304900.0,
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=20,
         Bat_Capacity=295200000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3())}) annotation (Placement(transformation(extent={{144.92,-221.04},{159.92,-206.04}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3())}) annotation (Placement(transformation(extent={{144.92,-221.04},{159.92,-206.04}})));
 
   // Basic Parameters
 
@@ -2358,6 +2297,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH32",
@@ -2367,7 +2307,7 @@ model LV_rural_2_A
     PV_peakPower=6395.21,
     useBattery=false,
     useEHP=true,
-    V_BST = 0.3,
+    V_BST=0.3,
     tappingProfileName="TappingCycle_A_18",
     Q_HP_nom=5435.91,
     A_living=108.008,
@@ -2382,12 +2322,13 @@ model LV_rural_2_A
     U_ground=0.405134,
     thermalMass=17466000.0,
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=21,
         Bat_Capacity=295200000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3())}) annotation (Placement(transformation(extent={{-65.08,317.96},{-50.08,332.96}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3())}) annotation (Placement(transformation(extent={{-65.08,317.96},{-50.08,332.96}})));
 
   // Basic Parameters
 
@@ -2407,6 +2348,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH10",
@@ -2416,7 +2358,7 @@ model LV_rural_2_A
     PV_peakPower=9937.12,
     useBattery=false,
     useEHP=true,
-    V_BST = 0.6,
+    V_BST=0.6,
     tappingProfileName="TappingCycle_A_19",
     Q_HP_nom=8119.82,
     A_living=167.827,
@@ -2431,12 +2373,13 @@ model LV_rural_2_A
     U_ground=0.41538,
     thermalMass=24208500.0,
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=22,
         Bat_Capacity=132480000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{-65.08,107.96},{-50.08,122.96}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{-65.08,107.96},{-50.08,122.96}})));
 
   // Basic Parameters
 
@@ -2456,6 +2399,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH39",
@@ -2464,7 +2408,7 @@ model LV_rural_2_A
     usePV=false,
     useBattery=false,
     useEHP=true,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_A_20",
     Q_HP_nom=7582.98,
     A_living=138.648,
@@ -2479,17 +2423,19 @@ model LV_rural_2_A
     U_ground=0.483788,
     thermalMass=20983700.0,
     num_BEVs=2,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=23,
         Bat_Capacity=360000000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=24,
         Bat_Capacity=295200000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3())}) annotation (Placement(transformation(extent={{-191.08,44.96},{-176.08,59.96}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3())}) annotation (Placement(transformation(extent={{-191.08,44.96},{-176.08,59.96}})));
 
   // Basic Parameters
 
@@ -2511,6 +2457,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH23",
@@ -2523,7 +2470,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000.0,
     Bat_SOCStart=1.0,
     useEHP=true,
-    V_BST = 0.2,
+    V_BST=0.2,
     tappingProfileName="TappingCycle_A_21",
     Q_HP_nom=3117.9,
     A_living=49.3123,
@@ -2538,12 +2485,13 @@ model LV_rural_2_A
     U_ground=0.470929,
     thermalMass=10064100.0,
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=25,
         Bat_Capacity=295200000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3())}) annotation (Placement(transformation(extent={{39.92,254.96},{54.92,269.96}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3())}) annotation (Placement(transformation(extent={{39.92,254.96},{54.92,269.96}})));
 
   // Basic Parameters
 
@@ -2563,6 +2511,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH22",
@@ -2571,7 +2520,7 @@ model LV_rural_2_A
     usePV=false,
     useBattery=false,
     useEHP=true,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_A_22",
     Q_HP_nom=6865.78,
     A_living=129.478,
@@ -2586,12 +2535,13 @@ model LV_rural_2_A
     U_ground=0.455583,
     thermalMass=19947000.0,
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=26,
         Bat_Capacity=295200000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3())}) annotation (Placement(transformation(extent={{164.92,-221.04},{179.92,-206.04}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3())}) annotation (Placement(transformation(extent={{164.92,-221.04},{179.92,-206.04}})));
 
   // Basic Parameters
 
@@ -2611,6 +2561,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH27",
@@ -2619,7 +2570,7 @@ model LV_rural_2_A
     usePV=false,
     useBattery=false,
     useEHP=true,
-    V_BST = 0.6,
+    V_BST=0.6,
     tappingProfileName="TappingCycle_A_23",
     Q_HP_nom=8050.27,
     A_living=181.611,
@@ -2634,22 +2585,25 @@ model LV_rural_2_A
     U_ground=0.365034,
     thermalMass=25699000.0,
     num_BEVs=3,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=27,
         Bat_Capacity=295200000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=28,
         Bat_Capacity=196920000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R110()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R110()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=29,
         Bat_Capacity=196920000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R110())}) annotation (Placement(transformation(extent={{137.92,-39.04},{152.92,-24.04}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R110())}) annotation (Placement(transformation(extent={{137.92,-39.04},{152.92,-24.04}})));
 
   // Basic Parameters
 
@@ -2673,6 +2627,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH7",
@@ -2682,7 +2637,7 @@ model LV_rural_2_A
     PV_peakPower=5600.31,
     useBattery=false,
     useEHP=true,
-    V_BST = 0.3,
+    V_BST=0.3,
     tappingProfileName="TappingCycle_A_24",
     Q_HP_nom=5493.13,
     A_living=94.583,
@@ -2697,12 +2652,13 @@ model LV_rural_2_A
     U_ground=0.487922,
     thermalMass=15868100.0,
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=30,
         Bat_Capacity=132480000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{137.92,-347.04},{152.92,-332.04}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{137.92,-347.04},{152.92,-332.04}})));
 
   // Basic Parameters
 
@@ -2722,6 +2678,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH5",
@@ -2734,7 +2691,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000.0,
     Bat_SOCStart=1.0,
     useEHP=true,
-    V_BST = 1.5,
+    V_BST=1.5,
     tappingProfileName="TappingCycle_A_25",
     Q_HP_nom=18661.5,
     A_living=396.155,
@@ -2749,17 +2706,19 @@ model LV_rural_2_A
     U_ground=0.457136,
     thermalMass=47347300.0,
     num_BEVs=2,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=31,
         Bat_Capacity=132480000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=32,
         Bat_Capacity=196920000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R110())}) annotation (Placement(transformation(extent={{137.92,324.96},{152.92,339.96}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R110())}) annotation (Placement(transformation(extent={{137.92,324.96},{152.92,339.96}})));
 
   // Basic Parameters
 
@@ -2781,6 +2740,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH11",
@@ -2789,7 +2749,7 @@ model LV_rural_2_A
     usePV=false,
     useBattery=false,
     useEHP=true,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_A_26",
     Q_HP_nom=7021.47,
     A_living=123.641,
@@ -2804,12 +2764,13 @@ model LV_rural_2_A
     U_ground=0.499827,
     thermalMass=19280500.0,
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=33,
         Bat_Capacity=295200000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3())}) annotation (Placement(transformation(extent={{137.92,-158.04},{152.92,-143.04}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3())}) annotation (Placement(transformation(extent={{137.92,-158.04},{152.92,-143.04}})));
 
   // Basic Parameters
 
@@ -2829,6 +2790,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH4",
@@ -2837,7 +2799,7 @@ model LV_rural_2_A
     usePV=false,
     useBattery=false,
     useEHP=true,
-    V_BST = 0.6,
+    V_BST=0.6,
     tappingProfileName="TappingCycle_A_27",
     Q_HP_nom=8765.57,
     A_living=197.103,
@@ -2852,12 +2814,13 @@ model LV_rural_2_A
     U_ground=0.372417,
     thermalMass=27353000.0,
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=34,
         Bat_Capacity=295200000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3())}) annotation (Placement(transformation(extent={{-65.08,422.96},{-50.08,437.96}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3())}) annotation (Placement(transformation(extent={{-65.08,422.96},{-50.08,437.96}})));
 
   // Basic Parameters
 
@@ -2877,6 +2840,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH25",
@@ -2889,7 +2853,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000.0,
     Bat_SOCStart=1.0,
     useEHP=true,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_A_28",
     Q_HP_nom=6105.62,
     A_living=108.457,
@@ -2921,6 +2885,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH17",
@@ -2930,7 +2895,7 @@ model LV_rural_2_A
     PV_peakPower=13871.8,
     useBattery=false,
     useEHP=true,
-    V_BST = 0.75,
+    V_BST=0.75,
     tappingProfileName="TappingCycle_A_29",
     Q_HP_nom=10271.2,
     A_living=234.279,
@@ -2945,17 +2910,19 @@ model LV_rural_2_A
     U_ground=0.374374,
     thermalMass=31244700.0,
     num_BEVs=2,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=35,
         Bat_Capacity=295200000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=36,
         Bat_Capacity=196920000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R110())}) annotation (Placement(transformation(extent={{32.92,-25.04},{47.92,-10.04}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R110())}) annotation (Placement(transformation(extent={{32.92,-25.04},{47.92,-10.04}})));
 
   // Basic Parameters
 
@@ -2977,6 +2944,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH5",
@@ -2989,7 +2957,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000,
     Bat_SOCStart=1.0,
     useEHP=false,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_A_30",
     Q_HP_nom=7650.45,
     A_living=149.871,
@@ -3004,17 +2972,19 @@ model LV_rural_2_A
     U_ground=0.442334,
     thermalMass=22236400.0,
     num_BEVs=2,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=37,
         Bat_Capacity=360000000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=38,
         Bat_Capacity=295200000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3())}) annotation (Placement(transformation(extent={{-65.08,212.96},{-50.08,227.96}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3())}) annotation (Placement(transformation(extent={{-65.08,212.96},{-50.08,227.96}})));
 
   // Basic Parameters
 
@@ -3036,6 +3006,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH40",
@@ -3048,7 +3019,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000.0,
     Bat_SOCStart=1.0,
     useEHP=true,
-    V_BST = 0.3,
+    V_BST=0.3,
     tappingProfileName="TappingCycle_A_31",
     Q_HP_nom=5490.45,
     A_living=117.011,
@@ -3063,17 +3034,19 @@ model LV_rural_2_A
     U_ground=0.368573,
     thermalMass=18516400.0,
     num_BEVs=2,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=39,
         Bat_Capacity=360000000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=40,
         Bat_Capacity=196920000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R110())}) annotation (Placement(transformation(extent={{32.92,-53.04},{47.92,-38.04}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R110())}) annotation (Placement(transformation(extent={{32.92,-53.04},{47.92,-38.04}})));
 
   // Basic Parameters
 
@@ -3095,6 +3068,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH35",
@@ -3107,7 +3081,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000.0,
     Bat_SOCStart=1.0,
     useEHP=true,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_A_32",
     Q_HP_nom=6754.44,
     A_living=122.591,
@@ -3122,12 +3096,13 @@ model LV_rural_2_A
     U_ground=0.477201,
     thermalMass=19160000.0,
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=41,
         Bat_Capacity=295200000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3())}) annotation (Placement(transformation(extent={{-191.08,107.96},{-176.08,122.96}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3())}) annotation (Placement(transformation(extent={{-191.08,107.96},{-176.08,122.96}})));
 
   // Basic Parameters
 
@@ -3147,6 +3122,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH10",
@@ -3159,7 +3135,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000.0,
     Bat_SOCStart=1.0,
     useEHP=true,
-    V_BST = 0.3,
+    V_BST=0.3,
     tappingProfileName="TappingCycle_A_33",
     Q_HP_nom=5186.44,
     A_living=90.9424,
@@ -3174,17 +3150,19 @@ model LV_rural_2_A
     U_ground=0.471098,
     thermalMass=15427400.0,
     num_BEVs=2,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=42,
         Bat_Capacity=295200000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=43,
         Bat_Capacity=132480000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{137.92,219.96},{152.92,234.96}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{137.92,219.96},{152.92,234.96}})));
 
   // Basic Parameters
 
@@ -3206,6 +3184,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH29",
@@ -3218,7 +3197,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000.0,
     Bat_SOCStart=1.0,
     useEHP=true,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_A_34",
     Q_HP_nom=5808.97,
     A_living=110.48,
@@ -3233,12 +3212,13 @@ model LV_rural_2_A
     U_ground=0.435365,
     thermalMass=17756000.0,
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=44,
         Bat_Capacity=360000000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90())}) annotation (Placement(transformation(extent={{-65.08,247.96},{-50.08,262.96}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90())}) annotation (Placement(transformation(extent={{-65.08,247.96},{-50.08,262.96}})));
 
   // Basic Parameters
 
@@ -3258,6 +3238,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH27",
@@ -3270,7 +3251,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000.0,
     Bat_SOCStart=1.0,
     useEHP=true,
-    V_BST = 0.3,
+    V_BST=0.3,
     tappingProfileName="TappingCycle_A_35",
     Q_HP_nom=5330.37,
     A_living=104.439,
@@ -3285,12 +3266,13 @@ model LV_rural_2_A
     U_ground=0.411077,
     thermalMass=17045100.0,
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=45,
         Bat_Capacity=360000000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90())}) annotation (Placement(transformation(extent={{-191.08,-74.04},{-176.08,-59.04}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90())}) annotation (Placement(transformation(extent={{-191.08,-74.04},{-176.08,-59.04}})));
 
   // Basic Parameters
 
@@ -3310,6 +3292,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH23",
@@ -3318,7 +3301,7 @@ model LV_rural_2_A
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.6,
+    V_BST=0.6,
     tappingProfileName="TappingCycle_A_36",
     Q_HP_nom=8705.62,
     A_living=199.868,
@@ -3333,12 +3316,13 @@ model LV_rural_2_A
     U_ground=0.360375,
     thermalMass=27646000.0,
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=46,
         Bat_Capacity=132480000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{144.92,-312.04},{159.92,-297.04}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{144.92,-312.04},{159.92,-297.04}})));
 
   // Basic Parameters
 
@@ -3358,6 +3342,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH36",
@@ -3366,7 +3351,7 @@ model LV_rural_2_A
     usePV=false,
     useBattery=false,
     useEHP=true,
-    V_BST = 0.95,
+    V_BST=0.95,
     tappingProfileName="TappingCycle_A_37",
     Q_HP_nom=14785.8,
     A_living=307.885,
@@ -3398,6 +3383,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH27",
@@ -3410,7 +3396,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000.0,
     Bat_SOCStart=1.0,
     useEHP=true,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_A_38",
     Q_HP_nom=7089.42,
     A_living=143.197,
@@ -3425,22 +3411,25 @@ model LV_rural_2_A
     U_ground=0.418031,
     thermalMass=21493400.0,
     num_BEVs=3,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=47,
         Bat_Capacity=360000000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=48,
         Bat_Capacity=295200000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=49,
         Bat_Capacity=132480000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{-156.08,282.96},{-141.08,297.96}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{-156.08,282.96},{-141.08,297.96}})));
 
   // Basic Parameters
 
@@ -3464,6 +3453,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH7",
@@ -3473,7 +3463,7 @@ model LV_rural_2_A
     PV_peakPower=8900.35,
     useBattery=false,
     useEHP=true,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_A_39",
     Q_HP_nom=7849.5,
     A_living=150.317,
@@ -3488,12 +3478,13 @@ model LV_rural_2_A
     U_ground=0.458308,
     thermalMass=22285900.0,
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=50,
         Bat_Capacity=196920000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R110())}) annotation (Placement(transformation(extent={{-191.08,-18.04},{-176.08,-3.04}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R110())}) annotation (Placement(transformation(extent={{-191.08,-18.04},{-176.08,-3.04}})));
 
   // Basic Parameters
 
@@ -3513,6 +3504,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH39",
@@ -3525,7 +3517,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000,
     Bat_SOCStart=1.0,
     useEHP=false,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_A_40",
     Q_HP_nom=5964.55,
     A_living=105.58,
@@ -3540,12 +3532,13 @@ model LV_rural_2_A
     U_ground=0.479957,
     thermalMass=17179900.0,
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=51,
         Bat_Capacity=132480000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{32.92,352.96},{47.92,367.96}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{32.92,352.96},{47.92,367.96}})));
 
   // Basic Parameters
 
@@ -3565,6 +3558,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH8",
@@ -3573,7 +3567,7 @@ model LV_rural_2_A
     usePV=false,
     useBattery=false,
     useEHP=true,
-    V_BST = 0.3,
+    V_BST=0.3,
     tappingProfileName="TappingCycle_A_41",
     Q_HP_nom=5175.75,
     A_living=86.9233,
@@ -3588,12 +3582,13 @@ model LV_rural_2_A
     U_ground=0.496328,
     thermalMass=14936700.0,
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=52,
         Bat_Capacity=132480000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{116.92,-487.04},{131.92,-472.04}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{116.92,-487.04},{131.92,-472.04}})));
 
   // Basic Parameters
 
@@ -3613,6 +3608,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH10",
@@ -3625,7 +3621,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000.0,
     Bat_SOCStart=1.0,
     useEHP=true,
-    V_BST = 0.6,
+    V_BST=0.6,
     tappingProfileName="TappingCycle_A_42",
     Q_HP_nom=8548.55,
     A_living=160.459,
@@ -3640,12 +3636,13 @@ model LV_rural_2_A
     U_ground=0.47837,
     thermalMass=23403800.0,
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=53,
         Bat_Capacity=360000000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90())}) annotation (Placement(transformation(extent={{137.92,-284.04},{152.92,-269.04}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90())}) annotation (Placement(transformation(extent={{137.92,-284.04},{152.92,-269.04}})));
 
   // Basic Parameters
 
@@ -3665,6 +3662,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH39",
@@ -3677,7 +3675,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000.0,
     Bat_SOCStart=1.0,
     useEHP=true,
-    V_BST = 0.2,
+    V_BST=0.2,
     tappingProfileName="TappingCycle_A_43",
     Q_HP_nom=3443.8,
     A_living=70.4803,
@@ -3692,12 +3690,13 @@ model LV_rural_2_A
     U_ground=0.351757,
     thermalMass=12878000.0,
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=54,
         Bat_Capacity=132480000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{165.92,-571.04},{180.92,-556.04}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{165.92,-571.04},{180.92,-556.04}})));
 
   // Basic Parameters
 
@@ -3717,6 +3716,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH21",
@@ -3729,7 +3729,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000.0,
     Bat_SOCStart=1.0,
     useEHP=true,
-    V_BST = 0.75,
+    V_BST=0.75,
     tappingProfileName="TappingCycle_A_44",
     Q_HP_nom=9691.96,
     A_living=208.769,
@@ -3744,12 +3744,13 @@ model LV_rural_2_A
     U_ground=0.403997,
     thermalMass=28585300.0,
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=55,
         Bat_Capacity=295200000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3())}) annotation (Placement(transformation(extent={{116.92,-578.04},{131.92,-563.04}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3())}) annotation (Placement(transformation(extent={{116.92,-578.04},{131.92,-563.04}})));
 
   // Basic Parameters
 
@@ -3769,6 +3770,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH16",
@@ -3778,7 +3780,7 @@ model LV_rural_2_A
     PV_peakPower=5944.5,
     useBattery=false,
     useEHP=true,
-    V_BST = 0.3,
+    V_BST=0.3,
     tappingProfileName="TappingCycle_A_45",
     Q_HP_nom=5546.93,
     A_living=100.396,
@@ -3793,22 +3795,25 @@ model LV_rural_2_A
     U_ground=0.459499,
     thermalMass=16564900.0,
     num_BEVs=3,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=56,
         Bat_Capacity=360000000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=57,
         Bat_Capacity=132480000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=58,
         Bat_Capacity=196920000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R110())}) annotation (Placement(transformation(extent={{-58.08,352.96},{-43.08,367.96}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R110())}) annotation (Placement(transformation(extent={{-58.08,352.96},{-43.08,367.96}})));
 
   // Basic Parameters
 
@@ -3832,6 +3837,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH18",
@@ -3844,7 +3850,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000,
     Bat_SOCStart=1.0,
     useEHP=false,
-    V_BST = 0.3,
+    V_BST=0.3,
     tappingProfileName="TappingCycle_A_46",
     Q_HP_nom=4939.04,
     A_living=102.185,
@@ -3859,22 +3865,25 @@ model LV_rural_2_A
     U_ground=0.375744,
     thermalMass=16777900.0,
     num_BEVs=3,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=59,
         Bat_Capacity=295200000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=60,
         Bat_Capacity=196920000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R110()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R110()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=61,
         Bat_Capacity=196920000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R110())}) annotation (Placement(transformation(extent={{-191.08,72.96},{-176.08,87.96}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R110())}) annotation (Placement(transformation(extent={{-191.08,72.96},{-176.08,87.96}})));
 
   // Basic Parameters
 
@@ -3898,6 +3907,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH4",
@@ -3910,7 +3920,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000.0,
     Bat_SOCStart=1.0,
     useEHP=true,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_A_47",
     Q_HP_nom=6557.38,
     A_living=128.68,
@@ -3925,12 +3935,13 @@ model LV_rural_2_A
     U_ground=0.428155,
     thermalMass=19856300.0,
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=62,
         Bat_Capacity=360000000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90())}) annotation (Placement(transformation(extent={{32.92,317.96},{47.92,332.96}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90())}) annotation (Placement(transformation(extent={{32.92,317.96},{47.92,332.96}})));
 
   // Basic Parameters
 
@@ -3950,6 +3961,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH19",
@@ -3962,7 +3974,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000.0,
     Bat_SOCStart=1.0,
     useEHP=true,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_A_48",
     Q_HP_nom=7875.1,
     A_living=179.437,
@@ -3977,12 +3989,13 @@ model LV_rural_2_A
     U_ground=0.358151,
     thermalMass=25465200.0,
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=63,
         Bat_Capacity=196920000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R110())}) annotation (Placement(transformation(extent={{165.92,-599.04},{180.92,-584.04}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R110())}) annotation (Placement(transformation(extent={{165.92,-599.04},{180.92,-584.04}})));
 
   // Basic Parameters
 
@@ -4002,6 +4015,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH40",
@@ -4011,7 +4025,7 @@ model LV_rural_2_A
     PV_peakPower=4309.91,
     useBattery=false,
     useEHP=true,
-    V_BST = 0.3,
+    V_BST=0.3,
     tappingProfileName="TappingCycle_A_49",
     Q_HP_nom=3719.61,
     A_living=72.7896,
@@ -4026,17 +4040,19 @@ model LV_rural_2_A
     U_ground=0.379999,
     thermalMass=13172800.0,
     num_BEVs=2,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=64,
         Bat_Capacity=360000000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=65,
         Bat_Capacity=295200000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3())}) annotation (Placement(transformation(extent={{-65.08,-25.04},{-50.08,-10.04}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3())}) annotation (Placement(transformation(extent={{-65.08,-25.04},{-50.08,-10.04}})));
 
   // Basic Parameters
 
@@ -4058,6 +4074,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH32",
@@ -4070,7 +4087,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000.0,
     Bat_SOCStart=1.0,
     useEHP=true,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_A_50",
     Q_HP_nom=6837.81,
     A_living=154.681,
@@ -4085,17 +4102,19 @@ model LV_rural_2_A
     U_ground=0.352778,
     thermalMass=22768500.0,
     num_BEVs=2,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=66,
         Bat_Capacity=132480000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=67,
         Bat_Capacity=132480000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{-156.08,317.96},{-141.08,332.96}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{-156.08,317.96},{-141.08,332.96}})));
 
   // Basic Parameters
 
@@ -4117,6 +4136,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH32",
@@ -4129,7 +4149,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000.0,
     Bat_SOCStart=1.0,
     useEHP=true,
-    V_BST = 0.6,
+    V_BST=0.6,
     tappingProfileName="TappingCycle_A_51",
     Q_HP_nom=9041.15,
     A_living=173.573,
@@ -4144,12 +4164,13 @@ model LV_rural_2_A
     U_ground=0.469055,
     thermalMass=24832100.0,
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=68,
         Bat_Capacity=295200000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3())}) annotation (Placement(transformation(extent={{-191.08,-109.04},{-176.08,-94.04}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3())}) annotation (Placement(transformation(extent={{-191.08,-109.04},{-176.08,-94.04}})));
 
   // Basic Parameters
 
@@ -4169,6 +4190,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH20",
@@ -4181,7 +4203,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000,
     Bat_SOCStart=1.0,
     useEHP=false,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_A_52",
     Q_HP_nom=5871.09,
     A_living=122.81,
@@ -4196,17 +4218,19 @@ model LV_rural_2_A
     U_ground=0.383589,
     thermalMass=19185100.0,
     num_BEVs=2,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=69,
         Bat_Capacity=360000000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=70,
         Bat_Capacity=295200000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3())}) annotation (Placement(transformation(extent={{164.92,156.96},{179.92,171.96}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3())}) annotation (Placement(transformation(extent={{164.92,156.96},{179.92,171.96}})));
 
   // Basic Parameters
 
@@ -4228,6 +4252,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH34",
@@ -4240,7 +4265,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000.0,
     Bat_SOCStart=1.0,
     useEHP=true,
-    V_BST = 0.3,
+    V_BST=0.3,
     tappingProfileName="TappingCycle_A_53",
     Q_HP_nom=5075.28,
     A_living=100.367,
@@ -4255,12 +4280,13 @@ model LV_rural_2_A
     U_ground=0.401803,
     thermalMass=16561500.0,
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=71,
         Bat_Capacity=295200000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3())}) annotation (Placement(transformation(extent={{164.92,-102.04},{179.92,-87.04}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3())}) annotation (Placement(transformation(extent={{164.92,-102.04},{179.92,-87.04}})));
 
   // Basic Parameters
 
@@ -4280,6 +4306,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH23",
@@ -4288,7 +4315,7 @@ model LV_rural_2_A
     usePV=false,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_A_54",
     Q_HP_nom=7248.91,
     A_living=130.484,
@@ -4303,12 +4330,13 @@ model LV_rural_2_A
     U_ground=0.489212,
     thermalMass=20061500.0,
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=72,
         Bat_Capacity=196920000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R110())}) annotation (Placement(transformation(extent={{39.92,-88.04},{54.92,-73.04}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R110())}) annotation (Placement(transformation(extent={{39.92,-88.04},{54.92,-73.04}})));
 
   // Basic Parameters
 
@@ -4328,6 +4356,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH3",
@@ -4336,7 +4365,7 @@ model LV_rural_2_A
     usePV=false,
     useBattery=false,
     useEHP=true,
-    V_BST = 0.75,
+    V_BST=0.75,
     tappingProfileName="TappingCycle_A_55",
     Q_HP_nom=9845.38,
     A_living=195.255,
@@ -4351,12 +4380,13 @@ model LV_rural_2_A
     U_ground=0.455662,
     thermalMass=27156800.0,
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=73,
         Bat_Capacity=196920000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R110())}) annotation (Placement(transformation(extent={{137.92,-375.04},{152.92,-360.04}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R110())}) annotation (Placement(transformation(extent={{137.92,-375.04},{152.92,-360.04}})));
 
   // Basic Parameters
 
@@ -4376,6 +4406,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH8",
@@ -4388,7 +4419,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000.0,
     Bat_SOCStart=1.0,
     useEHP=true,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_A_56",
     Q_HP_nom=7490.15,
     A_living=170.708,
@@ -4403,17 +4434,19 @@ model LV_rural_2_A
     U_ground=0.354776,
     thermalMass=24521700.0,
     num_BEVs=2,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=74,
         Bat_Capacity=360000000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=75,
         Bat_Capacity=132480000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{116.92,-627.04},{131.92,-612.04}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{116.92,-627.04},{131.92,-612.04}})));
 
   // Basic Parameters
 
@@ -4435,6 +4468,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH27",
@@ -4447,7 +4481,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000.0,
     Bat_SOCStart=1.0,
     useEHP=true,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_A_57",
     Q_HP_nom=7372.29,
     A_living=161.663,
@@ -4462,12 +4496,13 @@ model LV_rural_2_A
     U_ground=0.374704,
     thermalMass=23535700.0,
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=76,
         Bat_Capacity=196920000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R110())}) annotation (Placement(transformation(extent={{-149.08,212.96},{-134.08,227.96}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R110())}) annotation (Placement(transformation(extent={{-149.08,212.96},{-134.08,227.96}})));
 
   // Basic Parameters
 
@@ -4487,6 +4522,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH38",
@@ -4499,7 +4535,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000.0,
     Bat_SOCStart=1.0,
     useEHP=true,
-    V_BST = 0.6,
+    V_BST=0.6,
     tappingProfileName="TappingCycle_A_58",
     Q_HP_nom=8449.2,
     A_living=167.562,
@@ -4514,12 +4550,13 @@ model LV_rural_2_A
     U_ground=0.443222,
     thermalMass=24179700.0,
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=77,
         Bat_Capacity=295200000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3())}) annotation (Placement(transformation(extent={{109.92,-515.04},{124.92,-500.04}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3())}) annotation (Placement(transformation(extent={{109.92,-515.04},{124.92,-500.04}})));
 
   // Basic Parameters
 
@@ -4539,6 +4576,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH19",
@@ -4551,7 +4589,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000.0,
     Bat_SOCStart=1.0,
     useEHP=true,
-    V_BST = 0.3,
+    V_BST=0.3,
     tappingProfileName="TappingCycle_A_59",
     Q_HP_nom=5217.32,
     A_living=97.279,
@@ -4566,12 +4604,13 @@ model LV_rural_2_A
     U_ground=0.436584,
     thermalMass=16192300.0,
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=78,
         Bat_Capacity=295200000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3())}) annotation (Placement(transformation(extent={{137.92,-4.04},{152.92,10.96}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3())}) annotation (Placement(transformation(extent={{137.92,-4.04},{152.92,10.96}})));
 
   // Basic Parameters
 
@@ -4591,6 +4630,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH29",
@@ -4603,7 +4643,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000.0,
     Bat_SOCStart=1.0,
     useEHP=true,
-    V_BST = 0.3,
+    V_BST=0.3,
     tappingProfileName="TappingCycle_A_60",
     Q_HP_nom=5101.15,
     A_living=104.069,
@@ -4618,12 +4658,13 @@ model LV_rural_2_A
     U_ground=0.385684,
     thermalMass=17001200.0,
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=79,
         Bat_Capacity=132480000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{32.92,289.96},{47.92,304.96}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{32.92,289.96},{47.92,304.96}})));
 
   // Basic Parameters
 
@@ -4643,6 +4684,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH32",
@@ -4655,7 +4697,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000,
     Bat_SOCStart=1.0,
     useEHP=false,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_A_61",
     Q_HP_nom=7866.68,
     A_living=143.188,
@@ -4670,22 +4712,25 @@ model LV_rural_2_A
     U_ground=0.490132,
     thermalMass=21492500.0,
     num_BEVs=3,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=80,
         Bat_Capacity=360000000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=81,
         Bat_Capacity=360000000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=82,
         Bat_Capacity=196920000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R110())}) annotation (Placement(transformation(extent={{109.92,-599.04},{124.92,-584.04}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R110())}) annotation (Placement(transformation(extent={{109.92,-599.04},{124.92,-584.04}})));
 
   // Basic Parameters
 
@@ -4709,6 +4754,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH11",
@@ -4718,7 +4764,7 @@ model LV_rural_2_A
     PV_peakPower=8941.44,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_A_62",
     Q_HP_nom=7698.73,
     A_living=151.011,
@@ -4733,17 +4779,19 @@ model LV_rural_2_A
     U_ground=0.442095,
     thermalMass=22362800.0,
     num_BEVs=2,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=83,
         Bat_Capacity=295200000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=84,
         Bat_Capacity=295200000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3())}) annotation (Placement(transformation(extent={{32.92,149.96},{47.92,164.96}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3())}) annotation (Placement(transformation(extent={{32.92,149.96},{47.92,164.96}})));
 
   // Basic Parameters
 
@@ -4765,6 +4813,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH7",
@@ -4777,7 +4826,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000.0,
     Bat_SOCStart=1.0,
     useEHP=true,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_A_63",
     Q_HP_nom=7066.5,
     A_living=139.671,
@@ -4792,17 +4841,19 @@ model LV_rural_2_A
     U_ground=0.430345,
     thermalMass=21098600.0,
     num_BEVs=2,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=85,
         Bat_Capacity=132480000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=86,
         Bat_Capacity=132480000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{32.92,44.96},{47.92,59.96}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{32.92,44.96},{47.92,59.96}})));
 
   // Basic Parameters
 
@@ -4824,6 +4875,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH36",
@@ -4836,7 +4888,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000.0,
     Bat_SOCStart=1.0,
     useEHP=true,
-    V_BST = 0.3,
+    V_BST=0.3,
     tappingProfileName="TappingCycle_A_64",
     Q_HP_nom=3959.31,
     A_living=69.98,
@@ -4868,6 +4920,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH28",
@@ -4880,7 +4933,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000,
     Bat_SOCStart=1.0,
     useEHP=false,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_A_65",
     Q_HP_nom=6352.43,
     A_living=117.573,
@@ -4895,12 +4948,13 @@ model LV_rural_2_A
     U_ground=0.459518,
     thermalMass=18581500.0,
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=87,
         Bat_Capacity=132480000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{-65.08,2.96},{-50.08,17.96}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{-65.08,2.96},{-50.08,17.96}})));
 
   // Basic Parameters
 
@@ -4920,6 +4974,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH10",
@@ -4932,7 +4987,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000,
     Bat_SOCStart=1.0,
     useEHP=false,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_A_66",
     Q_HP_nom=7144.56,
     A_living=149.955,
@@ -4947,12 +5002,13 @@ model LV_rural_2_A
     U_ground=0.396792,
     thermalMass=22245800.0,
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=88,
         Bat_Capacity=132480000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{137.92,86.96},{152.92,101.96}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{137.92,86.96},{152.92,101.96}})));
 
   // Basic Parameters
 
@@ -4972,6 +5028,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH35",
@@ -4984,7 +5041,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000.0,
     Bat_SOCStart=1.0,
     useEHP=true,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_A_67",
     Q_HP_nom=5965.91,
     A_living=119.245,
@@ -4999,17 +5056,19 @@ model LV_rural_2_A
     U_ground=0.409733,
     thermalMass=18774800.0,
     num_BEVs=2,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=89,
         Bat_Capacity=295200000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=90,
         Bat_Capacity=132480000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{165.92,-627.04},{180.92,-612.04}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{165.92,-627.04},{180.92,-612.04}})));
 
   // Basic Parameters
 
@@ -5031,6 +5090,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH39",
@@ -5039,7 +5099,7 @@ model LV_rural_2_A
     usePV=false,
     useBattery=false,
     useEHP=true,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_A_68",
     Q_HP_nom=5929.87,
     A_living=124.707,
@@ -5054,17 +5114,19 @@ model LV_rural_2_A
     U_ground=0.381477,
     thermalMass=19402600.0,
     num_BEVs=2,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=91,
         Bat_Capacity=295200000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=92,
         Bat_Capacity=196920000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R110())}) annotation (Placement(transformation(extent={{165.92,-515.04},{180.92,-500.04}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R110())}) annotation (Placement(transformation(extent={{165.92,-515.04},{180.92,-500.04}})));
 
   // Basic Parameters
 
@@ -5086,6 +5148,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH8",
@@ -5095,7 +5158,7 @@ model LV_rural_2_A
     PV_peakPower=5355.86,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.3,
+    V_BST=0.3,
     tappingProfileName="TappingCycle_A_69",
     Q_HP_nom=4462.14,
     A_living=90.4546,
@@ -5110,12 +5173,13 @@ model LV_rural_2_A
     U_ground=0.377929,
     thermalMass=15368100.0,
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=93,
         Bat_Capacity=196920000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R110())}) annotation (Placement(transformation(extent={{137.92,58.96},{152.92,73.96}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R110())}) annotation (Placement(transformation(extent={{137.92,58.96},{152.92,73.96}})));
 
   // Basic Parameters
 
@@ -5135,6 +5199,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH3",
@@ -5147,7 +5212,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000.0,
     Bat_SOCStart=1.0,
     useEHP=true,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_A_70",
     Q_HP_nom=6496.34,
     A_living=114.436,
@@ -5162,17 +5227,19 @@ model LV_rural_2_A
     U_ground=0.491656,
     thermalMass=18217500.0,
     num_BEVs=2,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=94,
         Bat_Capacity=295200000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=95,
         Bat_Capacity=295200000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3())}) annotation (Placement(transformation(extent={{-191.08,16.96},{-176.08,31.96}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3())}) annotation (Placement(transformation(extent={{-191.08,16.96},{-176.08,31.96}})));
 
   // Basic Parameters
 
@@ -5194,6 +5261,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH35",
@@ -5206,7 +5274,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000.0,
     Bat_SOCStart=1.0,
     useEHP=true,
-    V_BST = 0.6,
+    V_BST=0.6,
     tappingProfileName="TappingCycle_A_71",
     Q_HP_nom=9149.82,
     A_living=178.227,
@@ -5221,17 +5289,19 @@ model LV_rural_2_A
     U_ground=0.460933,
     thermalMass=25334900.0,
     num_BEVs=2,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=96,
         Bat_Capacity=360000000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=97,
         Bat_Capacity=132480000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{-65.08,37.96},{-50.08,52.96}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{-65.08,37.96},{-50.08,52.96}})));
 
   // Basic Parameters
 
@@ -5253,6 +5323,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH8",
@@ -5265,7 +5336,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000,
     Bat_SOCStart=1.0,
     useEHP=false,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_A_72",
     Q_HP_nom=5967.04,
     A_living=116.362,
@@ -5297,6 +5368,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH23",
@@ -5306,7 +5378,7 @@ model LV_rural_2_A
     PV_peakPower=11160.3,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.6,
+    V_BST=0.6,
     tappingProfileName="TappingCycle_A_73",
     Q_HP_nom=8579.13,
     A_living=188.485,
@@ -5338,6 +5410,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH36",
@@ -5347,7 +5420,7 @@ model LV_rural_2_A
     PV_peakPower=4871.04,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.3,
+    V_BST=0.3,
     tappingProfileName="TappingCycle_A_74",
     Q_HP_nom=4185.07,
     A_living=82.2664,
@@ -5362,17 +5435,19 @@ model LV_rural_2_A
     U_ground=0.388153,
     thermalMass=14362600.0,
     num_BEVs=2,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=98,
         Bat_Capacity=295200000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=99,
         Bat_Capacity=132480000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{137.92,-193.04},{152.92,-178.04}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{137.92,-193.04},{152.92,-178.04}})));
 
   // Basic Parameters
 
@@ -5394,6 +5469,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH22",
@@ -5403,7 +5479,7 @@ model LV_rural_2_A
     PV_peakPower=7294.5,
     useBattery=false,
     useEHP=true,
-    V_BST = 0.3,
+    V_BST=0.3,
     tappingProfileName="TappingCycle_A_75",
     Q_HP_nom=5649.04,
     A_living=123.196,
@@ -5435,6 +5511,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH40",
@@ -5443,7 +5520,7 @@ model LV_rural_2_A
     usePV=false,
     useBattery=false,
     useEHP=true,
-    V_BST = 0.3,
+    V_BST=0.3,
     tappingProfileName="TappingCycle_A_76",
     Q_HP_nom=4990.67,
     A_living=96.0168,
@@ -5458,12 +5535,13 @@ model LV_rural_2_A
     U_ground=0.415163,
     thermalMass=16040700.0,
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=100,
         Bat_Capacity=132480000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{-191.08,-46.04},{-176.08,-31.04}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{-191.08,-46.04},{-176.08,-31.04}})));
 
   // Basic Parameters
 
@@ -5483,6 +5561,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH19",
@@ -5495,7 +5574,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000.0,
     Bat_SOCStart=1.0,
     useEHP=true,
-    V_BST = 0.3,
+    V_BST=0.3,
     tappingProfileName="TappingCycle_A_77",
     Q_HP_nom=4643.62,
     A_living=91.3672,
@@ -5527,6 +5606,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH29",
@@ -5539,7 +5619,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000.0,
     Bat_SOCStart=1.0,
     useEHP=true,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_A_78",
     Q_HP_nom=7588.49,
     A_living=145.529,
@@ -5571,6 +5651,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH25",
@@ -5583,7 +5664,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000.0,
     Bat_SOCStart=1.0,
     useEHP=true,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_A_79",
     Q_HP_nom=7351.02,
     A_living=152.211,
@@ -5598,17 +5679,19 @@ model LV_rural_2_A
     U_ground=0.406663,
     thermalMass=22495600.0,
     num_BEVs=2,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=101,
         Bat_Capacity=360000000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=102,
         Bat_Capacity=132480000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{-191.08,142.96},{-176.08,157.96}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{-191.08,142.96},{-176.08,157.96}})));
 
   // Basic Parameters
 
@@ -5630,6 +5713,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH35",
@@ -5642,7 +5726,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000.0,
     Bat_SOCStart=1.0,
     useEHP=true,
-    V_BST = 0.3,
+    V_BST=0.3,
     tappingProfileName="TappingCycle_A_80",
     Q_HP_nom=5464.76,
     A_living=114.541,
@@ -5657,12 +5741,13 @@ model LV_rural_2_A
     U_ground=0.376941,
     thermalMass=18229800.0,
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=103,
         Bat_Capacity=295200000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3())}) annotation (Placement(transformation(extent={{32.92,9.96},{47.92,24.96}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3())}) annotation (Placement(transformation(extent={{32.92,9.96},{47.92,24.96}})));
 
   // Basic Parameters
 
@@ -5682,6 +5767,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH38",
@@ -5694,7 +5780,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000.0,
     Bat_SOCStart=1.0,
     useEHP=true,
-    V_BST = 0.3,
+    V_BST=0.3,
     tappingProfileName="TappingCycle_A_81",
     Q_HP_nom=4015.81,
     A_living=84.0083,
@@ -5709,12 +5795,13 @@ model LV_rural_2_A
     U_ground=0.353702,
     thermalMass=14578100.0,
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=104,
         Bat_Capacity=295200000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3())}) annotation (Placement(transformation(extent={{165.92,-487.04},{180.92,-472.04}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3())}) annotation (Placement(transformation(extent={{165.92,-487.04},{180.92,-472.04}})));
 
   // Basic Parameters
 
@@ -5734,6 +5821,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH30",
@@ -5746,7 +5834,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000,
     Bat_SOCStart=1.0,
     useEHP=false,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_A_82",
     Q_HP_nom=6163.05,
     A_living=135.658,
@@ -5761,12 +5849,13 @@ model LV_rural_2_A
     U_ground=0.360087,
     thermalMass=20647000.0,
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=105,
         Bat_Capacity=295200000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3())}) annotation (Placement(transformation(extent={{-65.08,177.96},{-50.08,192.96}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3())}) annotation (Placement(transformation(extent={{-65.08,177.96},{-50.08,192.96}})));
 
   // Basic Parameters
 
@@ -5786,6 +5875,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH16",
@@ -5798,7 +5888,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000.0,
     Bat_SOCStart=1.0,
     useEHP=true,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_A_83",
     Q_HP_nom=6613.8,
     A_living=124.779,
@@ -5813,17 +5903,19 @@ model LV_rural_2_A
     U_ground=0.451909,
     thermalMass=19410900.0,
     num_BEVs=2,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=106,
         Bat_Capacity=295200000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=107,
         Bat_Capacity=132480000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{137.92,-130.04},{152.92,-115.04}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{137.92,-130.04},{152.92,-115.04}})));
 
   // Basic Parameters
 
@@ -5845,6 +5937,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH7",
@@ -5857,7 +5950,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000.0,
     Bat_SOCStart=1.0,
     useEHP=true,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_A_84",
     Q_HP_nom=6146.76,
     A_living=121.594,
@@ -5872,22 +5965,25 @@ model LV_rural_2_A
     U_ground=0.418055,
     thermalMass=19045400.0,
     num_BEVs=3,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=108,
         Bat_Capacity=360000000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=109,
         Bat_Capacity=295200000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=110,
         Bat_Capacity=132480000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{136.92,-627.04},{151.92,-612.04}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{136.92,-627.04},{151.92,-612.04}})));
 
   // Basic Parameters
 
@@ -5911,6 +6007,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH27",
@@ -5920,7 +6017,7 @@ model LV_rural_2_A
     PV_peakPower=8901.89,
     useBattery=false,
     useEHP=true,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_A_85",
     Q_HP_nom=7538.71,
     A_living=150.343,
@@ -5935,12 +6032,13 @@ model LV_rural_2_A
     U_ground=0.430487,
     thermalMass=22288800.0,
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=111,
         Bat_Capacity=295200000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3())}) annotation (Placement(transformation(extent={{137.92,121.96},{152.92,136.96}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3())}) annotation (Placement(transformation(extent={{137.92,121.96},{152.92,136.96}})));
 
   // Basic Parameters
 
@@ -5960,6 +6058,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH18",
@@ -5972,7 +6071,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000,
     Bat_SOCStart=1.0,
     useEHP=false,
-    V_BST = 0.6,
+    V_BST=0.6,
     tappingProfileName="TappingCycle_A_86",
     Q_HP_nom=8624.54,
     A_living=160.534,
@@ -5987,17 +6086,19 @@ model LV_rural_2_A
     U_ground=0.484501,
     thermalMass=23412000.0,
     num_BEVs=2,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=112,
         Bat_Capacity=360000000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=113,
         Bat_Capacity=132480000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{32.92,394.96},{47.92,409.96}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{32.92,394.96},{47.92,409.96}})));
 
   // Basic Parameters
 
@@ -6019,6 +6120,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH22",
@@ -6031,7 +6133,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000.0,
     Bat_SOCStart=1.0,
     useEHP=true,
-    V_BST = 0.75,
+    V_BST=0.75,
     tappingProfileName="TappingCycle_A_87",
     Q_HP_nom=10166.4,
     A_living=189.469,
@@ -6046,12 +6148,13 @@ model LV_rural_2_A
     U_ground=0.498551,
     thermalMass=26540700.0,
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=114,
         Bat_Capacity=132480000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{-191.08,-172.04},{-176.08,-157.04}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{-191.08,-172.04},{-176.08,-157.04}})));
 
   // Basic Parameters
 
@@ -6071,6 +6174,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH18",
@@ -6079,7 +6183,7 @@ model LV_rural_2_A
     usePV=false,
     useBattery=false,
     useEHP=true,
-    V_BST = 0.3,
+    V_BST=0.3,
     tappingProfileName="TappingCycle_A_88",
     Q_HP_nom=5267.41,
     A_living=108.639,
@@ -6094,12 +6198,13 @@ model LV_rural_2_A
     U_ground=0.382535,
     thermalMass=17540100.0,
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=115,
         Bat_Capacity=360000000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90())}) annotation (Placement(transformation(extent={{144.92,23.96},{159.92,38.96}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90())}) annotation (Placement(transformation(extent={{144.92,23.96},{159.92,38.96}})));
 
   // Basic Parameters
 
@@ -6119,6 +6224,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH4",
@@ -6131,7 +6237,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000.0,
     Bat_SOCStart=1.0,
     useEHP=true,
-    V_BST = 0.95,
+    V_BST=0.95,
     tappingProfileName="TappingCycle_A_89",
     Q_HP_nom=13151.2,
     A_living=272.564,
@@ -6146,17 +6252,19 @@ model LV_rural_2_A
     U_ground=0.449462,
     thermalMass=35159500.0,
     num_BEVs=2,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=116,
         Bat_Capacity=295200000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=117,
         Bat_Capacity=196920000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R110())}) annotation (Placement(transformation(extent={{137.92,429.96},{152.92,444.96}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R110())}) annotation (Placement(transformation(extent={{137.92,429.96},{152.92,444.96}})));
 
   // Basic Parameters
 
@@ -6178,6 +6286,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH39",
@@ -6187,7 +6296,7 @@ model LV_rural_2_A
     PV_peakPower=11034.5,
     useBattery=false,
     useEHP=true,
-    V_BST = 0.6,
+    V_BST=0.6,
     tappingProfileName="TappingCycle_A_90",
     Q_HP_nom=8564.65,
     A_living=186.361,
@@ -6202,17 +6311,19 @@ model LV_rural_2_A
     U_ground=0.389498,
     thermalMass=26208500.0,
     num_BEVs=2,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=118,
         Bat_Capacity=360000000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=119,
         Bat_Capacity=132480000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{32.92,184.96},{47.92,199.96}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{32.92,184.96},{47.92,199.96}})));
 
   // Basic Parameters
 
@@ -6234,6 +6345,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH12",
@@ -6243,7 +6355,7 @@ model LV_rural_2_A
     PV_peakPower=8876.9,
     useBattery=false,
     useEHP=true,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_A_91",
     Q_HP_nom=6654.2,
     A_living=149.921,
@@ -6258,17 +6370,19 @@ model LV_rural_2_A
     U_ground=0.353098,
     thermalMass=22241900.0,
     num_BEVs=2,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=120,
         Bat_Capacity=360000000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=121,
         Bat_Capacity=196920000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R110())}) annotation (Placement(transformation(extent={{32.92,429.96},{47.92,444.96}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R110())}) annotation (Placement(transformation(extent={{32.92,429.96},{47.92,444.96}})));
 
   // Basic Parameters
 
@@ -6290,6 +6404,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH36",
@@ -6299,7 +6414,7 @@ model LV_rural_2_A
     PV_peakPower=11283.2,
     useBattery=false,
     useEHP=true,
-    V_BST = 0.75,
+    V_BST=0.75,
     tappingProfileName="TappingCycle_A_92",
     Q_HP_nom=9745.37,
     A_living=190.561,
@@ -6314,22 +6429,25 @@ model LV_rural_2_A
     U_ground=0.463757,
     thermalMass=26657200.0,
     num_BEVs=3,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=122,
         Bat_Capacity=132480000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=123,
         Bat_Capacity=132480000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=124,
         Bat_Capacity=132480000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{-65.08,72.96},{-50.08,87.96}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{-65.08,72.96},{-50.08,87.96}})));
 
   // Basic Parameters
 
@@ -6353,6 +6471,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH18",
@@ -6361,7 +6480,7 @@ model LV_rural_2_A
     usePV=false,
     useBattery=false,
     useEHP=true,
-    V_BST = 0.95,
+    V_BST=0.95,
     tappingProfileName="TappingCycle_A_93",
     Q_HP_nom=12608.0,
     A_living=282.335,
@@ -6376,17 +6495,19 @@ model LV_rural_2_A
     U_ground=0.398003,
     thermalMass=36146000.0,
     num_BEVs=2,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=125,
         Bat_Capacity=360000000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=126,
         Bat_Capacity=360000000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90())}) annotation (Placement(transformation(extent={{137.92,394.96},{152.92,409.96}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90())}) annotation (Placement(transformation(extent={{137.92,394.96},{152.92,409.96}})));
 
   // Basic Parameters
 
@@ -6408,6 +6529,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH5",
@@ -6420,7 +6542,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000.0,
     Bat_SOCStart=1.0,
     useEHP=true,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_A_94",
     Q_HP_nom=6734.37,
     A_living=137.553,
@@ -6435,17 +6557,19 @@ model LV_rural_2_A
     U_ground=0.40752,
     thermalMass=20860600.0,
     num_BEVs=2,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=127,
         Bat_Capacity=132480000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=128,
         Bat_Capacity=196920000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R110())}) annotation (Placement(transformation(extent={{32.92,72.96},{47.92,87.96}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R110())}) annotation (Placement(transformation(extent={{32.92,72.96},{47.92,87.96}})));
 
   // Basic Parameters
 
@@ -6467,6 +6591,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH27",
@@ -6479,7 +6604,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000.0,
     Bat_SOCStart=1.0,
     useEHP=true,
-    V_BST = 0.6,
+    V_BST=0.6,
     tappingProfileName="TappingCycle_A_95",
     Q_HP_nom=8447.77,
     A_living=168.909,
@@ -6494,12 +6619,13 @@ model LV_rural_2_A
     U_ground=0.438248,
     thermalMass=24326300.0,
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=129,
         Bat_Capacity=196920000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R110())}) annotation (Placement(transformation(extent={{-65.08,282.96},{-50.08,297.96}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R110())}) annotation (Placement(transformation(extent={{-65.08,282.96},{-50.08,297.96}})));
 
   // Basic Parameters
 
@@ -6519,6 +6645,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH14",
@@ -6527,7 +6654,7 @@ model LV_rural_2_A
     usePV=false,
     useBattery=false,
     useEHP=true,
-    V_BST = 0.6,
+    V_BST=0.6,
     tappingProfileName="TappingCycle_A_96",
     Q_HP_nom=9300.44,
     A_living=177.664,
@@ -6542,12 +6669,13 @@ model LV_rural_2_A
     U_ground=0.474657,
     thermalMass=25274200.0,
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=130,
         Bat_Capacity=132480000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{-156.08,247.96},{-141.08,262.96}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{-156.08,247.96},{-141.08,262.96}})));
 
   // Basic Parameters
 
@@ -6567,6 +6695,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH23",
@@ -6579,7 +6708,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000.0,
     Bat_SOCStart=1.0,
     useEHP=true,
-    V_BST = 0.5,
+    V_BST=0.5,
     tappingProfileName="TappingCycle_A_97",
     Q_HP_nom=6021.69,
     A_living=113.4,
@@ -6594,12 +6723,13 @@ model LV_rural_2_A
     U_ground=0.444347,
     thermalMass=18096900.0,
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=131,
         Bat_Capacity=132480000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{-156.08,387.96},{-141.08,402.96}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4())}) annotation (Placement(transformation(extent={{-156.08,387.96},{-141.08,402.96}})));
 
   // Basic Parameters
 
@@ -6619,6 +6749,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH39",
@@ -6628,7 +6759,7 @@ model LV_rural_2_A
     PV_peakPower=12117.3,
     useBattery=false,
     useEHP=false,
-    V_BST = 0.75,
+    V_BST=0.75,
     tappingProfileName="TappingCycle_A_98",
     Q_HP_nom=10628.0,
     A_living=204.647,
@@ -6643,17 +6774,19 @@ model LV_rural_2_A
     U_ground=0.480898,
     thermalMass=28151000.0,
     num_BEVs=2,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=132,
         Bat_Capacity=360000000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=133,
         Bat_Capacity=196920000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R110())}) annotation (Placement(transformation(extent={{-156.08,422.96},{-141.08,437.96}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R110())}) annotation (Placement(transformation(extent={{-156.08,422.96},{-141.08,437.96}})));
 
   // Basic Parameters
 
@@ -6675,6 +6808,7 @@ model LV_rural_2_A
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
+    configuration=smartMeterConfiguration,
     data_weatherLocation=weatherLocation,
     data_weatherYear=weatherYear,
     loadProfileName="SFH5",
@@ -6687,7 +6821,7 @@ model LV_rural_2_A
     Bat_PowerLimit=6000.0,
     Bat_SOCStart=1.0,
     useEHP=true,
-    V_BST = 0.3,
+    V_BST=0.3,
     tappingProfileName="TappingCycle_A_99",
     Q_HP_nom=5667.13,
     A_living=116.31,
@@ -6702,12 +6836,13 @@ model LV_rural_2_A
     U_ground=0.391031,
     thermalMass=18435200.0,
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=134,
         Bat_Capacity=295200000.0,
         Bat_SOCStart=1.0,
-        Bat_PowerLimit=11000.0, Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3())}) annotation (Placement(transformation(extent={{-65.08,394.96},{-50.08,409.96}})));
+        Bat_PowerLimit=11000.0,
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3())}) annotation (Placement(transformation(extent={{-65.08,394.96},{-50.08,409.96}})));
 
   // Basic Parameters
 
@@ -6732,9 +6867,8 @@ model LV_rural_2_A
     U_S=400,
     epp_p(v(start=20000)),
     epp_n(v(start=400))) annotation (Placement(transformation(extent={{-100,490},{-80,510}})));
-  Models_CyEntEE.CellModels.CPP.DecouplingGrids decouplingGrids annotation (Placement(transformation(extent={{-68,490},{-48,510}})));
   TransiEnt.Basics.Interfaces.Electrical.ComplexPowerPort epp annotation (Placement(transformation(extent={{-10,98},{10,118}})));
-  Bus.LVGridControlBus controlBus annotation (Placement(transformation(extent={{-110,40},{-90,60}})));
+  TransiEnt.Basics.Interfaces.General.ControlBus controlBus annotation (Placement(transformation(extent={{-110,40},{-90,60}})));
   TransiEnt.Components.Sensors.SmartMeter GridMeter annotation (Placement(transformation(extent={{-36,490},{-16,510}})));
 equation
 
@@ -6838,101 +6972,7 @@ equation
   connect(controlBus.household_97, household_97.controlBus) annotation ();
   connect(controlBus.household_98, household_98.controlBus) annotation ();
   connect(controlBus.household_99, household_99.controlBus) annotation ();
-  connect(controlBus.line_1, line_1.controlBus) annotation ();
-  connect(controlBus.line_2, line_2.controlBus) annotation ();
-  connect(controlBus.line_3, line_3.controlBus) annotation ();
-  connect(controlBus.line_4, line_4.controlBus) annotation ();
-  connect(controlBus.line_5, line_5.controlBus) annotation ();
-  connect(controlBus.line_6, line_6.controlBus) annotation ();
-  connect(controlBus.line_7, line_7.controlBus) annotation ();
-  connect(controlBus.line_8, line_8.controlBus) annotation ();
-  connect(controlBus.line_9, line_9.controlBus) annotation ();
-  connect(controlBus.line_10, line_10.controlBus) annotation ();
-  connect(controlBus.line_11, line_11.controlBus) annotation ();
-  connect(controlBus.line_12, line_12.controlBus) annotation ();
-  connect(controlBus.line_13, line_13.controlBus) annotation ();
-  connect(controlBus.line_14, line_14.controlBus) annotation ();
-  connect(controlBus.line_15, line_15.controlBus) annotation ();
-  connect(controlBus.line_16, line_16.controlBus) annotation ();
-  connect(controlBus.line_17, line_17.controlBus) annotation ();
-  connect(controlBus.line_18, line_18.controlBus) annotation ();
-  connect(controlBus.line_19, line_19.controlBus) annotation ();
-  connect(controlBus.line_20, line_20.controlBus) annotation ();
-  connect(controlBus.line_21, line_21.controlBus) annotation ();
-  connect(controlBus.line_22, line_22.controlBus) annotation ();
-  connect(controlBus.line_23, line_23.controlBus) annotation ();
-  connect(controlBus.line_24, line_24.controlBus) annotation ();
-  connect(controlBus.line_25, line_25.controlBus) annotation ();
-  connect(controlBus.line_26, line_26.controlBus) annotation ();
-  connect(controlBus.line_27, line_27.controlBus) annotation ();
-  connect(controlBus.line_28, line_28.controlBus) annotation ();
-  connect(controlBus.line_29, line_29.controlBus) annotation ();
-  connect(controlBus.line_30, line_30.controlBus) annotation ();
-  connect(controlBus.line_31, line_31.controlBus) annotation ();
-  connect(controlBus.line_32, line_32.controlBus) annotation ();
-  connect(controlBus.line_33, line_33.controlBus) annotation ();
-  connect(controlBus.line_34, line_34.controlBus) annotation ();
-  connect(controlBus.line_35, line_35.controlBus) annotation ();
-  connect(controlBus.line_36, line_36.controlBus) annotation ();
-  connect(controlBus.line_37, line_37.controlBus) annotation ();
-  connect(controlBus.line_38, line_38.controlBus) annotation ();
-  connect(controlBus.line_39, line_39.controlBus) annotation ();
-  connect(controlBus.line_40, line_40.controlBus) annotation ();
-  connect(controlBus.line_41, line_41.controlBus) annotation ();
-  connect(controlBus.line_42, line_42.controlBus) annotation ();
-  connect(controlBus.line_43, line_43.controlBus) annotation ();
-  connect(controlBus.line_44, line_44.controlBus) annotation ();
-  connect(controlBus.line_45, line_45.controlBus) annotation ();
-  connect(controlBus.line_46, line_46.controlBus) annotation ();
-  connect(controlBus.line_47, line_47.controlBus) annotation ();
-  connect(controlBus.line_48, line_48.controlBus) annotation ();
-  connect(controlBus.line_49, line_49.controlBus) annotation ();
-  connect(controlBus.line_50, line_50.controlBus) annotation ();
-  connect(controlBus.line_51, line_51.controlBus) annotation ();
-  connect(controlBus.line_52, line_52.controlBus) annotation ();
-  connect(controlBus.line_53, line_53.controlBus) annotation ();
-  connect(controlBus.line_54, line_54.controlBus) annotation ();
-  connect(controlBus.line_55, line_55.controlBus) annotation ();
-  connect(controlBus.line_56, line_56.controlBus) annotation ();
-  connect(controlBus.line_57, line_57.controlBus) annotation ();
-  connect(controlBus.line_58, line_58.controlBus) annotation ();
-  connect(controlBus.line_59, line_59.controlBus) annotation ();
-  connect(controlBus.line_60, line_60.controlBus) annotation ();
-  connect(controlBus.line_61, line_61.controlBus) annotation ();
-  connect(controlBus.line_62, line_62.controlBus) annotation ();
-  connect(controlBus.line_63, line_63.controlBus) annotation ();
-  connect(controlBus.line_64, line_64.controlBus) annotation ();
-  connect(controlBus.line_65, line_65.controlBus) annotation ();
-  connect(controlBus.line_66, line_66.controlBus) annotation ();
-  connect(controlBus.line_67, line_67.controlBus) annotation ();
-  connect(controlBus.line_68, line_68.controlBus) annotation ();
-  connect(controlBus.line_69, line_69.controlBus) annotation ();
-  connect(controlBus.line_70, line_70.controlBus) annotation ();
-  connect(controlBus.line_71, line_71.controlBus) annotation ();
-  connect(controlBus.line_72, line_72.controlBus) annotation ();
-  connect(controlBus.line_73, line_73.controlBus) annotation ();
-  connect(controlBus.line_74, line_74.controlBus) annotation ();
-  connect(controlBus.line_75, line_75.controlBus) annotation ();
-  connect(controlBus.line_76, line_76.controlBus) annotation ();
-  connect(controlBus.line_77, line_77.controlBus) annotation ();
-  connect(controlBus.line_78, line_78.controlBus) annotation ();
-  connect(controlBus.line_79, line_79.controlBus) annotation ();
-  connect(controlBus.line_80, line_80.controlBus) annotation ();
-  connect(controlBus.line_81, line_81.controlBus) annotation ();
-  connect(controlBus.line_82, line_82.controlBus) annotation ();
-  connect(controlBus.line_83, line_83.controlBus) annotation ();
-  connect(controlBus.line_84, line_84.controlBus) annotation ();
-  connect(controlBus.line_85, line_85.controlBus) annotation ();
-  connect(controlBus.line_86, line_86.controlBus) annotation ();
-  connect(controlBus.line_87, line_87.controlBus) annotation ();
-  connect(controlBus.line_88, line_88.controlBus) annotation ();
-  connect(controlBus.line_89, line_89.controlBus) annotation ();
-  connect(controlBus.line_90, line_90.controlBus) annotation ();
-  connect(controlBus.line_91, line_91.controlBus) annotation ();
-  connect(controlBus.line_92, line_92.controlBus) annotation ();
-  connect(controlBus.line_93, line_93.controlBus) annotation ();
-  connect(controlBus.line_94, line_94.controlBus) annotation ();
-  connect(controlBus.line_95, line_95.controlBus) annotation ();
+
   connect(controlBus.node_1, node_1.controlBus) annotation ();
   connect(controlBus.node_2, node_2.controlBus) annotation ();
   connect(controlBus.node_3, node_3.controlBus) annotation ();
@@ -7029,7 +7069,6 @@ equation
   connect(controlBus.node_94, node_94.controlBus) annotation ();
   connect(controlBus.node_95, node_95.controlBus) annotation ();
   connect(controlBus.node_96, node_96.controlBus) annotation ();
-
 
   // ---- Connect lines -----------------------------------------------------------------------
 
@@ -7328,29 +7367,19 @@ equation
 
   // ---- Connect transformer to node ---------------------------------------------------------
 
-  connect(decouplingGrids.epp_p, simpleTransformerComplex.epp_n) annotation (Line(
-      points={{-68,500},{-80,500}},
-      color={28,108,200},
-      thickness=0.5));
   connect(simpleTransformerComplex.epp_p, epp) annotation (Line(
       points={{-100,500},{-118,500},{-118,308},{0,308},{0,108}},
       color={28,108,200},
       thickness=0.5));
-  connect(GridMeter.epp_a, decouplingGrids.epp_n) annotation (Line(
-      points={{-35.2,500},{-48,500}},
+  connect(GridMeter.epp_a, simpleTransformerComplex.epp_n) annotation (Line(
+      points={{-35.2,500},{-80,500}},
       color={28,108,200},
       thickness=0.5));
   connect(GridMeter.epp_b, node_63.epp) annotation (Line(
-      points={{-26,490},{-26.58,490},{-26.58,464.96}},
+      points={{-16.8,500},{-26.58,500},{-26.58,464.96}},
       color={28,108,200},
       thickness=0.5));
   connect(GridMeter.controlBus, controlBus.GridMeter) annotation ();
-   annotation ();
-   annotation ();
-   annotation ();
-   annotation ();
-   annotation ();
-   annotation ();
   annotation (
     experiment(StopTime=86400, __Dymola_Algorithm="Dassl"),
     Diagram(coordinateSystem(extent={{-100.0,-100.0},{100.0,100.0}}), graphics={Rectangle(
@@ -7404,4 +7433,4 @@ Number of BEV: 134")}),
           extent={{-250,-93},{250,-133}},
           lineColor={0,134,134},
           textString="%LV_rural_2_A")}));
-end LV_rural_2_A;
+end LV_rural_2_Future;

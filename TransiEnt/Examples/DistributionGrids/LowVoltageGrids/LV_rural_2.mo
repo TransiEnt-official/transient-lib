@@ -5,11 +5,6 @@ model LV_rural_2 "Contains choices of scenarios T / I / A and Normale Bedingunge
   //   Parameter
   // ------------------------------------------------------------------------------------------
 
-  parameter String condition_scenario="normaleBedingungen" annotation (choices(
-      choice="normaleBedingungen" "Normale Bedingugen",
-      choice="highSimultaneity" "High Simultaneity",
-      choice="kalteDunkelflaute" "Kalte Dunkelflaute"), Dialog(group="Scenario choice"));
-
   parameter String development_scenario="Future" annotation (choices(
       choice="Today" "Today",
       choice="Intermediate" "Intermediate",
@@ -23,15 +18,14 @@ model LV_rural_2 "Contains choices of scenarios T / I / A and Normale Bedingunge
 
   parameter ControlType bevControlType=TransiEnt.Basics.Types.ControlType.Internal "Type of control for vehicle system" annotation (Evaluate=true, Dialog(group="External Control"));
 
-  parameter String weatherLocation = "Hamelin" "Choose a weather location to simulate the grid" annotation (Evaluate=true, Dialog(group="Weather"));
+  parameter String weatherLocation="Hamelin" "Choose a weather location to simulate the grid" annotation (Evaluate=true, Dialog(group="Weather"));
 
-  parameter String weatherYear = "2019" "Choose a weather location to simulate the grid" annotation (Evaluate=true, Dialog(group="Weather"));
+  parameter String weatherYear="2019" "Choose a weather location to simulate the grid" annotation (Evaluate=true, Dialog(group="Weather"));
 
-  parameter Boolean useTTEC=false "If lines shall use transient thermal equivalent circuit" annotation (Evaluate=true, Dialog(group="Line"));
-
-  parameter Boolean useUndergroundTemperature=false "If lines shall use transient thermal equivalent circuit" annotation (Evaluate=true, Dialog(group="Line"));
-
-  parameter Boolean useUndergroundMoisture=false "If lines shall use transient thermal equivalent circuit" annotation (Evaluate=true, Dialog(group="Line"));
+  parameter String smartMeterConfiguration="Ideal" "choose the basic configuration" annotation (Dialog(group="Metering"), choices(
+      choice="Ideal" "Ideal measurements",
+      choice="TAF10" "Tarifanwendungsfall 10 (German standard)",
+      choice="TAF7" "Tarifanwendungsfall 7 (German standard)"));
 
 
   // ------------------------------------------------------------------------------------------
@@ -42,44 +36,35 @@ model LV_rural_2 "Contains choices of scenarios T / I / A and Normale Bedingunge
 
   // ---- LV Grids -------------------------------------------------------------------------------
 
-  LV_TIA.LV_rural_2_T lV_rural_2_T(
-    condition_scenario=condition_scenario,
+  TransiEnt.Examples.DistributionGrids.LowVoltageGrids.BaseScenarios.LV_rural_2_Today lV_rural_2_T(
     photovoltaicControlType=photovoltaicControlType,
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
     weatherLocation=weatherLocation,
     weatherYear=weatherYear,
-    useTTEC=useTTEC,
-    useUndergroundTemperature=useUndergroundTemperature,
-    useUndergroundMoisture=useUndergroundMoisture) if (development_scenario == "Today") annotation (Placement(transformation(extent={{-70,-10},{-50,10}})));
-  LV_TIA.LV_rural_2_I lV_rural_2_I(
-    condition_scenario=condition_scenario,
+    smartMeterConfiguration=smartMeterConfiguration) if (development_scenario == "Today") annotation (Placement(transformation(extent={{-70,-10},{-50,10}})));
+  TransiEnt.Examples.DistributionGrids.LowVoltageGrids.BaseScenarios.LV_rural_2_Intermediate lV_rural_2_I(
     photovoltaicControlType=photovoltaicControlType,
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
     weatherLocation=weatherLocation,
     weatherYear=weatherYear,
-    useTTEC=useTTEC,
-    useUndergroundTemperature=useUndergroundTemperature,
-    useUndergroundMoisture=useUndergroundMoisture) if (development_scenario == "Intermediate") annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
-  LV_TIA.LV_rural_2_A lV_rural_2_A(
-    condition_scenario=condition_scenario,
+    smartMeterConfiguration=smartMeterConfiguration) if (development_scenario == "Intermediate") annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+  TransiEnt.Examples.DistributionGrids.LowVoltageGrids.BaseScenarios.LV_rural_2_Future lV_rural_2_A(
     photovoltaicControlType=photovoltaicControlType,
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
     weatherLocation=weatherLocation,
     weatherYear=weatherYear,
-    useTTEC=useTTEC,
-    useUndergroundTemperature=useUndergroundTemperature,
-    useUndergroundMoisture=useUndergroundMoisture) if (development_scenario == "Future") annotation (Placement(transformation(extent={{50,-10},{70,10}})));
+    smartMeterConfiguration=smartMeterConfiguration) if (development_scenario == "Future") annotation (Placement(transformation(extent={{50,-10},{70,10}})));
 
   // ------------------------------------------------------------------------------------------
   //   Interfaces
   // ------------------------------------------------------------------------------------------
-  Bus.LVGridControlBus controlBus annotation (Placement(transformation(extent={{-110,60},{-90,80}})));
+  TransiEnt.Basics.Interfaces.General.ControlBus controlBus annotation (Placement(transformation(extent={{-110,60},{-90,80}})));
 
   // ------------------------------------------------------------------------------------------
   //   Equations

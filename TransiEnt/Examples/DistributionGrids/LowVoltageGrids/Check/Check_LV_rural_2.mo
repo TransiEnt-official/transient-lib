@@ -6,19 +6,16 @@ model Check_LV_rural_2
   //   Parameter
   // ------------------------------------------------------------------------------------------
 
-  parameter String condition_scenario="normaleBedingungen" "Choose weather and driving profile scenario" annotation (choices(
-      choice="normaleBedingungen" "Normale Bedingungen",
-      choice="highSimultaneity" "High Simultaneity",
-      choice="kalteDunkelflaute" "Kalte Dunkelflaute"), Dialog(group="Scenario choice"));
-
-  parameter String development_scenario="Future" "Choose technolgy penetration"  annotation (choices(
+  parameter String development_scenario="Intermediate"
+                                                 "Choose technolgy penetration"  annotation (choices(
       choice="Today" "Today",
       choice="Intermediate" "Intermediate",
       choice="Future" "Future"), Dialog(group="Scenario choice"));
 
-  parameter String weatherLocation="Lochum" "Choose location of the applied weather data"   annotation (Dialog(group="Scenario choice"));
+  parameter String weatherLocation="Hamelin"
+                                            "Choose location of the applied weather data"   annotation (Dialog(group="Scenario choice"));
 
-  parameter String weatherYear="2024" "Choose year of the applied weather data" annotation (Dialog(group="Scenario choice"));
+  parameter String weatherYear="2019" "Choose year of the applied weather data" annotation (Dialog(group="Scenario choice"));
 
   parameter ControlType photovoltaicControlType=TransiEnt.Basics.Types.ControlType.Limit_P  "Type of control for photovoltaic system" annotation (Evaluate=true, Dialog(group="External Control"));
 
@@ -28,17 +25,17 @@ model Check_LV_rural_2
 
   parameter ControlType bevControlType=TransiEnt.Basics.Types.ControlType.Limit_P  "Type of control for vehicle system" annotation (Evaluate=true, Dialog(group="External Control"));
 
-  parameter Boolean useTTEC=false "Enables thermal-electric power cable models" annotation (Evaluate=true, Dialog(group="Scenario choice"));
-
-  parameter Boolean useUndergroundTemperature=false "Enables underground temperature based calculation for thermal-electric power cables" annotation (Evaluate=true, Dialog(group="Scenario choice"));
-
-  parameter Boolean useUndergroundMoisture=false "Enables underground moisture based calculation for thermal-electric power cables" annotation (Evaluate=true, Dialog(group="Scenario choice"));
+  parameter String smartMeterConfiguration="Ideal" "choose the basic configuration" annotation (Dialog(group="Metering"), choices(
+      choice="Ideal" "Ideal measurements",
+      choice="TAF10" "Tarifanwendungsfall 10 (German standard)",
+      choice="TAF7" "Tarifanwendungsfall 7 (German standard)"));
 
   // ------------------------------------------------------------------------------------------
   //   Components
   // ------------------------------------------------------------------------------------------
 
-  Models_CyEntEE.CellModels.CPP.Boundaries.VDeltaBoundary electricGrid_1(
+  Components.Boundaries.Electrical.ComplexPower.SlackBoundary_new
+                                                          electricGrid_1(
     useInputV=false,
     v_n=20000,
     useInputDelta=false,
@@ -47,17 +44,14 @@ model Check_LV_rural_2
   // ---- LV Grids -------------------------------------------------------------------------------
 
   LV_rural_2 lV_rural_2_1(
-    condition_scenario=condition_scenario,
+    smartMeterConfiguration=smartMeterConfiguration,
     photovoltaicControlType=photovoltaicControlType,
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
     development_scenario=development_scenario,
     weatherLocation=weatherLocation,
-    weatherYear=weatherYear,
-    useTTEC=useTTEC,
-    useUndergroundTemperature=useUndergroundTemperature,
-    useUndergroundMoisture=useUndergroundMoisture)              annotation (Placement(transformation(extent={{-8,-10},{12,10}})));
+    weatherYear=weatherYear)                                    annotation (Placement(transformation(extent={{-8,-10},{12,10}})));
 
   // ------------------------------------------------------------------------------------------
   //   Interfaces
