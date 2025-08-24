@@ -1,13 +1,11 @@
-within TransiEnt.Examples.DistributionGrids.LowVoltageGrids.LV_TIA;
-model LV_semiurb_4_I
+within TransiEnt.Examples.DistributionGrids.LowVoltageGrids.BaseScenarios;
+model LV_semiurb_4_Intermediate "Small semiurban low voltage distribution grid scenario with intermediate technology penetration scenario."
   import TransiEnt.Basics.Types.ControlType;
   // ------------------------------------------------------------------------------------------
   //   Parameter
   // ------------------------------------------------------------------------------------------
 
-  parameter String condition_scenario="";
-
-  parameter String data_local="modelica://Scenarios_CyEntEE/LocalData/" + "LV_semiurb_4/" + condition_scenario + "/" "Directory containing simulation data";
+  parameter String data_local="modelica://TransiEnt/Tables/distribution/" "Directory containing simulation data" annotation (Evaluate=true, Dialog(group="Scenario"));
 
   parameter ControlType photovoltaicControlType=TransiEnt.Basics.Types.ControlType.Internal "Type of control for photovoltaic system" annotation (Evaluate=true, Dialog(group="External Control"));
 
@@ -21,11 +19,10 @@ model LV_semiurb_4_I
 
   parameter String weatherYear = "2019" "Choose a weather location to simulate the grid" annotation (Evaluate=true, Dialog(group="Weather"));
 
-  parameter Boolean useTTEC=false "If lines shall use transient thermal equivalent circuit" annotation (Evaluate=true, Dialog(group="Line"));
-
-  parameter Boolean useUndergroundTemperature=false "If lines shall use transient thermal equivalent circuit" annotation (Evaluate=true, Dialog(group="Line"));
-
-  parameter Boolean useUndergroundMoisture=false "If lines shall use transient thermal equivalent circuit" annotation (Evaluate=true, Dialog(group="Line"));
+  parameter String smartMeterConfiguration="Ideal" "choose the basic configuration" annotation (Dialog(group="Metering"), choices(
+      choice="Ideal" "Ideal measurements",
+      choice="TAF10" "Tarifanwendungsfall 10 (German standard)",
+      choice="TAF7" "Tarifanwendungsfall 7 (German standard)"));
 
   // ------------------------------------------------------------------------------------------
   //   Components
@@ -218,8 +215,8 @@ model LV_semiurb_4_I
     b=2.60752e-07,
     length=10.219000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-72.23,66.18},{-67.23,71.18}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{-72.23,66.18},{-67.23,71.18}})));
 
   // Basic Parameters
 
@@ -229,8 +226,8 @@ model LV_semiurb_4_I
     b=2.60752e-07,
     length=3.360000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{127.27,-157.82},{132.27,-152.82}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{127.27,-157.82},{132.27,-152.82}})));
 
   // Basic Parameters
 
@@ -240,8 +237,8 @@ model LV_semiurb_4_I
     b=2.60752e-07,
     length=19.343000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-2.23,-59.82},{2.77,-54.82}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{-2.23,-59.82},{2.77,-54.82}})));
 
   // Basic Parameters
 
@@ -251,8 +248,8 @@ model LV_semiurb_4_I
     b=2.60752e-07,
     length=14.565000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{127.27,-133.32},{132.27,-128.32}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{127.27,-133.32},{132.27,-128.32}})));
 
   // Basic Parameters
 
@@ -262,8 +259,8 @@ model LV_semiurb_4_I
     b=2.60752e-07,
     length=8.607000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{46.77,129.18},{51.77,134.18}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{46.77,129.18},{51.77,134.18}})));
 
   // Basic Parameters
 
@@ -273,8 +270,8 @@ model LV_semiurb_4_I
     b=2.60752e-07,
     length=8.650000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{92.27,52.18},{97.27,57.18}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{92.27,52.18},{97.27,57.18}})));
 
   // Basic Parameters
 
@@ -284,8 +281,8 @@ model LV_semiurb_4_I
     b=2.60752e-07,
     length=10.010000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{92.27,-31.82},{97.27,-26.82}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{92.27,-31.82},{97.27,-26.82}})));
 
   // Basic Parameters
 
@@ -295,8 +292,8 @@ model LV_semiurb_4_I
     b=2.60752e-07,
     length=21.594000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{57.27,-192.82},{62.27,-187.82}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{57.27,-192.82},{62.27,-187.82}})));
 
   // Basic Parameters
 
@@ -306,8 +303,8 @@ model LV_semiurb_4_I
     b=2.60752e-07,
     length=5.460000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{127.27,-213.82},{132.27,-208.82}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{127.27,-213.82},{132.27,-208.82}})));
 
   // Basic Parameters
 
@@ -317,8 +314,8 @@ model LV_semiurb_4_I
     b=2.60752e-07,
     length=1.552000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-44.23,202.68},{-39.23,207.68}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{-44.23,202.68},{-39.23,207.68}})));
 
   // Basic Parameters
 
@@ -328,8 +325,8 @@ model LV_semiurb_4_I
     b=2.60752e-07,
     length=26.545000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-5.73,52.18},{-0.73,57.18}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{-5.73,52.18},{-0.73,57.18}})));
 
   // Basic Parameters
 
@@ -339,8 +336,8 @@ model LV_semiurb_4_I
     b=2.60752e-07,
     length=8.417000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{71.27,76.68},{76.27,81.68}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{71.27,76.68},{76.27,81.68}})));
 
   // Basic Parameters
 
@@ -350,8 +347,8 @@ model LV_semiurb_4_I
     b=2.60752e-07,
     length=8.429000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{57.27,-224.32},{62.27,-219.32}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{57.27,-224.32},{62.27,-219.32}})));
 
   // Basic Parameters
 
@@ -361,8 +358,8 @@ model LV_semiurb_4_I
     b=2.60752e-07,
     length=15.046000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{74.77,-108.82},{79.77,-103.82}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{74.77,-108.82},{79.77,-103.82}})));
 
   // Basic Parameters
 
@@ -372,8 +369,8 @@ model LV_semiurb_4_I
     b=2.60752e-07,
     length=0.692000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-2.23,-10.82},{2.77,-5.82}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{-2.23,-10.82},{2.77,-5.82}})));
 
   // Basic Parameters
 
@@ -383,8 +380,8 @@ model LV_semiurb_4_I
     b=2.60752e-07,
     length=3.870000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-68.73,157.18},{-63.73,162.18}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{-68.73,157.18},{-63.73,162.18}})));
 
   // Basic Parameters
 
@@ -394,8 +391,8 @@ model LV_semiurb_4_I
     b=2.60752e-07,
     length=33.843000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{57.27,-255.82},{62.27,-250.82}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{57.27,-255.82},{62.27,-250.82}})));
 
   // Basic Parameters
 
@@ -405,8 +402,8 @@ model LV_semiurb_4_I
     b=2.60752e-07,
     length=8.660000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{57.27,-136.82},{62.27,-131.82}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{57.27,-136.82},{62.27,-131.82}})));
 
   // Basic Parameters
 
@@ -416,8 +413,8 @@ model LV_semiurb_4_I
     b=2.60752e-07,
     length=14.085000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{92.27,-3.82},{97.27,1.18}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{92.27,-3.82},{97.27,1.18}})));
 
   // Basic Parameters
 
@@ -427,8 +424,8 @@ model LV_semiurb_4_I
     b=2.60752e-07,
     length=16.354000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{46.77,101.18},{51.77,106.18}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{46.77,101.18},{51.77,106.18}})));
 
   // Basic Parameters
 
@@ -438,8 +435,8 @@ model LV_semiurb_4_I
     b=2.60752e-07,
     length=8.451000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{92.27,-56.32},{97.27,-51.32}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{92.27,-56.32},{97.27,-51.32}})));
 
   // Basic Parameters
 
@@ -449,8 +446,8 @@ model LV_semiurb_4_I
     b=2.60752e-07,
     length=1.942000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-2.23,-35.32},{2.77,-30.32}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{-2.23,-35.32},{2.77,-30.32}})));
 
   // Basic Parameters
 
@@ -460,8 +457,8 @@ model LV_semiurb_4_I
     b=2.60752e-07,
     length=11.444000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{92.27,24.18},{97.27,29.18}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{92.27,24.18},{97.27,29.18}})));
 
   // Basic Parameters
 
@@ -471,8 +468,8 @@ model LV_semiurb_4_I
     b=2.60752e-07,
     length=8.428000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-72.23,97.68},{-67.23,102.68}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{-72.23,97.68},{-67.23,102.68}})));
 
   // Basic Parameters
 
@@ -482,8 +479,8 @@ model LV_semiurb_4_I
     b=2.60752e-07,
     length=2.348000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{15.27,202.68},{20.27,207.68}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{15.27,202.68},{20.27,207.68}})));
 
   // Basic Parameters
 
@@ -493,8 +490,8 @@ model LV_semiurb_4_I
     b=2.60752e-07,
     length=21.222000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{22.27,76.68},{27.27,81.68}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{22.27,76.68},{27.27,81.68}})));
 
   // Basic Parameters
 
@@ -504,8 +501,8 @@ model LV_semiurb_4_I
     b=2.60752e-07,
     length=29.066000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{109.77,-108.82},{114.77,-103.82}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{109.77,-108.82},{114.77,-103.82}})));
 
   // Basic Parameters
 
@@ -515,8 +512,8 @@ model LV_semiurb_4_I
     b=2.60752e-07,
     length=53.308000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-68.73,129.18},{-63.73,134.18}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{-68.73,129.18},{-63.73,134.18}})));
 
   // Basic Parameters
 
@@ -526,8 +523,8 @@ model LV_semiurb_4_I
     b=2.60752e-07,
     length=15.024000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{50.27,157.18},{55.27,162.18}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{50.27,157.18},{55.27,162.18}})));
 
   // Basic Parameters
 
@@ -537,8 +534,8 @@ model LV_semiurb_4_I
     b=2.60752e-07,
     length=19.234000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{57.27,-164.82},{62.27,-159.82}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{57.27,-164.82},{62.27,-159.82}})));
 
   // Basic Parameters
 
@@ -548,8 +545,8 @@ model LV_semiurb_4_I
     b=2.60752e-07,
     length=26.544000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-5.73,20.68},{-0.73,25.68}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{-5.73,20.68},{-0.73,25.68}})));
 
   // Basic Parameters
 
@@ -559,8 +556,8 @@ model LV_semiurb_4_I
     b=2.60752e-07,
     length=18.783000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{92.27,-80.82},{97.27,-75.82}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{92.27,-80.82},{97.27,-75.82}})));
 
   // Basic Parameters
 
@@ -570,8 +567,8 @@ model LV_semiurb_4_I
     b=2.60752e-07,
     length=8.678000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{127.27,-185.82},{132.27,-180.82}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{127.27,-185.82},{132.27,-180.82}})));
 
   // Basic Parameters
 
@@ -581,8 +578,8 @@ model LV_semiurb_4_I
     b=2.60752e-07,
     length=60.000000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-82.73,202.68},{-77.73,207.68}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{-82.73,202.68},{-77.73,207.68}})));
 
   // Basic Parameters
 
@@ -592,8 +589,8 @@ model LV_semiurb_4_I
     b=2.60752e-07,
     length=28.000000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-145.73,157.18},{-140.73,162.18}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{-145.73,157.18},{-140.73,162.18}})));
 
   // Basic Parameters
 
@@ -603,8 +600,8 @@ model LV_semiurb_4_I
     b=2.60752e-07,
     length=36.000000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-145.73,129.18},{-140.73,134.18}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{-145.73,129.18},{-140.73,134.18}})));
 
   // Basic Parameters
 
@@ -614,8 +611,8 @@ model LV_semiurb_4_I
     b=2.60752e-07,
     length=21.000000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-156.23,97.68},{-151.23,102.68}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{-156.23,97.68},{-151.23,102.68}})));
 
   // Basic Parameters
 
@@ -625,8 +622,8 @@ model LV_semiurb_4_I
     b=2.60752e-07,
     length=41.000000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-180.73,66.18},{-175.73,71.18}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{-180.73,66.18},{-175.73,71.18}})));
 
   // Basic Parameters
 
@@ -636,8 +633,8 @@ model LV_semiurb_4_I
     b=2.60752e-07,
     length=22.000000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-194.73,34.68},{-189.73,39.68}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{-194.73,34.68},{-189.73,39.68}})));
 
   // Basic Parameters
 
@@ -647,8 +644,8 @@ model LV_semiurb_4_I
     b=2.60752e-07,
     length=28.000000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-152.73,66.18},{-147.73,71.18}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{-152.73,66.18},{-147.73,71.18}})));
 
   // Basic Parameters
 
@@ -658,8 +655,8 @@ model LV_semiurb_4_I
     b=2.60752e-07,
     length=20.000000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-138.73,34.68},{-133.73,39.68}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{-138.73,34.68},{-133.73,39.68}})));
 
   // Basic Parameters
 
@@ -669,8 +666,8 @@ model LV_semiurb_4_I
     b=2.60752e-07,
     length=26.000000,
     i_n=275,
-    parallel=1,
-    ) annotation (Placement(transformation(extent={{-138.73,3.18},{-133.73,8.18}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{-138.73,3.18},{-133.73,8.18}})));
 
   // Basic Parameters
 
@@ -709,13 +706,13 @@ model LV_semiurb_4_I
     U_ground=0.43553,
     thermalMass=28093500.0,
     num_BEVs=2,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=1,
         Bat_Capacity=360000000.0,
         Bat_SOCStart=1.0,
         Bat_PowerLimit=11000.0,
-        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=2,
         Bat_Capacity=360000000.0,
@@ -823,13 +820,13 @@ model LV_semiurb_4_I
     V_BST = 0.6,
     tappingProfileName="TappingCycle_I_4",
     num_BEVs=2,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=3,
         Bat_Capacity=360000000.0,
         Bat_SOCStart=1.0,
         Bat_PowerLimit=11000.0,
-        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=4,
         Bat_Capacity=295200000.0,
@@ -964,7 +961,7 @@ model LV_semiurb_4_I
     V_BST = 0.5,
     tappingProfileName="TappingCycle_I_8",
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=5,
         Bat_Capacity=132480000.0,
@@ -1001,13 +998,13 @@ model LV_semiurb_4_I
     V_BST = 0.5,
     tappingProfileName="TappingCycle_I_9",
     num_BEVs=2,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=6,
         Bat_Capacity=295200000.0,
         Bat_SOCStart=1.0,
         Bat_PowerLimit=11000.0,
-        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=7,
         Bat_Capacity=196920000.0,
@@ -1439,19 +1436,19 @@ model LV_semiurb_4_I
     V_BST = 0.3,
     tappingProfileName="TappingCycle_I_21",
     num_BEVs=3,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=8,
         Bat_Capacity=295200000.0,
         Bat_SOCStart=1.0,
         Bat_PowerLimit=11000.0,
-        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=9,
         Bat_Capacity=295200000.0,
         Bat_SOCStart=1.0,
         Bat_PowerLimit=11000.0,
-        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=10,
         Bat_Capacity=132480000.0,
@@ -1612,7 +1609,7 @@ model LV_semiurb_4_I
     V_BST = 0.75,
     tappingProfileName="TappingCycle_I_25",
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=11,
         Bat_Capacity=132480000.0,
@@ -1649,13 +1646,13 @@ model LV_semiurb_4_I
     V_BST = 0.3,
     tappingProfileName="TappingCycle_I_26",
     num_BEVs=2,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=12,
         Bat_Capacity=295200000.0,
         Bat_SOCStart=1.0,
         Bat_PowerLimit=11000.0,
-        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=13,
         Bat_Capacity=132480000.0,
@@ -1764,13 +1761,13 @@ model LV_semiurb_4_I
     U_ground=0.394421,
     thermalMass=27482000.0,
     num_BEVs=2,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=14,
         Bat_Capacity=360000000.0,
         Bat_SOCStart=1.0,
         Bat_PowerLimit=11000.0,
-        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=15,
         Bat_Capacity=295200000.0,
@@ -1889,7 +1886,7 @@ model LV_semiurb_4_I
     U_ground=0.412139,
     thermalMass=28231900.0,
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=16,
         Bat_Capacity=295200000.0,
@@ -2224,9 +2221,8 @@ model LV_semiurb_4_I
     U_S=400,
     epp_p(v(start=10000)),
     epp_n(v(start=400))) annotation (Placement(transformation(extent={{-82,250},{-62,270}})));
-  Models_CyEntEE.CellModels.CPP.DecouplingGrids decouplingGrids annotation (Placement(transformation(extent={{-52,250},{-32,270}})));
   TransiEnt.Basics.Interfaces.Electrical.ComplexPowerPort epp annotation (Placement(transformation(extent={{-10,98},{10,118}})));
-  Bus.LVGridControlBus controlBus annotation (Placement(transformation(extent={{-100,40},{-80,60}})));
+  TransiEnt.Basics.Interfaces.General.ControlBus controlBus annotation (Placement(transformation(extent={{-100,40},{-80,60}})));
   TransiEnt.Components.Sensors.SmartMeter GridMeter annotation (Placement(transformation(extent={{-20,250},{0,270}})));
 equation
   // ---- Connect Interfaces ------------------------------------------------------------------
@@ -2271,48 +2267,6 @@ equation
   connect(controlBus.household_39, household_39.controlBus) annotation();
   connect(controlBus.household_40, household_40.controlBus) annotation();
   connect(controlBus.household_41, household_41.controlBus) annotation();
-  connect(controlBus.line_1, line_1.controlBus) annotation();
-  connect(controlBus.line_2, line_2.controlBus) annotation();
-  connect(controlBus.line_3, line_3.controlBus) annotation();
-  connect(controlBus.line_4, line_4.controlBus) annotation();
-  connect(controlBus.line_5, line_5.controlBus) annotation();
-  connect(controlBus.line_6, line_6.controlBus) annotation();
-  connect(controlBus.line_7, line_7.controlBus) annotation();
-  connect(controlBus.line_8, line_8.controlBus) annotation();
-  connect(controlBus.line_9, line_9.controlBus) annotation();
-  connect(controlBus.line_10, line_10.controlBus) annotation();
-  connect(controlBus.line_11, line_11.controlBus) annotation();
-  connect(controlBus.line_12, line_12.controlBus) annotation();
-  connect(controlBus.line_13, line_13.controlBus) annotation();
-  connect(controlBus.line_14, line_14.controlBus) annotation();
-  connect(controlBus.line_15, line_15.controlBus) annotation();
-  connect(controlBus.line_16, line_16.controlBus) annotation();
-  connect(controlBus.line_17, line_17.controlBus) annotation();
-  connect(controlBus.line_18, line_18.controlBus) annotation();
-  connect(controlBus.line_19, line_19.controlBus) annotation();
-  connect(controlBus.line_20, line_20.controlBus) annotation();
-  connect(controlBus.line_21, line_21.controlBus) annotation();
-  connect(controlBus.line_22, line_22.controlBus) annotation();
-  connect(controlBus.line_23, line_23.controlBus) annotation();
-  connect(controlBus.line_24, line_24.controlBus) annotation();
-  connect(controlBus.line_25, line_25.controlBus) annotation();
-  connect(controlBus.line_26, line_26.controlBus) annotation();
-  connect(controlBus.line_27, line_27.controlBus) annotation();
-  connect(controlBus.line_28, line_28.controlBus) annotation();
-  connect(controlBus.line_29, line_29.controlBus) annotation();
-  connect(controlBus.line_30, line_30.controlBus) annotation();
-  connect(controlBus.line_31, line_31.controlBus) annotation();
-  connect(controlBus.line_32, line_32.controlBus) annotation();
-  connect(controlBus.line_33, line_33.controlBus) annotation();
-  connect(controlBus.line_34, line_34.controlBus) annotation();
-  connect(controlBus.line_35, line_35.controlBus) annotation();
-  connect(controlBus.line_36, line_36.controlBus) annotation();
-  connect(controlBus.line_37, line_37.controlBus) annotation();
-  connect(controlBus.line_38, line_38.controlBus) annotation();
-  connect(controlBus.line_39, line_39.controlBus) annotation();
-  connect(controlBus.line_40, line_40.controlBus) annotation();
-  connect(controlBus.line_41, line_41.controlBus) annotation();
-  connect(controlBus.line_42, line_42.controlBus) annotation();
   connect(controlBus.node_1, node_1.controlBus) annotation();
   connect(controlBus.node_2, node_2.controlBus) annotation();
   connect(controlBus.node_3, node_3.controlBus) annotation();
@@ -2498,26 +2452,16 @@ equation
       points={{-82,260},{-88,260},{-88,196},{0,196},{0,108}},
       color={28,108,200},
       thickness=0.5));
-  connect(decouplingGrids.epp_p, simpleTransformerComplex.epp_n) annotation (Line(
-      points={{-52,260},{-62,260}},
-      color={28,108,200},
-      thickness=0.5));
-  connect(GridMeter.epp_a, decouplingGrids.epp_n) annotation (Line(
-      points={{-19.2,260},{-32,260}},
+  connect(GridMeter.epp_a, simpleTransformerComplex.epp_n) annotation (Line(
+      points={{-19.2,260},{-62,260}},
       color={28,108,200},
       thickness=0.5));
   connect(GridMeter.epp_b, node_15.epp) annotation (Line(
-      points={{-10,250},{-10,226},{-17.23,226},{-17.23,234.18}},
+      points={{-0.8,260},{-0.8,226},{-17.23,226},{-17.23,234.18}},
       color={28,108,200},
       thickness=0.5));
   connect(GridMeter.controlBus, controlBus.GridMeter) annotation();
-   annotation();
-   annotation();
-   annotation();
-   annotation();
-   annotation();
-   annotation();
-  annotation (
+   annotation(
     experiment(StopTime=86400, __Dymola_Algorithm="Dassl"),
     Diagram(coordinateSystem(extent={{-100.0,-100.0},{100.0,100.0}}), graphics={Rectangle(
           extent={{-220,280},{-100,200}},
@@ -2570,4 +2514,4 @@ Number of BEV: 16")}),
           extent={{-250,-93},{250,-133}},
           lineColor={0,134,134},
           textString="%LV_semiurb_4_I")}));
-end LV_semiurb_4_I;
+end LV_semiurb_4_Intermediate;
