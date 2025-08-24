@@ -1,5 +1,5 @@
 within TransiEnt.Components.Electrical.Prosumer.Check;
-model Check_Prosumer "Test Model for automated generatrion from CDB and Prosumer"
+model Check_Prosumer "Prosumer"
 
   extends TransiEnt.Basics.Icons.Checkmodel;
 
@@ -7,7 +7,7 @@ model Check_Prosumer "Test Model for automated generatrion from CDB and Prosumer
   //   Parameter
   // ----------------------------------------------------------------------------------------
 
-  constant String data_local=Modelica.Utilities.System.getEnvironmentVariable("cyentee_data_dir")
+  constant String data_local="modelica://TransiEnt/Tables/distribution/LV_rural_1/normaleBedingungen/"
                           "Directory containing load profile data";
 
   // ----------------------------------------------------------------------------------------
@@ -25,10 +25,10 @@ TransiEnt.Components.Electrical.Prosumer.Prosumer Prosumer(
     heatingControlType=TransiEnt.Basics.Types.ControlType.Limit_P,
     bevControlType=TransiEnt.Basics.Types.ControlType.Limit_P,
     data_local=data_local,
-    tappingProfileName="LV_rural_1/TappingCycle_A_1",
+    tappingProfileName="TappingCycle_A_1",
     data_weatherLocation="Hamelin",
     data_weatherYear="2019",
-    configuration="TAF10",
+    configuration="TAF7",
     loadProfileName="SFH4",
     loadProfileScaleP=6,
     loadProfileScaleQ=6,

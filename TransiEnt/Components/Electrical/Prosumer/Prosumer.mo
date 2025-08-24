@@ -328,7 +328,8 @@ model Prosumer
   Modelica.Blocks.Sources.BooleanExpression BES_bool(y=useBattery) annotation (Placement(transformation(extent={{-140,-100},{-120,-80}})));
   Modelica.Blocks.Sources.BooleanExpression EHP_bool(y=useEHP) annotation (Placement(transformation(extent={{-140,-120},{-120,-100}})));
   Modelica.Blocks.Sources.RealExpression Number_of_BEVs(y=num_BEVs) annotation (Placement(transformation(extent={{-140,-140},{-120,-120}})));
-  Modelica.Blocks.Sources.RealExpression Battery_power(y=batterySimple.epp.P) annotation (Placement(transformation(extent={{-140,-160},{-120,-140}})));
+  Modelica.Blocks.Sources.RealExpression Battery_power(y=batterySimple.epp.P) if useBattery
+                                                                              annotation (Placement(transformation(extent={{-140,-160},{-120,-140}})));
 equation
   // iterate over all BEVs
   for i in 1:num_BEVs loop
