@@ -5,11 +5,6 @@ model LV_semiurb_5 "Contains choices of scenarios T/I/A and Normale Bedingungen/
   //   Parameter
   // ------------------------------------------------------------------------------------------
 
-  parameter String condition_scenario="normaleBedingungen" annotation (choices(
-      choice="normaleBedingungen" "Normale Bedingungen",
-      choice="highSimultaneity" "High Simultaneity",
-      choice="kalteDunkelflaute" "Kalte Dunkelflaute"), Dialog(group="Scenario choice"));
-
   parameter String development_scenario="Future" annotation (choices(
       choice="Today" "Today",
       choice="Intermediate" "Intermediate",
@@ -27,20 +22,10 @@ model LV_semiurb_5 "Contains choices of scenarios T/I/A and Normale Bedingungen/
 
   parameter String weatherYear = "2019" "Choose a weather location to simulate the grid" annotation (Evaluate=true, Dialog(group="Weather"));
 
-  parameter Boolean useTTEC=false "If lines shall use transient thermal equivalent circuit" annotation (
-    Evaluate=true,
-    Dialog(group="Line"),
-    choices(__Dymola_checkBox=true));
-
-  parameter Boolean useUndergroundTemperature=false "If lines shall use transient thermal equivalent circuit" annotation (
-    Evaluate=true,
-    Dialog(group="Line"),
-    choices(__Dymola_checkBox=true));
-
-  parameter Boolean useUndergroundMoisture=false "If lines shall use transient thermal equivalent circuit" annotation (
-    Evaluate=true,
-    Dialog(group="Line"),
-    choices(__Dymola_checkBox=true));
+  parameter String smartMeterConfiguration="Ideal" "choose the basic configuration" annotation (Dialog(group="Metering"), choices(
+      choice="Ideal" "Ideal measurements",
+      choice="TAF10" "Tarifanwendungsfall 10 (German standard)",
+      choice="TAF7" "Tarifanwendungsfall 7 (German standard)"));
 
   // ------------------------------------------------------------------------------------------
   //   Components
@@ -49,39 +34,30 @@ model LV_semiurb_5 "Contains choices of scenarios T/I/A and Normale Bedingungen/
 
   // ---- LV Grids -------------------------------------------------------------------------------
 
-  LV_TIA.LV_semiurb_5_T lV_semiurb_5_T(
-    condition_scenario=condition_scenario,
+  TransiEnt.Examples.DistributionGrids.LowVoltageGrids.BaseScenarios.LV_semiurb_5_Today lV_semiurb_5_T(
     photovoltaicControlType=photovoltaicControlType,
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
     weatherLocation=weatherLocation,
     weatherYear=weatherYear,
-    useTTEC=useTTEC,
-    useUndergroundTemperature=useUndergroundTemperature,
-    useUndergroundMoisture=useUndergroundMoisture) if (development_scenario == "Today") annotation (Placement(transformation(extent={{-70,-10},{-50,10}})));
-  LV_TIA.LV_semiurb_5_I lV_semiurb_5_I(
-    condition_scenario=condition_scenario,
+    smartMeterConfiguration=smartMeterConfiguration) if (development_scenario == "Today") annotation (Placement(transformation(extent={{-70,-10},{-50,10}})));
+  TransiEnt.Examples.DistributionGrids.LowVoltageGrids.BaseScenarios.LV_semiurb_5_Intermediate lV_semiurb_5_I(
     photovoltaicControlType=photovoltaicControlType,
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
     weatherLocation=weatherLocation,
     weatherYear=weatherYear,
-    useTTEC=useTTEC,
-    useUndergroundTemperature=useUndergroundTemperature,
-    useUndergroundMoisture=useUndergroundMoisture) if (development_scenario == "Intermediate") annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
-  LV_TIA.LV_semiurb_5_A lV_semiurb_5_A(
-    condition_scenario=condition_scenario,
+    smartMeterConfiguration=smartMeterConfiguration) if (development_scenario == "Intermediate") annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+  TransiEnt.Examples.DistributionGrids.LowVoltageGrids.BaseScenarios.LV_semiurb_5_Future lV_semiurb_5_A(
     photovoltaicControlType=photovoltaicControlType,
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
     weatherLocation=weatherLocation,
     weatherYear=weatherYear,
-    useTTEC=useTTEC,
-    useUndergroundTemperature=useUndergroundTemperature,
-    useUndergroundMoisture=useUndergroundMoisture) if (development_scenario == "Future") annotation (Placement(transformation(extent={{50,-10},{70,10}})));
+    smartMeterConfiguration=smartMeterConfiguration) if (development_scenario == "Future") annotation (Placement(transformation(extent={{50,-10},{70,10}})));
 
   // ------------------------------------------------------------------------------------------
   //   Interfaces
@@ -104,9 +80,9 @@ equation
       points={{60,10.8},{60,94},{0,94},{0,108}},
       color={28,108,200},
       thickness=0.5));
-  connect(lV_semiurb_5_T.controlBus, controlBus) annotation ();
-  connect(lV_semiurb_5_I.controlBus, controlBus) annotation ();
-  connect(lV_semiurb_5_A.controlBus, controlBus) annotation ();
+  connect(lV_semiurb_5_T.controlBus, controlBus) annotation();
+  connect(lV_semiurb_5_I.controlBus, controlBus) annotation();
+  connect(lV_semiurb_5_A.controlBus, controlBus) annotation();
   annotation (
     Diagram(coordinateSystem(preserveAspectRatio=false)),
     Icon(graphics={
