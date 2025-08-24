@@ -1,46 +1,32 @@
 within TransiEnt.Examples.DistributionGrids.MediumVoltageGrids;
 model MV_urban_2_no_switch "Urban medium voltage distribution grid scenario with variable technology penetration scenario."
-  import Models_CyEntEE.CellModels.Controller.Base.ControlType;
+  import TransiEnt.Basics.Types.ControlType;
   // ------------------------------------------------------------------------------------------
   //   Parameter
   // ------------------------------------------------------------------------------------------
-
-  parameter String condition_scenario="normaleBedingungen" annotation (choices(
-      choice="normaleBedingungen" "Normale Bedingungen",
-      choice="highSimultaneity" "High Simultaneity",
-      choice="kalteDunkelflaute" "Kalte Dunkelflaute"), Dialog(group="Scenario choice"));
 
   parameter String development_scenario="Intermediate" annotation (choices(
       choice="Today" "Today",
       choice="Intermediate" "Intermediate",
       choice="Future" "Future"), Dialog(group="Scenario choice"));
 
-  parameter String weatherLocation="Lochum" annotation (Dialog(group="Scenario choice"));
+  parameter String weatherLocation="Hamelin"
+                                            annotation (Dialog(group="Scenario choice"));
 
-  parameter String weatherYear="2024" annotation (Dialog(group="Scenario choice"));
+  parameter String weatherYear="2019" annotation (Dialog(group="Scenario choice"));
 
-  parameter ControlType photovoltaicControlType=Models_CyEntEE.CellModels.Controller.Base.ControlType.Internal "Type of control for photovoltaic system" annotation (Evaluate=true, Dialog(group="External Control"));
+  parameter ControlType photovoltaicControlType=TransiEnt.Basics.Types.ControlType.Internal "Type of control for photovoltaic system" annotation (Evaluate=true, Dialog(group="External Control"));
 
-  parameter ControlType batteryControlType=Models_CyEntEE.CellModels.Controller.Base.ControlType.Internal "Type of control for battery system" annotation (Evaluate=true, Dialog(group="External Control"));
+  parameter ControlType batteryControlType=TransiEnt.Basics.Types.ControlType.Internal "Type of control for battery system" annotation (Evaluate=true, Dialog(group="External Control"));
 
-  parameter ControlType heatingControlType=Models_CyEntEE.CellModels.Controller.Base.ControlType.Internal "Type of control for heating system" annotation (Evaluate=true, Dialog(group="External Control"));
+  parameter ControlType heatingControlType=TransiEnt.Basics.Types.ControlType.Internal "Type of control for heating system" annotation (Evaluate=true, Dialog(group="External Control"));
 
-  parameter ControlType bevControlType=Models_CyEntEE.CellModels.Controller.Base.ControlType.Internal "Type of control for vehicle system" annotation (Evaluate=true, Dialog(group="External Control"));
+  parameter ControlType bevControlType=TransiEnt.Basics.Types.ControlType.Internal "Type of control for vehicle system" annotation (Evaluate=true, Dialog(group="External Control"));
 
-  parameter Boolean useTTEC=false "If lines shall use transient thermal equivalent circuit" annotation (
-    Evaluate=true,
-    Dialog(group="Line"),
-    choices(__Dymola_checkBox=true));
-
-  parameter Boolean useUndergroundTemperature=false "If lines shall use transient thermal equivalent circuit" annotation (
-    Evaluate=true,
-    Dialog(group="Line"),
-    choices(__Dymola_checkBox=true));
-
-  parameter Boolean useUndergroundMoisture=false "If lines shall use transient thermal equivalent circuit" annotation (
-    Evaluate=true,
-    Dialog(group="Line"),
-    choices(__Dymola_checkBox=true));
+  parameter String smartMeterConfiguration="Ideal" "choose the basic configuration" annotation (Dialog(group="Metering"), choices(
+      choice="Ideal" "Ideal measurements",
+      choice="TAF10" "Tarifanwendungsfall 10 (German standard)",
+      choice="TAF7" "Tarifanwendungsfall 7 (German standard)"));
 
   // ------------------------------------------------------------------------------------------
   //   Components
@@ -53,21 +39,21 @@ model MV_urban_2_no_switch "Urban medium voltage distribution grid scenario with
 
   // ---- Knoten rechter Zweig ----------------------------------------------------------------
 
-  Models_CyEntEE.CellModels.CPP.Node node_1(epp(v(start=10000))) annotation (Placement(transformation(extent={{6,-56},{0,-50}})));
-  Models_CyEntEE.CellModels.CPP.Node node_41(epp(v(start=10000))) annotation (Placement(transformation(extent={{44,42},{38,48}})));
-  Models_CyEntEE.CellModels.CPP.Node node_42(epp(v(start=10000))) annotation (Placement(transformation(extent={{56,154},{50,160}})));
-  Models_CyEntEE.CellModels.CPP.Node node_43(epp(v(start=10000))) annotation (Placement(transformation(extent={{56,282},{50,288}})));
-  Models_CyEntEE.CellModels.CPP.Node node_44(epp(v(start=10000))) annotation (Placement(transformation(extent={{56,414},{50,420}})));
-  Models_CyEntEE.CellModels.CPP.Node node_45(epp(v(start=10000))) annotation (Placement(transformation(extent={{58,552},{52,558}})));
-  Models_CyEntEE.CellModels.CPP.Node node_46(epp(v(start=10000))) annotation (Placement(transformation(extent={{56,726},{50,732}})));
-  Models_CyEntEE.CellModels.CPP.Node node_47(epp(v(start=10000))) annotation (Placement(transformation(extent={{52,862},{46,868}})));
-  Models_CyEntEE.CellModels.CPP.Node node_48(epp(v(start=10000))) annotation (Placement(transformation(extent={{48,994},{42,1000}})));
-  Models_CyEntEE.CellModels.CPP.Node node_49(epp(v(start=10000))) annotation (Placement(transformation(extent={{46,1126},{40,1132}})));
-  Models_CyEntEE.CellModels.CPP.Node node_50(epp(v(start=10000))) annotation (Placement(transformation(extent={{44,1262},{38,1268}})));
+  TransiEnt.Components.Electrical.Grid.Base.Node node_1(epp(v(start=10000))) annotation (Placement(transformation(extent={{6,-56},{0,-50}})));
+  TransiEnt.Components.Electrical.Grid.Base.Node node_41(epp(v(start=10000))) annotation (Placement(transformation(extent={{44,42},{38,48}})));
+  TransiEnt.Components.Electrical.Grid.Base.Node node_42(epp(v(start=10000))) annotation (Placement(transformation(extent={{56,154},{50,160}})));
+  TransiEnt.Components.Electrical.Grid.Base.Node node_43(epp(v(start=10000))) annotation (Placement(transformation(extent={{56,282},{50,288}})));
+  TransiEnt.Components.Electrical.Grid.Base.Node node_44(epp(v(start=10000))) annotation (Placement(transformation(extent={{56,414},{50,420}})));
+  TransiEnt.Components.Electrical.Grid.Base.Node node_45(epp(v(start=10000))) annotation (Placement(transformation(extent={{58,552},{52,558}})));
+  TransiEnt.Components.Electrical.Grid.Base.Node node_46(epp(v(start=10000))) annotation (Placement(transformation(extent={{56,726},{50,732}})));
+  TransiEnt.Components.Electrical.Grid.Base.Node node_47(epp(v(start=10000))) annotation (Placement(transformation(extent={{52,862},{46,868}})));
+  TransiEnt.Components.Electrical.Grid.Base.Node node_48(epp(v(start=10000))) annotation (Placement(transformation(extent={{48,994},{42,1000}})));
+  TransiEnt.Components.Electrical.Grid.Base.Node node_49(epp(v(start=10000))) annotation (Placement(transformation(extent={{46,1126},{40,1132}})));
+  TransiEnt.Components.Electrical.Grid.Base.Node node_50(epp(v(start=10000))) annotation (Placement(transformation(extent={{44,1262},{38,1268}})));
 
   // ---- Lines rechter Zweig -----------------------------------------------------------------
 
-  Models_CyEntEE.CellModels.CPP.Line line_31(
+  TransiEnt.Components.Electrical.Grid.Line_new line_31(
     r=0.122e-3,
     x=0.105e-3,
     b=143.257e-9,
@@ -75,7 +61,7 @@ model MV_urban_2_no_switch "Urban medium voltage distribution grid scenario with
     length=100,
     epp_p(v(start=10000)),
     epp_n(v(start=10000))) annotation (Placement(transformation(extent={{16,-12},{22,-6}})));
-  Models_CyEntEE.CellModels.CPP.Line line_32(
+  TransiEnt.Components.Electrical.Grid.Line_new line_32(
     r=0.122e-3,
     x=0.105e-3,
     b=143.257e-9,
@@ -83,7 +69,7 @@ model MV_urban_2_no_switch "Urban medium voltage distribution grid scenario with
     length=120,
     epp_p(v(start=10000)),
     epp_n(v(start=10000))) annotation (Placement(transformation(extent={{34,94},{40,100}})));
-  Models_CyEntEE.CellModels.CPP.Line line_33(
+  TransiEnt.Components.Electrical.Grid.Line_new line_33(
     r=0.122e-3,
     x=0.105e-3,
     b=143.257e-9,
@@ -91,7 +77,7 @@ model MV_urban_2_no_switch "Urban medium voltage distribution grid scenario with
     length=270,
     epp_p(v(start=10000)),
     epp_n(v(start=10000))) annotation (Placement(transformation(extent={{48,220},{54,226}})));
-  Models_CyEntEE.CellModels.CPP.Line line_34(
+  TransiEnt.Components.Electrical.Grid.Line_new line_34(
     r=0.122e-3,
     x=0.105e-3,
     b=143.257e-9,
@@ -99,7 +85,7 @@ model MV_urban_2_no_switch "Urban medium voltage distribution grid scenario with
     length=270,
     epp_p(v(start=10000)),
     epp_n(v(start=10000))) annotation (Placement(transformation(extent={{54,352},{60,358}})));
-  Models_CyEntEE.CellModels.CPP.Line line_35(
+  TransiEnt.Components.Electrical.Grid.Line_new line_35(
     r=0.122e-3,
     x=0.105e-3,
     b=143.257e-9,
@@ -107,7 +93,7 @@ model MV_urban_2_no_switch "Urban medium voltage distribution grid scenario with
     length=260,
     epp_p(v(start=10000)),
     epp_n(v(start=10000))) annotation (Placement(transformation(extent={{52,486},{58,492}})));
-  Models_CyEntEE.CellModels.CPP.Line line_36(
+  TransiEnt.Components.Electrical.Grid.Line_new line_36(
     r=0.122e-3,
     x=0.105e-3,
     b=143.257e-9,
@@ -115,7 +101,7 @@ model MV_urban_2_no_switch "Urban medium voltage distribution grid scenario with
     length=150,
     epp_p(v(start=10000)),
     epp_n(v(start=10000))) annotation (Placement(transformation(extent={{54,644},{60,650}})));
-  Models_CyEntEE.CellModels.CPP.Line line_37(
+  TransiEnt.Components.Electrical.Grid.Line_new line_37(
     r=0.122e-3,
     x=0.105e-3,
     b=143.257e-9,
@@ -123,7 +109,7 @@ model MV_urban_2_no_switch "Urban medium voltage distribution grid scenario with
     length=400,
     epp_p(v(start=10000)),
     epp_n(v(start=10000))) annotation (Placement(transformation(extent={{48,800},{54,806}})));
-  Models_CyEntEE.CellModels.CPP.Line line_38(
+  TransiEnt.Components.Electrical.Grid.Line_new line_38(
     r=0.122e-3,
     x=0.105e-3,
     b=143.257e-9,
@@ -131,7 +117,7 @@ model MV_urban_2_no_switch "Urban medium voltage distribution grid scenario with
     length=190,
     epp_p(v(start=10000)),
     epp_n(v(start=10000))) annotation (Placement(transformation(extent={{46,934},{52,940}})));
-  Models_CyEntEE.CellModels.CPP.Line line_39(
+  TransiEnt.Components.Electrical.Grid.Line_new line_39(
     r=0.122e-3,
     x=0.105e-3,
     b=143.257e-9,
@@ -139,7 +125,7 @@ model MV_urban_2_no_switch "Urban medium voltage distribution grid scenario with
     length=110,
     epp_p(v(start=10000)),
     epp_n(v(start=10000))) annotation (Placement(transformation(extent={{44,1052},{50,1058}})));
-  Models_CyEntEE.CellModels.CPP.Line line_40(
+  TransiEnt.Components.Electrical.Grid.Line_new line_40(
     r=0.122e-3,
     x=0.105e-3,
     b=143.257e-9,
@@ -150,18 +136,18 @@ model MV_urban_2_no_switch "Urban medium voltage distribution grid scenario with
 
   // ---- Nodes  linker Zweig ----------------------------------------------------------------
 
-  Models_CyEntEE.CellModels.CPP.Node node_51(epp(v(start=10000))) annotation (Placement(transformation(extent={{-52,34},{-46,40}})));
-  Models_CyEntEE.CellModels.CPP.Node node_52(epp(v(start=10000))) annotation (Placement(transformation(extent={{-100,132},{-94,138}})));
-  Models_CyEntEE.CellModels.CPP.Node node_53(epp(v(start=10000))) annotation (Placement(transformation(extent={{-124,222},{-118,228}})));
-  Models_CyEntEE.CellModels.CPP.Node node_54(epp(v(start=10000))) annotation (Placement(transformation(extent={{-144,354},{-138,360}})));
-  Models_CyEntEE.CellModels.CPP.Node node_55(epp(v(start=10000))) annotation (Placement(transformation(extent={{-152,510},{-146,516}})));
-  Models_CyEntEE.CellModels.CPP.Node node_56(epp(v(start=10000))) annotation (Placement(transformation(extent={{-154,678},{-148,684}})));
-  Models_CyEntEE.CellModels.CPP.Node node_57(epp(v(start=10000))) annotation (Placement(transformation(extent={{-162,838},{-156,844}})));
-  Models_CyEntEE.CellModels.CPP.Node node_58(epp(v(start=10000))) annotation (Placement(transformation(extent={{-160,986},{-154,992}})));
+  TransiEnt.Components.Electrical.Grid.Base.Node node_51(epp(v(start=10000))) annotation (Placement(transformation(extent={{-52,34},{-46,40}})));
+  TransiEnt.Components.Electrical.Grid.Base.Node node_52(epp(v(start=10000))) annotation (Placement(transformation(extent={{-100,132},{-94,138}})));
+  TransiEnt.Components.Electrical.Grid.Base.Node node_53(epp(v(start=10000))) annotation (Placement(transformation(extent={{-124,222},{-118,228}})));
+  TransiEnt.Components.Electrical.Grid.Base.Node node_54(epp(v(start=10000))) annotation (Placement(transformation(extent={{-144,354},{-138,360}})));
+  TransiEnt.Components.Electrical.Grid.Base.Node node_55(epp(v(start=10000))) annotation (Placement(transformation(extent={{-152,510},{-146,516}})));
+  TransiEnt.Components.Electrical.Grid.Base.Node node_56(epp(v(start=10000))) annotation (Placement(transformation(extent={{-154,678},{-148,684}})));
+  TransiEnt.Components.Electrical.Grid.Base.Node node_57(epp(v(start=10000))) annotation (Placement(transformation(extent={{-162,838},{-156,844}})));
+  TransiEnt.Components.Electrical.Grid.Base.Node node_58(epp(v(start=10000))) annotation (Placement(transformation(extent={{-160,986},{-154,992}})));
 
   // ---- Lines linker Zweig -----------------------------------------------------------------
 
-  Models_CyEntEE.CellModels.CPP.Line line_41(
+  TransiEnt.Components.Electrical.Grid.Line_new line_41(
     r=0.1e-3,
     x=0.0974e-3,
     b=150.796e-9,
@@ -169,7 +155,7 @@ model MV_urban_2_no_switch "Urban medium voltage distribution grid scenario with
     length=110,
     epp_p(v(start=10000)),
     epp_n(v(start=10000))) annotation (Placement(transformation(extent={{-30,-14},{-24,-8}})));
-  Models_CyEntEE.CellModels.CPP.Line line_42(
+  TransiEnt.Components.Electrical.Grid.Line_new line_42(
     r=0.1e-3,
     x=0.0974e-3,
     b=150.796e-9,
@@ -177,7 +163,7 @@ model MV_urban_2_no_switch "Urban medium voltage distribution grid scenario with
     length=350,
     epp_p(v(start=10000)),
     epp_n(v(start=10000))) annotation (Placement(transformation(extent={{-74,80},{-68,86}})));
-  Models_CyEntEE.CellModels.CPP.Line line_43(
+  TransiEnt.Components.Electrical.Grid.Line_new line_43(
     r=0.1e-3,
     x=0.0974e-3,
     b=150.796e-9,
@@ -185,7 +171,7 @@ model MV_urban_2_no_switch "Urban medium voltage distribution grid scenario with
     length=220,
     epp_p(v(start=10000)),
     epp_n(v(start=10000))) annotation (Placement(transformation(extent={{-110,176},{-104,182}})));
-  Models_CyEntEE.CellModels.CPP.Line line_44(
+  TransiEnt.Components.Electrical.Grid.Line_new line_44(
     r=0.1e-3,
     x=0.0974e-3,
     b=150.796e-9,
@@ -193,7 +179,7 @@ model MV_urban_2_no_switch "Urban medium voltage distribution grid scenario with
     length=350,
     epp_p(v(start=10000)),
     epp_n(v(start=10000))) annotation (Placement(transformation(extent={{-132,288},{-126,294}})));
-  Models_CyEntEE.CellModels.CPP.Line line_45(
+  TransiEnt.Components.Electrical.Grid.Line_new line_45(
     r=0.122e-3,
     x=0.105e-3,
     b=143.257e-9,
@@ -201,7 +187,7 @@ model MV_urban_2_no_switch "Urban medium voltage distribution grid scenario with
     length=390,
     epp_p(v(start=10000)),
     epp_n(v(start=10000))) annotation (Placement(transformation(extent={{-144,432},{-138,438}})));
-  Models_CyEntEE.CellModels.CPP.Line line_46(
+  TransiEnt.Components.Electrical.Grid.Line_new line_46(
     r=0.122e-3,
     x=0.105e-3,
     b=143.257e-9,
@@ -209,7 +195,7 @@ model MV_urban_2_no_switch "Urban medium voltage distribution grid scenario with
     length=430,
     epp_p(v(start=10000)),
     epp_n(v(start=10000))) annotation (Placement(transformation(extent={{-156,596},{-150,602}})));
-  Models_CyEntEE.CellModels.CPP.Line line_47(
+  TransiEnt.Components.Electrical.Grid.Line_new line_47(
     r=0.122e-3,
     x=0.105e-3,
     b=143.257e-9,
@@ -217,7 +203,7 @@ model MV_urban_2_no_switch "Urban medium voltage distribution grid scenario with
     length=330,
     epp_p(v(start=10000)),
     epp_n(v(start=10000))) annotation (Placement(transformation(extent={{-154,756},{-148,762}})));
-  Models_CyEntEE.CellModels.CPP.Line line_48(
+  TransiEnt.Components.Electrical.Grid.Line_new line_48(
     r=0.122e-3,
     x=0.105e-3,
     b=143.257e-9,
@@ -237,221 +223,167 @@ model MV_urban_2_no_switch "Urban medium voltage distribution grid scenario with
 
   // ---- Niederspannungsnetze --------------------------------------------------------------------
 
-  Scenarios_CyEntEE.LV_Grids.LV_semiurb_5 lV_semiurb_5_1(
-    condition_scenario=condition_scenario,
+  TransiEnt.Examples.DistributionGrids.LowVoltageGrids.LV_semiurb_5 lV_semiurb_5_1(
+    smartMeterConfiguration=smartMeterConfiguration,
     photovoltaicControlType=photovoltaicControlType,
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
-    useTTEC=useTTEC,
     weatherLocation=weatherLocation,
     weatherYear=weatherYear,
-    useUndergroundTemperature=useUndergroundTemperature,
-    useUndergroundMoisture=useUndergroundMoisture,
     development_scenario=development_scenario) annotation (Placement(transformation(extent={{60,20},{80,40}})));
-  Scenarios_CyEntEE.LV_Grids.LV_semiurb_5 lV_semiurb_5_2(
-    condition_scenario=condition_scenario,
+  TransiEnt.Examples.DistributionGrids.LowVoltageGrids.LV_semiurb_5 lV_semiurb_5_2(
+    smartMeterConfiguration=smartMeterConfiguration,
     photovoltaicControlType=photovoltaicControlType,
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
-    useTTEC=useTTEC,
     weatherLocation=weatherLocation,
     weatherYear=weatherYear,
-    useUndergroundTemperature=useUndergroundTemperature,
-    useUndergroundMoisture=useUndergroundMoisture,
     development_scenario=development_scenario) annotation (Placement(transformation(extent={{106,122},{126,142}})));
-  Scenarios_CyEntEE.LV_Grids.LV_semiurb_5 lV_semiurb_5_3(
-    condition_scenario=condition_scenario,
+  TransiEnt.Examples.DistributionGrids.LowVoltageGrids.LV_semiurb_5 lV_semiurb_5_3(
+    smartMeterConfiguration=smartMeterConfiguration,
     photovoltaicControlType=photovoltaicControlType,
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
-    useTTEC=useTTEC,
     weatherLocation=weatherLocation,
     weatherYear=weatherYear,
-    useUndergroundTemperature=useUndergroundTemperature,
-    useUndergroundMoisture=useUndergroundMoisture,
     development_scenario=development_scenario) annotation (Placement(transformation(extent={{80,260},{100,280}})));
-  Scenarios_CyEntEE.LV_Grids.LV_semiurb_5 lV_semiurb_5_4(
-    condition_scenario=condition_scenario,
+  TransiEnt.Examples.DistributionGrids.LowVoltageGrids.LV_semiurb_5 lV_semiurb_5_4(
+    smartMeterConfiguration=smartMeterConfiguration,
     photovoltaicControlType=photovoltaicControlType,
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
-    useTTEC=useTTEC,
     weatherLocation=weatherLocation,
     weatherYear=weatherYear,
-    useUndergroundTemperature=useUndergroundTemperature,
-    useUndergroundMoisture=useUndergroundMoisture,
     development_scenario=development_scenario) annotation (Placement(transformation(extent={{100,380},{120,400}})));
-  Scenarios_CyEntEE.LV_Grids.LV_semiurb_4 lV_semiurb_4_1(
-    condition_scenario=condition_scenario,
+  TransiEnt.Examples.DistributionGrids.LowVoltageGrids.LV_semiurb_4 lV_semiurb_4_1(
+    smartMeterConfiguration=smartMeterConfiguration,
     photovoltaicControlType=photovoltaicControlType,
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
-    useTTEC=useTTEC,
     weatherLocation=weatherLocation,
     weatherYear=weatherYear,
-    useUndergroundTemperature=useUndergroundTemperature,
-    useUndergroundMoisture=useUndergroundMoisture,
     development_scenario=development_scenario) annotation (Placement(transformation(extent={{100,520},{120,540}})));
-  Scenarios_CyEntEE.LV_Grids.LV_semiurb_5 lV_semiurb_5_5(
-    condition_scenario=condition_scenario,
+  TransiEnt.Examples.DistributionGrids.LowVoltageGrids.LV_semiurb_5 lV_semiurb_5_5(
+    smartMeterConfiguration=smartMeterConfiguration,
     photovoltaicControlType=photovoltaicControlType,
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
-    useTTEC=useTTEC,
     weatherLocation=weatherLocation,
     weatherYear=weatherYear,
-    useUndergroundTemperature=useUndergroundTemperature,
-    useUndergroundMoisture=useUndergroundMoisture,
     development_scenario=development_scenario) annotation (Placement(transformation(extent={{100,700},{120,720}})));
-  Scenarios_CyEntEE.LV_Grids.LV_semiurb_5 lV_semiurb_5_6(
-    condition_scenario=condition_scenario,
+  TransiEnt.Examples.DistributionGrids.LowVoltageGrids.LV_semiurb_5 lV_semiurb_5_6(
+    smartMeterConfiguration=smartMeterConfiguration,
     photovoltaicControlType=photovoltaicControlType,
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
-    useTTEC=useTTEC,
     weatherLocation=weatherLocation,
     weatherYear=weatherYear,
-    useUndergroundTemperature=useUndergroundTemperature,
-    useUndergroundMoisture=useUndergroundMoisture,
     development_scenario=development_scenario) annotation (Placement(transformation(extent={{100,820},{120,840}})));
-  Scenarios_CyEntEE.LV_Grids.LV_semiurb_5 lV_semiurb_5_7(
-    condition_scenario=condition_scenario,
+  TransiEnt.Examples.DistributionGrids.LowVoltageGrids.LV_semiurb_5 lV_semiurb_5_7(
+    smartMeterConfiguration=smartMeterConfiguration,
     photovoltaicControlType=photovoltaicControlType,
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
-    useTTEC=useTTEC,
     weatherLocation=weatherLocation,
     weatherYear=weatherYear,
-    useUndergroundTemperature=useUndergroundTemperature,
-    useUndergroundMoisture=useUndergroundMoisture,
     development_scenario=development_scenario) annotation (Placement(transformation(extent={{80,960},{100,980}})));
-  Scenarios_CyEntEE.LV_Grids.LV_urban_6 lV_urban_6_1(
-    condition_scenario=condition_scenario,
+  TransiEnt.Examples.DistributionGrids.LowVoltageGrids.LV_urban_6 lV_urban_6_1(
+    smartMeterConfiguration=smartMeterConfiguration,
     photovoltaicControlType=photovoltaicControlType,
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
-    useTTEC=useTTEC,
     weatherLocation=weatherLocation,
     weatherYear=weatherYear,
-    useUndergroundTemperature=useUndergroundTemperature,
-    useUndergroundMoisture=useUndergroundMoisture,
     development_scenario=development_scenario) annotation (Placement(transformation(extent={{104,1100},{124,1120}})));
-  Scenarios_CyEntEE.LV_Grids.LV_urban_6 lV_urban_6_2(
-    condition_scenario=condition_scenario,
+  TransiEnt.Examples.DistributionGrids.LowVoltageGrids.LV_urban_6 lV_urban_6_2(
+    smartMeterConfiguration=smartMeterConfiguration,
     photovoltaicControlType=photovoltaicControlType,
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
-    useTTEC=useTTEC,
     weatherLocation=weatherLocation,
     weatherYear=weatherYear,
-    useUndergroundTemperature=useUndergroundTemperature,
-    useUndergroundMoisture=useUndergroundMoisture,
     development_scenario=development_scenario) annotation (Placement(transformation(extent={{80,1240},{100,1260}})));
-  Scenarios_CyEntEE.LV_Grids.LV_semiurb_5 lV_semiurb_5_8(
-    condition_scenario=condition_scenario,
+  TransiEnt.Examples.DistributionGrids.LowVoltageGrids.LV_semiurb_5 lV_semiurb_5_8(
+    smartMeterConfiguration=smartMeterConfiguration,
     photovoltaicControlType=photovoltaicControlType,
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
-    useTTEC=useTTEC,
     weatherLocation=weatherLocation,
     weatherYear=weatherYear,
-    useUndergroundTemperature=useUndergroundTemperature,
-    useUndergroundMoisture=useUndergroundMoisture,
     development_scenario=development_scenario) annotation (Placement(transformation(extent={{-120,0},{-100,20}})));
-  Scenarios_CyEntEE.LV_Grids.LV_urban_6 lV_urban_6_3(
-    condition_scenario=condition_scenario,
+  TransiEnt.Examples.DistributionGrids.LowVoltageGrids.LV_urban_6 lV_urban_6_3(
+    smartMeterConfiguration=smartMeterConfiguration,
     photovoltaicControlType=photovoltaicControlType,
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
-    useTTEC=useTTEC,
     weatherLocation=weatherLocation,
     weatherYear=weatherYear,
-    useUndergroundTemperature=useUndergroundTemperature,
-    useUndergroundMoisture=useUndergroundMoisture,
     development_scenario=development_scenario) annotation (Placement(transformation(extent={{-140,100},{-120,120}})));
-  Scenarios_CyEntEE.LV_Grids.LV_urban_6 lV_urban_6_4(
-    condition_scenario=condition_scenario,
+  TransiEnt.Examples.DistributionGrids.LowVoltageGrids.LV_urban_6 lV_urban_6_4(
+    smartMeterConfiguration=smartMeterConfiguration,
     photovoltaicControlType=photovoltaicControlType,
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
-    useTTEC=useTTEC,
     weatherLocation=weatherLocation,
     weatherYear=weatherYear,
-    useUndergroundTemperature=useUndergroundTemperature,
-    useUndergroundMoisture=useUndergroundMoisture,
     development_scenario=development_scenario) annotation (Placement(transformation(extent={{-180,180},{-160,200}})));
-  Scenarios_CyEntEE.LV_Grids.LV_semiurb_5 lV_semiurb_5_9(
-    condition_scenario=condition_scenario,
+  TransiEnt.Examples.DistributionGrids.LowVoltageGrids.LV_semiurb_5 lV_semiurb_5_9(
+    smartMeterConfiguration=smartMeterConfiguration,
     photovoltaicControlType=photovoltaicControlType,
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
-    useTTEC=useTTEC,
     weatherLocation=weatherLocation,
     weatherYear=weatherYear,
-    useUndergroundTemperature=useUndergroundTemperature,
-    useUndergroundMoisture=useUndergroundMoisture,
     development_scenario=development_scenario) annotation (Placement(transformation(extent={{-180,320},{-160,340}})));
-  Scenarios_CyEntEE.LV_Grids.LV_semiurb_5 lV_semiurb_5_10(
-    condition_scenario=condition_scenario,
+  TransiEnt.Examples.DistributionGrids.LowVoltageGrids.LV_semiurb_5 lV_semiurb_5_10(
+    smartMeterConfiguration=smartMeterConfiguration,
     photovoltaicControlType=photovoltaicControlType,
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
-    useTTEC=useTTEC,
     weatherLocation=weatherLocation,
     weatherYear=weatherYear,
-    useUndergroundTemperature=useUndergroundTemperature,
-    useUndergroundMoisture=useUndergroundMoisture,
     development_scenario=development_scenario) annotation (Placement(transformation(extent={{-200,480},{-180,500}})));
-  Scenarios_CyEntEE.LV_Grids.LV_urban_6 lV_urban_6_5(
-    condition_scenario=condition_scenario,
+  TransiEnt.Examples.DistributionGrids.LowVoltageGrids.LV_urban_6 lV_urban_6_5(
+    smartMeterConfiguration=smartMeterConfiguration,
     photovoltaicControlType=photovoltaicControlType,
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
-    useTTEC=useTTEC,
     weatherLocation=weatherLocation,
     weatherYear=weatherYear,
-    useUndergroundTemperature=useUndergroundTemperature,
-    useUndergroundMoisture=useUndergroundMoisture,
     development_scenario=development_scenario) annotation (Placement(transformation(extent={{-212,652},{-192,672}})));
-  Scenarios_CyEntEE.LV_Grids.LV_urban_6 lV_urban_6_6(
-    condition_scenario=condition_scenario,
+  TransiEnt.Examples.DistributionGrids.LowVoltageGrids.LV_urban_6 lV_urban_6_6(
+    smartMeterConfiguration=smartMeterConfiguration,
     photovoltaicControlType=photovoltaicControlType,
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
-    useTTEC=useTTEC,
     weatherLocation=weatherLocation,
     weatherYear=weatherYear,
-    useUndergroundTemperature=useUndergroundTemperature,
-    useUndergroundMoisture=useUndergroundMoisture,
     development_scenario=development_scenario) annotation (Placement(transformation(extent={{-198,988},{-178,1008}})));
-  Scenarios_CyEntEE.LV_Grids.LV_semiurb_5 lV_semiurb_5_11(
-    condition_scenario=condition_scenario,
+  TransiEnt.Examples.DistributionGrids.LowVoltageGrids.LV_semiurb_5 lV_semiurb_5_11(
+    smartMeterConfiguration=smartMeterConfiguration,
     photovoltaicControlType=photovoltaicControlType,
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
-    useTTEC=useTTEC,
     weatherLocation=weatherLocation,
     weatherYear=weatherYear,
-    useUndergroundTemperature=useUndergroundTemperature,
-    useUndergroundMoisture=useUndergroundMoisture,
     development_scenario=development_scenario) annotation (Placement(transformation(extent={{-220,820},{-200,840}})));
 
   // ------------------------------------------------------------------------------------------

@@ -1,14 +1,15 @@
 within TransiEnt.Examples.DistributionGrids.MediumVoltageGrids.Check;
 model Check_MV_rural_2
   extends TransiEnt.Basics.Icons.Checkmodel;
-  Scenarios_CyEntEE.MV_Grids.MV_rural_2_no_switch mV_rural_2_no_switch(
-    condition_scenario="normaleBedingungen",
+  MV_rural_2_no_switch                            mV_rural_2_no_switch(
     development_scenario="Intermediate",
+    weatherLocation="Hamelin",
+    weatherYear="2019",
     photovoltaicControlType=Models_CyEntEE.CellModels.Controller.Base.ControlType.Limit_P,
     batteryControlType=Models_CyEntEE.CellModels.Controller.Base.ControlType.Limit_P,
     heatingControlType=Models_CyEntEE.CellModels.Controller.Base.ControlType.Limit_P,
     bevControlType=Models_CyEntEE.CellModels.Controller.Base.ControlType.Limit_P) annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
-  Models_CyEntEE.CellModels.CPP.Boundaries.VDeltaBoundary                   vDelta1(v_n=110000, isFrequencyRoot=true)
+  Components.Boundaries.Electrical.ComplexPower.SlackBoundary_new           vDelta1(v_n=110000, isFrequencyRoot=true)
                     annotation (Placement(transformation(extent={{20,-10},{40,10}})));
   Scenarios_CyEntEE.MV_Grids.Bus.MVGridControlBus controlBus annotation (Placement(transformation(extent={{-100,-10},{-80,10}})));
 equation

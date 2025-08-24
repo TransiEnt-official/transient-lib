@@ -1,14 +1,11 @@
 within TransiEnt.Examples.DistributionGrids.MediumVoltageGrids;
 model MV_rural_2_no_switch "Rural medium voltage distribution grid scenario with variable technology penetration scenario."
-  import Models_CyEntEE.CellModels.Controller.Base.ControlType;
+  import TransiEnt.Basics.Types.ControlType;
   // ------------------------------------------------------------------------------------------
   //   Parameter
   // ------------------------------------------------------------------------------------------
 
-  parameter String condition_scenario="normaleBedingungen" annotation (choices(
-      choice="normaleBedingungen" "Normale Bedingungen",
-      choice="highSimultaneity" "High Simultaneity",
-      choice="kalteDunkelflaute" "Kalte Dunkelflaute"), Dialog(group="Scenario choice"));
+
 
   parameter String development_scenario="Intermediate" annotation (choices(
       choice="Today" "Today",
@@ -19,28 +16,18 @@ model MV_rural_2_no_switch "Rural medium voltage distribution grid scenario with
 
   parameter String weatherYear="2024" annotation (Dialog(group="Scenario choice"));
 
-  parameter ControlType photovoltaicControlType=Models_CyEntEE.CellModels.Controller.Base.ControlType.Limit_P "Type of control for photovoltaic system" annotation (Evaluate=true, Dialog(group="External Control"));
+  parameter ControlType photovoltaicControlType=TransiEnt.Basics.Types.ControlType.Limit_P "Type of control for photovoltaic system" annotation (Evaluate=true, Dialog(group="External Control"));
 
-  parameter ControlType batteryControlType=Models_CyEntEE.CellModels.Controller.Base.ControlType.Limit_P "Type of control for battery system" annotation (Evaluate=true, Dialog(group="External Control"));
+  parameter ControlType batteryControlType=TransiEnt.Basics.Types.ControlType.Limit_P "Type of control for battery system" annotation (Evaluate=true, Dialog(group="External Control"));
 
-  parameter ControlType heatingControlType=Models_CyEntEE.CellModels.Controller.Base.ControlType.Limit_P "Type of control for heating system" annotation (Evaluate=true, Dialog(group="External Control"));
+  parameter ControlType heatingControlType=TransiEnt.Basics.Types.ControlType.Limit_P "Type of control for heating system" annotation (Evaluate=true, Dialog(group="External Control"));
 
-  parameter ControlType bevControlType=Models_CyEntEE.CellModels.Controller.Base.ControlType.Limit_P "Type of control for vehicle system" annotation (Evaluate=true, Dialog(group="External Control"));
+  parameter ControlType bevControlType=TransiEnt.Basics.Types.ControlType.Limit_P "Type of control for vehicle system" annotation (Evaluate=true, Dialog(group="External Control"));
 
-  parameter Boolean useTTEC=true "If lines shall use transient thermal equivalent circuit" annotation (
-    Evaluate=true,
-    Dialog(group="Line"),
-    choices(__Dymola_checkBox=true));
-
-  parameter Boolean useUndergroundTemperature=true "If lines shall use transient thermal equivalent circuit" annotation (
-    Evaluate=true,
-    Dialog(group="Line"),
-    choices(__Dymola_checkBox=true));
-
-  parameter Boolean useUndergroundMoisture=true "If lines shall use transient thermal equivalent circuit" annotation (
-    Evaluate=true,
-    Dialog(group="Line"),
-    choices(__Dymola_checkBox=true));
+  parameter String smartMeterConfiguration="Ideal" "choose the basic configuration" annotation (Dialog(group="Metering"), choices(
+      choice="Ideal" "Ideal measurements",
+      choice="TAF10" "Tarifanwendungsfall 10 (German standard)",
+      choice="TAF7" "Tarifanwendungsfall 7 (German standard)"));
 
   // ------------------------------------------------------------------------------------------
   //   Components
@@ -53,24 +40,24 @@ model MV_rural_2_no_switch "Rural medium voltage distribution grid scenario with
 
   // ---- Nodes -------------------------------------------------------------------------------
 
-  Models_CyEntEE.CellModels.CPP.Node node_1(epp(v(start=20000))) annotation (Placement(transformation(extent={{24.48,24.33},{29.48,29.33}})));
-  Models_CyEntEE.CellModels.CPP.Node node_14(epp(v(start=20000))) annotation (Placement(transformation(extent={{-10.52,45.33},{-5.52,50.33}})));
-  Models_CyEntEE.CellModels.CPP.Node node_13(epp(v(start=20000))) annotation (Placement(transformation(extent={{-148.52,192.33},{-143.52,197.33}})));
-  Models_CyEntEE.CellModels.CPP.Node node_12(epp(v(start=20000))) annotation (Placement(transformation(extent={{-227.52,276.33},{-222.52,281.33}})));
-  Models_CyEntEE.CellModels.CPP.Node node_11(epp(v(start=20000))) annotation (Placement(transformation(extent={{-353.52,430.33},{-348.52,435.33}})));
-  Models_CyEntEE.CellModels.CPP.Node node_2(epp(v(start=20000))) annotation (Placement(transformation(extent={{-45.52,31.33},{-40.52,36.33}})));
-  Models_CyEntEE.CellModels.CPP.Node node_3(epp(v(start=20000))) annotation (Placement(transformation(extent={{-136.52,87.33},{-131.52,92.33}})));
-  Models_CyEntEE.CellModels.CPP.Node node_4(epp(v(start=20000))) annotation (Placement(transformation(extent={{-330.52,171.33},{-325.52,176.33}})));
-  Models_CyEntEE.CellModels.CPP.Node node_5(epp(v(start=20000))) annotation (Placement(transformation(extent={{-430.52,206.33},{-425.52,211.33}})));
-  Models_CyEntEE.CellModels.CPP.Node node_6(epp(v(start=20000))) annotation (Placement(transformation(extent={{-591.52,255.33},{-586.52,260.33}})));
-  Models_CyEntEE.CellModels.CPP.Node node_7(epp(v(start=20000))) annotation (Placement(transformation(extent={{-773.52,318.33},{-768.52,323.33}})));
-  Models_CyEntEE.CellModels.CPP.Node node_8(epp(v(start=20000))) annotation (Placement(transformation(extent={{-829.52,360.33},{-824.52,365.33}})));
-  Models_CyEntEE.CellModels.CPP.Node node_9(epp(v(start=20000))) annotation (Placement(transformation(extent={{-892.52,444.33},{-887.52,449.33}})));
-  Models_CyEntEE.CellModels.CPP.Node node_10(epp(v(start=20000))) annotation (Placement(transformation(extent={{-731.52,549.33},{-726.52,554.33}})));
+  TransiEnt.Components.Electrical.Grid.Base.Node node_1(epp(v(start=20000))) annotation (Placement(transformation(extent={{24.48,24.33},{29.48,29.33}})));
+  TransiEnt.Components.Electrical.Grid.Base.Node node_14(epp(v(start=20000))) annotation (Placement(transformation(extent={{-10.52,45.33},{-5.52,50.33}})));
+  TransiEnt.Components.Electrical.Grid.Base.Node node_13(epp(v(start=20000))) annotation (Placement(transformation(extent={{-148.52,192.33},{-143.52,197.33}})));
+  TransiEnt.Components.Electrical.Grid.Base.Node node_12(epp(v(start=20000))) annotation (Placement(transformation(extent={{-227.52,276.33},{-222.52,281.33}})));
+  TransiEnt.Components.Electrical.Grid.Base.Node node_11(epp(v(start=20000))) annotation (Placement(transformation(extent={{-353.52,430.33},{-348.52,435.33}})));
+  TransiEnt.Components.Electrical.Grid.Base.Node node_2(epp(v(start=20000))) annotation (Placement(transformation(extent={{-45.52,31.33},{-40.52,36.33}})));
+  TransiEnt.Components.Electrical.Grid.Base.Node node_3(epp(v(start=20000))) annotation (Placement(transformation(extent={{-136.52,87.33},{-131.52,92.33}})));
+  TransiEnt.Components.Electrical.Grid.Base.Node node_4(epp(v(start=20000))) annotation (Placement(transformation(extent={{-330.52,171.33},{-325.52,176.33}})));
+  TransiEnt.Components.Electrical.Grid.Base.Node node_5(epp(v(start=20000))) annotation (Placement(transformation(extent={{-430.52,206.33},{-425.52,211.33}})));
+  TransiEnt.Components.Electrical.Grid.Base.Node node_6(epp(v(start=20000))) annotation (Placement(transformation(extent={{-591.52,255.33},{-586.52,260.33}})));
+  TransiEnt.Components.Electrical.Grid.Base.Node node_7(epp(v(start=20000))) annotation (Placement(transformation(extent={{-773.52,318.33},{-768.52,323.33}})));
+  TransiEnt.Components.Electrical.Grid.Base.Node node_8(epp(v(start=20000))) annotation (Placement(transformation(extent={{-829.52,360.33},{-824.52,365.33}})));
+  TransiEnt.Components.Electrical.Grid.Base.Node node_9(epp(v(start=20000))) annotation (Placement(transformation(extent={{-892.52,444.33},{-887.52,449.33}})));
+  TransiEnt.Components.Electrical.Grid.Base.Node node_10(epp(v(start=20000))) annotation (Placement(transformation(extent={{-731.52,549.33},{-726.52,554.33}})));
 
   // ---- Lines (between nodes) ---------------------------------------------------------------
 
-  Models_CyEntEE.CellModels.CPP.Line Line_1(
+  TransiEnt.Components.Electrical.Grid.Line_new Line_1(
     r=0.000443,
     x=0.000132,
     b=596.903000023e-9,
@@ -79,7 +66,7 @@ model MV_rural_2_no_switch "Rural medium voltage distribution grid scenario with
     epp_p(v(start=20000)),
     epp_n(v(start=20000))) annotation (Placement(transformation(extent={{6.98,34.83},{11.98,39.83}})));
 
-  Models_CyEntEE.CellModels.CPP.Line Line_2(
+  TransiEnt.Components.Electrical.Grid.Line_new Line_2(
     r=0.000443,
     x=0.000132,
     b=596.903000023e-9,
@@ -88,7 +75,7 @@ model MV_rural_2_no_switch "Rural medium voltage distribution grid scenario with
     epp_p(v(start=20000)),
     epp_n(v(start=20000))) annotation (Placement(transformation(extent={{-80.52,118.83},{-75.52,123.83}})));
 
-  Models_CyEntEE.CellModels.CPP.Line line_43(
+  TransiEnt.Components.Electrical.Grid.Line_new line_43(
     r=0.000443,
     x=0.000132,
     b=596.903000023e-9,
@@ -97,7 +84,7 @@ model MV_rural_2_no_switch "Rural medium voltage distribution grid scenario with
     epp_p(v(start=20000)),
     epp_n(v(start=20000))) annotation (Placement(transformation(extent={{-189.02,234.33},{-184.02,239.33}})));
 
-  Models_CyEntEE.CellModels.CPP.Line line_44(
+  TransiEnt.Components.Electrical.Grid.Line_new line_44(
     r=8.342e-4,
     x=3.82e-4,
     b=287.456e-9,
@@ -106,7 +93,7 @@ model MV_rural_2_no_switch "Rural medium voltage distribution grid scenario with
     epp_p(v(start=20000)),
     epp_n(v(start=20000))) annotation (Placement(transformation(extent={{-290.52,353.33},{-285.52,358.33}})));
 
-  Models_CyEntEE.CellModels.CPP.Line line_53(
+  TransiEnt.Components.Electrical.Grid.Line_new line_53(
     r=0.000443,
     x=0.000132,
     b=596.903000023e-9,
@@ -115,7 +102,7 @@ model MV_rural_2_no_switch "Rural medium voltage distribution grid scenario with
     epp_p(v(start=20000)),
     epp_n(v(start=20000))) annotation (Placement(transformation(extent={{-511.02,230.83},{-506.02,235.83}})));
 
-  Models_CyEntEE.CellModels.CPP.Line line_54(
+  TransiEnt.Components.Electrical.Grid.Line_new line_54(
     r=0.000443,
     x=0.000132,
     b=596.903000023e-9,
@@ -124,7 +111,7 @@ model MV_rural_2_no_switch "Rural medium voltage distribution grid scenario with
     epp_p(v(start=20000)),
     epp_n(v(start=20000))) annotation (Placement(transformation(extent={{-682.52,286.83},{-677.52,291.83}})));
 
-  Models_CyEntEE.CellModels.CPP.Line line_55(
+  TransiEnt.Components.Electrical.Grid.Line_new line_55(
     r=0.000443,
     x=0.000132,
     b=596.903000023e-9,
@@ -133,7 +120,7 @@ model MV_rural_2_no_switch "Rural medium voltage distribution grid scenario with
     epp_p(v(start=20000)),
     epp_n(v(start=20000))) annotation (Placement(transformation(extent={{-801.52,339.33},{-796.52,344.33}})));
 
-  Models_CyEntEE.CellModels.CPP.Line line_56(
+  TransiEnt.Components.Electrical.Grid.Line_new line_56(
     r=0.000443,
     x=0.000132,
     b=596.903000023e-9,
@@ -142,7 +129,7 @@ model MV_rural_2_no_switch "Rural medium voltage distribution grid scenario with
     epp_p(v(start=20000)),
     epp_n(v(start=20000))) annotation (Placement(transformation(extent={{-861.02,402.33},{-856.02,407.33}})));
 
-  Models_CyEntEE.CellModels.CPP.Line line_142(
+  TransiEnt.Components.Electrical.Grid.Line_new line_142(
     r=8.342e-4,
     x=3.82e-4,
     b=287.456e-9,
@@ -151,7 +138,7 @@ model MV_rural_2_no_switch "Rural medium voltage distribution grid scenario with
     epp_p(v(start=20000)),
     epp_n(v(start=20000))) annotation (Placement(transformation(extent={{-542.52,489.83},{-537.52,494.83}})));
 
-  Models_CyEntEE.CellModels.CPP.Line line_49(
+  TransiEnt.Components.Electrical.Grid.Line_new line_49(
     r=2.53e-4,
     x=1.19e-4,
     b=722.566e-9,
@@ -160,7 +147,7 @@ model MV_rural_2_no_switch "Rural medium voltage distribution grid scenario with
     epp_p(v(start=20000)),
     epp_n(v(start=20000))) annotation (Placement(transformation(extent={{-10.52,21.83},{-5.52,26.83}})));
 
-  Models_CyEntEE.CellModels.CPP.Line line_50(
+  TransiEnt.Components.Electrical.Grid.Line_new line_50(
     r=8.342e-4,
     x=3.82e-4,
     b=287.456e-9,
@@ -169,7 +156,7 @@ model MV_rural_2_no_switch "Rural medium voltage distribution grid scenario with
     epp_p(v(start=20000)),
     epp_n(v(start=20000))) annotation (Placement(transformation(extent={{-91.02,59.33},{-86.02,64.33}})));
 
-  Models_CyEntEE.CellModels.CPP.Line line_51(
+  TransiEnt.Components.Electrical.Grid.Line_new line_51(
     r=8.342e-4,
     x=3.82e-4,
     b=287.456e-9,
@@ -178,7 +165,7 @@ model MV_rural_2_no_switch "Rural medium voltage distribution grid scenario with
     epp_p(v(start=20000)),
     epp_n(v(start=20000))) annotation (Placement(transformation(extent={{-234.52,129.33},{-229.52,134.33}})));
 
-  Models_CyEntEE.CellModels.CPP.Line line_52(
+  TransiEnt.Components.Electrical.Grid.Line_new line_52(
     r=8.342e-4,
     x=3.82e-4,
     b=287.456e-9,
@@ -194,7 +181,7 @@ model MV_rural_2_no_switch "Rural medium voltage distribution grid scenario with
         origin={80,40})));
   // ---- Subcells ----------------------------------------------------------------------------
 
-  Scenarios_CyEntEE.LV_Grids.LV_rural_1 lV_rural_1_1(
+  TransiEnt.Examples.DistributionGrids.LowVoltageGrids.LV_rural_1 lV_rural_1_1(
     development_scenario=development_scenario,
     photovoltaicControlType=photovoltaicControlType,
     batteryControlType=batteryControlType,
@@ -202,11 +189,8 @@ model MV_rural_2_no_switch "Rural medium voltage distribution grid scenario with
     bevControlType=bevControlType,
     weatherLocation=weatherLocation,
     weatherYear=weatherYear,
-    useTTEC=useTTEC,
-    useUndergroundTemperature=useUndergroundTemperature,
-    useUndergroundMoisture=useUndergroundMoisture,
-    condition_scenario=condition_scenario) annotation (Placement(transformation(extent={{-138,330},{-80,388}})));
-  Scenarios_CyEntEE.LV_Grids.LV_rural_1 lV_rural_1_2(
+    smartMeterConfiguration=smartMeterConfiguration) annotation (Placement(transformation(extent={{-138,330},{-80,388}})));
+  TransiEnt.Examples.DistributionGrids.LowVoltageGrids.LV_rural_1 lV_rural_1_2(
     development_scenario=development_scenario,
     photovoltaicControlType=photovoltaicControlType,
     batteryControlType=batteryControlType,
@@ -214,11 +198,8 @@ model MV_rural_2_no_switch "Rural medium voltage distribution grid scenario with
     bevControlType=bevControlType,
     weatherLocation=weatherLocation,
     weatherYear=weatherYear,
-    useTTEC=useTTEC,
-    useUndergroundTemperature=useUndergroundTemperature,
-    useUndergroundMoisture=useUndergroundMoisture,
-    condition_scenario=condition_scenario) annotation (Placement(transformation(extent={{-28,258},{30,316}})));
-  Scenarios_CyEntEE.LV_Grids.LV_rural_1 lV_rural_1_3(
+    smartMeterConfiguration=smartMeterConfiguration) annotation (Placement(transformation(extent={{-28,258},{30,316}})));
+  TransiEnt.Examples.DistributionGrids.LowVoltageGrids.LV_rural_1 lV_rural_1_3(
     development_scenario=development_scenario,
     photovoltaicControlType=photovoltaicControlType,
     batteryControlType=batteryControlType,
@@ -226,11 +207,8 @@ model MV_rural_2_no_switch "Rural medium voltage distribution grid scenario with
     bevControlType=bevControlType,
     weatherLocation=weatherLocation,
     weatherYear=weatherYear,
-    useTTEC=useTTEC,
-    useUndergroundTemperature=useUndergroundTemperature,
-    useUndergroundMoisture=useUndergroundMoisture,
-    condition_scenario=condition_scenario) annotation (Placement(transformation(extent={{58,154},{116,212}})));
-  Scenarios_CyEntEE.LV_Grids.LV_rural_1 lV_rural_1_4(
+    smartMeterConfiguration=smartMeterConfiguration) annotation (Placement(transformation(extent={{58,154},{116,212}})));
+  TransiEnt.Examples.DistributionGrids.LowVoltageGrids.LV_rural_1 lV_rural_1_4(
     development_scenario=development_scenario,
     photovoltaicControlType=photovoltaicControlType,
     batteryControlType=batteryControlType,
@@ -238,11 +216,8 @@ model MV_rural_2_no_switch "Rural medium voltage distribution grid scenario with
     bevControlType=bevControlType,
     weatherLocation=weatherLocation,
     weatherYear=weatherYear,
-    useTTEC=useTTEC,
-    useUndergroundTemperature=useUndergroundTemperature,
-    useUndergroundMoisture=useUndergroundMoisture,
-    condition_scenario=condition_scenario) annotation (Placement(transformation(extent={{-336,-62},{-278,-4}})));
-  Scenarios_CyEntEE.LV_Grids.LV_rural_1 lV_rural_1_5(
+    smartMeterConfiguration=smartMeterConfiguration) annotation (Placement(transformation(extent={{-336,-62},{-278,-4}})));
+  TransiEnt.Examples.DistributionGrids.LowVoltageGrids.LV_rural_1 lV_rural_1_5(
     development_scenario=development_scenario,
     photovoltaicControlType=photovoltaicControlType,
     batteryControlType=batteryControlType,
@@ -250,11 +225,8 @@ model MV_rural_2_no_switch "Rural medium voltage distribution grid scenario with
     bevControlType=bevControlType,
     weatherLocation=weatherLocation,
     weatherYear=weatherYear,
-    useTTEC=useTTEC,
-    useUndergroundTemperature=useUndergroundTemperature,
-    useUndergroundMoisture=useUndergroundMoisture,
-    condition_scenario=condition_scenario) annotation (Placement(transformation(extent={{-800,144},{-740,204}})));
-  Scenarios_CyEntEE.LV_Grids.LV_rural_1 lV_rural_1_6(
+    smartMeterConfiguration=smartMeterConfiguration) annotation (Placement(transformation(extent={{-800,144},{-740,204}})));
+  TransiEnt.Examples.DistributionGrids.LowVoltageGrids.LV_rural_1 lV_rural_1_6(
     development_scenario=development_scenario,
     photovoltaicControlType=photovoltaicControlType,
     batteryControlType=batteryControlType,
@@ -262,11 +234,8 @@ model MV_rural_2_no_switch "Rural medium voltage distribution grid scenario with
     bevControlType=bevControlType,
     weatherLocation=weatherLocation,
     weatherYear=weatherYear,
-    useTTEC=useTTEC,
-    useUndergroundTemperature=useUndergroundTemperature,
-    useUndergroundMoisture=useUndergroundMoisture,
-    condition_scenario=condition_scenario) annotation (Placement(transformation(extent={{-972,200},{-910,262}})));
-  Scenarios_CyEntEE.LV_Grids.LV_rural_1 lV_rural_1_8(
+    smartMeterConfiguration=smartMeterConfiguration) annotation (Placement(transformation(extent={{-972,200},{-910,262}})));
+  TransiEnt.Examples.DistributionGrids.LowVoltageGrids.LV_rural_1 lV_rural_1_8(
     development_scenario=development_scenario,
     photovoltaicControlType=photovoltaicControlType,
     batteryControlType=batteryControlType,
@@ -274,11 +243,8 @@ model MV_rural_2_no_switch "Rural medium voltage distribution grid scenario with
     bevControlType=bevControlType,
     weatherLocation=weatherLocation,
     weatherYear=weatherYear,
-    useTTEC=useTTEC,
-    useUndergroundTemperature=useUndergroundTemperature,
-    useUndergroundMoisture=useUndergroundMoisture,
-    condition_scenario=condition_scenario) annotation (Placement(transformation(extent={{-1088,274},{-1024,338}})));
-  Scenarios_CyEntEE.LV_Grids.LV_rural_2 lV_rural_2_1(
+    smartMeterConfiguration=smartMeterConfiguration) annotation (Placement(transformation(extent={{-1088,274},{-1024,338}})));
+  TransiEnt.Examples.DistributionGrids.LowVoltageGrids.LV_rural_2 lV_rural_2_1(
     development_scenario=development_scenario,
     photovoltaicControlType=photovoltaicControlType,
     batteryControlType=batteryControlType,
@@ -286,11 +252,8 @@ model MV_rural_2_no_switch "Rural medium voltage distribution grid scenario with
     bevControlType=bevControlType,
     weatherLocation=weatherLocation,
     weatherYear=weatherYear,
-    useTTEC=useTTEC,
-    useUndergroundTemperature=useUndergroundTemperature,
-    useUndergroundMoisture=useUndergroundMoisture,
-    condition_scenario=condition_scenario) annotation (Placement(transformation(extent={{-638,38},{-578,98}})));
-  Scenarios_CyEntEE.LV_Grids.LV_rural_2 lV_rural_2_2(
+    smartMeterConfiguration=smartMeterConfiguration) annotation (Placement(transformation(extent={{-638,38},{-578,98}})));
+  TransiEnt.Examples.DistributionGrids.LowVoltageGrids.LV_rural_2 lV_rural_2_2(
     development_scenario=development_scenario,
     photovoltaicControlType=photovoltaicControlType,
     batteryControlType=batteryControlType,
@@ -298,11 +261,8 @@ model MV_rural_2_no_switch "Rural medium voltage distribution grid scenario with
     bevControlType=bevControlType,
     weatherLocation=weatherLocation,
     weatherYear=weatherYear,
-    useTTEC=useTTEC,
-    useUndergroundTemperature=useUndergroundTemperature,
-    useUndergroundMoisture=useUndergroundMoisture,
-    condition_scenario=condition_scenario) annotation (Placement(transformation(extent={{-1078,414},{-1018,474}})));
-  Scenarios_CyEntEE.LV_Grids.LV_rural_2 lV_rural_2_3(
+    smartMeterConfiguration=smartMeterConfiguration) annotation (Placement(transformation(extent={{-1078,414},{-1018,474}})));
+  TransiEnt.Examples.DistributionGrids.LowVoltageGrids.LV_rural_2 lV_rural_2_3(
     development_scenario=development_scenario,
     photovoltaicControlType=photovoltaicControlType,
     batteryControlType=batteryControlType,
@@ -310,69 +270,52 @@ model MV_rural_2_no_switch "Rural medium voltage distribution grid scenario with
     bevControlType=bevControlType,
     weatherLocation=weatherLocation,
     weatherYear=weatherYear,
-    useTTEC=useTTEC,
-    useUndergroundTemperature=useUndergroundTemperature,
-    useUndergroundMoisture=useUndergroundMoisture,
-    condition_scenario=condition_scenario) annotation (Placement(transformation(extent={{-256,-152},{-196,-92}})));
+    smartMeterConfiguration=smartMeterConfiguration) annotation (Placement(transformation(extent={{-256,-152},{-196,-92}})));
 
   // ---- Commercial Components ---------------------------------------------------------------
   TransiEnt.Producer.Electrical.Wind.Windturbine windturbine_1700kW(
     P_el_n(displayUnit="MW") = 1700000,
-    redeclare TransiEnt.Basics.Interfaces.Electrical.ActivePowerPort epp,
+    redeclare TransiEnt.Basics.Interfaces.Electrical.ComplexPowerPort epp,
     beta_start=0) annotation (Placement(transformation(extent={{-800,668},{-738,726}})));
-  Models_CyEntEE.CellModels.Data.Tables.Table_Wind table_Wind(fileName="modelica://Scenarios_CyEntEE/LocalData/LV_rural_1/" + condition_scenario + "/WeatherData/Hamelin_2019_Wind.txt") annotation (Placement(transformation(extent={{-954,670},{-896,728}})));
+  Basics.Tables.Ambient.GenericWindspeedDataTableResource table_Wind(fileName="modelica://TransiEnt/Tables/distribution/WeatherData/Hamelin_2019_Wind.txt") annotation (Placement(transformation(extent={{-954,670},{-896,728}})));
   TransiEnt.Producer.Electrical.Wind.Windturbine windturbine_4000kW(
     P_el_n(displayUnit="MW") = 4000000,
-    redeclare TransiEnt.Basics.Interfaces.Electrical.ActivePowerPort epp,
+    redeclare TransiEnt.Basics.Interfaces.Electrical.ComplexPowerPort epp,
     beta_start=0) annotation (Placement(transformation(extent={{-434,542},{-372,600}})));
   TransiEnt.Producer.Electrical.Wind.Windturbine windturbine_2000kW(
     P_el_n(displayUnit="MW") = 2000000,
-    redeclare TransiEnt.Basics.Interfaces.Electrical.ActivePowerPort epp,
+    redeclare TransiEnt.Basics.Interfaces.Electrical.ComplexPowerPort epp,
     beta_start=0) annotation (Placement(transformation(extent={{-168,-228},{-106,-170}})));
-  TransiEnt.Producer.Electrical.Photovoltaics.Advanced_PV.DNIDHI_Input.PVPlant pVPlant_125kW(P_inst=125000) annotation (Placement(transformation(extent={{-592,-62},{-538,-8}})));
-  Models_CyEntEE.CellModels.P_to_Q p_to_Q(use_Q=false, usePout=true) annotation (Placement(transformation(extent={{-478,-48},{-434,-4}})));
-  Models_CyEntEE.CellModels.Data.Tables.Table_Temperature table_Temperature(fileName="modelica://Scenarios_CyEntEE/LocalData/LV_rural_1/" + condition_scenario + "/WeatherData/Hamelin_2019_Temp_forecast.txt") annotation (Placement(transformation(extent={{-732,-26},{-706,-4}})));
-  Models_CyEntEE.CellModels.Data.Tables.Table_Irradiation table_Irradiation(fileName_dir="modelica://Scenarios_CyEntEE/LocalData/LV_rural_1/" + condition_scenario + "/WeatherData/Hamelin_2019_Solar_Dir.txt", fileName_diff="modelica://Scenarios_CyEntEE/LocalData/LV_rural_1/" + condition_scenario + "/WeatherData/Hamelin_2019_Solar_Diff.txt") annotation (Placement(transformation(extent={{-748,-78},{-724,-48}})));
-  Modelica.Blocks.Math.Add add annotation (Placement(transformation(extent={{-686,-6},{-666,14}})));
-  Modelica.Blocks.Sources.RealExpression Kelvin_Celsius_Difference(y=-273.15) annotation (Placement(transformation(extent={{-724,0},{-704,20}})));
-  Models_CyEntEE.CellModels.Data.Tables.Table_LoadProfilePQ table_LoadProfile_G3_A(
+  Producer.Electrical.Photovoltaics.Advanced_PV.DNIDHI_Input.PVPlantControllable pVPlantControllable(P_inst=125000) annotation (Placement(transformation(extent={{-592,-62},{-538,-8}})));
+  Basics.Tables.ElectricGrid.GenericLoadProfileDataTableResource table_LoadProfile_G3_A(
     powerScaleP=225700,
     powerScaleQ=89100,
-    fileName="modelica://Scenarios_CyEntEE/LocalData/CommercialLoadProfiles/G3-A.txt") annotation (Placement(transformation(
+    fileName="modelica://TransiEnt/Tables/distribution//CommercialLoadProfiles/G3-A.txt") annotation (Placement(transformation(
         extent={{-24,-23},{24,23}},
         rotation=180,
         origin={76,-255})));
-  Models_CyEntEE.CellModels.CPP.Boundaries.PQBoundary LoadProfile_G3_A(
-    useInputP=true,
-    useInputQ=true,
-    v_n=20000) annotation (Placement(transformation(
+  Components.Boundaries.Electrical.ComplexPower.PQBoundary_new LoadProfile_G3_A(
+    v_n=20000,
+    useInputConnectorP=true,
+    useInputConnectorQ=true) annotation (Placement(transformation(
         extent={{-28,-26},{28,26}},
         rotation=180,
         origin={-8,-182})));
-  Models_CyEntEE.CellModels.Data.Tables.Table_LoadProfilePQ table_LoadProfile_L2_M(
+  Basics.Tables.ElectricGrid.GenericLoadProfileDataTableResource table_LoadProfile_L2_M(
     powerScaleP=343400,
     powerScaleQ=135600,
-    fileName="modelica://Scenarios_CyEntEE/LocalData/CommercialLoadProfiles/L2-M.txt") annotation (Placement(transformation(
+    fileName="modelica://TransiEnt/Tables/distribution/CommercialLoadProfiles/L2-M.txt") annotation (Placement(transformation(
         extent={{-24,-23},{24,23}},
         rotation=180,
         origin={-744,483})));
-  Models_CyEntEE.CellModels.CPP.Boundaries.PQBoundary LoadProfile_L2_M(
-    useInputP=true,
-    useInputQ=true,
-    v_n=20000) annotation (Placement(transformation(
+  Components.Boundaries.Electrical.ComplexPower.PQBoundary_new LoadProfile_L2_M(
+    v_n=20000,
+    useInputConnectorP=true,
+    useInputConnectorQ=true) annotation (Placement(transformation(
         extent={{-28,-26},{28,26}},
         rotation=180,
         origin={-828,556})));
 
-  Models_CyEntEE.CellModels.P_to_Q p_to_Q1(use_Q=false, usePout=true) annotation (Placement(transformation(
-        extent={{-22,-22},{22,22}},
-        rotation=270,
-        origin={-674,628})));
-  Models_CyEntEE.CellModels.P_to_Q p_to_Q2(use_Q=false, usePout=true) annotation (Placement(transformation(
-        extent={{-22,-22},{22,22}},
-        rotation=270,
-        origin={-316,512})));
-  Models_CyEntEE.CellModels.P_to_Q p_to_Q3(use_Q=false, usePout=true) annotation (Placement(transformation(extent={{-116,-142},{-72,-98}})));
   TransiEnt.Basics.Interfaces.Electrical.ComplexPowerPort epp annotation (Placement(transformation(extent={{90,-10},{110,10}}), iconTransformation(extent={{90,-10},{110,10}})));
   // ------------------------------------------------------------------------------------------
   //   Equation part
@@ -382,6 +325,8 @@ model MV_rural_2_no_switch "Rural medium voltage distribution grid scenario with
   // ------------------------------------------------------------------------------------------
   //   Equation part
   // ------------------------------------------------------------------------------------------
+  Basics.Tables.Ambient.GenericTemperatureDataTableResource genericTemperatureDataTableResource(fileName=ModelicaServices.ExternalReferences.loadResource("modelica://TransiEnt/Tables/distribution/WeatherData/Hamelin_2019_Temp.txt")) annotation (Placement(transformation(extent={{-700,-20},{-680,0}})));
+  Basics.Tables.Ambient.GenericDHIDNIDataTableResource genericDHIDNIDataTableResource(fileName_dir=ModelicaServices.ExternalReferences.loadResource("modelica://TransiEnt/Tables/distribution/WeatherData/Hamelin_2019_Solar_Dir.txt"), fileName_diff=ModelicaServices.ExternalReferences.loadResource("modelica://TransiEnt/Tables/distribution/WeatherData/Hamelin_2019_Solar_Diff.txt")) annotation (Placement(transformation(extent={{-700,-60},{-680,-40}})));
 equation
   // ---- Connect Interfaces ------------------------------------------------------------------
   connect(lV_rural_1_1.controlBus, controlBus.Subgrid_Rural1_1) annotation();
@@ -474,71 +419,14 @@ equation
       points={{87,214.32},{136,214.32},{136,136},{-8.02,136},{-8.02,45.33}},
       color={28,108,200},
       thickness=0.5));
-  connect(table_Wind.value, windturbine_1700kW.v_wind) annotation (Line(points={{-899.48,699},{-824,699},{-824,714.69},{-796.59,714.69}}, color={0,0,127}));
-  connect(table_Wind.value, windturbine_4000kW.v_wind) annotation (Line(points={{-899.48,699},{-778,699},{-778,788},{-410,788},{-410,588.69},{-430.59,588.69}}, color={0,0,127}));
-  connect(table_Wind.value, windturbine_2000kW.v_wind) annotation (Line(points={{-899.48,699},{-898,699},{-898,844},{-860,844},{-860,952},{-1252,952},{-1252,-181.31},{-164.59,-181.31}}, color={0,0,127}));
-  connect(pVPlant_125kW.epp, p_to_Q.epp_P) annotation (Line(
-      points={{-539.89,-36.62},{-536,-48},{-478,-48}},
-      color={28,108,200},
-      thickness=0.5,
-      thickness=0.5));
-  connect(p_to_Q.epp_S, node_4.epp) annotation (Line(
-      points={{-434,-48},{-398,-48},{-398,0},{-360,0},{-360,171.33},{-328.02,171.33}},
-      color={28,108,200},
-      thickness=0.5));
-  connect(table_Irradiation.direct, pVPlant_125kW.DNI_in) annotation (Line(points={{-725.44,-57},{-632,-57},{-632,-28.52},{-597.4,-28.52}}, color={0,0,127}));
-  connect(table_Irradiation.diffuse, pVPlant_125kW.DHI_in) annotation (Line(points={{-725.44,-69},{-616,-69},{-616,-42.02},{-597.4,-42.02}}, color={0,0,127}));
-  connect(Kelvin_Celsius_Difference.y, add.u1) annotation (Line(points={{-703,10},{-688,10}}, color={0,0,127}));
-  connect(table_Temperature.value, add.u2) annotation (Line(points={{-707.56,-15},{-704,-15},{-704,-2},{-688,-2}}, color={0,0,127}));
-  connect(add.y, pVPlant_125kW.T_in) annotation (Line(points={{-665,4},{-624,4},{-624,-13.4},{-597.4,-13.4}}, color={0,0,127}));
-  connect(pVPlant_125kW.WindSpeed_in, windturbine_2000kW.v_wind) annotation (Line(points={{-597.4,-56.6},{-597.4,-181.31},{-164.59,-181.31}}, color={0,0,127}));
+  connect(table_Wind.value, windturbine_1700kW.v_wind) annotation (Line(points={{-896,698.42},{-824,698.42},{-824,714.69},{-796.59,714.69}}, color={0,0,127}));
+  connect(table_Wind.value, windturbine_4000kW.v_wind) annotation (Line(points={{-896,698.42},{-778,698.42},{-778,788},{-410,788},{-410,588.69},{-430.59,588.69}}, color={0,0,127}));
+  connect(table_Wind.value, windturbine_2000kW.v_wind) annotation (Line(points={{-896,698.42},{-898,698.42},{-898,844},{-860,844},{-860,952},{-1252,952},{-1252,-181.31},{-164.59,-181.31}}, color={0,0,127}));
+  connect(pVPlantControllable.WindSpeed_in, windturbine_2000kW.v_wind) annotation (Line(points={{-597.4,-56.6},{-597.4,-181.31},{-164.59,-181.31}}, color={0,0,127}));
   connect(LoadProfile_L2_M.epp, node_10.epp) annotation (Line(
       points={{-800,556},{-744,556},{-744,549.33},{-729.02,549.33}},
       color={28,108,200},
       thickness=0.5));
-  connect(windturbine_1700kW.epp, p_to_Q1.epp_P) annotation (Line(
-      points={{-741.1,717.3},{-704,717.3},{-704,664},{-712,664},{-712,650},{-696,650}},
-      color={28,108,200},
-      thickness=0.5,
-      thickness=0.5));
-  connect(p_to_Q1.epp_S, node_10.epp) annotation (Line(
-      points={{-696,606},{-712,606},{-712,549.33},{-729.02,549.33}},
-      color={28,108,200},
-      thickness=0.5));
-  connect(windturbine_4000kW.epp, p_to_Q2.epp_P) annotation (Line(
-      points={{-375.1,591.3},{-344,591.3},{-344,552},{-352,552},{-352,534},{-338,534}},
-      color={28,108,200},
-      thickness=0.5,
-      thickness=0.5));
-  connect(p_to_Q2.epp_S, node_11.epp) annotation (Line(
-      points={{-338,490},{-351.02,472},{-351.02,430.33}},
-      color={28,108,200},
-      thickness=0.5));
-  connect(windturbine_2000kW.epp, p_to_Q3.epp_P) annotation (Line(
-      points={{-109.1,-178.7},{-116,-178.7},{-116,-142}},
-      color={28,108,200},
-      thickness=0.5,
-      thickness=0.5));
-  connect(table_LoadProfile_G3_A.P, LoadProfile_G3_A.inputP) annotation (Line(
-      points={{54.88,-264.2},{8.8,-264.2},{8.8,-210.6}},
-      color={28,108,200},
-      thickness=0.5,
-      pattern=LinePattern.Dash));
-  connect(table_LoadProfile_G3_A.Q, LoadProfile_G3_A.inputQ) annotation (Line(
-      points={{54.88,-245.8},{-24.8,-245.8},{-24.8,-210.6}},
-      color={28,108,200},
-      thickness=0.5,
-      pattern=LinePattern.Dash));
-  connect(table_LoadProfile_L2_M.P, LoadProfile_L2_M.inputP) annotation (Line(
-      points={{-765.12,473.8},{-811.2,473.8},{-811.2,527.4}},
-      color={28,108,200},
-      thickness=0.5,
-      pattern=LinePattern.Dash));
-  connect(table_LoadProfile_L2_M.Q, LoadProfile_L2_M.inputQ) annotation (Line(
-      points={{-765.12,492.2},{-844.8,492.2},{-844.8,527.4}},
-      color={28,108,200},
-      thickness=0.5,
-      pattern=LinePattern.Dash));
   connect(node_1.epp, simpleTransformerComplex.epp_n) annotation (Line(
       points={{26.98,24.33},{60,24.33},{60,40}},
       color={28,108,200},
@@ -547,14 +435,45 @@ equation
       points={{20,-182},{60,-182},{60,40}},
       color={28,108,200},
       thickness=0.5));
-  connect(p_to_Q3.epp_S, simpleTransformerComplex.epp_n) annotation (Line(
-      points={{-72,-142},{60,-142},{60,40}},
-      color={28,108,200},
-      thickness=0.5));
   connect(epp, simpleTransformerComplex.epp_p) annotation (Line(
       points={{100,0},{100,40}},
       color={28,108,200},
       thickness=0.5));
+  connect(node_4.epp, pVPlantControllable.epp) annotation (Line(
+      points={{-328.02,171.33},{-328.02,16},{-512,16},{-512,-36.62},{-539.89,-36.62}},
+      color={28,108,200},
+      thickness=0.5));
+  connect(windturbine_2000kW.epp, simpleTransformerComplex.epp_n) annotation (Line(
+      points={{-109.1,-178.7},{-112,-178.7},{-112,-128},{60,-128},{60,40}},
+      color={28,108,200},
+      thickness=0.5));
+  connect(table_LoadProfile_G3_A.P, LoadProfile_G3_A.P_el_set) annotation (Line(
+      points={{54.88,-264.2},{8.8,-264.2},{8.8,-210.6}},
+      color={0,135,135},
+      pattern=LinePattern.Dash));
+  connect(table_LoadProfile_G3_A.Q, LoadProfile_G3_A.Q_el_set) annotation (Line(
+      points={{54.88,-245.8},{-24.8,-245.8},{-24.8,-210.6}},
+      color={0,135,135},
+      pattern=LinePattern.Dash));
+  connect(table_LoadProfile_L2_M.Q, LoadProfile_L2_M.Q_el_set) annotation (Line(
+      points={{-765.12,492.2},{-844.8,492.2},{-844.8,527.4}},
+      color={0,135,135},
+      pattern=LinePattern.Dash));
+  connect(table_LoadProfile_L2_M.P, LoadProfile_L2_M.P_el_set) annotation (Line(
+      points={{-765.12,473.8},{-811.2,473.8},{-811.2,527.4}},
+      color={0,135,135},
+      pattern=LinePattern.Dash));
+  connect(node_11.epp, windturbine_4000kW.epp) annotation (Line(
+      points={{-351.02,430.33},{-351.02,591.3},{-375.1,591.3}},
+      color={28,108,200},
+      thickness=0.5));
+  connect(node_10.epp, windturbine_1700kW.epp) annotation (Line(
+      points={{-729.02,549.33},{-729.02,717.3},{-741.1,717.3}},
+      color={28,108,200},
+      thickness=0.5));
+  connect(genericDHIDNIDataTableResource.direct, pVPlantControllable.DNI_in) annotation (Line(points={{-681.2,-46},{-624,-46},{-624,-28.52},{-597.4,-28.52}}, color={0,0,127}));
+  connect(genericDHIDNIDataTableResource.diffuse, pVPlantControllable.DHI_in) annotation (Line(points={{-681.2,-54},{-616,-54},{-616,-42.02},{-597.4,-42.02}}, color={0,0,127}));
+  connect(genericTemperatureDataTableResource.Celsius, pVPlantControllable.T_in) annotation (Line(points={{-681,-13},{-672,-13.4},{-597.4,-13.4}}, color={0,0,127}));
   annotation (
     experiment(
       StartTime=17280000,
