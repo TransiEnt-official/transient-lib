@@ -4,12 +4,6 @@ model LV_urban_6 "Contains choices of scenarios T / I / A and Normale Bedingunge
   // ------------------------------------------------------------------------------------------
   //   Parameter
   // ------------------------------------------------------------------------------------------
-
-  parameter String condition_scenario="normaleBedingungen" annotation (choices(
-      choice="normaleBedingungen" "normale Bedingungen",
-      choice="highSimultaneity" "High Simultaneity",
-      choice="kalteDunkelflaute" "Kalte Dunkelflaute"), Dialog(group="Scenario choice"));
-
   parameter String development_scenario="Future" annotation (choices(
       choice="Today" "Today",
       choice="Intermediate" "Intermediate",
@@ -23,24 +17,14 @@ model LV_urban_6 "Contains choices of scenarios T / I / A and Normale Bedingunge
 
   parameter ControlType bevControlType=TransiEnt.Basics.Types.ControlType.Internal "Type of control for vehicle system" annotation (Evaluate=true, Dialog(group="External Control"));
 
-  parameter String weatherLocation = "Hamelin" "Choose a weather location to simulate the grid" annotation (Evaluate=true, Dialog(group="Weather"));
+  parameter String weatherLocation="Hamelin" "Choose a weather location to simulate the grid" annotation (Evaluate=true, Dialog(group="Weather"));
 
-  parameter String weatherYear = "2019" "Choose a weather location to simulate the grid" annotation (Evaluate=true, Dialog(group="Weather"));
+  parameter String weatherYear="2019" "Choose a weather location to simulate the grid" annotation (Evaluate=true, Dialog(group="Weather"));
 
-  parameter Boolean useTTEC=false "If lines shall use transient thermal equivalent circuit" annotation (
-    Evaluate=true,
-    Dialog(group="Line"),
-    choices(__Dymola_checkBox=true));
-
-  parameter Boolean useUndergroundTemperature=false "If lines shall use transient thermal equivalent circuit" annotation (
-    Evaluate=true,
-    Dialog(group="Line"),
-    choices(__Dymola_checkBox=true));
-
-  parameter Boolean useUndergroundMoisture=false "If lines shall use transient thermal equivalent circuit" annotation (
-    Evaluate=true,
-    Dialog(group="Line"),
-    choices(__Dymola_checkBox=true));
+  parameter String smartMeterConfiguration="Ideal" "choose the basic configuration" annotation (Dialog(group="Metering"), choices(
+      choice="Ideal" "Ideal measurements",
+      choice="TAF10" "Tarifanwendungsfall 10 (German standard)",
+      choice="TAF7" "Tarifanwendungsfall 7 (German standard)"));
 
 
   // ------------------------------------------------------------------------------------------
@@ -51,39 +35,30 @@ model LV_urban_6 "Contains choices of scenarios T / I / A and Normale Bedingunge
 
   // ---- LV Grids -------------------------------------------------------------------------------
 
-  LV_TIA.LV_urban_6_T lV_urban_6_T(
-    condition_scenario=condition_scenario,
+  TransiEnt.Examples.DistributionGrids.LowVoltageGrids.BaseScenarios.LV_urban_6_Today lV_urban_6_T(
     photovoltaicControlType=photovoltaicControlType,
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
     weatherLocation=weatherLocation,
     weatherYear=weatherYear,
-    useTTEC=useTTEC,
-    useUndergroundTemperature=useUndergroundTemperature,
-    useUndergroundMoisture=useUndergroundMoisture) if (development_scenario == "Today") annotation (Placement(transformation(extent={{-70,-10},{-50,10}})));
-  LV_TIA.LV_urban_6_I lV_urban_6_I(
-    condition_scenario=condition_scenario,
+    smartMeterConfiguration=smartMeterConfiguration) if (development_scenario == "Today") annotation (Placement(transformation(extent={{-70,-10},{-50,10}})));
+  TransiEnt.Examples.DistributionGrids.LowVoltageGrids.BaseScenarios.LV_urban_6_Intermediate lV_urban_6_I(
     photovoltaicControlType=photovoltaicControlType,
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
     weatherLocation=weatherLocation,
     weatherYear=weatherYear,
-    useTTEC=useTTEC,
-    useUndergroundTemperature=useUndergroundTemperature,
-    useUndergroundMoisture=useUndergroundMoisture) if (development_scenario == "Intermediate") annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
-  LV_TIA.LV_urban_6_A lV_urban_6_A(
-    condition_scenario=condition_scenario,
+    smartMeterConfiguration=smartMeterConfiguration) if (development_scenario == "Intermediate") annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+  TransiEnt.Examples.DistributionGrids.LowVoltageGrids.BaseScenarios.LV_urban_6_Future lV_urban_6_A(
     photovoltaicControlType=photovoltaicControlType,
     batteryControlType=batteryControlType,
     heatingControlType=heatingControlType,
     bevControlType=bevControlType,
     weatherLocation=weatherLocation,
     weatherYear=weatherYear,
-    useTTEC=useTTEC,
-    useUndergroundTemperature=useUndergroundTemperature,
-    useUndergroundMoisture=useUndergroundMoisture) if (development_scenario == "Future") annotation (Placement(transformation(extent={{50,-10},{70,10}})));
+    smartMeterConfiguration=smartMeterConfiguration) if (development_scenario == "Future") annotation (Placement(transformation(extent={{50,-10},{70,10}})));
 
   // ------------------------------------------------------------------------------------------
   //   Interfaces
@@ -106,9 +81,9 @@ equation
       points={{60,10.8},{60,94},{0,94},{0,108}},
       color={28,108,200},
       thickness=0.5));
-  connect(lV_urban_6_T.controlBus, controlBus) annotation ();
-  connect(lV_urban_6_I.controlBus, controlBus) annotation ();
-  connect(lV_urban_6_A.controlBus, controlBus) annotation ();
+  connect(lV_urban_6_T.controlBus, controlBus) annotation();
+  connect(lV_urban_6_I.controlBus, controlBus) annotation();
+  connect(lV_urban_6_A.controlBus, controlBus) annotation();
   annotation (
     Diagram(coordinateSystem(preserveAspectRatio=false)),
     Icon(graphics={

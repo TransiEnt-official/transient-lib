@@ -1,13 +1,11 @@
-within TransiEnt.Examples.DistributionGrids.LowVoltageGrids.LV_TIA;
-model LV_urban_6_I
+within TransiEnt.Examples.DistributionGrids.LowVoltageGrids.BaseScenarios;
+model LV_urban_6_Intermediate "Urban low voltage distribution grid scenario with intermediate technology penetration scenario."
   import TransiEnt.Basics.Types.ControlType;
   // ------------------------------------------------------------------------------------------
   //   Parameter
   // ------------------------------------------------------------------------------------------
 
-  parameter String condition_scenario="";
-
-  parameter String data_local="modelica://Scenarios_CyEntEE/LocalData/" + "LV_urban_6/" + condition_scenario + "/" "Directory containing simulation data";
+  parameter String data_local="modelica://TransiEnt/Tables/distribution/" "Directory containing simulation data" annotation (Evaluate=true, Dialog(group="Scenario"));
 
   parameter ControlType photovoltaicControlType=TransiEnt.Basics.Types.ControlType.Internal "Type of control for photovoltaic system" annotation (Evaluate=true, Dialog(group="External Control"));
 
@@ -21,22 +19,10 @@ model LV_urban_6_I
 
   parameter String weatherYear = "2019" "Choose a weather location to simulate the grid" annotation (Evaluate=true, Dialog(group="Weather"));
 
-  parameter Boolean useTTEC=false "If lines shall use transient thermal equivalent circuit" annotation (
-    Evaluate=true,
-    Dialog(group="Line"),
-    choices(__Dymola_checkBox=true));
-
-  parameter Boolean useUndergroundTemperature=false "If lines shall use transient thermal equivalent circuit" annotation (
-    Evaluate=true,
-    Dialog(group="Line"),
-    choices(__Dymola_checkBox=true));
-
-  parameter Boolean useUndergroundMoisture=false "If lines shall use transient thermal equivalent circuit" annotation (
-    Evaluate=true,
-    Dialog(group="Line"),
-    choices(__Dymola_checkBox=true));
-
-
+  parameter String smartMeterConfiguration="Ideal" "choose the basic configuration" annotation (Dialog(group="Metering"), choices(
+      choice="Ideal" "Ideal measurements",
+      choice="TAF10" "Tarifanwendungsfall 10 (German standard)",
+      choice="TAF7" "Tarifanwendungsfall 7 (German standard)"));
   // ------------------------------------------------------------------------------------------
   //   Components
   // ------------------------------------------------------------------------------------------
@@ -288,16 +274,8 @@ model LV_urban_6_I
     b=2.73319e-07,
     length=20.265000,
     i_n=364,
-    parallel=1,
-    useControlBus=true,
-    Line_Params=Models_CyEntEE.CellModels.Data.Records.NAYY_4x240mm2_SE_Data(),
-    electricOutput=true,
-    simplified_Pi_Model=false,
-    useTTEC=useTTEC,
-    useUndergroundTemperatureTable=useUndergroundTemperature,
-    useUndergroundMoistureTable=useUndergroundMoisture,
-    UndergroundTemperaturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Temp_Underground.txt",
-    UndergroundMoisturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Moisture_Underground.txt") annotation (Placement(transformation(extent={{-9.43,127.9},{-4.43,132.9}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{-9.43,127.9},{-4.43,132.9}})));
 
   // Basic Parameters
 
@@ -307,16 +285,8 @@ model LV_urban_6_I
     b=2.73319e-07,
     length=14.753000,
     i_n=364,
-    parallel=1,
-    useControlBus=true,
-    Line_Params=Models_CyEntEE.CellModels.Data.Records.NAYY_4x240mm2_SE_Data(),
-    electricOutput=true,
-    simplified_Pi_Model=false,
-    useTTEC=useTTEC,
-    useUndergroundTemperatureTable=useUndergroundTemperature,
-    useUndergroundMoistureTable=useUndergroundMoisture,
-    UndergroundTemperaturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Temp_Underground.txt",
-    UndergroundMoisturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Moisture_Underground.txt") annotation (Placement(transformation(extent={{-9.43,-26.1},{-4.43,-21.1}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{-9.43,-26.1},{-4.43,-21.1}})));
 
   // Basic Parameters
 
@@ -326,16 +296,8 @@ model LV_urban_6_I
     b=2.73319e-07,
     length=0.216000,
     i_n=364,
-    parallel=1,
-    useControlBus=true,
-    Line_Params=Models_CyEntEE.CellModels.Data.Records.NAYY_4x240mm2_SE_Data(),
-    electricOutput=true,
-    simplified_Pi_Model=false,
-    useTTEC=useTTEC,
-    useUndergroundTemperatureTable=useUndergroundTemperature,
-    useUndergroundMoistureTable=useUndergroundMoisture,
-    UndergroundTemperaturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Temp_Underground.txt",
-    UndergroundMoisturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Moisture_Underground.txt") annotation (Placement(transformation(extent={{71.07,89.4},{76.07,94.4}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{71.07,89.4},{76.07,94.4}})));
 
   // Basic Parameters
 
@@ -345,16 +307,8 @@ model LV_urban_6_I
     b=2.73319e-07,
     length=38.366000,
     i_n=364,
-    parallel=1,
-    useControlBus=true,
-    Line_Params=Models_CyEntEE.CellModels.Data.Records.NAYY_4x240mm2_SE_Data(),
-    electricOutput=true,
-    simplified_Pi_Model=false,
-    useTTEC=useTTEC,
-    useUndergroundTemperatureTable=useUndergroundTemperature,
-    useUndergroundMoistureTable=useUndergroundMoisture,
-    UndergroundTemperaturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Temp_Underground.txt",
-    UndergroundMoisturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Moisture_Underground.txt") annotation (Placement(transformation(extent={{165.57,19.4},{170.57,24.4}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{165.57,19.4},{170.57,24.4}})));
 
   // Basic Parameters
 
@@ -364,16 +318,8 @@ model LV_urban_6_I
     b=2.73319e-07,
     length=0.227000,
     i_n=364,
-    parallel=1,
-    useControlBus=true,
-    Line_Params=Models_CyEntEE.CellModels.Data.Records.NAYY_4x240mm2_SE_Data(),
-    electricOutput=true,
-    simplified_Pi_Model=false,
-    useTTEC=useTTEC,
-    useUndergroundTemperatureTable=useUndergroundTemperature,
-    useUndergroundMoistureTable=useUndergroundMoisture,
-    UndergroundTemperaturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Temp_Underground.txt",
-    UndergroundMoisturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Moisture_Underground.txt") annotation (Placement(transformation(extent={{155.07,64.9},{160.07,69.9}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{155.07,64.9},{160.07,69.9}})));
 
   // Basic Parameters
 
@@ -383,16 +329,8 @@ model LV_urban_6_I
     b=2.73319e-07,
     length=36.511000,
     i_n=364,
-    parallel=1,
-    useControlBus=true,
-    Line_Params=Models_CyEntEE.CellModels.Data.Records.NAYY_4x240mm2_SE_Data(),
-    electricOutput=true,
-    simplified_Pi_Model=false,
-    useTTEC=useTTEC,
-    useUndergroundTemperatureTable=useUndergroundTemperature,
-    useUndergroundMoistureTable=useUndergroundMoisture,
-    UndergroundTemperaturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Temp_Underground.txt",
-    UndergroundMoisturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Moisture_Underground.txt") annotation (Placement(transformation(extent={{155.07,89.4},{160.07,94.4}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{155.07,89.4},{160.07,94.4}})));
 
   // Basic Parameters
 
@@ -402,16 +340,8 @@ model LV_urban_6_I
     b=2.73319e-07,
     length=3.038000,
     i_n=364,
-    parallel=1,
-    useControlBus=true,
-    Line_Params=Models_CyEntEE.CellModels.Data.Records.NAYY_4x240mm2_SE_Data(),
-    electricOutput=true,
-    simplified_Pi_Model=false,
-    useTTEC=useTTEC,
-    useUndergroundTemperatureTable=useUndergroundTemperature,
-    useUndergroundMoistureTable=useUndergroundMoisture,
-    UndergroundTemperaturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Temp_Underground.txt",
-    UndergroundMoisturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Moisture_Underground.txt") annotation (Placement(transformation(extent={{127.07,-96.1},{132.07,-91.1}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{127.07,-96.1},{132.07,-91.1}})));
 
   // Basic Parameters
 
@@ -421,16 +351,8 @@ model LV_urban_6_I
     b=2.73319e-07,
     length=24.782000,
     i_n=364,
-    parallel=1,
-    useControlBus=true,
-    Line_Params=Models_CyEntEE.CellModels.Data.Records.NAYY_4x240mm2_SE_Data(),
-    electricOutput=true,
-    simplified_Pi_Model=false,
-    useTTEC=useTTEC,
-    useUndergroundTemperatureTable=useUndergroundTemperature,
-    useUndergroundMoistureTable=useUndergroundMoisture,
-    UndergroundTemperaturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Temp_Underground.txt",
-    UndergroundMoisturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Moisture_Underground.txt") annotation (Placement(transformation(extent={{-75.93,47.4},{-70.93,52.4}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{-75.93,47.4},{-70.93,52.4}})));
 
   // Basic Parameters
 
@@ -440,16 +362,8 @@ model LV_urban_6_I
     b=2.73319e-07,
     length=18.017000,
     i_n=364,
-    parallel=1,
-    useControlBus=true,
-    Line_Params=Models_CyEntEE.CellModels.Data.Records.NAYY_4x240mm2_SE_Data(),
-    electricOutput=true,
-    simplified_Pi_Model=false,
-    useTTEC=useTTEC,
-    useUndergroundTemperatureTable=useUndergroundTemperature,
-    useUndergroundMoistureTable=useUndergroundMoisture,
-    UndergroundTemperaturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Temp_Underground.txt",
-    UndergroundMoisturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Moisture_Underground.txt") annotation (Placement(transformation(extent={{123.57,-194.1},{128.57,-189.1}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{123.57,-194.1},{128.57,-189.1}})));
 
   // Basic Parameters
 
@@ -459,16 +373,8 @@ model LV_urban_6_I
     b=2.73319e-07,
     length=14.492000,
     i_n=364,
-    parallel=1,
-    useControlBus=true,
-    Line_Params=Models_CyEntEE.CellModels.Data.Records.NAYY_4x240mm2_SE_Data(),
-    electricOutput=true,
-    simplified_Pi_Model=false,
-    useTTEC=useTTEC,
-    useUndergroundTemperatureTable=useUndergroundTemperature,
-    useUndergroundMoistureTable=useUndergroundMoisture,
-    UndergroundTemperaturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Temp_Underground.txt",
-    UndergroundMoisturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Moisture_Underground.txt") annotation (Placement(transformation(extent={{127.07,-120.6},{132.07,-115.6}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{127.07,-120.6},{132.07,-115.6}})));
 
   // Basic Parameters
 
@@ -478,16 +384,8 @@ model LV_urban_6_I
     b=2.73319e-07,
     length=2.453000,
     i_n=364,
-    parallel=1,
-    useControlBus=true,
-    Line_Params=Models_CyEntEE.CellModels.Data.Records.NAYY_4x240mm2_SE_Data(),
-    electricOutput=true,
-    simplified_Pi_Model=false,
-    useTTEC=useTTEC,
-    useUndergroundTemperatureTable=useUndergroundTemperature,
-    useUndergroundMoistureTable=useUndergroundMoisture,
-    UndergroundTemperaturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Temp_Underground.txt",
-    UndergroundMoisturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Moisture_Underground.txt") annotation (Placement(transformation(extent={{-5.93,47.4},{-0.93,52.4}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{-5.93,47.4},{-0.93,52.4}})));
 
   // Basic Parameters
 
@@ -497,16 +395,8 @@ model LV_urban_6_I
     b=2.73319e-07,
     length=18.953000,
     i_n=364,
-    parallel=1,
-    useControlBus=true,
-    Line_Params=Models_CyEntEE.CellModels.Data.Records.NAYY_4x240mm2_SE_Data(),
-    electricOutput=true,
-    simplified_Pi_Model=false,
-    useTTEC=useTTEC,
-    useUndergroundTemperatureTable=useUndergroundTemperature,
-    useUndergroundMoistureTable=useUndergroundMoisture,
-    UndergroundTemperaturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Temp_Underground.txt",
-    UndergroundMoisturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Moisture_Underground.txt") annotation (Placement(transformation(extent={{-58.43,127.9},{-53.43,132.9}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{-58.43,127.9},{-53.43,132.9}})));
 
   // Basic Parameters
 
@@ -516,16 +406,8 @@ model LV_urban_6_I
     b=2.73319e-07,
     length=4.278000,
     i_n=364,
-    parallel=1,
-    useControlBus=true,
-    Line_Params=Models_CyEntEE.CellModels.Data.Records.NAYY_4x240mm2_SE_Data(),
-    electricOutput=true,
-    simplified_Pi_Model=false,
-    useTTEC=useTTEC,
-    useUndergroundTemperatureTable=useUndergroundTemperature,
-    useUndergroundMoistureTable=useUndergroundMoisture,
-    UndergroundTemperaturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Temp_Underground.txt",
-    UndergroundMoisturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Moisture_Underground.txt") annotation (Placement(transformation(extent={{123.57,-47.1},{128.57,-42.1}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{123.57,-47.1},{128.57,-42.1}})));
 
   // Basic Parameters
 
@@ -535,16 +417,8 @@ model LV_urban_6_I
     b=2.73319e-07,
     length=24.146000,
     i_n=364,
-    parallel=1,
-    useControlBus=true,
-    Line_Params=Models_CyEntEE.CellModels.Data.Records.NAYY_4x240mm2_SE_Data(),
-    electricOutput=true,
-    simplified_Pi_Model=false,
-    useTTEC=useTTEC,
-    useUndergroundTemperatureTable=useUndergroundTemperature,
-    useUndergroundMoistureTable=useUndergroundMoisture,
-    UndergroundTemperaturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Temp_Underground.txt",
-    UndergroundMoisturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Moisture_Underground.txt") annotation (Placement(transformation(extent={{-96.93,47.4},{-91.93,52.4}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{-96.93,47.4},{-91.93,52.4}})));
 
   // Basic Parameters
 
@@ -554,16 +428,8 @@ model LV_urban_6_I
     b=2.73319e-07,
     length=3.718000,
     i_n=364,
-    parallel=1,
-    useControlBus=true,
-    Line_Params=Models_CyEntEE.CellModels.Data.Records.NAYY_4x240mm2_SE_Data(),
-    electricOutput=true,
-    simplified_Pi_Model=false,
-    useTTEC=useTTEC,
-    useUndergroundTemperatureTable=useUndergroundTemperature,
-    useUndergroundMoistureTable=useUndergroundMoisture,
-    UndergroundTemperaturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Temp_Underground.txt",
-    UndergroundMoisturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Moisture_Underground.txt") annotation (Placement(transformation(extent={{-5.93,-50.6},{-0.93,-45.6}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{-5.93,-50.6},{-0.93,-45.6}})));
 
   // Basic Parameters
 
@@ -573,16 +439,8 @@ model LV_urban_6_I
     b=2.73319e-07,
     length=18.759000,
     i_n=364,
-    parallel=1,
-    useControlBus=true,
-    Line_Params=Models_CyEntEE.CellModels.Data.Records.NAYY_4x240mm2_SE_Data(),
-    electricOutput=true,
-    simplified_Pi_Model=false,
-    useTTEC=useTTEC,
-    useUndergroundTemperatureTable=useUndergroundTemperature,
-    useUndergroundMoistureTable=useUndergroundMoisture,
-    UndergroundTemperaturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Temp_Underground.txt",
-    UndergroundMoisturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Moisture_Underground.txt") annotation (Placement(transformation(extent={{8.07,68.4},{13.07,73.4}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{8.07,68.4},{13.07,73.4}})));
 
   // Basic Parameters
 
@@ -592,16 +450,8 @@ model LV_urban_6_I
     b=2.73319e-07,
     length=10.385000,
     i_n=364,
-    parallel=1,
-    useControlBus=true,
-    Line_Params=Models_CyEntEE.CellModels.Data.Records.NAYY_4x240mm2_SE_Data(),
-    electricOutput=true,
-    simplified_Pi_Model=false,
-    useTTEC=useTTEC,
-    useUndergroundTemperatureTable=useUndergroundTemperature,
-    useUndergroundMoistureTable=useUndergroundMoisture,
-    UndergroundTemperaturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Temp_Underground.txt",
-    UndergroundMoisturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Moisture_Underground.txt") annotation (Placement(transformation(extent={{148.07,-1.6},{153.07,3.4}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{148.07,-1.6},{153.07,3.4}})));
 
   // Basic Parameters
 
@@ -611,16 +461,8 @@ model LV_urban_6_I
     b=2.73319e-07,
     length=10.171000,
     i_n=364,
-    parallel=1,
-    useControlBus=true,
-    Line_Params=Models_CyEntEE.CellModels.Data.Records.NAYY_4x240mm2_SE_Data(),
-    electricOutput=true,
-    simplified_Pi_Model=false,
-    useTTEC=useTTEC,
-    useUndergroundTemperatureTable=useUndergroundTemperature,
-    useUndergroundMoistureTable=useUndergroundMoisture,
-    UndergroundTemperaturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Temp_Underground.txt",
-    UndergroundMoisturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Moisture_Underground.txt") annotation (Placement(transformation(extent={{-5.93,-124.1},{-0.93,-119.1}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{-5.93,-124.1},{-0.93,-119.1}})));
 
   // Basic Parameters
 
@@ -630,16 +472,8 @@ model LV_urban_6_I
     b=2.73319e-07,
     length=28.324000,
     i_n=364,
-    parallel=1,
-    useControlBus=true,
-    Line_Params=Models_CyEntEE.CellModels.Data.Records.NAYY_4x240mm2_SE_Data(),
-    electricOutput=true,
-    simplified_Pi_Model=false,
-    useTTEC=useTTEC,
-    useUndergroundTemperatureTable=useUndergroundTemperature,
-    useUndergroundMoistureTable=useUndergroundMoisture,
-    UndergroundTemperaturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Temp_Underground.txt",
-    UndergroundMoisturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Moisture_Underground.txt") annotation (Placement(transformation(extent={{-5.93,-148.6},{-0.93,-143.6}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{-5.93,-148.6},{-0.93,-143.6}})));
 
   // Basic Parameters
 
@@ -649,16 +483,8 @@ model LV_urban_6_I
     b=2.73319e-07,
     length=3.708000,
     i_n=364,
-    parallel=1,
-    useControlBus=true,
-    Line_Params=Models_CyEntEE.CellModels.Data.Records.NAYY_4x240mm2_SE_Data(),
-    electricOutput=true,
-    simplified_Pi_Model=false,
-    useTTEC=useTTEC,
-    useUndergroundTemperatureTable=useUndergroundTemperature,
-    useUndergroundMoistureTable=useUndergroundMoisture,
-    UndergroundTemperaturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Temp_Underground.txt",
-    UndergroundMoisturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Moisture_Underground.txt") annotation (Placement(transformation(extent={{123.57,-145.1},{128.57,-140.1}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{123.57,-145.1},{128.57,-140.1}})));
 
   // Basic Parameters
 
@@ -668,16 +494,8 @@ model LV_urban_6_I
     b=2.73319e-07,
     length=0.216000,
     i_n=364,
-    parallel=1,
-    useControlBus=true,
-    Line_Params=Models_CyEntEE.CellModels.Data.Records.NAYY_4x240mm2_SE_Data(),
-    electricOutput=true,
-    simplified_Pi_Model=false,
-    useTTEC=useTTEC,
-    useUndergroundTemperatureTable=useUndergroundTemperature,
-    useUndergroundMoistureTable=useUndergroundMoisture,
-    UndergroundTemperaturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Temp_Underground.txt",
-    UndergroundMoisturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Moisture_Underground.txt") annotation (Placement(transformation(extent={{71.07,68.4},{76.07,73.4}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{71.07,68.4},{76.07,73.4}})));
 
   // Basic Parameters
 
@@ -687,16 +505,8 @@ model LV_urban_6_I
     b=2.73319e-07,
     length=18.579000,
     i_n=364,
-    parallel=1,
-    useControlBus=true,
-    Line_Params=Models_CyEntEE.CellModels.Data.Records.NAYY_4x240mm2_SE_Data(),
-    electricOutput=true,
-    simplified_Pi_Model=false,
-    useTTEC=useTTEC,
-    useUndergroundTemperatureTable=useUndergroundTemperature,
-    useUndergroundMoistureTable=useUndergroundMoisture,
-    UndergroundTemperaturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Temp_Underground.txt",
-    UndergroundMoisturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Moisture_Underground.txt") annotation (Placement(transformation(extent={{218.07,-1.6},{223.07,3.4}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{218.07,-1.6},{223.07,3.4}})));
 
   // Basic Parameters
 
@@ -706,16 +516,8 @@ model LV_urban_6_I
     b=2.73319e-07,
     length=15.226000,
     i_n=364,
-    parallel=1,
-    useControlBus=true,
-    Line_Params=Models_CyEntEE.CellModels.Data.Records.NAYY_4x240mm2_SE_Data(),
-    electricOutput=true,
-    simplified_Pi_Model=false,
-    useTTEC=useTTEC,
-    useUndergroundTemperatureTable=useUndergroundTemperature,
-    useUndergroundMoistureTable=useUndergroundMoisture,
-    UndergroundTemperaturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Temp_Underground.txt",
-    UndergroundMoisturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Moisture_Underground.txt") annotation (Placement(transformation(extent={{127.07,-71.6},{132.07,-66.6}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{127.07,-71.6},{132.07,-66.6}})));
 
   // Basic Parameters
 
@@ -725,16 +527,8 @@ model LV_urban_6_I
     b=2.73319e-07,
     length=0.187000,
     i_n=364,
-    parallel=1,
-    useControlBus=true,
-    Line_Params=Models_CyEntEE.CellModels.Data.Records.NAYY_4x240mm2_SE_Data(),
-    electricOutput=true,
-    simplified_Pi_Model=false,
-    useTTEC=useTTEC,
-    useUndergroundTemperatureTable=useUndergroundTemperature,
-    useUndergroundMoistureTable=useUndergroundMoisture,
-    UndergroundTemperaturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Temp_Underground.txt",
-    UndergroundMoisturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Moisture_Underground.txt") annotation (Placement(transformation(extent={{-82.93,89.4},{-77.93,94.4}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{-82.93,89.4},{-77.93,94.4}})));
 
   // Basic Parameters
 
@@ -744,16 +538,8 @@ model LV_urban_6_I
     b=2.73319e-07,
     length=13.120000,
     i_n=364,
-    parallel=1,
-    useControlBus=true,
-    Line_Params=Models_CyEntEE.CellModels.Data.Records.NAYY_4x240mm2_SE_Data(),
-    electricOutput=true,
-    simplified_Pi_Model=false,
-    useTTEC=useTTEC,
-    useUndergroundTemperatureTable=useUndergroundTemperature,
-    useUndergroundMoistureTable=useUndergroundMoisture,
-    UndergroundTemperaturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Temp_Underground.txt",
-    UndergroundMoisturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Moisture_Underground.txt") annotation (Placement(transformation(extent={{-12.93,-1.6},{-7.93,3.4}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{-12.93,-1.6},{-7.93,3.4}})));
 
   // Basic Parameters
 
@@ -763,16 +549,8 @@ model LV_urban_6_I
     b=2.73319e-07,
     length=17.848000,
     i_n=364,
-    parallel=1,
-    useControlBus=true,
-    Line_Params=Models_CyEntEE.CellModels.Data.Records.NAYY_4x240mm2_SE_Data(),
-    electricOutput=true,
-    simplified_Pi_Model=false,
-    useTTEC=useTTEC,
-    useUndergroundTemperatureTable=useUndergroundTemperature,
-    useUndergroundMoistureTable=useUndergroundMoisture,
-    UndergroundTemperaturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Temp_Underground.txt",
-    UndergroundMoisturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Moisture_Underground.txt") annotation (Placement(transformation(extent={{15.07,47.4},{20.07,52.4}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{15.07,47.4},{20.07,52.4}})));
 
   // Basic Parameters
 
@@ -782,16 +560,8 @@ model LV_urban_6_I
     b=2.73319e-07,
     length=7.492000,
     i_n=364,
-    parallel=1,
-    useControlBus=true,
-    Line_Params=Models_CyEntEE.CellModels.Data.Records.NAYY_4x240mm2_SE_Data(),
-    electricOutput=true,
-    simplified_Pi_Model=false,
-    useTTEC=useTTEC,
-    useUndergroundTemperatureTable=useUndergroundTemperature,
-    useUndergroundMoistureTable=useUndergroundMoisture,
-    UndergroundTemperaturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Temp_Underground.txt",
-    UndergroundMoisturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Moisture_Underground.txt") annotation (Placement(transformation(extent={{-12.93,22.9},{-7.93,27.9}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{-12.93,22.9},{-7.93,27.9}})));
 
   // Basic Parameters
 
@@ -801,16 +571,8 @@ model LV_urban_6_I
     b=2.73319e-07,
     length=20.316000,
     i_n=364,
-    parallel=1,
-    useControlBus=true,
-    Line_Params=Models_CyEntEE.CellModels.Data.Records.NAYY_4x240mm2_SE_Data(),
-    electricOutput=true,
-    simplified_Pi_Model=false,
-    useTTEC=useTTEC,
-    useUndergroundTemperatureTable=useUndergroundTemperature,
-    useUndergroundMoistureTable=useUndergroundMoisture,
-    UndergroundTemperaturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Temp_Underground.txt",
-    UndergroundMoisturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Moisture_Underground.txt") annotation (Placement(transformation(extent={{197.07,19.4},{202.07,24.4}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{197.07,19.4},{202.07,24.4}})));
 
   // Basic Parameters
 
@@ -820,16 +582,8 @@ model LV_urban_6_I
     b=2.73319e-07,
     length=22.946000,
     i_n=364,
-    parallel=1,
-    useControlBus=true,
-    Line_Params=Models_CyEntEE.CellModels.Data.Records.NAYY_4x240mm2_SE_Data(),
-    electricOutput=true,
-    simplified_Pi_Model=false,
-    useTTEC=useTTEC,
-    useUndergroundTemperatureTable=useUndergroundTemperature,
-    useUndergroundMoistureTable=useUndergroundMoisture,
-    UndergroundTemperaturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Temp_Underground.txt",
-    UndergroundMoisturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Moisture_Underground.txt") annotation (Placement(transformation(extent={{74.57,22.9},{79.57,27.9}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{74.57,22.9},{79.57,27.9}})));
 
   // Basic Parameters
 
@@ -839,16 +593,8 @@ model LV_urban_6_I
     b=2.73319e-07,
     length=21.516000,
     i_n=364,
-    parallel=1,
-    useControlBus=true,
-    Line_Params=Models_CyEntEE.CellModels.Data.Records.NAYY_4x240mm2_SE_Data(),
-    electricOutput=true,
-    simplified_Pi_Model=false,
-    useTTEC=useTTEC,
-    useUndergroundTemperatureTable=useUndergroundTemperature,
-    useUndergroundMoistureTable=useUndergroundMoisture,
-    UndergroundTemperaturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Temp_Underground.txt",
-    UndergroundMoisturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Moisture_Underground.txt") annotation (Placement(transformation(extent={{130.57,-22.6},{135.57,-17.6}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{130.57,-22.6},{135.57,-17.6}})));
 
   // Basic Parameters
 
@@ -858,16 +604,8 @@ model LV_urban_6_I
     b=2.73319e-07,
     length=14.473000,
     i_n=364,
-    parallel=1,
-    useControlBus=true,
-    Line_Params=Models_CyEntEE.CellModels.Data.Records.NAYY_4x240mm2_SE_Data(),
-    electricOutput=true,
-    simplified_Pi_Model=false,
-    useTTEC=useTTEC,
-    useUndergroundTemperatureTable=useUndergroundTemperature,
-    useUndergroundMoistureTable=useUndergroundMoisture,
-    UndergroundTemperaturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Temp_Underground.txt",
-    UndergroundMoisturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Moisture_Underground.txt") annotation (Placement(transformation(extent={{120.07,-169.6},{125.07,-164.6}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{120.07,-169.6},{125.07,-164.6}})));
 
   // Basic Parameters
 
@@ -877,16 +615,8 @@ model LV_urban_6_I
     b=2.73319e-07,
     length=13.883000,
     i_n=364,
-    parallel=1,
-    useControlBus=true,
-    Line_Params=Models_CyEntEE.CellModels.Data.Records.NAYY_4x240mm2_SE_Data(),
-    electricOutput=true,
-    simplified_Pi_Model=false,
-    useTTEC=useTTEC,
-    useUndergroundTemperatureTable=useUndergroundTemperature,
-    useUndergroundMoistureTable=useUndergroundMoisture,
-    UndergroundTemperaturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Temp_Underground.txt",
-    UndergroundMoisturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Moisture_Underground.txt") annotation (Placement(transformation(extent={{71.07,47.4},{76.07,52.4}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{71.07,47.4},{76.07,52.4}})));
 
   // Basic Parameters
 
@@ -896,16 +626,8 @@ model LV_urban_6_I
     b=2.73319e-07,
     length=40.150000,
     i_n=364,
-    parallel=1,
-    useControlBus=true,
-    Line_Params=Models_CyEntEE.CellModels.Data.Records.NAYY_4x240mm2_SE_Data(),
-    electricOutput=true,
-    simplified_Pi_Model=false,
-    useTTEC=useTTEC,
-    useUndergroundTemperatureTable=useUndergroundTemperature,
-    useUndergroundMoistureTable=useUndergroundMoisture,
-    UndergroundTemperaturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Temp_Underground.txt",
-    UndergroundMoisturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Moisture_Underground.txt") annotation (Placement(transformation(extent={{15.07,89.4},{20.07,94.4}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{15.07,89.4},{20.07,94.4}})));
 
   // Basic Parameters
 
@@ -915,16 +637,8 @@ model LV_urban_6_I
     b=2.73319e-07,
     length=17.304000,
     i_n=364,
-    parallel=1,
-    useControlBus=true,
-    Line_Params=Models_CyEntEE.CellModels.Data.Records.NAYY_4x240mm2_SE_Data(),
-    electricOutput=true,
-    simplified_Pi_Model=false,
-    useTTEC=useTTEC,
-    useUndergroundTemperatureTable=useUndergroundTemperature,
-    useUndergroundMoistureTable=useUndergroundMoisture,
-    UndergroundTemperaturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Temp_Underground.txt",
-    UndergroundMoisturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Moisture_Underground.txt") annotation (Placement(transformation(extent={{165.57,40.4},{170.57,45.4}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{165.57,40.4},{170.57,45.4}})));
 
   // Basic Parameters
 
@@ -934,16 +648,8 @@ model LV_urban_6_I
     b=2.73319e-07,
     length=77.746000,
     i_n=364,
-    parallel=1,
-    useControlBus=true,
-    Line_Params=Models_CyEntEE.CellModels.Data.Records.NAYY_4x240mm2_SE_Data(),
-    electricOutput=true,
-    simplified_Pi_Model=false,
-    useTTEC=useTTEC,
-    useUndergroundTemperatureTable=useUndergroundTemperature,
-    useUndergroundMoistureTable=useUndergroundMoisture,
-    UndergroundTemperaturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Temp_Underground.txt",
-    UndergroundMoisturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Moisture_Underground.txt") annotation (Placement(transformation(extent={{-5.93,-169.6},{-0.93,-164.6}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{-5.93,-169.6},{-0.93,-164.6}})));
 
   // Basic Parameters
 
@@ -953,16 +659,8 @@ model LV_urban_6_I
     b=2.73319e-07,
     length=14.277000,
     i_n=364,
-    parallel=1,
-    useControlBus=true,
-    Line_Params=Models_CyEntEE.CellModels.Data.Records.NAYY_4x240mm2_SE_Data(),
-    electricOutput=true,
-    simplified_Pi_Model=false,
-    useTTEC=useTTEC,
-    useUndergroundTemperatureTable=useUndergroundTemperature,
-    useUndergroundMoistureTable=useUndergroundMoisture,
-    UndergroundTemperaturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Temp_Underground.txt",
-    UndergroundMoisturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Moisture_Underground.txt") annotation (Placement(transformation(extent={{-5.93,-75.1},{-0.93,-70.1}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{-5.93,-75.1},{-0.93,-70.1}})));
 
   // Basic Parameters
 
@@ -972,16 +670,8 @@ model LV_urban_6_I
     b=2.73319e-07,
     length=13.583000,
     i_n=364,
-    parallel=1,
-    useControlBus=true,
-    Line_Params=Models_CyEntEE.CellModels.Data.Records.NAYY_4x240mm2_SE_Data(),
-    electricOutput=true,
-    simplified_Pi_Model=false,
-    useTTEC=useTTEC,
-    useUndergroundTemperatureTable=useUndergroundTemperature,
-    useUndergroundMoistureTable=useUndergroundMoisture,
-    UndergroundTemperaturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Temp_Underground.txt",
-    UndergroundMoisturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Moisture_Underground.txt") annotation (Placement(transformation(extent={{-86.43,68.4},{-81.43,73.4}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{-86.43,68.4},{-81.43,73.4}})));
 
   // Basic Parameters
 
@@ -991,16 +681,8 @@ model LV_urban_6_I
     b=2.73319e-07,
     length=51.665000,
     i_n=364,
-    parallel=1,
-    useControlBus=true,
-    Line_Params=Models_CyEntEE.CellModels.Data.Records.NAYY_4x240mm2_SE_Data(),
-    electricOutput=true,
-    simplified_Pi_Model=false,
-    useTTEC=useTTEC,
-    useUndergroundTemperatureTable=useUndergroundTemperature,
-    useUndergroundMoistureTable=useUndergroundMoisture,
-    UndergroundTemperaturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Temp_Underground.txt",
-    UndergroundMoisturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Moisture_Underground.txt") annotation (Placement(transformation(extent={{158.57,-22.6},{163.57,-17.6}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{158.57,-22.6},{163.57,-17.6}})));
 
   // Basic Parameters
 
@@ -1010,16 +692,8 @@ model LV_urban_6_I
     b=2.73319e-07,
     length=7.626000,
     i_n=364,
-    parallel=1,
-    useControlBus=true,
-    Line_Params=Models_CyEntEE.CellModels.Data.Records.NAYY_4x240mm2_SE_Data(),
-    electricOutput=true,
-    simplified_Pi_Model=false,
-    useTTEC=useTTEC,
-    useUndergroundTemperatureTable=useUndergroundTemperature,
-    useUndergroundMoistureTable=useUndergroundMoisture,
-    UndergroundTemperaturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Temp_Underground.txt",
-    UndergroundMoisturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Moisture_Underground.txt") annotation (Placement(transformation(extent={{-5.93,-99.6},{-0.93,-94.6}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{-5.93,-99.6},{-0.93,-94.6}})));
 
   // Basic Parameters
 
@@ -1029,16 +703,8 @@ model LV_urban_6_I
     b=2.73319e-07,
     length=3.383000,
     i_n=364,
-    parallel=1,
-    useControlBus=true,
-    Line_Params=Models_CyEntEE.CellModels.Data.Records.NAYY_4x240mm2_SE_Data(),
-    electricOutput=true,
-    simplified_Pi_Model=false,
-    useTTEC=useTTEC,
-    useUndergroundTemperatureTable=useUndergroundTemperature,
-    useUndergroundMoistureTable=useUndergroundMoisture,
-    UndergroundTemperaturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Temp_Underground.txt",
-    UndergroundMoisturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Moisture_Underground.txt") annotation (Placement(transformation(extent={{123.57,-218.6},{128.57,-213.6}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{123.57,-218.6},{128.57,-213.6}})));
 
   // Basic Parameters
 
@@ -1048,16 +714,8 @@ model LV_urban_6_I
     b=2.73319e-07,
     length=36.770000,
     i_n=364,
-    parallel=1,
-    useControlBus=true,
-    Line_Params=Models_CyEntEE.CellModels.Data.Records.NAYY_4x240mm2_SE_Data(),
-    electricOutput=true,
-    simplified_Pi_Model=false,
-    useTTEC=useTTEC,
-    useUndergroundTemperatureTable=useUndergroundTemperature,
-    useUndergroundMoistureTable=useUndergroundMoisture,
-    UndergroundTemperaturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Temp_Underground.txt",
-    UndergroundMoisturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Moisture_Underground.txt") annotation (Placement(transformation(extent={{-61.93,-1.6},{-56.93,3.4}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{-61.93,-1.6},{-56.93,3.4}})));
 
   // Basic Parameters
 
@@ -1067,16 +725,8 @@ model LV_urban_6_I
     b=2.73319e-07,
     length=52.041000,
     i_n=364,
-    parallel=1,
-    useControlBus=true,
-    Line_Params=Models_CyEntEE.CellModels.Data.Records.NAYY_4x240mm2_SE_Data(),
-    electricOutput=true,
-    simplified_Pi_Model=false,
-    useTTEC=useTTEC,
-    useUndergroundTemperatureTable=useUndergroundTemperature,
-    useUndergroundMoistureTable=useUndergroundMoisture,
-    UndergroundTemperaturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Temp_Underground.txt",
-    UndergroundMoisturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Moisture_Underground.txt") annotation (Placement(transformation(extent={{-61.93,22.9},{-56.93,27.9}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{-61.93,22.9},{-56.93,27.9}})));
 
   // Basic Parameters
 
@@ -1086,16 +736,8 @@ model LV_urban_6_I
     b=2.73319e-07,
     length=26.000000,
     i_n=364,
-    parallel=1,
-    useControlBus=true,
-    Line_Params=Models_CyEntEE.CellModels.Data.Records.NAYY_4x240mm2_SE_Data(),
-    electricOutput=true,
-    simplified_Pi_Model=false,
-    useTTEC=useTTEC,
-    useUndergroundTemperatureTable=useUndergroundTemperature,
-    useUndergroundMoistureTable=useUndergroundMoisture,
-    UndergroundTemperaturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Temp_Underground.txt",
-    UndergroundMoisturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Moisture_Underground.txt") annotation (Placement(transformation(extent={{-107.43,22.9},{-102.43,27.9}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{-107.43,22.9},{-102.43,27.9}})));
 
   // Basic Parameters
 
@@ -1105,16 +747,8 @@ model LV_urban_6_I
     b=2.73319e-07,
     length=17.000000,
     i_n=364,
-    parallel=1,
-    useControlBus=true,
-    Line_Params=Models_CyEntEE.CellModels.Data.Records.NAYY_4x240mm2_SE_Data(),
-    electricOutput=true,
-    simplified_Pi_Model=false,
-    useTTEC=useTTEC,
-    useUndergroundTemperatureTable=useUndergroundTemperature,
-    useUndergroundMoistureTable=useUndergroundMoisture,
-    UndergroundTemperaturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Temp_Underground.txt",
-    UndergroundMoisturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Moisture_Underground.txt") annotation (Placement(transformation(extent={{-159.93,89.4},{-154.93,94.4}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{-159.93,89.4},{-154.93,94.4}})));
 
   // Basic Parameters
 
@@ -1124,16 +758,8 @@ model LV_urban_6_I
     b=2.73319e-07,
     length=16.000000,
     i_n=364,
-    parallel=1,
-    useControlBus=true,
-    Line_Params=Models_CyEntEE.CellModels.Data.Records.NAYY_4x240mm2_SE_Data(),
-    electricOutput=true,
-    simplified_Pi_Model=false,
-    useTTEC=useTTEC,
-    useUndergroundTemperatureTable=useUndergroundTemperature,
-    useUndergroundMoistureTable=useUndergroundMoisture,
-    UndergroundTemperaturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Temp_Underground.txt",
-    UndergroundMoisturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Moisture_Underground.txt") annotation (Placement(transformation(extent={{-156.43,36.9},{-151.43,41.9}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{-156.43,36.9},{-151.43,41.9}})));
 
   // Basic Parameters
 
@@ -1143,16 +769,8 @@ model LV_urban_6_I
     b=2.73319e-07,
     length=19.000000,
     i_n=364,
-    parallel=1,
-    useControlBus=true,
-    Line_Params=Models_CyEntEE.CellModels.Data.Records.NAYY_4x240mm2_SE_Data(),
-    electricOutput=true,
-    simplified_Pi_Model=false,
-    useTTEC=useTTEC,
-    useUndergroundTemperatureTable=useUndergroundTemperature,
-    useUndergroundMoistureTable=useUndergroundMoisture,
-    UndergroundTemperaturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Temp_Underground.txt",
-    UndergroundMoisturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Moisture_Underground.txt") annotation (Placement(transformation(extent={{-152.93,12.4},{-147.93,17.4}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{-152.93,12.4},{-147.93,17.4}})));
 
   // Basic Parameters
 
@@ -1162,16 +780,8 @@ model LV_urban_6_I
     b=2.73319e-07,
     length=22.000000,
     i_n=364,
-    parallel=1,
-    useControlBus=true,
-    Line_Params=Models_CyEntEE.CellModels.Data.Records.NAYY_4x240mm2_SE_Data(),
-    electricOutput=true,
-    simplified_Pi_Model=false,
-    useTTEC=useTTEC,
-    useUndergroundTemperatureTable=useUndergroundTemperature,
-    useUndergroundMoistureTable=useUndergroundMoisture,
-    UndergroundTemperaturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Temp_Underground.txt",
-    UndergroundMoisturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Moisture_Underground.txt") annotation (Placement(transformation(extent={{-159.93,64.9},{-154.93,69.9}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{-159.93,64.9},{-154.93,69.9}})));
 
   // Basic Parameters
 
@@ -1181,16 +791,8 @@ model LV_urban_6_I
     b=2.73319e-07,
     length=12.000000,
     i_n=364,
-    parallel=1,
-    useControlBus=true,
-    Line_Params=Models_CyEntEE.CellModels.Data.Records.NAYY_4x240mm2_SE_Data(),
-    electricOutput=true,
-    simplified_Pi_Model=false,
-    useTTEC=useTTEC,
-    useUndergroundTemperatureTable=useUndergroundTemperature,
-    useUndergroundMoistureTable=useUndergroundMoisture,
-    UndergroundTemperaturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Temp_Underground.txt",
-    UndergroundMoisturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Moisture_Underground.txt") annotation (Placement(transformation(extent={{-156.43,-12.1},{-151.43,-7.1}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{-156.43,-12.1},{-151.43,-7.1}})));
 
   // Basic Parameters
 
@@ -1200,16 +802,8 @@ model LV_urban_6_I
     b=2.73319e-07,
     length=20.000000,
     i_n=364,
-    parallel=1,
-    useControlBus=true,
-    Line_Params=Models_CyEntEE.CellModels.Data.Records.NAYY_4x240mm2_SE_Data(),
-    electricOutput=true,
-    simplified_Pi_Model=false,
-    useTTEC=useTTEC,
-    useUndergroundTemperatureTable=useUndergroundTemperature,
-    useUndergroundMoistureTable=useUndergroundMoisture,
-    UndergroundTemperaturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Temp_Underground.txt",
-    UndergroundMoisturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Moisture_Underground.txt") annotation (Placement(transformation(extent={{-159.93,-36.6},{-154.93,-31.6}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{-159.93,-36.6},{-154.93,-31.6}})));
 
   // Basic Parameters
 
@@ -1219,16 +813,8 @@ model LV_urban_6_I
     b=2.73319e-07,
     length=22.000000,
     i_n=364,
-    parallel=1,
-    useControlBus=true,
-    Line_Params=Models_CyEntEE.CellModels.Data.Records.NAYY_4x240mm2_SE_Data(),
-    electricOutput=true,
-    simplified_Pi_Model=false,
-    useTTEC=useTTEC,
-    useUndergroundTemperatureTable=useUndergroundTemperature,
-    useUndergroundMoistureTable=useUndergroundMoisture,
-    UndergroundTemperaturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Temp_Underground.txt",
-    UndergroundMoisturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Moisture_Underground.txt") annotation (Placement(transformation(extent={{-96.93,127.9},{-91.93,132.9}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{-96.93,127.9},{-91.93,132.9}})));
 
   // Basic Parameters
 
@@ -1238,16 +824,8 @@ model LV_urban_6_I
     b=2.73319e-07,
     length=45.000000,
     i_n=364,
-    parallel=1,
-    useControlBus=true,
-    Line_Params=Models_CyEntEE.CellModels.Data.Records.NAYY_4x240mm2_SE_Data(),
-    electricOutput=true,
-    simplified_Pi_Model=false,
-    useTTEC=useTTEC,
-    useUndergroundTemperatureTable=useUndergroundTemperature,
-    useUndergroundMoistureTable=useUndergroundMoisture,
-    UndergroundTemperaturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Temp_Underground.txt",
-    UndergroundMoisturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Moisture_Underground.txt") annotation (Placement(transformation(extent={{-117.93,127.9},{-112.93,132.9}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{-117.93,127.9},{-112.93,132.9}})));
 
   // Basic Parameters
 
@@ -1257,16 +835,8 @@ model LV_urban_6_I
     b=2.73319e-07,
     length=14.000000,
     i_n=364,
-    parallel=1,
-    useControlBus=true,
-    Line_Params=Models_CyEntEE.CellModels.Data.Records.NAYY_4x240mm2_SE_Data(),
-    electricOutput=true,
-    simplified_Pi_Model=false,
-    useTTEC=useTTEC,
-    useUndergroundTemperatureTable=useUndergroundTemperature,
-    useUndergroundMoistureTable=useUndergroundMoisture,
-    UndergroundTemperaturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Temp_Underground.txt",
-    UndergroundMoisturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Moisture_Underground.txt") annotation (Placement(transformation(extent={{-138.93,127.9},{-133.93,132.9}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{-138.93,127.9},{-133.93,132.9}})));
 
   // Basic Parameters
 
@@ -1276,16 +846,8 @@ model LV_urban_6_I
     b=2.73319e-07,
     length=16.000000,
     i_n=364,
-    parallel=1,
-    useControlBus=true,
-    Line_Params=Models_CyEntEE.CellModels.Data.Records.NAYY_4x240mm2_SE_Data(),
-    electricOutput=true,
-    simplified_Pi_Model=false,
-    useTTEC=useTTEC,
-    useUndergroundTemperatureTable=useUndergroundTemperature,
-    useUndergroundMoistureTable=useUndergroundMoisture,
-    UndergroundTemperaturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Temp_Underground.txt",
-    UndergroundMoisturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Moisture_Underground.txt") annotation (Placement(transformation(extent={{-243.93,89.4},{-238.93,94.4}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{-243.93,89.4},{-238.93,94.4}})));
 
   // Basic Parameters
 
@@ -1295,16 +857,8 @@ model LV_urban_6_I
     b=2.73319e-07,
     length=15.000000,
     i_n=364,
-    parallel=1,
-    useControlBus=true,
-    Line_Params=Models_CyEntEE.CellModels.Data.Records.NAYY_4x240mm2_SE_Data(),
-    electricOutput=true,
-    simplified_Pi_Model=false,
-    useTTEC=useTTEC,
-    useUndergroundTemperatureTable=useUndergroundTemperature,
-    useUndergroundMoistureTable=useUndergroundMoisture,
-    UndergroundTemperaturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Temp_Underground.txt",
-    UndergroundMoisturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Moisture_Underground.txt") annotation (Placement(transformation(extent={{-243.93,64.9},{-238.93,69.9}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{-243.93,64.9},{-238.93,69.9}})));
 
   // Basic Parameters
 
@@ -1314,16 +868,8 @@ model LV_urban_6_I
     b=2.73319e-07,
     length=10.000000,
     i_n=364,
-    parallel=1,
-    useControlBus=true,
-    Line_Params=Models_CyEntEE.CellModels.Data.Records.NAYY_4x240mm2_SE_Data(),
-    electricOutput=true,
-    simplified_Pi_Model=false,
-    useTTEC=useTTEC,
-    useUndergroundTemperatureTable=useUndergroundTemperature,
-    useUndergroundMoistureTable=useUndergroundMoisture,
-    UndergroundTemperaturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Temp_Underground.txt",
-    UndergroundMoisturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Moisture_Underground.txt") annotation (Placement(transformation(extent={{-243.93,36.9},{-238.93,41.9}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{-243.93,36.9},{-238.93,41.9}})));
 
   // Basic Parameters
 
@@ -1333,16 +879,8 @@ model LV_urban_6_I
     b=2.73319e-07,
     length=29.579000,
     i_n=364,
-    parallel=1,
-    useControlBus=true,
-    Line_Params=Models_CyEntEE.CellModels.Data.Records.NAYY_4x240mm2_SE_Data(),
-    electricOutput=true,
-    simplified_Pi_Model=false,
-    useTTEC=useTTEC,
-    useUndergroundTemperatureTable=useUndergroundTemperature,
-    useUndergroundMoistureTable=useUndergroundMoisture,
-    UndergroundTemperaturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Temp_Underground.txt",
-    UndergroundMoisturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Moisture_Underground.txt") annotation (Placement(transformation(extent={{60.57,127.9},{65.57,132.9}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{60.57,127.9},{65.57,132.9}})));
 
   // Basic Parameters
 
@@ -1352,16 +890,8 @@ model LV_urban_6_I
     b=2.73319e-07,
     length=18.226000,
     i_n=364,
-    parallel=1,
-    useControlBus=true,
-    Line_Params=Models_CyEntEE.CellModels.Data.Records.NAYY_4x240mm2_SE_Data(),
-    electricOutput=true,
-    simplified_Pi_Model=false,
-    useTTEC=useTTEC,
-    useUndergroundTemperatureTable=useUndergroundTemperature,
-    useUndergroundMoistureTable=useUndergroundMoisture,
-    UndergroundTemperaturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Temp_Underground.txt",
-    UndergroundMoisturePath=data_local + "WeatherData/" + weatherLocation + "_" + weatherYear + "_Moisture_Underground.txt") annotation (Placement(transformation(extent={{18.57,127.9},{23.57,132.9}})));
+    parallel=1)
+      annotation (Placement(transformation(extent={{18.57,127.9},{23.57,132.9}})));
 
   // Basic Parameters
 
@@ -1440,13 +970,13 @@ model LV_urban_6_I
     U_ground=0.414713,
     thermalMass=24445200.0,
     num_BEVs=2,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=1,
         Bat_Capacity=295200000.0,
         Bat_SOCStart=1.0,
         Bat_PowerLimit=11000.0,
-        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=2,
         Bat_Capacity=132480000.0,
@@ -1667,19 +1197,19 @@ model LV_urban_6_I
     V_BST = 0.5,
     tappingProfileName="TappingCycle_I_9",
     num_BEVs=3,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=3,
         Bat_Capacity=360000000.0,
         Bat_SOCStart=1.0,
         Bat_PowerLimit=11000.0,
-        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=4,
         Bat_Capacity=196920000.0,
         Bat_SOCStart=1.0,
         Bat_PowerLimit=11000.0,
-        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R110()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R110()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=5,
         Bat_Capacity=196920000.0,
@@ -1720,19 +1250,19 @@ model LV_urban_6_I
     V_BST = 0.6,
     tappingProfileName="TappingCycle_I_10",
     num_BEVs=3,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=6,
         Bat_Capacity=360000000.0,
         Bat_SOCStart=1.0,
         Bat_PowerLimit=11000.0,
-        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=7,
         Bat_Capacity=360000000.0,
         Bat_SOCStart=1.0,
         Bat_PowerLimit=11000.0,
-        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=8,
         Bat_Capacity=132480000.0,
@@ -1881,7 +1411,7 @@ model LV_urban_6_I
     U_ground=0.480219,
     thermalMass=23686600.0,
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=9,
         Bat_Capacity=295200000.0,
@@ -1958,13 +1488,13 @@ model LV_urban_6_I
     V_BST = 0.95,
     tappingProfileName="TappingCycle_I_16",
     num_BEVs=2,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=10,
         Bat_Capacity=360000000.0,
         Bat_SOCStart=1.0,
         Bat_PowerLimit=11000.0,
-        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=11,
         Bat_Capacity=295200000.0,
@@ -2313,13 +1843,13 @@ model LV_urban_6_I
     V_BST = 0.95,
     tappingProfileName="TappingCycle_I_25",
     num_BEVs=2,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=12,
         Bat_Capacity=360000000.0,
         Bat_SOCStart=1.0,
         Bat_PowerLimit=11000.0,
-        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=13,
         Bat_Capacity=196920000.0,
@@ -2358,13 +1888,13 @@ model LV_urban_6_I
     V_BST = 0.6,
     tappingProfileName="TappingCycle_I_26",
     num_BEVs=2,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=14,
         Bat_Capacity=360000000.0,
         Bat_SOCStart=1.0,
         Bat_PowerLimit=11000.0,
-        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=15,
         Bat_Capacity=196920000.0,
@@ -2404,7 +1934,7 @@ model LV_urban_6_I
     V_BST = 0.75,
     tappingProfileName="TappingCycle_I_27",
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=16,
         Bat_Capacity=196920000.0,
@@ -2550,7 +2080,7 @@ model LV_urban_6_I
     V_BST = 0.6,
     tappingProfileName="TappingCycle_I_31",
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=17,
         Bat_Capacity=360000000.0,
@@ -2599,7 +2129,7 @@ model LV_urban_6_I
     U_ground=0.375744,
     thermalMass=38074900.0,
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=18,
         Bat_Capacity=360000000.0,
@@ -2705,7 +2235,7 @@ model LV_urban_6_I
     V_BST = 0.6,
     tappingProfileName="TappingCycle_I_35",
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=19,
         Bat_Capacity=132480000.0,
@@ -2810,7 +2340,7 @@ model LV_urban_6_I
     V_BST = 0.6,
     tappingProfileName="TappingCycle_I_38",
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=20,
         Bat_Capacity=196920000.0,
@@ -2996,7 +2526,7 @@ model LV_urban_6_I
     U_ground=0.374704,
     thermalMass=18554900.0,
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=21,
         Bat_Capacity=360000000.0,
@@ -3158,13 +2688,13 @@ model LV_urban_6_I
     V_BST = 0.6,
     tappingProfileName="TappingCycle_I_48",
     num_BEVs=2,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=22,
         Bat_Capacity=360000000.0,
         Bat_SOCStart=1.0,
         Bat_PowerLimit=11000.0,
-        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=23,
         Bat_Capacity=295200000.0,
@@ -3247,13 +2777,13 @@ model LV_urban_6_I
     U_ground=0.438486,
     thermalMass=19472900.0,
     num_BEVs=2,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=24,
         Bat_Capacity=360000000.0,
         Bat_SOCStart=1.0,
         Bat_PowerLimit=11000.0,
-        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=25,
         Bat_Capacity=132480000.0,
@@ -3389,7 +2919,7 @@ model LV_urban_6_I
     V_BST = 0.3,
     tappingProfileName="TappingCycle_I_54",
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=26,
         Bat_Capacity=196920000.0,
@@ -3426,7 +2956,7 @@ model LV_urban_6_I
     V_BST = 0.5,
     tappingProfileName="TappingCycle_I_55",
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=27,
         Bat_Capacity=360000000.0,
@@ -3475,19 +3005,19 @@ model LV_urban_6_I
     U_ground=0.491656,
     thermalMass=21286600.0,
     num_BEVs=3,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=28,
         Bat_Capacity=360000000.0,
         Bat_SOCStart=1.0,
         Bat_PowerLimit=11000.0,
-        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=29,
         Bat_Capacity=295200000.0,
         Bat_SOCStart=1.0,
         Bat_PowerLimit=11000.0,
-        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=30,
         Bat_Capacity=196920000.0,
@@ -3528,7 +3058,7 @@ model LV_urban_6_I
     V_BST = 0.5,
     tappingProfileName="TappingCycle_I_57",
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=31,
         Bat_Capacity=360000000.0,
@@ -3565,13 +3095,13 @@ model LV_urban_6_I
     V_BST = 0.6,
     tappingProfileName="TappingCycle_I_58",
     num_BEVs=2,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=32,
         Bat_Capacity=295200000.0,
         Bat_SOCStart=1.0,
         Bat_PowerLimit=11000.0,
-        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=33,
         Bat_Capacity=196920000.0,
@@ -3719,7 +3249,7 @@ model LV_urban_6_I
     V_BST = 0.5,
     tappingProfileName="TappingCycle_I_62",
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=34,
         Bat_Capacity=295200000.0,
@@ -3796,7 +3326,7 @@ model LV_urban_6_I
     V_BST = 0.5,
     tappingProfileName="TappingCycle_I_64",
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=35,
         Bat_Capacity=295200000.0,
@@ -3889,7 +3419,7 @@ model LV_urban_6_I
     V_BST = 0.3,
     tappingProfileName="TappingCycle_I_67",
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=36,
         Bat_Capacity=196920000.0,
@@ -3926,7 +3456,7 @@ model LV_urban_6_I
     V_BST = 0.5,
     tappingProfileName="TappingCycle_I_68",
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=37,
         Bat_Capacity=196920000.0,
@@ -4147,7 +3677,7 @@ model LV_urban_6_I
     V_BST = 0.6,
     tappingProfileName="TappingCycle_I_75",
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=38,
         Bat_Capacity=132480000.0,
@@ -4184,13 +3714,13 @@ model LV_urban_6_I
     V_BST = 0.5,
     tappingProfileName="TappingCycle_I_76",
     num_BEVs=2,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=39,
         Bat_Capacity=360000000.0,
         Bat_SOCStart=1.0,
         Bat_PowerLimit=11000.0,
-        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R90()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=40,
         Bat_Capacity=196920000.0,
@@ -4321,7 +3851,7 @@ model LV_urban_6_I
     U_ground=0.398003,
     thermalMass=27529800.0,
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=41,
         Bat_Capacity=360000000.0,
@@ -4507,7 +4037,7 @@ model LV_urban_6_I
     V_BST = 0.75,
     tappingProfileName="TappingCycle_I_84",
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=42,
         Bat_Capacity=132480000.0,
@@ -4710,7 +4240,7 @@ model LV_urban_6_I
     U_ground=0.453123,
     thermalMass=23132000.0,
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=43,
         Bat_Capacity=360000000.0,
@@ -4843,19 +4373,19 @@ model LV_urban_6_I
     V_BST = 0.5,
     tappingProfileName="TappingCycle_I_93",
     num_BEVs=3,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=44,
         Bat_Capacity=196920000.0,
         Bat_SOCStart=1.0,
         Bat_PowerLimit=11000.0,
-        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R110()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R110()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=45,
         Bat_Capacity=196920000.0,
         Bat_SOCStart=1.0,
         Bat_PowerLimit=11000.0,
-        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R110()),Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+        Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Renault_Zoe_R110()),TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=46,
         Bat_Capacity=196920000.0,
@@ -5360,7 +4890,7 @@ model LV_urban_6_I
     U_ground=0.457529,
     thermalMass=22213000.0,
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=47,
         Bat_Capacity=295200000.0,
@@ -5437,7 +4967,7 @@ model LV_urban_6_I
     U_ground=0.434813,
     thermalMass=25387200.0,
     num_BEVs=1,
-    bev_data={Models_CyEntEE.CellModels.Data.Records.BEV_Data(
+    bev_data={TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_Data(
         useBEV=true,
         id=48,
         Bat_Capacity=360000000.0,
@@ -5520,7 +5050,6 @@ model LV_urban_6_I
     U_S=400,
     epp_p(v(start=10000)),
     epp_n(v(start=400))) annotation (Placement(transformation(extent={{-124,182},{-104,202}})));
-  Models_CyEntEE.CellModels.CPP.DecouplingGrids decouplingGrids annotation (Placement(transformation(extent={{-86,182},{-66,202}})));
   TransiEnt.Basics.Interfaces.Electrical.ComplexPowerPort epp annotation (Placement(transformation(extent={{-10,98},{10,118}})));
 
   // ------------------------------------------------------------------------------------------
@@ -5644,63 +5173,7 @@ equation
   connect(controlBus.household_109, household_109.controlBus) annotation();
   connect(controlBus.household_110, household_110.controlBus) annotation();
   connect(controlBus.household_111, household_111.controlBus) annotation();
-  connect(controlBus.line_1, line_1.controlBus) annotation();
-  connect(controlBus.line_2, line_2.controlBus) annotation();
-  connect(controlBus.line_3, line_3.controlBus) annotation();
-  connect(controlBus.line_4, line_4.controlBus) annotation();
-  connect(controlBus.line_5, line_5.controlBus) annotation();
-  connect(controlBus.line_6, line_6.controlBus) annotation();
-  connect(controlBus.line_7, line_7.controlBus) annotation();
-  connect(controlBus.line_8, line_8.controlBus) annotation();
-  connect(controlBus.line_9, line_9.controlBus) annotation();
-  connect(controlBus.line_10, line_10.controlBus) annotation();
-  connect(controlBus.line_11, line_11.controlBus) annotation();
-  connect(controlBus.line_12, line_12.controlBus) annotation();
-  connect(controlBus.line_13, line_13.controlBus) annotation();
-  connect(controlBus.line_14, line_14.controlBus) annotation();
-  connect(controlBus.line_15, line_15.controlBus) annotation();
-  connect(controlBus.line_16, line_16.controlBus) annotation();
-  connect(controlBus.line_17, line_17.controlBus) annotation();
-  connect(controlBus.line_18, line_18.controlBus) annotation();
-  connect(controlBus.line_19, line_19.controlBus) annotation();
-  connect(controlBus.line_20, line_20.controlBus) annotation();
-  connect(controlBus.line_21, line_21.controlBus) annotation();
-  connect(controlBus.line_22, line_22.controlBus) annotation();
-  connect(controlBus.line_23, line_23.controlBus) annotation();
-  connect(controlBus.line_24, line_24.controlBus) annotation();
-  connect(controlBus.line_25, line_25.controlBus) annotation();
-  connect(controlBus.line_26, line_26.controlBus) annotation();
-  connect(controlBus.line_27, line_27.controlBus) annotation();
-  connect(controlBus.line_28, line_28.controlBus) annotation();
-  connect(controlBus.line_29, line_29.controlBus) annotation();
-  connect(controlBus.line_30, line_30.controlBus) annotation();
-  connect(controlBus.line_31, line_31.controlBus) annotation();
-  connect(controlBus.line_32, line_32.controlBus) annotation();
-  connect(controlBus.line_33, line_33.controlBus) annotation();
-  connect(controlBus.line_34, line_34.controlBus) annotation();
-  connect(controlBus.line_35, line_35.controlBus) annotation();
-  connect(controlBus.line_36, line_36.controlBus) annotation();
-  connect(controlBus.line_37, line_37.controlBus) annotation();
-  connect(controlBus.line_38, line_38.controlBus) annotation();
-  connect(controlBus.line_39, line_39.controlBus) annotation();
-  connect(controlBus.line_40, line_40.controlBus) annotation();
-  connect(controlBus.line_41, line_41.controlBus) annotation();
-  connect(controlBus.line_42, line_42.controlBus) annotation();
-  connect(controlBus.line_43, line_43.controlBus) annotation();
-  connect(controlBus.line_44, line_44.controlBus) annotation();
-  connect(controlBus.line_45, line_45.controlBus) annotation();
-  connect(controlBus.line_46, line_46.controlBus) annotation();
-  connect(controlBus.line_47, line_47.controlBus) annotation();
-  connect(controlBus.line_48, line_48.controlBus) annotation();
-  connect(controlBus.line_49, line_49.controlBus) annotation();
-  connect(controlBus.line_50, line_50.controlBus) annotation();
-  connect(controlBus.line_51, line_51.controlBus) annotation();
-  connect(controlBus.line_52, line_52.controlBus) annotation();
-  connect(controlBus.line_53, line_53.controlBus) annotation();
-  connect(controlBus.line_54, line_54.controlBus) annotation();
-  connect(controlBus.line_55, line_55.controlBus) annotation();
-  connect(controlBus.line_56, line_56.controlBus) annotation();
-  connect(controlBus.line_57, line_57.controlBus) annotation();
+
   connect(controlBus.node_1, node_1.controlBus) annotation();
   connect(controlBus.node_2, node_2.controlBus) annotation();
   connect(controlBus.node_3, node_3.controlBus) annotation();
@@ -6001,26 +5474,16 @@ equation
       points={{-124,192},{-130,192},{-130,116},{-18,116},{-18,108},{0,108}},
       color={28,108,200},
       thickness=0.5));
-  connect(decouplingGrids.epp_p, simpleTransformerComplex.epp_n) annotation (Line(
-      points={{-86,192},{-104,192}},
-      color={28,108,200},
-      thickness=0.5));
-  connect(GridMeter.epp_a, decouplingGrids.epp_n) annotation (Line(
-      points={{-39.2,192},{-66,192}},
+  connect(GridMeter.epp_a, simpleTransformerComplex.epp_n) annotation (Line(
+      points={{-39.2,192},{-104,192}},
       color={28,108,200},
       thickness=0.5));
   connect(GridMeter.epp_b, node_1.epp) annotation (Line(
-      points={{-30,182},{-30,164},{-20,164},{-20,144},{-31.43,144},{-31.43,155.9}},
+      points={{-20.8,192},{-20.8,164},{-20,164},{-20,144},{-31.43,144},{-31.43,155.9}},
       color={28,108,200},
       thickness=0.5));
   connect(GridMeter.controlBus, controlBus.GridMeter) annotation();
-   annotation();
-   annotation();
-   annotation();
-   annotation();
-   annotation();
-   annotation();
-  annotation (
+   annotation(
     experiment(StopTime=86400, __Dymola_Algorithm="Dassl"),
     Diagram(coordinateSystem(extent={{-100.0,-100.0},{100.0,100.0}}), graphics={Rectangle(
           extent={{-260,220},{-140,140}},
@@ -6073,4 +5536,4 @@ Number of BEV: 48")}),
           extent={{-250,-93},{250,-133}},
           lineColor={0,134,134},
           textString="%LV_urban_6_I")}));
-end LV_urban_6_I;
+end LV_urban_6_Intermediate;
