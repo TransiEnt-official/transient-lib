@@ -205,7 +205,7 @@ model Prosumer
   //   Interfaces
   // ----------------------------------------------------------------------------------------
 
-  Basics.Interfaces.General.ControlBus controlBus if useControlBus annotation (Placement(transformation(extent={{-120,-20},{-80,20}}), iconTransformation(extent={{-120,-20},{-80,20}})));
+  Basics.Interfaces.General.ControlBus controlBus                  annotation (Placement(transformation(extent={{-120,-20},{-80,20}}), iconTransformation(extent={{-120,-20},{-80,20}})));
 
   // ----------------------------------------------------------------------------------------
   //   Components
@@ -216,7 +216,7 @@ model Prosumer
   Storage.Electrical.Controller.BES_Controller        BES_Controller(
       Bat_PowerLimit=Bat_PowerLimit, controlType=batteryControlType)
     if useBattery
-    annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
+    annotation (Placement(transformation(extent={{-62,-10},{-42,10}})));
 
   // --- Smart Meter ------------------------------------------------------------------------
 
@@ -330,6 +330,8 @@ model Prosumer
   Modelica.Blocks.Sources.RealExpression Number_of_BEVs(y=num_BEVs) annotation (Placement(transformation(extent={{-140,-140},{-120,-120}})));
   Modelica.Blocks.Sources.RealExpression Battery_power(y=batterySimple.epp.P) if useBattery
                                                                               annotation (Placement(transformation(extent={{-140,-160},{-120,-140}})));
+  Modelica.Blocks.Sources.RealExpression Battery_power1(y=epp.P)              if useBattery
+                                                                              annotation (Placement(transformation(extent={{-140,0},{-120,20}})));
 equation
   // iterate over all BEVs
   for i in 1:num_BEVs loop
@@ -374,7 +376,8 @@ equation
     // Outputs
     connect(smartMeter.controlBus, controlBus.Meter) annotation();
     connect(batterySimple.P_max, controlBus.BES.P_max) annotation();
-    connect(Battery_power.y, controlBus.BES.P) annotation (Line(points={{-119,-150},{-110,-150},{-110,-152},{-100,-152},{-100,0}}, color={0,0,127}), Text(
+    connect(Battery_power.y, controlBus.BES.P) annotation (Line(points={{-119,-150},{-108,-150},{-108,-80},{-102,-80},{-102,-22},{-100,-22},{-100,0}},
+                                                                                                                                   color={0,0,127}), Text(
       string="%second",
       index=1,
       extent={{6,3},{6,3}},
@@ -399,20 +402,23 @@ equation
       color={28,108,200},
       thickness=0.5));
   connect(BES_Controller.P_BES_out, batterySimple.P_set) annotation (Line(
-      points={{-58,0},{-36,0},{-36,-14},{-28,-14},{-28,-10.6}},
+      points={{-40,0},{-40,-16},{-28,-16},{-28,-10.6}},
       color={0,135,135},
       pattern=LinePattern.Dash));
-  connect(BES_bool.y, controlBus.Configuration.BESActive) annotation (Line(points={{-119,-90},{-100,-90},{-100,0}},   color={255,0,255}), Text(
+  connect(BES_bool.y, controlBus.Configuration.BESActive) annotation (Line(points={{-119,-90},{-116,-90},{-116,-24},{-144,-24},{-144,0},{-100,0}},
+                                                                                                                      color={255,0,255}), Text(
       string="%second",
       index=1,
       extent={{6,3},{6,3}},
       horizontalAlignment=TextAlignment.Left));
-  connect(EHP_bool.y, controlBus.Configuration.HeatingActive) annotation (Line(points={{-119,-110},{-100,-110},{-100,0}},   color={255,0,255}), Text(
+  connect(EHP_bool.y, controlBus.Configuration.HeatingActive) annotation (Line(points={{-119,-110},{-104,-110},{-104,-24},{-100,-24},{-100,0}},
+                                                                                                                            color={255,0,255}), Text(
       string="%second",
       index=1,
       extent={{6,3},{6,3}},
       horizontalAlignment=TextAlignment.Left));
-  connect(Number_of_BEVs.y, controlBus.Configuration.BEVNumber) annotation (Line(points={{-119,-130},{-100,-130},{-100,0}},   color={0,0,127}), Text(
+  connect(Number_of_BEVs.y, controlBus.Configuration.BEVNumber) annotation (Line(points={{-119,-130},{-112,-130},{-112,-24},{-100,-24},{-100,0}},
+                                                                                                                              color={0,0,127}), Text(
       string="%second",
       index=1,
       extent={{6,3},{6,3}},
@@ -421,11 +427,6 @@ equation
       points={{-0.7,29.4},{4,29.4},{4,-30},{-16,-30},{-16,-68},{-9.2,-68}},
       color={28,108,200},
       thickness=0.5));
-  connect(BES_Controller.P_smartMeter, controlBus.Meter.P) annotation (Line(points={{-80,8},{-100,8},{-100,0}},   color={0,127,127}), Text(
-      string="%second",
-      index=1,
-      extent={{-3,-6},{-3,-6}},
-      horizontalAlignment=TextAlignment.Right));
 
   connect(table_LoadProfilePQ.P, inflexibleLoad.P_el_set) annotation (Line(
       points={{-75.2,-32},{-66,-32},{-66,-55}},
@@ -446,4 +447,5 @@ equation
 
   connect(genericTemperatureDataTableResource.Kelvin, heating.T_amb) annotation (Line(points={{-81,93},{34,93},{34,75.7143},{40.8571,75.7143}}, color={0,0,127}));
   connect(genericTemperatureDataTableResource.Celsius, PV.T_in) annotation (Line(points={{-81,87},{-30,87},{-30,38},{-22,38}}, color={0,0,127}));
+  connect(BES_Controller.P_smartMeter, Battery_power1.y) annotation (Line(points={{-62,8},{-116,8},{-116,10},{-119,10}}, color={0,127,127}));
 end Prosumer;
