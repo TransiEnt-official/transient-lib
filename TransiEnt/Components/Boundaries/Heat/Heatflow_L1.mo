@@ -133,28 +133,34 @@ equation
   annotation (Icon(graphics,
                    coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
             {100,100}})),           Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
-<p>Ideal boundary model with prescribed or constant heat flow and without fluid volume. Pressure loss is constant and given via parameter.</p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
-<p>Constant pressureloss, no fluid volume </p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
-<p>Not time dependent because lack of volume</p>
-<h4><span style=\"color: #008000\">4. Interfaces</span></h4>
-<p>TransiEnt.Base.Interfaces.Thermal.FluidPortIn (x2)</p>
-<p>RealInput (for specification of boundary power)</p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
-<p>First law of thermodynamics</p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
+<p>An ideal boundary model with prescribed or constant heat flow and without a fluid volume. Pressure loss is constant and given via a parameter. A static mass, momentum and energy balance is assumed. The outlet temperature can be limited if needed. </p>
+<h4><span style=\"color: #008000\">Level of detail, physical effects considered, and physical insight</span></h4>
+<p>L1 (Defined in Coding Conventions)</p>
+<ul>
+<li>Constant pressure loss</li>
+<li>no fluid volume (no dynamics are considered)</li>
+</ul>
+<h4><span style=\"color: #008000\">Limits of validity </span></h4>
+<p>No dynamics are considered</p>
+<h4><span style=\"color: #008000\">Interfaces</span></h4>
+<p>FluidPortIn: for the connection with a hydraulic grid</p>
+<p>FluidPortOut: for the connection with a hydraulic grid</p>
+<p>RealInput: Q_flow_prescribed (for specification of boundary heat flow rate)</p>
+<p>RealInput: T_out_limit_prescribed (for limiting the outlet temperature)</p>
+<h4><span style=\"color: #008000\">Governing Equations</span></h4>
+<p>Mass balance: fluidPortIn.m_flow&nbsp;+&nbsp;fluidPortOut.m_flow&nbsp;=&nbsp;0</p>
+<p>Momentum balance: -&nbsp;fluidPortOut.p&nbsp;+&nbsp;fluidPortIn.p&nbsp;=&nbsp;p_drop</p>
+<p>h&nbsp;=&nbsp;Q_flow_internal/fluidPortOut.m_flow</p>
+<h4><span style=\"color: #008000\">Remarks for Usage</span></h4>
 <p>Heat flow can be limited by T_out_limit if use_T_out_limit==true to model a temperature level of heat source/heat sink</p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
+<p>This boundary does not define a mass flow rate or a pressure. The use of the model is shown in the test model: TransiEnt.Components.Boundaries.Heat.Check.testHeatflow_L1</p>
+<h4><span style=\"color: #008000\">Validation</span></h4>
 <p>Tested in model TransiEnt.Components.Boundaries.Heat.Check.testHeatflow_L1</p>
 <p>Seems that no further testing is necessary because of simplicity of component</p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
+<h4><span style=\"color: #008000\">Version History</span></h4>
 <p>Model created by Pascal Dubucq (dubucq@tuhh.de) on Mon Aug 18 2014</p>
 <p>Model modified by Oliver Sch&uuml;lting (oliver.schuelting@tuhh.de) on Jul 2019</p>
+<p>Documentation modified by Jan Westphal (j.westphal@tuhh.de) August 2025</p>
 </html>"));
 end Heatflow_L1;

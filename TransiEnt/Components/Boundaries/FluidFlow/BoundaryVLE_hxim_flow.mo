@@ -19,7 +19,7 @@ model BoundaryVLE_hxim_flow "A boundary defining temperature, mass composition a
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -153,27 +153,16 @@ equation
           fillPattern=FillPattern.Solid)}),                      Diagram(graphics,
                                                                          coordinateSystem(preserveAspectRatio=false)),
     Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
-<p>This model is a boundary for a vapor-liquid-equilibrium defining the specific enthalpy, the mass composition and the mass flow rate</p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
-<p>(Purely technical component without physical modeling.)</p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
-<p>(Purely technical component without physical modeling.)</p>
-<h4><span style=\"color: #008000\">4.Interfaces</span></h4>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
+<p>This model is a boundary for a vapor-liquid-equilibrium defining the specific enthalpy, the mass composition and the mass flow rate. It contains a fluid port that is used as an outlet/inlet for the fluid and a fluid model from the TIL media that is used to determin the state variables and fluid properties. The user can chose if the mass flow rate, the specific enthalpy or the mass fraction should be constant or set with an input. It is a purely technical component without physical modeling.</p>
+<h4><span style=\"color: #008000\">Interfaces</span></h4>
 <p>RealInput: mass flow rate in [kg/s]</p>
 <p>RealInput: specific enthalpy in [kJ/kg]</p>
 <p>RealInput: mass fraction in [kg/kg]</p>
 <p>FluidPortOut</p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
-<p>(no equations)</p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
+<h4><span style=\"color: #008000\">Validation</span></h4>
 <p>Tested in check model &quot;TransiEnt.Components.Boundaries.FluidFlow.Check.TestBoundaryVLE_hxim_flow&quot;</p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
+<h4><span style=\"color: #008000\">Version History</span></h4>
+<p>Documented by Jan Westphal (j.westphal@tuhh.de) in August 2025</p>
 </html>"));
 end BoundaryVLE_hxim_flow;

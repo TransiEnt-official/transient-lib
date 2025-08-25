@@ -46,7 +46,7 @@ model Pump "Pump model. Extends from ClaRa Pump_L2_shaftQuadratic"
 <li>Variable fluid properties</li>
 </ul>
 <h4><span style=\"color: #008000\">Limits of validity </span></h4>
-<p>(no remarks)</p>
+<p>Reverse flow is not supported</p>
 <h4><span style=\"color: #008000\">Interfaces</span></h4>
 <p><img src=\"modelica://TransiEnt/Images/Schemes/Pump2.jpg\"/></p>
 <h4><span style=\"color: #008000\">Governing Equations</span></h4>

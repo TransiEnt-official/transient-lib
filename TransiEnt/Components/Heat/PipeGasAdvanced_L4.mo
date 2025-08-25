@@ -281,10 +281,8 @@ annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-140,-40},
 <p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Interfaces</span></b></p>
 <ol>
 <li>Fluid Inlet</li>
-<li>Fluid Outlet</li>
+<li>Fluid Outlets</li>
 </ol>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Governing Equations</span></b></p>
-<p>(no remarks)</p>
 <p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">References</span></b></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">The used component models like the control volume and the insulation are from the ClaRa Library and documented there. </span></p>
 <p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Version History</span></b></p>

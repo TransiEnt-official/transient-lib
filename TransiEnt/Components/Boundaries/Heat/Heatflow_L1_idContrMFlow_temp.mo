@@ -64,30 +64,23 @@ equation
           color={0,0,0},
           thickness=0.5)}),                                       Diagram(coordinateSystem(preserveAspectRatio=false)),
     Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
 <p>This model is a heat flow boundary with a pump whose mass flow is ideally controlled to get a given outlet temperature. It can be chosen if the outlet set temperature is constant or given by an input.</p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
+<h4><span style=\"color: #008000\">Level of detail, physical effects considered, and physical insight</span></h4>
 <p>The mass flow is calculated based on a heat flow rate and a given constant outlet temperature. There is no volume considered.</p>
 <p>There are no pressure losses included (pressures at inlet and outlet are given from the outside).</p>
 <p>The model calculates any mass flow that is necessary to reach the given temperature but limits the mass flow so that no flow reversal occurs.</p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
+<h4><span style=\"color: #008000\">Limits of validity </span></h4>
 <p>This model is only valid for ideal controls, i.e. ideally tuned controls with no control errors.</p>
-<h4><span style=\"color: #008000\">4. Interfaces</span></h4>
+<h4><span style=\"color: #008000\">Interfaces</span></h4>
 <p>T_out_set: set point for outlet temperature</p>
 <p>Q_flow_set: set point heat flow rate (negative for producers)</p>
 <p>fluidPortIn: inlet for fluid</p>
 <p>fluidPortOut: outlet for fluid</p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
-<p>(no equations)</p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
-<p>(none)</p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
-<p>(no validation necessary)</p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
-<p>(none)</p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
+<h4><span style=\"color: #008000\">Validation</span></h4>
+<p>Model tested in the test model:</p>
+<p>TransiEnt.Components.Boundaries.Heat.Check.Test_Heatflow_L1_idContrMFlow</p>
+<h4><span style=\"color: #008000\">Version History</span></h4>
 <p>Model created by Carsten Bode (c.bode@tuhh.de), Nov 2018</p>
 </html>"));
 end Heatflow_L1_idContrMFlow_temp;
