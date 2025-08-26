@@ -38,7 +38,7 @@ model HeatExchanger_TubeBundle_L2 "Simple heat exchanger model"
           fillPattern=FillPattern.Solid,
           textString="L2")}), Documentation(info="<html>
 <h4><span style=\"color: #008000\">Purpose of model</span></h4>
-<p>A model of a tube bundle heat exchanger with one control volume. It is based on the fluid volume L2 from the ClaRa library. Therefore, it is based on the three balance equations of mass, energy and momentum. The model uses a dynamic energy and mass balance and a static momentum balance. &nbsp;It contains two fluid ports for the transport of a heat carrier medium through the heat exchanger and a heat port. The transported heat is transferred through the heat port. In the geometry model the areas are calculated. The model uses three fluid models from the TIL media to compute the states of the fluid at the inlet, outlet and inside the control volumes of the heat exchanger. </p>
+<p>A model of a tube bundle heat exchanger with one control volume. It is based on the fluid volume L2 from the ClaRa library. Therefore, it is based on the three balance equations of mass, energy and momentum. The model uses a dynamic energy and mass balance and a static momentum balance. &nbsp;It contains two fluid ports for the transport of a heat carrier medium through the heat exchanger and a heat port. The transported heat is transferred through the heat port. In the geometry model, the areas are calculated. The model uses three fluid models from the TIL media to compute the states of the fluid at the inlet, outlet and inside the control volumes of the heat exchanger. </p>
 <h4><span style=\"color: #008000\">Level of detail, physical effects considered, and physical insight</span></h4>
 <p>L2 (defined in the CodingConventions)</p>
 <ul>

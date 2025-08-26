@@ -97,7 +97,7 @@ equation
         graphics),
         Documentation(info="<html>
 <p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Purpose of model</span></b></p>
-<p><span style=\"font-family: MS Shell Dlg 2;\">Ideal model to hold a constant pressure in a hydraulic system. Volume of expansion vessel is considered infinite. </span>A simple model of an expansion vessel, that is purely technical and doesn&rsquo;t model physical behaviour. It can be used to set a pressure in a hydraulic circuit. This is often necessary as most of the heat components are only calculating the pressure difference between the in- and outlet. It contains one fluid port and a pressure and temperature boundary, that are connected. The mass flow rate flowing in or out of the expansion vessel should normally be near zero. </p>
+<p><span style=\"font-family: MS Shell Dlg 2;\">Ideal model to hold a constant pressure in a hydraulic system. The volume of the expansion vessel is considered infinite. </span>A simple model of an expansion vessel, that is purely technical and doesn&rsquo;t model physical behaviour. It can be used to set a pressure in a hydraulic circuit. This is often necessary as most of the heat components only calculate the pressure difference between the in- and outlet. It contains one fluid port and a pressure and temperature boundary that are connected. The mass flow rate flowing in or out of the expansion vessel should normally be near zero. </p>
 <p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Level of detail, physical effects considered, and physical insight</span></b></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">Purely technical component without physical modeling. Therefore, no physical effects are considered in this component.</span></p>
 <p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Limits of validity </span></b></p>
@@ -107,7 +107,7 @@ equation
 <p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Governing Equations</span></b></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">p_out=p_set</span></p>
 <p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Remarks for Usage</span></b></p>
-<p>This model is basically a pressure boundary. It is important to note that it is often necessary to dictate the pressure in a hydraulic model for the model to simulated. </p>
+<p>This model is basically a pressure boundary. It is important to note that it is often necessary to dictate the pressure in a hydraulic model for the model to simulate. </p>
 <h4><span style=\"color: #008c48\">Validation</span></h4>
 <p>This model was tested in the following test model:</p>
 <p>TransiEnt.Components.Heat.Grid.Check.Test_ExpansionVessel</p>

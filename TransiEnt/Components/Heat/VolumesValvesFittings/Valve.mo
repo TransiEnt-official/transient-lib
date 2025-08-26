@@ -35,7 +35,7 @@ model Valve "Valve model. Extends from ClaRa ValveVLE_L1"
                                                                                               coordinateSystem(extent={{-100,-50},{100,70}}, initialScale=0.1)),
     Documentation(info="<html>
 <h4><span style=\"color: #008000\">Purpose of model</span></h4>
-<p>A model of a valve that is used to model a pressure loss. The model uses a steady mass balance and a replaceable pressure loss model. No heat losses are considered and therefore the specific enthalpy doesn&rsquo;t change over the valve. An optional input for the opening of the valve is available (0= completely closed, 1=open) </p>
+<p>A model of a valve, which is used to model a pressure loss. The model uses a steady mass balance and a replaceable pressure loss model. No heat losses are considered, and therefore, the specific enthalpy doesn&rsquo;t change over the valve. An optional input for the opening of the valve is available (0= completely closed, 1=open). </p>
 <h4><span style=\"color: #008000\">Level of detail, physical effects considered, and physical insight</span></h4>
 <p>static model of a valve. The level of detail depends on the chosen pressure loss model. </p>
 <ul>

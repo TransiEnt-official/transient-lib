@@ -382,7 +382,7 @@ equation
 
      annotation (Documentation(info="<html>
 <p><b><span style=\"color: #008000;\">Purpose of model</span></b> </p>
-<p>One dimensional fluid storage model with stratification. Intention of the model is to represent a hot water storage in a bigger system with more accurate outflow temperatures compared to a zero dimensional storage model. Several ports on the producer and grid side can be added as well as electric heating rods.</p>
+<p>One-dimensional fluid storage model with stratification. The intention of the model is to represent a hot water storage in a bigger system with more accurate outflow temperatures compared to a zero-dimensional storage model. Several ports on the producer and grid side can be added, as well as electric heating rods.</p>
 <h4><span style=\"color: #008000\">Level of detail, physical effects considered, and physical insight</span></h4>
 <p>L4: Storage is divided in layered volumes. Each volume is ideally stirred. Between the fluid volumes, heat conduction, heat diffusion, heat losses and boyancy are considered. </p>
 <p>Heat losses to the ambient are simplified as heat conduction through top, side wall and bottom. </p>
@@ -404,7 +404,7 @@ equation
 <p>waterPortIn_grid: fluid connection from heating grid, fluid flows to the storage</p>
 <p>waterPortOut_grid: fluid connection to heating Grid, fluid flows from the storage</p>
 <h4><span style=\"color: #008000\">Governing Equations</span></h4>
-<p>Energy and mass or volume balance inside every volume segment. Heat losses due to one dimensional thermal conductance through top, bottom and side wall. Thermal conductance between volume segments. Modeled boyancy introducing heat flow from lower to higher segment if the lower segemnt has a higher temperature. Direct fluid connection between the volumes. </p>
+<p>Energy and mass or volume balance inside every volume segment. Heat losses due to one-dimensional thermal conductance through the top, bottom and side walls. Thermal conductance between volume segments is considered. Modeled buoyancy introducing a heat flow from lower to higher segments if the lower segement has a higher temperature. Direct fluid connections between the volumes. </p>
 <h4><span style=\"color: #008000\">Remarks for Usage</span></h4>
 <p>The allowed minimum number of volume segements is two. The higher the number of segments the higher the number of equations. </p>
 <p>If FluidPorts are disabled, the amount of heat that is transferred to each layer needs to be specified via the heat port &apos;port&apos;.</p>

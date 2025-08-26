@@ -121,7 +121,7 @@ equation
           fillPattern=FillPattern.Solid)}),
     Documentation(info="<html>
 <h4><span style=\"color: #008000\">Purpose of model</span></h4>
-<p>Model for a steam volume unit with valve. The model is based on VDI 3508. It was used to create a power plant model that can be found here:</p>
+<p>Model for a steam volume unit with a valve. The model is based on VDI 3508. It was used to create a power plant model that can be found here:</p>
 <p>TransiEnt.Producer.Electrical.Conventional.Components.VDI3508Plant</p>
 <h4><span style=\"color: #008000\">Level of detail, physical effects considered, and physical insight</span></h4>
 <p>L0 (defined in the CodingConventions)</p>

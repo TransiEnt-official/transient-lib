@@ -271,7 +271,7 @@ annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-140,-40},
                  extent={{-140,-40},{140,40}})),
     Documentation(info="<html>
 <p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Purpose of model</span></b></p>
-<p>Pipe model using the advanced gas control volumes with dynamic momentum balance, a dynamic mass balance and a dynamic energy balance from the ClaRa and a thermal insulation model. The control volume considers a pressure loss due to friction according to the chosen pressure loss model and occuring heat transfer. The gas properties are calculated with fluid models from TIL media. </p>
+<p>Pipe model using the advanced gas control volumes with dynamic momentum balance, a dynamic mass balance and a dynamic energy balance from the ClaRa and a thermal insulation model. The control volume considers a pressure loss due to friction according to the chosen pressure loss model and occurring heat transfer. The gas properties are calculated with fluid models from TIL media. </p>
 <p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Level of detail, physical effects considered, and physical insight</span></b></p>
 <ul>
 <li>pressure losses due to friction</li>

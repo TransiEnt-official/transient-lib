@@ -84,7 +84,7 @@ equation
                                                            coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <h4><span style=\"color: #008c48\">Purpose of model</span></h4>
-<p>Basic model for a steam turbine unit that represents the dynamics of a turbine with a given Input. It contains of a first order block and a gain block. The gain block represents the fast response of the turbine (the high pressure part) while the first order block represents the delayed response of the turbine. No efficiencies are considered in this model. </p>
+<p>Basic model for a steam turbine unit that represents the dynamics of a turbine with a given Input. It consists of a first-order block and a gain block. The gain block represents the fast response of the turbine (the high-pressure part), while the first-order block represents the delayed response of the turbine. No efficiencies are considered in this model. </p>
 <p>The model is used to create the model of a power plant, that can be found here:</p>
 <p>TransiEnt.Producer.Electrical.Conventional.Components.VDI3508Plant</p>
 <h4><span style=\"color: #008c48\">Level of detail, physical effects considered, and physical insight</span></h4>

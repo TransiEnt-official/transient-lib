@@ -154,7 +154,7 @@ equation
           smooth=Smooth.None)}),
     Documentation(info="<html>
 <h4><span style=\"color: #008000\">Purpose of model</span></h4>
-<p>The model is used to control the return temperature in hydraulic grids. It contains of two fluid ports that have to be connected to the hydraulic grid, a pump, a PID-Controller and temperature sensor. The PID-Controller sets the power of the pump so that the return temperature of the hydraulic grid equals a given target value. The pump model is from the ClaRa Library and documented there. Furthermore a similiar pump model is used in the TransiEnt Library and explained in the documentation here: </p>
+<p>The model is used to control the return temperature in hydraulic grids. It consists of two fluid ports that have to be connected to the hydraulic grid, a pump, a PID-Controller and temperature sensor. The PID-Controller sets the power of the pump so that the return temperature of the hydraulic grid equals a given target value. The pump model is from the ClaRa Library and documented there. Furthermore, a similar pump model is used in the TransiEnt Library and explained in the documentation here: </p>
 <p>TransiEnt.Components.Heat.PumpVLE_L1_simple</p>
 <h4><span style=\"color: #008000\">Interfaces</span></h4>
 <p>waterPortOut: fluid outlet</p>

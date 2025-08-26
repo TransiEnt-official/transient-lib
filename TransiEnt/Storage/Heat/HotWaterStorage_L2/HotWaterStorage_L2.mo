@@ -375,7 +375,7 @@ annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100}
                                           coordinateSystem(
         preserveAspectRatio=false, extent={{-100,-100},{100,100}})),          Documentation(info="<html>
 <h4><span style=\"color: #008000\">Purpose of model</span></h4>
-<p>Hot water storage without spatial discretisation (based on analytic solution for output temperature at steady state). Thermodynamic properties are calculated in dependance of the thermodynamic state with the fluid models of the TIL media. The model can be used to determin the average temperature of the heat storage in operation. Moreover, the heat losses of the storage are calculated. </p>
+<p>Hot water storage without spatial discretisation (based on analytic solution for output temperature at steady state). Thermodynamic properties are calculated in dependence on the thermodynamic state with the fluid models of the TIL media. The model can be used to determine the average temperature of the heat storage in operation. Moreover, the heat losses of the storage are calculated. </p>
 <h4><span style=\"color: #008000\">Level of detail, physical effects considered, and physical insight</span></h4>
 <p>Level L2 (defined in the Coding Conventions)</p>
 <ul>
@@ -399,7 +399,8 @@ annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100}
 <p>Heat losses to environment: Q_flow_loss=k*A*(T_stor-T_amb)</p>
 <p>Energy balance: dE_stor/dt=-Q_flow_gen-Q_flow_loss-Q_flow_con</p>
 <p>Impulse balances:</p>
-<p>	GenIn.p&nbsp;-&nbsp;GenOut.p&nbsp;=&nbsp;dp (constant pressure loss)</p><p>	ConIn.p&nbsp;-&nbsp;ConOut.p=dp (constant pressure loss)</p>
+<p>GenIn.p&nbsp;-&nbsp;GenOut.p&nbsp;=&nbsp;dp (constant pressure loss)</p>
+<p>ConIn.p&nbsp;-&nbsp;ConOut.p=dp (constant pressure loss)</p>
 <h4><span style=\"color: #008000\">Remarks for Usage</span></h4>
 <p>The circuits for generation and consumption are decoupled. Therefore, when using the storage model a pressure should be defined by the hydraulic grids in BOTH circuits. Look at the test model for an example how to connect the fluid ports. </p>
 <h4><span style=\"color: #008000\">Validation</span></h4>

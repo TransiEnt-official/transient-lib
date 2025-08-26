@@ -108,12 +108,12 @@ model Pipe "Pipe model. Extends form Clara TubeBundle_L1_TML component"
           fillColor={0,0,0},
           fillPattern=FillPattern.Solid)}), Documentation(info="<html>
 <h4><span style=\"color: #008000\">Purpose of model</span></h4>
-<p>A transmission line model of a pipe featuring an analytical energy balance. Therefore, the accuracy of the model doesn&apos;t depend of the number of states. Only a linear pressure loss can be considered. It was designed to simulate pipes with a higher length while avoiding too many states. The same effect can be achieved with the plug-flow concept described in the SinglePipe_L2. It is reccomened to use the SinglePipe_L2 model for such use cases The model was extended from the ClaRa library. </p>
+<p>A transmission line model of a pipe featuring an analytical energy balance. Therefore, the accuracy of the model doesn&apos;t depend on the number of states. Only a linear pressure loss can be considered. It was designed to simulate pipes with a higher length while avoiding too many states. The same effect can be achieved with the plug-flow concept described in the SinglePipe_L2. It is recommended to use the SinglePipe_L2 model for such use cases. The model was extended from the ClaRa library. </p>
 <h4><span style=\"color: #008000\">Level of detail, physical effects considered, and physical insight</span></h4>
 <ul>
-<li>dynamic energy balance</li>
-<li>linear pressure loss</li>
-<li>no reverse flow possible</li>
+<li>Dynamic energy balance (analytical)</li>
+<li>Linear pressure loss</li>
+<li>No reverse flow possible</li>
 </ul>
 <h4><span style=\"color: #008000\">Limits of validity </span></h4>
 <p>Flow reversal is not supported. A quadratic pressure loss model can&apos;t be considered.</p>

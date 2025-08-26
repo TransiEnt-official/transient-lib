@@ -61,7 +61,7 @@ model Split_L2_Y "Split model extended from the ClaRa library"
           textString="L2
 ",        lineColor={0,0,0})}), Documentation(info="<html>
 <h4><span style=\"color: #008000\">Purpose of model</span></h4>
-<p>A model of a split/join that is used to split or join mass flow rates in a hydraulic circuit. It is based on the three balance equations of mass, energy, and momentum. It is not discretized and only features one control volume. No heat losses are considered but a replaceable pressure loss model is implemented. It contains four fluid models from the TIL media that are used to determine the states of the fluid from the specific enthalpy, the mass fractions of the components of the fluid, and the pressure. </p>
+<p>A model of a split/join that is used to split or join mass flow rates in a hydraulic circuit. It is based on the three balance equations of mass, energy, and momentum. It is not discretized and only features one control volume. No heat losses are considered, but a replaceable pressure loss model is implemented. It contains four fluid models from the TIL media that are used to determine the states of the fluid from the specific enthalpy, the mass fractions of the components of the fluid, and the pressure. </p>
 <h4><span style=\"color: #008000\">Level of detail, physical effects considered, and physical insight</span></h4>
 <p>L2 (defined in the CodingConventions)</p>
 <ul>

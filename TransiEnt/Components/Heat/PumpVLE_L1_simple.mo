@@ -302,7 +302,7 @@ equation
       smooth=Smooth.None));
   annotation (Documentation(info="<html>
 <h4><span style=\"color: #008000\">Purpose of model</span></h4>
-<p>This model represents a vle fluid pump. It is a modified version of the model ClaRa.Components.TurboMachines.Pumps.PumpVLE_L1_simple from ClaRa version 1.2.1. The model is documented there. It is a simple model of a pump that can be used to calculate the electric power necessary to set a given pressure difference, mass flow rate or volume flow rate. It uses a static mass, energy and momentum balance. </p>
+<p>This model represents a VLE fluid pump. It is a modified version of the model ClaRa.Components.TurboMachines.Pumps.PumpVLE_L1_simple from ClaRa version 1.2.1. The model is documented there. It is a simple model of a pump that can be used to calculate the electric power necessary to set a given pressure difference, mass flow rate or volume flow rate. It uses a static mass, energy and momentum balance. </p>
 <h4><span style=\"color: #008000\">Level of detail, physical effects considered, and physical insight</span></h4>
 <p>The model was changed to work with changing compositions and a constant electrical efficiency was added. Also, more inputs are available. </p>
 <ul>
@@ -330,7 +330,8 @@ equation
 <p>(no remarks) </p>
 <h4><span style=\"color: #008000\">References</span></h4>
 <p>(no remarks) </p>
-<p><b><span style=\"color: #008000;\">Version History</span></b></p><p>Model created by Carsten Bode (c.bode@tuhh.de) in Apr 2017</p>
+<h4><span style=\"color: #008000\">Version History</span></h4>
+<p>Model created by Carsten Bode (c.bode@tuhh.de) in Apr 2017</p>
 <p>Model documented by Jan Westphal (j.westphal@tuhh.de) in August 2025</p>
 </html>"),Icon(graphics));
 end PumpVLE_L1_simple;

@@ -144,7 +144,7 @@ equation
           preserveAspectRatio=false, extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Purpose of model</span></b></p>
-<p><span style=\"font-family: MS Shell Dlg 2;\">A model of a pump that is used to regulate a fixed pressure difference in a hydraulic grid. A constant pressure difference (dp_target) can be set by the user. The pressure difference is measured with two pressure sensors before and after the pump. A PI-Controler is used to set the power of the pump so that the target pressure difference is kept. The pump model is from the ClaRa Library and documented there. Furthermore a similiar pump model is used in the TransiEnt Library and explained in the documentation here: </span></p>
+<p><span style=\"font-family: MS Shell Dlg 2;\">A model of a pump that is used to regulate a fixed pressure difference in a hydraulic grid. A constant pressure difference (dp_target) can be set by the user. The pressure difference is measured with two pressure sensors before and after the pump. A PI-Controler is used to set the power of the pump so that the target pressure difference is kept. The pump model is from the ClaRa Library and documented there. Furthermore, a similar pump model is used in the TransiEnt Library and explained in the documentation here: </span></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">TransiEnt.Components.Heat.PumpVLE_L1_simple</span></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">The PI-Controler is from the Modelica Standard Library. There are three other models with a similiar purpose located here: TransiEnt.Components.Heat.Grid</span></p>
 <h4><span style=\"color: #008c48\">Remarks for Usage</span></h4>

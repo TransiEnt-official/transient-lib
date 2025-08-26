@@ -38,7 +38,7 @@ model Pump "Pump model. Extends from ClaRa Pump_L2_shaftQuadratic"
           fillPattern=FillPattern.Solid,
           textString="L2")}), Documentation(info="<html>
 <h4><span style=\"color: #008000\">Purpose of model</span></h4>
-<p>This model is a combination of a fluid volume L2 and a pump model that can be used to calculate the efficiency and the needed power of a pump. It contains two fluid ports to model the fluid flow through the pump. Both fluid ports should be connected with a port that sets the pressure. The volume flow rate can then be calculated via the given pressure difference. &nbsp;A static mass and momentum balance are used. The specific enthalpy at the outlet of the pump is calculated via an isentropic dependence. There are no changes of composition in this component. The model does not support flow reversal. </p>
+<p>This model is a combination of a fluid volume L2 and a pump model that can be used to calculate the efficiency and the needed power of a pump. It contains two fluid ports to model the fluid flow through the pump. Both fluid ports should be connected to a port that sets the pressure. The volume flow rate can then be calculated via the given pressure difference. &nbsp;A static mass and momentum balance is used. The specific enthalpy at the outlet of the pump is calculated via an isentropic dependence. There are no changes in composition in this component. The model does not support flow reversal. </p>
 <h4><span style=\"color: #008000\">Level of detail, physical effects considered, and physical insight</span></h4>
 <p>L2 (defined in CodingConventions)</p>
 <ul>
