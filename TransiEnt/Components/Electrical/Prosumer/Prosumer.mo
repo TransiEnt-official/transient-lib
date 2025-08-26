@@ -332,6 +332,7 @@ model Prosumer
                                                                               annotation (Placement(transformation(extent={{-140,-160},{-120,-140}})));
   Modelica.Blocks.Sources.RealExpression Battery_power1(y=epp.P)              if useBattery
                                                                               annotation (Placement(transformation(extent={{-140,0},{-120,20}})));
+  Modelica.Blocks.Sources.BooleanExpression PV_bool(y=usePV) annotation (Placement(transformation(extent={{-140,-80},{-120,-60}})));
 equation
   // iterate over all BEVs
   for i in 1:num_BEVs loop
@@ -448,4 +449,9 @@ equation
   connect(genericTemperatureDataTableResource.Kelvin, heating.T_amb) annotation (Line(points={{-81,93},{34,93},{34,75.7143},{40.8571,75.7143}}, color={0,0,127}));
   connect(genericTemperatureDataTableResource.Celsius, PV.T_in) annotation (Line(points={{-81,87},{-30,87},{-30,38},{-22,38}}, color={0,0,127}));
   connect(BES_Controller.P_smartMeter, Battery_power1.y) annotation (Line(points={{-62,8},{-116,8},{-116,10},{-119,10}}, color={0,127,127}));
+  connect(PV_bool.y, controlBus.Configuration.PVActive) annotation (Line(points={{-119,-70},{-114,-70},{-114,-26},{-124,-26},{-124,0},{-100,0}}, color={255,0,255}), Text(
+      string="%second",
+      index=1,
+      extent={{6,3},{6,3}},
+      horizontalAlignment=TextAlignment.Left));
 end Prosumer;

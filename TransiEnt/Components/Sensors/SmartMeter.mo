@@ -131,7 +131,7 @@ model SmartMeter "Smart Meter model for realistic mesaurements"
         rotation=0,
         origin={-40,-92})));
   Modelica.Blocks.Math.Gain gain(k=900) if (configuration == "TAF7")
-                                        annotation (Placement(transformation(extent={{-64,-96},{-56,-88}})));
+                                        annotation (Placement(transformation(extent={{-58,-96},{-50,-88}})));
   Modelica.Blocks.Sources.RealExpression V_TAF_(y=V) if (configuration == "TAF7") or (configuration == "TAF10") annotation (Placement(transformation(extent={{-160,-40},{-140,-20}})));
   Modelica.Blocks.Sources.RealExpression I_TAF_(y=I) if (configuration == "TAF7") or (configuration == "TAF10") annotation (Placement(transformation(extent={{-160,-60},{-140,-40}})));
   Modelica.Blocks.Sources.RealExpression P_TAF_(y=P) if (configuration == "TAF7") or (configuration == "TAF10") annotation (Placement(transformation(extent={{-160,-80},{-140,-60}})));
@@ -190,8 +190,7 @@ model SmartMeter "Smart Meter model for realistic mesaurements"
         extent={{-6,-6},{6,6}},
         rotation=0,
         origin={-40,-52})));
-  Modelica.Blocks.Discrete.Sampler P_sampler_TAF7(samplePeriod=900)                            if (configuration == "TAF7")
-                                                                                                           annotation (Placement(transformation(
+  Modelica.Blocks.Discrete.Sampler P_sampler_TAF7(samplePeriod=900) if (configuration == "TAF7")           annotation (Placement(transformation(
         extent={{-6,-6},{6,6}},
         rotation=0,
         origin={-40,-72})));
@@ -227,6 +226,22 @@ public
   Modelica.Blocks.Nonlinear.VariableDelay variableDelay_I(delayMax=maxDelay) if useDelay annotation (Placement(transformation(extent={{10,30},{30,50}})));
   Modelica.Blocks.Nonlinear.VariableDelay variableDelay_Q(delayMax=maxDelay) if useDelay annotation (Placement(transformation(extent={{42,30},{62,50}})));
   Modelica.Blocks.Nonlinear.VariableDelay variableDelay_f(delayMax=maxDelay) if useDelay annotation (Placement(transformation(extent={{70,30},{90,50}})));
+  Modelica.Blocks.Sources.RealExpression Q_TAF(y=Q) if (configuration == "TAF7") or (configuration == "TAF10") annotation (Placement(transformation(
+        extent={{-10,-10},{10,10}},
+        rotation=0,
+        origin={-150,-130})));
+  Modelica.Blocks.Math.Mean Q_mean(f=1/900) if (configuration == "TAF7") annotation (Placement(transformation(
+        extent={{-6,-6},{6,6}},
+        rotation=0,
+        origin={-74,-100})));
+  Modelica.Blocks.Discrete.Sampler Q_sampler_TAF(samplePeriod=900) if (configuration == "TAF7") annotation (Placement(transformation(
+        extent={{-6,-6},{6,6}},
+        rotation=0,
+        origin={-40,-110})));
+  Modelica.Blocks.Discrete.Sampler Q_sampler_TAF10(samplePeriod=60) if (configuration == "TAF10") annotation (Placement(transformation(
+        extent={{-6,-6},{6,6}},
+        rotation=0,
+        origin={80,-80})));
 algorithm
   when initial() then
     state128 := Modelica.Math.Random.Generators.Xorshift128plus.initialState(
@@ -279,8 +294,8 @@ equation
       points={{-100,0},{92,0}},
       color={28,108,200},
       thickness=0.5));
-  connect(gain.y, E_sampler_TAF7.u) annotation (Line(points={{-55.6,-92},{-47.2,-92}}, color={0,0,127}));
-  connect(P_mean.y, gain.u) annotation (Line(points={{-67.4,-80},{-64.8,-80},{-64.8,-92}}, color={0,0,127}));
+  connect(gain.y, E_sampler_TAF7.u) annotation (Line(points={{-49.6,-92},{-47.2,-92}}, color={0,0,127}));
+  connect(P_mean.y, gain.u) annotation (Line(points={{-67.4,-80},{-58.8,-80},{-58.8,-92}}, color={0,0,127}));
   connect(P_sampler_TAF7.u, P_mean.y) annotation (Line(points={{-47.2,-72},{-62,-72},{-62,-80},{-67.4,-80}}, color={0,0,127}));
   connect(I_sampler_TAF7.u, I_mean.y) annotation (Line(points={{-47.2,-52},{-62,-52},{-62,-60},{-67.4,-60}}, color={0,0,127}));
   connect(V_sampler_TAF7.u, V_mean.y) annotation (Line(points={{-47.2,-32},{-62,-32},{-62,-40},{-67.4,-40}}, color={0,0,127}));
@@ -289,7 +304,8 @@ equation
   connect(P_TAF_.y, P_mean.u) annotation (Line(points={{-139,-70},{-86,-70},{-86,-80},{-81.2,-80}}, color={0,0,127}));
   connect(V_sampler_TAF10.u, V_TAF_.y) annotation (Line(points={{32.8,-40},{-28,-40},{-28,-22},{-130,-22},{-130,-30},{-139,-30}}, color={0,0,127}));
   connect(I_sampler_TAF10.u, I_TAF_.y) annotation (Line(points={{32.8,-60},{-28,-60},{-28,-42},{-62,-42},{-62,-50},{-139,-50}}, color={0,0,127}));
-  connect(delta_sampler_TAF10.u, delta_TAF_.y) annotation (Line(points={{32.8,-80},{-30,-80},{-30,-110},{-139,-110}}, color={0,0,127}));
+  connect(delta_sampler_TAF10.u, delta_TAF_.y) annotation (Line(points={{32.8,-80},{-30,-80},{-30,-118},{-84,-118},{-84,-110},{-139,-110}},
+                                                                                                                      color={0,0,127}));
   connect(f_sampler_TAF10.u, f_TAF_.y) annotation (Line(points={{72.8,-40},{52,-40},{52,-94},{-28,-94},{-28,-102},{-134,-102},{-134,-90},{-139,-90}}, color={0,0,127}));
   connect(P_sampler_TAF10.u, P_TAF_.y) annotation (Line(points={{72.8,-60},{50,-60},{50,-70},{-30,-70},{-30,-62},{-62,-62},{-62,-70},{-139,-70}}, color={0,0,127}));
   connect(I_sampler_TAF7.y, controlBus.I) annotation (Line(points={{-33.4,-52},{-20,-52},{-20,-92},{2,-92},{2,-98},{0,-98},{0,-68}},  color={0,0,127}), Text(
@@ -349,6 +365,19 @@ equation
   connect(f_.y, variableDelay_f.u) annotation (Line(points={{119,-90},{92,-90},{92,-16},{72,-16},{72,22},{70,22},{70,26},{68,26},{68,40}}, color={0,0,127}));
   connect(delta_.y, variableDelay_delta.u) annotation (Line(points={{119,-110},{112,-110},{112,-72},{110,-72},{110,-68},{114,-68},{114,74},{98,74},{98,88},{70,88},{70,86},{68,86},{68,70}}, color={0,0,127}));
   connect(Q_.y, variableDelay_Q.u) annotation (Line(points={{119,-130},{108,-130},{108,-52},{90,-52},{90,-18},{68,-18},{68,20},{40,20},{40,40}}, color={0,0,127}));
+  connect(Q_mean.u, Q_TAF.y) annotation (Line(points={{-81.2,-100},{-84,-100},{-84,-130},{-139,-130}}, color={0,0,127}));
+  connect(Q_mean.y, Q_sampler_TAF.u) annotation (Line(points={{-67.4,-100},{-50,-100},{-50,-110},{-47.2,-110}}, color={0,0,127}));
+  connect(Q_sampler_TAF.y, controlBus.Q) annotation (Line(points={{-33.4,-110},{0,-110},{0,-68}}, color={0,0,127}), Text(
+      string="%second",
+      index=1,
+      extent={{6,3},{6,3}},
+      horizontalAlignment=TextAlignment.Left));
+  connect(Q_sampler_TAF10.y, controlBus.Q) annotation (Line(points={{86.6,-80},{94,-80},{94,-92},{56,-92},{56,-100},{0,-100},{0,-68}}, color={0,0,127}), Text(
+      string="%second",
+      index=1,
+      extent={{-6,3},{-6,3}},
+      horizontalAlignment=TextAlignment.Right));
+  connect(Q_sampler_TAF10.u, Q_TAF.y) annotation (Line(points={{72.8,-80},{68,-80},{68,-130},{-139,-130}}, color={0,0,127}));
    annotation (Line(points={{119,-130},{24,-130},{24,-144},{0,-144},{0,-68}},  color={0,0,127}), Text(
       string="%second",
       index=1,
@@ -390,7 +419,7 @@ equation
           textColor={0,149,152},
           textString="TAF 10"),
         Rectangle(
-          extent={{-100,-20},{-2,-100}},
+          extent={{-100,-20},{-12,-120}},
           lineColor={0,149,152},
           pattern=LinePattern.Dash,
           lineThickness=0.5),
@@ -399,7 +428,7 @@ equation
           textColor={0,149,152},
           textString="TAF 7"),
         Rectangle(
-          extent={{-170,0},{-114,-136}},
+          extent={{-170,0},{-114,-140}},
           lineColor={0,149,152},
           pattern=LinePattern.Dash,
           lineThickness=0.5),
