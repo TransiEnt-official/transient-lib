@@ -1,4 +1,4 @@
-within TransiEnt.Consumer.Heat.ThermalHeatConsumer_L3;
+﻿within TransiEnt.Consumer.Heat.ThermalHeatConsumer_L3;
 model HeatTransfer_EN442 "EN4442_2"
 
 

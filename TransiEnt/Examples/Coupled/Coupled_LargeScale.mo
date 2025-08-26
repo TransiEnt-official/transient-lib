@@ -1,4 +1,4 @@
-within TransiEnt.Examples.Coupled;
+﻿within TransiEnt.Examples.Coupled;
 model Coupled_LargeScale "Coupled small-scale example with CPP and meshed electric power grid"
 
 

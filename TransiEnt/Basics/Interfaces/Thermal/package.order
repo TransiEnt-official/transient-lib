@@ -4,3 +4,5 @@ FluidPortMSL
 FluidPortOut
 HeatFlowRateIn
 HeatFlowRateOut
+inlet
+outlet
