@@ -55,7 +55,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={-400,340})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe64_66(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe64_66(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -63,7 +63,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={-404,312})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe64_66R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe64_66R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -72,7 +72,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-390,312})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe65_67R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe65_67R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -81,7 +81,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-404,186})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe65_67(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe65_67(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -97,13 +97,13 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=0,
         origin={-404,214})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe65_68R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe65_68R(
     d=0.08,
     m_flow_nom=5.86,
     l=25,
     MassFlowState=false,
     N_cv=5) annotation (Placement(transformation(extent={{-340,242},{-320,262}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe65_68(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe65_68(
     d=0.08,
     m_flow_nom=5.86,
     l=25,
@@ -131,7 +131,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={-288,338})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe68_70(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe68_70(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
@@ -139,7 +139,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={-292,310})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe68_70R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe68_70R(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
@@ -148,7 +148,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-278,310})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe69_71R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe69_71R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -157,7 +157,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-292,184})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe69_71(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe69_71(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -187,7 +187,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={-194,338})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe72_74(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe72_74(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -195,7 +195,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={-198,310})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe72_74R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe72_74R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -204,7 +204,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-184,310})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe73_75R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe73_75R(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
@@ -213,7 +213,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-198,184})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe73_75(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe73_75(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
@@ -229,25 +229,25 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=0,
         origin={-198,212})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe69_72R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe69_72R(
     d=0.1,
     m_flow_nom=6.28,
     l=25,
     MassFlowState=false,
     N_cv=5) annotation (Placement(transformation(extent={{-238,242},{-218,262}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe69_72(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe69_72(
     d=0.1,
     m_flow_nom=6.28,
     l=25,
     MassFlowState=false,
     N_cv=5) annotation (Placement(transformation(extent={{-218,228},{-238,248}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe73_76R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe73_76R(
     d=0.1,
     m_flow_nom=6.69,
     l=25,
     MassFlowState=false,
     N_cv=5) annotation (Placement(transformation(extent={{-136,242},{-116,262}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe73_76(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe73_76(
     d=0.1,
     m_flow_nom=6.69,
     l=25,
@@ -283,7 +283,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={-102,336})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe76_78(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe76_78(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
@@ -291,7 +291,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={-106,308})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe76_78R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe76_78R(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
@@ -300,7 +300,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-92,308})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe77_79R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe77_79R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -309,7 +309,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-106,182})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe77_79(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe77_79(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -325,12 +325,12 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=0,
         origin={-106,210})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe77_80R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe77_80R(
     d=0.1,
     m_flow_nom=7.11,
     l=50,
     MassFlowState=false) annotation (Placement(transformation(extent={{-44,240},{-24,260}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe77_80(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe77_80(
     d=0.1,
     m_flow_nom=7.11,
     l=50,
@@ -351,13 +351,13 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={18,250})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe80_81R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe80_81R(
     d=0.8,
     m_flow_nom=4.6,
     l=50,
     MassFlowState=false,
     N_cv=10) annotation (Placement(transformation(extent={{78,240},{58,260}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe80_81(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe80_81(
     d=0.08,
     m_flow_nom=4.6,
     l=50,
@@ -377,7 +377,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={100,336})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe81_83(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe81_83(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -385,7 +385,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={96,308})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe81_83R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe81_83R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -394,7 +394,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={110,308})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe82_84R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe82_84R(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
@@ -403,7 +403,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={96,182})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe82_84(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe82_84(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
@@ -427,13 +427,13 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={96,282})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe82_85R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe82_85R(
     d=0.08,
     m_flow_nom=4.18,
     l=25,
     MassFlowState=false,
     N_cv=5) annotation (Placement(transformation(extent={{168,242},{148,262}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe82_85(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe82_85(
     d=0.08,
     m_flow_nom=4.18,
     l=25,
@@ -453,7 +453,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={190,334})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe85_87(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe85_87(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
@@ -461,7 +461,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={186,306})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe85_87R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe85_87R(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
@@ -470,7 +470,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={200,306})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe86_88R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe86_88R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -479,7 +479,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={186,178})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe86_88(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe86_88(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -503,13 +503,13 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={186,280})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe86_89R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe86_89R(
     d=0.08,
     m_flow_nom=3.77,
     l=25,
     MassFlowState=false,
     N_cv=5) annotation (Placement(transformation(extent={{258,240},{238,260}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe86_89(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe86_89(
     d=0.08,
     m_flow_nom=3.77,
     l=25,
@@ -529,7 +529,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={284,332})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe89_91(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe89_91(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -537,7 +537,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={280,304})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe89_91R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe89_91R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -546,7 +546,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={294,304})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe90_92R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe90_92R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -555,7 +555,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={280,178})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe90_92(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe90_92(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -579,13 +579,13 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={280,278})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe90_93R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe90_93R(
     d=0.65,
     m_flow_nom=3.49,
     l=25,
     MassFlowState=false,
     N_cv=5) annotation (Placement(transformation(extent={{360,234},{340,254}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe90_93(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe90_93(
     d=0.65,
     m_flow_nom=3.49,
     l=25,
@@ -604,7 +604,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={382,326})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe93_95(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe93_95(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -612,7 +612,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={378,298})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe93_95R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe93_95R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -621,7 +621,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={392,298})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe94_96R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe94_96R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -630,7 +630,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={378,172})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe94_96(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe94_96(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -661,12 +661,12 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=0,
         origin={-460,80})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe57_59(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe57_59(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
     N_cv=6) annotation (Placement(transformation(extent={{-500,74},{-480,94}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe57_59R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe57_59R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -687,13 +687,13 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=180,
         origin={-648,73})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe56_58R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe56_58R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
     MassFlowState=false,
     N_cv=6) annotation (Placement(transformation(extent={{-626,75},{-606,94}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe56_58(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe56_58(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -706,7 +706,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-590,85})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe61_64(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe61_64(
     d=0.08,
     m_flow_nom=5.58,
     l=50,
@@ -715,7 +715,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=90,
         origin={-542,212})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe61_64R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe61_64R(
     d=0.08,
     m_flow_nom=5.58,
     l=50,
@@ -724,7 +724,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-560,212})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe53_56(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe53_56(
     d=0.08,
     m_flow_nom=5.02,
     l=25,
@@ -733,7 +733,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=90,
         origin={-540,30})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe53_56R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe53_56R(
     d=0.08,
     m_flow_nom=5.02,
     l=25,
@@ -749,12 +749,12 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=0,
         origin={-460,-8})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe53_55(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe53_55(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
     N_cv=6) annotation (Placement(transformation(extent={{-500,-14},{-480,6}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe53_55R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe53_55R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -775,13 +775,13 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=180,
         origin={-648,-13})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe52_54R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe52_54R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
     MassFlowState=false,
     N_cv=6) annotation (Placement(transformation(extent={{-626,-13},{-606,6}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe52_54(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe52_54(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -794,7 +794,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-590,-3})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe49_52(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe49_52(
     d=0.08,
     m_flow_nom=4.74,
     l=25,
@@ -803,7 +803,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=90,
         origin={-540,-58})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe49_52R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe49_52R(
     d=0.08,
     m_flow_nom=4.74,
     l=25,
@@ -819,12 +819,12 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=0,
         origin={-458,-98})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe49_51(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe49_51(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
     N_cv=6) annotation (Placement(transformation(extent={{-498,-104},{-478,-84}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe49_51R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe49_51R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -845,13 +845,13 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=180,
         origin={-646,-103})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe48_50R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe48_50R(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
     MassFlowState=false,
     N_cv=6) annotation (Placement(transformation(extent={{-624,-103},{-604,-84}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe48_50(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe48_50(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
@@ -864,7 +864,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-588,-93})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe45_48(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe45_48(
     d=0.08,
     m_flow_nom=4.32,
     l=25,
@@ -873,7 +873,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=90,
         origin={-538,-148})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe45_48R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe45_48R(
     d=0.08,
     m_flow_nom=4.32,
     l=25,
@@ -889,12 +889,12 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=0,
         origin={-458,-186})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe45_47(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe45_47(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
     N_cv=6) annotation (Placement(transformation(extent={{-498,-192},{-478,-172}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe45_47R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe45_47R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -915,13 +915,13 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=180,
         origin={-646,-191})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe44_46R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe44_46R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
     MassFlowState=false,
     N_cv=6) annotation (Placement(transformation(extent={{-624,-191},{-604,-172}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe44_46(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe44_46(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -934,7 +934,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-588,-181})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe41_44(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe41_44(
     d=0.08,
     m_flow_nom=4.04,
     l=25,
@@ -943,7 +943,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=90,
         origin={-538,-236})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe41_44R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe41_44R(
     d=0.08,
     m_flow_nom=4.04,
     l=25,
@@ -959,12 +959,12 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=0,
         origin={-454,-280})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe41_43(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe41_43(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
     N_cv=6) annotation (Placement(transformation(extent={{-494,-286},{-474,-266}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe41_43R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe41_43R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -985,13 +985,13 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=180,
         origin={-642,-285})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe40_42R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe40_42R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
     MassFlowState=false,
     N_cv=6) annotation (Placement(transformation(extent={{-620,-285},{-600,-266}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe40_42(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe40_42(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -1004,7 +1004,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-584,-275})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe37_40(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe37_40(
     d=0.08,
     m_flow_nom=3.77,
     l=25,
@@ -1013,7 +1013,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=90,
         origin={-534,-330})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe37_40R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe37_40R(
     d=0.08,
     m_flow_nom=3.77,
     l=25,
@@ -1029,12 +1029,12 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=0,
         origin={-454,-368})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe37_39(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe37_39(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
     N_cv=6) annotation (Placement(transformation(extent={{-494,-374},{-474,-354}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe37_39R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe37_39R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -1055,13 +1055,13 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=180,
         origin={-642,-373})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe36_38R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe36_38R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
     MassFlowState=false,
     N_cv=6) annotation (Placement(transformation(extent={{-620,-373},{-600,-354}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe36_38(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe36_38(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -1074,7 +1074,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-584,-363})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe33_36(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe33_36(
     d=0.065,
     m_flow_nom=3.49,
     l=25,
@@ -1083,7 +1083,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=90,
         origin={-534,-418})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe33_36R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe33_36R(
     d=0.065,
     m_flow_nom=3.49,
     l=25,
@@ -1099,12 +1099,12 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=0,
         origin={-452,-458})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe33_35(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe33_35(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
     N_cv=6) annotation (Placement(transformation(extent={{-492,-464},{-472,-444}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe33_35R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe33_35R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -1125,13 +1125,13 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=180,
         origin={-642,-463})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe32_34R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe32_34R(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
     MassFlowState=false,
     N_cv=6) annotation (Placement(transformation(extent={{-618,-463},{-598,-444}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe32_34(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe32_34(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
@@ -1144,7 +1144,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-582,-453})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe29_32(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe29_32(
     d=0.065,
     m_flow_nom=3.07,
     l=25,
@@ -1153,7 +1153,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=90,
         origin={-530,-508})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe29_32R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe29_32R(
     d=0.065,
     m_flow_nom=3.07,
     l=25,
@@ -1169,12 +1169,12 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=0,
         origin={-452,-546})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe29_31(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe29_31(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
     N_cv=6) annotation (Placement(transformation(extent={{-492,-552},{-472,-532}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe29_31R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe29_31R(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
@@ -1195,13 +1195,13 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=180,
         origin={-640,-553})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe28_30R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe28_30R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
     MassFlowState=false,
     N_cv=6) annotation (Placement(transformation(extent={{-618,-551},{-598,-532}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe28_30(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe28_30(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -1214,7 +1214,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-582,-541})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe25_28(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe25_28(
     d=0.065,
     m_flow_nom=2.7,
     l=25,
@@ -1223,7 +1223,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=90,
         origin={-532,-596})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe25_28R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe25_28R(
     d=0.065,
     m_flow_nom=2.65,
     l=25,
@@ -1239,12 +1239,12 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=0,
         origin={-452,-668})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe25_27(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe25_27(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
     N_cv=6) annotation (Placement(transformation(extent={{-492,-672},{-472,-652}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe25_27R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe25_27R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -1265,13 +1265,13 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=180,
         origin={-640,-671})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe24_26R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe24_26R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
     MassFlowState=false,
     N_cv=6) annotation (Placement(transformation(extent={{-618,-671},{-598,-652}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe24_26(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe24_26(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -1284,7 +1284,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-582,-661})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe21_24(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe21_24(
     d=0.065,
     m_flow_nom=2.37,
     l=25,
@@ -1293,7 +1293,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=90,
         origin={-534,-716})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe21_24R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe21_24R(
     d=0.065,
     m_flow_nom=2.37,
     l=25,
@@ -1309,12 +1309,12 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=0,
         origin={-452,-754})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe21_23(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe21_23(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
     N_cv=6) annotation (Placement(transformation(extent={{-492,-760},{-472,-740}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe21_23R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe21_23R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -1335,13 +1335,13 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=180,
         origin={-640,-759})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe20_22R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe20_22R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
     MassFlowState=false,
     N_cv=6) annotation (Placement(transformation(extent={{-618,-759},{-598,-740}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe20_22(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe20_22(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -1354,7 +1354,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-582,-749})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe17_20(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe17_20(
     d=0.065,
     m_flow_nom=2.09,
     l=25,
@@ -1363,7 +1363,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=90,
         origin={-534,-804})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe17_20R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe17_20R(
     d=0.065,
     m_flow_nom=2.09,
     l=25,
@@ -1379,12 +1379,12 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=0,
         origin={-450,-844})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe17_19(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe17_19(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
     N_cv=6) annotation (Placement(transformation(extent={{-490,-850},{-470,-830}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe17_19R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe17_19R(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
@@ -1405,13 +1405,13 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=180,
         origin={-638,-849})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe16_18R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe16_18R(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
     MassFlowState=false,
     N_cv=6) annotation (Placement(transformation(extent={{-616,-849},{-596,-830}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe16_18(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe16_18(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
@@ -1424,7 +1424,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-580,-839})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe13_16(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe13_16(
     d=0.05,
     m_flow_nom=1.53,
     l=25,
@@ -1433,7 +1433,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=90,
         origin={-532,-894})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe13_16R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe13_16R(
     d=0.05,
     m_flow_nom=1.53,
     l=25,
@@ -1449,12 +1449,12 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=0,
         origin={-446,-938})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe13_15(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe13_15(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
     N_cv=6) annotation (Placement(transformation(extent={{-486,-944},{-466,-924}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe13_15R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe13_15R(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
@@ -1475,13 +1475,13 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=180,
         origin={-634,-943})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe12_14R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe12_14R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
     MassFlowState=false,
     N_cv=6) annotation (Placement(transformation(extent={{-612,-943},{-592,-924}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe12_14(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe12_14(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -1494,7 +1494,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-576,-933})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe9_12(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe9_12(
     d=0.05,
     m_flow_nom=1.12,
     l=25,
@@ -1503,7 +1503,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=90,
         origin={-528,-988})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe9_12R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe9_12R(
     d=0.05,
     m_flow_nom=1.12,
     l=25,
@@ -1519,11 +1519,11 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=0,
         origin={-446,-1026})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe9_11(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe9_11(
     d=0.02,
     l=30,
     N_cv=6) annotation (Placement(transformation(extent={{-486,-1032},{-466,-1012}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe9_11R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe9_11R(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
@@ -1544,13 +1544,13 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=180,
         origin={-634,-1031})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe8_10R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe8_10R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
     MassFlowState=false,
     N_cv=6) annotation (Placement(transformation(extent={{-612,-1031},{-592,-1012}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe8_10(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe8_10(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -1563,7 +1563,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-576,-1021})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe5_8(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe5_8(
     d=0.032,
     m_flow_nom=0.7,
     l=25,
@@ -1572,7 +1572,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=90,
         origin={-528,-1076})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe5_8R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe5_8R(
     d=0.032,
     m_flow_nom=0.7,
     l=25,
@@ -1588,12 +1588,12 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=0,
         origin={-444,-1116})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe5_7(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe5_7(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
     N_cv=6) annotation (Placement(transformation(extent={{-484,-1122},{-464,-1102}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe5_7R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe5_7R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -1614,13 +1614,13 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=180,
         origin={-632,-1121})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe4_6R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe4_6R(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
     MassFlowState=false,
     N_cv=6) annotation (Placement(transformation(extent={{-610,-1121},{-590,-1102}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe4_6(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe4_6(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
@@ -1633,7 +1633,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-574,-1111})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe2_4(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe2_4(
     d=0.032,
     m_flow_nom=0.28,
     l=25,
@@ -1642,7 +1642,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=90,
         origin={-526,-1166})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe2_4R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe2_4R(
     d=0.032,
     m_flow_nom=0.28,
     l=25,
@@ -1658,12 +1658,12 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=0,
         origin={-444,-1204})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe2_3(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe2_3(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
     N_cv=6) annotation (Placement(transformation(extent={{-484,-1210},{-464,-1190}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe2_3R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe2_3R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -1676,13 +1676,13 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=180,
         origin={-632,-1209})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe1_2R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe1_2R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
     MassFlowState=false,
     N_cv=6) annotation (Placement(transformation(extent={{-610,-1209},{-590,-1190}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe1_2(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe1_2(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -1702,12 +1702,12 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=0,
         origin={734,180})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe97_99(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe97_99(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
     N_cv=6) annotation (Placement(transformation(extent={{694,174},{714,194}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe97_99R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe97_99R(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
@@ -1728,13 +1728,13 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=180,
         origin={546,175})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe98_100R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe98_100R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
     MassFlowState=false,
     N_cv=6) annotation (Placement(transformation(extent={{568,175},{588,194}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe98_100(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe98_100(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -1747,7 +1747,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={604,185})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe98_101(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe98_101(
     d=0.065,
     m_flow_nom=2.79,
     l=25,
@@ -1756,7 +1756,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=90,
         origin={652,130})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe98_101R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe98_101R(
     d=0.065,
     m_flow_nom=2.79,
     l=25,
@@ -1772,12 +1772,12 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=0,
         origin={734,92})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe101_103(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe101_103(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
     N_cv=6) annotation (Placement(transformation(extent={{694,86},{714,106}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe101_103R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe101_103R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -1798,13 +1798,13 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=180,
         origin={546,87})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe102_104R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe102_104R(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
     MassFlowState=false,
     N_cv=6) annotation (Placement(transformation(extent={{568,87},{588,106}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe102_104(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe102_104(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
@@ -1817,7 +1817,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={604,97})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe102_105(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe102_105(
     d=0.065,
     m_flow_nom=2.37,
     l=25,
@@ -1826,7 +1826,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=90,
         origin={652,42})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe102_105R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe102_105R(
     d=0.065,
     m_flow_nom=2.37,
     l=25,
@@ -1842,12 +1842,12 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=0,
         origin={736,2})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe105_107(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe105_107(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
     N_cv=6) annotation (Placement(transformation(extent={{696,-4},{716,16}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe105_107R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe105_107R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -1868,13 +1868,13 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=180,
         origin={548,-3})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe106_108R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe106_108R(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
     MassFlowState=false,
     N_cv=6) annotation (Placement(transformation(extent={{570,-3},{590,16}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe106_108(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe106_108(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
@@ -1887,7 +1887,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={606,7})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe106_109(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe106_109(
     d=0.065,
     m_flow_nom=1.95,
     l=25,
@@ -1896,7 +1896,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=90,
         origin={654,-48})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe106_109R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe106_109R(
     d=0.065,
     m_flow_nom=1.95,
     l=25,
@@ -1912,12 +1912,12 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=0,
         origin={736,-86})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe109_111(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe109_111(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
     N_cv=6) annotation (Placement(transformation(extent={{696,-92},{716,-72}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe109_111R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe109_111R(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
@@ -1938,13 +1938,13 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=180,
         origin={548,-91})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe110_112R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe110_112R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
     MassFlowState=false,
     N_cv=6) annotation (Placement(transformation(extent={{570,-91},{590,-72}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe110_112(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe110_112(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -1957,7 +1957,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={606,-81})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe110_113(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe110_113(
     d=0.05,
     m_flow_nom=1.53,
     l=25,
@@ -1966,7 +1966,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=90,
         origin={654,-136})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe110_113R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe110_113R(
     d=0.05,
     m_flow_nom=1.53,
     l=25,
@@ -1982,12 +1982,12 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=0,
         origin={740,-180})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe113_115(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe113_115(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
     N_cv=6) annotation (Placement(transformation(extent={{700,-186},{720,-166}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe113_115R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe113_115R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -2008,13 +2008,13 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=180,
         origin={552,-185})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe114_116R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe114_116R(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
     MassFlowState=false,
     N_cv=6) annotation (Placement(transformation(extent={{574,-185},{594,-166}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe114_116(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe114_116(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
@@ -2027,7 +2027,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={610,-175})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe114_117(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe114_117(
     d=0.05,
     m_flow_nom=1.12,
     l=25,
@@ -2036,7 +2036,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=90,
         origin={658,-230})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe114_117R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe114_117R(
     d=0.05,
     m_flow_nom=1.12,
     l=25,
@@ -2052,12 +2052,12 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=0,
         origin={740,-268})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe117_119(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe117_119(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
     N_cv=6) annotation (Placement(transformation(extent={{700,-274},{720,-254}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe117_199R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe117_199R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -2078,13 +2078,13 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=180,
         origin={552,-273})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe118_120R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe118_120R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
     MassFlowState=false,
     N_cv=6) annotation (Placement(transformation(extent={{574,-273},{594,-254}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe118_120(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe118_120(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -2097,7 +2097,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={610,-263})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe118_121(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe118_121(
     d=0.065,
     m_flow_nom=0.84,
     l=25,
@@ -2106,7 +2106,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=90,
         origin={658,-318})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe118_121R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe118_121R(
     d=0.05,
     m_flow_nom=0.84,
     l=25,
@@ -2122,12 +2122,12 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=0,
         origin={742,-358})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe121_123(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe121_123(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
     N_cv=6) annotation (Placement(transformation(extent={{702,-364},{722,-344}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe121_123R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe121_123R(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
@@ -2148,13 +2148,13 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=180,
         origin={554,-363})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe122_124R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe122_124R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
     MassFlowState=false,
     N_cv=6) annotation (Placement(transformation(extent={{574,-365},{594,-346}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe122_124(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe122_124(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -2167,7 +2167,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={612,-353})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe122_125(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe122_125(
     d=0.032,
     m_flow_nom=0.28,
     l=25,
@@ -2176,7 +2176,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=90,
         origin={660,-408})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe122_125R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe122_125R(
     d=0.032,
     m_flow_nom=0.28,
     l=25,
@@ -2192,12 +2192,12 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=0,
         origin={742,-446})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe125_127(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe125_127(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
     N_cv=6) annotation (Placement(transformation(extent={{702,-452},{722,-432}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe125_127R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe125_127R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -2218,13 +2218,13 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=180,
         origin={554,-451})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe126_128R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe126_128R(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
     MassFlowState=false,
     N_cv=6) annotation (Placement(transformation(extent={{576,-451},{596,-432}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe126_128(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe126_128(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
@@ -2237,7 +2237,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={612,-441})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe126_129(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe126_129(
     d=0.065,
     m_flow_nom=2,
     l=25,
@@ -2246,7 +2246,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=90,
         origin={660,-496})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe126_129R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe126_129R(
     d=0.065,
     m_flow_nom=2,
     l=25,
@@ -2262,12 +2262,12 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=0,
         origin={742,-566})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe129_131(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe129_131(
     d=0.032,
     m_flow_nom=0.028,
     l=30,
     N_cv=6) annotation (Placement(transformation(extent={{702,-572},{722,-552}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe129_131R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe129_131R(
     d=0.032,
     m_flow_nom=0.028,
     l=30,
@@ -2288,13 +2288,13 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=180,
         origin={554,-571})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe130_132R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe130_132R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
     MassFlowState=false,
     N_cv=6) annotation (Placement(transformation(extent={{576,-571},{596,-552}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe130_132(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe130_132(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -2307,7 +2307,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={612,-561})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe130_133(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe130_133(
     d=0.065,
     m_flow_nom=2.79,
     l=25,
@@ -2316,7 +2316,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=90,
         origin={660,-616})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe130_133R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe130_133R(
     d=0.065,
     m_flow_nom=2.79,
     l=25,
@@ -2332,12 +2332,12 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=0,
         origin={742,-654})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe133_135(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe133_135(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
     N_cv=6) annotation (Placement(transformation(extent={{702,-660},{722,-640}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe133_135R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe133_135R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -2358,13 +2358,13 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=180,
         origin={554,-659})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe134_136R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe134_136R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
     MassFlowState=false,
     N_cv=6) annotation (Placement(transformation(extent={{576,-659},{596,-640}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe134_136(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe134_136(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -2377,7 +2377,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={612,-649})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe134_137(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe134_137(
     d=0.065,
     m_flow_nom=2.51,
     l=25,
@@ -2386,7 +2386,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=90,
         origin={660,-704})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe134_137R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe134_137R(
     d=0.065,
     m_flow_nom=2.51,
     l=25,
@@ -2402,12 +2402,12 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=0,
         origin={744,-744})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe137_139(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe137_139(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
     N_cv=6) annotation (Placement(transformation(extent={{704,-750},{724,-730}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe137_139R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe137_139R(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
@@ -2428,13 +2428,13 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=180,
         origin={556,-749})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe138_140R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe138_140R(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
     MassFlowState=false,
     N_cv=6) annotation (Placement(transformation(extent={{578,-749},{598,-730}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe138_140(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe138_140(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
@@ -2447,7 +2447,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={614,-739})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe138_141(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe138_141(
     d=0.065,
     m_flow_nom=1.95,
     l=25,
@@ -2456,7 +2456,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=90,
         origin={662,-794})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe18_141R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe18_141R(
     d=0.065,
     m_flow_nom=1.95,
     l=25,
@@ -2472,12 +2472,12 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=0,
         origin={744,-832})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe141_143(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe141_143(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
     N_cv=6) annotation (Placement(transformation(extent={{704,-838},{724,-818}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe141_143R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe141_143R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -2498,13 +2498,13 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=180,
         origin={556,-837})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe142_144R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe142_144R(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
     MassFlowState=false,
     N_cv=6) annotation (Placement(transformation(extent={{578,-837},{598,-818}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe142_144(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe142_144(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -2517,7 +2517,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={614,-827})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe142_145(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe142_145(
     d=0.05,
     m_flow_nom=1.53,
     l=25,
@@ -2526,7 +2526,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=90,
         origin={662,-882})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe142_145R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe142_145R(
     d=0.05,
     m_flow_nom=1.53,
     l=25,
@@ -2542,12 +2542,12 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=0,
         origin={748,-926})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe145_147(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe145_147(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
     N_cv=6) annotation (Placement(transformation(extent={{708,-932},{728,-912}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe145_147R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe145_147R(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
@@ -2568,13 +2568,13 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=180,
         origin={560,-931})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe146_148R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe146_148R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
     MassFlowState=false,
     N_cv=6) annotation (Placement(transformation(extent={{582,-931},{602,-912}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe146_148(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe146_148(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -2587,7 +2587,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={618,-921})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe146_149(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe146_149(
     d=0.05,
     m_flow_nom=1.12,
     l=25,
@@ -2596,7 +2596,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=90,
         origin={666,-976})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe146_149R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe146_149R(
     d=0.05,
     m_flow_nom=1.12,
     l=25,
@@ -2612,12 +2612,12 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=0,
         origin={748,-1014})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe149_151(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe149_151(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
     N_cv=6) annotation (Placement(transformation(extent={{708,-1020},{728,-1000}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe149_151R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe149_151R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -2638,13 +2638,13 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=180,
         origin={560,-1019})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe150_152R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe150_152R(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
     MassFlowState=false,
     N_cv=6) annotation (Placement(transformation(extent={{582,-1019},{602,-1000}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe150_152(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe150_152(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
@@ -2657,7 +2657,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={618,-1009})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe150_153(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe150_153(
     d=0.032,
     m_flow_nom=0.7,
     l=25,
@@ -2666,7 +2666,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=90,
         origin={666,-1064})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe150_153R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe150_153R(
     d=0.032,
     m_flow_nom=0.7,
     l=25,
@@ -2682,12 +2682,12 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=0,
         origin={750,-1104})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe153_155(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe153_155(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
     N_cv=6) annotation (Placement(transformation(extent={{710,-1110},{730,-1090}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe153_155R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe153_155R(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
@@ -2708,13 +2708,13 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=180,
         origin={562,-1109})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe154_156R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe154_156R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
     MassFlowState=false,
     N_cv=6) annotation (Placement(transformation(extent={{584,-1109},{604,-1090}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe154_156(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe154_156(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -2727,7 +2727,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={620,-1099})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe154_157(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe154_157(
     d=0.032,
     m_flow_nom=0.28,
     l=25,
@@ -2736,7 +2736,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=90,
         origin={668,-1154})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe154_157R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe154_157R(
     d=0.032,
     m_flow_nom=0.28,
     l=25,
@@ -2752,12 +2752,12 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=0,
         origin={750,-1192})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe157_159(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe157_159(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
     N_cv=6) annotation (Placement(transformation(extent={{710,-1198},{730,-1178}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe157_159R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe157_159R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -2770,13 +2770,13 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=180,
         origin={562,-1197})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe157_158R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe157_158R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
     MassFlowState=false,
     N_cv=6) annotation (Placement(transformation(extent={{584,-1197},{604,-1178}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe157_158(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe157_158(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -2789,24 +2789,24 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={620,-1187})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe94_97R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe94_97R(
     d=0.065,
     m_flow_nom=3.21,
     l=50,
     MassFlowState=false,
     N_cv=10) annotation (Placement(transformation(extent={{556,238},{536,258}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe94_97(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe94_97(
     d=0.065,
     m_flow_nom=3.21,
     l=50,
     MassFlowState=false,
     N_cv=10) annotation (Placement(transformation(extent={{536,222},{556,242}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe182_199R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe182_199R(
     d=0.032,
     l=50,
     MassFlowState=false,
     N_cv=10) annotation (Placement(transformation(extent={{76,-428},{56,-408}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe182_199(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe182_199(
     d=0.032,
     l=50,
     MassFlowState=false,
@@ -2825,7 +2825,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={100,-328})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe199_201(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe199_201(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -2833,7 +2833,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={94,-360})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe199_201R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe199_201R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -2842,7 +2842,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={108,-360})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe200_202R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe200_202R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -2851,7 +2851,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={94,-486})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe200_202(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe200_202(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -2875,13 +2875,13 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={94,-386})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe200_203R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe200_203R(
     d=0.08,
     m_flow_nom=4.04,
     l=25,
     MassFlowState=false,
     N_cv=5) annotation (Placement(transformation(extent={{168,-426},{148,-406}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe200_203(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe200_203(
     d=0.08,
     m_flow_nom=4.04,
     l=25,
@@ -2901,7 +2901,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={188,-334})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe203_205(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe203_205(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
@@ -2909,7 +2909,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={184,-362})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe203_205R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe203_205R(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
@@ -2918,7 +2918,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={198,-362})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe204_206R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe204_206R(
     d=0.02,
     l=30,
     MassFlowState=false,
@@ -2926,7 +2926,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={186,-490})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe204_206(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe204_206(
     d=0.02,
     l=30,
     N_cv=6) annotation (Placement(transformation(
@@ -2949,13 +2949,13 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={184,-388})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe204_207R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe204_207R(
     d=0.065,
     m_flow_nom=3.49,
     l=25,
     MassFlowState=false,
     N_cv=5) annotation (Placement(transformation(extent={{258,-428},{238,-408}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe204_207(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe204_207(
     d=0.065,
     m_flow_nom=3.49,
     l=25,
@@ -2975,7 +2975,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={282,-336})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe207_209(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe207_209(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -2983,7 +2983,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={278,-364})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe207_209R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe207_209R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -2992,7 +2992,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={292,-364})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe207_208R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe207_208R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -3001,7 +3001,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={278,-490})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe207_208(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe207_208(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -3017,13 +3017,13 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=0,
         origin={278,-462})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe227_247R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe227_247R(
     d=0.05,
     m_flow_nom=1.53,
     l=50,
     MassFlowState=false,
     N_cv=10) annotation (Placement(transformation(extent={{92,-1284},{72,-1264}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe227_247(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe227_247(
     d=0.05,
     m_flow_nom=1.53,
     l=50,
@@ -3043,7 +3043,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={114,-1188})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe247_249(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe247_249(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -3051,7 +3051,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={110,-1218})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe247_249R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe247_249R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -3060,7 +3060,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={124,-1218})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe248_250R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe248_250R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -3069,7 +3069,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={110,-1344})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe248_250(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe248_250(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -3093,13 +3093,13 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={110,-1242})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe248_251R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe248_251R(
     d=0.05,
     m_flow_nom=1.26,
     l=25,
     MassFlowState=false,
     N_cv=5) annotation (Placement(transformation(extent={{184,-1282},{164,-1262}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe248_251(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe248_251(
     d=0.05,
     m_flow_nom=1.26,
     l=25,
@@ -3119,14 +3119,14 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={204,-1190})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe251_253(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe251_253(
     d=0.02,
     l=30,
     N_cv=6) annotation (Placement(transformation(
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={200,-1220})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe251_253R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe251_253R(
     d=0.02,
     l=30,
     MassFlowState=false,
@@ -3134,7 +3134,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={214,-1220})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe252_254R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe252_254R(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
@@ -3143,7 +3143,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={200,-1348})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe252_254(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe252_254(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
@@ -3167,13 +3167,13 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={200,-1244})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe252_255R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe252_255R(
     d=0.045,
     m_flow_nom=0.84,
     l=25,
     MassFlowState=false,
     N_cv=5) annotation (Placement(transformation(extent={{274,-1284},{254,-1264}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe252_255(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe252_255(
     d=0.045,
     m_flow_nom=0.84,
     l=25,
@@ -3193,7 +3193,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={298,-1192})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe255_257(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe255_257(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -3201,7 +3201,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={294,-1222})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe255_257R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe255_257R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -3210,7 +3210,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={308,-1222})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe256_258R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe256_258R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -3219,7 +3219,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={294,-1348})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe256_258(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe256_258(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -3243,13 +3243,13 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={294,-1246})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe256_259R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe256_259R(
     d=0.032,
     m_flow_nom=0.56,
     l=25,
     MassFlowState=false,
     N_cv=5) annotation (Placement(transformation(extent={{376,-1290},{356,-1270}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe256_259(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe256_259(
     d=0.032,
     m_flow_nom=0.56,
     l=25,
@@ -3269,7 +3269,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={396,-1198})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe259_261(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe259_261(
     d=0.02,
     delta_p_nom=0.14,
     l=30,
@@ -3277,7 +3277,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={392,-1228})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe259_261R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe259_261R(
     d=0.02,
     delta_p_nom=0.14,
     l=30,
@@ -3286,7 +3286,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={406,-1228})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe260_262R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe260_262R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -3295,7 +3295,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={392,-1354})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe260_262(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe260_262(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -3319,13 +3319,13 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={392,-1252})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe260_263R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe260_263R(
     d=0.032,
     m_flow_nom=0.28,
     l=25,
     MassFlowState=false,
     N_cv=5) annotation (Placement(transformation(extent={{472,-1292},{452,-1272}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe260_263(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe260_263(
     d=0.032,
     m_flow_nom=0.28,
     l=25,
@@ -3345,7 +3345,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={492,-1200})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe263_265(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe263_265(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -3353,7 +3353,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={488,-1230})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe263_265R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe263_265R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -3362,7 +3362,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={502,-1230})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe263_264R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe263_264R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -3371,7 +3371,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={488,-1354})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe263_264(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe263_264(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -3401,7 +3401,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={-398,-332})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe196_198(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe196_198(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -3409,7 +3409,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={-402,-360})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe196_198R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe196_198R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -3418,7 +3418,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-388,-360})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe196_197R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe196_197R(
     d=0.02,
     l=30,
     MassFlowState=false,
@@ -3426,7 +3426,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-402,-486})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe196_197(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe196_197(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -3442,13 +3442,13 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=0,
         origin={-402,-458})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe193_196R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe193_196R(
     d=0.032,
     m_flow_nom=0.28,
     l=25,
     MassFlowState=false,
     N_cv=5) annotation (Placement(transformation(extent={{-338,-428},{-318,-408}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe193_196(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe193_196(
     d=0.032,
     m_flow_nom=0.28,
     l=25,
@@ -3468,7 +3468,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={-286,-334})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe192_194(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe192_194(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -3476,7 +3476,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={-290,-362})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe192_194R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe192_194R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -3485,7 +3485,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-276,-362})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe193_195R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe193_195R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -3494,7 +3494,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-290,-488})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe193_195(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe193_195(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -3524,7 +3524,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={-192,-334})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe188_190(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe188_190(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -3532,7 +3532,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={-196,-362})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe188_190R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe188_190R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -3541,7 +3541,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-182,-362})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe189_191R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe189_191R(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
@@ -3550,7 +3550,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-196,-488})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe189_191(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe189_191(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
@@ -3566,25 +3566,25 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=0,
         origin={-196,-460})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe189_192R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe189_192R(
     d=0.032,
     m_flow_nom=0.56,
     l=25,
     MassFlowState=false,
     N_cv=5) annotation (Placement(transformation(extent={{-234,-430},{-214,-410}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe189_192(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe189_192(
     d=0.032,
     m_flow_nom=0.56,
     l=25,
     MassFlowState=false,
     N_cv=5) annotation (Placement(transformation(extent={{-214,-444},{-234,-424}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe185_188R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe185_188R(
     d=0.04,
     m_flow_nom=0.98,
     l=25,
     MassFlowState=false,
     N_cv=5) annotation (Placement(transformation(extent={{-136,-428},{-116,-408}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe185_188(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe185_188(
     d=0.04,
     m_flow_nom=0.98,
     l=25,
@@ -3620,7 +3620,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={-100,-336})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe184_186(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe184_186(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
@@ -3628,7 +3628,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={-104,-364})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe184_186R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe184_186R(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
@@ -3637,7 +3637,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-90,-364})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe185_187R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe185_187R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -3646,7 +3646,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-104,-490})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe185_187(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe185_187(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -3684,7 +3684,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={-384,-1182})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe244_246(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe244_246(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -3692,7 +3692,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={-388,-1212})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe244_246R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe244_246R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -3701,7 +3701,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-374,-1212})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe244_245R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe244_245R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -3710,7 +3710,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-388,-1338})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe244_245(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe244_245(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -3726,13 +3726,13 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=0,
         origin={-388,-1308})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe241_244R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe241_244R(
     d=0.032,
     m_flow_nom=0.28,
     l=25,
     MassFlowState=false,
     N_cv=5) annotation (Placement(transformation(extent={{-354,-1278},{-334,-1258}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe241_244(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe241_244(
     d=0.032,
     m_flow_nom=0.28,
     l=25,
@@ -3752,7 +3752,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={-252,-1184})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe236_238(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe236_238(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -3760,7 +3760,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={-256,-1214})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe236_238R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe236_238R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -3769,7 +3769,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-242,-1214})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe237_239R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe237_239R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -3778,7 +3778,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-256,-1340})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe237_239(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe237_239(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -3808,7 +3808,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={-164,-1184})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe232_234(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe232_234(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -3816,7 +3816,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={-168,-1214})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe232_234R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe232_234R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -3825,7 +3825,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-154,-1214})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe233_235R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe233_235R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -3834,7 +3834,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-168,-1340})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe233_235(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe233_235(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -3850,25 +3850,25 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=0,
         origin={-168,-1310})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe233_236R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe233_236R(
     d=0.045,
     m_flow_nom=0.84,
     l=25,
     MassFlowState=false,
     N_cv=5) annotation (Placement(transformation(extent={{-206,-1280},{-186,-1260}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe233_236(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe233_236(
     d=0.045,
     m_flow_nom=0.84,
     l=25,
     MassFlowState=false,
     N_cv=5) annotation (Placement(transformation(extent={{-186,-1294},{-206,-1274}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe229_232R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe229_232R(
     d=0.045,
     m_flow_nom=1.12,
     l=25,
     MassFlowState=false,
     N_cv=5) annotation (Placement(transformation(extent={{-104,-1280},{-84,-1260}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe229_232(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe229_232(
     d=0.045,
     m_flow_nom=1.12,
     l=25,
@@ -3904,7 +3904,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={-72,-1186})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe228_230(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe228_230(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -3912,7 +3912,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={-76,-1216})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe228_230R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe228_230R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -3921,7 +3921,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-62,-1216})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe229_231R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe229_231R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -3930,7 +3930,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-76,-1342})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe229_231(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe229_231(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -3968,14 +3968,14 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={-328,-1182})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe240_242(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe240_242(
     d=0.02,
     l=30,
     N_cv=6) annotation (Placement(transformation(
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={-332,-1212})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe240_242R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe240_242R(
     d=0.02,
     l=30,
     MassFlowState=false,
@@ -3983,7 +3983,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-318,-1212})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe241_243R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe241_243R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -3992,7 +3992,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-332,-1338})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe241_243(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe241_243(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -4008,13 +4008,13 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=0,
         origin={-332,-1308})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe237_240R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe237_240R(
     d=0.032,
     m_flow_nom=0.56,
     l=25,
     MassFlowState=false,
     N_cv=5) annotation (Placement(transformation(extent={{-286,-1278},{-266,-1258}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe237_240(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe237_240(
     d=0.032,
     m_flow_nom=0.56,
     l=25,
@@ -4035,12 +4035,12 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=0,
         origin={92,122})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe160_162(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe160_162(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
     N_cv=6) annotation (Placement(transformation(extent={{52,116},{72,136}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe160_162R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe160_162R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -4061,13 +4061,13 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=180,
         origin={-96,117})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe161_163R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe161_163R(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
     MassFlowState=false,
     N_cv=6) annotation (Placement(transformation(extent={{-74,117},{-54,136}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe161_163(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe161_163(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
@@ -4080,7 +4080,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-38,127})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe80_160(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe80_160(
     d=0.1,
     m_flow_nom=11.71,
     l=25,
@@ -4088,7 +4088,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={8,154})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe80_160R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe80_160R(
     d=0.1,
     m_flow_nom=11.71,
     l=25,
@@ -4096,7 +4096,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-10,154})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe161_164(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe161_164(
     d=0.15,
     l=25,
     MassFlowState=false,
@@ -4104,7 +4104,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={10,72})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe161_164R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe161_164R(
     d=0.125,
     m_flow_nom=12.13,
     l=25,
@@ -4120,12 +4120,12 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=0,
         origin={92,34})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe164_166(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe164_166(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
     N_cv=6) annotation (Placement(transformation(extent={{52,28},{72,48}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe164_166R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe164_166R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -4146,13 +4146,13 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=180,
         origin={-96,29})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe165_167R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe165_167R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
     MassFlowState=false,
     N_cv=6) annotation (Placement(transformation(extent={{-74,29},{-54,48}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe165_167(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe165_167(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -4165,7 +4165,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-38,39})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe165_168(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe165_168(
     d=0.125,
     m_flow_nom=12.41,
     l=25,
@@ -4174,7 +4174,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={10,-16})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe165_168R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe165_168R(
     d=0.125,
     m_flow_nom=12.41,
     l=25,
@@ -4190,12 +4190,12 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=0,
         origin={94,-56})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe168_170(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe168_170(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
     N_cv=6) annotation (Placement(transformation(extent={{54,-62},{74,-42}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe168_170R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe168_170R(
     d=0.02,
     l=30,
     MassFlowState=false,
@@ -4215,13 +4215,13 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=180,
         origin={-94,-61})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe169_171R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe169_171R(
     d=0.02,
     m_flow_nom=0.283,
     l=30,
     MassFlowState=false,
     N_cv=6) annotation (Placement(transformation(extent={{-72,-61},{-52,-42}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe169_171(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe169_171(
     d=0.02,
     m_flow_nom=0.283,
     l=30,
@@ -4234,7 +4234,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-36,-51})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe169_172(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe169_172(
     d=0.125,
     m_flow_nom=12.83,
     l=25,
@@ -4243,7 +4243,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={12,-106})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe169_172R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe169_172R(
     d=0.125,
     m_flow_nom=12.83,
     l=25,
@@ -4259,12 +4259,12 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=0,
         origin={98,-212})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe174_176(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe174_176(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
     N_cv=6) annotation (Placement(transformation(extent={{58,-218},{78,-198}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe174_176R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe174_176R(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
@@ -4285,13 +4285,13 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=180,
         origin={-90,-217})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe175_177R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe175_177R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
     MassFlowState=false,
     N_cv=6) annotation (Placement(transformation(extent={{-68,-217},{-48,-198}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe175_177(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe175_177(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -4304,7 +4304,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-32,-207})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe175_178(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe175_178(
     d=0.1,
     m_flow_nom=11.02,
     l=25,
@@ -4313,7 +4313,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=90,
         origin={16,-262})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe175_178R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe175_178R(
     d=0.1,
     m_flow_nom=11.02,
     l=25,
@@ -4329,12 +4329,12 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=0,
         origin={100,-302})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe178_180(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe178_180(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
     N_cv=6) annotation (Placement(transformation(extent={{60,-308},{80,-288}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe178_180R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe178_180R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -4355,13 +4355,13 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=180,
         origin={-88,-307})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe179_181R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe179_181R(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
     MassFlowState=false,
     N_cv=6) annotation (Placement(transformation(extent={{-66,-307},{-46,-288}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe179_181(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe179_181(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
@@ -4374,7 +4374,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-30,-297})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe179_182(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe179_182(
     d=0.1,
     m_flow_nom=10.6,
     l=25,
@@ -4383,7 +4383,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=90,
         origin={18,-352})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe179_182R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe179_182R(
     d=0.1,
     m_flow_nom=10.6,
     l=25,
@@ -4392,7 +4392,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={0,-352})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe183_209(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe183_209(
     d=0.08,
     m_flow_nom=4.88,
     l=25,
@@ -4401,7 +4401,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=90,
         origin={20,-586})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe183_209R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe183_209R(
     d=0.08,
     m_flow_nom=4.88,
     l=25,
@@ -4417,12 +4417,12 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=0,
         origin={102,-624})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe209_210(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe209_210(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
     N_cv=6) annotation (Placement(transformation(extent={{62,-630},{82,-610}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe209_210R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe209_210R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -4436,7 +4436,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={46,-646})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe209_211(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe209_211(
     d=0.08,
     m_flow_nom=4.74,
     l=25,
@@ -4445,7 +4445,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=90,
         origin={22,-674})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe209_211R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe209_211R(
     d=0.08,
     m_flow_nom=4.74,
     l=25,
@@ -4461,12 +4461,12 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=0,
         origin={104,-714})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe211_213(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe211_213(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
     N_cv=6) annotation (Placement(transformation(extent={{64,-720},{84,-700}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe211_213R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe211_213R(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
@@ -4487,13 +4487,13 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=180,
         origin={-84,-719})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe212_214R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe212_214R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
     MassFlowState=false,
     N_cv=6) annotation (Placement(transformation(extent={{-62,-719},{-42,-700}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe212_214(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe212_214(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -4506,7 +4506,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-26,-709})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe212_215(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe212_215(
     d=0.08,
     m_flow_nom=4.32,
     l=25,
@@ -4515,7 +4515,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=90,
         origin={24,-764})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe212_215R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe212_215R(
     d=0.08,
     m_flow_nom=4.32,
     l=25,
@@ -4531,12 +4531,12 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=0,
         origin={104,-802})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe215_217(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe215_217(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
     N_cv=6) annotation (Placement(transformation(extent={{64,-808},{84,-788}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe215_217R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe215_217R(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
@@ -4557,13 +4557,13 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=180,
         origin={-84,-807})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe216_218R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe216_218R(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
     MassFlowState=false,
     N_cv=6) annotation (Placement(transformation(extent={{-62,-807},{-42,-788}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe216_218(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe216_218(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
@@ -4576,7 +4576,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-26,-797})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe216_219(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe216_219(
     d=0.065,
     m_flow_nom=3.76,
     l=25,
@@ -4585,7 +4585,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=90,
         origin={24,-852})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe216_219R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe216_219R(
     d=0.065,
     m_flow_nom=3.76,
     l=25,
@@ -4601,12 +4601,12 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=0,
         origin={108,-896})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe219_221(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe219_221(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
     N_cv=6) annotation (Placement(transformation(extent={{68,-902},{88,-882}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe219_221R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe219_221R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -4627,13 +4627,13 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=180,
         origin={-80,-901})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe220_222R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe220_222R(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
     MassFlowState=false,
     N_cv=6) annotation (Placement(transformation(extent={{-58,-901},{-38,-882}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe220_222(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe220_222(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
@@ -4646,7 +4646,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-22,-891})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe220_223(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe220_223(
     d=0.065,
     m_flow_nom=3.35,
     l=25,
@@ -4655,7 +4655,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=90,
         origin={26,-946})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe220_223R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe220_223R(
     d=0.065,
     m_flow_nom=3.35,
     l=25,
@@ -4671,12 +4671,12 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=0,
         origin={108,-984})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe223_225(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe223_225(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
     N_cv=6) annotation (Placement(transformation(extent={{68,-990},{88,-970}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe223_225R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe223_225R(
     d=0.032,
     m_flow_nom=0.28,
     l=30,
@@ -4697,13 +4697,13 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=180,
         origin={-80,-989})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe224_226R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe224_226R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
     MassFlowState=false,
     N_cv=6) annotation (Placement(transformation(extent={{-58,-989},{-38,-970}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe224_226(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe224_226(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -4724,7 +4724,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=0,
         origin={-6,-136})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe224_227R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe224_227R(
     d=0.065,
     m_flow_nom=2.93,
     l=50,
@@ -4733,7 +4733,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={8,-1060})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe224_227(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe224_227(
     d=0.065,
     m_flow_nom=2.93,
     l=50,
@@ -4742,7 +4742,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=90,
         origin={28,-1060})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe172_174R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe172_174R(
     d=0.1,
     m_flow_nom=11.43,
     l=25,
@@ -4751,7 +4751,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-6,-190})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe172_174(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe172_174(
     d=0.1,
     m_flow_nom=11.43,
     l=25,
@@ -4784,25 +4784,25 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={34,-1286})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe227_228R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe227_228R(
     d=0.045,
     m_flow_nom=1.4,
     l=50,
     MassFlowState=false,
     N_cv=10) annotation (Placement(transformation(extent={{-22,-1282},{-2,-1262}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe227_228(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe227_228(
     d=0.045,
     m_flow_nom=1.4,
     l=50,
     MassFlowState=false,
     N_cv=10) annotation (Placement(transformation(extent={{-2,-1298},{-22,-1278}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe183_184R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe183_184R(
     d=0.05,
     m_flow_nom=1.4,
     l=50,
     MassFlowState=false,
     N_cv=10) annotation (Placement(transformation(extent={{-52,-428},{-32,-408}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe183_184(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe183_184(
     d=0.05,
     m_flow_nom=1.4,
     l=50,
@@ -4818,7 +4818,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=0,
         origin={312,-396})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe266_267R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe266_267R(
     d=0.065,
     m_flow_nom=3.21,
     delta_p_nom=150,
@@ -4826,7 +4826,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
     L=3e6,
     MassFlowState=true,
     N_cv=20) annotation (Placement(transformation(extent={{446,-454},{426,-434}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe266_267(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe266_267(
     d=0.065,
     m_flow_nom=3.21,
     delta_p_nom=150,
@@ -4849,12 +4849,12 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=0,
         origin={-460,174})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe61_63(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe61_63(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
     N_cv=6) annotation (Placement(transformation(extent={{-500,168},{-480,188}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 simplePipe_L4_122(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 simplePipe_L4_122(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -4875,13 +4875,13 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-12,-10},{12,10}},
         rotation=180,
         origin={-648,169})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe60_62R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe60_62R(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
     MassFlowState=false,
     N_cv=6) annotation (Placement(transformation(extent={{-626,169},{-606,188}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe60_62(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe60_62(
     d=0.02,
     m_flow_nom=0.14,
     l=30,
@@ -4894,7 +4894,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-590,179})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe57_60(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe57_60(
     d=0.08,
     m_flow_nom=5.3,
     l=25,
@@ -4903,7 +4903,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{10,-10},{-10,10}},
         rotation=90,
         origin={-540,124})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe57_60R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe57_60R(
     d=0.08,
     m_flow_nom=5.3,
     l=25,
@@ -4912,7 +4912,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-558,124})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe172_173(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe172_173(
     d=0.15,
     m_flow_nom=24.64,
     l=25,
@@ -4921,7 +4921,7 @@ model TopologyD_Ports "A DHN topology for single family houses"
         extent={{-10,-10},{10,10}},
         rotation=0,
         origin={-72,-136})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe172_173R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe172_173R(
     d=0.15,
     m_flow_nom=24.64,
     l=25,
@@ -6257,12 +6257,15 @@ equation
     Documentation(info="<html>
 <h4><span style=\"color: #008000\">Purpose of model</span></h4>
 <p>A model of a district heating network topology. It represents a topology of single family houses.</p>
+<p>The model was used in: TransiEnt.Examples.Heat.Largescale_DHN</p>
 <h4><span style=\"color: #008000\">Interfaces</span></h4>
 <p>inlet: A fluid inlet for the inflowing heat carrier medium</p>
 <p>outlet: A fluid outlet for the outflowing heat carrier medium</p>
 <h4><span style=\"color: #008c48\">References</span></h4>
+<p>The topology is based on: </p>
+<p>[1] Benthin J, Hagemeier A, Heyer A, Huismann P, Krassowski J, Settgast C, et al. Integranet abschlussbericht. 2020</p>
 <p>The model was used in this publication:</p>
-<p>[1] Westphal, J.; Brunnemann, J.; Speerforck, A.; Enabling the dynamic simulation of an unaggregated, meshed district heating network with several thousand substations;Energy; 2025</p>
+<p>[2] Westphal, J.; Brunnemann, J.; Speerforck, A.; Enabling the dynamic simulation of an unaggregated, meshed district heating network with several thousand substations;Energy; 2025</p>
 <h4><span style=\"color: #008000\">Version History</span></h4>
 <p>Model was inserted by Jan Westphal (j.westphal@tuhh.de) January 2025</p>
 </html>"));

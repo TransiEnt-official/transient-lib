@@ -22,6 +22,15 @@ model TestHeatExchanger "Test model for the heat exchanger"
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
 
+
+  // _____________________________________________
+  //
+  //          Import and Class Hierachy
+  // _____________________________________________
+
+  extends TransiEnt.Basics.Icons.Checkmodel;
+
+
   // _____________________________________________
   //
   //          Instances of other classes
@@ -123,7 +132,7 @@ equation
   connect(boundaryVLE_hxim_flow1.m_flow, step6.y) annotation (Line(points={{-80,-174},{-92,-174},{-92,-150},{-113,-150}}, color={0,0,127}));
   connect(source.m_flow_in, step7.y) annotation (Line(points={{-90,33},{-114,33},{-114,44},{-119,44}},   color={0,0,127}));
   annotation (
-    Icon(graphics={  Polygon(fillColor = {0, 85, 0}, fillPattern = FillPattern.Solid, points = {{-100, 100}, {100, 0}, {-100, -100}, {-100, -100}, {-100, 100}, {-88, 94}, {-100, 100}})}, coordinateSystem(initialScale = 0.1, extent={{-180,-200},{140,140}})),
+    Icon(                                                                                                                                                                                  coordinateSystem(initialScale = 0.1, extent={{-180,-200},{140,140}})),
                                                                                                                                                                                                         experiment(StopTime=86400, __Dymola_Algorithm="Dassl"),
     Diagram(coordinateSystem(extent={{-180,-200},{140,140}}), graphics={
         Text(

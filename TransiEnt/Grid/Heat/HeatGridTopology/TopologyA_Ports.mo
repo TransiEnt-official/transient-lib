@@ -78,27 +78,27 @@ model TopologyA_Ports "A district heating network topology for large buildings"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={-258,48})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe10_11R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe10_11R(
     d=0.065,
     m_flow_nom=2.8,
     l=156,
     N_cv=32) annotation (Placement(transformation(extent={{-208,124},{-188,144}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe10_11(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe10_11(
     d=0.065,
     m_flow_nom=2.8,
     l=156,
     MassFlowState=false,
     N_cv=32) annotation (Placement(transformation(extent={{-188,110},{-208,130}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe15_16R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe15_16R(
     d=0.065,
     m_flow_nom=2.8,
     l=156,
     MassFlowState=false) annotation (Placement(transformation(extent={{-14,-125},{6,-106}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe15_16(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe15_16(
     d=0.065,
     m_flow_nom=2.8,
     l=156) annotation (Placement(transformation(extent={{6,-139},{-14,-119}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe3_5(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe3_5(
     d=0.065,
     m_flow_nom=2.8,
     l=156,
@@ -106,7 +106,7 @@ model TopologyA_Ports "A district heating network topology for large buildings"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={-262,20})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe3_5R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe3_5R(
     d=0.065,
     m_flow_nom=2.8,
     l=156,
@@ -122,7 +122,7 @@ model TopologyA_Ports "A district heating network topology for large buildings"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={116,54})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe17_18(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe17_18(
     d=0.065,
     m_flow_nom=2.8,
     l=156,
@@ -130,7 +130,7 @@ model TopologyA_Ports "A district heating network topology for large buildings"
         extent={{10,-10},{-10,10}},
         rotation=90,
         origin={112,24})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe17_18R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe17_18R(
     d=0.065,
     m_flow_nom=2.8,
     l=156,
@@ -154,7 +154,7 @@ model TopologyA_Ports "A district heating network topology for large buildings"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={236,50})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe21_22(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe21_22(
     d=0.065,
     m_flow_nom=2.8,
     l=156,
@@ -162,7 +162,7 @@ model TopologyA_Ports "A district heating network topology for large buildings"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={232,20})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe21_22R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe21_22R(
     d=0.065,
     m_flow_nom=2.8,
     l=156,
@@ -171,7 +171,7 @@ model TopologyA_Ports "A district heating network topology for large buildings"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={246,20})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe4_6R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe4_6R(
     d=0.065,
     m_flow_nom=2.8,
     l=156,
@@ -180,7 +180,7 @@ model TopologyA_Ports "A district heating network topology for large buildings"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-262,-106})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe4_6(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe4_6(
     d=0.065,
     m_flow_nom=2.8,
     l=156,
@@ -203,7 +203,7 @@ model TopologyA_Ports "A district heating network topology for large buildings"
         extent={{-12,-10},{12,10}},
         rotation=270,
         origin={-312,-136})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe1_2R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe1_2R(
     d=0.065,
     m_flow_nom=2.8,
     l=156,
@@ -212,7 +212,7 @@ model TopologyA_Ports "A district heating network topology for large buildings"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-326,-106})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe1_2(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe1_2(
     d=0.065,
     m_flow_nom=2.8,
     delta_p_nom=150,
@@ -228,7 +228,7 @@ model TopologyA_Ports "A district heating network topology for large buildings"
         extent={{-12,-10},{12,10}},
         rotation=270,
         origin={186,-144})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe19_20R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe19_20R(
     d=0.065,
     m_flow_nom=2.8,
     l=156,
@@ -237,7 +237,7 @@ model TopologyA_Ports "A district heating network topology for large buildings"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={172,-114})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe19_20(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe19_20(
     d=0.065,
     m_flow_nom=2.8,
     l=156,
@@ -253,12 +253,12 @@ model TopologyA_Ports "A district heating network topology for large buildings"
         extent={{10,-10},{-10,10}},
         rotation=0,
         origin={172,-68})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe8_9(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe8_9(
     d=0.065,
     m_flow_nom=2.8,
     l=156,
     N_cv=32) annotation (Placement(transformation(extent={{-94,54},{-74,74}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe8_9R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe8_9R(
     d=0.065,
     m_flow_nom=2.8,
     l=156,
@@ -272,19 +272,19 @@ model TopologyA_Ports "A district heating network topology for large buildings"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-110,42})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe2_3R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe2_3R(
     d=0.065,
     m_flow_nom=2.8,
     l=100,
     MassFlowState=false,
     N_cv=20) annotation (Placement(transformation(extent={{-302,-48},{-282,-28}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe2_3(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe2_3(
     d=0.065,
     m_flow_nom=2.8,
     l=100,
     MassFlowState=false,
     N_cv=20) annotation (Placement(transformation(extent={{-282,-62},{-302,-42}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe8_10(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe8_10(
     d=0.065,
     m_flow_nom=2.8,
     l=100,
@@ -293,7 +293,7 @@ model TopologyA_Ports "A district heating network topology for large buildings"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-156,96})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe8_10R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe8_10R(
     d=0.065,
     m_flow_nom=2.8,
     l=100,
@@ -302,7 +302,7 @@ model TopologyA_Ports "A district heating network topology for large buildings"
         extent={{10,-10},{-10,10}},
         rotation=90,
         origin={-136,96})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe7_8(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe7_8(
     d=0.08,
     m_flow_nom=5.58,
     l=500,
@@ -311,7 +311,7 @@ model TopologyA_Ports "A district heating network topology for large buildings"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={-154,28})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe7_8R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe7_8R(
     d=0.08,
     m_flow_nom=5.58,
     l=500,
@@ -320,31 +320,31 @@ model TopologyA_Ports "A district heating network topology for large buildings"
         extent={{10,-10},{-10,10}},
         rotation=90,
         origin={-132,28})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe19_21R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe19_21R(
     d=0.065,
     m_flow_nom=2.8,
     l=100,
     MassFlowState=false,
     N_cv=20) annotation (Placement(transformation(extent={{224,-66},{204,-46}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe19_21(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe19_21(
     d=0.065,
     m_flow_nom=2.8,
     l=100,
     MassFlowState=false,
     N_cv=20) annotation (Placement(transformation(extent={{204,-52},{224,-32}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe4_7R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe4_7R(
     d=0.1,
     m_flow_nom=8.36,
     l=100,
     MassFlowState=false,
     N_cv=32) annotation (Placement(transformation(extent={{-198,-48},{-178,-28}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe4_7(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe4_7(
     d=0.1,
     m_flow_nom=8.36,
     l=100,
     MassFlowState=false,
     N_cv=32) annotation (Placement(transformation(extent={{-178,-62},{-198,-42}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe14_15R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe14_15R(
     d=0.065,
     m_flow_nom=2.8,
     l=100,
@@ -352,7 +352,7 @@ model TopologyA_Ports "A district heating network topology for large buildings"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={20,-92})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe14_15(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe14_15(
     d=0.065,
     m_flow_nom=2.8,
     l=100,
@@ -360,25 +360,25 @@ model TopologyA_Ports "A district heating network topology for large buildings"
         extent={{10,-10},{-10,10}},
         rotation=90,
         origin={40,-92})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe17_19(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe17_19(
     d=0.08,
     m_flow_nom=5.58,
     l=100,
     MassFlowState=false,
     N_cv=20) annotation (Placement(transformation(extent={{134,-52},{154,-32}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe17_19R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe17_19R(
     d=0.08,
     m_flow_nom=5.58,
     l=100,
     MassFlowState=false,
     N_cv=20) annotation (Placement(transformation(extent={{154,-66},{134,-46}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe14_17R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe14_17R(
     d=0.1,
     m_flow_nom=8.73,
     l=100,
     MassFlowState=false,
     N_cv=20) annotation (Placement(transformation(extent={{84,-66},{64,-46}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe14_17(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe14_17(
     d=0.1,
     m_flow_nom=8.37,
     l=100,
@@ -392,13 +392,13 @@ model TopologyA_Ports "A district heating network topology for large buildings"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-134,-52})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe7_12R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe7_12R(
     d=0.11,
     m_flow_nom=13.94,
     l=50,
     MassFlowState=false,
     N_cv=10) annotation (Placement(transformation(extent={{-78,-46},{-98,-26}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe7_12(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe7_12(
     d=0.11,
     m_flow_nom=13.94,
     l=50,
@@ -420,13 +420,13 @@ model TopologyA_Ports "A district heating network topology for large buildings"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-30,-50})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe12_14(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe12_14(
     d=0.125,
     m_flow_nom=11.16,
     l=50,
     MassFlowState=false,
     N_cv=10) annotation (Placement(transformation(extent={{-10,-46},{10,-26}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe12_14R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe12_14R(
     d=0.125,
     m_flow_nom=11.16,
     l=50,
@@ -442,7 +442,7 @@ model TopologyA_Ports "A district heating network topology for large buildings"
         origin={-262,-14})));
   TransiEnt.Basics.Interfaces.Thermal.inlet inlet annotation (Placement(transformation(extent={{-68,148},{-48,168}})));
   TransiEnt.Basics.Interfaces.Thermal.outlet outlet annotation (Placement(transformation(extent={{-10,148},{10,168}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe12_13R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe12_13R(
     d=0.15,
     m_flow_nom=25.1,
     l=50,
@@ -451,7 +451,7 @@ model TopologyA_Ports "A district heating network topology for large buildings"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={-30,16})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe12_13(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe12_13(
     d=0.15,
     m_flow_nom=25.1,
     l=50,
@@ -554,12 +554,15 @@ equation
     Documentation(info="<html>
 <h4><span style=\"color: #008000\">Purpose of model</span></h4>
 <p>A model of a district heating network topology. It represents a topology of large buildings like skyscrappers appearing in the downtown of a city.</p>
+<p>The model was used in: TransiEnt.Examples.Heat.Largescale_DHN</p>
 <h4><span style=\"color: #008000\">Interfaces</span></h4>
 <p>inlet: A fluid inlet for the inflowing heat carrier medium</p>
 <p>outlet: A fluid outlet for the outflowing heat carrier medium</p>
 <h4><span style=\"color: #008c48\">References</span></h4>
+<p>The topology is based on: </p>
+<p>[1] Benthin J, Hagemeier A, Heyer A, Huismann P, Krassowski J, Settgast C, et al. Integranet abschlussbericht. 2020</p>
 <p>The model was used in this publication:</p>
-<p>[1] Westphal, J.; Brunnemann, J.; Speerforck, A.; Enabling the dynamic simulation of an unaggregated, meshed district heating network with several thousand substations;Energy; 2025</p>
+<p>[2] Westphal, J.; Brunnemann, J.; Speerforck, A.; Enabling the dynamic simulation of an unaggregated, meshed district heating network with several thousand substations;Energy; 2025</p>
 <h4><span style=\"color: #008000\">Version History</span></h4>
 <p>Model was inserted by Jan Westphal (j.westphal@tuhh.de) January 2025</p>
 </html>"));

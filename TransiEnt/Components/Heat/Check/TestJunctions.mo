@@ -24,6 +24,13 @@ model TestJunctions "Test model for the junctions"
 
   // _____________________________________________
   //
+  //          Import and Class Hierachy
+  // _____________________________________________
+
+  extends TransiEnt.Basics.Icons.Checkmodel;
+
+  // _____________________________________________
+  //
   //          Instances of other classes
   // _____________________________________________
 
@@ -83,13 +90,13 @@ model TestJunctions "Test model for the junctions"
         rotation=0)));
   Modelica.Blocks.Sources.RealExpression sinkPressure5(y=2e5)
                                                              annotation (Placement(transformation(extent={{152,34},{132,54}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 simplePipe_L4_3(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 simplePipe_L4_3(
     cp=4185,
     l=100,
     N_cv=20,
     u=0.0001,
     m_flow_start=10) annotation (Placement(transformation(extent={{48,58},{68,78}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 simplePipe_L4_4(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 simplePipe_L4_4(
     cp=4185,
     l=100,
     MassFlowState=true,
@@ -246,7 +253,7 @@ equation
   connect(MassFlowRateSource11.y, source6.h_in) annotation (Line(points={{51,-202},{60,-202},{60,-188},{64,-188}}, color={0,0,127}));
   connect(source6.port_a, join2.inlet2) annotation (Line(points={{82,-186},{98,-186},{98,-144},{71.8,-144}},   color={0,0,0}));
   annotation (
-    Icon(graphics={  Polygon(fillColor = {0, 85, 0}, fillPattern = FillPattern.Solid, points = {{-100, 100}, {100, 0}, {-100, -100}, {-100, -100}, {-100, 100}, {-88, 94}, {-100, 100}})}, coordinateSystem(initialScale = 0.1, extent={{-340,-220},{200,100}})),
+    Icon(                                                                                                                                                                                  coordinateSystem(initialScale = 0.1, extent={{-340,-220},{200,100}})),
                                                                                                                                                                                                         experiment(StopTime=10000, __Dymola_Algorithm="Dassl"),
     Diagram(coordinateSystem(extent={{-340,-220},{200,100}}), graphics={
         Text(

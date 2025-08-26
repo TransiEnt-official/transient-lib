@@ -1,5 +1,5 @@
 ﻿within TransiEnt.Producer.Heat.Heat2Heat.Check;
-model TestHeatPump "Test model for the heat pump for the DHN simulations"
+model TestHeatPump_DHN "Test model for the heat pump for the DHN simulations"
 
 //________________________________________________________________________________//
 // Component of the TransiEnt Library, version: 2.0.3                             //
@@ -21,6 +21,13 @@ model TestHeatPump "Test model for the heat pump for the DHN simulations"
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
+
+  // _____________________________________________
+  //
+  //          Import and Class Hierachy
+  // _____________________________________________
+
+  extends TransiEnt.Basics.Icons.Checkmodel;
 
   // _____________________________________________
   //
@@ -90,7 +97,7 @@ equation
       color={175,0,0},
       pattern=LinePattern.Dash));
   annotation (
-    Icon(graphics={  Polygon(fillColor = {0, 85, 0}, fillPattern = FillPattern.Solid, points = {{-100, 100}, {100, 0}, {-100, -100}, {-100, -100}, {-100, 100}, {-88, 94}, {-100, 100}})}, coordinateSystem(initialScale = 0.1, extent={{-160,-200},{140,100}})),
+    Icon(                                                                                                                                                                                  coordinateSystem(initialScale = 0.1, extent={{-160,-200},{140,100}})),
                                                                                                                                                                                                         experiment(StopTime=86400, __Dymola_Algorithm="Dassl"),
     Diagram(coordinateSystem(extent={{-160,-200},{140,100}}), graphics={Text(
           extent={{-132,-28},{-2,-42}},
@@ -112,4 +119,4 @@ equation
 <h4><span style=\"color: #008c48\">Version History</span></h4>
 <p><span style=\"font-size: 8pt;\">The model was created by Jan Westphal (j.westphal@tuhh.de) in August 2025</span></p>
 </html>"));
-end TestHeatPump;
+end TestHeatPump_DHN;

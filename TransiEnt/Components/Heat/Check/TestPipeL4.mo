@@ -27,8 +27,7 @@ model TestPipeL4 "Test model for the simplePipeL4"
   //          Import and Hierachy
   // _____________________________________________
 
-    replaceable package Medium = IBPSA.Media.Water "Medium in the pipe" annotation (
-      choicesAllMatching=true);
+    extends TransiEnt.Basics.Icons.Checkmodel;
         final parameter Modelica.Units.SI.MassFlowRate m_flow_nominal=3
     "Mass flow rate";
 
@@ -49,7 +48,7 @@ model TestPipeL4 "Test model for the simplePipeL4"
   TransiEnt.Components.Boundaries.FluidFlow.FluidSink sink annotation (Placement(transformation(extent={{-36,88},{-16,108}})));
   Modelica.Blocks.Sources.RealExpression realExpression1(y=1e5)
                                                              annotation (Placement(transformation(extent={{14,88},{-6,108}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 simplePipe_L4_1(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 simplePipe_L4_1(
     cp=4185,
     l=100,
     N_cv=20,
@@ -67,7 +66,7 @@ model TestPipeL4 "Test model for the simplePipeL4"
     height=10*4185,
     offset=60*4185,
     startTime=3600) annotation (Placement(transformation(extent={{-140,-68},{-120,-48}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 simplePipe_L4_2(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 simplePipe_L4_2(
     cp=4185,
     l=100,
     N_cv=20,
@@ -185,7 +184,7 @@ equation
                                                                                                color={191,0,0}));
   connect(step3.y,boundaryVLE_Txim_flow. T) annotation (Line(points={{73,62},{84,62}},               color={0,0,127}));
   annotation (
-    Icon(graphics={  Polygon(fillColor = {0, 85, 0}, fillPattern = FillPattern.Solid, points = {{-100, 100}, {100, 0}, {-100, -100}, {-100, -100}, {-100, 100}, {-88, 94}, {-100, 100}})}, coordinateSystem(initialScale = 0.1, extent={{-220,-260},{340,160}})),
+    Icon(                                                                                                                                                                                  coordinateSystem(initialScale = 0.1, extent={{-220,-260},{340,160}})),
                                                                                                                                                                                                         experiment(
       StopTime=10800,
       Interval=2,

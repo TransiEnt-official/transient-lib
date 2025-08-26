@@ -24,6 +24,14 @@ model TestConsumer "Test model for the consumer"
 
   // _____________________________________________
   //
+  //          Import and Class Hierachy
+  // _____________________________________________
+
+  extends TransiEnt.Basics.Icons.Checkmodel;
+
+
+  // _____________________________________________
+  //
   //          Instances of other classes
   // _____________________________________________
 
@@ -90,9 +98,7 @@ equation
       thickness=0.5));
   connect(boundaryVLE_phxi.h, step.y) annotation (Line(points={{-68,-120},{-79,-120}},
                                                                                      color={0,0,127}));
-  annotation (experiment(StopTime=6048000, __Dymola_Algorithm="Dassl"), Icon(coordinateSystem(extent={{-160,-160},{160,120}}),
-                                                                             graphics={
-                     Polygon(fillColor = {0, 85, 0}, fillPattern = FillPattern.Solid, points={{-100,100},{100,0},{-100,-100},{-100,-100},{-100,100},{-88,94},{-100,100}})}),
+  annotation (experiment(StopTime=6048000, __Dymola_Algorithm="Dassl"), Icon(coordinateSystem(extent={{-160,-160},{160,120}})),
     Diagram(coordinateSystem(extent={{-160,-160},{160,120}}), graphics={
         Text(
           extent={{-140,112},{18,96}},

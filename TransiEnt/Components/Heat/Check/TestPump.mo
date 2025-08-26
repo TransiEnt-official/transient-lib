@@ -22,6 +22,15 @@ model TestPump "Test model for the simple pump model"
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
 
+
+  // _____________________________________________
+  //
+  //          Import and Class Hierachy
+  // _____________________________________________
+
+  extends TransiEnt.Basics.Icons.Checkmodel;
+
+
   // _____________________________________________
   //
   //          Instances of other classes
@@ -61,7 +70,7 @@ equation
       color={175,0,0},
       thickness=0.5));
   annotation (
-    Icon(graphics={  Polygon(fillColor = {0, 85, 0}, fillPattern = FillPattern.Solid, points = {{-100, 100}, {100, 0}, {-100, -100}, {-100, -100}, {-100, 100}, {-88, 94}, {-100, 100}})}, coordinateSystem(initialScale = 0.1, extent={{-160,-200},{140,100}})),
+    Icon(                                                                                                                                                                                  coordinateSystem(initialScale = 0.1, extent={{-160,-200},{140,100}})),
                                                                                                                                                                                                         experiment(StopTime=86400, __Dymola_Algorithm="Dassl"),
     Diagram(coordinateSystem(extent={{-160,-200},{140,100}}), graphics={Text(
           extent={{-136,-94},{-16,-130}},

@@ -24,6 +24,14 @@ model TestFluidPortAdapter "Test model for fluid port adapter"
 
   // _____________________________________________
   //
+  //          Import and Class Hierachy
+  // _____________________________________________
+
+  extends TransiEnt.Basics.Icons.Checkmodel;
+
+
+  // _____________________________________________
+  //
   //          Instances of other classes
   // _____________________________________________
 
@@ -48,15 +56,7 @@ equation
   connect(realExpression.y, source.m_flow_in) annotation (Line(points={{-85,3},{-74,3}}, color={0,0,127}));
   connect(realExpression1.y, source.h_in) annotation (Line(points={{-85,-11},{-80,-11},{-80,-2},{-74,-2}}, color={0,0,127}));
   connect(realExpression2.y, boundaryVLE_pTxi.p) annotation (Line(points={{85,5},{74.5,5},{74.5,6},{66,6}}, color={0,0,127}));
-  annotation (Icon(graphics={Polygon(
-          points={{-54,-44},{-44,-34},{-4,-74},{-14,-84},{-54,-44}},
-          lineColor={0,140,72},
-          fillColor={0,140,72},
-          fillPattern=FillPattern.Solid), Polygon(
-          points={{-14,-84},{88,18},{74,32},{-20,-62},{-14,-84}},
-          lineColor={0,140,72},
-          fillColor={0,140,72},
-          fillPattern=FillPattern.Solid)}), Documentation(info="<html>
+  annotation (                              Documentation(info="<html>
 <h4><span style=\"color: #008000\">Purpose of model</span></h4>
 <p>A test model for the fluid adapter. Two boundaries are connected to eacht other via the adapter. Compare the pressure, the mass flow rate and the specific enthalpies for verification.</p>
 <h4><span style=\"color: #008000\">Version History</span></h4>

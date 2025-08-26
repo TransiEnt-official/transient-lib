@@ -20,5 +20,5 @@ PrescribedHeatFlowAdvanced
 HeatExchanger
 HeatExchanger_simple
 ControlVolumeL4_HeatLoss
-SimplePipe_L4
+DHN_Pipe_L4
 SimplePump

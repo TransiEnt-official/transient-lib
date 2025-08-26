@@ -57,7 +57,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={-162,258})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe1_2(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe1_2(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -66,7 +66,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={-166,228})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe1_2R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe1_2R(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -75,7 +75,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-152,228})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe2_3R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe2_3R(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -84,7 +84,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-166,102})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe2_3(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe2_3(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -114,7 +114,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={-100,260})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe4_6(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe4_6(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -122,7 +122,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={-104,230})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe4_6R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe4_6R(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -131,7 +131,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-90,230})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe5_7(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe5_7(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -147,12 +147,12 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-10,-10},{10,10}},
         rotation=0,
         origin={-104,132})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe5_8R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe5_8R(
     d=0.065,
     m_flow_nom=3.35,
     l=40,
     MassFlowState=false) annotation (Placement(transformation(extent={{-42,162},{-22,182}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe5_8(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe5_8(
     d=0.065,
     m_flow_nom=3.35,
     l=40,
@@ -187,7 +187,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={96,260})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe11_13(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe11_13(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -195,7 +195,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={92,230})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe11_13R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe11_13R(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -204,7 +204,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={106,230})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe12_14R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe12_14R(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -213,7 +213,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={92,104})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe12_14(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe12_14(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -237,13 +237,13 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={92,204})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe12_15R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe12_15R(
     d=0.08,
     m_flow_nom=5.02,
     l=21,
     MassFlowState=false,
     N_cv=4) annotation (Placement(transformation(extent={{164,164},{144,184}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe12_15(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe12_15(
     d=0.08,
     m_flow_nom=5.02,
     l=21,
@@ -263,7 +263,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={190,258})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe15_17(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe15_17(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -271,7 +271,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={186,228})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe15_17R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe15_17R(
     d=0.02,
     m_flow_nom=0.84,
     l=22,
@@ -280,7 +280,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={202,228})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe16_18R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe16_18R(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -289,7 +289,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={186,102})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe16_18(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe16_18(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -313,13 +313,13 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={186,202})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe16_19R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe16_19R(
     d=0.065,
     m_flow_nom=3.35,
     l=21,
     MassFlowState=false,
     N_cv=4) annotation (Placement(transformation(extent={{266,158},{246,178}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe16_19(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe16_19(
     d=0.065,
     m_flow_nom=3.35,
     l=21,
@@ -339,7 +339,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={288,252})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe19_21(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe19_21(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -347,7 +347,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={286,222})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe19_21R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe19_21R(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -356,7 +356,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={300,222})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe20_22R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe20_22R(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -365,7 +365,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={284,96})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe20_22(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe20_22(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -389,13 +389,13 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={284,196})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe20_23R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe20_23R(
     d=0.05,
     m_flow_nom=1.67,
     l=21,
     MassFlowState=false,
     N_cv=4) annotation (Placement(transformation(extent={{356,156},{336,176}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe20_23(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe20_23(
     d=0.05,
     m_flow_nom=1.67,
     l=21,
@@ -415,7 +415,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={382,250})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe23_24(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe23_24(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -423,7 +423,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={380,220})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe23_24R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe23_24R(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -432,7 +432,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={394,220})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe23_25R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe23_25R(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -441,7 +441,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={380,94})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe23_25(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe23_25(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -457,25 +457,25 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={378,194})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe2_4(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe2_4(
     d=0.05,
     m_flow_nom=1.67,
     l=21,
     MassFlowState=false,
     N_cv=4) annotation (Placement(transformation(extent={{-112,146},{-132,166}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe2_4R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe2_4R(
     d=0.05,
     m_flow_nom=1.67,
     l=21,
     MassFlowState=false,
     N_cv=4) annotation (Placement(transformation(extent={{-132,162},{-112,182}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe8_11R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe8_11R(
     d=0.085,
     m_flow_nom=6.69,
     l=40,
     MassFlowState=false,
     N_cv=8) annotation (Placement(transformation(extent={{70,162},{50,182}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe8_11(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe8_11(
     d=0.085,
     m_flow_nom=6.69,
     l=40,
@@ -489,7 +489,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={20,128})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe8_26(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe8_26(
     d=0.12,
     m_flow_nom=16.73,
     l=100,
@@ -497,7 +497,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={0,58})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe8_26R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe8_26R(
     d=0.12,
     m_flow_nom=16.73,
     l=100,
@@ -527,7 +527,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={104,46})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe35_37(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe35_37(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -535,7 +535,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={100,16})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe35_37R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe35_37R(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -544,7 +544,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={114,16})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe36_38R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe36_38R(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -553,7 +553,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={100,-110})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe36_38(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe36_38(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -577,13 +577,13 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={100,-10})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe36_39R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe36_39R(
     d=0.75,
     m_flow_nom=5.02,
     l=21,
     MassFlowState=false,
     N_cv=4) annotation (Placement(transformation(extent={{172,-50},{152,-30}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe36_39(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe36_39(
     d=0.75,
     m_flow_nom=5.02,
     l=21,
@@ -603,7 +603,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={198,44})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe39_41(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe39_41(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -611,7 +611,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={194,14})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe39_41R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe39_41R(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -620,7 +620,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={208,14})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe40_42R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe40_42R(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -629,7 +629,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={194,-112})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe40_42(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe40_42(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -653,13 +653,13 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={194,-12})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe40_43R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe40_43R(
     d=0.065,
     m_flow_nom=3.35,
     l=21,
     MassFlowState=false,
     N_cv=4) annotation (Placement(transformation(extent={{274,-56},{254,-36}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe40_43(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe40_43(
     d=0.065,
     m_flow_nom=3.35,
     l=21,
@@ -679,7 +679,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={296,38})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe43_45(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe43_45(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -687,7 +687,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={292,8})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe43_45R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe43_45R(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -696,7 +696,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={306,8})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe44_46R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe44_46R(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -705,7 +705,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={292,-118})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe44_46(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe44_46(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -729,13 +729,13 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={292,-18})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe44_47R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe44_47R(
     d=0.05,
     m_flow_nom=1.67,
     l=21,
     MassFlowState=false,
     N_cv=4) annotation (Placement(transformation(extent={{364,-58},{344,-38}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe44_47(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe44_47(
     d=0.05,
     m_flow_nom=1.67,
     l=21,
@@ -755,7 +755,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={390,36})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe47_48(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe47_48(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -763,7 +763,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={386,6})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe47_48R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe47_48R(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -772,7 +772,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={400,6})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe47_49R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe47_49R(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -781,7 +781,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={386,-120})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe47_49(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe47_49(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -797,19 +797,19 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={386,-20})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe27_35R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe27_35R(
     d=0.085,
     m_flow_nom=6.69,
     l=40,
     MassFlowState=false,
     N_cv=8) annotation (Placement(transformation(extent={{78,-52},{58,-32}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe27_35(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe27_35(
     d=0.085,
     m_flow_nom=6.69,
     l=40,
     MassFlowState=false,
     N_cv=8) annotation (Placement(transformation(extent={{58,-68},{78,-48}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe5_7R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe5_7R(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -832,7 +832,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={-158,44})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe32_33(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe32_33(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -841,7 +841,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={-162,14})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe32_33R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe32_33R(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -850,7 +850,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-148,14})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe32_34R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe32_34R(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -859,7 +859,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-162,-112})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe32_34(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe32_34(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -889,7 +889,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={-96,46})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe28_30(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe28_30(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -897,7 +897,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={-100,16})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe28_30R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe28_30R(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -906,7 +906,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-86,16})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe29_31(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe29_31(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -930,19 +930,19 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={-100,-10})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe29_32(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe29_32(
     d=0.5,
     m_flow_nom=1.673,
     l=21,
     MassFlowState=false,
     N_cv=4) annotation (Placement(transformation(extent={{-108,-68},{-128,-48}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe29_32R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe29_32R(
     d=0.5,
     m_flow_nom=1.673,
     l=21,
     MassFlowState=false,
     N_cv=4) annotation (Placement(transformation(extent={{-128,-52},{-108,-32}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe29_31R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe29_31R(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -951,13 +951,13 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={-100,-112})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe26_28(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe26_28(
     d=0.065,
     m_flow_nom=3.35,
     l=40,
     MassFlowState=false,
     N_cv=8) annotation (Placement(transformation(extent={{-18,-68},{-38,-48}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe26_28R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe26_28R(
     d=0.065,
     m_flow_nom=3.35,
     l=40,
@@ -971,7 +971,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={16,-100})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe27_50(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe27_50(
     d=0.085,
     m_flow_nom=6.69,
     l=100,
@@ -979,7 +979,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-2,-130})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe27_50R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe27_50R(
     d=0.085,
     m_flow_nom=6.69,
     l=100,
@@ -1001,7 +1001,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={-156,-172})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe55_56(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe55_56(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -1010,7 +1010,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={-160,-202})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe55_56R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe55_56R(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -1019,7 +1019,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-146,-202})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe55_57R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe55_57R(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -1028,7 +1028,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-160,-328})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe55_57(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe55_57(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -1058,7 +1058,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={-94,-170})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe51_53(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe51_53(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -1066,7 +1066,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={-98,-200})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe51_53R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe51_53R(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -1075,7 +1075,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-84,-200})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe52_54(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe52_54(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -1099,19 +1099,19 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={-98,-226})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe52_55(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe52_55(
     d=0.05,
     m_flow_nom=1.673,
     l=21,
     MassFlowState=false,
     N_cv=4) annotation (Placement(transformation(extent={{-106,-284},{-126,-264}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe52_55R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe52_55R(
     d=0.05,
     m_flow_nom=1.673,
     l=21,
     MassFlowState=false,
     N_cv=4) annotation (Placement(transformation(extent={{-126,-268},{-106,-248}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe52_54R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe52_54R(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -1120,25 +1120,25 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={-98,-328})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe50_51(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe50_51(
     d=0.065,
     m_flow_nom=3.35,
     l=40,
     MassFlowState=false,
     N_cv=8) annotation (Placement(transformation(extent={{-16,-284},{-36,-264}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe50_51R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe50_51R(
     d=0.065,
     m_flow_nom=3.35,
     l=40,
     MassFlowState=false,
     N_cv=8) annotation (Placement(transformation(extent={{-36,-268},{-16,-248}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe50_58R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe50_58R(
     d=0.065,
     m_flow_nom=3.35,
     l=70,
     MassFlowState=false,
     N_cv=14) annotation (Placement(transformation(extent={{90,-268},{70,-248}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe50_58(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe50_58(
     d=0.065,
     m_flow_nom=3.35,
     l=70,
@@ -1158,7 +1158,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={112,-176})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe58_60(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe58_60(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -1166,7 +1166,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={108,-204})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe58_60R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe58_60R(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -1175,7 +1175,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={122,-204})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe59_61(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe59_61(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -1184,7 +1184,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={108,-330})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe59_61R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe59_61R(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -1208,13 +1208,13 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={108,-230})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe59_62R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe59_62R(
     d=0.05,
     m_flow_nom=1.67,
     l=21,
     MassFlowState=false,
     N_cv=4) annotation (Placement(transformation(extent={{180,-270},{160,-250}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe59_62(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe59_62(
     d=0.05,
     m_flow_nom=1.67,
     l=21,
@@ -1234,7 +1234,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={206,-178})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe62_63(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe62_63(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -1242,7 +1242,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={202,-206})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe62_63R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe62_63R(
     d=0.02,
     m_flow_nom=0.84,
     l=22,
@@ -1251,7 +1251,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={216,-206})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe62_64R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe62_64R(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -1260,7 +1260,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={202,-332})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe62_64(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe62_64(
     d=0.04,
     m_flow_nom=0.84,
     l=22,
@@ -1286,7 +1286,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         origin={18,-258})));
   TransiEnt.Basics.Interfaces.Thermal.inlet inlet annotation (Placement(transformation(extent={{-58,318},{-28,348}}), iconTransformation(extent={{-58,318},{-28,348}})));
   TransiEnt.Basics.Interfaces.Thermal.outlet outlet annotation (Placement(transformation(extent={{4,318},{34,348}}), iconTransformation(extent={{4,318},{34,348}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe9_10R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe9_10R(
     d=0.15,
     m_flow_nom=26.78,
     l=22,
@@ -1294,7 +1294,7 @@ model TopologyC_Ports "A DHN topology for block buildings"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={20,204})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe9_10(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe9_10(
     d=0.15,
     m_flow_nom=26.78,
     l=22,
@@ -1666,12 +1666,15 @@ equation
     Documentation(info="<html>
 <h4><span style=\"color: #008000\">Purpose of model</span></h4>
 <p>A model of a district heating network topology. It represents a topology of block buildings.</p>
+<p>The model was used in: TransiEnt.Examples.Heat.Largescale_DHN</p>
 <h4><span style=\"color: #008000\">Interfaces</span></h4>
 <p>inlet: A fluid inlet for the inflowing heat carrier medium</p>
 <p>outlet: A fluid outlet for the outflowing heat carrier medium</p>
 <h4><span style=\"color: #008c48\">References</span></h4>
+<p>The topology is based on: </p>
+<p>[1] Benthin J, Hagemeier A, Heyer A, Huismann P, Krassowski J, Settgast C, et al. Integranet abschlussbericht. 2020</p>
 <p>The model was used in this publication:</p>
-<p>[1] Westphal, J.; Brunnemann, J.; Speerforck, A.; Enabling the dynamic simulation of an unaggregated, meshed district heating network with several thousand substations;Energy; 2025</p>
+<p>[2] Westphal, J.; Brunnemann, J.; Speerforck, A.; Enabling the dynamic simulation of an unaggregated, meshed district heating network with several thousand substations;Energy; 2025</p>
 <h4><span style=\"color: #008000\">Version History</span></h4>
 <p>Model was inserted by Jan Westphal (j.westphal@tuhh.de) January 2025</p>
 </html>"));

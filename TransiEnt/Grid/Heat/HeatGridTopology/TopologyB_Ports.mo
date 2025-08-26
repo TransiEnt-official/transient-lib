@@ -57,7 +57,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={-998,266})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe1_2(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe1_2(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -66,7 +66,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={-1002,238})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe1_2R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe1_2R(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -75,7 +75,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-988,238})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe2_3R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe2_3R(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -84,7 +84,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-1002,114})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe2_3(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe2_3(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -101,13 +101,13 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-10,-10},{10,10}},
         rotation=0,
         origin={-1002,140})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe2_4R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe2_4R(
     d=0.05,
     m_flow_nom=1.67,
     l=42,
     MassFlowState=false,
     N_cv=8) annotation (Placement(transformation(extent={{-938,168},{-918,188}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe2_4(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe2_4(
     d=0.05,
     m_flow_nom=1.67,
     l=42,
@@ -127,7 +127,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={-892,264})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe4_6(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe4_6(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -136,7 +136,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={-896,236})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe4_6R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe4_6R(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -145,7 +145,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-882,236})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe5_7R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe5_7R(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -154,7 +154,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-896,112})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe5_7(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe5_7(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -185,7 +185,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={-798,264})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe8_10(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe8_10(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -194,7 +194,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={-802,236})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe8_10R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe8_10R(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -203,7 +203,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-788,236})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe9_11R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe9_11R(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -212,7 +212,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-802,110})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe9_11(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe9_11(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -229,25 +229,25 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-10,-10},{10,10}},
         rotation=0,
         origin={-802,138})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe5_8R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe5_8R(
     d=0.065,
     m_flow_nom=3.35,
     l=42,
     MassFlowState=false,
     N_cv=8) annotation (Placement(transformation(extent={{-842,168},{-822,188}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe5_8(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe5_8(
     d=0.065,
     m_flow_nom=3.35,
     l=42,
     MassFlowState=false,
     N_cv=8) annotation (Placement(transformation(extent={{-822,154},{-842,174}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe9_12R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe9_12R(
     d=0.08,
     m_flow_nom=5.02,
     l=42,
     MassFlowState=false,
     N_cv=8) annotation (Placement(transformation(extent={{-740,168},{-720,188}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe9_12(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe9_12(
     d=0.08,
     m_flow_nom=5.02,
     l=42,
@@ -283,7 +283,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={-686,262})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe12_14(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe12_14(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -292,7 +292,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={-690,234})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe12_14R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe12_14R(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -301,7 +301,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-676,234})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe13_15R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe13_15R(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -310,7 +310,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-690,108})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe13_15(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe13_15(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -341,7 +341,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={-592,262})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe16_18(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe16_18(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -350,7 +350,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={-596,234})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe16_18R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe16_18R(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -359,7 +359,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-582,234})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe17_19R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe17_19R(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -368,7 +368,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-596,108})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe17_19(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe17_19(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -385,13 +385,13 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-9,-10},{9,10}},
         rotation=0,
         origin={-595,136})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe13_16R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe13_16R(
     d=0.08,
     m_flow_nom=6.69,
     l=42,
     MassFlowState=false,
     N_cv=8) annotation (Placement(transformation(extent={{-636,166},{-616,186}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe13_16(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe13_16(
     d=0.08,
     m_flow_nom=6.69,
     l=42,
@@ -413,13 +413,13 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={-596,208})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe17_20R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe17_20R(
     d=0.09,
     m_flow_nom=8.37,
     l=42,
     MassFlowState=false,
     N_cv=8) annotation (Placement(transformation(extent={{-540,168},{-520,188}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe17_20(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe17_20(
     d=0.09,
     m_flow_nom=8.37,
     l=42,
@@ -439,7 +439,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={-492,262})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe20_22(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe20_22(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -448,7 +448,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={-496,234})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe20_22R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe20_22R(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -457,7 +457,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-482,234})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe21_23R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe21_23R(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -466,7 +466,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-496,108})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe21_23(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe21_23(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -497,7 +497,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={-398,262})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe24_26(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe24_26(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -506,7 +506,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={-402,234})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe24_26R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe24_26R(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -515,7 +515,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-388,234})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe25_27R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe25_27R(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -524,7 +524,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-402,108})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe25_27(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe25_27(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -541,25 +541,25 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-10,-10},{10,10}},
         rotation=0,
         origin={-402,136})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe21_24R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe21_24R(
     d=0.1,
     m_flow_nom=10.04,
     l=42,
     MassFlowState=false,
     N_cv=8) annotation (Placement(transformation(extent={{-442,166},{-422,186}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe21_24(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe21_24(
     d=0.1,
     m_flow_nom=10.04,
     l=42,
     MassFlowState=false,
     N_cv=8) annotation (Placement(transformation(extent={{-422,152},{-442,172}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe25_28R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe25_28R(
     d=0.1,
     m_flow_nom=11.71,
     l=42,
     MassFlowState=false,
     N_cv=8) annotation (Placement(transformation(extent={{-340,166},{-320,186}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe25_28(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe25_28(
     d=0.1,
     m_flow_nom=11.71,
     l=42,
@@ -595,7 +595,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={-286,260})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe28_30(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe28_30(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -604,7 +604,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={-290,232})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe28_30R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe28_30R(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -613,7 +613,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-276,232})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe29_31R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe29_31R(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -622,7 +622,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-290,106})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe29_31(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe29_31(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -653,7 +653,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={-192,260})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe32_34(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe32_34(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -662,7 +662,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={-196,232})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe32_34R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe32_34R(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -671,7 +671,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-182,232})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe33_35R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe33_35R(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -680,7 +680,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-196,106})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe33_35(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe33_35(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -697,25 +697,25 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-10,-10},{10,10}},
         rotation=0,
         origin={-196,134})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe29_32R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe29_32R(
     d=0.11,
     m_flow_nom=13.39,
     l=42,
     MassFlowState=false,
     N_cv=8) annotation (Placement(transformation(extent={{-236,164},{-216,184}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe29_32(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe29_32(
     d=0.11,
     m_flow_nom=13.39,
     l=42,
     MassFlowState=false,
     N_cv=8) annotation (Placement(transformation(extent={{-216,150},{-236,170}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe33_36R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe33_36R(
     d=0.12,
     m_flow_nom=15.06,
     l=42,
     MassFlowState=false,
     N_cv=8) annotation (Placement(transformation(extent={{-134,164},{-114,184}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe33_36(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe33_36(
     d=0.12,
     m_flow_nom=15.06,
     l=42,
@@ -751,7 +751,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={-100,258})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe36_38(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe36_38(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -760,7 +760,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={-104,230})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe36_38R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe36_38R(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -769,7 +769,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-90,230})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe37_39R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe37_39R(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -778,7 +778,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-104,104})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe37_39(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe37_39(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -795,13 +795,13 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-10,-10},{10,10}},
         rotation=0,
         origin={-104,132})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe37_40R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe37_40R(
     d=0.12,
     m_flow_nom=16.37,
     l=100,
     MassFlowState=false,
     N_cv=20) annotation (Placement(transformation(extent={{-42,162},{-22,182}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe37_40(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe37_40(
     d=0.12,
     m_flow_nom=16.73,
     l=100,
@@ -823,13 +823,13 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={20,172})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe40_42R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe40_42R(
     d=0.12,
     m_flow_nom=15.9,
     l=100,
     MassFlowState=false,
     N_cv=20) annotation (Placement(transformation(extent={{80,162},{60,182}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe40_42(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe40_42(
     d=0.12,
     m_flow_nom=15.9,
     l=100,
@@ -842,7 +842,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={100,256})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe42_43(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe42_43(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -851,7 +851,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={96,228})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe42_43R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe42_43R(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -868,12 +868,12 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={96,202})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe42_44R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe42_44R(
     d=0.12,
     m_flow_nom=15.06,
     l=42,
     MassFlowState=false) annotation (Placement(transformation(extent={{168,162},{148,182}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe42_44(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe42_44(
     d=0.12,
     m_flow_nom=15.06,
     l=42,
@@ -892,7 +892,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={194,254})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe44_46(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe44_46(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -901,7 +901,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={190,226})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe44_46R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe44_46R(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -910,7 +910,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={204,226})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe45_47R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe45_47R(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -919,7 +919,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={190,100})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe45_47(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe45_47(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -944,12 +944,12 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={190,200})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe45_48R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe45_48R(
     d=0.12,
     m_flow_nom=13.39,
     l=42,
     MassFlowState=false) annotation (Placement(transformation(extent={{262,160},{242,180}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe45_48(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe45_48(
     d=0.12,
     m_flow_nom=13.39,
     l=42,
@@ -968,7 +968,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={284,252})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe48_50(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe48_50(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -977,7 +977,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={280,224})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe48_50R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe48_50R(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -986,7 +986,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={294,224})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe49_51R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe49_51R(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -995,7 +995,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={280,98})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe49_51(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe49_51(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -1020,12 +1020,12 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={280,198})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe49_52R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe49_52R(
     d=0.1,
     m_flow_nom=11.71,
     l=42,
     MassFlowState=false) annotation (Placement(transformation(extent={{352,158},{332,178}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe49_52(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe49_52(
     d=0.1,
     m_flow_nom=11.71,
     l=42,
@@ -1044,7 +1044,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={378,250})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe52_54(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe52_54(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -1053,7 +1053,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={374,222})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe52_54R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe52_54R(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -1062,7 +1062,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={388,222})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe53_55R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe53_55R(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -1071,7 +1071,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={374,96})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe53_55(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe53_55(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -1096,12 +1096,12 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={374,196})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe53_56R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe53_56R(
     d=0.1,
     m_flow_nom=10.04,
     l=42,
     MassFlowState=false) annotation (Placement(transformation(extent={{452,154},{432,174}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe53_56(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe53_56(
     d=0.1,
     m_flow_nom=10.04,
     l=42,
@@ -1120,7 +1120,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={472,248})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe56_58(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe56_58(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -1129,7 +1129,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={468,220})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe56_58R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe56_58R(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -1138,7 +1138,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={482,220})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe57_59R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe57_59R(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -1147,7 +1147,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={468,94})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe57_59(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe57_59(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -1172,12 +1172,12 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={468,194})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe57_60R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe57_60R(
     d=0.09,
     m_flow_nom=8.37,
     l=42,
     MassFlowState=false) annotation (Placement(transformation(extent={{540,154},{520,174}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe57_60(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe57_60(
     d=0.09,
     m_flow_nom=8.37,
     l=42,
@@ -1196,7 +1196,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={566,246})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe60_62(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe60_62(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -1205,7 +1205,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={562,218})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe60_62R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe60_62R(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -1214,7 +1214,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={576,218})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe61_63R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe61_63R(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -1223,7 +1223,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={562,92})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe61_63(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe61_63(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -1248,12 +1248,12 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={562,192})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe61_64R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe61_64R(
     d=0.085,
     m_flow_nom=6.69,
     l=42,
     MassFlowState=false) annotation (Placement(transformation(extent={{634,152},{614,172}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe61_64(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe61_64(
     d=0.085,
     m_flow_nom=6.69,
     l=42,
@@ -1272,7 +1272,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={656,244})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe64_66(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe64_66(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -1281,7 +1281,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={652,216})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe64_66R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe64_66R(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -1290,7 +1290,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={666,216})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe65_67R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe65_67R(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -1299,7 +1299,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={652,90})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe65_67(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe65_67(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -1324,12 +1324,12 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={652,190})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe65_68R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe65_68R(
     d=0.08,
     m_flow_nom=5.02,
     l=42,
     MassFlowState=false) annotation (Placement(transformation(extent={{726,150},{706,170}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe65_68(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe65_68(
     d=0.08,
     m_flow_nom=5.02,
     l=42,
@@ -1348,7 +1348,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={750,242})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe68_70(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe68_70(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -1357,7 +1357,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={746,214})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe68_70R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe68_70R(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -1366,7 +1366,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={760,214})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe69_71R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe69_71R(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -1375,7 +1375,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={746,88})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe69_71(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe69_71(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -1400,12 +1400,12 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={746,188})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe69_72R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe69_72R(
     d=0.065,
     m_flow_nom=3.35,
     l=42,
     MassFlowState=false) annotation (Placement(transformation(extent={{826,144},{806,164}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe69_72(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe69_72(
     d=0.065,
     m_flow_nom=3.35,
     l=42,
@@ -1424,7 +1424,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={848,236})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe72_74(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe72_74(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -1433,7 +1433,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={844,208})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe72_74R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe72_74R(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -1442,7 +1442,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={858,208})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe73_75R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe73_75R(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -1451,7 +1451,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={844,82})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe73_75(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe73_75(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -1476,12 +1476,12 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={844,182})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe73_76R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe73_76R(
     d=0.05,
     m_flow_nom=1.67,
     l=42,
     MassFlowState=false) annotation (Placement(transformation(extent={{916,142},{896,162}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe73_76(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe73_76(
     d=0.05,
     m_flow_nom=1.67,
     l=42,
@@ -1500,7 +1500,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-12,-10},{12,10}},
         rotation=90,
         origin={942,234})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe76_77(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe76_77(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -1509,7 +1509,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={938,206})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe76_77R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe76_77R(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -1518,7 +1518,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={952,206})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe76_78R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe76_78R(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -1527,7 +1527,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={938,80})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe76_78(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe76_78(
     d=0.04,
     m_flow_nom=0.84,
     l=60,
@@ -1546,7 +1546,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         origin={938,180})));
   TransiEnt.Basics.Interfaces.Thermal.inlet inlet annotation (Placement(transformation(extent={{-38,368},{-18,388}})));
   TransiEnt.Basics.Interfaces.Thermal.outlet outlet annotation (Placement(transformation(extent={{10,368},{30,388}})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe40_41R(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe40_41R(
     d=0.15,
     m_flow_nom=32.63,
     l=60,
@@ -1554,7 +1554,7 @@ model TopologyB_Ports "A topology for DHN for row houses"
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={20,342})));
-  TransiEnt.Components.Heat.SimplePipe_L4 pipe40_41(
+  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe40_41(
     d=0.15,
     m_flow_nom=32.63,
     l=60,
@@ -1907,12 +1907,15 @@ equation
     Documentation(info="<html>
 <h4><span style=\"color: #008000\">Purpose of model</span></h4>
 <p>A model of a district heating network topology. It represents a topology of row houses.</p>
+<p>The model was used in: TransiEnt.Examples.Heat.Largescale_DHN</p>
 <h4><span style=\"color: #008000\">Interfaces</span></h4>
 <p>inlet: A fluid inlet for the inflowing heat carrier medium</p>
 <p>outlet: A fluid outlet for the outflowing heat carrier medium</p>
 <h4><span style=\"color: #008c48\">References</span></h4>
+<p>The topology is based on: </p>
+<p>[1] Benthin J, Hagemeier A, Heyer A, Huismann P, Krassowski J, Settgast C, et al. Integranet abschlussbericht. 2020</p>
 <p>The model was used in this publication:</p>
-<p>[1] Westphal, J.; Brunnemann, J.; Speerforck, A.; Enabling the dynamic simulation of an unaggregated, meshed district heating network with several thousand substations;Energy; 2025</p>
+<p>[2] Westphal, J.; Brunnemann, J.; Speerforck, A.; Enabling the dynamic simulation of an unaggregated, meshed district heating network with several thousand substations;Energy; 2025</p>
 <h4><span style=\"color: #008000\">Version History</span></h4>
 <p>Model was inserted by Jan Westphal (j.westphal@tuhh.de) January 2025</p>
 </html>"));
