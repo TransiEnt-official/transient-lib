@@ -11,3 +11,7 @@ ThermalHeatConsumer_L3
 DomesticHotWater
 Consumer
 Consumer_SLP
+ConsumerHeatCharacteristic
+HeatCharacteristic
+Consumer_LowTemperatureDHN
+HeatCharacteristicDoublePort
