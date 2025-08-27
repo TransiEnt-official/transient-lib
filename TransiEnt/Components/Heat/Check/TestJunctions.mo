@@ -171,6 +171,29 @@ model TestJunctions "Test model for the junctions"
                                                                  annotation (Placement(transformation(extent={{30,-193},{50,-173}})));
   Modelica.Blocks.Sources.RealExpression MassFlowRateSource11(y=60*4185)
                                                                  annotation (Placement(transformation(extent={{30,-212},{50,-192}})));
+  Boundaries.FluidFlow.FluidSource                      source4 annotation (Placement(visible=true, transformation(
+        origin={-252,-246},
+        extent={{-10,-10},{10,10}},
+        rotation=0)));
+  Modelica.Blocks.Sources.RealExpression MassFlowRateSource6(y=1)
+                                                                 annotation (Placement(transformation(extent={{-294,-253},{-274,-233}})));
+  Modelica.Blocks.Sources.RealExpression MassFlowRateSource7(y=60*4185)
+                                                                 annotation (Placement(transformation(extent={{-294,-272},{-274,-252}})));
+  Modelica.Blocks.Sources.RealExpression MassFlowRateSource12(y=90*4185)
+                                                                 annotation (Placement(transformation(extent={{-244,-314},{-224,-294}})));
+  Modelica.Blocks.Sources.RealExpression MassFlowRateSource13(y=1)
+                                                                 annotation (Placement(transformation(extent={{-244,-295},{-224,-275}})));
+  Boundaries.FluidFlow.FluidSource                      source7 annotation (Placement(visible=true, transformation(
+        origin={-202,-288},
+        extent={{-10,-10},{10,10}},
+        rotation=0)));
+  Modelica.Blocks.Sources.RealExpression sinkPressure3(y=1e5)
+                                                             annotation (Placement(transformation(extent={{-126,-246},{-146,-226}})));
+  Boundaries.FluidFlow.FluidSink                      sink4 annotation (Placement(visible=true, transformation(
+        origin={-168,-236},
+        extent={{-10,-10},{10,10}},
+        rotation=0)));
+  VolumesValvesFittings.Fittings.Junction junction annotation (Placement(transformation(extent={{-224,-252},{-204,-232}})));
 equation
 
   // _____________________________________________
@@ -252,10 +275,22 @@ equation
   connect(source6.m_flow_in, MassFlowRateSource10.y) annotation (Line(points={{64,-183},{51,-183}}, color={0,0,127}));
   connect(MassFlowRateSource11.y, source6.h_in) annotation (Line(points={{51,-202},{60,-202},{60,-188},{64,-188}}, color={0,0,127}));
   connect(source6.port_a, join2.inlet2) annotation (Line(points={{82,-186},{98,-186},{98,-144},{71.8,-144}},   color={0,0,0}));
+  connect(MassFlowRateSource7.y,source4. h_in) annotation (Line(points={{-273,-262},{-264,-262},{-264,-248},{-260,-248}},
+                                                                                                                  color={0,0,127}));
+  connect(source4.m_flow_in,MassFlowRateSource6. y) annotation (Line(points={{-260,-243},{-273,-243}},
+                                                                                                  color={0,0,127}));
+  connect(MassFlowRateSource12.y,source7. h_in) annotation (Line(points={{-223,-304},{-214,-304},{-214,-290},{-210,-290}},
+                                                                                                                   color={0,0,127}));
+  connect(sink4.p_in,sinkPressure3. y) annotation (Line(points={{-160,-236.2},{-154,-236.2},{-154,-236},{-147,-236}},
+                                                                                                             color={0,0,127}));
+  connect(MassFlowRateSource13.y, source7.m_flow_in) annotation (Line(points={{-223,-285},{-210,-285}}, color={0,0,127}));
+  connect(source4.port_a, junction.fluidPort[1]) annotation (Line(points={{-242,-246},{-232,-246},{-232,-226},{-214.2,-226},{-214.2,-232}}, color={0,0,0}));
+  connect(source7.port_a, junction.fluidPort[2]) annotation (Line(points={{-192,-288},{-190,-288},{-190,-258},{-214.2,-258},{-214.2,-232}}, color={0,0,0}));
+  connect(sink4.port_a, junction.fluidPort[3]) annotation (Line(points={{-178,-236},{-198,-236},{-198,-226},{-214.2,-226},{-214.2,-232}}, color={0,0,0}));
   annotation (
-    Icon(                                                                                                                                                                                  coordinateSystem(initialScale = 0.1, extent={{-340,-220},{200,100}})),
+    Icon(                                                                                                                                                                                  coordinateSystem(initialScale = 0.1, extent={{-340,-320},{200,100}})),
                                                                                                                                                                                                         experiment(StopTime=10000, __Dymola_Algorithm="Dassl"),
-    Diagram(coordinateSystem(extent={{-340,-220},{200,100}}), graphics={
+    Diagram(coordinateSystem(extent={{-340,-320},{200,100}}), graphics={
         Text(
           extent={{-308,98},{-186,72}},
           textColor={28,108,200},
@@ -279,7 +314,11 @@ equation
         Text(
           extent={{-76,92},{52,76}},
           textColor={28,108,200},
-          textString="Test hydraulic circuit")}),
+          textString="Test hydraulic circuit"),
+        Text(
+          extent={{-300,-194},{-150,-222}},
+          textColor={28,108,200},
+          textString="Test model of a junction with n-ports")}),
     Documentation(info="<html>
 <h4><span style=\"color: #008c48\">Purpose of model:</span></h4>
 <p>Test model for the validation of the junctions.</p>

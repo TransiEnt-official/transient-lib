@@ -119,13 +119,12 @@ equation
 <h4><span style=\"color: #008000\">Interfaces</span></h4>
 <h4><span style=\"color: #008000\">Governing Equations</span></h4>
 <p>The equations have been simplified for an easier description of the model.</p>
-<p><br><img src=\"modelica://DistrictHeatingGridsNew/Resources/Images/equations/equation-TIjGMqNu.png\" alt=\"V*rho*dh/dt=m_in*h_in+m_out1*h_out1+m_out2*h_out2
-\"/></p>
-<p><img src=\"modelica://DistrictHeatingGridsNew/Resources/Images/equations/equation-29a3hKhw.png\" alt=\"p_in-p=delta_p(m_flow_in)\"/></p>
-<p><img src=\"modelica://DistrictHeatingGridsNew/Resources/Images/equations/equation-obRbdajb.png\" alt=\"p-p_out1=delta_p(m_flow_out1)\"/></p>
-<p><img src=\"modelica://DistrictHeatingGridsNew/Resources/Images/equations/equation-cT3k75Jr.png\" alt=\"p-p_out2=delta_p(m_flow_out2)
-\"/></p>
-<p><img src=\"modelica://DistrictHeatingGridsNew/Resources/Images/equations/equation-2FfMXJwA.png\" alt=\"0=m_flow_in+m_flow_out1+m_flow_out2\"/></p>
+<p><br>The equations have been simplified for an easier description of the model.</p>
+<p>V*rho*dh/dt=m_in*h_in+m_out1*h_out1+m_out2*h_out2</p>
+<p>p_in-p=delta_p(m_flow_in)</p>
+<p>p-p_out1=delta_p(m_flow_out1)</p>
+<p>p-p_out2=delta_p(m_flow_out2)</p>
+<p>0=m_flow_in+m_flow_out1+m_flow_out2</p>
 <h4><span style=\"color: #008000\">References</span></h4>
 <p>The model was used and verified in the following publication:</p>
 <p>[1] Westphal, J.; Brunnemann, J.; Speerforck, A.; Enabling the dynamic simulation of an unaggregated, meshed district heating network with several thousand substations;Energy; 2025</p>

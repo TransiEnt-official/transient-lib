@@ -35,23 +35,41 @@ model TestConsumer "Test model for the consumer"
   //          Instances of other classes
   // _____________________________________________
 
-  TransiEnt.Components.Boundaries.FluidFlow.FluidSink sink2(h=95*4186) annotation (Placement(transformation(extent={{-48,-32},{-68,-12}})));
+  TransiEnt.Components.Boundaries.FluidFlow.FluidSink sink2(h=95*4186) annotation (Placement(transformation(extent={{-56,66},{-76,86}})));
   Modelica.Blocks.Sources.RealExpression realExpression2(y=1.1e5)
-                                                             annotation (Placement(transformation(extent={{-96,-32},{-76,-12}})));
-  TransiEnt.Components.Boundaries.FluidFlow.FluidSink sink3 annotation (Placement(transformation(extent={{-48,-68},{-68,-48}})));
+                                                             annotation (Placement(transformation(extent={{-104,66},{-84,86}})));
+  TransiEnt.Components.Boundaries.FluidFlow.FluidSink sink3 annotation (Placement(transformation(extent={{-56,30},{-76,50}})));
   Modelica.Blocks.Sources.RealExpression realExpression3(y=1e5)
-                                                             annotation (Placement(transformation(extent={{-96,-68},{-76,-48}})));
+                                                             annotation (Placement(transformation(extent={{-104,30},{-84,50}})));
   TransiEnt.Consumer.Heat.Consumer consumer(
     multiplicationFactor=3.4,
     m_flow_nom=0.139,
-    Q_flow_nom(displayUnit="kW") = 17500) annotation (Placement(transformation(extent={{-8,-54},{20,-34}})));
-  Consumer_SLP consumer_SLP annotation (Placement(transformation(extent={{124,-48},{152,-28}})));
-  TransiEnt.Components.Boundaries.FluidFlow.FluidSink sink4(h=95*4186) annotation (Placement(transformation(extent={{100,-30},{80,-10}})));
+    Q_flow_nom(displayUnit="kW") = 17500) annotation (Placement(transformation(extent={{-16,44},{12,64}})));
+  Consumer_SLP consumer_SLP annotation (Placement(transformation(extent={{116,50},{144,70}})));
+  TransiEnt.Components.Boundaries.FluidFlow.FluidSink sink4(h=95*4186) annotation (Placement(transformation(extent={{92,68},{72,88}})));
   Modelica.Blocks.Sources.RealExpression realExpression5(y=1.1e5)
-                                                             annotation (Placement(transformation(extent={{52,-30},{72,-10}})));
-  TransiEnt.Components.Boundaries.FluidFlow.FluidSink sink5 annotation (Placement(transformation(extent={{100,-66},{80,-46}})));
+                                                             annotation (Placement(transformation(extent={{44,68},{64,88}})));
+  TransiEnt.Components.Boundaries.FluidFlow.FluidSink sink5 annotation (Placement(transformation(extent={{92,32},{72,52}})));
   Modelica.Blocks.Sources.RealExpression realExpression6(y=1e5)
-                                                             annotation (Placement(transformation(extent={{52,-66},{72,-46}})));
+                                                             annotation (Placement(transformation(extent={{44,32},{64,52}})));
+  TransiEnt.Components.Boundaries.FluidFlow.FluidSink sink1(h=95*4186) annotation (Placement(transformation(extent={{-90,-42},{-110,-22}})));
+  Modelica.Blocks.Sources.RealExpression realExpression1(y=1.1e5)
+                                                             annotation (Placement(transformation(extent={{-138,-42},{-118,-22}})));
+  TransiEnt.Components.Boundaries.FluidFlow.FluidSink sink6 annotation (Placement(transformation(extent={{-90,-78},{-110,-58}})));
+  Modelica.Blocks.Sources.RealExpression realExpression4(y=1e5)
+                                                             annotation (Placement(transformation(extent={{-138,-78},{-118,-58}})));
+  ConsumerHeatCharacteristic consumerHeatCharacteristic annotation (Placement(transformation(extent={{-58,-62},{-30,-42}})));
+  Modelica.Blocks.Sources.RealExpression realExpression7(y=273.15)
+                                                             annotation (Placement(transformation(extent={{4,-62},{-16,-42}})));
+  TransiEnt.Components.Boundaries.FluidFlow.FluidSink sink7(h=95*4186) annotation (Placement(transformation(extent={{42,-104},{22,-84}})));
+  Modelica.Blocks.Sources.RealExpression realExpression8(y=1.1e5)
+                                                             annotation (Placement(transformation(extent={{-6,-104},{14,-84}})));
+  TransiEnt.Components.Boundaries.FluidFlow.FluidSink sink8 annotation (Placement(transformation(extent={{42,-140},{22,-120}})));
+  Modelica.Blocks.Sources.RealExpression realExpression9(y=1e5)
+                                                             annotation (Placement(transformation(extent={{-6,-140},{14,-120}})));
+  Modelica.Blocks.Sources.RealExpression realExpression10(y=273.15)
+                                                             annotation (Placement(transformation(extent={{138,-124},{118,-104}})));
+  Consumer_LowTemperatureDHN consumer_LowTemperatureDHN annotation (Placement(transformation(extent={{76,-124},{104,-104}})));
 equation
 
   // _____________________________________________
@@ -59,21 +77,32 @@ equation
   //          Characteristic Equations
   // _____________________________________________
 
-  connect(realExpression2.y, sink2.p_in) annotation (Line(points={{-75,-22},{-64.5,-22},{-64.5,-22.2},{-66,-22.2}},
+  connect(realExpression2.y, sink2.p_in) annotation (Line(points={{-83,76},{-72.5,76},{-72.5,75.8},{-74,75.8}},
                                                                                                             color={0,0,127}));
-  connect(sink3.p_in, realExpression3.y) annotation (Line(points={{-66,-58.2},{-65.5,-58.2},{-65.5,-58},{-75,-58}}, color={0,0,127}));
-  connect(sink2.port_a, consumer.inlet) annotation (Line(points={{-48,-22},{-32,-22},{-32,-40},{-8,-40}},
-                                                                                                      color={0,0,0}));
-  connect(consumer.outlet, sink3.port_a) annotation (Line(points={{-8,-48},{-42,-48},{-42,-58},{-48,-58}}, color={0,0,0}));
-  connect(realExpression5.y,sink4. p_in) annotation (Line(points={{73,-20},{83.5,-20},{83.5,-20.2},{82,-20.2}},
+  connect(sink3.p_in, realExpression3.y) annotation (Line(points={{-74,39.8},{-73.5,39.8},{-73.5,40},{-83,40}},     color={0,0,127}));
+  connect(sink2.port_a, consumer.inlet) annotation (Line(points={{-56,76},{-40,76},{-40,58},{-16,58}},color={0,0,0}));
+  connect(consumer.outlet, sink3.port_a) annotation (Line(points={{-16,50},{-50,50},{-50,40},{-56,40}},    color={0,0,0}));
+  connect(realExpression5.y,sink4. p_in) annotation (Line(points={{65,78},{75.5,78},{75.5,77.8},{74,77.8}}, color={0,0,127}));
+  connect(sink5.p_in,realExpression6. y) annotation (Line(points={{74,41.8},{74.5,41.8},{74.5,42},{65,42}},         color={0,0,127}));
+  connect(sink5.port_a, consumer_SLP.outlet) annotation (Line(points={{92,42},{106,42},{106,56},{116,56}},      color={0,0,0}));
+  connect(consumer_SLP.inlet, sink4.port_a) annotation (Line(points={{116,64},{104,64},{104,78},{92,78}},      color={0,0,0}));
+  connect(realExpression1.y,sink1. p_in) annotation (Line(points={{-117,-32},{-106.5,-32},{-106.5,-32.2},{-108,-32.2}},
                                                                                                             color={0,0,127}));
-  connect(sink5.p_in,realExpression6. y) annotation (Line(points={{82,-56.2},{82.5,-56.2},{82.5,-56},{73,-56}},     color={0,0,127}));
-  connect(sink5.port_a, consumer_SLP.outlet) annotation (Line(points={{100,-56},{114,-56},{114,-42},{124,-42}}, color={0,0,0}));
-  connect(consumer_SLP.inlet, sink4.port_a) annotation (Line(points={{124,-34},{112,-34},{112,-20},{100,-20}}, color={0,0,0}));
+  connect(sink6.p_in,realExpression4. y) annotation (Line(points={{-108,-68.2},{-107.5,-68.2},{-107.5,-68},{-117,-68}},
+                                                                                                                    color={0,0,127}));
+  connect(consumerHeatCharacteristic.inlet, sink1.port_a) annotation (Line(points={{-58,-48},{-82,-48},{-82,-32},{-90,-32}}, color={0,0,0}));
+  connect(consumerHeatCharacteristic.outlet, sink6.port_a) annotation (Line(points={{-58,-56},{-84,-56},{-84,-68},{-90,-68}}, color={0,0,0}));
+  connect(realExpression7.y, consumerHeatCharacteristic.T_outdoor_K) annotation (Line(points={{-17,-52},{-29.4,-52}}, color={0,0,127}));
+  connect(realExpression8.y,sink7. p_in) annotation (Line(points={{15,-94},{25.5,-94},{25.5,-94.2},{24,-94.2}},
+                                                                                                            color={0,0,127}));
+  connect(sink8.p_in,realExpression9. y) annotation (Line(points={{24,-130.2},{24.5,-130.2},{24.5,-130},{15,-130}}, color={0,0,127}));
+  connect(consumer_LowTemperatureDHN.inlet, sink7.port_a) annotation (Line(points={{76,-110},{46,-110},{46,-94},{42,-94}}, color={0,0,0}));
+  connect(consumer_LowTemperatureDHN.outlet, sink8.port_a) annotation (Line(points={{76,-118},{48,-118},{48,-130},{42,-130}}, color={0,0,0}));
+  connect(realExpression10.y, consumer_LowTemperatureDHN.T_outdoor_K) annotation (Line(points={{117,-114},{104.8,-114}}, color={0,0,127}));
   annotation (experiment(StopTime=6048000, __Dymola_Algorithm="Dassl"), Icon(coordinateSystem(extent={{-160,-160},{160,120}})),
     Diagram(coordinateSystem(extent={{-160,-160},{160,120}}), graphics={
         Text(
-          extent={{-136,12},{22,-6}},
+          extent={{-144,110},{14,92}},
           textColor={28,108,200},
           textString="Test model for consumer (ambient)")}),
     Documentation(info="<html>

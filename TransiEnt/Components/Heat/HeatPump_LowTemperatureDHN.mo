@@ -1,9 +1,38 @@
 ﻿within TransiEnt.Components.Heat;
 model HeatPump_LowTemperatureDHN "Heat Pump model in low temperature DHN"
-  //import and hierachy
+
+  //________________________________________________________________________________//
+// Component of the TransiEnt Library, version: 2.0.3                             //
+//                                                                                //
+// Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
+// Copyright 2021, Hamburg University of Technology.                              //
+//________________________________________________________________________________//
+//                                                                                //
+// TransiEnt.EE, ResiliEntEE, IntegraNet and IntegraNet II are research projects  //
+// supported by the German Federal Ministry of Economics and Energy               //
+// (FKZ 03ET4003, 03ET4048, 0324027 and 03EI1008).                                //
+// The TransiEnt Library research team consists of the following project partners://
+// Institute of Engineering Thermodynamics (Hamburg University of Technology),    //
+// Institute of Energy Systems (Hamburg University of Technology),                //
+// Institute of Electrical Power and Energy Technology                            //
+// (Hamburg University of Technology)                                             //
+// Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
+// and                                                                            //
+// XRG Simulation GmbH (Hamburg, Germany).                                        //
+//________________________________________________________________________________//
+
+  // _____________________________________________
+  //
+  //          Import and Hierachy
+  // _____________________________________________
+
   import Modelica.Units.SI;
 
-  //parameter
+  // _____________________________________________
+  //
+  //          Visible Parameters
+  // _____________________________________________
 
   //parameter Real COP = 3.5;
   parameter Real cp = 4186;
@@ -17,7 +46,10 @@ model HeatPump_LowTemperatureDHN "Heat Pump model in low temperature DHN"
   parameter Real alpha = 0.6;
   parameter SI.TemperatureDifference delta_T_house_nom = 20;
 
-  //variables
+  // _____________________________________________
+  //
+  //          Variables
+  // _____________________________________________
 
   SI.HeatFlowRate Q_flow_DHN;
   SI.HeatFlowRate Q_flow_house;
@@ -33,8 +65,12 @@ model HeatPump_LowTemperatureDHN "Heat Pump model in low temperature DHN"
   SI.Temperature T_m_DHN;
   //SI.MassFlowRate m_flow_house;
 
-  //instances of other classes
-  DistrictHeatingGridsNew.Interfaces.FluidPortIn inlet annotation (Placement(
+  // _____________________________________________
+  //
+  //          Instances of other classes
+  // _____________________________________________
+
+  TransiEnt.Basics.Interfaces.Thermal.inlet inlet annotation (Placement(
       visible=true,
       transformation(
         origin={-100,0},
@@ -44,7 +80,7 @@ model HeatPump_LowTemperatureDHN "Heat Pump model in low temperature DHN"
         origin={-100,0},
         extent={{-10,-10},{10,10}},
         rotation=0)));
-  DistrictHeatingGridsNew.Interfaces.FluidPortOut outlet annotation (Placement(
+  TransiEnt.Basics.Interfaces.Thermal.outlet outlet annotation (Placement(
       visible=true,
       transformation(
         origin={100,0},
@@ -65,10 +101,16 @@ model HeatPump_LowTemperatureDHN "Heat Pump model in low temperature DHN"
         extent={{-10,-10},{10,10}},
         rotation=0)));
   Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPortR annotation (Placement(transformation(extent={{10,90},{30,110}})));
-equation
 
-  // Energieerhaltung Netz
+equation
+  // _____________________________________________
+  //
+  //         Characteristic Equations
+  // _____________________________________________
+
+  //No pressure loss
   inlet.p - outlet.p = 0;
+  //Static mass balance
   inlet.m_flow + outlet.m_flow = 0;
 
   Q_flow_DHN = inlet.m_flow * (inStream(inlet.h_outflow) - actualStream(outlet.h_outflow)) - V *rho * der(h);
@@ -85,7 +127,7 @@ equation
   T_m_house = 0.5 * (T_house_supply + T_house_return);
   T_m_DHN = 0.5 * (T_DHN_in+T_DHN_out);
 
-  //Wärmeport
+  //Heat ports
   heatPortS.Q_flow = -Q_flow_house;
   heatPortR.Q_flow = 0;
   heatPortS.T = T_house_supply;
@@ -96,5 +138,34 @@ equation
   Q_flow_house = Q_flow_nom_house *(T_house_supply - T_house_return) / delta_T_house_nom;
 
   annotation (
-    Icon(coordinateSystem(initialScale = 0.1), graphics={  Rectangle(origin = {-60, 0}, extent = {{-40, 100}, {160, -100}}), Rectangle(extent = {{-58, 50}, {-58, 50}}), Rectangle(extent = {{-92, 64}, {-92, 64}}), Line(origin = {-10, 10}, points = {{-90, -90}, {90, 90}}), Line(origin = {10, -10}, points = {{-90, -90}, {90, 90}})}));
+    Icon(coordinateSystem(initialScale = 0.1), graphics={  Rectangle(origin = {-60, 0}, extent = {{-40, 100}, {160, -100}}), Rectangle(extent = {{-58, 50}, {-58, 50}}), Rectangle(extent = {{-92, 64}, {-92, 64}}), Line(origin = {-10, 10}, points = {{-90, -90}, {90, 90}}), Line(origin = {10, -10}, points = {{-90, -90}, {90, 90}})}), Documentation(info="<html>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
+<p>A model of a heat exchanger that is combined with a heat pump. It is used in substation models of cold district heating networks where heat pumps are used to increase the temperatuer of the heat carrier. </p>
+<h4><span style=\"color: #008c48\">Level of detail, physical effects considered, and physical insight</span></h4>
+<p>L2 (defined in the CodingConventions)</p>
+<ul>
+<li>no pressure losses considered</li>
+<li>static mass balance</li>
+<li>constant fluid properties</li>
+<li>dynamic energy balance</li>
+<li>heat transport based on Q_flow_nom and a delta_T_nom</li>
+</ul>
+<h4><span style=\"color: #008000\">Interfaces</span></h4>
+<p>inlet: A fluid inlet for the inflowing heat carrier medium</p>
+<p>outlet: A fluid outlet for the outflowing heat carrier medium</p>
+<p>heatPortS: A heat port for transporting the heat from the heat carrier to the building</p>
+<p>heatPortR: A heat port for transfering the return temperature of the dwelling heat system to the heat exchanger, no heat is transfered</p>
+<h4><span style=\"color: #008c48\">Governing Equations</span></h4>
+<p>Mass balance: m_in+m_out=0</p>
+<p>Energy balance: V*rho*dh/dt=m_in*h_in+m_out*h_in-Q_flow_DHN</p>
+<p>P_el=Q_flow_House/COP</p>
+<p>COP&nbsp;=&nbsp;eta_carnot&nbsp;*&nbsp;eta_pl&nbsp;*&nbsp;(T_m_house&nbsp;+&nbsp;delta_T_HP)&nbsp;/&nbsp;(T_m_house&nbsp;-&nbsp;T_m_DHN&nbsp;+&nbsp;2&nbsp;*&nbsp;delta_T_HP)</p>
+<p>Q_flow_House=Q_flow_DHN+P_el</p>
+<p>Heat transport: Q_flow_house&nbsp;=&nbsp;Q_flow_nom_house&nbsp;*(T_house_supply&nbsp;-&nbsp;T_house_return)&nbsp;/&nbsp;delta_T_house_nom</p>
+<h4><span style=\"color: #008c48\">References</span></h4>
+<p>The model was used to create a substation for cold district heating networks</p>
+<p>TransiEnt.Consumer.Heat.Consumer_LowTemperatureDHN</p>
+<h4><span style=\"color: #008000\">Version History</span></h4>
+<p>Model was inserted by Jan Westphal (j.westphal@tuhh.de) January 2025</p>
+</html>"));
 end HeatPump_LowTemperatureDHN;

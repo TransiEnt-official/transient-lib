@@ -120,7 +120,7 @@ equation
     Diagram(coordinateSystem(preserveAspectRatio = false)),
     Documentation(info="<html>
 <h4><span style=\"color: #008c48\">Purpose of model</span></h4>
-<p>A simple model of a discretized pipe for district heating networks. The number of control volumes can be set with a parameter. It consists of two fluid ports and one heat port per control volume. It is based on the three balance equations of energy, mass and momentum. There is one dynamic energy balance per control volume. The heat capacity of the pipe wall is considered. The mass balance is static. The momentum balance is static, but mass flow states can be activated to improve the numerics of large-scale simulations. Further explanations can be found in Westphal et. al. Constant fluid properties are assumed for this control volume. Pressure losses due to friction are considered and calculated with a model of the fluid dissipation library (Darcy-Weisbach equation). Heat losses are considered with a heat loss per meter depending on the temperature difference. A temperature source is implemented in this model and connected to the heat ports of the control volume. The control volume is connected to two fluid ports. </p>
+<p>A simple model of a discretized pipe for district heating networks. The number of control volumes can be set with a parameter. It consists of two fluid ports and one heat port per control volume. It is based on the three balance equations of energy, mass and momentum. There is one dynamic energy balance per control volume. The heat capacity of the pipe wall is considered. The mass balance is static. The momentum balance is static, but mass flow states can be activated to improve the numerics of large-scale simulations. Further explanations can be found in Westphal et. al. Constant fluid properties are assumed for this control volume. Pressure losses due to friction are considered and calculated with a model of the fluid dissipation library (Darcy-Weisbach equation). Pressure changes due to gravity are not considered. Heat losses are considered with a heat loss per meter depending on the temperature difference. A temperature source is implemented in this model and connected to the heat ports of the control volume. The control volume is connected to two fluid ports. </p>
 <p>The control volume is discretized with an upwind scheme. For the implementation of the occuring case distinction the semiLinear operator is used. A number between 100 and 1000 control volumes per kilo meter is suitable for a district heating network simulation. If a large number of states appear in the DHN simulations due to a large number of control volumes the sparse solver should be activated. In Dymola this can be for example done with the command: Advanced.Translation.SparseActivate=true. This will improve the simulation speed significantly. Also the appearance of implicit non-linear systems of equations should be avoided. </p>
 <p>The physical effects described are implemented in the control volume model used in this component.</p>
 <h4><span style=\"color: #008c48\">Level of detail, physical effects considered, and physical insight</span></h4>
@@ -129,7 +129,7 @@ equation
 <li>static mass balance</li>
 <li>constant fluid properties</li>
 <li>dynamic and discretized energy balances</li>
-<li>consideration of pressure losses due to friction</li>
+<li>consideration of pressure losses due to friction but not pressure differences due to gravity</li>
 <li>consideration of heat losses</li>
 <li>reverse flow is supported</li>
 </ul>
