@@ -46,11 +46,13 @@ model Consumer_SLP "Simple model of a thermal consumer"
  parameter Real k = 20 "Constant for proportional part of PI-controller";
  parameter Real y_max = m_flow_nom "Max. opening of valve";//10, m_flow_nom
  parameter Real y_min = 0.0001 "Min. opening of valve";
- parameter Real cp=4186;
+ parameter SI.SpecificHeatCapacity cp=4186;
+ parameter String relativepath="/heat/HeatLoad.txt";
+ final parameter String path = TransiEnt.Basics.Functions.fullPathName(               Modelica.Utilities.System.getEnvironmentVariable("public-data") + relativepath);
 
   // _____________________________________________
   //
-  //          Visible Parameters
+  //          Variables
   // _____________________________________________
 
  SI.HeatFlowRate Q_flow_C "Consumed heat flow rate, just for evaluation";
@@ -100,7 +102,7 @@ model Consumer_SLP "Simple model of a thermal consumer"
   Modelica.Blocks.Sources.CombiTimeTable combiTimeTable(
     tableOnFile=true,
     tableName="default",
-    fileName="C:/Users/cjw1704/Documents/Data_files/WaermelastRissen.txt",
+    fileName=path,
     smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative) annotation (Placement(transformation(extent={{28,-10},
             {8,10}})));
   Modelica.Blocks.Math.Gain gain(k=Q_flow_nom/Q_flow_Ref)
@@ -148,8 +150,8 @@ equation
     experiment(StopTime=604800, __Dymola_Algorithm="Dassl"),
     Documentation(info="<html>
 <h4><span style=\"color: #008000\">Purpose of model</span></h4>
-<p>A model of a heat consumer for district heating networks. It consists of a pump, a heat exchanger and a P-controller. The P-Controller sets the mass flow rate through the pump so that the return temperature of the district heating network is kept constant. The heat is transported from the heat carrier through the heat exchanger. With a combi time table the consumed heat flow is set. A gain model is used to normalize the heat flow rate according to a given Q_flow_nom, which can be set by the user. </p>
-<p>This consumer model is used for the simulation of district heating networks. It calculates the mass flow rate flowing through the consumer, which is important for the numerics of a district heating network simulation. Therefore, a pressure difference has to be given by the hydraulic grid. The mass flow rate is limited by a parameter (m_flow_nom) inside the P-Controller. The calculation of the mass flow rate is independent of the pressure difference at the inlet and outlet. Therefore, the user has to pick sensible pressure values inside the hydraulic grid. An example of a pressure control is given in... </p>
+<p>A model of a heat consumer for district heating networks. It consists of a pump, a heat exchanger and a P-controller. The P-Controller sets the mass flow rate through the pump so that the return temperature of the district heating network is kept constant. The heat is transported from the heat carrier through the heat exchanger. With a combi time table the consumed heat flow is set. A gain model is used to normalize the heat flow rate according to a given Q_flow_nom, which can be set by the user. SLP in the name stands for the standard load profile that is used for heat the heat flow rate.</p>
+<p>This consumer model is used for the simulation of district heating networks. It calculates the mass flow rate flowing through the consumer, which is important for the numerics of a district heating network simulation. Therefore, a pressure difference has to be given by the hydraulic grid. The mass flow rate is limited by a parameter (m_flow_nom) inside the P-Controller. The calculation of the mass flow rate is independent of the pressure difference at the inlet and outlet. Therefore, the user has to pick sensible pressure values inside the hydraulic grid. An example of a pressure control is given in: TransiEnt.Examples.Heat.Largescale_DHN</p>
 <h4><span style=\"color: #008000\">Level of detail, physical effects considered, and physical insight</span></h4>
 <ul>
 <li>P-controler</li>

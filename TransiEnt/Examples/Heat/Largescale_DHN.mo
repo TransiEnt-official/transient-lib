@@ -2226,7 +2226,7 @@ equation
       __Dymola_Algorithm="Dassl"),
     Documentation(info="<html>
 <h4><span style=\"color: #008000\">Purpose of model</span></h4>
-<p>A running example of a large-scale district heating network. This model was used in two publications (see References). Further explanations can be found in the publications. </p>
+<p>A running example of a large-scale district heating network. This model was used in two publications (see References). Further explanations can be found in the publications. Enable the sparse solver for an efficient simulation. Advanced.Translation.SparseActivate=true</p>
 <h4><span style=\"color: #008c48\">References</span></h4>
 <p>The model was used in these publications:</p>
 <p>[1] Gillner, M.; Westphal, J., et al.; Status of the TransiEnt Library: Transient Simulation of Complex Integrated Energy Systems, 2025, Modelica Conference</p>

@@ -313,9 +313,10 @@ equation
 <p>Simple energy balance model of a hot water storage without spatial discretisation. Thermodynamic properties are not calculated in dependence on the temperature. The model consists of two heat exchangers that are connected artificially with an energy balance. </p>
 <h4><span style=\"color: #008000\">Level of detail, physical effects considered, and physical insight</span></h4>
 <ul>
-<li>consideration of heat losses</li>
-<li>dynamic energy balance</li>
-<li>no pressure loss considered</li>
+<li>Consideration of heat losses</li>
+<li>Dynamic energy balance</li>
+<li>No pressure losses considered</li>
+<li>No stratification considered (no discretization)</li>
 </ul>
 <h4><span style=\"color: #008000\">Interfaces</span></h4>
 <p>fpGenIn: inlet from heat generator</p>

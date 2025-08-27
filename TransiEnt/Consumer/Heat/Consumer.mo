@@ -84,7 +84,7 @@ model Consumer "Simple model of a thermal consumer"
    Placement(visible = true, transformation(origin = {30, 10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
  Modelica.Thermal.HeatTransfer.Components.ThermalConductor thermalConductor1(G = G) annotation (
    Placement(visible = true, transformation(origin={62,0},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
- DistrictHeatingGridsNew.Interfaces.HeatFlowMultiplier heatFlowMultiplier(factor=multiplicationFactor) annotation (Placement(transformation(
+ TransiEnt.Components.Heat.HeatFlowMultiplier heatFlowMultiplier(factor=multiplicationFactor) annotation (Placement(transformation(
         extent={{-10,10},{10,-10}},
         rotation=90,
         origin={-26,0})));
@@ -162,7 +162,7 @@ equation
     Documentation(info="<html>
 <h4><span style=\"color: #008000\">Purpose of model</span></h4>
 <p>A model of a heat consumer for district heating networks. It consists of a pump, a heat exchanger, a thermal capacity, a thermal conductor and a P-controller. The P-Controller sets the mass flow rate through the pump so that the temperature of the thermal capacity (which represents the room temperature of the building) is kept constant. The heat carrier flows through the inlet, the pump and the heat exchanger, from where the heat is transported to the thermal capacity. The thermal capacity is connected with a thermal conductor via a heat port. A heat flow rate is calculated with a temperature difference between the thermal capacity and a temperature boundary that defines an ambient temperature. </p>
-<p>This consumer model is used for the simulation of district heating networks. It calculates the mass flow rate flowing through the consumer, which is important for the numerics of a district heating network simulation. Therefore, a pressure difference has to be given by the hydraulic grid. The mass flow rate is limited by a parameter (m_flow_nom) inside the P-Controller. The calculation of the mass flow rate is independent of the pressure difference at the inlet and outlet. Therefore, the user has to pick sensible pressure values inside the hydraulic grid. An example of a pressure control is given in... </p>
+<p>This consumer model is used for the simulation of district heating networks. It calculates the mass flow rate flowing through the consumer, which is important for the numerics of a district heating network simulation. Therefore, a pressure difference has to be given by the hydraulic grid. The mass flow rate is limited by a parameter (m_flow_nom) inside the P-Controller. The calculation of the mass flow rate is independent of the pressure difference at the inlet and outlet. Therefore, the user has to pick sensible pressure values inside the hydraulic grid. An example of a pressure control is given in: TransiEnt.Examples.Heat.Largescale_DHN</p>
 <h4><span style=\"color: #008000\">Level of detail, physical effects considered, and physical insight</span></h4>
 <ul>
 <li>P-controler</li>
