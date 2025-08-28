@@ -41,7 +41,8 @@ model Consumer "Simple model of a thermal consumer"
  parameter SI.MassFlowRate m_flow_nom = 0.18 "Nominal mass flow rate of the water (used in the valve)";
  parameter SI.HeatFlowRate Q_flow_nom = 8e3 "Nominal heat flow rate (used in the heat exchanger)";
  parameter SI.Temperature T_room=295.15 "Set value for room temperature";
- parameter Real cp=4186;
+ parameter SI.SpecificHeatCapacity cp=4186;
+ parameter Boolean useInput=false;
  //parameters of controller
  parameter SI.Time tau_i = 1000 "Constant for integrator part of PI-controller";
  parameter Real k = 20 "Constant for proportional part of PI-controller";
@@ -129,7 +130,11 @@ model Consumer "Simple model of a thermal consumer"
     nperiod=1,
     offset=273.15,
     startTime=86400)
-    annotation (Placement(transformation(extent={{128,76},{148,96}})));
+    annotation (Placement(transformation(extent={{104,76},{124,96}})));
+  Modelica.Blocks.Interfaces.RealInput AmbientTemperatureIn if useInput annotation (Placement(transformation(
+        extent={{-20,-20},{20,20}},
+        rotation=180,
+        origin={180,56})));
 equation
 
   // _____________________________________________
@@ -153,8 +158,11 @@ equation
   connect(thermalConductor1.port_b, AmbientTemperature1.port) annotation (Line(points={{72,0},{
           84,0},{84,56},{90,56}},                                                                                      color={191,0,0}));
   connect(thermalConductor1.port_a, heatCapacitor1.port) annotation (Line(points={{52,0},{30,0}}, color={191,0,0}));
-  connect(trapezoid.y, AmbientTemperature1.T) annotation (Line(points={{149,86},
-          {158,86},{158,62},{112,62},{112,56}}, color={0,0,127}));
+  if useInput then
+  connect(AmbientTemperatureIn, AmbientTemperature1.T) annotation (Line(points={{180,56},{112,56}}, color={0,0,127}));
+  else
+    connect(trapezoid.y, AmbientTemperature1.T);
+  end if;
  annotation (
    Icon(coordinateSystem(extent={{-100,-100},{180,100}}),      graphics={  Ellipse(extent = {{100, -100}, {-100, 100}}, endAngle = 360), Line(origin = {-10, 10}, points = {{-70, -70}, {70, 70}, {70, 70}}), Line(origin = {10, -10}, points = {{-70, -70}, {70, 70}})}),
    Diagram(coordinateSystem(extent={{-100,-100},{180,100}})),
