@@ -454,4 +454,33 @@ equation
       index=1,
       extent={{6,3},{6,3}},
       horizontalAlignment=TextAlignment.Left));
+  annotation (Documentation(info="<html>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">1. Purpose of model</span></b></p>
+<p><span style=\"font-family: MS Shell Dlg 2;\">The purpose of this model is to combine different technological features of modern residential households into one Prosumer model. The model main components are:</span></p>
+<p><span style=\"font-family: MS Shell Dlg 2;\">TransiEnt.Components.Sensors.SmartMeter : A model for generating realistic measurements/information outputs of Smart Meters.</span></p>
+<p><span style=\"font-family: MS Shell Dlg 2;\">TransiEnt.Storage.Electrical.BatterySimple: A model for household battery electric storage systems.</span></p>
+<p><span style=\"font-family: MS Shell Dlg 2;\">TransiEnt.Consumer.Electrical.ElectricVehicle.BatteryElectricVehicle: A model for a Battery Electric Vehicle and its behaviour when charging with non-public charging infrastructure (wallboxes)</span></p>
+<p><span style=\"font-family: MS Shell Dlg 2;\">TransiEnt.Consumer.Heat.SpaceHeating.Heating: A model for the building heating combining a dynamic heat loss model dependent on the households dimensions, an electric heatpump and an electrical heater rod.</span></p>
+<p><span style=\"font-family: MS Shell Dlg 2;\">TransiEnt.Producer.Electrical.Photovoltaics.Advanced_PV.DNIDHI_Input.PVPlantControllable: A photovoltaic power plant with controllable reactive behaviour.</span></p>
+<p><span style=\"font-family: MS Shell Dlg 2;\">TransiEnt.Components.Boundaries.Electrical.ComplexPower.PQBoundary_new: A PQ boundary to represent inflexible load profiles within a complex RMS grid simulation.</span></p>
+<p><br><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">2. Level of detail, physical effects considered, and physical insight</span></b></p>
+<p><span style=\"font-family: MS Shell Dlg 2;\">Please have a further look in the subcomponents.</span></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">3. Limits of validity </span></b></p>
+<p><span style=\"font-family: MS Shell Dlg 2;\">Please have a further look in the subcomponents.</span></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">4. Interfaces</span></b></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2;\">controlBus</span></b> for input and output parameters regarding power setpoints, limitations and measurements.</p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">5. Nomenclature</span></b></p>
+<p><span style=\"font-family: MS Shell Dlg 2;\">See parameter and variable descriptions in the code.</span></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">6. Governing Equations</span></b></p>
+<p><span style=\"font-family: MS Shell Dlg 2;\">Please have a further look in the subcomponents.</span></p>
+<p><br><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">7. Remarks for Usage</span></b></p>
+<p>Choose the configuration of the subcomponents for your purpose.</p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">8. Validation</span></b></p>
+<p>Please have a further look in the subcomponents.</p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">9. References</span></b></p>
+<p><code>[1] </code>T. Steffen, B. Wiegel, D. Babazadeh, A. Youssfi, C. Becker and V. Turau, &quot;Generation of realistic Smart Meter Data from Prosumers for future energy system scenarios,&quot; <i>NEIS 2022; Conference on Sustainable Energy Supply and Energy Storage Systems</i>, Hamburg, Germany, 2022, pp. 1-6. </p>
+<p><code>[2]</code>  B. Wiegel, T. Steffen, D. Babazadeh and C. Becker, &quot;Towards a more comprehensive open-source model for interdisciplinary smart integrated energy systems,&quot; <i>2023 11th Workshop on Modelling and Simulation of Cyber-Physical Energy Systems (MSCPES)</i>, San Antonio, TX, USA, 2023, pp. 1-7, doi: 10.1109/MSCPES58582.2023.10123432.</p>
+<p><br><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">10. Version History</span></b></p>
+<pre>Added by Tom Steffe and B&eacute;la Wiegel, Techische Universit&auml;t Hamburg, Institut f&uuml;r Elektrische Energietechnik, 2025</pre>
+</html>"));
 end Prosumer;

@@ -51,7 +51,7 @@ model BatteryElectricVehicle
 
   parameter Real SOC_stop(
     unit="1",
-    displayUnit="%")=0.8
+    displayUnit="%")=1
     "If SOC > thr. reduce power linearly" annotation (Dialog(group="Battery"));
 
   parameter Real lambda_Pmin(

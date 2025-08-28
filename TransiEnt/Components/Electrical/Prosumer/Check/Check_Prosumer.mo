@@ -7,7 +7,7 @@ model Check_Prosumer "Prosumer"
   //   Parameter
   // ----------------------------------------------------------------------------------------
 
-  constant String data_local="modelica://TransiEnt/Tables/distribution/LV_rural_1/normaleBedingungen/"
+  constant String data_local="modelica://TransiEnt/Tables/distribution/"
                           "Directory containing load profile data";
 
   // ----------------------------------------------------------------------------------------
@@ -103,5 +103,26 @@ equation
   connect(booleanStep.y, controlBus.BES.SignalActive) annotation(Line(points={{-159,-30},{-100,-30},{-100,0}}));
   connect(booleanStep.y, controlBus.Heating.SignalActive);
   connect(booleanStep.y, controlBus.PV.SignalActive);
-  annotation (experiment(StopTime=259200, __Dymola_Algorithm="Dassl"));
+  annotation (experiment(StopTime=259200, __Dymola_Algorithm="Dassl"), Documentation(info="<html>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">1. Purpose of model</span></b></p>
+<p><span style=\"font-family: MS Shell Dlg 2;\">Check model for TransiEnt.Components.Electrical.Prosumer.Prosumer.</span></p>
+<p><br><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">2. Level of detail, physical effects considered, and physical insight</span></b></p>
+<p><span style=\"font-family: MS Shell Dlg 2;\">(no remarks)</span></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">3. Limits of validity </span></b></p>
+<p><span style=\"font-family: MS Shell Dlg 2;\">(no remarks)</span></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">4. Interfaces</span></b></p>
+<p><span style=\"font-family: MS Shell Dlg 2;\">(no remarks)</span></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">5. Nomenclature</span></b></p>
+<p><span style=\"font-family: MS Shell Dlg 2;\">(no remarks)</span></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">6. Governing Equations</span></b></p>
+<p><span style=\"font-family: MS Shell Dlg 2;\">(no remarks)</span></p>
+<p><br><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">7. Remarks for Usage</span></b></p>
+<p>(no remarks)</p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">8. Validation</span></b></p>
+<p>(no remarks)</p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">9. References</span></b></p>
+<pre>(no remarks)</pre>
+<p><br><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">10. Version History</span></b></p>
+<pre>Added by Tom Steffe and B&eacute;la Wiegel, Techische Universit&auml;t Hamburg, Institut f&uuml;r Elektrische Energietechnik, 2025</pre>
+</html>"));
 end Check_Prosumer;

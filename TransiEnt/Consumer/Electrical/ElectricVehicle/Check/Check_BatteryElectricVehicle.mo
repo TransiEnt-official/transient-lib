@@ -37,18 +37,20 @@ model Check_BatteryElectricVehicle
   extends TransiEnt.Basics.Icons.Checkmodel;
 
   BatteryElectricVehicle batteryElectricVehicle(
-    controlType=Models_CyEntEE.CellModels.Controller.Base.ControlType.Limit_P,
-    SOC_stop=1,
+    controlType=TransiEnt.Basics.Types.ControlType.Limit_P,
     Charger_Params=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4()) annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
   TransiEnt.Basics.Interfaces.General.ControlBus controlBus annotation (Placement(transformation(extent={{-10,-60},{10,-40}})));
   TransiEnt.Basics.Tables.DrivingProfiles.Example_DrivingProfile example_DrivingProfile annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={70,0})));
-  TransiEnt.Components.Boundaries.Electrical.ComplexPower.SlackBoundary slackBoundary(v_gen=400, f_n=50) annotation (Placement(transformation(
+  TransiEnt.Components.Boundaries.Electrical.ComplexPower.SlackBoundary_new
+                                                                        vDelta1(
+    v_n=400,
+    isFrequencyRoot=true,                                                                        f_n=50) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=180,
-        origin={-70,0})));
+        origin={-70,-2})));
   Modelica.Blocks.Sources.Step step(
     height=2500,
     offset=5000,
@@ -65,8 +67,8 @@ equation
       horizontalAlignment=TextAlignment.Right));
   connect(example_DrivingProfile.SOC_Consumption, batteryElectricVehicle.SOC_consumption) annotation (Line(points={{61,4},{14,4},{14,6},{9,6}}, color={0,0,127}));
   connect(example_DrivingProfile.isConnected, batteryElectricVehicle.isConnected) annotation (Line(points={{61,-4},{16,-4},{16,2},{9,2}}, color={255,0,255}));
-  connect(slackBoundary.epp, batteryElectricVehicle.epp) annotation (Line(
-      points={{-60,0},{-9.8,0}},
+  connect(vDelta1.epp, batteryElectricVehicle.epp) annotation (Line(
+      points={{-60,-2},{-34,-2},{-34,0},{-9.8,0}},
       color={28,108,200},
       thickness=0.5));
   connect(step.y, controlBus.P_limit) annotation (Line(points={{-59,-50},{0,-50}}, color={0,0,127}), Text(

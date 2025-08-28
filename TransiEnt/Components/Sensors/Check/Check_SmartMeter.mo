@@ -22,10 +22,6 @@ model Check_SmartMeter
   //________________________________________________________________________________//
   extends TransiEnt.Basics.Icons.Checkmodel;
   TransiEnt.Components.Sensors.SmartMeter SmartMeter_TAF7(configuration="TAF7") annotation (Placement(transformation(extent={{-30,-30},{-10,-10}})));
-  Boundaries.Electrical.ComplexPower.SlackBoundary slackBoundary(v_gen=400, f_n=50) annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
-        rotation=180,
-        origin={-72,0})));
   Modelica.Blocks.Sources.Pulse pulseP(
     amplitude=1e6,
     width=50,
@@ -45,53 +41,93 @@ model Check_SmartMeter
     useDelay=true,
     samplePeriod=120) annotation (Placement(transformation(extent={{-30,10},{-10,30}})));
   TransiEnt.Components.Sensors.SmartMeter SmartMeter_Ideal(useStandardConfiguration=true, configuration="Ideal") annotation (Placement(transformation(extent={{-30,50},{-10,70}})));
-  Boundaries.Electrical.ComplexPower.PQBoundary pQBoundary(v_n=400) annotation (Placement(transformation(extent={{40,50},{60,70}})));
-  Boundaries.Electrical.ComplexPower.PQBoundary pQBoundary1(v_n=400) annotation (Placement(transformation(extent={{40,10},{60,30}})));
-  Boundaries.Electrical.ComplexPower.PQBoundary pQBoundary2(v_n=400) annotation (Placement(transformation(extent={{40,-30},{60,-10}})));
-  Boundaries.Electrical.ComplexPower.PQBoundary pQBoundary3(v_n=400) annotation (Placement(transformation(extent={{40,-70},{60,-50}})));
+  Boundaries.Electrical.ComplexPower.SlackBoundary_new vDelta1(v_n=400, isFrequencyRoot=true) annotation (Placement(transformation(
+        extent={{-10,-10},{10,10}},
+        rotation=180,
+        origin={-70,0})));
+  Boundaries.Electrical.ComplexPower.PQBoundary_new pq1(
+    v_n=400,
+    useInputConnectorP=true,
+    useInputConnectorQ=true) annotation (Placement(transformation(extent={{40,50},{60,70}})));
+  Boundaries.Electrical.ComplexPower.PQBoundary_new pq2(
+    v_n=400,
+    useInputConnectorP=true,
+    useInputConnectorQ=true) annotation (Placement(transformation(extent={{40,10},{60,30}})));
+  Boundaries.Electrical.ComplexPower.PQBoundary_new pq3(
+    v_n=400,
+    useInputConnectorP=true,
+    useInputConnectorQ=true) annotation (Placement(transformation(extent={{40,-30},{60,-10}})));
+  Boundaries.Electrical.ComplexPower.PQBoundary_new pq4(
+    v_n=400,
+    useInputConnectorP=true,
+    useInputConnectorQ=true) annotation (Placement(transformation(extent={{40,-70},{60,-50}})));
 equation
-  connect(SmartMeter_TAF7.epp_a, slackBoundary.epp) annotation (Line(
-      points={{-29.2,-20},{-52,-20},{-52,0},{-62,0}},
+  connect(vDelta1.epp, SmartMeter_Ideal.epp_a) annotation (Line(
+      points={{-60,0},{-36,0},{-36,60},{-29.2,60}},
       color={28,108,200},
       thickness=0.5));
-  connect(SmartMeter_TAF10.epp_a, slackBoundary.epp) annotation (Line(
-      points={{-29.2,-60},{-52,-60},{-52,0},{-62,0}},
+  connect(vDelta1.epp, SmartMeter_Manual.epp_a) annotation (Line(
+      points={{-60,0},{-36,0},{-36,20},{-29.2,20}},
       color={28,108,200},
       thickness=0.5));
-  connect(SmartMeter_Ideal.epp_a, slackBoundary.epp) annotation (Line(
-      points={{-29.2,60},{-52,60},{-52,0},{-62,0}},
+  connect(vDelta1.epp, SmartMeter_TAF7.epp_a) annotation (Line(
+      points={{-60,0},{-36,0},{-36,-20},{-29.2,-20}},
       color={28,108,200},
       thickness=0.5));
-  connect(SmartMeter_Manual.epp_a, slackBoundary.epp) annotation (Line(
-      points={{-29.2,20},{-52,20},{-52,0},{-62,0}},
+  connect(vDelta1.epp, SmartMeter_TAF10.epp_a) annotation (Line(
+      points={{-60,0},{-36,0},{-36,-60},{-29.2,-60}},
       color={28,108,200},
       thickness=0.5));
-  connect(pQBoundary3.epp, SmartMeter_TAF10.epp_b) annotation (Line(
+  connect(pq4.epp, SmartMeter_TAF10.epp_b) annotation (Line(
       points={{40,-60},{-10.8,-60}},
       color={28,108,200},
       thickness=0.5));
-  connect(pQBoundary2.epp, SmartMeter_TAF7.epp_b) annotation (Line(
+  connect(pq3.epp, SmartMeter_TAF7.epp_b) annotation (Line(
       points={{40,-20},{-10.8,-20}},
       color={28,108,200},
       thickness=0.5));
-  connect(SmartMeter_Manual.epp_b, pQBoundary1.epp) annotation (Line(
-      points={{-10.8,20},{40,20}},
+  connect(pq2.epp, SmartMeter_Manual.epp_b) annotation (Line(
+      points={{40,20},{-10.8,20}},
       color={28,108,200},
       thickness=0.5));
-  connect(SmartMeter_Ideal.epp_b, pQBoundary.epp) annotation (Line(
-      points={{-10.8,60},{40,60}},
+  connect(pq1.epp, SmartMeter_Ideal.epp_b) annotation (Line(
+      points={{40,60},{-10.8,60}},
       color={28,108,200},
       thickness=0.5));
-  connect(pulseP.y, pQBoundary.P_el_set) annotation (Line(points={{101,30},{106,30},{106,80},{44,80},{44,72}}, color={0,0,127}));
-  connect(pQBoundary1.P_el_set, pulseP.y) annotation (Line(points={{44,32},{44,44},{106,44},{106,30},{101,30}}, color={0,127,127}));
-  connect(pQBoundary2.P_el_set, pulseP.y) annotation (Line(points={{44,-8},{44,6},{106,6},{106,30},{101,30}}, color={0,127,127}));
-  connect(pQBoundary3.P_el_set, pulseP.y) annotation (Line(points={{44,-48},{44,-34},{106,-34},{106,30},{101,30}}, color={0,127,127}));
-  connect(pQBoundary3.Q_el_set, pulseQ.y) annotation (Line(points={{56,-48},{72,-48},{72,-36},{108,-36},{108,-52},{103,-52}}, color={0,127,127}));
-  connect(pQBoundary2.Q_el_set, pulseQ.y) annotation (Line(points={{56,-8},{108,-8},{108,-52},{103,-52}}, color={0,127,127}));
-  connect(pQBoundary1.Q_el_set, pulseQ.y) annotation (Line(points={{56,32},{66,32},{66,-8},{108,-8},{108,-52},{103,-52}}, color={0,127,127}));
-  connect(pQBoundary.Q_el_set, pulseQ.y) annotation (Line(points={{56,72},{66,72},{66,-8},{108,-8},{108,-52},{103,-52}}, color={0,127,127}));
+  connect(pulseP.y, pq1.P_el_set) annotation (Line(points={{101,30},{106,30},{106,78},{44,78},{44,71}}, color={0,0,127}));
+  connect(pulseP.y, pq2.P_el_set) annotation (Line(points={{101,30},{106,30},{106,44},{44,44},{44,31}}, color={0,0,127}));
+  connect(pulseP.y, pq3.P_el_set) annotation (Line(points={{101,30},{106,30},{106,44},{66,44},{66,-6},{44,-6},{44,-9}}, color={0,0,127}));
+  connect(pulseP.y, pq4.P_el_set) annotation (Line(points={{101,30},{106,30},{106,44},{66,44},{66,-46},{44,-46},{44,-49}}, color={0,0,127}));
+  connect(pulseQ.y, pq4.Q_el_set) annotation (Line(points={{103,-52},{103,-38},{56,-38},{56,-49}}, color={0,0,127}));
+  connect(pulseQ.y, pq3.Q_el_set) annotation (Line(points={{103,-52},{104,-52},{104,-38},{64,-38},{64,-4},{56,-4},{56,-9}}, color={0,0,127}));
+  connect(pulseQ.y, pq2.Q_el_set) annotation (Line(points={{103,-52},{104,-52},{104,-38},{64,-38},{64,38},{56,38},{56,31}}, color={0,0,127}));
+  connect(pulseQ.y, pq1.Q_el_set) annotation (Line(points={{103,-52},{104,-52},{104,-38},{64,-38},{64,76},{56,76},{56,71}}, color={0,0,127}));
   annotation (
     Icon(coordinateSystem(preserveAspectRatio=false)),
     Diagram(coordinateSystem(preserveAspectRatio=false)),
-    experiment(StopTime=20000, __Dymola_Algorithm="Dassl"));
+    experiment(StopTime=20000, __Dymola_Algorithm="Dassl"),
+    Documentation(info="<html>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">1. Purpose of model</span></b></p>
+<p><span style=\"font-family: MS Shell Dlg 2;\">The purpose of this model is to showcase the model characteristics of TransiEnt.Components.Sensors.SmartMeter. The model has four different SmartMeter configurations included for Ideal, TAF7, TAF10 and Manual measurement characteristics.</span></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">2. Level of detail, physical effects considered, and physical insight</span></b></p>
+<p><span style=\"font-family: MS Shell Dlg 2;\">(no remarks)</span></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">3. Limits of validity </span></b></p>
+<p><span style=\"font-family: MS Shell Dlg 2;\">(no remarks)</span></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">4. Interfaces</span></b></p>
+<p><span style=\"font-family: MS Shell Dlg 2;\">(no remarks)</span></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">5. Nomenclature</span></b></p>
+<p><span style=\"font-family: MS Shell Dlg 2;\">(no remarks)</span></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">6. Governing Equations</span></b></p>
+<p>(no remarks)</p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">7. Remarks for Usage</span></b></p>
+<p>Ideal: Values for P, V, I, delta, f, Q are connected to controlBus without noise and without delay.</p>
+<p>Manual: Values for P, V, I, delta, f, Q are connected to controlBus with configured noise and delay.</p>
+<p>TAF7: Values for P, V, I and E, Q are connected to controlBus with noise and without delay. All values are taken the mean value over 900s and then are sampled by a discrete sampler to get the regulatory required 900s mean values.</p>
+<p>TAF10: Values for P, V, I, delta, f, Q are connected to controlBus without noise and without delay. All values are sampled every 60s to get the regulatory required 60s effective values.</p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">8. Validation</span></b></p>
+<p><span style=\"font-family: MS Shell Dlg 2;\">(no remarks)</span></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">9. References</span></b></p>
+<p>(no remarks)</p><p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">10. Version History</span></b></p>
+<pre>Added by Tom Steffen, Techische Universit&auml;t Hamburg, Institut f&uuml;r Elektrische Energietechnik, 2025</pre>
+</html>"));
 end Check_SmartMeter;
