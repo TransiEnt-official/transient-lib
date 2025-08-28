@@ -29,5 +29,18 @@ equation
 
   connect(state, onOff.request);
 
-  annotation (experiment(StopTime=420, __Dymola_Algorithm="Dassl"));
+  annotation (experiment(StopTime=420, __Dymola_Algorithm="Dassl"), Diagram(
+        graphics={Text(
+          extent={{-66,94},{70,50}},
+          textColor={28,108,200},
+          horizontalAlignment=TextAlignment.Left,
+          textString="Check OnOff Block
+
+Variable \"state\" (assigned in equation part) creates
+a defined signal with on and off events. Dependent
+on the switching frequency, the state is on hold."), Text(
+          extent={{-66,54},{38,24}},
+          textColor={28,108,200},
+          horizontalAlignment=TextAlignment.Left,
+          textString="See \"state\" and \"onOff.signal\"")}));
 end Check_OnOff;
