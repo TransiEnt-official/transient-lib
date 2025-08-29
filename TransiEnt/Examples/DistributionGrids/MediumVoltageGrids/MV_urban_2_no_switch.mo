@@ -39,17 +39,17 @@ model MV_urban_2_no_switch "Urban medium voltage distribution grid scenario with
 
   // ---- Knoten rechter Zweig ----------------------------------------------------------------
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_1(epp(v(start=10000))) annotation (Placement(transformation(extent={{6,-56},{0,-50}})));
-  TransiEnt.Components.Electrical.Grid.Base.Node node_41(epp(v(start=10000))) annotation (Placement(transformation(extent={{44,42},{38,48}})));
-  TransiEnt.Components.Electrical.Grid.Base.Node node_42(epp(v(start=10000))) annotation (Placement(transformation(extent={{56,154},{50,160}})));
-  TransiEnt.Components.Electrical.Grid.Base.Node node_43(epp(v(start=10000))) annotation (Placement(transformation(extent={{56,282},{50,288}})));
-  TransiEnt.Components.Electrical.Grid.Base.Node node_44(epp(v(start=10000))) annotation (Placement(transformation(extent={{56,414},{50,420}})));
-  TransiEnt.Components.Electrical.Grid.Base.Node node_45(epp(v(start=10000))) annotation (Placement(transformation(extent={{58,552},{52,558}})));
-  TransiEnt.Components.Electrical.Grid.Base.Node node_46(epp(v(start=10000))) annotation (Placement(transformation(extent={{56,726},{50,732}})));
-  TransiEnt.Components.Electrical.Grid.Base.Node node_47(epp(v(start=10000))) annotation (Placement(transformation(extent={{52,862},{46,868}})));
-  TransiEnt.Components.Electrical.Grid.Base.Node node_48(epp(v(start=10000))) annotation (Placement(transformation(extent={{48,994},{42,1000}})));
-  TransiEnt.Components.Electrical.Grid.Base.Node node_49(epp(v(start=10000))) annotation (Placement(transformation(extent={{46,1126},{40,1132}})));
-  TransiEnt.Components.Electrical.Grid.Base.Node node_50(epp(v(start=10000))) annotation (Placement(transformation(extent={{44,1262},{38,1268}})));
+  TransiEnt.Components.Electrical.Grid.Node node_1(epp(v(start=10000))) annotation (Placement(transformation(extent={{6,-56},{0,-50}})));
+  TransiEnt.Components.Electrical.Grid.Node node_41(epp(v(start=10000))) annotation (Placement(transformation(extent={{44,42},{38,48}})));
+  TransiEnt.Components.Electrical.Grid.Node node_42(epp(v(start=10000))) annotation (Placement(transformation(extent={{56,154},{50,160}})));
+  TransiEnt.Components.Electrical.Grid.Node node_43(epp(v(start=10000))) annotation (Placement(transformation(extent={{56,282},{50,288}})));
+  TransiEnt.Components.Electrical.Grid.Node node_44(epp(v(start=10000))) annotation (Placement(transformation(extent={{56,414},{50,420}})));
+  TransiEnt.Components.Electrical.Grid.Node node_45(epp(v(start=10000))) annotation (Placement(transformation(extent={{58,552},{52,558}})));
+  TransiEnt.Components.Electrical.Grid.Node node_46(epp(v(start=10000))) annotation (Placement(transformation(extent={{56,726},{50,732}})));
+  TransiEnt.Components.Electrical.Grid.Node node_47(epp(v(start=10000))) annotation (Placement(transformation(extent={{52,862},{46,868}})));
+  TransiEnt.Components.Electrical.Grid.Node node_48(epp(v(start=10000))) annotation (Placement(transformation(extent={{48,994},{42,1000}})));
+  TransiEnt.Components.Electrical.Grid.Node node_49(epp(v(start=10000))) annotation (Placement(transformation(extent={{46,1126},{40,1132}})));
+  TransiEnt.Components.Electrical.Grid.Node node_50(epp(v(start=10000))) annotation (Placement(transformation(extent={{44,1262},{38,1268}})));
 
   // ---- Lines rechter Zweig -----------------------------------------------------------------
 
@@ -136,14 +136,14 @@ model MV_urban_2_no_switch "Urban medium voltage distribution grid scenario with
 
   // ---- Nodes  linker Zweig ----------------------------------------------------------------
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_51(epp(v(start=10000))) annotation (Placement(transformation(extent={{-52,34},{-46,40}})));
-  TransiEnt.Components.Electrical.Grid.Base.Node node_52(epp(v(start=10000))) annotation (Placement(transformation(extent={{-100,132},{-94,138}})));
-  TransiEnt.Components.Electrical.Grid.Base.Node node_53(epp(v(start=10000))) annotation (Placement(transformation(extent={{-124,222},{-118,228}})));
-  TransiEnt.Components.Electrical.Grid.Base.Node node_54(epp(v(start=10000))) annotation (Placement(transformation(extent={{-144,354},{-138,360}})));
-  TransiEnt.Components.Electrical.Grid.Base.Node node_55(epp(v(start=10000))) annotation (Placement(transformation(extent={{-152,510},{-146,516}})));
-  TransiEnt.Components.Electrical.Grid.Base.Node node_56(epp(v(start=10000))) annotation (Placement(transformation(extent={{-154,678},{-148,684}})));
-  TransiEnt.Components.Electrical.Grid.Base.Node node_57(epp(v(start=10000))) annotation (Placement(transformation(extent={{-162,838},{-156,844}})));
-  TransiEnt.Components.Electrical.Grid.Base.Node node_58(epp(v(start=10000))) annotation (Placement(transformation(extent={{-160,986},{-154,992}})));
+  TransiEnt.Components.Electrical.Grid.Node node_51(epp(v(start=10000))) annotation (Placement(transformation(extent={{-52,34},{-46,40}})));
+  TransiEnt.Components.Electrical.Grid.Node node_52(epp(v(start=10000))) annotation (Placement(transformation(extent={{-100,132},{-94,138}})));
+  TransiEnt.Components.Electrical.Grid.Node node_53(epp(v(start=10000))) annotation (Placement(transformation(extent={{-124,222},{-118,228}})));
+  TransiEnt.Components.Electrical.Grid.Node node_54(epp(v(start=10000))) annotation (Placement(transformation(extent={{-144,354},{-138,360}})));
+  TransiEnt.Components.Electrical.Grid.Node node_55(epp(v(start=10000))) annotation (Placement(transformation(extent={{-152,510},{-146,516}})));
+  TransiEnt.Components.Electrical.Grid.Node node_56(epp(v(start=10000))) annotation (Placement(transformation(extent={{-154,678},{-148,684}})));
+  TransiEnt.Components.Electrical.Grid.Node node_57(epp(v(start=10000))) annotation (Placement(transformation(extent={{-162,838},{-156,844}})));
+  TransiEnt.Components.Electrical.Grid.Node node_58(epp(v(start=10000))) annotation (Placement(transformation(extent={{-160,986},{-154,992}})));
 
   // ---- Lines linker Zweig -----------------------------------------------------------------
 

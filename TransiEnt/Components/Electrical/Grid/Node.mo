@@ -1,4 +1,4 @@
-within TransiEnt.Components.Electrical.Grid.Base;
+within TransiEnt.Components.Electrical.Grid;
 model Node "Single bus node"
 
   final SI.PerUnit v_pu=v/v_n;

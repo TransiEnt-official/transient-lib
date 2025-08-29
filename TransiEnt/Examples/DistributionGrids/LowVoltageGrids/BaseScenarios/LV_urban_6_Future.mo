@@ -35,235 +35,235 @@ model LV_urban_6_Future "Urban low voltage distribution grid scenario with futur
 
   // ---- Nodes -------------------------------------------------------------------------------
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_1(v_n=400) annotation (Placement(transformation(extent={{-33.93,155.9},{-28.93,160.9}})));
+  TransiEnt.Components.Electrical.Grid.Node node_1(v_n=400) annotation (Placement(transformation(extent={{-33.93,155.9},{-28.93,160.9}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_2(v_n=400) annotation (Placement(transformation(extent={{-5.93,-159.1},{-0.93,-154.1}})));
+  TransiEnt.Components.Electrical.Grid.Node node_2(v_n=400) annotation (Placement(transformation(extent={{-5.93,-159.1},{-0.93,-154.1}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_3(v_n=400) annotation (Placement(transformation(extent={{-12.93,-12.1},{-7.93,-7.1}})));
+  TransiEnt.Components.Electrical.Grid.Node node_3(v_n=400) annotation (Placement(transformation(extent={{-12.93,-12.1},{-7.93,-7.1}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_4(v_n=400) annotation (Placement(transformation(extent={{15.07,78.9},{20.07,83.9}})));
+  TransiEnt.Components.Electrical.Grid.Node node_4(v_n=400) annotation (Placement(transformation(extent={{15.07,78.9},{20.07,83.9}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_5(v_n=400) annotation (Placement(transformation(extent={{71.07,57.9},{76.07,62.9}})));
+  TransiEnt.Components.Electrical.Grid.Node node_5(v_n=400) annotation (Placement(transformation(extent={{71.07,57.9},{76.07,62.9}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_6(v_n=400) annotation (Placement(transformation(extent={{127.07,-110.1},{132.07,-105.1}})));
+  TransiEnt.Components.Electrical.Grid.Node node_6(v_n=400) annotation (Placement(transformation(extent={{127.07,-110.1},{132.07,-105.1}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_7(v_n=400) annotation (Placement(transformation(extent={{-5.93,-40.1},{-0.93,-35.1}})));
+  TransiEnt.Components.Electrical.Grid.Node node_7(v_n=400) annotation (Placement(transformation(extent={{-5.93,-40.1},{-0.93,-35.1}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_8(v_n=400) annotation (Placement(transformation(extent={{-5.93,-138.1},{-0.93,-133.1}})));
+  TransiEnt.Components.Electrical.Grid.Node node_8(v_n=400) annotation (Placement(transformation(extent={{-5.93,-138.1},{-0.93,-133.1}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_9(v_n=400) annotation (Placement(transformation(extent={{127.07,-131.1},{132.07,-126.1}})));
+  TransiEnt.Components.Electrical.Grid.Node node_9(v_n=400) annotation (Placement(transformation(extent={{127.07,-131.1},{132.07,-126.1}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_10(v_n=400) annotation (Placement(transformation(extent={{71.07,78.9},{76.07,83.9}})));
+  TransiEnt.Components.Electrical.Grid.Node node_10(v_n=400) annotation (Placement(transformation(extent={{71.07,78.9},{76.07,83.9}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_11(v_n=400) annotation (Placement(transformation(extent={{-12.93,36.9},{-7.93,41.9}})));
+  TransiEnt.Components.Electrical.Grid.Node node_11(v_n=400) annotation (Placement(transformation(extent={{-12.93,36.9},{-7.93,41.9}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_12(v_n=400) annotation (Placement(transformation(extent={{15.07,99.9},{20.07,104.9}})));
+  TransiEnt.Components.Electrical.Grid.Node node_12(v_n=400) annotation (Placement(transformation(extent={{15.07,99.9},{20.07,104.9}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_13(v_n=400) annotation (Placement(transformation(extent={{-103.93,36.9},{-98.93,41.9}})));
+  TransiEnt.Components.Electrical.Grid.Node node_13(v_n=400) annotation (Placement(transformation(extent={{-103.93,36.9},{-98.93,41.9}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_14(v_n=400) annotation (Placement(transformation(extent={{218.07,-12.1},{223.07,-7.1}})));
+  TransiEnt.Components.Electrical.Grid.Node node_14(v_n=400) annotation (Placement(transformation(extent={{218.07,-12.1},{223.07,-7.1}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_15(v_n=400) annotation (Placement(transformation(extent={{218.07,8.9},{223.07,13.9}})));
+  TransiEnt.Components.Electrical.Grid.Node node_15(v_n=400) annotation (Placement(transformation(extent={{218.07,8.9},{223.07,13.9}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_16(v_n=400) annotation (Placement(transformation(extent={{-12.93,8.9},{-7.93,13.9}})));
+  TransiEnt.Components.Electrical.Grid.Node node_16(v_n=400) annotation (Placement(transformation(extent={{-12.93,8.9},{-7.93,13.9}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_17(v_n=400) annotation (Placement(transformation(extent={{1.07,57.9},{6.07,62.9}})));
+  TransiEnt.Components.Electrical.Grid.Node node_17(v_n=400) annotation (Placement(transformation(extent={{1.07,57.9},{6.07,62.9}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_18(v_n=400) annotation (Placement(transformation(extent={{-5.93,-180.1},{-0.93,-175.1}})));
+  TransiEnt.Components.Electrical.Grid.Node node_18(v_n=400) annotation (Placement(transformation(extent={{-5.93,-180.1},{-0.93,-175.1}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_19(v_n=400) annotation (Placement(transformation(extent={{120.07,-229.1},{125.07,-224.1}})));
+  TransiEnt.Components.Electrical.Grid.Node node_19(v_n=400) annotation (Placement(transformation(extent={{120.07,-229.1},{125.07,-224.1}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_20(v_n=400) annotation (Placement(transformation(extent={{127.07,-82.1},{132.07,-77.1}})));
+  TransiEnt.Components.Electrical.Grid.Node node_20(v_n=400) annotation (Placement(transformation(extent={{127.07,-82.1},{132.07,-77.1}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_21(v_n=400) annotation (Placement(transformation(extent={{-89.93,57.9},{-84.93,62.9}})));
+  TransiEnt.Components.Electrical.Grid.Node node_21(v_n=400) annotation (Placement(transformation(extent={{-89.93,57.9},{-84.93,62.9}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_22(v_n=400) annotation (Placement(transformation(extent={{-5.93,-61.1},{-0.93,-56.1}})));
+  TransiEnt.Components.Electrical.Grid.Node node_22(v_n=400) annotation (Placement(transformation(extent={{-5.93,-61.1},{-0.93,-56.1}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_23(v_n=400) annotation (Placement(transformation(extent={{120.07,-180.1},{125.07,-175.1}})));
+  TransiEnt.Components.Electrical.Grid.Node node_23(v_n=400) annotation (Placement(transformation(extent={{120.07,-180.1},{125.07,-175.1}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_24(v_n=400) annotation (Placement(transformation(extent={{176.07,29.9},{181.07,34.9}})));
+  TransiEnt.Components.Electrical.Grid.Node node_24(v_n=400) annotation (Placement(transformation(extent={{176.07,29.9},{181.07,34.9}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_25(v_n=400) annotation (Placement(transformation(extent={{127.07,-61.1},{132.07,-56.1}})));
+  TransiEnt.Components.Electrical.Grid.Node node_25(v_n=400) annotation (Placement(transformation(extent={{127.07,-61.1},{132.07,-56.1}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_26(v_n=400) annotation (Placement(transformation(extent={{155.07,78.9},{160.07,83.9}})));
+  TransiEnt.Components.Electrical.Grid.Node node_26(v_n=400) annotation (Placement(transformation(extent={{155.07,78.9},{160.07,83.9}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_27(v_n=400) annotation (Placement(transformation(extent={{29.07,36.9},{34.07,41.9}})));
+  TransiEnt.Components.Electrical.Grid.Node node_27(v_n=400) annotation (Placement(transformation(extent={{29.07,36.9},{34.07,41.9}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_28(v_n=400) annotation (Placement(transformation(extent={{71.07,99.9},{76.07,104.9}})));
+  TransiEnt.Components.Electrical.Grid.Node node_28(v_n=400) annotation (Placement(transformation(extent={{71.07,99.9},{76.07,104.9}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_29(v_n=400) annotation (Placement(transformation(extent={{120.07,-33.1},{125.07,-28.1}})));
+  TransiEnt.Components.Electrical.Grid.Node node_29(v_n=400) annotation (Placement(transformation(extent={{120.07,-33.1},{125.07,-28.1}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_30(v_n=400) annotation (Placement(transformation(extent={{-5.93,-110.1},{-0.93,-105.1}})));
+  TransiEnt.Components.Electrical.Grid.Node node_30(v_n=400) annotation (Placement(transformation(extent={{-5.93,-110.1},{-0.93,-105.1}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_31(v_n=400) annotation (Placement(transformation(extent={{71.07,36.9},{76.07,41.9}})));
+  TransiEnt.Components.Electrical.Grid.Node node_31(v_n=400) annotation (Placement(transformation(extent={{71.07,36.9},{76.07,41.9}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_32(v_n=400) annotation (Placement(transformation(extent={{155.07,8.9},{160.07,13.9}})));
+  TransiEnt.Components.Electrical.Grid.Node node_32(v_n=400) annotation (Placement(transformation(extent={{155.07,8.9},{160.07,13.9}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_33(v_n=400) annotation (Placement(transformation(extent={{-82.93,78.9},{-77.93,83.9}})));
+  TransiEnt.Components.Electrical.Grid.Node node_33(v_n=400) annotation (Placement(transformation(extent={{-82.93,78.9},{-77.93,83.9}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_34(v_n=400) annotation (Placement(transformation(extent={{127.07,-208.1},{132.07,-203.1}})));
+  TransiEnt.Components.Electrical.Grid.Node node_34(v_n=400) annotation (Placement(transformation(extent={{127.07,-208.1},{132.07,-203.1}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_35(v_n=400) annotation (Placement(transformation(extent={{-82.93,99.9},{-77.93,104.9}})));
+  TransiEnt.Components.Electrical.Grid.Node node_35(v_n=400) annotation (Placement(transformation(extent={{-82.93,99.9},{-77.93,104.9}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_36(v_n=400) annotation (Placement(transformation(extent={{-61.93,-12.1},{-56.93,-7.1}})));
+  TransiEnt.Components.Electrical.Grid.Node node_36(v_n=400) annotation (Placement(transformation(extent={{-61.93,-12.1},{-56.93,-7.1}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_37(v_n=400) annotation (Placement(transformation(extent={{-61.93,36.9},{-56.93,41.9}})));
+  TransiEnt.Components.Electrical.Grid.Node node_37(v_n=400) annotation (Placement(transformation(extent={{-61.93,36.9},{-56.93,41.9}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_38(v_n=400) annotation (Placement(transformation(extent={{155.07,50.9},{160.07,55.9}})));
+  TransiEnt.Components.Electrical.Grid.Node node_38(v_n=400) annotation (Placement(transformation(extent={{155.07,50.9},{160.07,55.9}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_39(v_n=400) annotation (Placement(transformation(extent={{155.07,99.9},{160.07,104.9}})));
+  TransiEnt.Components.Electrical.Grid.Node node_39(v_n=400) annotation (Placement(transformation(extent={{155.07,99.9},{160.07,104.9}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_40(v_n=400) annotation (Placement(transformation(extent={{120.07,-159.1},{125.07,-154.1}})));
+  TransiEnt.Components.Electrical.Grid.Node node_40(v_n=400) annotation (Placement(transformation(extent={{120.07,-159.1},{125.07,-154.1}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_41(v_n=400) annotation (Placement(transformation(extent={{78.07,8.9},{83.07,13.9}})));
+  TransiEnt.Components.Electrical.Grid.Node node_41(v_n=400) annotation (Placement(transformation(extent={{78.07,8.9},{83.07,13.9}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_42(v_n=400) annotation (Placement(transformation(extent={{176.07,-33.1},{181.07,-28.1}})));
+  TransiEnt.Components.Electrical.Grid.Node node_42(v_n=400) annotation (Placement(transformation(extent={{176.07,-33.1},{181.07,-28.1}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_43(v_n=400) annotation (Placement(transformation(extent={{141.07,-12.1},{146.07,-7.1}})));
+  TransiEnt.Components.Electrical.Grid.Node node_43(v_n=400) annotation (Placement(transformation(extent={{141.07,-12.1},{146.07,-7.1}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_44(v_n=400) annotation (Placement(transformation(extent={{-61.93,8.9},{-56.93,13.9}})));
+  TransiEnt.Components.Electrical.Grid.Node node_44(v_n=400) annotation (Placement(transformation(extent={{-61.93,8.9},{-56.93,13.9}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_45(v_n=400) annotation (Placement(transformation(extent={{-5.93,-89.1},{-0.93,-84.1}})));
+  TransiEnt.Components.Electrical.Grid.Node node_45(v_n=400) annotation (Placement(transformation(extent={{-5.93,-89.1},{-0.93,-84.1}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_46(v_n=400) annotation (Placement(transformation(extent={{-110.93,8.9},{-105.93,13.9}})));
+  TransiEnt.Components.Electrical.Grid.Node node_46(v_n=400) annotation (Placement(transformation(extent={{-110.93,8.9},{-105.93,13.9}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_47(v_n=400) annotation (Placement(transformation(extent={{-159.93,99.9},{-154.93,104.9}})));
+  TransiEnt.Components.Electrical.Grid.Node node_47(v_n=400) annotation (Placement(transformation(extent={{-159.93,99.9},{-154.93,104.9}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_48(v_n=400) annotation (Placement(transformation(extent={{-159.93,78.9},{-154.93,83.9}})));
+  TransiEnt.Components.Electrical.Grid.Node node_48(v_n=400) annotation (Placement(transformation(extent={{-159.93,78.9},{-154.93,83.9}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_49(v_n=400) annotation (Placement(transformation(extent={{-159.93,50.9},{-154.93,55.9}})));
+  TransiEnt.Components.Electrical.Grid.Node node_49(v_n=400) annotation (Placement(transformation(extent={{-159.93,50.9},{-154.93,55.9}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_50(v_n=400) annotation (Placement(transformation(extent={{-152.93,22.9},{-147.93,27.9}})));
+  TransiEnt.Components.Electrical.Grid.Node node_50(v_n=400) annotation (Placement(transformation(extent={{-152.93,22.9},{-147.93,27.9}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_51(v_n=400) annotation (Placement(transformation(extent={{-152.93,1.9},{-147.93,6.9}})));
+  TransiEnt.Components.Electrical.Grid.Node node_51(v_n=400) annotation (Placement(transformation(extent={{-152.93,1.9},{-147.93,6.9}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_52(v_n=400) annotation (Placement(transformation(extent={{-159.93,-26.1},{-154.93,-21.1}})));
+  TransiEnt.Components.Electrical.Grid.Node node_52(v_n=400) annotation (Placement(transformation(extent={{-159.93,-26.1},{-154.93,-21.1}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_53(v_n=400) annotation (Placement(transformation(extent={{-159.93,-47.1},{-154.93,-42.1}})));
+  TransiEnt.Components.Electrical.Grid.Node node_53(v_n=400) annotation (Placement(transformation(extent={{-159.93,-47.1},{-154.93,-42.1}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_54(v_n=400) annotation (Placement(transformation(extent={{-201.93,99.9},{-196.93,104.9}})));
+  TransiEnt.Components.Electrical.Grid.Node node_54(v_n=400) annotation (Placement(transformation(extent={{-201.93,99.9},{-196.93,104.9}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_55(v_n=400) annotation (Placement(transformation(extent={{-243.93,99.9},{-238.93,104.9}})));
+  TransiEnt.Components.Electrical.Grid.Node node_55(v_n=400) annotation (Placement(transformation(extent={{-243.93,99.9},{-238.93,104.9}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_56(v_n=400) annotation (Placement(transformation(extent={{-243.93,78.9},{-238.93,83.9}})));
+  TransiEnt.Components.Electrical.Grid.Node node_56(v_n=400) annotation (Placement(transformation(extent={{-243.93,78.9},{-238.93,83.9}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_57(v_n=400) annotation (Placement(transformation(extent={{-243.93,50.9},{-238.93,55.9}})));
+  TransiEnt.Components.Electrical.Grid.Node node_57(v_n=400) annotation (Placement(transformation(extent={{-243.93,50.9},{-238.93,55.9}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_58(v_n=400) annotation (Placement(transformation(extent={{-243.93,22.9},{-238.93,27.9}})));
+  TransiEnt.Components.Electrical.Grid.Node node_58(v_n=400) annotation (Placement(transformation(extent={{-243.93,22.9},{-238.93,27.9}})));
 
   // Basic Parameters
 

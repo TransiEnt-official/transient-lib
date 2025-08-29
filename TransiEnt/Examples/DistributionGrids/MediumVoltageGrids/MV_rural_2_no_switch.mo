@@ -40,20 +40,20 @@ model MV_rural_2_no_switch "Rural medium voltage distribution grid scenario with
 
   // ---- Nodes -------------------------------------------------------------------------------
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_1(epp(v(start=20000))) annotation (Placement(transformation(extent={{24.48,24.33},{29.48,29.33}})));
-  TransiEnt.Components.Electrical.Grid.Base.Node node_14(epp(v(start=20000))) annotation (Placement(transformation(extent={{-10.52,45.33},{-5.52,50.33}})));
-  TransiEnt.Components.Electrical.Grid.Base.Node node_13(epp(v(start=20000))) annotation (Placement(transformation(extent={{-148.52,192.33},{-143.52,197.33}})));
-  TransiEnt.Components.Electrical.Grid.Base.Node node_12(epp(v(start=20000))) annotation (Placement(transformation(extent={{-227.52,276.33},{-222.52,281.33}})));
-  TransiEnt.Components.Electrical.Grid.Base.Node node_11(epp(v(start=20000))) annotation (Placement(transformation(extent={{-353.52,430.33},{-348.52,435.33}})));
-  TransiEnt.Components.Electrical.Grid.Base.Node node_2(epp(v(start=20000))) annotation (Placement(transformation(extent={{-45.52,31.33},{-40.52,36.33}})));
-  TransiEnt.Components.Electrical.Grid.Base.Node node_3(epp(v(start=20000))) annotation (Placement(transformation(extent={{-136.52,87.33},{-131.52,92.33}})));
-  TransiEnt.Components.Electrical.Grid.Base.Node node_4(epp(v(start=20000))) annotation (Placement(transformation(extent={{-330.52,171.33},{-325.52,176.33}})));
-  TransiEnt.Components.Electrical.Grid.Base.Node node_5(epp(v(start=20000))) annotation (Placement(transformation(extent={{-430.52,206.33},{-425.52,211.33}})));
-  TransiEnt.Components.Electrical.Grid.Base.Node node_6(epp(v(start=20000))) annotation (Placement(transformation(extent={{-591.52,255.33},{-586.52,260.33}})));
-  TransiEnt.Components.Electrical.Grid.Base.Node node_7(epp(v(start=20000))) annotation (Placement(transformation(extent={{-773.52,318.33},{-768.52,323.33}})));
-  TransiEnt.Components.Electrical.Grid.Base.Node node_8(epp(v(start=20000))) annotation (Placement(transformation(extent={{-829.52,360.33},{-824.52,365.33}})));
-  TransiEnt.Components.Electrical.Grid.Base.Node node_9(epp(v(start=20000))) annotation (Placement(transformation(extent={{-892.52,444.33},{-887.52,449.33}})));
-  TransiEnt.Components.Electrical.Grid.Base.Node node_10(epp(v(start=20000))) annotation (Placement(transformation(extent={{-731.52,549.33},{-726.52,554.33}})));
+  TransiEnt.Components.Electrical.Grid.Node node_1(epp(v(start=20000))) annotation (Placement(transformation(extent={{24.48,24.33},{29.48,29.33}})));
+  TransiEnt.Components.Electrical.Grid.Node node_14(epp(v(start=20000))) annotation (Placement(transformation(extent={{-10.52,45.33},{-5.52,50.33}})));
+  TransiEnt.Components.Electrical.Grid.Node node_13(epp(v(start=20000))) annotation (Placement(transformation(extent={{-148.52,192.33},{-143.52,197.33}})));
+  TransiEnt.Components.Electrical.Grid.Node node_12(epp(v(start=20000))) annotation (Placement(transformation(extent={{-227.52,276.33},{-222.52,281.33}})));
+  TransiEnt.Components.Electrical.Grid.Node node_11(epp(v(start=20000))) annotation (Placement(transformation(extent={{-353.52,430.33},{-348.52,435.33}})));
+  TransiEnt.Components.Electrical.Grid.Node node_2(epp(v(start=20000))) annotation (Placement(transformation(extent={{-45.52,31.33},{-40.52,36.33}})));
+  TransiEnt.Components.Electrical.Grid.Node node_3(epp(v(start=20000))) annotation (Placement(transformation(extent={{-136.52,87.33},{-131.52,92.33}})));
+  TransiEnt.Components.Electrical.Grid.Node node_4(epp(v(start=20000))) annotation (Placement(transformation(extent={{-330.52,171.33},{-325.52,176.33}})));
+  TransiEnt.Components.Electrical.Grid.Node node_5(epp(v(start=20000))) annotation (Placement(transformation(extent={{-430.52,206.33},{-425.52,211.33}})));
+  TransiEnt.Components.Electrical.Grid.Node node_6(epp(v(start=20000))) annotation (Placement(transformation(extent={{-591.52,255.33},{-586.52,260.33}})));
+  TransiEnt.Components.Electrical.Grid.Node node_7(epp(v(start=20000))) annotation (Placement(transformation(extent={{-773.52,318.33},{-768.52,323.33}})));
+  TransiEnt.Components.Electrical.Grid.Node node_8(epp(v(start=20000))) annotation (Placement(transformation(extent={{-829.52,360.33},{-824.52,365.33}})));
+  TransiEnt.Components.Electrical.Grid.Node node_9(epp(v(start=20000))) annotation (Placement(transformation(extent={{-892.52,444.33},{-887.52,449.33}})));
+  TransiEnt.Components.Electrical.Grid.Node node_10(epp(v(start=20000))) annotation (Placement(transformation(extent={{-731.52,549.33},{-726.52,554.33}})));
 
   // ---- Lines (between nodes) ---------------------------------------------------------------
 

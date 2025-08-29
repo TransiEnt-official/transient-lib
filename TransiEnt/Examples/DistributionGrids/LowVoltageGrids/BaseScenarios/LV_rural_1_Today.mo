@@ -36,59 +36,59 @@ model LV_rural_1_Today "Small rural low voltage distribution grid model"
 
   // ---- Nodes -------------------------------------------------------------------------------
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_1(v_n=400) annotation (Placement(transformation(extent={{109.2,38.27},{114.2,43.27}})));
+  TransiEnt.Components.Electrical.Grid.Node node_1(v_n=400) annotation (Placement(transformation(extent={{109.2,38.27},{114.2,43.27}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_2(v_n=400) annotation (Placement(transformation(extent={{53.2,38.27},{58.2,43.27}})));
+  TransiEnt.Components.Electrical.Grid.Node node_2(v_n=400) annotation (Placement(transformation(extent={{53.2,38.27},{58.2,43.27}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_3(v_n=400) annotation (Placement(transformation(extent={{-65.8,-66.73},{-60.8,-61.73}})));
+  TransiEnt.Components.Electrical.Grid.Node node_3(v_n=400) annotation (Placement(transformation(extent={{-65.8,-66.73},{-60.8,-61.73}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_4(v_n=400) annotation (Placement(transformation(extent={{18.2,80.27},{23.2,85.27}})));
+  TransiEnt.Components.Electrical.Grid.Node node_4(v_n=400) annotation (Placement(transformation(extent={{18.2,80.27},{23.2,85.27}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_5(v_n=400) annotation (Placement(transformation(extent={{-9.8,-101.73},{-4.8,-96.73}})));
+  TransiEnt.Components.Electrical.Grid.Node node_5(v_n=400) annotation (Placement(transformation(extent={{-9.8,-101.73},{-4.8,-96.73}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_6(v_n=400) annotation (Placement(transformation(extent={{-9.8,-66.73},{-4.8,-61.73}})));
+  TransiEnt.Components.Electrical.Grid.Node node_6(v_n=400) annotation (Placement(transformation(extent={{-9.8,-66.73},{-4.8,-61.73}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_7(v_n=400) annotation (Placement(transformation(extent={{-9.8,38.27},{-4.8,43.27}})));
+  TransiEnt.Components.Electrical.Grid.Node node_7(v_n=400) annotation (Placement(transformation(extent={{-9.8,38.27},{-4.8,43.27}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_8(v_n=400) annotation (Placement(transformation(extent={{-65.8,38.27},{-60.8,43.27}})));
+  TransiEnt.Components.Electrical.Grid.Node node_8(v_n=400) annotation (Placement(transformation(extent={{-65.8,38.27},{-60.8,43.27}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_9(v_n=400) annotation (Placement(transformation(extent={{53.2,3.27},{58.2,8.27}})));
+  TransiEnt.Components.Electrical.Grid.Node node_9(v_n=400) annotation (Placement(transformation(extent={{53.2,3.27},{58.2,8.27}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_10(v_n=400) annotation (Placement(transformation(extent={{-65.8,-31.73},{-60.8,-26.73}})));
+  TransiEnt.Components.Electrical.Grid.Node node_10(v_n=400) annotation (Placement(transformation(extent={{-65.8,-31.73},{-60.8,-26.73}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_11(v_n=400) annotation (Placement(transformation(extent={{-65.8,3.27},{-60.8,8.27}})));
+  TransiEnt.Components.Electrical.Grid.Node node_11(v_n=400) annotation (Placement(transformation(extent={{-65.8,3.27},{-60.8,8.27}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_12(v_n=400) annotation (Placement(transformation(extent={{-9.8,10.27},{-4.8,15.27}})));
+  TransiEnt.Components.Electrical.Grid.Node node_12(v_n=400) annotation (Placement(transformation(extent={{-9.8,10.27},{-4.8,15.27}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_13(v_n=400) annotation (Placement(transformation(extent={{60.2,-31.73},{65.2,-26.73}})));
+  TransiEnt.Components.Electrical.Grid.Node node_13(v_n=400) annotation (Placement(transformation(extent={{60.2,-31.73},{65.2,-26.73}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_14(v_n=400) annotation (Placement(transformation(extent={{-9.8,-31.73},{-4.8,-26.73}})));
+  TransiEnt.Components.Electrical.Grid.Node node_14(v_n=400) annotation (Placement(transformation(extent={{-9.8,-31.73},{-4.8,-26.73}})));
 
   // Basic Parameters
 
@@ -631,34 +631,34 @@ model LV_rural_1_Today "Small rural low voltage distribution grid model"
 equation
 
   // ---- Connect Interfaces -----------------------------------------------------------------------
-  connect(controlBus.household_1, household_1.controlBus) annotation ();
-  connect(controlBus.household_2, household_2.controlBus) annotation ();
-  connect(controlBus.household_3, household_3.controlBus) annotation ();
-  connect(controlBus.household_4, household_4.controlBus) annotation ();
-  connect(controlBus.household_5, household_5.controlBus) annotation ();
-  connect(controlBus.household_6, household_6.controlBus) annotation ();
-  connect(controlBus.household_7, household_7.controlBus) annotation ();
-  connect(controlBus.household_8, household_8.controlBus) annotation ();
-  connect(controlBus.household_9, household_9.controlBus) annotation ();
-  connect(controlBus.household_10, household_10.controlBus) annotation ();
-  connect(controlBus.household_11, household_11.controlBus) annotation ();
-  connect(controlBus.household_12, household_12.controlBus) annotation ();
-  connect(controlBus.household_13, household_13.controlBus) annotation ();
+  connect(controlBus.household_1, household_1.controlBus) annotation();
+  connect(controlBus.household_2, household_2.controlBus) annotation();
+  connect(controlBus.household_3, household_3.controlBus) annotation();
+  connect(controlBus.household_4, household_4.controlBus) annotation();
+  connect(controlBus.household_5, household_5.controlBus) annotation();
+  connect(controlBus.household_6, household_6.controlBus) annotation();
+  connect(controlBus.household_7, household_7.controlBus) annotation();
+  connect(controlBus.household_8, household_8.controlBus) annotation();
+  connect(controlBus.household_9, household_9.controlBus) annotation();
+  connect(controlBus.household_10, household_10.controlBus) annotation();
+  connect(controlBus.household_11, household_11.controlBus) annotation();
+  connect(controlBus.household_12, household_12.controlBus) annotation();
+  connect(controlBus.household_13, household_13.controlBus) annotation();
 
-  connect(controlBus.node_1, node_1.controlBus) annotation ();
-  connect(controlBus.node_2, node_2.controlBus) annotation ();
-  connect(controlBus.node_3, node_3.controlBus) annotation ();
-  connect(controlBus.node_4, node_4.controlBus) annotation ();
-  connect(controlBus.node_5, node_5.controlBus) annotation ();
-  connect(controlBus.node_6, node_6.controlBus) annotation ();
-  connect(controlBus.node_7, node_7.controlBus) annotation ();
-  connect(controlBus.node_8, node_8.controlBus) annotation ();
-  connect(controlBus.node_9, node_9.controlBus) annotation ();
-  connect(controlBus.node_10, node_10.controlBus) annotation ();
-  connect(controlBus.node_11, node_11.controlBus) annotation ();
-  connect(controlBus.node_12, node_12.controlBus) annotation ();
-  connect(controlBus.node_13, node_13.controlBus) annotation ();
-  connect(controlBus.node_14, node_14.controlBus) annotation ();
+  connect(controlBus.node_1, node_1.controlBus) annotation();
+  connect(controlBus.node_2, node_2.controlBus) annotation();
+  connect(controlBus.node_3, node_3.controlBus) annotation();
+  connect(controlBus.node_4, node_4.controlBus) annotation();
+  connect(controlBus.node_5, node_5.controlBus) annotation();
+  connect(controlBus.node_6, node_6.controlBus) annotation();
+  connect(controlBus.node_7, node_7.controlBus) annotation();
+  connect(controlBus.node_8, node_8.controlBus) annotation();
+  connect(controlBus.node_9, node_9.controlBus) annotation();
+  connect(controlBus.node_10, node_10.controlBus) annotation();
+  connect(controlBus.node_11, node_11.controlBus) annotation();
+  connect(controlBus.node_12, node_12.controlBus) annotation();
+  connect(controlBus.node_13, node_13.controlBus) annotation();
+  connect(controlBus.node_14, node_14.controlBus) annotation();
   // ---- Connect lines -----------------------------------------------------------------------
 
   connect(line_1.epp_p, node_10.epp) annotation (Line(points={{-65.8,-46.73},{-63.3,-31.73}}));
@@ -718,7 +718,7 @@ equation
       points={{133.2,120},{133.2,90},{14,90},{14,72},{20.7,72},{20.7,80.27}},
       color={28,108,200},
       thickness=0.5));
-  connect(GridMeter.controlBus, controlBus.GridMeter) annotation ();
+  connect(GridMeter.controlBus, controlBus.GridMeter) annotation();
   connect(simpleTransformerComplex.epp_n, GridMeter.epp_a) annotation (Line(
       points={{64,120},{114.8,120}},
       color={28,108,200},

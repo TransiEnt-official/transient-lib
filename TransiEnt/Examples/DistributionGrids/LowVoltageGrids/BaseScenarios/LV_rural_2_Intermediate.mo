@@ -36,387 +36,387 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // ---- Nodes -------------------------------------------------------------------------------
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_1(v_n=400) annotation (Placement(transformation(extent={{124.92,-67.04},{129.92,-62.04}})));
+  TransiEnt.Components.Electrical.Grid.Node node_1(v_n=400) annotation (Placement(transformation(extent={{124.92,-67.04},{129.92,-62.04}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_2(v_n=400) annotation (Placement(transformation(extent={{145.92,-655.04},{150.92,-650.04}})));
+  TransiEnt.Components.Electrical.Grid.Node node_2(v_n=400) annotation (Placement(transformation(extent={{145.92,-655.04},{150.92,-650.04}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_3(v_n=400) annotation (Placement(transformation(extent={{-85.08,2.96},{-80.08,7.96}})));
+  TransiEnt.Components.Electrical.Grid.Node node_3(v_n=400) annotation (Placement(transformation(extent={{-85.08,2.96},{-80.08,7.96}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_4(v_n=400) annotation (Placement(transformation(extent={{117.92,-4.04},{122.92,0.96}})));
+  TransiEnt.Components.Electrical.Grid.Node node_4(v_n=400) annotation (Placement(transformation(extent={{117.92,-4.04},{122.92,0.96}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_5(v_n=400) annotation (Placement(transformation(extent={{-85.08,177.96},{-80.08,182.96}})));
+  TransiEnt.Components.Electrical.Grid.Node node_5(v_n=400) annotation (Placement(transformation(extent={{-85.08,177.96},{-80.08,182.96}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_6(v_n=400) annotation (Placement(transformation(extent={{117.92,58.96},{122.92,63.96}})));
+  TransiEnt.Components.Electrical.Grid.Node node_6(v_n=400) annotation (Placement(transformation(extent={{117.92,58.96},{122.92,63.96}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_7(v_n=400) annotation (Placement(transformation(extent={{117.92,254.96},{122.92,259.96}})));
+  TransiEnt.Components.Electrical.Grid.Node node_7(v_n=400) annotation (Placement(transformation(extent={{117.92,254.96},{122.92,259.96}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_8(v_n=400) annotation (Placement(transformation(extent={{-85.08,142.96},{-80.08,147.96}})));
+  TransiEnt.Components.Electrical.Grid.Node node_8(v_n=400) annotation (Placement(transformation(extent={{-85.08,142.96},{-80.08,147.96}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_9(v_n=400) annotation (Placement(transformation(extent={{-211.08,-18.04},{-206.08,-13.04}})));
+  TransiEnt.Components.Electrical.Grid.Node node_9(v_n=400) annotation (Placement(transformation(extent={{-211.08,-18.04},{-206.08,-13.04}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_10(v_n=400) annotation (Placement(transformation(extent={{-211.08,107.96},{-206.08,112.96}})));
+  TransiEnt.Components.Electrical.Grid.Node node_10(v_n=400) annotation (Placement(transformation(extent={{-211.08,107.96},{-206.08,112.96}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_11(v_n=400) annotation (Placement(transformation(extent={{117.92,-193.04},{122.92,-188.04}})));
+  TransiEnt.Components.Electrical.Grid.Node node_11(v_n=400) annotation (Placement(transformation(extent={{117.92,-193.04},{122.92,-188.04}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_12(v_n=400) annotation (Placement(transformation(extent={{124.92,23.96},{129.92,28.96}})));
+  TransiEnt.Components.Electrical.Grid.Node node_12(v_n=400) annotation (Placement(transformation(extent={{124.92,23.96},{129.92,28.96}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_13(v_n=400) annotation (Placement(transformation(extent={{-176.08,422.96},{-171.08,427.96}})));
+  TransiEnt.Components.Electrical.Grid.Node node_13(v_n=400) annotation (Placement(transformation(extent={{-176.08,422.96},{-171.08,427.96}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_14(v_n=400) annotation (Placement(transformation(extent={{124.92,-312.04},{129.92,-307.04}})));
+  TransiEnt.Components.Electrical.Grid.Node node_14(v_n=400) annotation (Placement(transformation(extent={{124.92,-312.04},{129.92,-307.04}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_15(v_n=400) annotation (Placement(transformation(extent={{12.92,-25.04},{17.92,-20.04}})));
+  TransiEnt.Components.Electrical.Grid.Node node_15(v_n=400) annotation (Placement(transformation(extent={{12.92,-25.04},{17.92,-20.04}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_16(v_n=400) annotation (Placement(transformation(extent={{-155.08,107.96},{-150.08,112.96}})));
+  TransiEnt.Components.Electrical.Grid.Node node_16(v_n=400) annotation (Placement(transformation(extent={{-155.08,107.96},{-150.08,112.96}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_17(v_n=400) annotation (Placement(transformation(extent={{-85.08,212.96},{-80.08,217.96}})));
+  TransiEnt.Components.Electrical.Grid.Node node_17(v_n=400) annotation (Placement(transformation(extent={{-85.08,212.96},{-80.08,217.96}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_18(v_n=400) annotation (Placement(transformation(extent={{117.92,86.96},{122.92,91.96}})));
+  TransiEnt.Components.Electrical.Grid.Node node_18(v_n=400) annotation (Placement(transformation(extent={{117.92,86.96},{122.92,91.96}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_19(v_n=400) annotation (Placement(transformation(extent={{-176.08,247.96},{-171.08,252.96}})));
+  TransiEnt.Components.Electrical.Grid.Node node_19(v_n=400) annotation (Placement(transformation(extent={{-176.08,247.96},{-171.08,252.96}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_20(v_n=400) annotation (Placement(transformation(extent={{12.92,219.96},{17.92,224.96}})));
+  TransiEnt.Components.Electrical.Grid.Node node_20(v_n=400) annotation (Placement(transformation(extent={{12.92,219.96},{17.92,224.96}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_21(v_n=400) annotation (Placement(transformation(extent={{117.92,-347.04},{122.92,-342.04}})));
+  TransiEnt.Components.Electrical.Grid.Node node_21(v_n=400) annotation (Placement(transformation(extent={{117.92,-347.04},{122.92,-342.04}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_22(v_n=400) annotation (Placement(transformation(extent={{-85.08,72.96},{-80.08,77.96}})));
+  TransiEnt.Components.Electrical.Grid.Node node_22(v_n=400) annotation (Placement(transformation(extent={{-85.08,72.96},{-80.08,77.96}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_23(v_n=400) annotation (Placement(transformation(extent={{-183.08,177.96},{-178.08,182.96}})));
+  TransiEnt.Components.Electrical.Grid.Node node_23(v_n=400) annotation (Placement(transformation(extent={{-183.08,177.96},{-178.08,182.96}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_24(v_n=400) annotation (Placement(transformation(extent={{-85.08,37.96},{-80.08,42.96}})));
+  TransiEnt.Components.Electrical.Grid.Node node_24(v_n=400) annotation (Placement(transformation(extent={{-85.08,37.96},{-80.08,42.96}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_25(v_n=400) annotation (Placement(transformation(extent={{145.92,-571.04},{150.92,-566.04}})));
+  TransiEnt.Components.Electrical.Grid.Node node_25(v_n=400) annotation (Placement(transformation(extent={{145.92,-571.04},{150.92,-566.04}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_26(v_n=400) annotation (Placement(transformation(extent={{-211.08,44.96},{-206.08,49.96}})));
+  TransiEnt.Components.Electrical.Grid.Node node_26(v_n=400) annotation (Placement(transformation(extent={{-211.08,44.96},{-206.08,49.96}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_27(v_n=400) annotation (Placement(transformation(extent={{19.92,-88.04},{24.92,-83.04}})));
+  TransiEnt.Components.Electrical.Grid.Node node_27(v_n=400) annotation (Placement(transformation(extent={{19.92,-88.04},{24.92,-83.04}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_28(v_n=400) annotation (Placement(transformation(extent={{117.92,-39.04},{122.92,-34.04}})));
+  TransiEnt.Components.Electrical.Grid.Node node_28(v_n=400) annotation (Placement(transformation(extent={{117.92,-39.04},{122.92,-34.04}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_29(v_n=400) annotation (Placement(transformation(extent={{117.92,-130.04},{122.92,-125.04}})));
+  TransiEnt.Components.Electrical.Grid.Node node_29(v_n=400) annotation (Placement(transformation(extent={{117.92,-130.04},{122.92,-125.04}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_30(v_n=400) annotation (Placement(transformation(extent={{117.92,-375.04},{122.92,-370.04}})));
+  TransiEnt.Components.Electrical.Grid.Node node_30(v_n=400) annotation (Placement(transformation(extent={{117.92,-375.04},{122.92,-370.04}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_31(v_n=400) annotation (Placement(transformation(extent={{117.92,-403.04},{122.92,-398.04}})));
+  TransiEnt.Components.Electrical.Grid.Node node_31(v_n=400) annotation (Placement(transformation(extent={{117.92,-403.04},{122.92,-398.04}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_32(v_n=400) annotation (Placement(transformation(extent={{-85.08,-25.04},{-80.08,-20.04}})));
+  TransiEnt.Components.Electrical.Grid.Node node_32(v_n=400) annotation (Placement(transformation(extent={{-85.08,-25.04},{-80.08,-20.04}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_33(v_n=400) annotation (Placement(transformation(extent={{-155.08,142.96},{-150.08,147.96}})));
+  TransiEnt.Components.Electrical.Grid.Node node_33(v_n=400) annotation (Placement(transformation(extent={{-155.08,142.96},{-150.08,147.96}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_34(v_n=400) annotation (Placement(transformation(extent={{124.92,-221.04},{129.92,-216.04}})));
+  TransiEnt.Components.Electrical.Grid.Node node_34(v_n=400) annotation (Placement(transformation(extent={{124.92,-221.04},{129.92,-216.04}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_35(v_n=400) annotation (Placement(transformation(extent={{-85.08,422.96},{-80.08,427.96}})));
+  TransiEnt.Components.Electrical.Grid.Node node_35(v_n=400) annotation (Placement(transformation(extent={{-85.08,422.96},{-80.08,427.96}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_36(v_n=400) annotation (Placement(transformation(extent={{117.92,219.96},{122.92,224.96}})));
+  TransiEnt.Components.Electrical.Grid.Node node_36(v_n=400) annotation (Placement(transformation(extent={{117.92,219.96},{122.92,224.96}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_37(v_n=400) annotation (Placement(transformation(extent={{117.92,184.96},{122.92,189.96}})));
+  TransiEnt.Components.Electrical.Grid.Node node_37(v_n=400) annotation (Placement(transformation(extent={{117.92,184.96},{122.92,189.96}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_38(v_n=400) annotation (Placement(transformation(extent={{19.92,254.96},{24.92,259.96}})));
+  TransiEnt.Components.Electrical.Grid.Node node_38(v_n=400) annotation (Placement(transformation(extent={{19.92,254.96},{24.92,259.96}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_39(v_n=400) annotation (Placement(transformation(extent={{12.92,72.96},{17.92,77.96}})));
+  TransiEnt.Components.Electrical.Grid.Node node_39(v_n=400) annotation (Placement(transformation(extent={{12.92,72.96},{17.92,77.96}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_40(v_n=400) annotation (Placement(transformation(extent={{89.92,-599.04},{94.92,-594.04}})));
+  TransiEnt.Components.Electrical.Grid.Node node_40(v_n=400) annotation (Placement(transformation(extent={{89.92,-599.04},{94.92,-594.04}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_41(v_n=400) annotation (Placement(transformation(extent={{12.92,289.96},{17.92,294.96}})));
+  TransiEnt.Components.Electrical.Grid.Node node_41(v_n=400) annotation (Placement(transformation(extent={{12.92,289.96},{17.92,294.96}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_42(v_n=400) annotation (Placement(transformation(extent={{124.92,156.96},{129.92,161.96}})));
+  TransiEnt.Components.Electrical.Grid.Node node_42(v_n=400) annotation (Placement(transformation(extent={{124.92,156.96},{129.92,161.96}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_43(v_n=400) annotation (Placement(transformation(extent={{145.92,-487.04},{150.92,-482.04}})));
+  TransiEnt.Components.Electrical.Grid.Node node_43(v_n=400) annotation (Placement(transformation(extent={{145.92,-487.04},{150.92,-482.04}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_44(v_n=400) annotation (Placement(transformation(extent={{117.92,-249.04},{122.92,-244.04}})));
+  TransiEnt.Components.Electrical.Grid.Node node_44(v_n=400) annotation (Placement(transformation(extent={{117.92,-249.04},{122.92,-244.04}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_45(v_n=400) annotation (Placement(transformation(extent={{-85.08,317.96},{-80.08,322.96}})));
+  TransiEnt.Components.Electrical.Grid.Node node_45(v_n=400) annotation (Placement(transformation(extent={{-85.08,317.96},{-80.08,322.96}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_46(v_n=400) annotation (Placement(transformation(extent={{12.92,184.96},{17.92,189.96}})));
+  TransiEnt.Components.Electrical.Grid.Node node_46(v_n=400) annotation (Placement(transformation(extent={{12.92,184.96},{17.92,189.96}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_47(v_n=400) annotation (Placement(transformation(extent={{-85.08,282.96},{-80.08,287.96}})));
+  TransiEnt.Components.Electrical.Grid.Node node_47(v_n=400) annotation (Placement(transformation(extent={{-85.08,282.96},{-80.08,287.96}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_48(v_n=400) annotation (Placement(transformation(extent={{96.92,-578.04},{101.92,-573.04}})));
+  TransiEnt.Components.Electrical.Grid.Node node_48(v_n=400) annotation (Placement(transformation(extent={{96.92,-578.04},{101.92,-573.04}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_49(v_n=400) annotation (Placement(transformation(extent={{-176.08,282.96},{-171.08,287.96}})));
+  TransiEnt.Components.Electrical.Grid.Node node_49(v_n=400) annotation (Placement(transformation(extent={{-176.08,282.96},{-171.08,287.96}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_50(v_n=400) annotation (Placement(transformation(extent={{-78.08,352.96},{-73.08,357.96}})));
+  TransiEnt.Components.Electrical.Grid.Node node_50(v_n=400) annotation (Placement(transformation(extent={{-78.08,352.96},{-73.08,357.96}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_51(v_n=400) annotation (Placement(transformation(extent={{-204.08,-137.04},{-199.08,-132.04}})));
+  TransiEnt.Components.Electrical.Grid.Node node_51(v_n=400) annotation (Placement(transformation(extent={{-204.08,-137.04},{-199.08,-132.04}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_52(v_n=400) annotation (Placement(transformation(extent={{-85.08,247.96},{-80.08,252.96}})));
+  TransiEnt.Components.Electrical.Grid.Node node_52(v_n=400) annotation (Placement(transformation(extent={{-85.08,247.96},{-80.08,252.96}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_53(v_n=400) annotation (Placement(transformation(extent={{117.92,394.96},{122.92,399.96}})));
+  TransiEnt.Components.Electrical.Grid.Node node_53(v_n=400) annotation (Placement(transformation(extent={{117.92,394.96},{122.92,399.96}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_54(v_n=400) annotation (Placement(transformation(extent={{-169.08,352.96},{-164.08,357.96}})));
+  TransiEnt.Components.Electrical.Grid.Node node_54(v_n=400) annotation (Placement(transformation(extent={{-169.08,352.96},{-164.08,357.96}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_55(v_n=400) annotation (Placement(transformation(extent={{96.92,-627.04},{101.92,-622.04}})));
+  TransiEnt.Components.Electrical.Grid.Node node_55(v_n=400) annotation (Placement(transformation(extent={{96.92,-627.04},{101.92,-622.04}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_56(v_n=400) annotation (Placement(transformation(extent={{96.92,-487.04},{101.92,-482.04}})));
+  TransiEnt.Components.Electrical.Grid.Node node_56(v_n=400) annotation (Placement(transformation(extent={{96.92,-487.04},{101.92,-482.04}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_57(v_n=400) annotation (Placement(transformation(extent={{12.92,394.96},{17.92,399.96}})));
+  TransiEnt.Components.Electrical.Grid.Node node_57(v_n=400) annotation (Placement(transformation(extent={{12.92,394.96},{17.92,399.96}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_58(v_n=400) annotation (Placement(transformation(extent={{12.92,352.96},{17.92,357.96}})));
+  TransiEnt.Components.Electrical.Grid.Node node_58(v_n=400) annotation (Placement(transformation(extent={{12.92,352.96},{17.92,357.96}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_59(v_n=400) annotation (Placement(transformation(extent={{-211.08,-172.04},{-206.08,-167.04}})));
+  TransiEnt.Components.Electrical.Grid.Node node_59(v_n=400) annotation (Placement(transformation(extent={{-211.08,-172.04},{-206.08,-167.04}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_60(v_n=400) annotation (Placement(transformation(extent={{89.92,-515.04},{94.92,-510.04}})));
+  TransiEnt.Components.Electrical.Grid.Node node_60(v_n=400) annotation (Placement(transformation(extent={{89.92,-515.04},{94.92,-510.04}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_61(v_n=400) annotation (Placement(transformation(extent={{117.92,121.96},{122.92,126.96}})));
+  TransiEnt.Components.Electrical.Grid.Node node_61(v_n=400) annotation (Placement(transformation(extent={{117.92,121.96},{122.92,126.96}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_62(v_n=400) annotation (Placement(transformation(extent={{117.92,359.96},{122.92,364.96}})));
+  TransiEnt.Components.Electrical.Grid.Node node_62(v_n=400) annotation (Placement(transformation(extent={{117.92,359.96},{122.92,364.96}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_63(v_n=400) annotation (Placement(transformation(extent={{-29.08,464.96},{-24.08,469.96}})));
+  TransiEnt.Components.Electrical.Grid.Node node_63(v_n=400) annotation (Placement(transformation(extent={{-29.08,464.96},{-24.08,469.96}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_64(v_n=400) annotation (Placement(transformation(extent={{145.92,-599.04},{150.92,-594.04}})));
+  TransiEnt.Components.Electrical.Grid.Node node_64(v_n=400) annotation (Placement(transformation(extent={{145.92,-599.04},{150.92,-594.04}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_65(v_n=400) annotation (Placement(transformation(extent={{-211.08,-74.04},{-206.08,-69.04}})));
+  TransiEnt.Components.Electrical.Grid.Node node_65(v_n=400) annotation (Placement(transformation(extent={{-211.08,-74.04},{-206.08,-69.04}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_66(v_n=400) annotation (Placement(transformation(extent={{145.92,-676.04},{150.92,-671.04}})));
+  TransiEnt.Components.Electrical.Grid.Node node_66(v_n=400) annotation (Placement(transformation(extent={{145.92,-676.04},{150.92,-671.04}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_67(v_n=400) annotation (Placement(transformation(extent={{117.92,324.96},{122.92,329.96}})));
+  TransiEnt.Components.Electrical.Grid.Node node_67(v_n=400) annotation (Placement(transformation(extent={{117.92,324.96},{122.92,329.96}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_68(v_n=400) annotation (Placement(transformation(extent={{145.92,-515.04},{150.92,-510.04}})));
+  TransiEnt.Components.Electrical.Grid.Node node_68(v_n=400) annotation (Placement(transformation(extent={{145.92,-515.04},{150.92,-510.04}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_69(v_n=400) annotation (Placement(transformation(extent={{-169.08,212.96},{-164.08,217.96}})));
+  TransiEnt.Components.Electrical.Grid.Node node_69(v_n=400) annotation (Placement(transformation(extent={{-169.08,212.96},{-164.08,217.96}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_70(v_n=400) annotation (Placement(transformation(extent={{-155.08,72.96},{-150.08,77.96}})));
+  TransiEnt.Components.Electrical.Grid.Node node_70(v_n=400) annotation (Placement(transformation(extent={{-155.08,72.96},{-150.08,77.96}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_71(v_n=400) annotation (Placement(transformation(extent={{117.92,-284.04},{122.92,-279.04}})));
+  TransiEnt.Components.Electrical.Grid.Node node_71(v_n=400) annotation (Placement(transformation(extent={{117.92,-284.04},{122.92,-279.04}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_72(v_n=400) annotation (Placement(transformation(extent={{117.92,-158.04},{122.92,-153.04}})));
+  TransiEnt.Components.Electrical.Grid.Node node_72(v_n=400) annotation (Placement(transformation(extent={{117.92,-158.04},{122.92,-153.04}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_73(v_n=400) annotation (Placement(transformation(extent={{-211.08,72.96},{-206.08,77.96}})));
+  TransiEnt.Components.Electrical.Grid.Node node_73(v_n=400) annotation (Placement(transformation(extent={{-211.08,72.96},{-206.08,77.96}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_74(v_n=400) annotation (Placement(transformation(extent={{117.92,429.96},{122.92,434.96}})));
+  TransiEnt.Components.Electrical.Grid.Node node_74(v_n=400) annotation (Placement(transformation(extent={{117.92,429.96},{122.92,434.96}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_75(v_n=400) annotation (Placement(transformation(extent={{-211.08,142.96},{-206.08,147.96}})));
+  TransiEnt.Components.Electrical.Grid.Node node_75(v_n=400) annotation (Placement(transformation(extent={{-211.08,142.96},{-206.08,147.96}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_76(v_n=400) annotation (Placement(transformation(extent={{117.92,-459.04},{122.92,-454.04}})));
+  TransiEnt.Components.Electrical.Grid.Node node_76(v_n=400) annotation (Placement(transformation(extent={{117.92,-459.04},{122.92,-454.04}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_77(v_n=400) annotation (Placement(transformation(extent={{-211.08,-109.04},{-206.08,-104.04}})));
+  TransiEnt.Components.Electrical.Grid.Node node_77(v_n=400) annotation (Placement(transformation(extent={{-211.08,-109.04},{-206.08,-104.04}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_78(v_n=400) annotation (Placement(transformation(extent={{12.92,317.96},{17.92,322.96}})));
+  TransiEnt.Components.Electrical.Grid.Node node_78(v_n=400) annotation (Placement(transformation(extent={{12.92,317.96},{17.92,322.96}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_79(v_n=400) annotation (Placement(transformation(extent={{-176.08,317.96},{-171.08,322.96}})));
+  TransiEnt.Components.Electrical.Grid.Node node_79(v_n=400) annotation (Placement(transformation(extent={{-176.08,317.96},{-171.08,322.96}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_80(v_n=400) annotation (Placement(transformation(extent={{152.92,-550.04},{157.92,-545.04}})));
+  TransiEnt.Components.Electrical.Grid.Node node_80(v_n=400) annotation (Placement(transformation(extent={{152.92,-550.04},{157.92,-545.04}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_81(v_n=400) annotation (Placement(transformation(extent={{117.92,-438.04},{122.92,-433.04}})));
+  TransiEnt.Components.Electrical.Grid.Node node_81(v_n=400) annotation (Placement(transformation(extent={{117.92,-438.04},{122.92,-433.04}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_82(v_n=400) annotation (Placement(transformation(extent={{12.92,149.96},{17.92,154.96}})));
+  TransiEnt.Components.Electrical.Grid.Node node_82(v_n=400) annotation (Placement(transformation(extent={{12.92,149.96},{17.92,154.96}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_83(v_n=400) annotation (Placement(transformation(extent={{124.92,-102.04},{129.92,-97.04}})));
+  TransiEnt.Components.Electrical.Grid.Node node_83(v_n=400) annotation (Placement(transformation(extent={{124.92,-102.04},{129.92,-97.04}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_84(v_n=400) annotation (Placement(transformation(extent={{145.92,-627.04},{150.92,-622.04}})));
+  TransiEnt.Components.Electrical.Grid.Node node_84(v_n=400) annotation (Placement(transformation(extent={{145.92,-627.04},{150.92,-622.04}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_85(v_n=400) annotation (Placement(transformation(extent={{-211.08,16.96},{-206.08,21.96}})));
+  TransiEnt.Components.Electrical.Grid.Node node_85(v_n=400) annotation (Placement(transformation(extent={{-211.08,16.96},{-206.08,21.96}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_86(v_n=400) annotation (Placement(transformation(extent={{96.92,-550.04},{101.92,-545.04}})));
+  TransiEnt.Components.Electrical.Grid.Node node_86(v_n=400) annotation (Placement(transformation(extent={{96.92,-550.04},{101.92,-545.04}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_87(v_n=400) annotation (Placement(transformation(extent={{-211.08,-46.04},{-206.08,-41.04}})));
+  TransiEnt.Components.Electrical.Grid.Node node_87(v_n=400) annotation (Placement(transformation(extent={{-211.08,-46.04},{-206.08,-41.04}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_88(v_n=400) annotation (Placement(transformation(extent={{-85.08,394.96},{-80.08,399.96}})));
+  TransiEnt.Components.Electrical.Grid.Node node_88(v_n=400) annotation (Placement(transformation(extent={{-85.08,394.96},{-80.08,399.96}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_89(v_n=400) annotation (Placement(transformation(extent={{12.92,9.96},{17.92,14.96}})));
+  TransiEnt.Components.Electrical.Grid.Node node_89(v_n=400) annotation (Placement(transformation(extent={{12.92,9.96},{17.92,14.96}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_90(v_n=400) annotation (Placement(transformation(extent={{-176.08,387.96},{-171.08,392.96}})));
+  TransiEnt.Components.Electrical.Grid.Node node_90(v_n=400) annotation (Placement(transformation(extent={{-176.08,387.96},{-171.08,392.96}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_91(v_n=400) annotation (Placement(transformation(extent={{12.92,429.96},{17.92,434.96}})));
+  TransiEnt.Components.Electrical.Grid.Node node_91(v_n=400) annotation (Placement(transformation(extent={{12.92,429.96},{17.92,434.96}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_92(v_n=400) annotation (Placement(transformation(extent={{12.92,-53.04},{17.92,-48.04}})));
+  TransiEnt.Components.Electrical.Grid.Node node_92(v_n=400) annotation (Placement(transformation(extent={{12.92,-53.04},{17.92,-48.04}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_93(v_n=400) annotation (Placement(transformation(extent={{117.92,289.96},{122.92,294.96}})));
+  TransiEnt.Components.Electrical.Grid.Node node_93(v_n=400) annotation (Placement(transformation(extent={{117.92,289.96},{122.92,294.96}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_94(v_n=400) annotation (Placement(transformation(extent={{12.92,44.96},{17.92,49.96}})));
+  TransiEnt.Components.Electrical.Grid.Node node_94(v_n=400) annotation (Placement(transformation(extent={{12.92,44.96},{17.92,49.96}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_95(v_n=400) annotation (Placement(transformation(extent={{-85.08,107.96},{-80.08,112.96}})));
+  TransiEnt.Components.Electrical.Grid.Node node_95(v_n=400) annotation (Placement(transformation(extent={{-85.08,107.96},{-80.08,112.96}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Base.Node node_96(v_n=400) annotation (Placement(transformation(extent={{12.92,114.96},{17.92,119.96}})));
+  TransiEnt.Components.Electrical.Grid.Node node_96(v_n=400) annotation (Placement(transformation(extent={{12.92,114.96},{17.92,119.96}})));
 
   // Basic Parameters
 
@@ -5240,201 +5240,201 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
   TransiEnt.Components.Sensors.SmartMeter GridMeter annotation (Placement(transformation(extent={{-40,488},{-20,508}})));
 equation
   // ---- Connect Interfaces ------------------------------------------------------------------
-  connect(controlBus.household_1, household_1.controlBus) annotation ();
-  connect(controlBus.household_2, household_2.controlBus) annotation ();
-  connect(controlBus.household_3, household_3.controlBus) annotation ();
-  connect(controlBus.household_4, household_4.controlBus) annotation ();
-  connect(controlBus.household_5, household_5.controlBus) annotation ();
-  connect(controlBus.household_6, household_6.controlBus) annotation ();
-  connect(controlBus.household_7, household_7.controlBus) annotation ();
-  connect(controlBus.household_8, household_8.controlBus) annotation ();
-  connect(controlBus.household_9, household_9.controlBus) annotation ();
-  connect(controlBus.household_10, household_10.controlBus) annotation ();
-  connect(controlBus.household_11, household_11.controlBus) annotation ();
-  connect(controlBus.household_12, household_12.controlBus) annotation ();
-  connect(controlBus.household_13, household_13.controlBus) annotation ();
-  connect(controlBus.household_14, household_14.controlBus) annotation ();
-  connect(controlBus.household_15, household_15.controlBus) annotation ();
-  connect(controlBus.household_16, household_16.controlBus) annotation ();
-  connect(controlBus.household_17, household_17.controlBus) annotation ();
-  connect(controlBus.household_18, household_18.controlBus) annotation ();
-  connect(controlBus.household_19, household_19.controlBus) annotation ();
-  connect(controlBus.household_20, household_20.controlBus) annotation ();
-  connect(controlBus.household_21, household_21.controlBus) annotation ();
-  connect(controlBus.household_22, household_22.controlBus) annotation ();
-  connect(controlBus.household_23, household_23.controlBus) annotation ();
-  connect(controlBus.household_24, household_24.controlBus) annotation ();
-  connect(controlBus.household_25, household_25.controlBus) annotation ();
-  connect(controlBus.household_26, household_26.controlBus) annotation ();
-  connect(controlBus.household_27, household_27.controlBus) annotation ();
-  connect(controlBus.household_28, household_28.controlBus) annotation ();
-  connect(controlBus.household_29, household_29.controlBus) annotation ();
-  connect(controlBus.household_30, household_30.controlBus) annotation ();
-  connect(controlBus.household_31, household_31.controlBus) annotation ();
-  connect(controlBus.household_32, household_32.controlBus) annotation ();
-  connect(controlBus.household_33, household_33.controlBus) annotation ();
-  connect(controlBus.household_34, household_34.controlBus) annotation ();
-  connect(controlBus.household_35, household_35.controlBus) annotation ();
-  connect(controlBus.household_36, household_36.controlBus) annotation ();
-  connect(controlBus.household_37, household_37.controlBus) annotation ();
-  connect(controlBus.household_38, household_38.controlBus) annotation ();
-  connect(controlBus.household_39, household_39.controlBus) annotation ();
-  connect(controlBus.household_40, household_40.controlBus) annotation ();
-  connect(controlBus.household_41, household_41.controlBus) annotation ();
-  connect(controlBus.household_42, household_42.controlBus) annotation ();
-  connect(controlBus.household_43, household_43.controlBus) annotation ();
-  connect(controlBus.household_44, household_44.controlBus) annotation ();
-  connect(controlBus.household_45, household_45.controlBus) annotation ();
-  connect(controlBus.household_46, household_46.controlBus) annotation ();
-  connect(controlBus.household_47, household_47.controlBus) annotation ();
-  connect(controlBus.household_48, household_48.controlBus) annotation ();
-  connect(controlBus.household_49, household_49.controlBus) annotation ();
-  connect(controlBus.household_50, household_50.controlBus) annotation ();
-  connect(controlBus.household_51, household_51.controlBus) annotation ();
-  connect(controlBus.household_52, household_52.controlBus) annotation ();
-  connect(controlBus.household_53, household_53.controlBus) annotation ();
-  connect(controlBus.household_54, household_54.controlBus) annotation ();
-  connect(controlBus.household_55, household_55.controlBus) annotation ();
-  connect(controlBus.household_56, household_56.controlBus) annotation ();
-  connect(controlBus.household_57, household_57.controlBus) annotation ();
-  connect(controlBus.household_58, household_58.controlBus) annotation ();
-  connect(controlBus.household_59, household_59.controlBus) annotation ();
-  connect(controlBus.household_60, household_60.controlBus) annotation ();
-  connect(controlBus.household_61, household_61.controlBus) annotation ();
-  connect(controlBus.household_62, household_62.controlBus) annotation ();
-  connect(controlBus.household_63, household_63.controlBus) annotation ();
-  connect(controlBus.household_64, household_64.controlBus) annotation ();
-  connect(controlBus.household_65, household_65.controlBus) annotation ();
-  connect(controlBus.household_66, household_66.controlBus) annotation ();
-  connect(controlBus.household_67, household_67.controlBus) annotation ();
-  connect(controlBus.household_68, household_68.controlBus) annotation ();
-  connect(controlBus.household_69, household_69.controlBus) annotation ();
-  connect(controlBus.household_70, household_70.controlBus) annotation ();
-  connect(controlBus.household_71, household_71.controlBus) annotation ();
-  connect(controlBus.household_72, household_72.controlBus) annotation ();
-  connect(controlBus.household_73, household_73.controlBus) annotation ();
-  connect(controlBus.household_74, household_74.controlBus) annotation ();
-  connect(controlBus.household_75, household_75.controlBus) annotation ();
-  connect(controlBus.household_76, household_76.controlBus) annotation ();
-  connect(controlBus.household_77, household_77.controlBus) annotation ();
-  connect(controlBus.household_78, household_78.controlBus) annotation ();
-  connect(controlBus.household_79, household_79.controlBus) annotation ();
-  connect(controlBus.household_80, household_80.controlBus) annotation ();
-  connect(controlBus.household_81, household_81.controlBus) annotation ();
-  connect(controlBus.household_82, household_82.controlBus) annotation ();
-  connect(controlBus.household_83, household_83.controlBus) annotation ();
-  connect(controlBus.household_84, household_84.controlBus) annotation ();
-  connect(controlBus.household_85, household_85.controlBus) annotation ();
-  connect(controlBus.household_86, household_86.controlBus) annotation ();
-  connect(controlBus.household_87, household_87.controlBus) annotation ();
-  connect(controlBus.household_88, household_88.controlBus) annotation ();
-  connect(controlBus.household_89, household_89.controlBus) annotation ();
-  connect(controlBus.household_90, household_90.controlBus) annotation ();
-  connect(controlBus.household_91, household_91.controlBus) annotation ();
-  connect(controlBus.household_92, household_92.controlBus) annotation ();
-  connect(controlBus.household_93, household_93.controlBus) annotation ();
-  connect(controlBus.household_94, household_94.controlBus) annotation ();
-  connect(controlBus.household_95, household_95.controlBus) annotation ();
-  connect(controlBus.household_96, household_96.controlBus) annotation ();
-  connect(controlBus.household_97, household_97.controlBus) annotation ();
-  connect(controlBus.household_98, household_98.controlBus) annotation ();
-  connect(controlBus.household_99, household_99.controlBus) annotation ();
-  connect(controlBus.node_1, node_1.controlBus) annotation ();
-  connect(controlBus.node_2, node_2.controlBus) annotation ();
-  connect(controlBus.node_3, node_3.controlBus) annotation ();
-  connect(controlBus.node_4, node_4.controlBus) annotation ();
-  connect(controlBus.node_5, node_5.controlBus) annotation ();
-  connect(controlBus.node_6, node_6.controlBus) annotation ();
-  connect(controlBus.node_7, node_7.controlBus) annotation ();
-  connect(controlBus.node_8, node_8.controlBus) annotation ();
-  connect(controlBus.node_9, node_9.controlBus) annotation ();
-  connect(controlBus.node_10, node_10.controlBus) annotation ();
-  connect(controlBus.node_11, node_11.controlBus) annotation ();
-  connect(controlBus.node_12, node_12.controlBus) annotation ();
-  connect(controlBus.node_13, node_13.controlBus) annotation ();
-  connect(controlBus.node_14, node_14.controlBus) annotation ();
-  connect(controlBus.node_15, node_15.controlBus) annotation ();
-  connect(controlBus.node_16, node_16.controlBus) annotation ();
-  connect(controlBus.node_17, node_17.controlBus) annotation ();
-  connect(controlBus.node_18, node_18.controlBus) annotation ();
-  connect(controlBus.node_19, node_19.controlBus) annotation ();
-  connect(controlBus.node_20, node_20.controlBus) annotation ();
-  connect(controlBus.node_21, node_21.controlBus) annotation ();
-  connect(controlBus.node_22, node_22.controlBus) annotation ();
-  connect(controlBus.node_23, node_23.controlBus) annotation ();
-  connect(controlBus.node_24, node_24.controlBus) annotation ();
-  connect(controlBus.node_25, node_25.controlBus) annotation ();
-  connect(controlBus.node_26, node_26.controlBus) annotation ();
-  connect(controlBus.node_27, node_27.controlBus) annotation ();
-  connect(controlBus.node_28, node_28.controlBus) annotation ();
-  connect(controlBus.node_29, node_29.controlBus) annotation ();
-  connect(controlBus.node_30, node_30.controlBus) annotation ();
-  connect(controlBus.node_31, node_31.controlBus) annotation ();
-  connect(controlBus.node_32, node_32.controlBus) annotation ();
-  connect(controlBus.node_33, node_33.controlBus) annotation ();
-  connect(controlBus.node_34, node_34.controlBus) annotation ();
-  connect(controlBus.node_35, node_35.controlBus) annotation ();
-  connect(controlBus.node_36, node_36.controlBus) annotation ();
-  connect(controlBus.node_37, node_37.controlBus) annotation ();
-  connect(controlBus.node_38, node_38.controlBus) annotation ();
-  connect(controlBus.node_39, node_39.controlBus) annotation ();
-  connect(controlBus.node_40, node_40.controlBus) annotation ();
-  connect(controlBus.node_41, node_41.controlBus) annotation ();
-  connect(controlBus.node_42, node_42.controlBus) annotation ();
-  connect(controlBus.node_43, node_43.controlBus) annotation ();
-  connect(controlBus.node_44, node_44.controlBus) annotation ();
-  connect(controlBus.node_45, node_45.controlBus) annotation ();
-  connect(controlBus.node_46, node_46.controlBus) annotation ();
-  connect(controlBus.node_47, node_47.controlBus) annotation ();
-  connect(controlBus.node_48, node_48.controlBus) annotation ();
-  connect(controlBus.node_49, node_49.controlBus) annotation ();
-  connect(controlBus.node_50, node_50.controlBus) annotation ();
-  connect(controlBus.node_51, node_51.controlBus) annotation ();
-  connect(controlBus.node_52, node_52.controlBus) annotation ();
-  connect(controlBus.node_53, node_53.controlBus) annotation ();
-  connect(controlBus.node_54, node_54.controlBus) annotation ();
-  connect(controlBus.node_55, node_55.controlBus) annotation ();
-  connect(controlBus.node_56, node_56.controlBus) annotation ();
-  connect(controlBus.node_57, node_57.controlBus) annotation ();
-  connect(controlBus.node_58, node_58.controlBus) annotation ();
-  connect(controlBus.node_59, node_59.controlBus) annotation ();
-  connect(controlBus.node_60, node_60.controlBus) annotation ();
-  connect(controlBus.node_61, node_61.controlBus) annotation ();
-  connect(controlBus.node_62, node_62.controlBus) annotation ();
-  connect(controlBus.node_63, node_63.controlBus) annotation ();
-  connect(controlBus.node_64, node_64.controlBus) annotation ();
-  connect(controlBus.node_65, node_65.controlBus) annotation ();
-  connect(controlBus.node_66, node_66.controlBus) annotation ();
-  connect(controlBus.node_67, node_67.controlBus) annotation ();
-  connect(controlBus.node_68, node_68.controlBus) annotation ();
-  connect(controlBus.node_69, node_69.controlBus) annotation ();
-  connect(controlBus.node_70, node_70.controlBus) annotation ();
-  connect(controlBus.node_71, node_71.controlBus) annotation ();
-  connect(controlBus.node_72, node_72.controlBus) annotation ();
-  connect(controlBus.node_73, node_73.controlBus) annotation ();
-  connect(controlBus.node_74, node_74.controlBus) annotation ();
-  connect(controlBus.node_75, node_75.controlBus) annotation ();
-  connect(controlBus.node_76, node_76.controlBus) annotation ();
-  connect(controlBus.node_77, node_77.controlBus) annotation ();
-  connect(controlBus.node_78, node_78.controlBus) annotation ();
-  connect(controlBus.node_79, node_79.controlBus) annotation ();
-  connect(controlBus.node_80, node_80.controlBus) annotation ();
-  connect(controlBus.node_81, node_81.controlBus) annotation ();
-  connect(controlBus.node_82, node_82.controlBus) annotation ();
-  connect(controlBus.node_83, node_83.controlBus) annotation ();
-  connect(controlBus.node_84, node_84.controlBus) annotation ();
-  connect(controlBus.node_85, node_85.controlBus) annotation ();
-  connect(controlBus.node_86, node_86.controlBus) annotation ();
-  connect(controlBus.node_87, node_87.controlBus) annotation ();
-  connect(controlBus.node_88, node_88.controlBus) annotation ();
-  connect(controlBus.node_89, node_89.controlBus) annotation ();
-  connect(controlBus.node_90, node_90.controlBus) annotation ();
-  connect(controlBus.node_91, node_91.controlBus) annotation ();
-  connect(controlBus.node_92, node_92.controlBus) annotation ();
-  connect(controlBus.node_93, node_93.controlBus) annotation ();
-  connect(controlBus.node_94, node_94.controlBus) annotation ();
-  connect(controlBus.node_95, node_95.controlBus) annotation ();
-  connect(controlBus.node_96, node_96.controlBus) annotation ();
+  connect(controlBus.household_1, household_1.controlBus) annotation();
+  connect(controlBus.household_2, household_2.controlBus) annotation();
+  connect(controlBus.household_3, household_3.controlBus) annotation();
+  connect(controlBus.household_4, household_4.controlBus) annotation();
+  connect(controlBus.household_5, household_5.controlBus) annotation();
+  connect(controlBus.household_6, household_6.controlBus) annotation();
+  connect(controlBus.household_7, household_7.controlBus) annotation();
+  connect(controlBus.household_8, household_8.controlBus) annotation();
+  connect(controlBus.household_9, household_9.controlBus) annotation();
+  connect(controlBus.household_10, household_10.controlBus) annotation();
+  connect(controlBus.household_11, household_11.controlBus) annotation();
+  connect(controlBus.household_12, household_12.controlBus) annotation();
+  connect(controlBus.household_13, household_13.controlBus) annotation();
+  connect(controlBus.household_14, household_14.controlBus) annotation();
+  connect(controlBus.household_15, household_15.controlBus) annotation();
+  connect(controlBus.household_16, household_16.controlBus) annotation();
+  connect(controlBus.household_17, household_17.controlBus) annotation();
+  connect(controlBus.household_18, household_18.controlBus) annotation();
+  connect(controlBus.household_19, household_19.controlBus) annotation();
+  connect(controlBus.household_20, household_20.controlBus) annotation();
+  connect(controlBus.household_21, household_21.controlBus) annotation();
+  connect(controlBus.household_22, household_22.controlBus) annotation();
+  connect(controlBus.household_23, household_23.controlBus) annotation();
+  connect(controlBus.household_24, household_24.controlBus) annotation();
+  connect(controlBus.household_25, household_25.controlBus) annotation();
+  connect(controlBus.household_26, household_26.controlBus) annotation();
+  connect(controlBus.household_27, household_27.controlBus) annotation();
+  connect(controlBus.household_28, household_28.controlBus) annotation();
+  connect(controlBus.household_29, household_29.controlBus) annotation();
+  connect(controlBus.household_30, household_30.controlBus) annotation();
+  connect(controlBus.household_31, household_31.controlBus) annotation();
+  connect(controlBus.household_32, household_32.controlBus) annotation();
+  connect(controlBus.household_33, household_33.controlBus) annotation();
+  connect(controlBus.household_34, household_34.controlBus) annotation();
+  connect(controlBus.household_35, household_35.controlBus) annotation();
+  connect(controlBus.household_36, household_36.controlBus) annotation();
+  connect(controlBus.household_37, household_37.controlBus) annotation();
+  connect(controlBus.household_38, household_38.controlBus) annotation();
+  connect(controlBus.household_39, household_39.controlBus) annotation();
+  connect(controlBus.household_40, household_40.controlBus) annotation();
+  connect(controlBus.household_41, household_41.controlBus) annotation();
+  connect(controlBus.household_42, household_42.controlBus) annotation();
+  connect(controlBus.household_43, household_43.controlBus) annotation();
+  connect(controlBus.household_44, household_44.controlBus) annotation();
+  connect(controlBus.household_45, household_45.controlBus) annotation();
+  connect(controlBus.household_46, household_46.controlBus) annotation();
+  connect(controlBus.household_47, household_47.controlBus) annotation();
+  connect(controlBus.household_48, household_48.controlBus) annotation();
+  connect(controlBus.household_49, household_49.controlBus) annotation();
+  connect(controlBus.household_50, household_50.controlBus) annotation();
+  connect(controlBus.household_51, household_51.controlBus) annotation();
+  connect(controlBus.household_52, household_52.controlBus) annotation();
+  connect(controlBus.household_53, household_53.controlBus) annotation();
+  connect(controlBus.household_54, household_54.controlBus) annotation();
+  connect(controlBus.household_55, household_55.controlBus) annotation();
+  connect(controlBus.household_56, household_56.controlBus) annotation();
+  connect(controlBus.household_57, household_57.controlBus) annotation();
+  connect(controlBus.household_58, household_58.controlBus) annotation();
+  connect(controlBus.household_59, household_59.controlBus) annotation();
+  connect(controlBus.household_60, household_60.controlBus) annotation();
+  connect(controlBus.household_61, household_61.controlBus) annotation();
+  connect(controlBus.household_62, household_62.controlBus) annotation();
+  connect(controlBus.household_63, household_63.controlBus) annotation();
+  connect(controlBus.household_64, household_64.controlBus) annotation();
+  connect(controlBus.household_65, household_65.controlBus) annotation();
+  connect(controlBus.household_66, household_66.controlBus) annotation();
+  connect(controlBus.household_67, household_67.controlBus) annotation();
+  connect(controlBus.household_68, household_68.controlBus) annotation();
+  connect(controlBus.household_69, household_69.controlBus) annotation();
+  connect(controlBus.household_70, household_70.controlBus) annotation();
+  connect(controlBus.household_71, household_71.controlBus) annotation();
+  connect(controlBus.household_72, household_72.controlBus) annotation();
+  connect(controlBus.household_73, household_73.controlBus) annotation();
+  connect(controlBus.household_74, household_74.controlBus) annotation();
+  connect(controlBus.household_75, household_75.controlBus) annotation();
+  connect(controlBus.household_76, household_76.controlBus) annotation();
+  connect(controlBus.household_77, household_77.controlBus) annotation();
+  connect(controlBus.household_78, household_78.controlBus) annotation();
+  connect(controlBus.household_79, household_79.controlBus) annotation();
+  connect(controlBus.household_80, household_80.controlBus) annotation();
+  connect(controlBus.household_81, household_81.controlBus) annotation();
+  connect(controlBus.household_82, household_82.controlBus) annotation();
+  connect(controlBus.household_83, household_83.controlBus) annotation();
+  connect(controlBus.household_84, household_84.controlBus) annotation();
+  connect(controlBus.household_85, household_85.controlBus) annotation();
+  connect(controlBus.household_86, household_86.controlBus) annotation();
+  connect(controlBus.household_87, household_87.controlBus) annotation();
+  connect(controlBus.household_88, household_88.controlBus) annotation();
+  connect(controlBus.household_89, household_89.controlBus) annotation();
+  connect(controlBus.household_90, household_90.controlBus) annotation();
+  connect(controlBus.household_91, household_91.controlBus) annotation();
+  connect(controlBus.household_92, household_92.controlBus) annotation();
+  connect(controlBus.household_93, household_93.controlBus) annotation();
+  connect(controlBus.household_94, household_94.controlBus) annotation();
+  connect(controlBus.household_95, household_95.controlBus) annotation();
+  connect(controlBus.household_96, household_96.controlBus) annotation();
+  connect(controlBus.household_97, household_97.controlBus) annotation();
+  connect(controlBus.household_98, household_98.controlBus) annotation();
+  connect(controlBus.household_99, household_99.controlBus) annotation();
+  connect(controlBus.node_1, node_1.controlBus) annotation();
+  connect(controlBus.node_2, node_2.controlBus) annotation();
+  connect(controlBus.node_3, node_3.controlBus) annotation();
+  connect(controlBus.node_4, node_4.controlBus) annotation();
+  connect(controlBus.node_5, node_5.controlBus) annotation();
+  connect(controlBus.node_6, node_6.controlBus) annotation();
+  connect(controlBus.node_7, node_7.controlBus) annotation();
+  connect(controlBus.node_8, node_8.controlBus) annotation();
+  connect(controlBus.node_9, node_9.controlBus) annotation();
+  connect(controlBus.node_10, node_10.controlBus) annotation();
+  connect(controlBus.node_11, node_11.controlBus) annotation();
+  connect(controlBus.node_12, node_12.controlBus) annotation();
+  connect(controlBus.node_13, node_13.controlBus) annotation();
+  connect(controlBus.node_14, node_14.controlBus) annotation();
+  connect(controlBus.node_15, node_15.controlBus) annotation();
+  connect(controlBus.node_16, node_16.controlBus) annotation();
+  connect(controlBus.node_17, node_17.controlBus) annotation();
+  connect(controlBus.node_18, node_18.controlBus) annotation();
+  connect(controlBus.node_19, node_19.controlBus) annotation();
+  connect(controlBus.node_20, node_20.controlBus) annotation();
+  connect(controlBus.node_21, node_21.controlBus) annotation();
+  connect(controlBus.node_22, node_22.controlBus) annotation();
+  connect(controlBus.node_23, node_23.controlBus) annotation();
+  connect(controlBus.node_24, node_24.controlBus) annotation();
+  connect(controlBus.node_25, node_25.controlBus) annotation();
+  connect(controlBus.node_26, node_26.controlBus) annotation();
+  connect(controlBus.node_27, node_27.controlBus) annotation();
+  connect(controlBus.node_28, node_28.controlBus) annotation();
+  connect(controlBus.node_29, node_29.controlBus) annotation();
+  connect(controlBus.node_30, node_30.controlBus) annotation();
+  connect(controlBus.node_31, node_31.controlBus) annotation();
+  connect(controlBus.node_32, node_32.controlBus) annotation();
+  connect(controlBus.node_33, node_33.controlBus) annotation();
+  connect(controlBus.node_34, node_34.controlBus) annotation();
+  connect(controlBus.node_35, node_35.controlBus) annotation();
+  connect(controlBus.node_36, node_36.controlBus) annotation();
+  connect(controlBus.node_37, node_37.controlBus) annotation();
+  connect(controlBus.node_38, node_38.controlBus) annotation();
+  connect(controlBus.node_39, node_39.controlBus) annotation();
+  connect(controlBus.node_40, node_40.controlBus) annotation();
+  connect(controlBus.node_41, node_41.controlBus) annotation();
+  connect(controlBus.node_42, node_42.controlBus) annotation();
+  connect(controlBus.node_43, node_43.controlBus) annotation();
+  connect(controlBus.node_44, node_44.controlBus) annotation();
+  connect(controlBus.node_45, node_45.controlBus) annotation();
+  connect(controlBus.node_46, node_46.controlBus) annotation();
+  connect(controlBus.node_47, node_47.controlBus) annotation();
+  connect(controlBus.node_48, node_48.controlBus) annotation();
+  connect(controlBus.node_49, node_49.controlBus) annotation();
+  connect(controlBus.node_50, node_50.controlBus) annotation();
+  connect(controlBus.node_51, node_51.controlBus) annotation();
+  connect(controlBus.node_52, node_52.controlBus) annotation();
+  connect(controlBus.node_53, node_53.controlBus) annotation();
+  connect(controlBus.node_54, node_54.controlBus) annotation();
+  connect(controlBus.node_55, node_55.controlBus) annotation();
+  connect(controlBus.node_56, node_56.controlBus) annotation();
+  connect(controlBus.node_57, node_57.controlBus) annotation();
+  connect(controlBus.node_58, node_58.controlBus) annotation();
+  connect(controlBus.node_59, node_59.controlBus) annotation();
+  connect(controlBus.node_60, node_60.controlBus) annotation();
+  connect(controlBus.node_61, node_61.controlBus) annotation();
+  connect(controlBus.node_62, node_62.controlBus) annotation();
+  connect(controlBus.node_63, node_63.controlBus) annotation();
+  connect(controlBus.node_64, node_64.controlBus) annotation();
+  connect(controlBus.node_65, node_65.controlBus) annotation();
+  connect(controlBus.node_66, node_66.controlBus) annotation();
+  connect(controlBus.node_67, node_67.controlBus) annotation();
+  connect(controlBus.node_68, node_68.controlBus) annotation();
+  connect(controlBus.node_69, node_69.controlBus) annotation();
+  connect(controlBus.node_70, node_70.controlBus) annotation();
+  connect(controlBus.node_71, node_71.controlBus) annotation();
+  connect(controlBus.node_72, node_72.controlBus) annotation();
+  connect(controlBus.node_73, node_73.controlBus) annotation();
+  connect(controlBus.node_74, node_74.controlBus) annotation();
+  connect(controlBus.node_75, node_75.controlBus) annotation();
+  connect(controlBus.node_76, node_76.controlBus) annotation();
+  connect(controlBus.node_77, node_77.controlBus) annotation();
+  connect(controlBus.node_78, node_78.controlBus) annotation();
+  connect(controlBus.node_79, node_79.controlBus) annotation();
+  connect(controlBus.node_80, node_80.controlBus) annotation();
+  connect(controlBus.node_81, node_81.controlBus) annotation();
+  connect(controlBus.node_82, node_82.controlBus) annotation();
+  connect(controlBus.node_83, node_83.controlBus) annotation();
+  connect(controlBus.node_84, node_84.controlBus) annotation();
+  connect(controlBus.node_85, node_85.controlBus) annotation();
+  connect(controlBus.node_86, node_86.controlBus) annotation();
+  connect(controlBus.node_87, node_87.controlBus) annotation();
+  connect(controlBus.node_88, node_88.controlBus) annotation();
+  connect(controlBus.node_89, node_89.controlBus) annotation();
+  connect(controlBus.node_90, node_90.controlBus) annotation();
+  connect(controlBus.node_91, node_91.controlBus) annotation();
+  connect(controlBus.node_92, node_92.controlBus) annotation();
+  connect(controlBus.node_93, node_93.controlBus) annotation();
+  connect(controlBus.node_94, node_94.controlBus) annotation();
+  connect(controlBus.node_95, node_95.controlBus) annotation();
+  connect(controlBus.node_96, node_96.controlBus) annotation();
 
   // ---- Connect lines -----------------------------------------------------------------------
 
@@ -5749,7 +5749,7 @@ equation
       points={{-20.8,498},{-26.58,498},{-26.58,464.96}},
       color={28,108,200},
       thickness=0.5));
-  connect(GridMeter.controlBus, controlBus.GridMeter) annotation ();
+  connect(GridMeter.controlBus, controlBus.GridMeter) annotation();
   annotation (
     experiment(StopTime=86400, __Dymola_Algorithm="Dassl"),
     Diagram(coordinateSystem(extent={{-100.0,-100.0},{100.0,100.0}}), graphics={Rectangle(
