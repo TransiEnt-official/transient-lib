@@ -1,5 +1,5 @@
 within TransiEnt.Examples.DistributionGrids.LowVoltageGrids;
-model LV_semiurb_4 "Contains choices of scenarios T / I / A and Normale Bedingungen / High Simultaneity / Kalte Dunkelflaute"
+model LV_semiurb_4 "Contains choices of scenarios Today / Intermediate / Future"
   import TransiEnt.Basics.Types.ControlType;
   // ------------------------------------------------------------------------------------------
   //   Parameter
@@ -84,9 +84,9 @@ equation
       points={{60,10.8},{60,94},{0,94},{0,108}},
       color={28,108,200},
       thickness=0.5));
-  connect(lV_semiurb_4_T.controlBus, controlBus) annotation ();
-  connect(lV_semiurb_4_I.controlBus, controlBus) annotation ();
-  connect(lV_semiurb_4_A.controlBus, controlBus) annotation ();
+  connect(lV_semiurb_4_T.controlBus, controlBus) annotation();
+  connect(lV_semiurb_4_I.controlBus, controlBus) annotation();
+  connect(lV_semiurb_4_A.controlBus, controlBus) annotation();
   annotation (
     Diagram(coordinateSystem(preserveAspectRatio=false)),
     Icon(graphics={

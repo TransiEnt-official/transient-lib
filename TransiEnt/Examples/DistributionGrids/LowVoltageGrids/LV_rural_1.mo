@@ -1,5 +1,5 @@
 within TransiEnt.Examples.DistributionGrids.LowVoltageGrids;
-model LV_rural_1 "Contains choices of scenarios Today / Intermediate / Future and Normale Bedingungen / High Simultaneity / Kalte Dunkelflaute"
+model LV_rural_1 "Contains choices of scenarios Today / Intermediate / Future"
   import TransiEnt.Basics.Types.ControlType;
   // ------------------------------------------------------------------------------------------
   //   Parameter
