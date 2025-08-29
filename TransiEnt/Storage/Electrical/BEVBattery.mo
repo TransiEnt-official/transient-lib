@@ -1,5 +1,6 @@
 within TransiEnt.Storage.Electrical;
 model BEVBattery "Storage for BatteryElectricVehicle model"
+  extends TransiEnt.Basics.Icons.Model;
   //________________________________________________________________________________//
   // Component of the TransiEnt Library, version: 3.0.0                             //
   //                                                                                //
@@ -20,7 +21,6 @@ model BEVBattery "Storage for BatteryElectricVehicle model"
   // and                                                                            //
   // XRG Simulation GmbH (Hamburg, Germany).                                        //
   //                                                                                //
-  // Last Author: Tom Steffen, Last Update: 11.08.2025, Email: tom.steffen@tuhh.de  //
   //________________________________________________________________________________//
   // _____________________________________________
 

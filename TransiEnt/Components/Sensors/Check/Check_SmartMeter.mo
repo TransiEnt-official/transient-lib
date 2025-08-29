@@ -29,7 +29,7 @@ model Check_SmartMeter
     offset=0,
     startTime=0) annotation (Placement(transformation(extent={{80,20},{100,40}})));
   Modelica.Blocks.Sources.Pulse pulseQ(
-    amplitude=1e3,
+    amplitude=0.5e6,
     width=50,
     period=2000,
     offset=0,

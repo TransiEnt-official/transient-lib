@@ -17,7 +17,7 @@ model Check_PVPlantControllable
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -46,7 +46,7 @@ model Check_PVPlantControllable
     annotation (Placement(transformation(extent={{-74,-54},{-54,-34}})));
   PVPlantControllable
           pVPlantControllable(
-    controlType=Models_CyEntEE.CellModels.Controller.Base.ControlType.Limit_P,
+    controlType=TransiEnt.Basics.Types.ControlType.Limit_P,
     kind=4,
     redeclare model Skymodel =
         TransiEnt.Producer.Heat.SolarThermal.Base.Skymodel_Klucher,
