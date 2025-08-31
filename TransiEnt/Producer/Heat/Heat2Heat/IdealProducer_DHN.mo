@@ -28,6 +28,7 @@ model IdealProducer_DHN "Simple model of a producer providing a constant specifi
   // _____________________________________________
 
   import         Modelica.Units.SI;
+  extends TransiEnt.Basics.Icons.HeatSource;
 
   // _____________________________________________
   //
@@ -62,7 +63,7 @@ model IdealProducer_DHN "Simple model of a producer providing a constant specifi
         origin={98,60},
         extent={{-10,-10},{10,10}},
         rotation=0)));
-  Modelica.Blocks.Interfaces.RealInput h_in annotation (Placement(transformation(extent={{-100,-20},{-60,20}}), iconTransformation(extent={{-100,-20},{-60,20}})));
+  Modelica.Blocks.Interfaces.RealInput h_in annotation (Placement(transformation(extent={{-100,38},{-60,78}}),  iconTransformation(extent={{-100,38},{-60,78}})));
 equation
 
   // _____________________________________________
@@ -75,8 +76,7 @@ equation
   inlet.p + dp = outlet.p;
   Q_flow=(outlet.h_outflow - inStream(inlet.h_outflow))*inlet.m_flow;
   inlet.h_outflow = -1 "Reverse flow not supported";
-  annotation (
-    Icon(graphics={  Rectangle(fillColor = {85, 85, 0}, fillPattern = FillPattern.Solid, extent = {{-100, 100}, {100, -100}})}), Documentation(info="<html>
+  annotation (                                                                                                                   Documentation(info="<html>
 <h4><span style=\"color: #008000\">Purpose of model</span></h4>
 <p>A simple model of a producer. It contains two fluid ports (inlet and outlet). A static mass balance is implemented and a constant pressure difference is set. The model can be used in district heating network simulations.</p>
 <h4><span style=\"color: #008c48\">Interfaces:</span></h4>

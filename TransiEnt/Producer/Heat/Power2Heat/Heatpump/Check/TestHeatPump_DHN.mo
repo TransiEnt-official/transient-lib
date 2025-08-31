@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.Heat2Heat.Check;
+﻿within TransiEnt.Producer.Heat.Power2Heat.Heatpump.Check;
 model TestHeatPump_DHN "Test model for the heat pump for the DHN simulations"
 
 //________________________________________________________________________________//
@@ -34,7 +34,7 @@ model TestHeatPump_DHN "Test model for the heat pump for the DHN simulations"
   //          Instances of other classes
   // _____________________________________________
 
-  TransiEnt.Producer.Heat.Heat2Heat.Heatpump_DHN heatpump1(
+  TransiEnt.Producer.Heat.Power2Heat.Heatpump.Heatpump_DHN heatpump1(
     Delta_T_internal(displayUnit="K"),
     COP_n=3.7,
     P_el_max(displayUnit="kW") = 300000) annotation (Placement(transformation(extent={{-46,-146},{-26,-126}})));
@@ -57,7 +57,7 @@ model TestHeatPump_DHN "Test model for the heat pump for the DHN simulations"
   TransiEnt.Components.Boundaries.FluidFlow.FluidSink sink annotation (Placement(transformation(extent={{-18,-92},{2,-72}})));
   Modelica.Blocks.Sources.RealExpression realExpression4(y=0.1)
                                                              annotation (Placement(transformation(extent={{-30,-70},{-10,-50}})));
-  DistrictHeatingGridsNew.Consumer.Consumer_HeatFlow consumer_HeatFlow annotation (Placement(transformation(extent={{20,-144},{48,-124}})));
+  TransiEnt.Consumer.Heat.Consumer_SLP consumer_HeatFlow annotation (Placement(transformation(extent={{20,-144},{48,-124}})));
 equation
 
   // _____________________________________________

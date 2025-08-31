@@ -1844,7 +1844,7 @@ public
     Ti=1000,
     yMax=24e5,
     yMin=0.0001) annotation (Placement(transformation(extent={{-272,-20},{-252,0}})));
-  TransiEnt.Producer.Heat.Heat2Heat.Heatpump_DHN heatpump1(P_el_max(displayUnit="MW") = 200000000, P_el_min=0.00001) annotation (Placement(transformation(extent={{-268,-80},{-248,-60}})));
+  TransiEnt.Producer.Heat.Power2Heat.Heatpump.Heatpump_DHN heatpump1(P_el_max(displayUnit="MW") = 200000000, P_el_min=0.00001) annotation (Placement(transformation(extent={{-268,-80},{-248,-60}})));
   Modelica.Blocks.Sources.RealExpression realExpression3(y=heatpump1.outlet.h_outflow/4186) annotation (Placement(transformation(extent={{-294,-56},{-274,-36}})));
   Modelica.Blocks.Sources.Trapezoid trapezoid(
     amplitude=6,

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.Heat2Heat;
+﻿within TransiEnt.Producer.Heat.Power2Heat.Heatpump;
 model Heatpump_DHN "Simple model of a producer providing a constant specific enthalpy and a pressure difference"
 
 //________________________________________________________________________________//
@@ -113,8 +113,7 @@ equation
   inlet.p + dp = outlet.p;
   inlet.h_outflow = -1 "Reverse flow not supported";
   connect(limiter.u, realExpression1.y) annotation (Line(points={{-6,8},{-11,8}}, color={0,0,127}));
-  annotation (
-    Icon(graphics={  Rectangle(fillColor = {85, 85, 0}, fillPattern = FillPattern.Solid, extent = {{-100, 100}, {100, -100}})}), Documentation(info="<html>
+  annotation (                                                                                                                   Documentation(info="<html>
 <h4><span style=\"color: #008000\">Purpose of model</span></h4>
 <p>A simple model of a heat pump. A pump for the circulation of the district heating network heat carrier is included. The model calculates the electric power of the heat pump from a given heat flow rate and a coefficient of performance. The COP is calculated based on the Carnot COP and a constant efficiency factor (parameter). The Carnot COP depends on the supply temperature, that is given by an input and the temperature of the heat source. The pressure difference set by the circulation pump of the hydraulic grid is set with an input. An electric power consumed by the circulation pump is calculated. </p>
 <h4><span style=\"color: #008c48\">Level of detail, physical effects considered, and physical insight</span></h4>
@@ -137,5 +136,47 @@ equation
 <p>Reverse flow is not supported</p>
 <h4><span style=\"color: #008c48\">Version History</span></h4>
 <p>Model was created by Jan Westphal (j.westphal@tuhh.de) August 2025</p>
-</html>"));
+</html>"), Icon(graphics={         Ellipse(
+          lineColor={0,125,125},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid,
+          extent={{-100,-100},{100,100}}),
+        Rectangle(
+          extent={{-38,40},{42,-48}},
+          lineColor={0,0,0},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid),
+        Polygon(
+          points={{-48,8},{-44,8},{-30,8},{-38,-4},{-30,-14},{-48,-14},{-38,-4},{-48,8}},
+          lineColor={0,0,0},
+          smooth=Smooth.None,
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid),
+        Rectangle(
+          extent={{-18,48},{20,32}},
+          lineColor={0,0,0},
+          fillColor={255,0,0},
+          fillPattern=FillPattern.Solid),
+        Rectangle(
+          extent={{-16,-40},{22,-56}},
+          lineColor={0,0,0},
+          fillColor={0,0,255},
+          fillPattern=FillPattern.Solid),
+        Ellipse(
+          extent={{30,10},{56,-14}},
+          lineColor={0,0,0},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid),
+        Line(
+          points={{34,-10},{42,10},{52,-10}},
+          color={0,0,0},
+          smooth=Smooth.None),
+        Line(
+          points={{-20,22},{-20,-24},{28,-24}},
+          color={0,0,0},
+          smooth=Smooth.None),
+        Line(
+          points={{-20,-22},{-16,-14},{-4,4},{-2,6},{6,12},{16,16},{24,16}},
+          color={0,0,255},
+          smooth=Smooth.None)}));
 end Heatpump_DHN;

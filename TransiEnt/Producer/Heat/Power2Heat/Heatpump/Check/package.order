@@ -5,3 +5,4 @@ TestHeatpumpWithControl_HeatingSystem
 TestHeatpumpWithControl_bivalent_fluidports_sine
 TestHeatpumpWithControl_bivalent_fluidports_ramp
 TestHeatpumpSystem
+TestHeatPump_DHN
