@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat;
+﻿within TransiEnt.Components.Heat.VolumesValvesFittings.Pipes;
 model DHN_Pipe_L4 "Model of a DHN pipe for efficient largescale simulations"
 
 //________________________________________________________________________________//
@@ -65,12 +65,12 @@ model DHN_Pipe_L4 "Model of a DHN pipe for efficient largescale simulations"
   //             Instances of other classes
   // _____________________________________________
 
-  TransiEnt.Basics.Interfaces.Thermal.inlet inlet annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
-  TransiEnt.Basics.Interfaces.Thermal.outlet outlet annotation (Placement(transformation(extent={{90,-10},{110,10}})));
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn_simple inlet annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortOut_simple outlet annotation (Placement(transformation(extent={{90,-10},{110,10}})));
   Modelica.Thermal.HeatTransfer.Celsius.PrescribedTemperature UndergroundTemperature[N_cv] annotation (Placement(transformation(extent={{-68,46},{-48,66}})));
   Modelica.Blocks.Sources.RealExpression Temperature(y=10)  annotation (Placement(transformation(extent={{-102,46},{-82,66}})));
 
-  TransiEnt.Components.Heat.ControlVolumeL4_HeatLoss controlVolumeL4_HeatLoss(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.ControlVolumeL4_HeatLoss controlVolumeL4_HeatLoss(
     L=L,
     l=l,
     d=d,

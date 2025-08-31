@@ -41,7 +41,7 @@ model FluidSource "Mass flow boundary for new connector"
   //                  Interfaces
   // _____________________________________________
 
-  TransiEnt.Basics.Interfaces.Thermal.outlet port_a annotation (Placement(
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortOut_simple port_a annotation (Placement(
       visible=true,
       transformation(
         origin={100,0},

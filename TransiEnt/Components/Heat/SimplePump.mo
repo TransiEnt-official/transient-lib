@@ -35,8 +35,6 @@ model SimplePump "Simple model of a pump"
   // _____________________________________________
 
   parameter SI.Density rho = 1000 "Density of the fluid";
-  parameter SI.SpecificHeatCapacity cp=4200;
-  parameter Real L=1e-4 "Momentum factor of pump";
   parameter Real eta_mech=0.98;
   parameter Real eta_el=0.97;
   parameter Real delta_p_eps=100 "small pressure difference for linearization around zero";
@@ -56,7 +54,7 @@ model SimplePump "Simple model of a pump"
   //         Interfaces
   // _____________________________________________
 
-  TransiEnt.Basics.Interfaces.Thermal.inlet inlet annotation (Placement(
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn_simple inlet annotation (Placement(
       visible=true,
       transformation(
         origin={-98,0},
@@ -66,7 +64,7 @@ model SimplePump "Simple model of a pump"
         origin={-102,0},
         extent={{-10,-10},{10,10}},
         rotation=0)));
-  TransiEnt.Basics.Interfaces.Thermal.outlet outlet annotation (Placement(
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortOut_simple outlet annotation (Placement(
       visible=true,
       transformation(
         origin={100,0},

@@ -1,5 +1,6 @@
 ﻿within TransiEnt.Basics.Interfaces.Thermal;
-connector outlet "Outlet for hydraulic grid simulations"
+connector FluidPortIn_simple "Inlet for hydraulic grid simulations"
+
 //________________________________________________________________________________//
 // Component of the TransiEnt Library, version: 2.0.3                             //
 //                                                                                //
@@ -37,7 +38,7 @@ connector outlet "Outlet for hydraulic grid simulations"
   SI.Pressure p;
   stream SI.SpecificEnthalpy h_outflow;
   annotation (
-    Icon(graphics={  Ellipse(origin = {0, 1}, fillColor = {0, 0, 255}, fillPattern = FillPattern.Solid, extent = {{100, -101}, {-100, 99}}, endAngle = 360), Ellipse(origin = {15, -16}, fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid, extent = {{-85, 84}, {55, -52}}, endAngle = 360)}, coordinateSystem(initialScale = 0.1)), Documentation(info="<html>
+    Icon(graphics={  Ellipse(origin = {0, 1}, fillColor = {0, 0, 255}, fillPattern = FillPattern.Solid, extent = {{100, -101}, {-100, 99}}, endAngle = 360)}), Documentation(info="<html>
 <h4><span style=\"color: #008000\">Purpose of model</span></h4>
 <p>This connector is used for fluid flow between components, especially for district heating networks. It does not feature a mass fraction of the fluid. The specific enthalpy is declared as a stream variable and therefore linked to the mass flow of the fluid. In the components using these fluid ports, normally only the specific enthalpy flowing out of the component is defined. Use the &quot;inStream()&quot; operator to get the specific enthalpy flowing into the component.</p>
 <h4><span style=\"color: #008000\">Nomenclature</span></h4>
@@ -47,4 +48,4 @@ connector outlet "Outlet for hydraulic grid simulations"
 <h4><span style=\"color: #008000\">Version History</span></h4>
 <p>Created by Jan Westphal (j.westphal@tuhh.de), August 2025</p>
 </html>"));
-end outlet;
+end FluidPortIn_simple;

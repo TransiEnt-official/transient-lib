@@ -36,19 +36,30 @@ model TestPump "Test model for the simple pump model"
   //          Instances of other classes
   // _____________________________________________
 
-  TransiEnt.Components.Boundaries.FluidFlow.FluidSink sink annotation (Placement(transformation(extent={{-60,-26},{-40,-6}})));
+  TransiEnt.Components.Boundaries.FluidFlow.FluidSink sink annotation (Placement(transformation(extent={{-84,-78},{-104,-58}})));
   Modelica.Blocks.Sources.RealExpression realExpression4(y=1e5)
-                                                             annotation (Placement(transformation(extent={{-72,-4},{-52,16}})));
-  TransiEnt.Components.Heat.SimplePump pump(rho=998.207) annotation (Placement(transformation(extent={{-32,-78},{-12,-58}})));
+                                                             annotation (Placement(transformation(extent={{-132,-78},{-112,-58}})));
+  TransiEnt.Components.Heat.SimplePump pump(rho=998.207) annotation (Placement(transformation(extent={{-16,-78},{4,-58}})));
   Modelica.Blocks.Sources.RealExpression realExpression1(y=0.1)
                                                              annotation (Placement(transformation(extent={{-62,-72},{-42,-52}})));
   Modelica.Blocks.Sources.RealExpression realExpression2(y=1.2e5)
-                                                             annotation (Placement(transformation(extent={{38,-48},{58,-28}})));
-  TransiEnt.Components.Boundaries.FluidFlow.FluidSink sink1 annotation (Placement(transformation(extent={{50,-70},{70,-50}})));
+                                                             annotation (Placement(transformation(extent={{10,-58},{30,-38}})));
+  TransiEnt.Components.Boundaries.FluidFlow.FluidSink sink1 annotation (Placement(transformation(extent={{24,-78},{44,-58}})));
   TransiEnt.Components.Heat.PumpVLE_L1_simple pumpVLE_L1_simple(presetVariableType="m_flow", m_flow_fixed=0.1) annotation (Placement(transformation(extent={{-10,-160},{10,-140}})));
   ClaRa.Components.BoundaryConditions.BoundaryVLE_pTxi boundaryVLE_pTxi(p_const=1.2e5) annotation (Placement(transformation(extent={{54,-160},{34,-140}})));
   ClaRa.Components.BoundaryConditions.BoundaryVLE_pTxi boundaryVLE_pTxi1(p_const=1e5) annotation (Placement(transformation(extent={{-58,-160},{-38,-140}})));
   inner TransiEnt.SimCenter simCenter annotation (Placement(transformation(extent={{92,60},{112,80}})));
+  Pump_Dp pump_Dp(rho=998.207) annotation (Placement(transformation(extent={{-14,34},{6,54}})));
+  Modelica.Blocks.Sources.RealExpression realExpression3(y=1.0e5)
+                                                             annotation (Placement(transformation(extent={{-84,34},{-64,54}})));
+  Boundaries.FluidFlow.FluidSink                      sink2 annotation (Placement(transformation(extent={{-36,34},{-56,54}})));
+  Modelica.Blocks.Sources.RealExpression realExpression5(y=0.2e5)
+                                                             annotation (Placement(transformation(extent={{-40,64},{-20,84}})));
+  Boundaries.FluidFlow.FluidSource fluidSource annotation (Placement(transformation(extent={{48,34},{28,54}})));
+  Modelica.Blocks.Sources.RealExpression realExpression6(y=-0.1)
+                                                             annotation (Placement(transformation(extent={{86,41},{66,61}})));
+  Modelica.Blocks.Sources.RealExpression realExpression7(y=60*4200)
+                                                             annotation (Placement(transformation(extent={{88,22},{68,42}})));
 equation
 
   // _____________________________________________
@@ -56,11 +67,12 @@ equation
   //          Characteristic Equations
   // _____________________________________________
 
-  connect(realExpression4.y, sink.p_in) annotation (Line(points={{-51,6},{-30,6},{-30,-16.2},{-42,-16.2}}, color={0,0,127}));
-  connect(sink.port_a, pump.inlet) annotation (Line(points={{-60,-16},{-94,-16},{-94,-70},{-32.2,-70},{-32.2,-68}}, color={0,0,0}));
-  connect(realExpression1.y, pump.m_flow) annotation (Line(points={{-41,-62},{-31.4,-62}}, color={0,0,127}));
-  connect(sink1.port_a, pump.outlet) annotation (Line(points={{50,-60},{-6,-60},{-6,-68},{-11.8,-68}}, color={0,0,0}));
-  connect(realExpression2.y, sink1.p_in) annotation (Line(points={{59,-38},{74,-38},{74,-36},{84,-36},{84,-60.2},{68,-60.2}}, color={0,0,127}));
+  connect(realExpression4.y, sink.p_in) annotation (Line(points={{-111,-68},{-111,-68.2},{-102,-68.2}},    color={0,0,127}));
+  connect(sink.port_a, pump.inlet) annotation (Line(points={{-84,-68},{-66,-68},{-66,-76},{-22,-76},{-22,-68},{-16.2,-68}},
+                                                                                                                    color={0,0,0}));
+  connect(realExpression1.y, pump.m_flow) annotation (Line(points={{-41,-62},{-15.4,-62}}, color={0,0,127}));
+  connect(sink1.port_a, pump.outlet) annotation (Line(points={{24,-68},{4.2,-68}},                     color={0,0,0}));
+  connect(realExpression2.y, sink1.p_in) annotation (Line(points={{31,-48},{46,-48},{46,-46},{56,-46},{56,-68.2},{42,-68.2}}, color={0,0,127}));
   connect(pumpVLE_L1_simple.fluidPortOut, boundaryVLE_pTxi.steam_a) annotation (Line(
       points={{10,-150},{34,-150}},
       color={175,0,0},
@@ -69,14 +81,18 @@ equation
       points={{-10,-150},{-38,-150}},
       color={175,0,0},
       thickness=0.5));
+  connect(realExpression3.y,sink2. p_in) annotation (Line(points={{-63,44},{-58.5,44},{-58.5,43.8},{-54,43.8}},               color={0,0,127}));
+  connect(realExpression5.y, pump_Dp.delta_p) annotation (Line(points={{-19,74},{-4,74},{-4,54}}, color={0,0,127}));
+  connect(realExpression6.y, fluidSource.m_flow_in) annotation (Line(points={{65,51},{52,51},{52,47},{46,47}}, color={0,0,127}));
+  connect(realExpression7.y, fluidSource.h_in) annotation (Line(points={{67,32},{54,32},{54,42},{46,42}}, color={0,0,127}));
+  connect(pump_Dp.outlet, fluidSource.port_a) annotation (Line(points={{6.2,44},{28,44}}, color={0,0,0}));
+  connect(sink2.port_a, pump_Dp.inlet) annotation (Line(points={{-36,44},{-14.2,44}}, color={0,0,0}));
   annotation (
     Icon(                                                                                                                                                                                  coordinateSystem(initialScale = 0.1, extent={{-160,-200},{140,100}})),
                                                                                                                                                                                                         experiment(StopTime=86400, __Dymola_Algorithm="Dassl"),
-    Diagram(coordinateSystem(extent={{-160,-200},{140,100}}), graphics={Text(
-          extent={{-136,-94},{-16,-130}},
-          textColor={28,108,200},
-          textString="ClaRa model of a pump"), Text(
-          extent={{-140,46},{-20,10}},
+    Diagram(coordinateSystem(extent={{-160,-200},{140,100}}), graphics={
+                                               Text(
+          extent={{-142,-4},{-22,-40}},
           textColor={28,108,200},
           textString="Test model of a pump")}),
     Documentation(info="<html>

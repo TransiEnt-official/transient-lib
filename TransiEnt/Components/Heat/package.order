@@ -19,7 +19,5 @@ HeatFlowMultiplier
 PrescribedHeatFlowAdvanced
 HeatExchanger
 HeatExchanger_simple
-ControlVolumeL4_HeatLoss
-DHN_Pipe_L4
 SimplePump
-HeatPump_LowTemperatureDHN
+Pump_Dp

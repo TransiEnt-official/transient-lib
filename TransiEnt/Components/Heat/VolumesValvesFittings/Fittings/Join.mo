@@ -52,7 +52,7 @@ model Join "Simple model of a join with linear pressure loss, static mass balanc
   //                  Interfaces
   // _____________________________________________
 
-  TransiEnt.Basics.Interfaces.Thermal.outlet outlet annotation (Placement(
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortOut_simple outlet annotation (Placement(
       visible=true,
       transformation(
         origin={100,0},
@@ -62,7 +62,7 @@ model Join "Simple model of a join with linear pressure loss, static mass balanc
         origin={100,0},
         extent={{-10,-10},{10,10}},
         rotation=0)));
-  TransiEnt.Basics.Interfaces.Thermal.inlet inlet1 annotation (Placement(
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn_simple inlet1 annotation (Placement(
       visible=true,
       transformation(
         origin={0,100},
@@ -72,7 +72,7 @@ model Join "Simple model of a join with linear pressure loss, static mass balanc
         origin={-2,100},
         extent={{-10,-10},{10,10}},
         rotation=0)));
-  TransiEnt.Basics.Interfaces.Thermal.inlet inlet2 annotation (Placement(
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn_simple inlet2 annotation (Placement(
       visible=true,
       transformation(
         origin={0,-100},

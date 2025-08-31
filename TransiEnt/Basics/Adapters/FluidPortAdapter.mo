@@ -40,7 +40,7 @@ model FluidPortAdapter "An adapter to connect the two kind of fluid ports of the
   //          Interfaces
   // _____________________________________________
 
-  TransiEnt.Basics.Interfaces.Thermal.inlet fluidPortIn annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn_simple fluidPortIn annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
   TransiEnt.Basics.Interfaces.Thermal.FluidPortOut fluidPortOut(Medium=medium) annotation (Placement(transformation(extent={{90,-10},{110,10}})));
 
   inner TransiEnt.SimCenter simCenter annotation (Placement(transformation(extent={{64,64},{84,84}})));

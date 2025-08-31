@@ -52,7 +52,7 @@ model SimpleValve "Simple valve model for calculating a mass flow rate out of a 
   //         Interfaces
   // _____________________________________________
 
-  TransiEnt.Basics.Interfaces.Thermal.inlet inlet annotation (Placement(
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn_simple inlet annotation (Placement(
       visible=true,
       transformation(
         origin={-100,0},
@@ -62,7 +62,7 @@ model SimpleValve "Simple valve model for calculating a mass flow rate out of a 
         origin={-100,0},
         extent={{-10,-10},{10,10}},
         rotation=0)));
-  TransiEnt.Basics.Interfaces.Thermal.outlet outlet annotation (Placement(
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortOut_simple outlet annotation (Placement(
       visible=true,
       transformation(
         origin={100,0},

@@ -61,7 +61,7 @@ model Consumer "Simple model of a thermal consumer"
   //            Instances of other classes
   // _____________________________________________
 
-  TransiEnt.Basics.Interfaces.Thermal.inlet inlet annotation (Placement(
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn_simple inlet annotation (Placement(
       visible=true,
       transformation(
         origin={-100,40},
@@ -71,7 +71,7 @@ model Consumer "Simple model of a thermal consumer"
         origin={-100,40},
         extent={{-10,-10},{10,10}},
         rotation=0)));
-  TransiEnt.Basics.Interfaces.Thermal.outlet outlet annotation (Placement(
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortOut_simple outlet annotation (Placement(
       visible=true,
       transformation(
         origin={-100,-40},

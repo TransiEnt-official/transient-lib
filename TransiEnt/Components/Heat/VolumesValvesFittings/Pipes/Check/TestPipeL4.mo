@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat.Check;
+﻿within TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.Check;
 model TestPipeL4 "Test model for the simplePipeL4"
 
 //________________________________________________________________________________//
@@ -48,7 +48,7 @@ model TestPipeL4 "Test model for the simplePipeL4"
   TransiEnt.Components.Boundaries.FluidFlow.FluidSink sink annotation (Placement(transformation(extent={{-36,88},{-16,108}})));
   Modelica.Blocks.Sources.RealExpression realExpression1(y=1e5)
                                                              annotation (Placement(transformation(extent={{14,88},{-6,108}})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 simplePipe_L4_1(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 simplePipe_L4_1(
     cp=4185,
     l=100,
     N_cv=20,
@@ -66,7 +66,7 @@ model TestPipeL4 "Test model for the simplePipeL4"
     height=10*4185,
     offset=60*4185,
     startTime=3600) annotation (Placement(transformation(extent={{-140,-68},{-120,-48}})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 simplePipe_L4_2(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 simplePipe_L4_2(
     cp=4185,
     l=100,
     N_cv=20,

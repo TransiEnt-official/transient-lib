@@ -55,7 +55,7 @@ model Junction "Simple model of a junction with no pressure loss, static mass ba
   //         Instances of other classes
   // _____________________________________________
 
-  TransiEnt.Basics.Interfaces.Thermal.inlet fluidPort[n_ports] annotation (Placement(
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn_simple fluidPort[n_ports] annotation (Placement(
       visible=true,
       transformation(extent={{-10,-10},{10,10}}, rotation=0),
       iconTransformation(

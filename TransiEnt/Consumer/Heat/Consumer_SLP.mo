@@ -1,5 +1,5 @@
 ﻿within TransiEnt.Consumer.Heat;
-model Consumer_SLP "Simple model of a thermal consumer"
+model Consumer_SLP "Simple model of a thermal consumer with a table-based heat flow (standard load profile)"
 
 //________________________________________________________________________________//
 // Component of the TransiEnt Library, version: 2.0.3                             //
@@ -62,7 +62,7 @@ model Consumer_SLP "Simple model of a thermal consumer"
   //          Interfaces
   // _____________________________________________
 
-  TransiEnt.Basics.Interfaces.Thermal.inlet inlet annotation (Placement(
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn_simple inlet annotation (Placement(
       visible=true,
       transformation(
         origin={-100,40},
@@ -72,7 +72,7 @@ model Consumer_SLP "Simple model of a thermal consumer"
         origin={-100,40},
         extent={{-10,-10},{10,10}},
         rotation=0)));
-  TransiEnt.Basics.Interfaces.Thermal.outlet outlet annotation (Placement(
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortOut_simple outlet annotation (Placement(
       visible=true,
       transformation(
         origin={-100,-40},

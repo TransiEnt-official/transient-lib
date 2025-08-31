@@ -122,7 +122,7 @@ protected
         extent={{-10,-10},{10,10}},
         rotation=0,
         origin={-112,-60})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe1_2(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe1_2(
     d=0.63,
     m_flow_nom=1065,
     l=5000,
@@ -131,7 +131,7 @@ protected
         extent={{10,-10},{-10,10}},
         rotation=180,
         origin={-188,-60})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe1_2R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe1_2R(
     d=0.63,
     m_flow_nom=1065,
     l=5000,
@@ -140,7 +140,7 @@ protected
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={-188,-84})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe2_3(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe2_3(
     d=0.5,
     m_flow_nom=567,
     l=1000,
@@ -149,7 +149,7 @@ protected
         extent={{-6,-6},{6,6}},
         rotation=90,
         origin={-112,2})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe2_3R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe2_3R(
     d=0.5,
     m_flow_nom=567,
     l=1000,
@@ -158,7 +158,7 @@ protected
         extent={{-6,-6},{6,6}},
         rotation=270,
         origin={-124,2})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe3_6R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe3_6R(
     d=0.24,
     m_flow_nom=97.06,
     l=100,
@@ -167,7 +167,7 @@ protected
         extent={{-6,-6},{6,6}},
         rotation=270,
         origin={-124,80})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe3_6(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe3_6(
     d=0.24,
     m_flow_nom=97.06,
     l=100,
@@ -176,7 +176,7 @@ protected
         extent={{-6,-6},{6,6}},
         rotation=90,
         origin={-110,74})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe6_8R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe6_8R(
     d=0.21,
     m_flow_nom=72.79,
     l=100,
@@ -185,7 +185,7 @@ protected
         extent={{-6,-6},{6,6}},
         rotation=270,
         origin={-124,114})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe6_8(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe6_8(
     d=0.21,
     m_flow_nom=72.79,
     l=100,
@@ -194,7 +194,7 @@ protected
         extent={{-6,-6},{6,6}},
         rotation=90,
         origin={-110,110})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe8_10R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe8_10R(
     d=0.18,
     m_flow_nom=48.52,
     l=100,
@@ -203,7 +203,7 @@ protected
         extent={{-6,-6},{6,6}},
         rotation=270,
         origin={-124,148})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe8_10(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe8_10(
     d=0.18,
     m_flow_nom=48.52,
     l=100,
@@ -212,7 +212,7 @@ protected
         extent={{-6,-6},{6,6}},
         rotation=90,
         origin={-110,140})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe10_12R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe10_12R(
     d=0.15,
     m_flow_nom=24.26,
     l=50,
@@ -221,7 +221,7 @@ protected
         extent={{-6,-6},{6,6}},
         rotation=270,
         origin={-124,186})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe10_12(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe10_12(
     d=0.15,
     m_flow_nom=24.26,
     l=50,
@@ -230,7 +230,7 @@ protected
         extent={{-6,-6},{6,6}},
         rotation=90,
         origin={-106,186})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe3_5R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe3_5R(
     d=0.15,
     m_flow_nom=24.26,
     l=50,
@@ -239,7 +239,7 @@ protected
         extent={{-6,-6},{6,6}},
         rotation=0,
         origin={-138,64})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe3_5(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe3_5(
     d=0.15,
     m_flow_nom=24.26,
     l=50,
@@ -248,7 +248,7 @@ protected
         extent={{6,-6},{-6,6}},
         rotation=0,
         origin={-138,52})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe6_7R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe6_7R(
     d=0.15,
     m_flow_nom=24.26,
     l=50,
@@ -257,7 +257,7 @@ protected
         extent={{-6,-6},{6,6}},
         rotation=0,
         origin={-138,98})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe6_7(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe6_7(
     d=0.15,
     m_flow_nom=24.26,
     l=50,
@@ -266,7 +266,7 @@ protected
         extent={{6,-6},{-6,6}},
         rotation=0,
         origin={-138,90})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe8_9R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe8_9R(
     d=0.15,
     m_flow_nom=24.26,
     l=50,
@@ -275,7 +275,7 @@ protected
         extent={{-6,-6},{6,6}},
         rotation=0,
         origin={-138,134})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe8_9(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe8_9(
     d=0.15,
     m_flow_nom=24.26,
     l=50,
@@ -284,7 +284,7 @@ protected
         extent={{6,-6},{-6,6}},
         rotation=0,
         origin={-138,126})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe10_11R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe10_11R(
     d=0.15,
     m_flow_nom=24.26,
     l=50,
@@ -293,7 +293,7 @@ protected
         extent={{-6,-6},{6,6}},
         rotation=0,
         origin={-140,166})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe10_11(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe10_11(
     d=0.15,
     m_flow_nom=24.26,
     l=50,
@@ -346,7 +346,7 @@ protected
         extent={{-6,-6},{6,6}},
         rotation=270,
         origin={-16,138})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe14_16(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe14_16(
     d=0.25,
     m_flow_nom=107.1,
     l=100,
@@ -355,7 +355,7 @@ protected
         extent={{6,-6},{-6,6}},
         rotation=270,
         origin={-2,126})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe14_16R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe14_16R(
     d=0.25,
     m_flow_nom=107.1,
     l=100,
@@ -364,7 +364,7 @@ protected
         extent={{6,-6},{-6,6}},
         rotation=90,
         origin={-16,118})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe14_15R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe14_15R(
     d=0.15,
     m_flow_nom=26.77,
     l=50,
@@ -373,7 +373,7 @@ protected
         extent={{6,-6},{-6,6}},
         rotation=180,
         origin={-36,92})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe14_15(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe14_15(
     d=0.15,
     m_flow_nom=26.77,
     l=50,
@@ -382,7 +382,7 @@ protected
         extent={{-6,-6},{6,6}},
         rotation=180,
         origin={-36,100})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe16_17R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe16_17R(
     d=0.15,
     m_flow_nom=26.77,
     l=50,
@@ -391,7 +391,7 @@ protected
         extent={{-6,-6},{6,6}},
         rotation=180,
         origin={16,138})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe16_17(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe16_17(
     d=0.15,
     m_flow_nom=26.77,
     l=50,
@@ -400,7 +400,7 @@ protected
         extent={{6,-6},{-6,6}},
         rotation=180,
         origin={16,146})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe20_21(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe20_21(
     d=0.15,
     m_flow_nom=26.77,
     l=50,
@@ -409,7 +409,7 @@ protected
         extent={{6,-6},{-6,6}},
         rotation=180,
         origin={16,212})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe20_21R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe20_21R(
     d=0.15,
     m_flow_nom=26.77,
     l=50,
@@ -426,7 +426,7 @@ protected
         extent={{-6,-6},{6,6}},
         rotation=270,
         origin={-16,170})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe16_18R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe16_18R(
     d=0.22,
     m_flow_nom=80.33,
     l=100,
@@ -435,7 +435,7 @@ protected
         extent={{6,-6},{-6,6}},
         rotation=90,
         origin={-16,154})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe16_18(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe16_18(
     d=0.22,
     m_flow_nom=80.33,
     l=100,
@@ -444,7 +444,7 @@ protected
         extent={{6,-6},{-6,6}},
         rotation=270,
         origin={-2,160})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe18_19R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe18_19R(
     d=0.15,
     m_flow_nom=26.77,
     l=50,
@@ -453,7 +453,7 @@ protected
         extent={{6,-6},{-6,6}},
         rotation=180,
         origin={-32,170})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe18_19(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe18_19(
     d=0.15,
     m_flow_nom=26.77,
     l=50,
@@ -462,7 +462,7 @@ protected
         extent={{-6,-6},{6,6}},
         rotation=180,
         origin={-32,178})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe4_13(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe4_13(
     d=0.44,
     m_flow_nom=448.48,
     l=500,
@@ -471,7 +471,7 @@ protected
         extent={{10,-10},{-10,10}},
         rotation=180,
         origin={-68,28})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe4_13R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe4_13R(
     d=0.44,
     m_flow_nom=448.48,
     l=500,
@@ -488,7 +488,7 @@ protected
         extent={{6,-6},{-6,6}},
         rotation=270,
         origin={-4,68})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe13_14R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe13_14R(
     d=0.27,
     m_flow_nom=133.86,
     l=100,
@@ -497,7 +497,7 @@ protected
         extent={{6,-6},{-6,6}},
         rotation=90,
         origin={-18,78})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe13_14(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe13_14(
     d=0.27,
     m_flow_nom=133.86,
     l=100,
@@ -506,7 +506,7 @@ protected
         extent={{6,-6},{-6,6}},
         rotation=270,
         origin={-4,86})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe18_20R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe18_20R(
     d=0.19,
     m_flow_nom=53.55,
     l=100,
@@ -515,7 +515,7 @@ protected
         extent={{6,-6},{-6,6}},
         rotation=90,
         origin={-14,190})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe18_20(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe18_20(
     d=0.19,
     m_flow_nom=53.55,
     l=100,
@@ -524,7 +524,7 @@ protected
         extent={{6,-6},{-6,6}},
         rotation=270,
         origin={0,196})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe20_22(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe20_22(
     d=0.15,
     m_flow_nom=26.77,
     l=50,
@@ -533,7 +533,7 @@ protected
         extent={{-6,-6},{6,6}},
         rotation=180,
         origin={-30,230})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe20_22R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe20_22R(
     d=0.15,
     m_flow_nom=26.77,
     l=50,
@@ -550,7 +550,7 @@ protected
         extent={{6,-6},{-6,6}},
         rotation=270,
         origin={0,212})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe13_23R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe13_23R(
     d=0.4,
     m_flow_nom=314.6,
     l=500,
@@ -559,7 +559,7 @@ protected
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={26,40})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe13_23(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe13_23(
     d=0.4,
     m_flow_nom=314.6,
     l=500,
@@ -576,7 +576,7 @@ protected
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={256,36})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe23_24R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe23_24R(
     d=0.36,
     m_flow_nom=264.4,
     l=500,
@@ -585,7 +585,7 @@ protected
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={294,36})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe23_24(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe23_24(
     d=0.36,
     m_flow_nom=264.4,
     l=500,
@@ -630,7 +630,7 @@ protected
         extent={{-6,-6},{6,6}},
         rotation=270,
         origin={346,136})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe25_27(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe25_27(
     d=0.25,
     m_flow_nom=107.1,
     l=100,
@@ -639,7 +639,7 @@ protected
         extent={{6,-6},{-6,6}},
         rotation=270,
         origin={360,124})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe25_27R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe25_27R(
     d=0.25,
     m_flow_nom=107.1,
     l=100,
@@ -648,7 +648,7 @@ protected
         extent={{6,-6},{-6,6}},
         rotation=90,
         origin={346,116})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe25_26R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe25_26R(
     d=0.15,
     m_flow_nom=26.77,
     l=50,
@@ -657,7 +657,7 @@ protected
         extent={{6,-6},{-6,6}},
         rotation=180,
         origin={326,90})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe25_26(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe25_26(
     d=0.15,
     m_flow_nom=26.77,
     l=50,
@@ -666,7 +666,7 @@ protected
         extent={{-6,-6},{6,6}},
         rotation=180,
         origin={326,98})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe27_28R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe27_28R(
     d=0.15,
     m_flow_nom=26.77,
     l=50,
@@ -675,7 +675,7 @@ protected
         extent={{-6,-6},{6,6}},
         rotation=180,
         origin={378,136})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe27_28(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe27_28(
     d=0.15,
     m_flow_nom=26.77,
     l=50,
@@ -684,7 +684,7 @@ protected
         extent={{6,-6},{-6,6}},
         rotation=180,
         origin={378,144})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe31_32(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe31_32(
     d=0.15,
     m_flow_nom=26.77,
     l=50,
@@ -693,7 +693,7 @@ protected
         extent={{6,-6},{-6,6}},
         rotation=180,
         origin={378,210})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe31_32R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe31_32R(
     d=0.15,
     m_flow_nom=26.77,
     l=50,
@@ -710,7 +710,7 @@ protected
         extent={{-6,-6},{6,6}},
         rotation=270,
         origin={346,168})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe27_29R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe27_29R(
     d=0.22,
     m_flow_nom=80.33,
     l=100,
@@ -719,7 +719,7 @@ protected
         extent={{6,-6},{-6,6}},
         rotation=90,
         origin={346,152})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe27_29(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe27_29(
     d=0.22,
     m_flow_nom=80.33,
     l=100,
@@ -728,7 +728,7 @@ protected
         extent={{6,-6},{-6,6}},
         rotation=270,
         origin={360,158})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe29_30R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe29_30R(
     d=0.15,
     m_flow_nom=26.77,
     l=50,
@@ -737,7 +737,7 @@ protected
         extent={{6,-6},{-6,6}},
         rotation=180,
         origin={330,168})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe29_30(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe29_30(
     d=0.15,
     m_flow_nom=26.77,
     l=50,
@@ -754,7 +754,7 @@ protected
         extent={{6,-6},{-6,6}},
         rotation=270,
         origin={358,66})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe24_25R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe24_25R(
     d=0.28,
     m_flow_nom=133.88,
     l=100,
@@ -763,7 +763,7 @@ protected
         extent={{6,-6},{-6,6}},
         rotation=90,
         origin={344,76})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe24_25(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe24_25(
     d=0.28,
     m_flow_nom=133.88,
     l=100,
@@ -772,7 +772,7 @@ protected
         extent={{6,-6},{-6,6}},
         rotation=270,
         origin={358,84})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe29_31R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe29_31R(
     d=0.19,
     m_flow_nom=53.55,
     l=100,
@@ -781,7 +781,7 @@ protected
         extent={{6,-6},{-6,6}},
         rotation=90,
         origin={348,188})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe29_31(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe29_31(
     d=0.19,
     m_flow_nom=53.55,
     l=100,
@@ -790,7 +790,7 @@ protected
         extent={{6,-6},{-6,6}},
         rotation=270,
         origin={362,194})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe31_33(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe31_33(
     d=0.15,
     m_flow_nom=26.77,
     l=50,
@@ -799,7 +799,7 @@ protected
         extent={{-6,-6},{6,6}},
         rotation=180,
         origin={332,228})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe31_33R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe31_33R(
     d=0.15,
     m_flow_nom=26.77,
     l=50,
@@ -816,7 +816,7 @@ protected
         extent={{6,-6},{-6,6}},
         rotation=270,
         origin={362,210})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe24_34R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe24_34R(
     d=0.28,
     m_flow_nom=130.53,
     l=500,
@@ -825,7 +825,7 @@ protected
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={420,34})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe24_34(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe24_34(
     d=0.28,
     m_flow_nom=130.53,
     l=500,
@@ -845,7 +845,7 @@ protected
   TransiEnt.Grid.Heat.HeatGridTopology.TopologyB_Ports Topologie18_B annotation (Placement(transformation(extent={{710,-128},{786,-112}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split21 annotation (Placement(transformation(extent={{748,-88},{736,-76}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join21 annotation (Placement(transformation(extent={{748,-92},{760,-80}})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe35_39R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe35_39R(
     d=0.2,
     m_flow_nom=65.26,
     l=300,
@@ -854,7 +854,7 @@ protected
         extent={{-6,-6},{6,6}},
         rotation=0,
         origin={800,-82})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe35_39(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe35_39(
     d=0.2,
     m_flow_nom=65.26,
     l=300,
@@ -864,7 +864,7 @@ protected
         rotation=180,
         origin={800,-90})));
   TransiEnt.Grid.Heat.HeatGridTopology.TopologyB_Ports Topologie19_B annotation (Placement(transformation(extent={{618,-128},{694,-112}})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe39_41R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe39_41R(
     d=0.16,
     m_flow_nom=32.63,
     l=300,
@@ -873,7 +873,7 @@ protected
         extent={{-6,-6},{6,6}},
         rotation=0,
         origin={704,-56})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe39_41(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe39_41(
     d=0.16,
     m_flow_nom=32.63,
     l=300,
@@ -893,7 +893,7 @@ protected
   TransiEnt.Grid.Heat.HeatGridTopology.TopologyB_Ports Topologie22_B annotation (Placement(transformation(extent={{714,-266},{790,-250}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split25 annotation (Placement(transformation(extent={{752,-226},{740,-214}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join25 annotation (Placement(transformation(extent={{752,-230},{764,-218}})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe43_47R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe43_47R(
     d=0.2,
     m_flow_nom=65.26,
     l=300,
@@ -902,7 +902,7 @@ protected
         extent={{-6,-6},{6,6}},
         rotation=0,
         origin={804,-220})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe43_47(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe43_47(
     d=0.2,
     m_flow_nom=65.26,
     l=300,
@@ -912,7 +912,7 @@ protected
         rotation=180,
         origin={804,-228})));
   TransiEnt.Grid.Heat.HeatGridTopology.TopologyB_Ports Topologie23_B annotation (Placement(transformation(extent={{622,-266},{698,-250}})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe47_49R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe47_49R(
     d=0.16,
     m_flow_nom=32.63,
     l=300,
@@ -921,7 +921,7 @@ protected
         extent={{-6,-6},{6,6}},
         rotation=0,
         origin={708,-194})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe47_49(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe47_49(
     d=0.16,
     m_flow_nom=32.63,
     l=300,
@@ -930,7 +930,7 @@ protected
         extent={{-6,-6},{6,6}},
         rotation=180,
         origin={710,-208})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe23_69R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe23_69R(
     d=0.18,
     m_flow_nom=50.2,
     l=1000,
@@ -941,7 +941,7 @@ protected
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={256,-66})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe23_69(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe23_69(
     d=0.18,
     m_flow_nom=50.2,
     l=1000,
@@ -952,7 +952,7 @@ protected
         extent={{10,-10},{-10,10}},
         rotation=90,
         origin={240,-66})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe35_42R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe35_42R(
     d=0.15,
     m_flow_nom=31.88,
     l=500,
@@ -962,7 +962,7 @@ protected
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={858,-156})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe35_42(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe35_42(
     d=0.15,
     m_flow_nom=31.88,
     l=500,
@@ -974,7 +974,7 @@ protected
         origin={876,-156})));
   TransiEnt.Grid.Heat.HeatGridTopology.TopologyA_Ports Topologie33_A annotation (Placement(transformation(extent={{306,-160},{368,-128}})));
   TransiEnt.Grid.Heat.HeatGridTopology.TopologyA_Ports Topologie34_A annotation (Placement(transformation(extent={{136,-160},{198,-128}})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe70_72R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe70_72R(
     d=0.15,
     m_flow_nom=25.1,
     l=300,
@@ -983,7 +983,7 @@ protected
         extent={{6,-6},{-6,6}},
         rotation=180,
         origin={210,-110})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe70_72(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe70_72(
     d=0.15,
     m_flow_nom=25.1,
     l=300,
@@ -992,7 +992,7 @@ protected
         extent={{6,-6},{-6,6}},
         rotation=0,
         origin={210,-102})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe69_71R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe69_71R(
     d=0.15,
     m_flow_nom=25.1,
     l=300,
@@ -1001,7 +1001,7 @@ protected
         extent={{-6,-6},{6,6}},
         rotation=180,
         origin={286,-110})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe69_71(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe69_71(
     d=0.15,
     m_flow_nom=25.1,
     l=300,
@@ -1023,7 +1023,7 @@ protected
         rotation=90,
         origin={254,-126})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join27 annotation (Placement(transformation(extent={{270,-124},{258,-112}})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe59_69R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe59_69R(
     d=0.15,
     m_flow_nom=31.88,
     l=500,
@@ -1032,7 +1032,7 @@ protected
         extent={{10,-10},{-10,10}},
         rotation=90,
         origin={242,-152})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe59_69(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe59_69(
     d=0.15,
     m_flow_nom=31.88,
     l=500,
@@ -1050,7 +1050,7 @@ protected
         extent={{-14,-13},{14,13}},
         rotation=0,
         origin={354,-269})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe60_61R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe60_61R(
     d=0.15,
     m_flow_nom=26.77,
     l=50,
@@ -1059,7 +1059,7 @@ protected
         extent={{-6,-6},{6,6}},
         rotation=270,
         origin={304,-204})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe60_61(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe60_61(
     d=0.15,
     m_flow_nom=26.77,
     l=50,
@@ -1072,7 +1072,7 @@ protected
         extent={{-14,-13},{14,13}},
         rotation=180,
         origin={386,-181})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe64_65R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe64_65R(
     d=0.15,
     m_flow_nom=26.77,
     l=50,
@@ -1081,7 +1081,7 @@ protected
         extent={{-6,-6},{6,6}},
         rotation=270,
         origin={384,-206})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe64_65(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe64_65(
     d=0.15,
     m_flow_nom=26.77,
     l=50,
@@ -1094,7 +1094,7 @@ protected
         extent={{-14,-13},{14,13}},
         rotation=180,
         origin={464,-185})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe62_63(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe62_63(
     d=0.15,
     m_flow_nom=26.77,
     l=50,
@@ -1103,7 +1103,7 @@ protected
         extent={{-6,-6},{6,6}},
         rotation=270,
         origin={347,-246})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe62_63R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe62_63R(
     d=0.15,
     m_flow_nom=26.77,
     l=50,
@@ -1116,7 +1116,7 @@ protected
         extent={{-14,-13},{14,13}},
         rotation=0,
         origin={428,-269})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe66_67(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe66_67(
     d=0.15,
     m_flow_nom=26.77,
     l=50,
@@ -1125,7 +1125,7 @@ protected
         extent={{-6,-6},{6,6}},
         rotation=270,
         origin={421,-246})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe66_67R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe66_67R(
     d=0.15,
     m_flow_nom=26.77,
     l=50,
@@ -1134,7 +1134,7 @@ protected
         extent={{-6,-6},{6,6}},
         rotation=90,
         origin={429,-246})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe66_68(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe66_68(
     d=0.15,
     m_flow_nom=26.77,
     l=50,
@@ -1143,7 +1143,7 @@ protected
         extent={{6,-6},{-6,6}},
         rotation=180,
         origin={450,-232})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe66_68R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe66_68R(
     d=0.15,
     m_flow_nom=26.77,
     l=50,
@@ -1152,7 +1152,7 @@ protected
         extent={{6,-6},{-6,6}},
         rotation=0,
         origin={450,-224})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe64_66(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe64_66(
     d=0.19,
     m_flow_nom=53.55,
     l=100,
@@ -1161,7 +1161,7 @@ protected
         extent={{6,-6},{-6,6}},
         rotation=180,
         origin={408,-232})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe64_66R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe64_66R(
     d=0.19,
     m_flow_nom=53.55,
     l=100,
@@ -1170,7 +1170,7 @@ protected
         extent={{6,-6},{-6,6}},
         rotation=0,
         origin={408,-222})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe62_64(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe62_64(
     d=0.22,
     m_flow_nom=80.3,
     l=100,
@@ -1179,7 +1179,7 @@ protected
         extent={{6,-6},{-6,6}},
         rotation=180,
         origin={370,-232})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe62_64R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe62_64R(
     d=0.22,
     m_flow_nom=80.3,
     l=100,
@@ -1188,7 +1188,7 @@ protected
         extent={{6,-6},{-6,6}},
         rotation=0,
         origin={370,-224})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe60_62(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe60_62(
     d=0.25,
     m_flow_nom=107.1,
     l=100,
@@ -1197,7 +1197,7 @@ protected
         extent={{6,-6},{-6,6}},
         rotation=180,
         origin={324,-232})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe60_62R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe60_62R(
     d=0.25,
     m_flow_nom=107.1,
     l=100,
@@ -1214,7 +1214,7 @@ protected
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split30 annotation (Placement(transformation(extent={{348,-228},{336,-216}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join31 annotation (Placement(transformation(extent={{318,-240},{306,-228}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split31 annotation (Placement(transformation(extent={{296,-230},{308,-218}})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe59_60(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe59_60(
     d=0.27,
     m_flow_nom=133.86,
     l=100,
@@ -1267,7 +1267,7 @@ protected
         extent={{6,-6},{-6,6}},
         rotation=0,
         origin={578,-358})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe43_50(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe43_50(
     d=0.27,
     m_flow_nom=130.53,
     l=3000,
@@ -1277,7 +1277,7 @@ protected
         extent={{10,-10},{-10,10}},
         rotation=90,
         origin={878,-302})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe43_50R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe43_50R(
     d=0.27,
     m_flow_nom=130.53,
     l=3000,
@@ -1287,7 +1287,7 @@ protected
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={860,-302})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe54_56R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe54_56R(
     d=0.15,
     m_flow_nom=24.26,
     l=50,
@@ -1296,7 +1296,7 @@ protected
         extent={{-6,-6},{6,6}},
         rotation=270,
         origin={516,-338})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe54_56(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe54_56(
     d=0.15,
     m_flow_nom=24.26,
     l=50,
@@ -1305,7 +1305,7 @@ protected
         extent={{-6,-6},{6,6}},
         rotation=90,
         origin={506,-338})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe51_53(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe51_53(
     d=0.15,
     m_flow_nom=24.26,
     l=50,
@@ -1314,7 +1314,7 @@ protected
         extent={{-6,-6},{6,6}},
         rotation=90,
         origin={580,-340})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe51_53R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe51_53R(
     d=0.15,
     m_flow_nom=24.26,
     l=50,
@@ -1323,7 +1323,7 @@ protected
         extent={{-6,-6},{6,6}},
         rotation=270,
         origin={590,-340})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe55_57R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe55_57R(
     d=0.15,
     m_flow_nom=24.26,
     l=50,
@@ -1332,7 +1332,7 @@ protected
         extent={{-6,-6},{6,6}},
         rotation=90,
         origin={510,-394})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe55_57(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe55_57(
     d=0.15,
     m_flow_nom=24.26,
     l=50,
@@ -1341,7 +1341,7 @@ protected
         extent={{-6,-6},{6,6}},
         rotation=270,
         origin={520,-394})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe50_52R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe50_52R(
     d=0.15,
     m_flow_nom=24.26,
     l=50,
@@ -1350,7 +1350,7 @@ protected
         extent={{-6,-6},{6,6}},
         rotation=90,
         origin={582,-394})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe50_52(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe50_52(
     d=0.15,
     m_flow_nom=24.26,
     l=50,
@@ -1384,7 +1384,7 @@ protected
         extent={{-14,-13},{14,13}},
         rotation=0,
         origin={2,-335})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe74_75R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe74_75R(
     d=0.15,
     m_flow_nom=26.77,
     l=50,
@@ -1393,7 +1393,7 @@ protected
         extent={{-6,-6},{6,6}},
         rotation=270,
         origin={-48,-270})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe74_75(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe74_75(
     d=0.15,
     m_flow_nom=26.77,
     l=50,
@@ -1406,7 +1406,7 @@ protected
         extent={{-14,-13},{14,13}},
         rotation=180,
         origin={34,-247})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe78_79R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe78_79R(
     d=0.15,
     m_flow_nom=26.77,
     l=50,
@@ -1415,7 +1415,7 @@ protected
         extent={{-6,-6},{6,6}},
         rotation=270,
         origin={32,-272})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe78_79(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe78_79(
     d=0.15,
     m_flow_nom=26.77,
     l=50,
@@ -1428,7 +1428,7 @@ protected
         extent={{-14,-13},{14,13}},
         rotation=180,
         origin={112,-251})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe76_77(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe76_77(
     d=0.15,
     m_flow_nom=26.77,
     l=50,
@@ -1437,7 +1437,7 @@ protected
         extent={{-6,-6},{6,6}},
         rotation=270,
         origin={-5,-312})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe76_77R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe76_77R(
     d=0.15,
     m_flow_nom=26.77,
     l=50,
@@ -1450,7 +1450,7 @@ protected
         extent={{-14,-13},{14,13}},
         rotation=0,
         origin={76,-335})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe80_81(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe80_81(
     d=0.15,
     m_flow_nom=26.77,
     l=50,
@@ -1459,7 +1459,7 @@ protected
         extent={{-6,-6},{6,6}},
         rotation=270,
         origin={69,-312})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe80_81R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe80_81R(
     d=0.15,
     m_flow_nom=26.77,
     l=50,
@@ -1468,7 +1468,7 @@ protected
         extent={{-6,-6},{6,6}},
         rotation=90,
         origin={77,-312})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe80_82(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe80_82(
     d=0.15,
     m_flow_nom=26.77,
     l=50,
@@ -1477,7 +1477,7 @@ protected
         extent={{6,-6},{-6,6}},
         rotation=180,
         origin={98,-298})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe80_82R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe80_82R(
     d=0.15,
     m_flow_nom=26.77,
     l=50,
@@ -1486,7 +1486,7 @@ protected
         extent={{6,-6},{-6,6}},
         rotation=0,
         origin={98,-290})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe78_80(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe78_80(
     d=0.19,
     m_flow_nom=53.55,
     l=100,
@@ -1495,7 +1495,7 @@ protected
         extent={{6,-6},{-6,6}},
         rotation=180,
         origin={56,-298})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe78_80R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe78_80R(
     d=0.19,
     m_flow_nom=53.55,
     l=100,
@@ -1504,7 +1504,7 @@ protected
         extent={{6,-6},{-6,6}},
         rotation=0,
         origin={56,-288})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe76_78(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe76_78(
     d=0.22,
     m_flow_nom=80.3,
     l=100,
@@ -1513,7 +1513,7 @@ protected
         extent={{6,-6},{-6,6}},
         rotation=180,
         origin={18,-298})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe76_78R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe76_78R(
     d=0.22,
     m_flow_nom=80.3,
     l=100,
@@ -1522,7 +1522,7 @@ protected
         extent={{6,-6},{-6,6}},
         rotation=0,
         origin={18,-290})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe74_76(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe74_76(
     d=0.25,
     m_flow_nom=107.1,
     l=100,
@@ -1531,7 +1531,7 @@ protected
         extent={{6,-6},{-6,6}},
         rotation=180,
         origin={-28,-298})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe74_76R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe74_76R(
     d=0.25,
     m_flow_nom=107.1,
     l=100,
@@ -1548,7 +1548,7 @@ protected
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split39 annotation (Placement(transformation(extent={{-4,-294},{-16,-282}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join40 annotation (Placement(transformation(extent={{-34,-306},{-46,-294}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split40 annotation (Placement(transformation(extent={{-56,-296},{-44,-284}})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe73_74(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe73_74(
     d=0.27,
     m_flow_nom=133.86,
     l=100,
@@ -1565,7 +1565,7 @@ protected
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-124,-314})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe2_73(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe2_73(
     d=0.46,
     m_flow_nom=495.33,
     l=1000,
@@ -1574,7 +1574,7 @@ protected
         extent={{10,-10},{-10,10}},
         rotation=90,
         origin={-112,-128})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe2_73R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe2_73R(
     d=0.46,
     m_flow_nom=495.33,
     l=1000,
@@ -1583,7 +1583,7 @@ protected
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-124,-130})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe58_73R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe58_73R(
     d=0.41,
     m_flow_nom=361.46,
     l=2000,
@@ -1592,7 +1592,7 @@ protected
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-130,-354})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe58_73(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe58_73(
     d=0.41,
     m_flow_nom=361.46,
     l=2000,
@@ -1601,7 +1601,7 @@ protected
         extent={{10,-10},{-10,10}},
         rotation=90,
         origin={-116,-354})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe58_59R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe58_59R(
     d=0.27,
     m_flow_nom=133.88,
     l=1000,
@@ -1610,7 +1610,7 @@ protected
         extent={{10,-10},{-10,10}},
         rotation=90,
         origin={258,-294})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe58_59(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe58_59(
     d=0.27,
     m_flow_nom=133.88,
     l=1000,
@@ -1627,7 +1627,7 @@ protected
         extent={{-10,-10},{10,10}},
         rotation=0,
         origin={244,-370})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe51_54R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe51_54R(
     d=0.3,
     m_flow_nom=179.06,
     l=500,
@@ -1636,7 +1636,7 @@ protected
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={550,-358})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe51_54(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe51_54(
     d=0.3,
     m_flow_nom=179.06,
     l=500,
@@ -1645,7 +1645,7 @@ protected
         extent={{10,-10},{-10,10}},
         rotation=180,
         origin={550,-380})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe55_58R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe55_58R(
     d=0.34,
     m_flow_nom=227.59,
     l=500,
@@ -1654,7 +1654,7 @@ protected
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={364,-378})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe55_58(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe55_58(
     d=0.34,
     m_flow_nom=227.59,
     l=500,
@@ -1663,7 +1663,7 @@ protected
         extent={{10,-10},{-10,10}},
         rotation=180,
         origin={364,-390})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe39_40R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe39_40R(
     d=0.16,
     m_flow_nom=32.63,
     l=100,
@@ -1672,7 +1672,7 @@ protected
         extent={{-6,-6},{6,6}},
         rotation=90,
         origin={754,-102})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe39_40(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe39_40(
     d=0.16,
     m_flow_nom=32.63,
     l=100,
@@ -1681,7 +1681,7 @@ protected
         extent={{-6,-6},{6,6}},
         rotation=270,
         origin={742,-98})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe47_48R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe47_48R(
     d=0.16,
     m_flow_nom=32.63,
     l=100,
@@ -1690,7 +1690,7 @@ protected
         extent={{-6,-6},{6,6}},
         rotation=90,
         origin={758,-240})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe47_48(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe47_48(
     d=0.16,
     m_flow_nom=32.63,
     l=100,
@@ -1700,7 +1700,7 @@ protected
         rotation=270,
         origin={746,-236})));
 public
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe34_36(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe34_36(
     d=0.2,
     m_flow_nom=65.26,
     l=300,
@@ -1709,7 +1709,7 @@ public
         extent={{-6,-6},{6,6}},
         rotation=0,
         origin={932,-68})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe34_36R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe34_36R(
     d=0.2,
     m_flow_nom=65.26,
     l=300,
@@ -1719,7 +1719,7 @@ public
         rotation=180,
         origin={932,-76})));
 public
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe36_38(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe36_38(
     d=0.16,
     m_flow_nom=32.63,
     l=300,
@@ -1728,7 +1728,7 @@ public
         extent={{-6,-6},{6,6}},
         rotation=0,
         origin={1006,-62})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe36_38R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe36_38R(
     d=0.16,
     m_flow_nom=32.63,
     l=300,
@@ -1737,7 +1737,7 @@ public
         extent={{-6,-6},{6,6}},
         rotation=180,
         origin={1006,-78})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe36_37R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe36_37R(
     d=0.16,
     m_flow_nom=32.63,
     l=100,
@@ -1746,7 +1746,7 @@ public
         extent={{-6,-6},{6,6}},
         rotation=90,
         origin={982,-92})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe36_37(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe36_37(
     d=0.16,
     m_flow_nom=32.63,
     l=100,
@@ -1756,7 +1756,7 @@ public
         rotation=270,
         origin={968,-94})));
 public
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe42_44(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe42_44(
     d=0.2,
     m_flow_nom=65.26,
     l=300,
@@ -1765,7 +1765,7 @@ public
         extent={{-6,-6},{6,6}},
         rotation=0,
         origin={936,-206})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe42_44R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe42_44R(
     d=0.2,
     m_flow_nom=65.26,
     l=300,
@@ -1775,7 +1775,7 @@ public
         rotation=180,
         origin={936,-214})));
 public
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe44_46(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe44_46(
     d=0.16,
     m_flow_nom=32.63,
     l=300,
@@ -1784,7 +1784,7 @@ public
         extent={{-6,-6},{6,6}},
         rotation=0,
         origin={1010,-200})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe44_46R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe44_46R(
     d=0.16,
     m_flow_nom=32.63,
     l=300,
@@ -1793,7 +1793,7 @@ public
         extent={{-6,-6},{6,6}},
         rotation=180,
         origin={1010,-216})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe44_45R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe44_45R(
     d=0.16,
     m_flow_nom=32.63,
     l=100,
@@ -1802,7 +1802,7 @@ public
         extent={{-6,-6},{6,6}},
         rotation=90,
         origin={986,-230})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe44_45(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe44_45(
     d=0.16,
     m_flow_nom=32.63,
     l=100,
@@ -1812,7 +1812,7 @@ public
         rotation=270,
         origin={972,-232})));
 public
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe59_60R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe59_60R(
     d=0.27,
     m_flow_nom=133.86,
     l=100,
@@ -1822,7 +1822,7 @@ public
         rotation=180,
         origin={276,-248})));
 public
-  TransiEnt.Components.Heat.DHN_Pipe_L4 pipe73_74R(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe73_74R(
     d=0.27,
     m_flow_nom=133.86,
     l=100,

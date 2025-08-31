@@ -43,7 +43,7 @@ model IdealProducer_DHN "Simple model of a producer providing a constant specifi
   //                  Interfaces
   // _____________________________________________
   SI.HeatFlowRate Q_flow;
-  TransiEnt.Basics.Interfaces.Thermal.inlet inlet annotation (Placement(
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn_simple inlet annotation (Placement(
       visible=true,
       transformation(
         origin={100,-40},
@@ -53,7 +53,7 @@ model IdealProducer_DHN "Simple model of a producer providing a constant specifi
         origin={100,-62},
         extent={{-10,-10},{10,10}},
         rotation=0)));
-  TransiEnt.Basics.Interfaces.Thermal.outlet outlet annotation (Placement(
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortOut_simple outlet annotation (Placement(
       visible=true,
       transformation(
         origin={100,40},

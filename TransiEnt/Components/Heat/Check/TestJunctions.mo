@@ -90,13 +90,13 @@ model TestJunctions "Test model for the junctions"
         rotation=0)));
   Modelica.Blocks.Sources.RealExpression sinkPressure5(y=2e5)
                                                              annotation (Placement(transformation(extent={{152,34},{132,54}})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 simplePipe_L4_3(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 simplePipe_L4_3(
     cp=4185,
     l=100,
     N_cv=20,
     u=0.0001,
     m_flow_start=10) annotation (Placement(transformation(extent={{48,58},{68,78}})));
-  TransiEnt.Components.Heat.DHN_Pipe_L4 simplePipe_L4_4(
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 simplePipe_L4_4(
     cp=4185,
     l=100,
     MassFlowState=true,

@@ -42,7 +42,7 @@ model FluidSink "Pressure boundary for new connector"
   //                  Interfaces
   // _____________________________________________
 
-  TransiEnt.Basics.Interfaces.Thermal.inlet port_a annotation (Placement(
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn_simple port_a annotation (Placement(
       visible=true,
       transformation(
         origin={-100,0},

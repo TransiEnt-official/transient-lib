@@ -1,5 +1,5 @@
 ﻿within TransiEnt.Consumer.Heat;
-model ConsumerHeatCharacteristic "Simple model of a thermal consumer with a heat characteristic in between heat exchanger and building capacity"
+model ConsumerHeatCharacteristic "Simple model of a thermal consumer with a heat characteristic between heat exchanger and building capacity"
 
 //________________________________________________________________________________//
 // Component of the TransiEnt Library, version: 2.0.3                             //
@@ -59,7 +59,7 @@ model ConsumerHeatCharacteristic "Simple model of a thermal consumer with a heat
   //         Interfaces
   // _____________________________________________
 
- TransiEnt.Basics.Interfaces.Thermal.inlet inlet annotation (Placement(
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn_simple inlet annotation (Placement(
       visible=true,
       transformation(
         origin={-100,40},
@@ -69,7 +69,7 @@ model ConsumerHeatCharacteristic "Simple model of a thermal consumer with a heat
         origin={-100,40},
         extent={{-10,-10},{10,10}},
         rotation=0)));
- TransiEnt.Basics.Interfaces.Thermal.outlet outlet annotation (Placement(
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortOut_simple outlet annotation (Placement(
       visible=true,
       transformation(
         origin={-100,-40},

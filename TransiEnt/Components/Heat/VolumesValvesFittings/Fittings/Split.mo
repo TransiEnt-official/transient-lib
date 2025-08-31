@@ -52,7 +52,7 @@ model Split "Simple model of a split with linear pressure loss, static mass bala
   //                  Interfaces
   // _____________________________________________
 
-  TransiEnt.Basics.Interfaces.Thermal.inlet inlet annotation (Placement(
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn_simple inlet annotation (Placement(
       visible=true,
       transformation(
         origin={-100,0},
@@ -62,7 +62,7 @@ model Split "Simple model of a split with linear pressure loss, static mass bala
         origin={-100,0},
         extent={{-10,-10},{10,10}},
         rotation=0)));
-  TransiEnt.Basics.Interfaces.Thermal.outlet outlet1 annotation (Placement(
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortOut_simple outlet1 annotation (Placement(
       visible=true,
       transformation(
         origin={0,100},
@@ -72,7 +72,7 @@ model Split "Simple model of a split with linear pressure loss, static mass bala
         origin={0,98},
         extent={{-10,-10},{10,10}},
         rotation=0)));
-  TransiEnt.Basics.Interfaces.Thermal.outlet outlet2 annotation (Placement(
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortOut_simple outlet2 annotation (Placement(
       visible=true,
       transformation(
         origin={0,-100},

@@ -4,7 +4,6 @@ TestSteamTurbine
 TestSteamVolumeWithValve
 TestTurbineValveController
 TestPipeGasAdvanced
-TestPipeL4
 TestJunctions
 TestPump
 TestHeatExchanger
