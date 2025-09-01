@@ -35,7 +35,7 @@ model Tutorial
 
   TransiEnt.Components.Boundaries.FluidFlow.FluidSink sink annotation (Placement(transformation(extent={{-36,68},{-56,88}})));
   Modelica.Blocks.Sources.RealExpression realExpression(y=6e5) annotation (Placement(transformation(extent={{-84,68},{-64,88}})));
-  Modelica.Blocks.Sources.RealExpression realExpression9(y=heatpump1.inlet.m_flow*((4200*60) - inStream(heatpump1.inlet.h_outflow)))          annotation (Placement(transformation(extent={{-60,-20},{-40,0}})));
+  Modelica.Blocks.Sources.RealExpression realExpression9(y=heatpump1.inlet.m_flow*((4200*trapezoid.y) - inStream(heatpump1.inlet.h_outflow))) annotation (Placement(transformation(extent={{-60,-20},{-40,0}})));
   Modelica.Blocks.Sources.RealExpression realExpression6(y=1.8e5)
                                                                 annotation (Placement(transformation(extent={{-38,24},{-18,44}})));
   TransiEnt.Producer.Heat.Power2Heat.Heatpump.Heatpump_DHN heatpump1(P_el_max(displayUnit="MW") = 200000000, P_el_min=0.00001) annotation (Placement(transformation(extent={{-14,-20},{6,0}})));
@@ -44,6 +44,16 @@ model Tutorial
         extent={{-31,-16},{31,16}},
         rotation=90,
         origin={77,-10})));
+  Modelica.Blocks.Sources.Trapezoid trapezoid(
+    amplitude=6,
+    rising=3600,
+    width=7200,
+    falling=3600,
+    period=24400,
+    nperiod=1,
+    offset=60,
+    startTime=43200)
+    annotation (Placement(transformation(extent={{-86,34},{-66,54}})));
 equation
 
 
