@@ -99,7 +99,7 @@ outlet.h_outflow = inStream(inlet.h_outflow);
           fillColor={28,108,200},
           fillPattern=FillPattern.Solid)}), Documentation(info="<html>
 <h4><span style=\"color: #008000\">Purpose of model</span></h4>
-<p>This model represents a fluid pump.  It is a simple model of a pump that can be used to calculate the electric power necessary to set a given pressure difference, mass flow rate or volume flow rate. It uses a static mass and momentum balance. No enthalpy changes over the pump are considered.</p>
+<p>This model represents a fluid pump. It is a simple model of a pump that can be used to calculate the electric power necessary to set a given mass flow rate. It uses a static mass and momentum balance. No enthalpy changes over the pump are considered.</p>
 <h4><span style=\"color: #008000\">Level of detail, physical effects considered, and physical insight</span></h4>
 <p>The model was changed to work with changing compositions and a constant electrical efficiency was added. Also, more inputs are available. </p>
 <ul>
