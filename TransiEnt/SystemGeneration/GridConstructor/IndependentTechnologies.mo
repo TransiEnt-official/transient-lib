@@ -19,7 +19,7 @@ model IndependentTechnologies
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -47,12 +47,12 @@ model IndependentTechnologies
 
   //PV parameters
   parameter SI.Power P_inst_PV=200 "Combined installed PV power" annotation (HideResult=true);
-  parameter Real Tilt_PV=0 "Inclination of surface of PV modules" annotation (HideResult=true);
-  parameter Real Azimuth_PV=0 "Gyration of PV surface; Orientation: +90=West, -90=East, 0=South" annotation (HideResult=true);
+  parameter Modelica.Units.NonSI.Angle_deg Tilt_PV=0 "Inclination of surface of PV modules" annotation (HideResult=true);
+  parameter Modelica.Units.NonSI.Angle_deg Azimuth_PV=0 "Gyration of PV surface; Orientation: +90=West, -90=East, 0=South" annotation (HideResult=true);
   parameter String PVModuleCharacteristics="Sanyo_HIT_200_BA3" annotation (HideResult=true);
 
-  parameter Real phi_PV=53.63 "degree of latitude of location" annotation (HideResult=true);
-  parameter Real lambda_PV=10 "degree of longitude of location" annotation (HideResult=true);
+  parameter Modelica.Units.NonSI.Angle_deg phi_PV=53.63 "degree of latitude of location" annotation (HideResult=true);
+  parameter Modelica.Units.NonSI.Angle_deg lambda_PV=10 "degree of longitude of location" annotation (HideResult=true);
   parameter Real timezone_PV=1 "timezone of location (UTC+) - for Hamburg timezone=1" annotation (HideResult=true);
   parameter SI.Energy E_max_PV=0 "Maximum capacity of the battery" annotation (HideResult=true);
   parameter SI.Energy E_min_PV=0 "Maximum capacity of the battery" annotation (HideResult=true);
@@ -97,12 +97,12 @@ model IndependentTechnologies
   parameter SI.Temperature T_return_ST=308.15 "Return temperature of the heating system" annotation (HideResult=true);
   parameter Real eta_Boiler_ST=0.9 "efficiency of the boiler for the solar thermal system" annotation (HideResult=true);
 
-  parameter SI.Angle slope_ST=53.55 "slope of the tilted surface, assumption" annotation (HideResult=true);
-  parameter SI.Angle azimuth_ST=0 "surface azimuth angle" annotation (HideResult=true);
+  parameter Modelica.Units.NonSI.Angle_deg slope_ST=53.55 "slope of the tilted surface, assumption" annotation (HideResult=true);
+  parameter Modelica.Units.NonSI.Angle_deg azimuth_ST=0 "surface azimuth angle" annotation (HideResult=true);
 
-  parameter SI.Angle latitude_ST=53.55 "latitude of the local position, north posiive, 53,55 North for Hamburg" annotation (HideResult=true);
-  parameter SI.Angle longitude_standard_ST=15 "needed for calculation of coordinated universal time (utc), 15 for central european time, 30 for central european summer time" annotation (HideResult=true);
-  parameter SI.Angle longitude_local_ST=10 "longitude of the local position, east positive, 10 East for Hamburg" annotation (HideResult=true);
+  parameter Modelica.Units.NonSI.Angle_deg latitude_ST=53.55 "latitude of the local position, north posiive, 53,55 North for Hamburg" annotation (HideResult=true);
+  parameter Modelica.Units.NonSI.Angle_deg longitude_standard_ST=15 "needed for calculation of coordinated universal time (utc), 15 for central european time, 30 for central european summer time" annotation (HideResult=true);
+  parameter Modelica.Units.NonSI.Angle_deg longitude_local_ST=10 "longitude of the local position, east positive, 10 East for Hamburg" annotation (HideResult=true);
   parameter SI.Temperature T_set_boiler_ST=60 + 273.15 "Temperature setpoint of the boiler" annotation (HideResult=true);
   // parameter IntegraNet.Basics.Types.FuelType fuel_ST=IntegraNet.Basics.Types.FuelType.Gas "choice of fuel";
 
