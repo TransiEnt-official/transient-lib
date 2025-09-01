@@ -126,6 +126,7 @@ equation
     Documentation(info="<html>
 <p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">1. Purpose of model</span></b></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">This model represents a district-heating node. It performs ideal mixing separately for the supply side and the return side. It applies a first-order dynamic on specific enthalpy and mass flows at the connection points to simulate transport delays.</span></p>
+<p><span style=\"font-family: MS Shell Dlg 2;\">It can be used to decouple subsystems in large district heating networks to improve numerical stability.</span></p>
 <p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">2. Level of detail, physical effects considered, and physical insight</span></b></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">Ideal mixing of mass fractions and enthalpy.</span></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">Mass conservation for supply and return.</span></p>
