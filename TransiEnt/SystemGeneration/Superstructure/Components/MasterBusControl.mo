@@ -1,5 +1,5 @@
-﻿within TransiEnt.SystemGeneration.Superstructure.Components.LocalHeatSupply;
-package Base
+﻿within TransiEnt.SystemGeneration.Superstructure.Components;
+expandable connector MasterBusControl "Master Bus for Control Signals"
 
 //________________________________________________________________________________//
 // Component of the TransiEnt Library, version: 2.0.0                             //
@@ -22,6 +22,12 @@ package Base
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
 
-  extends TransiEnt.Basics.Icons.BasesPackage;
+  extends Modelica.Icons.SignalSubBus;
 
-end Base;
+  .TransiEnt.SystemGeneration.Superstructure.Components.ControlBus CO2System;
+  .TransiEnt.SystemGeneration.Superstructure.Components.ControlBus GasStorageSystem;
+  .TransiEnt.SystemGeneration.Superstructure.Components.ControlBus PowerToGasSystem;
+  .TransiEnt.SystemGeneration.Superstructure.Components.ControlBus PowerPlantSystem;
+
+  annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(preserveAspectRatio=false)));
+end MasterBusControl;

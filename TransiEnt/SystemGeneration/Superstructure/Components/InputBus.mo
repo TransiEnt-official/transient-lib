@@ -1,5 +1,5 @@
-﻿within TransiEnt.SystemGeneration.Superstructure.Components.LocalHeatSupply;
-package Base
+﻿within TransiEnt.SystemGeneration.Superstructure.Components;
+expandable connector InputBus
 
 //________________________________________________________________________________//
 // Component of the TransiEnt Library, version: 2.0.0                             //
@@ -22,6 +22,15 @@ package Base
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
 
-  extends TransiEnt.Basics.Icons.BasesPackage;
+  extends Modelica.Icons.SignalSubBus;
 
-end Base;
+  Real P_set_curtailment;
+  Real P_set_ElectricalStorage[busVariableDeclaration.MaximalDifferentTypesOfElectricalStorages];
+  Real P_set_PowerPlant[busVariableDeclaration.MaximalDifferentTypesOfPowerPlants];
+  Real P_set_ElectricalHeater;
+  Real P_set_PtG;
+
+protected
+  outer BusVariableDeclaration busVariableDeclaration annotation (Placement(transformation(extent={{60,-80},{80,-60}})));
+  annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(preserveAspectRatio=false)));
+end InputBus;

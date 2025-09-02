@@ -1,10 +1,8 @@
 ﻿within TransiEnt.SystemGeneration.Superstructure.Components.LocalHeatSupply;
 model LocalHeatingDemand_GasHeatPumpAndSolar_simple
 
-
-
 //________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 2.0.3                             //
+// Component of the TransiEnt Library, version: 2.0.0                             //
 //                                                                                //
 // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
 // Copyright 2021, Hamburg University of Technology.                              //
@@ -19,14 +17,10 @@ model LocalHeatingDemand_GasHeatPumpAndSolar_simple
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und Wärme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
-
-
-
-
 
   // _____________________________________________
   //
@@ -35,16 +29,16 @@ model LocalHeatingDemand_GasHeatPumpAndSolar_simple
 
   extends TransiEnt.Basics.Icons.HeatPump;
   outer Modelica.Units.SI.Temperature T_region;
-  extends TransiEnt.SystemGeneration.Superstructure.Components.LocalHeatSupply.Base.PartialLocalHeatingDemand_GasHeatPump;
-  outer SI.HeatFlowRate Q_flow_solarthermal_pu;
+  extends .TransiEnt.SystemGeneration.Superstructure.Components.LocalHeatSupply.Base.PartialLocalHeatingDemand_GasHeatPump;
+  outer Modelica.Units.SI.HeatFlowRate Q_flow_solarthermal_pu;
 
   // _____________________________________________
   //
   //              Visible Parameters
   // _____________________________________________
 
-  parameter SI.HeatFlowRate Q_annual_solarthermal;
-  parameter SI.Heat Q_max_storage;
+  parameter Modelica.Units.SI.HeatFlowRate Q_annual_solarthermal;
+  parameter Modelica.Units.SI.Heat Q_max_storage;
   parameter Integer whichHeatPump=1 "choose type of heat pump" annotation (Dialog(group="Fundamental Definitions"), choices(
       __Dymola_radioButtons=true,
       choice=1 "Sole",

@@ -1,5 +1,5 @@
-﻿within TransiEnt.SystemGeneration.Superstructure.Components.LocalHeatSupply;
-package Base
+﻿within TransiEnt.SystemGeneration.Superstructure.Components;
+expandable connector MasterBus "MasterBus"
 
 //________________________________________________________________________________//
 // Component of the TransiEnt Library, version: 2.0.0                             //
@@ -22,6 +22,15 @@ package Base
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
 
-  extends TransiEnt.Basics.Icons.BasesPackage;
+   extends Modelica.Icons.SignalBus;
 
-end Base;
+   Real f_grid;
+   .TransiEnt.SystemGeneration.Superstructure.Components.InputBus inputBus[busVariableDeclaration.nRegions];
+   .TransiEnt.SystemGeneration.Superstructure.Components.OutputBus outputBus[busVariableDeclaration.nRegions];
+   .TransiEnt.SystemGeneration.Superstructure.Components.MasterBusControl MasterBusControl[busVariableDeclaration.nRegions];
+
+protected
+  outer
+  BusVariableDeclaration busVariableDeclaration annotation (Placement(transformation(extent={{60,-80},{80,-60}})));
+  annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(preserveAspectRatio=false)));
+end MasterBus;

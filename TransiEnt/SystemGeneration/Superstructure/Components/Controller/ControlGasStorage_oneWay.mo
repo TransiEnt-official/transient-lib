@@ -1,10 +1,8 @@
 ﻿within TransiEnt.SystemGeneration.Superstructure.Components.Controller;
 model ControlGasStorage_oneWay
 
-
-
 //________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 2.0.3                             //
+// Component of the TransiEnt Library, version: 2.0.0                             //
 //                                                                                //
 // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
 // Copyright 2021, Hamburg University of Technology.                              //
@@ -19,20 +17,17 @@ model ControlGasStorage_oneWay
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und Wärme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
-
-
-
 
   // _____________________________________________
   //
   //          Imports and Class Hierarchy
   // _____________________________________________
 
-  extends TransiEnt.SystemGeneration.Superstructure.Components.Controller.Base.ControlGasStorage_Base;
+  extends .TransiEnt.SystemGeneration.Superstructure.Components.Controller.Base.ControlGasStorage_Base;
   // _____________________________________________
   //
   //              Visible Parameters
@@ -42,7 +37,7 @@ model ControlGasStorage_oneWay
   parameter Real m_flow_inMax=5000;
   parameter Real m_flow_outMax=5000;
   parameter Real GasStrorageTypeNo=1;
-  parameter SI.Time failure_table[:,:]=[0,1; 1,1; 2,1; 3,1; 4,1];
+  parameter Modelica.Units.SI.Time failure_table[:,:]=[0,1; 1,1; 2,1; 3,1; 4,1];
   parameter Modelica.Units.SI.Pressure p_gasGrid_desired=simCenter.p_amb_const + simCenter.p_eff_2 "desired gas grid pressure in region";
   parameter Modelica.Units.SI.PressureDifference p_gasGrid_desired_bandwidth=0 "band width around p_gasGrid_desired in which the set value varies depending on the SOC of the gas storage";
 

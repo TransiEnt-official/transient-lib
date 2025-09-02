@@ -1,10 +1,8 @@
 ﻿within TransiEnt.SystemGeneration.Superstructure.Components.GasGrid;
 model GasGrid_JunctionWithConstantPressureSource "Model of a gas grid with a constant pressure indefinite gas source connected to a mixing volume with a pipeline"
 
-
-
 //________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 2.0.3                             //
+// Component of the TransiEnt Library, version: 2.0.0                             //
 //                                                                                //
 // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
 // Copyright 2021, Hamburg University of Technology.                              //
@@ -19,14 +17,10 @@ model GasGrid_JunctionWithConstantPressureSource "Model of a gas grid with a con
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und Wärme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
-
-
-
-
 
   // _____________________________________________
   //
@@ -44,14 +38,14 @@ model GasGrid_JunctionWithConstantPressureSource "Model of a gas grid with a con
   parameter Boolean useOneGasPortOnly=true "use 1 or 6 gas ports per superstructure boundary";
   final parameter Integer n_gasPort=if useOneGasPortOnly then 1 else 6 annotation (Dialog(group="GasGrid"));
 
-  parameter SI.Temperature T_const=simCenter.T_ground "Constant temperature of source";
-  parameter SI.AbsolutePressure p_const=simCenter.p_amb_const + simCenter.p_eff_2 "Constant absolute pressure";
-  parameter SI.MassFraction xi_const[medium.nc - 1]=medium.xi_default "Constant composition";
+  parameter Modelica.Units.SI.Temperature T_const=simCenter.T_ground "Constant temperature of source";
+  parameter Modelica.Units.SI.AbsolutePressure p_const=simCenter.p_amb_const + simCenter.p_eff_2 "Constant absolute pressure";
+  parameter Modelica.Units.SI.MassFraction xi_const[medium.nc - 1]=medium.xi_default "Constant composition";
   parameter TILMedia.VLEFluidTypes.BaseVLEFluid medium=simCenter.gasModel1 "Medium to be used";
 
   parameter ClaRa.Basics.Units.Volume volume=14005 "Volume of the junction";
-  parameter SI.MassFlowRate m_flow_nom=11288 "Nominal mass flow rate at each junction outlet";
-  parameter SI.PressureDifference Delta_p_nom=1e4 "Nominal pressure loss at m_flow_nom at junction outler";
+  parameter Modelica.Units.SI.MassFlowRate m_flow_nom=11288 "Nominal mass flow rate at each junction outlet";
+  parameter Modelica.Units.SI.PressureDifference Delta_p_nom=1e4 "Nominal pressure loss at m_flow_nom at junction outler";
 
   parameter ClaRa.Basics.Units.Length length_pipe=1000 "Length of the pipeline (one pass)";
   parameter ClaRa.Basics.Units.Length diameter_i_pipe=0.05 "Inner diameter of the pipeline";

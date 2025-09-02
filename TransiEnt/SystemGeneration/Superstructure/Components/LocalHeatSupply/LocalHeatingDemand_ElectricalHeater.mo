@@ -1,10 +1,8 @@
 ﻿within TransiEnt.SystemGeneration.Superstructure.Components.LocalHeatSupply;
 model LocalHeatingDemand_ElectricalHeater
 
-
-
 //________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 2.0.3                             //
+// Component of the TransiEnt Library, version: 2.0.0                             //
 //                                                                                //
 // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
 // Copyright 2021, Hamburg University of Technology.                              //
@@ -19,21 +17,17 @@ model LocalHeatingDemand_ElectricalHeater
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und Wärme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
-
-
-
-
 
   // _____________________________________________
   //
   //          Imports and Class Hierarchy
   // _____________________________________________
 
-  extends TransiEnt.SystemGeneration.Superstructure.Components.LocalHeatSupply.Base.PartialLocalHeatingDemand_P2H;
+  extends .TransiEnt.SystemGeneration.Superstructure.Components.LocalHeatSupply.Base.PartialLocalHeatingDemand_P2H;
 
   // _____________________________________________
   //

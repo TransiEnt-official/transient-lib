@@ -1,11 +1,8 @@
 ﻿within TransiEnt.SystemGeneration.Superstructure.Portfolios.Portfolio_Example;
 record ExternalDataImport "Record of the external data import logic to create InstanceRecords automatically"
 
-
-
-
 //________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 2.0.3                             //
+// Component of the TransiEnt Library, version: 2.0.0                             //
 //                                                                                //
 // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
 // Copyright 2021, Hamburg University of Technology.                              //
@@ -20,11 +17,10 @@ record ExternalDataImport "Record of the external data import logic to create In
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und Wärme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
-
 
   // _____________________________________________
   //
@@ -50,14 +46,14 @@ record ExternalDataImport "Record of the external data import logic to create In
   parameter Real scaleFactorGasStorageCap_info=1 "Scale factor for gas storage capacities" annotation (Dialog(tab="Import of external data sources", group="Matlab-script created matrices"));
   parameter Real scaleFactorGasStoragePower_info=1 "Scale factor for gas storage max in/outflow" annotation (Dialog(tab="Import of external data sources", group="Matlab-script created matrices"));
 
-  parameter String input_table_path_info=TransiEnt.SystemGeneration.Superstructure.Types.SUPERSTRUCTURE_TABLES "Environment variable " annotation (
+  parameter String input_table_path_info=Superstructure.Types.SUPERSTRUCTURE_TABLES                            "Environment variable " annotation (
     Evaluate=true,
     HideResult=false,
     Dialog(
       enable=not use_absolute_path,
       tab="Import of external data sources",
       group="Matlab-script created matrices"));
-  parameter String input_data_path_info=TransiEnt.SystemGeneration.Superstructure.Types.SUPERSTRUCTURE_INPUT "Environment variable" annotation (
+  parameter String input_data_path_info=Superstructure.Types.SUPERSTRUCTURE_INPUT                            "Environment variable" annotation (
     Evaluate=true,
     HideResult=false,
     Dialog(
