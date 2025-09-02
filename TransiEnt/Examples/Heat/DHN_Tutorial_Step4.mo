@@ -1,5 +1,5 @@
 ﻿within TransiEnt.Examples.Heat;
-model Tutorial_Step4
+model DHN_Tutorial_Step4
 
 //________________________________________________________________________________//
 // Component of the TransiEnt Library, version: 2.0.3                             //
@@ -22,10 +22,6 @@ model Tutorial_Step4
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
 
-
-
-
-
   // _____________________________________________
   //
   //          Imports and Class Hierarchy
@@ -33,7 +29,7 @@ model Tutorial_Step4
 
   TransiEnt.Components.Boundaries.FluidFlow.FluidSink sink annotation (Placement(transformation(extent={{-56,68},{-36,88}})));
   Modelica.Blocks.Sources.RealExpression realExpression(y=6e5) annotation (Placement(transformation(extent={{-84,68},{-64,88}})));
-  Modelica.Blocks.Sources.RealExpression realExpression9(y=heatpump1.inlet.m_flow*((4200*trapezoid.y) - inStream(heatpump1.inlet.h_outflow))) annotation (Placement(transformation(extent={{-112,-24},{-92,-4}})));
+  Modelica.Blocks.Sources.RealExpression realExpression9(y=heatpump1.inlet.m_flow*((4200*60) - inStream(heatpump1.inlet.h_outflow)))          annotation (Placement(transformation(extent={{-112,-24},{-92,-4}})));
   Modelica.Blocks.Sources.RealExpression realExpression6(y=0.1e5)
                                                                 annotation (Placement(transformation(extent={{-60,42},{-40,62}})));
   Modelica.Blocks.Sources.RealExpression realExpression7(y=topologyA_Ports.consumer_9.inlet.p - topologyA_Ports.consumer_9.outlet.p)       annotation (Placement(transformation(extent={{-60,22},{-40,42}})));
@@ -59,7 +55,7 @@ model Tutorial_Step4
   TransiEnt.Basics.Adapters.FluidPortAdapter fluidPortAdapter3
                                                               annotation (Placement(transformation(extent={{44,-33},{54,-23}})));
   TransiEnt.Components.Heat.SimplePump_mflow simplePump2 annotation (Placement(transformation(extent={{-28,-16},{-12,0}})));
-  Modelica.Blocks.Sources.RealExpression realExpression4(y=9)                                                                                 annotation (Placement(transformation(extent={{-42,2},{-28,17}})));
+  Modelica.Blocks.Sources.RealExpression realExpression4(y=9)                                                                                 annotation (Placement(transformation(extent={{-50,2},{-36,17}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join annotation (Placement(transformation(
         extent={{10,-10},{-10,10}},
         rotation=180,
@@ -81,7 +77,6 @@ equation
   //
   //        Characteristic Equations
   // _____________________________________________
-
 
   connect(sink.p_in,realExpression. y) annotation (Line(points={{-54,78},{-54,78},{-63,78}},                  color={0,0,127}));
   connect(realExpression6.y,PID. u_s) annotation (Line(points={{-39,52},{-30,52}},     color={0,0,127}));
@@ -105,7 +100,7 @@ equation
       color={175,0,0},
       thickness=0.5));
   connect(sink.port_a, simplePump2.outlet) annotation (Line(points={{-36,78},{-2,78},{-2,-8},{-11.84,-8}},color={0,0,0}));
-  connect(realExpression4.y, simplePump2.m_flow) annotation (Line(points={{-27.3,9.5},{-27.3,3.15},{-27.52,3.15},{-27.52,-3.2}},
+  connect(realExpression4.y, simplePump2.m_flow) annotation (Line(points={{-35.3,9.5},{-36,9.5},{-36,10},{-27.52,10},{-27.52,-3.2}},
                                                                                                                      color={0,0,127}));
   connect(fluidPortAdapter.fluidPortIn, topologyA_Ports.outlet) annotation (Line(points={{120,-34},{130,-34},{130,-14},{137.2,-14}}, color={0,0,0}));
   connect(realExpression1.y, heatpump1.dp) annotation (Line(points={{-67,16},{-56,16},{-56,-4}}, color={0,0,127}));
@@ -144,5 +139,11 @@ equation
           lineColor={78,138,73},
           fillColor={0,124,124},
           fillPattern=FillPattern.Solid,
-          points={{-58.0,46.0},{42.0,-14.0},{-58.0,-74.0},{-58.0,46.0}})}));
-end Tutorial_Step4;
+          points={{-58.0,46.0},{42.0,-14.0},{-58.0,-74.0},{-58.0,46.0}})}),
+    Documentation(info="<html>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
+<p>A tutorial for the modeling of district heating networks with the TransiEnt Library. Step 4 is about adding a second producer (gas boiler) to the simulation. </p>
+<h4><span style=\"color: #008c48\">References</span></h4>
+<p>The written Tutorial can be found on the TransiEnt website: https://www.tuhh.de/transient-ee/contact</p>
+</html>"));
+end DHN_Tutorial_Step4;

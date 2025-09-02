@@ -1,6 +1,5 @@
 ﻿within TransiEnt.Examples.Heat;
-model Tutorial
-
+model DHN_Tutorial_Step1
 
 //________________________________________________________________________________//
 // Component of the TransiEnt Library, version: 2.0.3                             //
@@ -23,15 +22,10 @@ model Tutorial
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
 
-
-
-
-
   // _____________________________________________
   //
   //          Imports and Class Hierarchy
   // _____________________________________________
-
 
   TransiEnt.Components.Boundaries.FluidFlow.FluidSink sink annotation (Placement(transformation(extent={{-56,68},{-36,88}})));
   Modelica.Blocks.Sources.RealExpression realExpression(y=6e5) annotation (Placement(transformation(extent={{-84,68},{-64,88}})));
@@ -56,7 +50,6 @@ model Tutorial
     annotation (Placement(transformation(extent={{-86,34},{-66,54}})));
 equation
 
-
   // _____________________________________________
   //
   //          Characteristic Equations
@@ -78,5 +71,11 @@ equation
           lineColor={78,138,73},
           fillColor={0,124,124},
           fillPattern=FillPattern.Solid,
-          points={{-58.0,46.0},{42.0,-14.0},{-58.0,-74.0},{-58.0,46.0}})}));
-end Tutorial;
+          points={{-58.0,46.0},{42.0,-14.0},{-58.0,-74.0},{-58.0,46.0}})}),
+    Documentation(info="<html>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
+<p>A tutorial for the modeling of district heating networks with the TransiEnt Library. Step 1 is about creating a basic district heating network model. </p>
+<h4><span style=\"color: #008c48\">References</span></h4>
+<p>The written Tutorial can be found on the TransiEnt website: https://www.tuhh.de/transient-ee/</p>
+</html>"));
+end DHN_Tutorial_Step1;

@@ -1,5 +1,5 @@
 ﻿within TransiEnt.Examples.Heat;
-model Tutorial_Step2
+model DHN_Tutorial_Step2
 
 //________________________________________________________________________________//
 // Component of the TransiEnt Library, version: 2.0.3                             //
@@ -21,10 +21,6 @@ model Tutorial_Step2
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
-
-
-
-
 
   // _____________________________________________
   //
@@ -75,5 +71,11 @@ equation
           lineColor={78,138,73},
           fillColor={0,124,124},
           fillPattern=FillPattern.Solid,
-          points={{-58.0,46.0},{42.0,-14.0},{-58.0,-74.0},{-58.0,46.0}})}));
-end Tutorial_Step2;
+          points={{-58.0,46.0},{42.0,-14.0},{-58.0,-74.0},{-58.0,46.0}})}),
+    Documentation(info="<html>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
+<p>A tutorial for the modeling of district heating networks with the TransiEnt Library. Step 2 is about setting up a pressure control for the DHN. </p>
+<h4><span style=\"color: #008c48\">References</span></h4>
+<p>The written Tutorial can be found on the TransiEnt website: https://www.tuhh.de/transient-ee/</p>
+</html>"));
+end DHN_Tutorial_Step2;
