@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.Electrical.ComplexPower;
+within TransiEnt.Components.Boundaries.Electrical.ComplexPower;
 model PQBoundary "L2 Active and reactive power by parameter or inputs, based on ComplexPowerPort"
 
 
@@ -45,7 +45,7 @@ model PQBoundary "L2 Active and reactive power by parameter or inputs, based on 
   //                   Parameters
   // _____________________________________________
 
-  parameter Boolean useInputConnectorP=true
+  parameter Boolean useInputConnectorP=false
     "Gets parameter from input connector" annotation (
     Evaluate=true,
     HideResult=true,
@@ -55,7 +55,7 @@ model PQBoundary "L2 Active and reactive power by parameter or inputs, based on 
   parameter SI.Power P_el_set_const=0 "Constant boundary"
     annotation (Dialog(group="Boundary", enable=not useInputConnectorP));
 
-  parameter Boolean useInputConnectorQ=true
+  parameter Boolean useInputConnectorQ=false
     "Gets parameter from input connector" annotation (
     Evaluate=true,
     HideResult=true,
@@ -113,7 +113,7 @@ model PQBoundary "L2 Active and reactive power by parameter or inputs, based on 
 
   SI.ReactivePower Q=epp.Q;
   SI.ApparentPower S;
-  SI.Angle delta_cp(start=-0.08726646259971647)
+  SI.Angle delta_cp(start=-0.087266462599716)
     annotation (Dialog(group="Initialization", showStartAttribute=true));
   SI.Voltage v_cp(start=v_n)
     annotation (Dialog(group="Initialization", showStartAttribute=true));

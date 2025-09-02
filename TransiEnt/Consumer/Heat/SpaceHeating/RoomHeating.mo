@@ -49,7 +49,7 @@ model RoomHeating
 
   // --- External control ---
 
-  parameter ControlType controlType=Models_CyEntEE.CellModels.Controller.Base.ControlType.Internal
+  parameter ControlType controlType=TransiEnt.Basics.Types.ControlType.Internal
     "Type of control (see enumeration)"
     annotation (Evaluate=true, Dialog(group="External Control"));
 

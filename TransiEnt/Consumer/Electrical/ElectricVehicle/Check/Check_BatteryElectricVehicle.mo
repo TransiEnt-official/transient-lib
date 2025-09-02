@@ -44,10 +44,7 @@ model Check_BatteryElectricVehicle
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={70,0})));
-  TransiEnt.Components.Boundaries.Electrical.ComplexPower.SlackBoundary_new
-                                                                        vDelta1(
-    v_n=400,
-    isFrequencyRoot=true,                                                                        f_n=50) annotation (Placement(transformation(
+  TransiEnt.Components.Boundaries.Electrical.ComplexPower.SlackBoundary vDelta1(v_gen=400,       f_n=50) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={-70,-2})));

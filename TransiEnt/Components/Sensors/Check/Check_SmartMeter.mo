@@ -41,23 +41,23 @@ model Check_SmartMeter
     useDelay=true,
     samplePeriod=120) annotation (Placement(transformation(extent={{-30,10},{-10,30}})));
   TransiEnt.Components.Sensors.SmartMeter SmartMeter_Ideal(useStandardConfiguration=true, configuration="Ideal") annotation (Placement(transformation(extent={{-30,50},{-10,70}})));
-  Boundaries.Electrical.ComplexPower.SlackBoundary_new vDelta1(v_n=400, isFrequencyRoot=true) annotation (Placement(transformation(
+  Boundaries.Electrical.ComplexPower.SlackBoundary     vDelta1(v_gen=400, f_n=50)             annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={-70,0})));
-  Boundaries.Electrical.ComplexPower.PQBoundary_new pq1(
+  Boundaries.Electrical.ComplexPower.PQBoundary     pq1(
     v_n=400,
     useInputConnectorP=true,
     useInputConnectorQ=true) annotation (Placement(transformation(extent={{40,50},{60,70}})));
-  Boundaries.Electrical.ComplexPower.PQBoundary_new pq2(
+  Boundaries.Electrical.ComplexPower.PQBoundary     pq2(
     v_n=400,
     useInputConnectorP=true,
     useInputConnectorQ=true) annotation (Placement(transformation(extent={{40,10},{60,30}})));
-  Boundaries.Electrical.ComplexPower.PQBoundary_new pq3(
+  Boundaries.Electrical.ComplexPower.PQBoundary     pq3(
     v_n=400,
     useInputConnectorP=true,
     useInputConnectorQ=true) annotation (Placement(transformation(extent={{40,-30},{60,-10}})));
-  Boundaries.Electrical.ComplexPower.PQBoundary_new pq4(
+  Boundaries.Electrical.ComplexPower.PQBoundary     pq4(
     v_n=400,
     useInputConnectorP=true,
     useInputConnectorQ=true) annotation (Placement(transformation(extent={{40,-70},{60,-50}})));

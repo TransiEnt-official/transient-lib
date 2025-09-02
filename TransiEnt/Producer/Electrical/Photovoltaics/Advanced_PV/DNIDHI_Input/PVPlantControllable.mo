@@ -302,8 +302,8 @@ public
   Modelica.Blocks.Sources.RealExpression realExpression1(y=max(0,(IAM.iam_dir*irradiance.irradiance_direct_tilted + IAM.iam_diff*irradiance.irradiance_diffuse_tilted + IAM.iam_ground*irradiance.irradiance_ground_tilted)*(100 - Soiling)/100)) if not input_POA_irradiation
                                                          annotation (Placement(transformation(extent={{-100,74},{-80,94}})));
   TransiEnt.Basics.Interfaces.General.ControlBus          controlBus if useControlBus annotation (Placement(transformation(extent={{-20,-120},{20,-80}}), iconTransformation(extent={{-20,-120},{20,-80}})));
-  TransiEnt.Components.Boundaries.Electrical.ComplexPower.PQBoundary_new
-                                                      pq1(
+  TransiEnt.Components.Boundaries.Electrical.ComplexPower.PQBoundary
+                                                      pQBoundary(
     v_n=V_nominal,
     useInputConnectorP=true,
     useInputConnectorQ=true)
@@ -438,7 +438,7 @@ equation
   end if;
   connect(POA_radiation_in, POA_Irradiation) annotation (Line(points={{-120,-2},{-68,-2},{-68,-6},{-18,-6}}, color={0,0,127}));
   connect(realExpression1.y, POA_Irradiation) annotation (Line(points={{-79,84},{-20,84},{-20,8},{-18,8},{-18,-6}}, color={0,0,127}));
-  connect(pq1.epp, epp) annotation (Line(
+  connect(pQBoundary.epp, epp) annotation (Line(
       points={{80,0},{100,0}},
       color={28,108,200},
       thickness=0.5));
@@ -481,10 +481,10 @@ equation
       index=1,
       extent={{-6,3},{-6,3}},
       horizontalAlignment=TextAlignment.Right));
-  connect(QLimiter.y, pq1.Q_el_set) annotation (Line(points={{99,-90},{64,-90},{64,-11}}, color={0,0,127}));
-  connect(Q_out_standard.y, pq1.Q_el_set) annotation (Line(points={{109,-50},{64,-50},{64,-11}}, color={0,0,127}));
-  connect(P_out_standard.y, pq1.P_el_set) annotation (Line(points={{109,-30},{76,-30},{76,-11}}, color={0,0,127}));
-  connect(gain.y, pq1.P_el_set) annotation (Line(points={{47,-60},{76,-60},{76,-11}}, color={0,0,127}));
+  connect(QLimiter.y, pQBoundary.Q_el_set) annotation (Line(points={{99,-90},{64,-90},{64,-11}}, color={0,0,127}));
+  connect(Q_out_standard.y, pQBoundary.Q_el_set) annotation (Line(points={{109,-50},{64,-50},{64,-11}}, color={0,0,127}));
+  connect(P_out_standard.y, pQBoundary.P_el_set) annotation (Line(points={{109,-30},{76,-30},{76,-11}}, color={0,0,127}));
+  connect(gain.y, pQBoundary.P_el_set) annotation (Line(points={{47,-60},{76,-60},{76,-11}}, color={0,0,127}));
   annotation (
     Diagram(          coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}}), graphics={

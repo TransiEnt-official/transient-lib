@@ -27,10 +27,8 @@ model Check_PVPlantControllable
     annotation (Placement(transformation(extent={{-90,80},{-70,100}})));
   inner TransiEnt.ModelStatistics modelStatistics
     annotation (Placement(transformation(extent={{-60,80},{-40,100}})));
-  TransiEnt.Components.Boundaries.Electrical.ComplexPower.SlackBoundary_new
-    vDelta1(
-    v_n=400,
-    isFrequencyRoot=true,    f_n=50)
+  TransiEnt.Components.Boundaries.Electrical.ComplexPower.SlackBoundary
+    vDelta1(v_gen=400,       f_n=50)
     annotation (Placement(transformation(extent={{34,-12},{54,8}})));
   TransiEnt.Basics.Tables.Ambient.Temperature_Hamburg_Fuhlsbuettel_3600s_2012
     temperature_Hamburg_3600s_IWEC_from_SAM

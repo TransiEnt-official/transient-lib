@@ -63,10 +63,7 @@ TransiEnt.Components.Electrical.Prosumer.Prosumer Prosumer(
         Bat_PowerLimit=11000,
         Bev_type=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID3())}) annotation (Placement(transformation(extent={{-19.8,-19.73},{20,20}})));
 
-  TransiEnt.Components.Boundaries.Electrical.ComplexPower.SlackBoundary_new
-                                                                        ElectricGrid(
-    v_n=400,
-    isFrequencyRoot=true,                                                                       f_n=50) annotation (Placement(transformation(
+  TransiEnt.Components.Boundaries.Electrical.ComplexPower.SlackBoundary ElectricGrid(v_gen=400, f_n=50) annotation (Placement(transformation(
         extent={{-20,-20},{20,20}},
         rotation=0,
         origin={100,0})));

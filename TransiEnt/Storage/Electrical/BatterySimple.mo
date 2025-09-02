@@ -115,7 +115,8 @@ model BatterySimple "Simplified model of a battery without events"
   Modelica.Units.SI.Power P_actual;
   Modelica.Units.SI.Power P_limit;
 
-  TransiEnt.Components.Boundaries.Electrical.ComplexPower.PQBoundary_new pq1(v_n=400,
+  TransiEnt.Components.Boundaries.Electrical.ComplexPower.PQBoundary     pQBoundary(
+    useInputConnectorQ=false,                                                v_n=400,
       useInputConnectorP=true)
     annotation (Placement(transformation(extent={{80,-10},{100,10}})));
 
@@ -157,7 +158,7 @@ equation
       points={{-100,0},{-100,0}},
       color={0,127,0},
       thickness=0.5));
-  connect(pq1.epp, epp) annotation (Line(
+  connect(pQBoundary.epp, epp) annotation (Line(
       points={{80,0},{-100,0}},
       color={28,108,200},
       thickness=0.5));
@@ -172,8 +173,7 @@ equation
           {6,-58},{24,-58}}, color={0,0,127}));
   connect(noDynamics.u, P_set) annotation (Line(points={{-25.6,-42},{-80,-42},{-80,
           -106}}, color={0,0,127}));
-  connect(P_actual_.y, pq1.P_el_set)
-    annotation (Line(points={{58,28},{84,28},{84,11}}, color={0,0,127}));
+  connect(P_actual_.y, pQBoundary.P_el_set) annotation (Line(points={{58,28},{84,28},{84,11}}, color={0,0,127}));
   annotation (Icon(graphics={
         Ellipse(
           extent={{-40,-46},{40,-72}},

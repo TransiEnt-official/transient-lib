@@ -9,7 +9,7 @@ model Check_MV_rural_2
     batteryControlType=Models_CyEntEE.CellModels.Controller.Base.ControlType.Limit_P,
     heatingControlType=Models_CyEntEE.CellModels.Controller.Base.ControlType.Limit_P,
     bevControlType=Models_CyEntEE.CellModels.Controller.Base.ControlType.Limit_P) annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
-  Components.Boundaries.Electrical.ComplexPower.SlackBoundary_new           vDelta1(v_n=110000, isFrequencyRoot=true)
+  Components.Boundaries.Electrical.ComplexPower.SlackBoundary               vDelta1(v_gen=110e3, f_n=50)
                     annotation (Placement(transformation(extent={{20,-10},{40,10}})));
   Scenarios_CyEntEE.MV_Grids.Bus.MVGridControlBus controlBus annotation (Placement(transformation(extent={{-100,-10},{-80,10}})));
 equation

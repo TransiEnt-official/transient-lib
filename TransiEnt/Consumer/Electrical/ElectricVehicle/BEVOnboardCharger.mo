@@ -87,7 +87,7 @@ model BEVOnboardCharger
   Modelica.Blocks.Tables.CombiTable2Ds Q_grid_over_P_bat_and_V_grid(table=Charger_Params.Q_grid_over_P_bat_and_V_grid, extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint) "Reactive power of the inverter setpoint" annotation (Placement(transformation(extent={{0,40},{20,60}})));
   Modelica.Blocks.Sources.RealExpression V_grid_(y=epp_grid.v)
     annotation (Placement(transformation(extent={{-140,40},{-120,60}})));
-  TransiEnt.Components.Boundaries.Electrical.ComplexPower.PQBoundary_new
+  TransiEnt.Components.Boundaries.Electrical.ComplexPower.PQBoundary
     pq_charger(
     v_n=V_nominal,
     useInputConnectorP=true,

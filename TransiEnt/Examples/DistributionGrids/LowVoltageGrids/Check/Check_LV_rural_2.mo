@@ -34,12 +34,9 @@ model Check_LV_rural_2
   //   Components
   // ------------------------------------------------------------------------------------------
 
-  Components.Boundaries.Electrical.ComplexPower.SlackBoundary_new
-                                                          electricGrid_1(
-    useInputV=false,
-    v_n=20000,
-    useInputDelta=false,
-    isFrequencyRoot=true) annotation (Placement(transformation(extent={{32.07,31.9},{47.07,46.9}})));
+  Components.Boundaries.Electrical.ComplexPower.SlackBoundary
+                                                          electricGrid_1(v_gen=20000, f_n=50)
+                          annotation (Placement(transformation(extent={{32.07,31.9},{47.07,46.9}})));
 
   // ---- LV Grids -------------------------------------------------------------------------------
 

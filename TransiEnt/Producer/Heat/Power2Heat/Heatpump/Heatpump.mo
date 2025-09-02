@@ -279,7 +279,7 @@ public
     "Choice of power boundary model. The power boundary model must match the power port."
     annotation (choicesAllMatching=true, Dialog(group="Replaceable Components"));
 
-  PowerBoundaryModel Power(v_n=400, useInputConnectorP=true)
+  PowerBoundaryModel Power(         useInputConnectorP=true)
                            if usePowerPort
     "Choice of power boundary model. The power boundary model must match the power port."
     annotation (Placement(transformation(extent={{-6,-90},{-26,-70}})));

@@ -64,7 +64,7 @@ model BEVBattery "Storage for BatteryElectricVehicle model"
   // ------------------------------------------------------------------------------------------
   //   Other Classes
   // ------------------------------------------------------------------------------------------
-  TransiEnt.Components.Boundaries.Electrical.ComplexPower.PQBoundary_new
+  TransiEnt.Components.Boundaries.Electrical.ComplexPower.PQBoundary
                                                       pq_boundary(
     useInputConnectorP=true,
     useInputConnectorQ=false,

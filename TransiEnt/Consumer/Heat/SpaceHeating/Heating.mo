@@ -154,16 +154,16 @@ model Heating "Building Heating System"
     initType=Modelica.Blocks.Types.Init.NoInit,
     redeclare connector PowerPortModel =
         TransiEnt.Basics.Interfaces.Electrical.ComplexPowerPort,
-    redeclare model PowerBoundaryModel =
-        TransiEnt.Components.Boundaries.Electrical.ComplexPower.PQBoundary_new)
+    redeclare model PowerBoundaryModel = TransiEnt.Components.Boundaries.Electrical.ComplexPower.PQBoundary)
     annotation (Placement(transformation(extent={{26,28},{50,52}})));
 
   Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow heaterRod
     annotation (Placement(transformation(extent={{70,-40},{90,-20}})));
 
-  TransiEnt.Components.Boundaries.Electrical.ComplexPower.PQBoundary_new
+  TransiEnt.Components.Boundaries.Electrical.ComplexPower.PQBoundary
                                                       pq_heaterRod(
-      useInputConnectorP=true, v_n=400)
+      useInputConnectorP=true,
+    useInputConnectorQ=false,  v_n=400)
     annotation (Placement(transformation(extent={{78,-74},{102,-50}})));
 
   Modelica.Thermal.HeatTransfer.Components.HeatCapacitor bufferTank(

@@ -3,8 +3,9 @@ model Check_Heating
 
   extends TransiEnt.Basics.Icons.Checkmodel;
 
-  Models_CyEntEE.CellModels.CPP.Boundaries.VDeltaBoundary electricGrid_1(v_n=400,
-      isFrequencyRoot=true) annotation (Placement(transformation(extent={{74.2,
+  TransiEnt.Components.Boundaries.Electrical.ComplexPower.SlackBoundary
+                                                          electricGrid_1(v_gen=400, f_n=50)
+                            annotation (Placement(transformation(extent={{74.2,
             -49.73},{89.2,-34.73}})));
   inner TransiEnt.SimCenter simCenter
     annotation (Placement(transformation(extent={{-86,78},{-66,98}})));
@@ -50,7 +51,7 @@ model Check_Heating
     U_ground=0.3,
     thermalMass=30e6,
     T_buffer_set=333.15,
-    controlType=Models_CyEntEE.CellModels.Controller.Base.ControlType.External_P,
+    controlType=TransiEnt.Basics.Types.ControlType.External_P,
 
     busActive=true,
     initType=Modelica.Blocks.Types.Init.NoInit,
@@ -91,7 +92,7 @@ model Check_Heating
     U_ground=0.3,
     thermalMass=30e6,
     T_buffer_set=333.15,
-    controlType=Models_CyEntEE.CellModels.Controller.Base.ControlType.Internal,
+    controlType=TransiEnt.Basics.Types.ControlType.Internal,
 
     busActive=false,
     initType=Modelica.Blocks.Types.Init.NoInit,
@@ -112,7 +113,7 @@ model Check_Heating
     U_ground=0.3,
     thermalMass=30e6,
     T_buffer_set=333.15,
-    controlType=Models_CyEntEE.CellModels.Controller.Base.ControlType.Limit_P,
+    controlType=TransiEnt.Basics.Types.ControlType.Limit_P,
     busActive=true,
     initType=Modelica.Blocks.Types.Init.NoInit,
     useTappingCycles=false)

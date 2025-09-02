@@ -25,6 +25,8 @@ model Prosumer
   import Modelica.Blocks.Types.Init;
   import TransiEnt.Basics.Types.ControlType;
 
+  outer TransiEnt.SimCenter simCenter;
+
   // ----------------------------------------------------------------------------------------
   //   Parameter
   // ----------------------------------------------------------------------------------------
@@ -233,7 +235,7 @@ model Prosumer
 
   // --- Load -------------------------------------------------------------------------------
 
-  Boundaries.Electrical.ComplexPower.PQBoundary_new inflexibleLoad(
+  Boundaries.Electrical.ComplexPower.PQBoundary     inflexibleLoad(
     v_n=400,
     useInputConnectorP=true,
     useInputConnectorQ=true)
@@ -284,7 +286,8 @@ model Prosumer
     tappingProfilePath=data_local + "TappingCycles/" + tappingProfileName + ".txt",
     controlType=heatingControlType,
     busActive=heatingBusActive,
-    initType=Modelica.Blocks.Types.Init.NoInit) if useEHP annotation (Placement(transformation(extent={{40,60},{60,80}})));
+    initType=Modelica.Blocks.Types.Init.NoInit,
+    heatpump(Power(useInputConnectorQ=false)))  if useEHP annotation (Placement(transformation(extent={{40,60},{60,80}})));
 
   // --- inverter ---------------------------------------------------------------------------
 

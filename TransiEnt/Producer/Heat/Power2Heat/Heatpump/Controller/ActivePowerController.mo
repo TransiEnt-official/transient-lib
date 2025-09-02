@@ -42,7 +42,7 @@ block ActivePowerController "Controls electrical power of heat pump"
     k_p=2,
     Ti=60,
     xi_start=0,
-    reinitMethod=Models_CyEntEE.CellModels.Heat.Controller.PID_reset_lim.Types.reinitMethods.limit2,
+    reinitMethod=TransiEnt.Basics.Blocks.PID_reset_lim.Types.reinitMethods.limit2,
 
     useVariableLimits=true)
     annotation (Placement(transformation(extent={{40,44},{60,64}})));
