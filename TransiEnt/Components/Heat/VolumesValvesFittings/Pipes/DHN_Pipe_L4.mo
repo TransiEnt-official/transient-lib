@@ -124,7 +124,7 @@ equation
 <p>The control volume is discretized with an upwind scheme. For the implementation of the occuring case distinction the semiLinear operator is used. A number between 100 and 1000 control volumes per kilo meter is suitable for a district heating network simulation. If a large number of states appear in the DHN simulations due to a large number of control volumes the sparse solver should be activated. In Dymola this can be for example done with the command: Advanced.Translation.SparseActivate=true. This will improve the simulation speed significantly. Also the appearance of implicit non-linear systems of equations should be avoided. </p>
 <p>The physical effects described are implemented in the control volume model used in this component.</p>
 <h4><span style=\"color: #008c48\">Level of detail, physical effects considered, and physical insight</span></h4>
-<p>L2 (defined in the CodingConventions)</p>
+<p>L4 (defined in the CodingConventions)</p>
 <ul>
 <li>static mass balance</li>
 <li>constant fluid properties</li>

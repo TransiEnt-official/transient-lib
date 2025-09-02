@@ -37,11 +37,11 @@ model TestSimpleValve
   // _____________________________________________
 
   TransiEnt.Components.Heat.VolumesValvesFittings.SimpleValve simpleValve(delta_p_nom=10000) annotation (Placement(transformation(extent={{-6,-22},{14,-2}})));
-  TransiEnt.Components.Boundaries.FluidFlow.FluidSink sink annotation (Placement(transformation(extent={{22,-22},{42,-2}})));
+  TransiEnt.Components.Boundaries.FluidFlow.FluidSink sink annotation (Placement(transformation(extent={{42,-22},{22,-2}})));
   Modelica.Blocks.Sources.RealExpression realExpression1(y=1e5)
                                                              annotation (Placement(transformation(extent={{70,-22},{50,-2}})));
   TransiEnt.Components.Boundaries.FluidFlow.FluidSink sink1
-                                                           annotation (Placement(transformation(extent={{-20,-22},{-40,-2}})));
+                                                           annotation (Placement(transformation(extent={{-40,-22},{-20,-2}})));
   Modelica.Blocks.Sources.RealExpression realExpression2(y=2e5)
                                                              annotation (Placement(transformation(extent={{-76,-22},{-56,-2}})));
   Modelica.Blocks.Sources.Step step(
@@ -55,9 +55,9 @@ equation
   //          Characteristic Equations
   // _____________________________________________
   connect(simpleValve.outlet, sink.port_a) annotation (Line(points={{14,-12},{22,-12}}, color={0,0,0}));
-  connect(realExpression1.y, sink.p_in) annotation (Line(points={{49,-12},{44.5,-12},{44.5,-12.2},{40,-12.2}}, color={0,0,127}));
+  connect(realExpression1.y, sink.p_in) annotation (Line(points={{49,-12},{44.5,-12},{44.5,-12},{40,-12}},     color={0,0,127}));
   connect(sink1.port_a, simpleValve.inlet) annotation (Line(points={{-20,-12},{-6,-12}}, color={0,0,0}));
-  connect(realExpression2.y, sink1.p_in) annotation (Line(points={{-55,-12},{-46.5,-12},{-46.5,-12.2},{-38,-12.2}}, color={0,0,127}));
+  connect(realExpression2.y, sink1.p_in) annotation (Line(points={{-55,-12},{-46.5,-12},{-46.5,-12},{-38,-12}},     color={0,0,127}));
   connect(step.y, simpleValve.OpeningValveIn) annotation (Line(points={{-21,38},{4,38},{4,-2}}, color={0,0,127}));
   annotation (experiment(StopTime=7200, __Dymola_Algorithm="Dassl"), Documentation(info="<html>
 <h4><span style=\"color: #008c48\">Purpose of model:</span></h4>

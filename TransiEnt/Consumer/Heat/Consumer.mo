@@ -92,7 +92,7 @@ model Consumer "Simple model of a thermal consumer"
   Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature AmbientTemperature1
                                                                                  annotation (
     Placement(transformation(extent={{110,46},{90,66}})));
-  TransiEnt.Components.Heat.SimplePump pump annotation (Placement(transformation(
+  TransiEnt.Components.Heat.SimplePump_mflow pump annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-54,26})));

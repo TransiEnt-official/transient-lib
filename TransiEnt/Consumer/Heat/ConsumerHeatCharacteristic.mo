@@ -91,7 +91,7 @@ model ConsumerHeatCharacteristic "Simple model of a thermal consumer with a heat
 
  Modelica.Thermal.HeatTransfer.Components.HeatCapacitor heatCapacitor1(C = C) annotation (
    Placement(visible = true, transformation(origin={32,10},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
- TransiEnt.Components.Heat.SimplePump pump annotation (Placement(transformation(
+  TransiEnt.Components.Heat.SimplePump_mflow pump annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-58,26})));

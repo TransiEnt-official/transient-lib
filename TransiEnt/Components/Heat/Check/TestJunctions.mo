@@ -44,7 +44,7 @@ model TestJunctions "Test model for the junctions"
         rotation=0)));
   TransiEnt.Components.Boundaries.FluidFlow.FluidSink sink1 annotation (Placement(visible=true, transformation(
         origin={-160,60},
-        extent={{-10,-10},{10,10}},
+        extent={{10,-10},{-10,10}},
         rotation=0)));
   ClaRa.Components.VolumesValvesFittings.Fittings.SplitVLE_L2_Y splitVLE_L2_Y(
     redeclare model PressureLossIn = ClaRa.Components.VolumesValvesFittings.Fittings.Fundamentals.Linear (m_flow_nom=1, dp_nom=2e4),
@@ -68,7 +68,7 @@ model TestJunctions "Test model for the junctions"
         origin={-206,-68})));
   TransiEnt.Components.Boundaries.FluidFlow.FluidSink sink2 annotation (Placement(visible=true, transformation(
         origin={-166,18},
-        extent={{-10,-10},{10,10}},
+        extent={{10,-10},{-10,10}},
         rotation=0)));
   Modelica.Blocks.Sources.RealExpression sinkPressure1(y=2e5)
                                                              annotation (Placement(transformation(extent={{-120,8},{-140,28}})));
@@ -86,7 +86,7 @@ model TestJunctions "Test model for the junctions"
                                                                  annotation (Placement(transformation(extent={{-32,20},{-12,40}})));
   TransiEnt.Components.Boundaries.FluidFlow.FluidSink sink6 annotation (Placement(visible=true, transformation(
         origin={112,44},
-        extent={{-10,-10},{10,10}},
+        extent={{10,-10},{-10,10}},
         rotation=0)));
   Modelica.Blocks.Sources.RealExpression sinkPressure5(y=2e5)
                                                              annotation (Placement(transformation(extent={{152,34},{132,54}})));
@@ -114,7 +114,7 @@ model TestJunctions "Test model for the junctions"
         rotation=90)));
   TransiEnt.Components.Boundaries.FluidFlow.FluidSink sink7 annotation (Placement(visible=true, transformation(
         origin={-162,-134},
-        extent={{-10,-10},{10,10}},
+        extent={{10,-10},{-10,10}},
         rotation=0)));
   Modelica.Blocks.Sources.RealExpression MassFlowRateSource8(y=1)
                                                                  annotation (Placement(transformation(extent={{-288,-151},{-268,-131}})));
@@ -123,8 +123,8 @@ model TestJunctions "Test model for the junctions"
   Modelica.Blocks.Sources.RealExpression MassFlowRateSource9(y=60*4185)
                                                                  annotation (Placement(transformation(extent={{-288,-170},{-268,-150}})));
   TransiEnt.Components.Boundaries.FluidFlow.FluidSink sink8 annotation (Placement(visible=true, transformation(
-        origin={-168,-176},
-        extent={{-10,-10},{10,10}},
+        origin={-166,-176},
+        extent={{10,-10},{-10,10}},
         rotation=0)));
   Modelica.Blocks.Sources.RealExpression sinkPressure7(y=2e5)
                                                              annotation (Placement(transformation(extent={{-122,-186},{-142,-166}})));
@@ -151,7 +151,7 @@ model TestJunctions "Test model for the junctions"
         rotation=0)));
   TransiEnt.Components.Boundaries.FluidFlow.FluidSink sink3 annotation (Placement(visible=true, transformation(
         origin={106,-134},
-        extent={{-10,-10},{10,10}},
+        extent={{10,-10},{-10,10}},
         rotation=0)));
   Modelica.Blocks.Sources.RealExpression MassFlowRateSource2(y=1)
                                                                  annotation (Placement(transformation(extent={{-20,-151},{0,-131}})));
@@ -191,7 +191,7 @@ model TestJunctions "Test model for the junctions"
                                                              annotation (Placement(transformation(extent={{-126,-246},{-146,-226}})));
   Boundaries.FluidFlow.FluidSink                      sink4 annotation (Placement(visible=true, transformation(
         origin={-168,-236},
-        extent={{-10,-10},{10,10}},
+        extent={{10,-10},{-10,10}},
         rotation=0)));
   VolumesValvesFittings.Fittings.Junction junction annotation (Placement(transformation(extent={{-224,-252},{-204,-232}})));
 equation
@@ -210,7 +210,7 @@ equation
       thickness=0.5));
   connect(source1.m_flow_in, MassFlowRateSource.y) annotation (Line(points={{-252,53},{-265,53}},
                                                                                                 color={0,0,127}));
-  connect(sink1.p_in, sinkPressure.y) annotation (Line(points={{-152,59.8},{-146,59.8},{-146,60},{-139,60}},
+  connect(sink1.p_in, sinkPressure.y) annotation (Line(points={{-152,60},{-146,60},{-146,60},{-139,60}},
                                                                                  color={0,0,127}));
   connect(splitVLE_L2_Y.outlet2, boundaryVLE_pTxi.steam_a) annotation (Line(
       points={{-196,-40},{-176,-40}},
@@ -224,13 +224,12 @@ equation
       thickness=0.5));
   connect(sink1.port_a, split1.outlet1) annotation (Line(points={{-170,60},{-200,60},{-200,70},{-214,70},{-214,59.8}}, color={0,0,0}));
   connect(sink2.port_a, split1.outlet2) annotation (Line(points={{-176,18},{-214,18},{-214,40}}, color={0,0,0}));
-  connect(sinkPressure1.y, sink2.p_in) annotation (Line(points={{-141,18},{-156,18},{-156,17.8},{-158,17.8}},
-                                                                                                           color={0,0,127}));
+  connect(sinkPressure1.y, sink2.p_in) annotation (Line(points={{-141,18},{-156,18},{-156,18},{-158,18}},  color={0,0,127}));
   connect(MassFlowRateSource1.y, source1.h_in) annotation (Line(points={{-265,34},{-256,34},{-256,48},{-252,48}}, color={0,0,127}));
   connect(source3.port_a,split3. inlet) annotation (
     Line(points={{20,46},{30,46}}));
   connect(source3.m_flow_in,MassFlowRateSource4. y) annotation (Line(points={{2,49},{-11,49}},       color={0,0,127}));
-  connect(sinkPressure5.y,sink6. p_in) annotation (Line(points={{131,44},{122,44},{122,43.8},{120,43.8}},            color={0,0,127}));
+  connect(sinkPressure5.y,sink6. p_in) annotation (Line(points={{131,44},{122,44},{122,44},{120,44}},                color={0,0,127}));
   connect(MassFlowRateSource5.y,source3. h_in) annotation (Line(points={{-11,30},{-2,30},{-2,44},{2,44}},             color={0,0,127}));
   connect(split3.outlet1,simplePipe_L4_3. inlet) annotation (Line(points={{40,55.8},{40,68},{48,68}},          color={0,0,0}));
   connect(simplePipe_L4_4.inlet,split3. outlet2) annotation (Line(points={{48,12},{40,12},{40,36}},            color={0,0,0}));
@@ -239,17 +238,16 @@ equation
   connect(join.outlet, sink6.port_a) annotation (Line(points={{88,44},{102,44}},  color={0,0,0}));
   connect(source5.m_flow_in, MassFlowRateSource8.y) annotation (Line(points={{-254,-141},{-267,-141}},
                                                                                                   color={0,0,127}));
-  connect(sink7.p_in, sinkPressure6.y) annotation (Line(points={{-154,-134.2},{-148,-134.2},{-148,-134},{-141,-134}},
+  connect(sink7.p_in, sinkPressure6.y) annotation (Line(points={{-154,-134},{-148,-134},{-148,-134},{-141,-134}},
                                                                                                              color={0,0,127}));
-  connect(sinkPressure7.y,sink8. p_in) annotation (Line(points={{-143,-176},{-158,-176},{-158,-176.2},{-160,-176.2}},
-                                                                                                           color={0,0,127}));
+  connect(sinkPressure7.y,sink8. p_in) annotation (Line(points={{-143,-176},{-158,-176}},                  color={0,0,127}));
   connect(MassFlowRateSource9.y,source5. h_in) annotation (Line(points={{-267,-160},{-258,-160},{-258,-146},{-254,-146}},
                                                                                                                   color={0,0,127}));
   connect(source5.port_a, split5.outlet1) annotation (Line(points={{-236,-144},{-213.8,-144}},
                                                                                          color={0,0,0}));
   connect(split5.outlet2, sink7.port_a) annotation (Line(points={{-194,-144},{-178,-144},{-178,-134},{-172,-134}},
                                                                                                        color={0,0,0}));
-  connect(split5.inlet, sink8.port_a) annotation (Line(points={{-204,-154},{-204,-176},{-178,-176}},
+  connect(split5.inlet, sink8.port_a) annotation (Line(points={{-204,-154},{-204,-176},{-176,-176}},
                                                                                                color={0,0,0}));
   connect(boundaryVLE_hxim_flow1.steam_a, joinVLE_L2_Y.inlet2) annotation (Line(
       points={{20,-32},{64,-32},{64,-38}},
@@ -267,8 +265,7 @@ equation
       pattern=LinePattern.Solid,
       thickness=0.5));
   connect(source2.m_flow_in,MassFlowRateSource2. y) annotation (Line(points={{14,-141},{1,-141}}, color={0,0,127}));
-  connect(sink3.p_in,sinkPressure2. y) annotation (Line(points={{114,-134.2},{120,-134.2},{120,-134},{127,-134}},
-                                                                                                             color={0,0,127}));
+  connect(sink3.p_in,sinkPressure2. y) annotation (Line(points={{114,-134},{120,-134},{120,-134},{127,-134}},color={0,0,127}));
   connect(MassFlowRateSource3.y,source2. h_in) annotation (Line(points={{1,-160},{10,-160},{10,-146},{14,-146}},  color={0,0,127}));
   connect(source2.port_a, join2.inlet1) annotation (Line(points={{32,-144},{42,-144},{42,-144.2},{52,-144.2}}, color={0,0,0}));
   connect(sink3.port_a, join2.outlet) annotation (Line(points={{96,-134},{76,-134},{76,-106},{62,-106},{62,-134}}, color={0,0,0}));
@@ -281,7 +278,7 @@ equation
                                                                                                   color={0,0,127}));
   connect(MassFlowRateSource12.y,source7. h_in) annotation (Line(points={{-223,-304},{-214,-304},{-214,-290},{-210,-290}},
                                                                                                                    color={0,0,127}));
-  connect(sink4.p_in,sinkPressure3. y) annotation (Line(points={{-160,-236.2},{-154,-236.2},{-154,-236},{-147,-236}},
+  connect(sink4.p_in,sinkPressure3. y) annotation (Line(points={{-160,-236},{-154,-236},{-154,-236},{-147,-236}},
                                                                                                              color={0,0,127}));
   connect(MassFlowRateSource13.y, source7.m_flow_in) annotation (Line(points={{-223,-285},{-210,-285}}, color={0,0,127}));
   connect(source4.port_a, junction.fluidPort[1]) annotation (Line(points={{-242,-246},{-232,-246},{-232,-226},{-214.2,-226},{-214.2,-232}}, color={0,0,0}));

@@ -31,7 +31,7 @@ model Tutorial_Step4
   //          Imports and Class Hierarchy
   // _____________________________________________
 
-  TransiEnt.Components.Boundaries.FluidFlow.FluidSink sink annotation (Placement(transformation(extent={{-36,68},{-56,88}})));
+  TransiEnt.Components.Boundaries.FluidFlow.FluidSink sink annotation (Placement(transformation(extent={{-56,68},{-36,88}})));
   Modelica.Blocks.Sources.RealExpression realExpression(y=6e5) annotation (Placement(transformation(extent={{-84,68},{-64,88}})));
   Modelica.Blocks.Sources.RealExpression realExpression9(y=heatpump1.inlet.m_flow*((4200*trapezoid.y) - inStream(heatpump1.inlet.h_outflow))) annotation (Placement(transformation(extent={{-112,-24},{-92,-4}})));
   Modelica.Blocks.Sources.RealExpression realExpression6(y=0.1e5)
@@ -58,15 +58,13 @@ model Tutorial_Step4
   TransiEnt.Basics.Adapters.FluidPortAdapter fluidPortAdapter2 annotation (Placement(transformation(extent={{44,-19},{54,-9}})));
   TransiEnt.Basics.Adapters.FluidPortAdapter fluidPortAdapter3
                                                               annotation (Placement(transformation(extent={{44,-33},{54,-23}})));
-  TransiEnt.Components.Heat.SimplePump simplePump2
-                                                  annotation (Placement(transformation(extent={{-28,-16},{-12,0}})));
+  TransiEnt.Components.Heat.SimplePump_mflow simplePump2 annotation (Placement(transformation(extent={{-28,-16},{-12,0}})));
   Modelica.Blocks.Sources.RealExpression realExpression4(y=9)                                                                                 annotation (Placement(transformation(extent={{-42,2},{-28,17}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join annotation (Placement(transformation(
         extent={{10,-10},{-10,10}},
         rotation=180,
         origin={22,0})));
-  TransiEnt.Components.Heat.SimplePump simplePump1
-                                                  annotation (Placement(transformation(extent={{-26,-64},{-10,-48}})));
+  TransiEnt.Components.Heat.SimplePump_mflow simplePump1 annotation (Placement(transformation(extent={{-26,-64},{-10,-48}})));
   Modelica.Blocks.Sources.RealExpression realExpression2(y=9)                                                                                 annotation (Placement(transformation(extent={{-48,-46},{-34,-31}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split annotation (Placement(transformation(extent={{20,-44},{0,-24}})));
   TransiEnt.Producer.Heat.Gas2Heat.SimpleGasBoiler.SimpleBoiler gasBoiler(useGasPort=false) annotation (Placement(transformation(extent={{-88,-60},{-68,-40}})));
@@ -76,7 +74,7 @@ model Tutorial_Step4
                                                               annotation (Placement(transformation(extent={{-36,-81},{-46,-71}})));
   Modelica.Blocks.Sources.RealExpression realExpression5(y=-gasBoiler.inlet.m_flow*(60*4200 - inStream(gasBoiler.inlet.h_outflow)))           annotation (Placement(transformation(extent={{-102,-38},{-88,-23}})));
   Modelica.Thermal.HeatTransfer.Sources.FixedHeatFlow fixedHeatFlow(Q_flow=0) annotation (Placement(transformation(extent={{38,2},{58,22}})));
-  TransiEnt.Components.Heat.Pump_Dp pump_Dp annotation (Placement(transformation(extent={{110,-19},{120,-9}})));
+  TransiEnt.Components.Heat.SimplePump_dp pump_Dp annotation (Placement(transformation(extent={{110,-19},{120,-9}})));
 equation
 
   // _____________________________________________
@@ -85,7 +83,7 @@ equation
   // _____________________________________________
 
 
-  connect(sink.p_in,realExpression. y) annotation (Line(points={{-54,77.8},{-54,78},{-63,78}},                color={0,0,127}));
+  connect(sink.p_in,realExpression. y) annotation (Line(points={{-54,78},{-54,78},{-63,78}},                  color={0,0,127}));
   connect(realExpression6.y,PID. u_s) annotation (Line(points={{-39,52},{-30,52}},     color={0,0,127}));
   connect(realExpression7.y,PID. u_m) annotation (Line(points={{-39,32},{-18,32},{-18,40}},       color={0,0,127}));
   connect(realExpression3.y,heatpump1. T_set_variable) annotation (Line(points={{-91,10},{-60,10},{-60,-4}},       color={0,0,127}));

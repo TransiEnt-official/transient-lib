@@ -45,7 +45,7 @@ model TestPipeL4 "Test model for the simplePipeL4"
   Modelica.Blocks.Sources.RealExpression realExpression2(y=10)
                                                              annotation (Placement(transformation(extent={{-144,98},{-124,118}})));
   TransiEnt.Components.Boundaries.FluidFlow.FluidSource source annotation (Placement(transformation(extent={{-114,88},{-94,108}})));
-  TransiEnt.Components.Boundaries.FluidFlow.FluidSink sink annotation (Placement(transformation(extent={{-36,88},{-16,108}})));
+  TransiEnt.Components.Boundaries.FluidFlow.FluidSink sink annotation (Placement(transformation(extent={{-16,88},{-36,108}})));
   Modelica.Blocks.Sources.RealExpression realExpression1(y=1e5)
                                                              annotation (Placement(transformation(extent={{14,88},{-6,108}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 simplePipe_L4_1(
@@ -73,7 +73,7 @@ model TestPipeL4 "Test model for the simplePipeL4"
     u=0.0001,
     m_flow_start=10,
     c_pipe=0.001) annotation (Placement(transformation(extent={{-66,10},{-86,30}})));
-  TransiEnt.Components.Boundaries.FluidFlow.FluidSink sink1 annotation (Placement(transformation(extent={{-50,10},{-30,30}})));
+  TransiEnt.Components.Boundaries.FluidFlow.FluidSink sink1 annotation (Placement(transformation(extent={{-30,10},{-50,30}})));
   Modelica.Blocks.Sources.RealExpression realExpression3(y=1e5)
                                                              annotation (Placement(transformation(extent={{0,10},{-20,30}})));
   Modelica.Blocks.Sources.RealExpression realExpression4(y=10)
@@ -131,8 +131,7 @@ equation
   //          Characteristic Equations
   // _____________________________________________
 
-  connect(sink.p_in, realExpression1.y) annotation (Line(points={{-18,97.8},{-12.5,97.8},{-12.5,98},{-7,98}},
-                                                                                                           color={0,0,127}));
+  connect(sink.p_in, realExpression1.y) annotation (Line(points={{-18,98},{-12.5,98},{-12.5,98},{-7,98}},  color={0,0,127}));
   connect(source.port_a, simplePipe_L4_1.inlet) annotation (Line(points={{-94,98},{-74,98}}, color={0,0,0}));
   connect(sink.port_a, simplePipe_L4_1.outlet) annotation (Line(points={{-36,98},{-54,98}},
                                                                                           color={0,0,0}));
@@ -154,7 +153,7 @@ equation
                                                                                            color={0,0,127}));
   connect(sink1.port_a, simplePipe_L4_2.inlet) annotation (Line(points={{-50,20},{-66,20}},
                                                                                          color={0,0,0}));
-  connect(realExpression3.y, sink1.p_in) annotation (Line(points={{-21,20},{-26.5,20},{-26.5,19.8},{-32,19.8}},
+  connect(realExpression3.y, sink1.p_in) annotation (Line(points={{-21,20},{-26.5,20},{-26.5,20},{-32,20}},
                                                                                                           color={0,0,127}));
   connect(source1.h_in, step2.y) annotation (Line(points={{-112,18},{-120,18},{-120,8},{-125,8}},
                                                                                               color={0,0,127}));

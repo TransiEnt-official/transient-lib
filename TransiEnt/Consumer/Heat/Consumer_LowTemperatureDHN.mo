@@ -97,7 +97,7 @@ model Consumer_LowTemperatureDHN "Simple model of a thermal consumer for a low t
   Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature AmbientTemperature1
                                                                                  annotation (
     Placement(transformation(extent={{104,-10},{84,10}})));
-  TransiEnt.Components.Heat.SimplePump pump annotation (Placement(transformation(
+  TransiEnt.Components.Heat.SimplePump_mflow pump annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-54,26})));

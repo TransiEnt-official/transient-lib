@@ -88,7 +88,7 @@ model Consumer_SLP "Simple model of a thermal consumer with a table-based heat f
   //          Intances of other classes
   // _____________________________________________
 
-  TransiEnt.Components.Heat.SimplePump pump annotation (Placement(transformation(
+  TransiEnt.Components.Heat.SimplePump_mflow pump annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-54,26})));

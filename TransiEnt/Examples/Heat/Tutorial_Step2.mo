@@ -31,7 +31,7 @@ model Tutorial_Step2
   //          Imports and Class Hierarchy
   // _____________________________________________
 
-  TransiEnt.Components.Boundaries.FluidFlow.FluidSink sink annotation (Placement(transformation(extent={{-36,68},{-56,88}})));
+  TransiEnt.Components.Boundaries.FluidFlow.FluidSink sink annotation (Placement(transformation(extent={{-56,68},{-36,88}})));
   Modelica.Blocks.Sources.RealExpression realExpression(y=6e5) annotation (Placement(transformation(extent={{-84,68},{-64,88}})));
   Modelica.Blocks.Sources.RealExpression realExpression9(y=heatpump1.inlet.m_flow*((4200*70) - inStream(heatpump1.inlet.h_outflow)))          annotation (Placement(transformation(extent={{-60,-20},{-40,0}})));
   Modelica.Blocks.Sources.RealExpression realExpression6(y=0.1e5)
@@ -56,7 +56,7 @@ equation
   //          Characteristic Equations
   // _____________________________________________
 
-  connect(sink.p_in,realExpression. y) annotation (Line(points={{-54,77.8},{-54,78},{-63,78}},                color={0,0,127}));
+  connect(sink.p_in,realExpression. y) annotation (Line(points={{-54,78},{-54,78},{-63,78}},                  color={0,0,127}));
   connect(PID.y,heatpump1. dp) annotation (Line(points={{-7,52},{-4,52},{-4,0}},                                color={0,0,127}));
   connect(realExpression6.y,PID. u_s) annotation (Line(points={{-39,52},{-30,52}},     color={0,0,127}));
   connect(realExpression7.y,PID. u_m) annotation (Line(points={{-39,32},{-18,32},{-18,40}},       color={0,0,127}));

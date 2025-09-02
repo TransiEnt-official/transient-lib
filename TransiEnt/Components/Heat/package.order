@@ -19,5 +19,5 @@ HeatFlowMultiplier
 PrescribedHeatFlowAdvanced
 HeatExchanger
 HeatExchanger_simple
-SimplePump
-Pump_Dp
+SimplePump_mflow
+SimplePump_dp

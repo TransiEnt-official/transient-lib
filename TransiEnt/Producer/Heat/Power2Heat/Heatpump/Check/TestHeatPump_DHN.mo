@@ -54,7 +54,7 @@ model TestHeatPump_DHN "Test model for the heat pump for the DHN simulations"
   Modelica.Blocks.Sources.RealExpression realExpression2(y=heatpump.inlet.m_flow*(4184.71*60 - inStream(heatpump.inlet.h_outflow)))
                                                              annotation (Placement(transformation(extent={{-92,-2},{-72,18}})));
   TransiEnt.Consumer.Heat.ConstantHeatConsumer constantHeatConsumer(Q_flow_const=5000) annotation (Placement(transformation(extent={{58,4},{38,24}})));
-  TransiEnt.Components.Boundaries.FluidFlow.FluidSink sink annotation (Placement(transformation(extent={{-18,-92},{2,-72}})));
+  TransiEnt.Components.Boundaries.FluidFlow.FluidSink sink annotation (Placement(transformation(extent={{2,-92},{-18,-72}})));
   Modelica.Blocks.Sources.RealExpression realExpression4(y=0.1)
                                                              annotation (Placement(transformation(extent={{-30,-70},{-10,-50}})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_HeatFlow annotation (Placement(transformation(extent={{20,-144},{48,-124}})));
@@ -86,7 +86,7 @@ equation
       points={{-30,38},{-6,38},{-6,36},{18,36},{18,18},{32,18},{32,10},{38,10}},
       color={175,0,0},
       thickness=0.5));
-  connect(realExpression4.y, sink.p_in) annotation (Line(points={{-9,-60},{12,-60},{12,-82.2},{0,-82.2}},  color={0,0,127}));
+  connect(realExpression4.y, sink.p_in) annotation (Line(points={{-9,-60},{12,-60},{12,-82},{0,-82}},      color={0,0,127}));
   connect(heatpump1.outlet, consumer_HeatFlow.inlet) annotation (Line(points={{-26.2,-130},{20,-130}},color={0,0,0}));
   connect(consumer_HeatFlow.outlet, heatpump1.inlet) annotation (Line(points={{20,-138},{-18,-138},{-18,-142.2},{-26,-142.2}},
                                                                                                                             color={0,0,0}));

@@ -28,7 +28,7 @@ model FluidSource "Mass flow boundary for new connector"
   // _____________________________________________
 
   import         Modelica.Units.SI;
-
+  extends TransiEnt.Basics.Icons.BoundaryVLE_flow;
   // _____________________________________________
   //
   //             Visible Parameters
@@ -66,8 +66,7 @@ equation
 
   port_a.m_flow = -m_flow_in;
 
-  annotation (
-    Icon(graphics={  Rectangle(fillColor = {85, 85, 0}, fillPattern = FillPattern.Solid, extent = {{-100, 100}, {100, -100}})}), Documentation(info="<html>
+  annotation (                                                                                                                   Documentation(info="<html>
 <h4><span style=\"color: #008000\">Purpose of model</span></h4>
 <p>A simple model of a fluid source that can be used as a boundary for fluid simulations. It consists of a fluid outlet. A mass flow flowing out or into the component is set with a RealInput. If the RealInput of the mass flow has a positive sign, the mass flow is flowing out of the boundary. A specific enthalpy is set with a RealInput.</p>
 <h4><span style=\"color: #008000\">Interfaces</span></h4>

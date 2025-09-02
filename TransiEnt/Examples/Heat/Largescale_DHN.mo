@@ -1831,7 +1831,7 @@ public
         extent={{-6,-6},{6,6}},
         rotation=180,
         origin={-76,-314})));
-  TransiEnt.Components.Boundaries.FluidFlow.FluidSink sink annotation (Placement(transformation(extent={{-290,10},{-310,30}})));
+  TransiEnt.Components.Boundaries.FluidFlow.FluidSink sink annotation (Placement(transformation(extent={{-310,10},{-290,30}})));
   Modelica.Blocks.Sources.RealExpression realExpression(y=26e5)
                                                                annotation (Placement(transformation(extent={{-338,10},{-318,30}})));
   Modelica.Blocks.Sources.RealExpression realExpression9(y=heatpump1.inlet.m_flow*((4200*trapezoid.y) - inStream(heatpump1.inlet.h_outflow))) annotation (Placement(transformation(extent={{-354,-76},{-334,-56}})));
@@ -2200,7 +2200,7 @@ equation
   connect(join27.inlet1, pipe23_69R.inlet) annotation (Line(points={{264.12,-112},{264,-112},{264,-98},{256,-98},{256,-76}}, color={0,0,0}));
   connect(pipe80_82R.inlet, Topologie39_C.outlet) annotation (Line(points={{104,-290},{114.247,-290},{114.247,-263.747}}, color={0,0,0}));
   connect(Topologie39_C.inlet, pipe80_82.outlet) annotation (Line(points={{116.532,-263.747},{116.532,-298},{104,-298}}, color={0,0,0}));
-  connect(sink.p_in,realExpression. y) annotation (Line(points={{-308,19.8},{-304,20},{-317,20}},             color={0,0,127}));
+  connect(sink.p_in,realExpression. y) annotation (Line(points={{-308,20},{-308,20},{-317,20}},               color={0,0,127}));
   connect(sink.port_a, pipe1_2.inlet) annotation (Line(points={{-290,20},{-232,20},{-232,-60},{-198,-60}},                     color={0,0,0}));
   connect(PID.y,heatpump1. dp) annotation (Line(points={{-251,-10},{-248,-10},{-248,-32},{-258,-32},{-258,-60}},color={0,0,127}));
   connect(heatpump1.outlet, pipe1_2.inlet) annotation (Line(points={{-248.2,-64},{-248,-60},{-198,-60}},            color={0,0,0}));

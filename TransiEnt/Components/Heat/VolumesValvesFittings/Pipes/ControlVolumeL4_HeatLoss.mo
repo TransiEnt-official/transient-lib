@@ -156,7 +156,7 @@ equation
 <p>The control volume is discretized with an upwind scheme. For the implementation of the occuring case distinction the semiLinear operator is used. </p>
 <p>This control volume is used in pipe models for district heating networks. It considers the thermal inertia of the pipe as well as heat and pressure losses.</p>
 <h4><span style=\"color: #008c48\">Level of detail, physical effects considered, and physical insight</span></h4>
-<p>L2 (defined in the CodingConventions)</p>
+<p>L4 (defined in the CodingConventions)</p>
 <ul>
 <li>static mass balance</li>
 <li>constant fluid properties</li>

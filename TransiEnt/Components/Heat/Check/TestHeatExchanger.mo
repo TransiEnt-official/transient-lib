@@ -38,12 +38,10 @@ model TestHeatExchanger "Test model for the heat exchanger"
 
   Modelica.Blocks.Sources.RealExpression realExpression2(y=1e5)
                                                              annotation (Placement(transformation(extent={{26,44},{46,64}})));
-  TransiEnt.Components.Boundaries.FluidFlow.FluidSink sink1 annotation (Placement(transformation(extent={{38,20},{58,40}})));
+  TransiEnt.Components.Boundaries.FluidFlow.FluidSink sink1 annotation (Placement(transformation(extent={{58,20},{38,40}})));
   ClaRa.Components.BoundaryConditions.BoundaryVLE_pTxi boundaryVLE_pTxi(p_const=1e5)   annotation (Placement(transformation(extent={{64,-96},{44,-76}})));
-  inner TransiEnt.SimCenter simCenter annotation (Placement(transformation(extent={{84,96},{104,116}})));
+  inner TransiEnt.SimCenter simCenter annotation (Placement(transformation(extent={{96,108},{116,128}})));
   TransiEnt.Components.Boundaries.FluidFlow.FluidSource source annotation (Placement(transformation(extent={{-92,20},{-72,40}})));
-  Modelica.Blocks.Sources.RealExpression realExpression3(y=0.1)
-                                                             annotation (Placement(transformation(extent={{124,9},{144,29}})));
   Modelica.Blocks.Sources.Step step(
     height=10*4200,
     offset=60*4200,
@@ -59,10 +57,6 @@ model TestHeatExchanger "Test model for the heat exchanger"
     V=0.992146,
     rho=995.6,
     n=1) annotation (Placement(transformation(extent={{-22,20},{-2,40}})));
-  Modelica.Blocks.Sources.RealExpression realExpression1(y=-5000)
-                                                             annotation (Placement(transformation(extent={{118,28},{138,48}})));
-  Modelica.Blocks.Sources.RealExpression realExpression4(y=-5000)
-                                                             annotation (Placement(transformation(extent={{116,74},{136,94}})));
   Modelica.Thermal.HeatTransfer.Sources.FixedTemperature fixedTemperature(T=293.15) annotation (Placement(transformation(extent={{-48,-66},{-28,-46}})));
   Modelica.Thermal.HeatTransfer.Sources.FixedTemperature fixedTemperature1(T=293.15) annotation (Placement(transformation(extent={{-54,64},{-34,84}})));
   ClaRa.Components.BoundaryConditions.BoundaryVLE_pTxi boundaryVLE_pTxi1(p_const=1e5)  annotation (Placement(transformation(extent={{72,-190},{52,-170}})));
@@ -74,8 +68,6 @@ model TestHeatExchanger "Test model for the heat exchanger"
     offset=60*4200,
     startTime=43200) annotation (Placement(transformation(extent={{-120,-190},{-100,-170}})));
   Modelica.Thermal.HeatTransfer.Sources.FixedTemperature fixedTemperature2(T=293.15) annotation (Placement(transformation(extent={{-40,-160},{-20,-140}})));
-  Modelica.Blocks.Sources.RealExpression realExpression5(y=10)
-                                                             annotation (Placement(transformation(extent={{120,50},{140,70}})));
   Modelica.Blocks.Sources.Step step5(
     height=0.1,
     offset=0.1,
@@ -98,7 +90,7 @@ equation
   //          Characteristic Equations
   // _____________________________________________
 
-  connect(realExpression2.y, sink1.p_in) annotation (Line(points={{47,54},{72,54},{72,29.8},{56,29.8}},                       color={0,0,127}));
+  connect(realExpression2.y, sink1.p_in) annotation (Line(points={{47,54},{72,54},{72,30},{56,30}},                           color={0,0,127}));
   connect(step.y, source.h_in) annotation (Line(points={{-111,10},{-96,10},{-96,28},{-90,28}},     color={0,0,127}));
   connect(boundaryVLE_pTxi.steam_a, idealShell_L2_1.outlet) annotation (Line(
       points={{44,-86},{2,-86}},
@@ -136,17 +128,17 @@ equation
                                                                                                                                                                                                         experiment(StopTime=86400, __Dymola_Algorithm="Dassl"),
     Diagram(coordinateSystem(extent={{-180,-200},{140,140}}), graphics={
         Text(
-          extent={{-142,112},{6,90}},
-          textColor={28,108,200},
-          textString="Test model for heat exchanger"),
-        Text(
           extent={{-146,-10},{28,-26}},
           textColor={28,108,200},
           textString="ClaRa heat exchanger model (return)"),
         Text(
           extent={{-148,-108},{46,-128}},
           textColor={28,108,200},
-          textString="ClaRa heat exchanger model (logarithmic)")}),
+          textString="ClaRa heat exchanger model (logarithmic)"),
+        Text(
+          extent={{-142,112},{32,96}},
+          textColor={28,108,200},
+          textString="simple heat exchanger model (return)")}),
     Documentation(info="<html>
 <h4><span style=\"color: #008c48\">Purpose of model:</span></h4>
 <p>Test model for the verification of the heat exchanger model.</p>

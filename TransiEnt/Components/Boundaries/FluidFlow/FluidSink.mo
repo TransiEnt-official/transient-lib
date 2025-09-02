@@ -28,13 +28,13 @@ model FluidSink "Pressure boundary for new connector"
   // _____________________________________________
 
   import         Modelica.Units.SI;
+  extends TransiEnt.Basics.Icons.BoundaryVLE;
 
   // _____________________________________________
   //
   //             Visible Parameters
   // _____________________________________________
 
-  parameter SI.Pressure p = 1e5 "Pressure in the sink (unused)";
   parameter SI.SpecificEnthalpy h = 60 * 4200 "Specific enthalpy of the water going out of the sink";
 
   // _____________________________________________
@@ -45,20 +45,18 @@ model FluidSink "Pressure boundary for new connector"
   TransiEnt.Basics.Interfaces.Thermal.FluidPortIn_simple port_a annotation (Placement(
       visible=true,
       transformation(
-        origin={-100,0},
-        extent={{-10,-10},{10,10}},
+        extent={{90,-10},{110,10}},
         rotation=0),
       iconTransformation(
-        origin={-100,0},
-        extent={{-10,-10},{10,10}},
+        extent={{90,-10},{110,10}},
         rotation=0)));
   Modelica.Blocks.Interfaces.RealInput p_in annotation (Placement(transformation(
-        extent={{-20,-20},{20,20}},
+        extent={{20,-20},{-20,20}},
         rotation=180,
-        origin={100,0}), iconTransformation(
-        extent={{-20,-20},{20,20}},
+        origin={-80,0}), iconTransformation(
+        extent={{20,-20},{-20,20}},
         rotation=180,
-        origin={80,-2})));
+        origin={-80,0})));
 
 equation
   // _____________________________________________
@@ -68,8 +66,7 @@ equation
 
   port_a.h_outflow = h;
   port_a.p = p_in;
-  annotation (
-    Icon(graphics={  Rectangle(fillColor = {85, 85, 0}, fillPattern = FillPattern.Solid, extent = {{-100, 100}, {100, -100}})}), Documentation(info="<html>
+  annotation (                                                                                                                   Documentation(info="<html>
 <h4><span style=\"color: #008000\">Purpose of model</span></h4>
 <p>A simple model of a fluid sink that is used for fluid simulations. It consists of a fluid inlet. A pressure is set with a RealInput. A specific enthalpy is set with a RealInput.</p>
 <h4><span style=\"color: #008000\">Interfaces</span></h4>

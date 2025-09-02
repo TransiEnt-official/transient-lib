@@ -1,5 +1,5 @@
 ﻿within TransiEnt.Components.Heat;
-model Pump_Dp
+model SimplePump_dp "A simple model of a pump with an input for the pressure difference"
 
 //________________________________________________________________________________//
 // Component of the TransiEnt Library, version: 2.0.3                             //
@@ -28,6 +28,7 @@ model Pump_Dp
   // _____________________________________________
 
   import   Modelica.Units.SI;
+  extends TransiEnt.Basics.Icons.Pump;
 
   // _____________________________________________
   //
@@ -53,7 +54,6 @@ model Pump_Dp
   //
   //          Interfaces
   // _____________________________________________
-
 
   TransiEnt.Basics.Interfaces.Thermal.FluidPortIn_simple inlet annotation (Placement(
       visible=true,
@@ -81,7 +81,6 @@ model Pump_Dp
         origin={0,100})));
 equation
 
-
   // _____________________________________________
   //
   //          Characteristic Equations
@@ -96,11 +95,7 @@ P_el=P_hyd/eta_mech/eta_el;
   inlet.h_outflow = inStream(outlet.h_outflow);
   outlet.h_outflow = inStream(inlet.h_outflow);
 
-  annotation (Icon(graphics={Ellipse(
-          extent={{100,-100},{-100,100}},
-          lineColor={28,108,200},
-          fillColor={28,108,200},
-          fillPattern=FillPattern.Solid)}), Documentation(info="<html>
+  annotation (                              Documentation(info="<html>
 <h4><span style=\"color: #008000\">Purpose of model</span></h4>
 <p>This model represents a fluid pump. It is a simple model of a pump that can be used to calculate the electric power necessary to set a given pressure difference. It uses a static mass and momentum balance. No enthalpy changes over the pump are considered. </p>
 <h4><span style=\"color: #008000\">Level of detail, physical effects considered, and physical insight</span></h4>
@@ -132,4 +127,4 @@ P_el=P_hyd/eta_mech/eta_el;
 <h4><span style=\"color: #008000\">Version History</span></h4>
 <p>Model created by Jan Westphal (j.westphal@tuhh.de) in August 2025</p>
 </html>"));
-end Pump_Dp;
+end SimplePump_dp;
