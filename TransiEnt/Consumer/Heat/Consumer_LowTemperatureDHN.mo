@@ -1,5 +1,5 @@
 ﻿within TransiEnt.Consumer.Heat;
-model Consumer_LowTemperatureDHN "Simple model of a thermal consumer for a low temperature DHN including a heat pump"
+model Consumer_LowTemperatureDHN "Simple model of a thermal consumer for a low temperature DHN including a heat pump and simple fluid ports"
 
 //________________________________________________________________________________//
 // Component of the TransiEnt Library, version: 2.0.3                             //
@@ -105,7 +105,7 @@ model Consumer_LowTemperatureDHN "Simple model of a thermal consumer for a low t
    Placement(visible = true, transformation(origin={4,64},     extent = {{10, -10}, {-10, 10}}, rotation = 0)));
  Modelica.Thermal.HeatTransfer.Celsius.TemperatureSensor temperatureSensor1 annotation (
    Placement(visible = true, transformation(origin={0,-22},    extent = {{-6, -6}, {6, 6}}, rotation = 180)));
-  TransiEnt.Producer.Heat.Power2Heat.HeatPump_LowTemperatureDHN heatPump annotation (Placement(visible=true, transformation(
+  TransiEnt.Producer.Heat.Power2Heat.Heatpump.HeatPump_LowTemperatureDHN heatPump annotation (Placement(visible=true, transformation(
         origin={-54,0},
         extent={{-10,-10},{10,10}},
         rotation=-90)));

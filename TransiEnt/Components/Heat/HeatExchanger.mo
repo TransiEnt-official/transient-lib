@@ -1,5 +1,5 @@
 ﻿within TransiEnt.Components.Heat;
-model HeatExchanger "Simple heat exchanger model based on EN442"
+model HeatExchanger "Simple heat exchanger model based on EN442 with simple fluid ports"
 
 //________________________________________________________________________________//
 // Component of the TransiEnt Library, version: 2.0.3                             //

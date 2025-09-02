@@ -1,5 +1,5 @@
 ﻿within TransiEnt.Consumer.Heat;
-model Consumer "Simple model of a thermal consumer"
+model Consumer "Simple model of a thermal consumer with simple fluid ports"
 
 //________________________________________________________________________________//
 // Component of the TransiEnt Library, version: 2.0.3                             //

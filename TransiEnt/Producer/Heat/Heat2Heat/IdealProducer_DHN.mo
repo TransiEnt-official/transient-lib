@@ -1,5 +1,5 @@
 ﻿within TransiEnt.Producer.Heat.Heat2Heat;
-model IdealProducer_DHN "Simple model of a producer providing a constant specific enthalpy and a pressure difference"
+model IdealProducer_DHN "Simple model of a producer providing a constant specific enthalpy and a pressure difference and using simple fluid ports"
 
 //________________________________________________________________________________//
 // Component of the TransiEnt Library, version: 2.0.3                             //

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.Power2Heat;
+﻿within TransiEnt.Producer.Heat.Power2Heat.Heatpump;
 model HeatPump_LowTemperatureDHN "Heat Pump model in low temperature DHN"
 
   //________________________________________________________________________________//

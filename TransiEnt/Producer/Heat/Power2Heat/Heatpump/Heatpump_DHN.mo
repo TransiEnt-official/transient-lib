@@ -1,5 +1,5 @@
 ﻿within TransiEnt.Producer.Heat.Power2Heat.Heatpump;
-model Heatpump_DHN "Simple model of a producer providing a constant specific enthalpy and a pressure difference"
+model Heatpump_DHN "Simple model of a heat pump for a district heating network with simple fluid ports"
 
 //________________________________________________________________________________//
 // Component of the TransiEnt Library, version: 2.0.3                             //

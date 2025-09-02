@@ -1,5 +1,5 @@
 ﻿within TransiEnt.Consumer.Heat;
-model ConsumerHeatCharacteristic "Simple model of a thermal consumer with a heat characteristic between heat exchanger and building capacity"
+model ConsumerHeatCharacteristic "Simple model of a thermal consumer with a heat characteristic between heat exchanger and building capacity with simple fluid ports"
 
 //________________________________________________________________________________//
 // Component of the TransiEnt Library, version: 2.0.3                             //
