@@ -278,16 +278,16 @@ equation
   end if;
 
   //Demand Statistics
-  collectHeatingPower.heatFlowCollector.Q_flow=q_Demand_water+q_Demand;
-  collectElectricPower.powerCollector.P=el_Demand;
+  collectHeatingPower.heatFlowCollector.Q_flow=demand.hotWaterPowerDemand + demand.heatingPowerDemand;
+  collectElectricPower.powerCollector.P=demand.electricPowerDemand;
 
   // _____________________________________________
   //
   //          Connect statements
   // _____________________________________________
 
-  connect(q_Demand, sum.u[1]) annotation (Line(
-      points={{1.77636e-015,94},{0,94},{0,74},{26,74},{26,69.6},{25.2,69.6}},
+  connect(demand.heatingPowerDemand, sum.u[1]) annotation (Line(
+      points={{1,96.72},{0,96.72},{0,74},{26,74},{26,69.6},{25.2,69.6}},
       color={162,29,33},
       pattern=LinePattern.Dash));
 
@@ -295,8 +295,8 @@ equation
       points={{-68,60},{-68,60},{-80,60},{-80,-98}},
       color={0,127,0},
       thickness=0.5));
-  connect(q_Demand_water, sum.u[2]) annotation (Line(
-      points={{60,94},{60,74},{26,74},{26,72},{26.8,72},{26.8,69.6}},
+  connect(demand.hotWaterPowerDemand, sum.u[2]) annotation (Line(
+      points={{-13.8,96.72},{-13.8,74},{26,74},{26,72},{26.8,72},{26.8,69.6}},
       color={162,29,33},
       pattern=LinePattern.Dash));
   connect(ambientTemperature.y, pVModule.T_in) annotation (Line(points={{-53,29},{-48.65,29},{-48.65,22.4},{-41.6,22.4}}, color={0,0,127}));
@@ -340,26 +340,26 @@ equation
       color={175,0,0},
       thickness=0.5));
 
-  connect(el_Demand, Electric_Consumer.P_el_set) annotation (Line(points={{-60,94},{-60,76},{-64,76},{-64,69.6},{-64.8,69.6}}, color={0,127,127}));
+  connect(demand.electricPowerDemand, Electric_Consumer.P_el_set) annotation (Line(points={{15.43,96.72},{15.43,76},{-64,76},{-64,69.6},{-64.8,69.6}}, color={0,127,127}));
 
   connect(gasIn_grid, solarThermalSystem.gasPortIn) annotation (Line(
       points={{80,-96},{58,-96},{58,-4},{59.5,-4},{59.5,10.1}},
       color={255,255,0},
       thickness=1.5));
 
-  connect(q_Demand, converter_Heat2Power.Q_demand_sh) annotation (Line(
-      points={{1.77636e-15,94},{0,94},{0,74},{-21.9286,74},{-21.9286,44.7857}},
+  connect(demand.heatingPowerDemand, converter_Heat2Power.Q_demand_sh) annotation (Line(
+      points={{1,96.72},{0,96.72},{0,74},{-21.9286,74},{-21.9286,44.7857}},
       color={162,29,33},
       pattern=LinePattern.Dash));
   connect(converter_Heat2Power.epp, epp) annotation (Line(
       points={{-31.7143,38.2857},{-80,38.2857},{-80,-98}},
       color={0,127,0},
       thickness=0.5));
-  connect(q_Demand_water, domestic_hot_water.demand) annotation (Line(
-      points={{60,94},{60,76},{-12,76},{-12,70.64}},
+  connect(demand.hotWaterPowerDemand, domestic_hot_water.demand) annotation (Line(
+      points={{-13.8,96.72},{-13.8,76},{-12,76},{-12,70.64}},
       color={175,0,0},
       pattern=LinePattern.Dash));
-  connect(el_Demand, add_dhw.u1) annotation (Line(points={{-60,94},{-62,94},{-62,76},{-86,76},{-86,-18.4},{-77.2,-18.4}}, color={0,127,127}));
+  connect(demand.electricPowerDemand, add_dhw.u1) annotation (Line(points={{15.43,96.72},{-62,96.72},{-62,76},{-86,76},{-86,-18.4},{-77.2,-18.4}}, color={0,127,127}));
   connect(add_dhw.y, add.u2) annotation (Line(points={{-63.4,-22},{-60,-22},{-60,-15.6},{-57.2,-15.6}}, color={0,0,127}));
   connect(domestic_hot_water.electrical_dhw_demand, add_dhw.u2) annotation (Line(points={{-11.92,53.12},{-11.92,50},{-90,50},{-90,-25.6},{-77.2,-25.6}}, color={0,0,127}));
   connect(domestic_hot_water.epp, epp) annotation (Line(
@@ -371,17 +371,17 @@ equation
       points={{80,-96},{80,-52},{76.2,-52}},
       color={255,255,0},
       thickness=1.5));
-  connect(q_Demand, solarThermalSystem.Q_flow_demand_heating) annotation (Line(
-      points={{1.77636e-15,94},{0,94},{0,40},{44,40},{44,30},{48.1,30},{48.1,29.5}},
+  connect(demand.heatingPowerDemand, solarThermalSystem.Q_flow_demand_heating) annotation (Line(
+      points={{1,96.72},{0,96.72},{0,40},{44,40},{44,30},{48.1,30},{48.1,29.5}},
       color={175,0,0},
       pattern=LinePattern.Dash));
-  connect(solarThermalSystem.Q_flow_demand_hotwater, q_Demand_water) annotation (Line(
-      points={{56.1,29.5},{56.1,56.75},{60,56.75},{60,94}},
+  connect(solarThermalSystem.Q_flow_demand_hotwater, demand.hotWaterPowerDemand) annotation (Line(
+      points={{56.1,29.5},{56.1,56.75},{-13.8,56.75},{-13.8,96.72}},
       color={175,0,0},
       pattern=LinePattern.Dash));
   connect(radiationData.y[1], pVModule.POA_radiation_in) annotation (Line(points={{-87,30},{-78,30},{-78,40},{-42,40},{-42,28},{-40.48,28},{-40.48,16}}, color={0,0,127}));
-  connect(substation_indirect_noStorage.Q_demand_RH, q_Demand) annotation (Line(points={{-5,-5},{-5,6},{12,6},{12,54},{0,54},{0,94}}, color={0,0,127}));
-  connect(substation_indirect_noStorage.Q_demand_DHW, q_Demand_water) annotation (Line(points={{17,-5},{17,4},{36,4},{36,40},{60,40},{60,94}}, color={0,0,127}));
+  connect(substation_indirect_noStorage.Q_demand_RH, demand.heatingPowerDemand) annotation (Line(points={{-5,-5},{-5,6},{12,6},{12,54},{1,54},{1,96.72}}, color={0,0,127}));
+  connect(substation_indirect_noStorage.Q_demand_DHW, demand.hotWaterPowerDemand) annotation (Line(points={{17,-5},{17,4},{36,4},{36,40},{-13.8,40},{-13.8,96.72}}, color={0,0,127}));
 
   connect(modelStatistics.powerCollector[TransiEnt.Basics.Types.TypeOfResource.Consumer],collectElectricPower.powerCollector);
   connect(modelStatistics.heatFlowCollector[TransiEnt.Basics.Types.TypeOfResource.Consumer],collectHeatingPower.heatFlowCollector);
