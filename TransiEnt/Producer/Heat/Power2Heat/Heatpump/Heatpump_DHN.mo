@@ -34,8 +34,7 @@ model Heatpump_DHN "Simple model of a heat pump for a district heating network w
   //             Visible Parameters
   // _____________________________________________
 
-  parameter SI.SpecificEnthalpy h_soll = 60 * 4200 "Outgoing specific enthalpy (unused)";
-  parameter SI.Temperature T_set=273.15+60;
+  //parameter SI.Temperature T_set=273.15+60;
   parameter SI.Temperature Delta_T_internal=5;
   parameter SI.Temperature T_source_internal=273.15+20;
   parameter Real COP_n=3;

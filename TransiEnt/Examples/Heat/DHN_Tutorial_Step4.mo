@@ -29,7 +29,7 @@ model DHN_Tutorial_Step4
 
   TransiEnt.Components.Boundaries.FluidFlow.FluidSink sink annotation (Placement(transformation(extent={{-56,68},{-36,88}})));
   Modelica.Blocks.Sources.RealExpression realExpression(y=6e5) annotation (Placement(transformation(extent={{-84,68},{-64,88}})));
-  Modelica.Blocks.Sources.RealExpression realExpression9(y=heatpump1.inlet.m_flow*((4200*60) - inStream(heatpump1.inlet.h_outflow)))          annotation (Placement(transformation(extent={{-112,-24},{-92,-4}})));
+  Modelica.Blocks.Sources.RealExpression realExpression9(y=heatpump1.inlet.m_flow*((4186*60) - inStream(heatpump1.inlet.h_outflow)))          annotation (Placement(transformation(extent={{-112,-24},{-92,-4}})));
   Modelica.Blocks.Sources.RealExpression realExpression6(y=0.1e5)
                                                                 annotation (Placement(transformation(extent={{-60,42},{-40,62}})));
   Modelica.Blocks.Sources.RealExpression realExpression7(y=topologyA_Ports.consumer_9.inlet.p - topologyA_Ports.consumer_9.outlet.p)       annotation (Placement(transformation(extent={{-60,22},{-40,42}})));
@@ -68,7 +68,7 @@ model DHN_Tutorial_Step4
                                                               annotation (Placement(transformation(extent={{-44,-59},{-54,-49}})));
   TransiEnt.Basics.Adapters.FluidPortAdapter fluidPortAdapter5
                                                               annotation (Placement(transformation(extent={{-36,-81},{-46,-71}})));
-  Modelica.Blocks.Sources.RealExpression realExpression5(y=-gasBoiler.inlet.m_flow*(60*4200 - inStream(gasBoiler.inlet.h_outflow)))           annotation (Placement(transformation(extent={{-102,-38},{-88,-23}})));
+  Modelica.Blocks.Sources.RealExpression realExpression5(y=-gasBoiler.inlet.m_flow*(60*4186 - inStream(gasBoiler.inlet.h_outflow)))           annotation (Placement(transformation(extent={{-102,-38},{-88,-23}})));
   Modelica.Thermal.HeatTransfer.Sources.FixedHeatFlow fixedHeatFlow(Q_flow=0) annotation (Placement(transformation(extent={{38,2},{58,22}})));
   TransiEnt.Components.Heat.SimplePump_dp pump_Dp annotation (Placement(transformation(extent={{110,-19},{120,-9}})));
 equation

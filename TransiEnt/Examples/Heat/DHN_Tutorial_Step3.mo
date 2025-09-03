@@ -29,7 +29,7 @@ model DHN_Tutorial_Step3
 
   TransiEnt.Components.Boundaries.FluidFlow.FluidSink sink annotation (Placement(transformation(extent={{-56,68},{-36,88}})));
   Modelica.Blocks.Sources.RealExpression realExpression(y=6e5) annotation (Placement(transformation(extent={{-84,68},{-64,88}})));
-  Modelica.Blocks.Sources.RealExpression realExpression9(y=heatpump1.inlet.m_flow*((4200*60) - inStream(heatpump1.inlet.h_outflow)))          annotation (Placement(transformation(extent={{-60,-20},{-40,0}})));
+  Modelica.Blocks.Sources.RealExpression realExpression9(y=heatpump1.inlet.m_flow*((4186*60) - inStream(heatpump1.inlet.h_outflow)))          annotation (Placement(transformation(extent={{-60,-20},{-40,0}})));
   Modelica.Blocks.Sources.RealExpression realExpression6(y=0.1e5)
                                                                 annotation (Placement(transformation(extent={{-60,42},{-40,62}})));
   Modelica.Blocks.Sources.RealExpression realExpression7(y=topologyA_Ports.consumer_9.inlet.p - topologyA_Ports.consumer_9.outlet.p)       annotation (Placement(transformation(extent={{-60,22},{-40,42}})));
@@ -40,7 +40,7 @@ model DHN_Tutorial_Step3
     yMax=24e5,
     yMin=0.0001) annotation (Placement(transformation(extent={{-28,42},{-8,62}})));
   TransiEnt.Producer.Heat.Power2Heat.Heatpump.Heatpump_DHN heatpump1(P_el_max(displayUnit="MW") = 200000000, P_el_min=0.00001) annotation (Placement(transformation(extent={{-14,-20},{6,0}})));
-  Modelica.Blocks.Sources.RealExpression realExpression3(y=heatpump1.outlet.h_outflow/4186) annotation (Placement(transformation(extent={{-60,4},{-40,24}})));
+  Modelica.Blocks.Sources.RealExpression realExpression3(y=60)                              annotation (Placement(transformation(extent={{-60,4},{-40,24}})));
   TransiEnt.Grid.Heat.HeatGridTopology.TopologyA_Ports topologyA_Ports annotation (Placement(transformation(
         extent={{-31,-16},{31,16}},
         rotation=90,
