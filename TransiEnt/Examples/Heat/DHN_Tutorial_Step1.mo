@@ -76,6 +76,6 @@ equation
 <h4><span style=\"color: #008000\">Purpose of model</span></h4>
 <p>A tutorial for the modeling of district heating networks with the TransiEnt Library. Step 1 is about creating a basic district heating network model. </p>
 <h4><span style=\"color: #008c48\">References</span></h4>
-<p>The written Tutorial can be found on the TransiEnt website: https://www.tuhh.de/transient-ee/</p>
+<p>The written Tutorial can be found on the TransiEnt website: https://www.tuhh.de/transient-ee/tutorials</p>
 </html>"));
 end DHN_Tutorial_Step1;
