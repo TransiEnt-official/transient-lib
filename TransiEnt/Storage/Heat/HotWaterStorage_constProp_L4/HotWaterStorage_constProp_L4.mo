@@ -381,12 +381,12 @@ equation
   connect(modelStatistics.costsCollector, collectStorageCosts.costsCollector);
 
      annotation (Documentation(info="<html>
-<p><b><span style=\"color: #008000;\">1. Purpose of model</span></b> </p>
-<p>One dimensional fluid storage model with stratification. Intention of the model is to represent a hot water storage in a bigger system with more accurate outflow temperatures compared to a zero dimensional storage model. Several ports on the producer and grid side can be added as well as electric heating rods.</p>
-<p><b><span style=\"color: #008000;\">2. Level of detail, physical effects considered, and physical insight</span></b></p>
+<p><b><span style=\"color: #008000;\">Purpose of model</span></b> </p>
+<p>One-dimensional fluid storage model with stratification. The intention of the model is to represent a hot water storage in a bigger system with more accurate outflow temperatures compared to a zero-dimensional storage model. Several ports on the producer and grid side can be added, as well as electric heating rods.</p>
+<h4><span style=\"color: #008000\">Level of detail, physical effects considered, and physical insight</span></h4>
 <p>L4: Storage is divided in layered volumes. Each volume is ideally stirred. Between the fluid volumes, heat conduction, heat diffusion, heat losses and boyancy are considered. </p>
 <p>Heat losses to the ambient are simplified as heat conduction through top, side wall and bottom. </p>
-<p><b><span style=\"color: #008000;\">3. Limits of validity </span></b></p>
+<h4><span style=\"color: #008000\">Limits of validity </span></h4>
 <p>- The storage model includes just a vertical temperature distribution. No horizontal temperature distribution is modeled. Mixing effects due to the velocity of the fluid at inlets an outlets are not modeled. </p>
 <p>- Losses to the ambient are modeled as linear dependent from temperature difference (no radiation or convection modeled)</p>
 <p>- Thermodynamic properties of fluid are constant (no temperature dependency modeled)</p>
@@ -394,7 +394,7 @@ equation
 <p>- No change of gaseous state modeled</p>
 <p>- Geometry is cylindric </p>
 <p>- arbitrary fluid port numbers with individual heigths </p>
-<p><b><span style=\"color: #008000;\">4. Interfaces</span></b></p>
+<h4><span style=\"color: #008000\">Interfaces</span></h4>
 <p>Heat</p>
 <p>heatLosses: ambient temperature and the collected heat flow to the ambient through top, side wall and bottom</p>
 <p>port: heat port connected to each layer of the storage tank if fluid ports are disabled.</p>
@@ -403,18 +403,14 @@ equation
 <p>waterPortOut_prod: fluid connection to producer, fluid flows from the storage </p>
 <p>waterPortIn_grid: fluid connection from heating grid, fluid flows to the storage</p>
 <p>waterPortOut_grid: fluid connection to heating Grid, fluid flows from the storage</p>
-<p><b><span style=\"color: #008000;\">5. Nomenclature</span></b></p>
-<p>(no remarks)</p>
-<p><b><span style=\"color: #008000;\">6. Governing Equations</span></b></p>
-<p>Energy and mass or volume balance inside every volume segment. Heat losses due to one dimensional thermal conductance through top, bottom and side wall. Thermal conductance between volume segments. Modeled boyancy introducing heat flow from lower to higher segment if the lower segemnt has a higher temperature. Direct fluid connection between the volumes. </p>
-<p><b><span style=\"color: #008000;\">7. Remarks for Usage</span></b></p>
+<h4><span style=\"color: #008000\">Governing Equations</span></h4>
+<p>Energy and mass or volume balance inside every volume segment. Heat losses due to one-dimensional thermal conductance through the top, bottom and side walls. Thermal conductance between volume segments is considered. Modeled buoyancy introducing a heat flow from lower to higher segments if the lower segement has a higher temperature. Direct fluid connections between the volumes. </p>
+<h4><span style=\"color: #008000\">Remarks for Usage</span></h4>
 <p>The allowed minimum number of volume segements is two. The higher the number of segments the higher the number of equations. </p>
 <p>If FluidPorts are disabled, the amount of heat that is transferred to each layer needs to be specified via the heat port &apos;port&apos;.</p>
-<p><b><span style=\"color: #008000;\">8. Validation</span></b></p>
+<h4><span style=\"color: #008000\">Validation</span></h4>
 <p>The model is validated with hot water storage Vitocell 160E. The storage tank has a capacity of 1000 liters and an inner height of 1.88 metres (without insulation). The tank has multiple fluid inflow and outflow connections. The storage is used for climatisation and is installed at TUHH for research purposes. The model is validated against measurements and simulations from Harmsen. </p>
-<p><b><span style=\"color: #008000;\">9. References</span></b></p>
-<p>(no remarks) </p>
-<p><b><span style=\"color: #008000;\">10. Version History</span></b></p>
+<h4><span style=\"color: #008000\">Version History</span></h4>
 <p>Model created by Tobias Ramm (tobias.ramm@tuhh.de) on Fri Mar 20 2015</p>
 <p>Model revised by Lisa Andresen (andresen@tuhh.de), Jun 2015</p>
 <p>Model revised and redesigned by Pascal Dubucq (dubucq@tuhh.de) on Wed August 24, 2016</p>

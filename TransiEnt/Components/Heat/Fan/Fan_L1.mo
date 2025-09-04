@@ -264,9 +264,9 @@ equation
           points={{-20,-56},{56,-20}},
           color={0,0,0},
           thickness=0.5)}),                                                          Documentation(info="<html>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">1. Purpose of model</span></b></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Purpose of model</span></b></p>
 <p>Simple model for electric fan using a polytropic as well as electric and mechanical efficiency. </p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">2. Level of detail, physical effects considered, and physical insight</span></b></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Level of detail, physical effects considered, and physical insight</span></b></p>
 <ul>
 <li>The mass flow through the fan is set independendy of the in- and outlet boundary conditions, which is not physical. </li>
 <li>No air control volume is used, and thus there is no momentum, mass or energy storage in the component.</li>
@@ -274,29 +274,29 @@ equation
 <li><span style=\"font-family: MS Shell Dlg 2;\">The mass flow is ideally controlled.</span></li>
 <li><span style=\"font-family: MS Shell Dlg 2;\">Dynamics are modelled as first order system with set point and actual massflow (due to mechanical and control inertia)</span></li>
 </ul>
-<p><br><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">3. Limits of validity </span></b></p>
+<p><br><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Limits of validity </span></b></p>
 <ul>
 <li>Constant efficiencies are currently used, but may be replaced with performance tables.</li>
 </ul>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">4. Interfaces</span></b></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Interfaces</span></b></p>
 <ol>
 <li>Air Inlet</li>
 <li>Air Outlet</li>
 <li>Mass_flow_set</li>
 <li>Active power port</li>
 </ol>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">5. Nomenclature</span></b></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Nomenclature</span></b></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">(no remarks)</span></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">6. Governing Equations</span></b></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Governing Equations</span></b></p>
 <p>(no remarks)</p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">7. Remarks for Usage</span></b></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Remarks for Usage</span></b></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">(no remarks)</span></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">8. Validation</span></b></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Validation</span></b></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">The model has been validated with the fan unit of the Electric Thermal Energy Storage demonstration plant of Siemens Gamesa Renewable Energy in Hamburg-Bergedorf, Germany.</span></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">9. References</span></b></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">References</span></b></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">[1] M. von der Heyde, Abschlussbericht zum Teilprojekt der TUHH im Verbundforschungsprojekt Future Energy Solution (FES), BMWI 03ET6072C, 2021</span></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">[2] M. von der Heyde, Electric Thermal Energy Storage based on Packed Beds for Renewable Energy Integration, Dissertation, Hamburg University of Technology, 2021</span></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">10. Version History</span></b></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Version History</span></b></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">First Version in 04.2020 for the research project Future Energy Solution (FES) by Michael von der Heyde (heyde@tuhh.de)</span></p>
 </html>"));
 end Fan_L1;

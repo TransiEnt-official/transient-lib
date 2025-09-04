@@ -32,7 +32,7 @@ model TestHEX_ideal
   ClaRa.Components.BoundaryConditions.BoundaryVLE_Txim_flow boundaryIn(
       m_flow_const=5, T_const=293.15)
     annotation (Placement(transformation(extent={{-66,-10},{-46,10}})));
-  ClaRa.Components.BoundaryConditions.BoundaryVLE_pTxi boundaryOut(p_const=1e5, T_const=
+  ClaRa.Components.BoundaryConditions.BoundaryVLE_pTxi boundaryOut(p_const=10e5,T_const=
         273.15)
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
@@ -43,8 +43,8 @@ model TestHEX_ideal
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={0,32})));
-  Modelica.Blocks.Sources.Ramp ramp(height=1e10, duration=1000)
-    annotation (Placement(transformation(extent={{-60,28},{-40,48}})));
+  Modelica.Blocks.Sources.Ramp ramp(height=1e6,  duration=1000)
+    annotation (Placement(transformation(extent={{-58,26},{-38,46}})));
   inner TransiEnt.SimCenter simCenter
     annotation (Placement(transformation(extent={{-68,66},{-48,86}})));
 equation
@@ -64,7 +64,7 @@ equation
       thickness=0.5,
       smooth=Smooth.None));
   connect(ramp.y, prescribedHeatFlowScalar.Q_flow) annotation (Line(
-      points={{-39,38},{-22,38},{-22,50},{0,50},{0,42}},
+      points={{-37,36},{-22,36},{-22,50},{0,50},{0,42}},
       color={0,0,127},
       smooth=Smooth.None));
   annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,

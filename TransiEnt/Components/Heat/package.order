@@ -9,9 +9,13 @@ HeatRecoverySteamGenerator
 Check
 HEX_ideal
 HeatExchanger_TubeBundle_L2
+HeatExchanger
+HeatExchanger_simple
 PipeGasAdvanced_L4
 Pump
 PumpVLE_L1_simple
+SimplePump_mflow
+SimplePump_dp
 SteamGenerator_L0
 SteamTurbine_L0
 SteamVolumeWithValve_L0

@@ -1,4 +1,4 @@
-within TransiEnt.Basics.Media;
+﻿within TransiEnt.Basics.Media;
 package Solids
 
 

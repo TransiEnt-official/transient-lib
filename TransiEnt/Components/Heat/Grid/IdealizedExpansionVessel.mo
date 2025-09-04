@@ -96,26 +96,24 @@ equation
           preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
         graphics),
         Documentation(info="<html>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">1. Purpose of model</span></b></p>
-<p><span style=\"font-family: MS Shell Dlg 2;\">Ideal model to hold a constant pressure in a hydraulic system. Volume of expansion vessel is considered infinite.</span></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">2. Level of detail, physical effects considered, and physical insight</span></b></p>
-<p><span style=\"font-family: MS Shell Dlg 2;\">Purely technical component without physical modeling. </span></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">3. Limits of validity </span></b></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Purpose of model</span></b></p>
+<p><span style=\"font-family: MS Shell Dlg 2;\">Ideal model to hold a constant pressure in a hydraulic system. The volume of the expansion vessel is considered infinite. </span>A simple model of an expansion vessel, that is purely technical and doesn&rsquo;t model physical behaviour. It can be used to set a pressure in a hydraulic circuit. This is often necessary as most of the heat components only calculate the pressure difference between the in- and outlet. It contains one fluid port and a pressure and temperature boundary that are connected. The mass flow rate flowing in or out of the expansion vessel should normally be near zero. </p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Level of detail, physical effects considered, and physical insight</span></b></p>
+<p><span style=\"font-family: MS Shell Dlg 2;\">Purely technical component without physical modeling. Therefore, no physical effects are considered in this component.</span></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Limits of validity </span></b></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">(Purely technical component without physical modeling.)</span></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">4. Interfaces</span></b></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Interfaces</span></b></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">fluidPort - port for the medium </span></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">5. Nomenclature</span></b></p>
-<p><span style=\"font-family: MS Shell Dlg 2;\">(no elements)</span></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">6. Governing Equations</span></b></p>
-<p><span style=\"font-family: MS Shell Dlg 2;\">(no equations)</span></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">7. Remarks for Usage</span></b></p>
-<p><span style=\"font-family: MS Shell Dlg 2;\">(no remarks)</span></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">8. Validation</span></b></p>
-<p><span style=\"font-family: MS Shell Dlg 2;\">(no remarks)</span></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">9. References</span></b></p>
-<p><span style=\"font-family: MS Shell Dlg 2;\">(no remarks)</span></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">10. Version History</span></b></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Governing Equations</span></b></p>
+<p><span style=\"font-family: MS Shell Dlg 2;\">p_out=p_set</span></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Remarks for Usage</span></b></p>
+<p>This model is basically a pressure boundary. It is important to note that it is often necessary to dictate the pressure in a hydraulic model for the model to simulate. </p>
+<h4><span style=\"color: #008c48\">Validation</span></h4>
+<p>This model was tested in the following test model:</p>
+<p>TransiEnt.Components.Heat.Grid.Check.Test_ExpansionVessel</p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Version History</span></b></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">Model created by Tobias Ramm (tobias.ramm@tuhh.de), Jun 2015</span></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">Modified by Lisa Andresen (andresen@tuhh.de), Dec 2015</span></p>
+<p><span style=\"font-family: MS Shell Dlg 2;\">Model documented by Jan Westphal (j.westphal@tuhh.de) in January 2025</span></p>
 </html>"));
 end IdealizedExpansionVessel;

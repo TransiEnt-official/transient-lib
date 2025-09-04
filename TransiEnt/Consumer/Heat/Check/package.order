@@ -6,4 +6,5 @@ TestFirstOrderHeatingNetworkConsumer_withPlant
 TestThermalHeatConsumer
 TestThermalHeatConsumer_L3
 TestDomesticHotWater
+TestConsumer
 TestHeatConsumerNode
