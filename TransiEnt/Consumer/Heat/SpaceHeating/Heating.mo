@@ -426,7 +426,7 @@ equation
           -3},{-92.7,-2},{-88,-2},{-88,24},{-63.4,24},{-63.4,25.4}},
                                                color={0,0,127}));
   connect(pq_heaterRod.P_el_set, heaterRod.Q_flow) annotation (Line(points={{82.8,
-          -48.8},{82.8,-44},{62,-44},{62,-30},{70,-30}}, color={0,0,127}));
+          -47.6},{82.8,-44},{62,-44},{62,-30},{70,-30}}, color={0,0,127}));
   connect(epp, measuring_power.epp_IN) annotation (Line(
       points={{120,-100},{95.2,-100}},
       color={28,108,200},
@@ -627,8 +627,20 @@ equation
     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-140,-140},{140,
             140}})),
     Documentation(info="<html>
-<h4>Model equations</h4>
-<p><br>A PI controller controls the heat pump operating point. Between the controller output an the heat pump inpus signal a first order delay models the dynamic behaviour of the heat pump.</p>
+<h4>Basic Idea of the model</h4>
+<p>This model describes a Building Heating System (BHS) of a dwelling based on a <a href=\"modelica://TransiEnt/Producer/Heat/Power2Heat/Heatpump/Heatpump.mo\">Electric Heat Pump (EHP)</a> with a Heater Rod (HR) as auxiliary heater as heat source, and <a href=\"modelica://TransiEnt/Consumer/Heat/SpaceHeating/RoomHeating.mo\">RoomHeating</a> as heat sink. Key part of this model is a PID-controller and a power splitter. The basic block diagram is shown below.</p>
+<p><img src=\"modelica://TransiEnt/Images/Blockdiagram_Building_Heating_System.svg\"/></p>
+<p>A PID controller controls the EHP+HR operating point based on a Buffer Storage Tank (BST) temperature set-point. The set-point is given by parameter. The <a href=\"modelica://TransiEnt/Producer/Heat/Power2Heat/Heatpump/Controller/Base/Splitter.mo\">Splitter</a> splits the requested heat flow rate to the EHP and HR based on different ambient and system conditions. For more details, have a look at the <a href=\"modelica://TransiEnt/Producer/Heat/Power2Heat/Heatpump/Controller/Base/Splitter.mo\">Splitter</a> model.</p>
+<p>The parameters of the PID-Model were measured at a real EHP. The laboratory experiments were conducted at the SYSLAB at the Technical University of Denmark (DTU). Details of the project and the results can be found at: <a href=\"https://zenodo.org/records/17054821\">https://zenodo.org/records/17054821</a>.</p>
+<h4>Control Bus - external control modes</h4>
+<p>The model is equiped with a expandable connector called <a href=\"modelica://TransiEnt/Basics/Interfaces/General/ControlBus.mo\">ControlBus</a>. Dependent on the <a href=\"modelica://TransiEnt/Basics/Types/ControlType.mo\">ControlType</a>, different control modes are possible, as described below.</p>
+<ul>
+<li><b>Internal</b>: No external control. The internal PID controller is active an controls the BST temperature based on the parameter set value.</li>
+<li><b>Limit_P</b>: Active power is limited from outside via <code>controlBus.P_limit</code>.</li>
+<li><b>External_P</b>: The internal PID controller is bypassed and a P controller is active, controlling the consumed active power set by <code>controlBus.P_external</code> from the grid. In this operation mode, the HP and HR are active independent from the temperature set point. Useful for externally controlled components, like aggregators.</li>
+<li><b>External_T</b>: External temperature set-value <code>controlBus.T_buffer_offset</code> will be used. The internal PID controller is still active.</li>
+</ul>
+Note that all external signals are only active if the control bus input <code>controlBus.SignalActive</code> is true. Otherwise, the internal PID controller is active as it is in the mode <code>Internal</code>. When <code>controlBus.SignalActive</code> changes, respective controllers are reinitialized.
 <h4>Initialization</h4>
 <p>There are two possible initalization methods for this block, as defined in <a href=\"modelica://Modelica.Blocks.Types.Init\">Modelica.Blocks.Types.Init</a></p>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
