@@ -1,5 +1,5 @@
-﻿within TransiEnt.SystemGeneration.Superstructure.Components.LocalHeatSupply;
-package Base
+﻿within TransiEnt.SystemGeneration.Superstructure.Components;
+expandable connector OutputBus
 
 //________________________________________________________________________________//
 // Component of the TransiEnt Library, version: 2.0.0                             //
@@ -22,6 +22,20 @@ package Base
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
 
-  extends TransiEnt.Basics.Icons.BasesPackage;
+  extends Modelica.Icons.SignalSubBus;
 
-end Base;
+  Real P_ElectricalHeater_max;
+  Real P_PowerToGasPlant_is;
+  Real P_DAC;
+  Real P_PowerPlant_is;
+  Real P_renewable;
+  Real P_surplus_region;
+  Real P_PowerPlant_max[busVariableDeclaration.MaximalDifferentTypesOfPowerPlants];
+  Real P_max_load_storage[busVariableDeclaration.MaximalDifferentTypesOfElectricalStorages];
+  Real P_max_unload_storage[busVariableDeclaration.MaximalDifferentTypesOfElectricalStorages];
+  Real P_storage_is[busVariableDeclaration.MaximalDifferentTypesOfElectricalStorages];
+
+protected
+  outer BusVariableDeclaration busVariableDeclaration annotation (Placement(transformation(extent={{60,-80},{80,-60}})));
+  annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(preserveAspectRatio=false)));
+end OutputBus;

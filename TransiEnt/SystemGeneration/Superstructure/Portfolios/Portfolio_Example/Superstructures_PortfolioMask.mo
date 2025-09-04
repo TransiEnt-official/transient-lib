@@ -1,11 +1,8 @@
 ﻿within TransiEnt.SystemGeneration.Superstructure.Portfolios.Portfolio_Example;
 model Superstructures_PortfolioMask "Mask for array of superstructures using this portfolio's technology definitions"
 
-
-
-
 //________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 2.0.3                             //
+// Component of the TransiEnt Library, version: 2.0.0                             //
 //                                                                                //
 // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
 // Copyright 2021, Hamburg University of Technology.                              //
@@ -20,13 +17,10 @@ model Superstructures_PortfolioMask "Mask for array of superstructures using thi
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und Wärme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
-
-
-
 
   // _____________________________________________
   //
@@ -82,10 +76,10 @@ model Superstructures_PortfolioMask "Mask for array of superstructures using thi
   parameter Real junctionVolume[nRegions]=fill(10676.7, nRegions) "Volume of accumulating central gas volume if useOneGasPortOnly" annotation (Dialog(group="GasGrid"));
 
   //---Failures---//
-  parameter SI.Pressure p_min_operating_PowerPlants=1e5 "gas pressure threshold at which powerplants turn off" annotation (dialog(tab="Failures"));
-  parameter SI.Pressure p_min_operating_PowerPlants_backin=2e5 "gas pressure threshold at which powerplants turn back on after turning off" annotation (dialog(tab="Failures"));
-  parameter SI.Pressure p_min_operating_localDemand=1e5 "gas pressure threshold at which local consumers turn off" annotation (dialog(tab="Failures"));
-  parameter SI.Pressure p_min_operating_localDemand_backin=2e5 "gas pressure threshold at which powerplants turn back on after turning off" annotation (dialog(tab="Failures"));
+  parameter Modelica.Units.SI.Pressure p_min_operating_PowerPlants=1e5 "gas pressure threshold at which powerplants turn off" annotation (dialog(tab="Failures"));
+  parameter Modelica.Units.SI.Pressure p_min_operating_PowerPlants_backin=2e5 "gas pressure threshold at which powerplants turn back on after turning off" annotation (dialog(tab="Failures"));
+  parameter Modelica.Units.SI.Pressure p_min_operating_localDemand=1e5 "gas pressure threshold at which local consumers turn off" annotation (dialog(tab="Failures"));
+  parameter Modelica.Units.SI.Pressure p_min_operating_localDemand_backin=2e5 "gas pressure threshold at which powerplants turn back on after turning off" annotation (dialog(tab="Failures"));
 
   //---Technologies---//
   //HeatingGrid
@@ -188,54 +182,17 @@ model Superstructures_PortfolioMask "Mask for array of superstructures using thi
   //                  Interfaces
   // _____________________________________________
 
-  Modelica.Blocks.Interfaces.RealInput P_set_PowerPlant[nRegions,MaximumDifferentTypesOfPowerPlants] annotation (Placement(transformation(extent={{-120,30},{-100,50}}), iconTransformation(extent={{-120,30},{-100,50}})));
-  TransiEnt.Basics.Interfaces.Electrical.ElectricPowerIn P_set_ElectricalStorage[nRegions,MaximumDifferentTypesOfElectricalStorages] annotation (Placement(transformation(extent={{-120,-10},{-100,10}}), iconTransformation(extent={{-120,-10},{-100,10}})));
-  Modelica.Blocks.Interfaces.RealInput P_set_PtG[nRegions] annotation (Placement(transformation(extent={{-120,-50},{-100,-30}}), iconTransformation(extent={{-120,-50},{-100,-30}})));
-  Modelica.Blocks.Interfaces.RealInput P_set_curtailment[nRegions] annotation (Placement(transformation(extent={{-120,-90},{-100,-70}}), iconTransformation(extent={{-120,-90},{-100,-70}})));
-  Modelica.Blocks.Interfaces.RealInput P_set_ElectricalHeater[nRegions] annotation (Placement(transformation(extent={{-120,70},{-100,90}}), iconTransformation(extent={{-120,70},{-100,90}})));
-
   TransiEnt.Basics.Interfaces.Electrical.ComplexPowerPort epp[nRegions] annotation (Placement(transformation(rotation=0, extent={{95,15},{105,25}})));
   TransiEnt.Basics.Interfaces.Gas.RealGasPortIn gasPortIn[nRegions,n_gasPort](each Medium=simCenter.gasModel1) annotation (Placement(transformation(extent={{92,-30},{112,-10}})));
-
-  Modelica.Blocks.Interfaces.RealOutput P_PowerPlant_max[nRegions,MaximumDifferentTypesOfPowerPlants] annotation (Placement(transformation(extent={{100,40},{120,60}})));
-  Modelica.Blocks.Interfaces.RealOutput P_PowerPlant_is[nRegions] annotation (Placement(transformation(extent={{100,60},{120,80}})));
-  Modelica.Blocks.Interfaces.RealOutput P_DAC[nRegions] annotation (Placement(transformation(extent={{100,-62},{120,-42}})));
-  Modelica.Blocks.Interfaces.RealOutput P_PowerToGasPlant_is[nRegions] annotation (Placement(transformation(extent={{100,-80},{120,-60}})));
-  Modelica.Blocks.Interfaces.RealOutput P_ElectricalHeater_max[nRegions] annotation (Placement(transformation(extent={{100,-98},{120,-78}})));
-  Modelica.Blocks.Interfaces.RealOutput P_surplus_region[nRegions] annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
-        rotation=90,
-        origin={-40,110})));
-  Modelica.Blocks.Interfaces.RealOutput P_renewable[nRegions] annotation (Placement(transformation(extent={{100,78},{122,100}})));
-  Modelica.Blocks.Interfaces.RealOutput P_max_unload_storage[nRegions,MaximumDifferentTypesOfElectricalStorages] annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
-        rotation=90,
-        origin={40,110})));
-  Modelica.Blocks.Interfaces.RealOutput P_max_load_storage[nRegions,MaximumDifferentTypesOfElectricalStorages] annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
-        rotation=90,
-        origin={80,110})));
-  Modelica.Blocks.Interfaces.RealOutput P_storage_is[nRegions,MaximumDifferentTypesOfElectricalStorages] annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
-        rotation=90,
-        origin={0,110})));
-  Modelica.Blocks.Interfaces.RealOutput f_grid annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
-        rotation=90,
-        origin={-80,110})));
 
   // _____________________________________________
   //
   //           Instances of other Classes
   // _____________________________________________
   Modelica.Blocks.Sources.RealExpression expression_f_grid(y=epp[1].f) annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
+        extent={{10,-10},{-10,10}},
         rotation=180,
-        origin={-68,90})));
-  Modelica.Blocks.Sources.RealExpression zero annotation (Placement(transformation(
-        extent={{-6,-7},{6,7}},
-        rotation=0,
-        origin={0,-29})));
+        origin={-70,78})));
 
   Components.Records.ControllerInputGeneration controllerInputGeneration(
     redeclare package Config = Config,
@@ -255,10 +212,12 @@ model Superstructures_PortfolioMask "Mask for array of superstructures using thi
     NumberOfPowerplantsOverAllRegions=NumberOfPowerplantsOverAllRegions,
     NumberOfElectricalStoragesOverAllRegions=NumberOfElectricalStoragesOverAllRegions,
     NumberOfPowerToGasPlantsOverAllRegions=NumberOfPowerToGasPlantsOverAllRegions,
-    NumberOfElectricalHeatersOverAllRegions=NumberOfElectricalHeatersOverAllRegions) annotation (Placement(transformation(extent={{-40,-80},{-20,-60}})));
+    NumberOfElectricalHeatersOverAllRegions=NumberOfElectricalHeatersOverAllRegions) annotation (Placement(transformation(extent={{-60,-40},{-40,-20}})));
 
   //---Superstructures---//
   Components.Superstructure superstructure[nRegions](
+    MaximalDifferentTypesOfPowerPlants=MaximumDifferentTypesOfPowerPlants,
+    MaximalDifferentTypesOfElectricalStorages=MaximumDifferentTypesOfElectricalStorages,
     redeclare package Config = Config,
     Region=Region,
     useVariableHydrogenFraction=useVariableHydrogenFraction,
@@ -321,68 +280,49 @@ model Superstructures_PortfolioMask "Mask for array of superstructures using thi
   //---Extend External Data Import---// // At this place to appear last as last tab
   extends ExternalDataImport(nRegions_info=nRegions);
 
+  Components.MasterBus masterBus annotation (Placement(transformation(extent={{-20,80},{20,120}}), iconTransformation(extent={{-20,80},{20,120}})));
 equation
 
-  // _____________________________________________
+    // _____________________________________________
   //
   //                   Connects
   // _____________________________________________
   for i in 1:nRegions loop
-    //Power Plants
-    for j in 1:MaximumDifferentTypesOfPowerPlants loop
-      if j <= DifferentTypesOfPowerPlants[i] then
-        connect(P_set_PowerPlant[i, j], superstructure[i].P_set_PowerPlant[j]) annotation (Line(points={{-110,40},{-58,40},{-58,2.16667},{-10,2.16667}}, color={0,0,127}));
-        connect(superstructure[i].P_PowerPlant_max[j], P_PowerPlant_max[i, j]) annotation (Line(points={{10.8333,7.5},{80,7.5},{80,50},{110,50}}, color={0,0,127}));
-      else
-        connect(zero.y, P_PowerPlant_max[i, j]) annotation (Line(points={{6.6,-29},{40,-29},{40,50},{110,50}}, color={0,0,127}));
-      end if;
-    end for;
-
-    //Electrical Storages
-    for j in 1:MaximumDifferentTypesOfElectricalStorages loop
-      if j <= DifferentTypesOfElectricalStorages[i] then
-        connect(P_set_ElectricalStorage[i, j], superstructure[i].P_set_ElectricalStorage[j]) annotation (Line(points={{-110,0},{-10,0}},                 color={0,127,127}));
-
-        connect(superstructure[i].P_storage_is[j], P_storage_is[i, j]) annotation (Line(points={{10.8333,-9.16667},{14,-9.16667},{14,96},{0,96},{0,110}}, color={0,0,127}));
-        connect(superstructure[i].P_max_load_storage[j], P_max_load_storage[i, j]) annotation (Line(points={{10.8333,-10.8333},{18,-10.8333},{18,92},{80,92},{80,110}}, color={0,0,127}));
-        connect(superstructure[i].P_max_unload_storage[j], P_max_unload_storage[i, j]) annotation (Line(points={{10.8333,-12.5},{16,-12.5},{16,96},{40,96},{40,110}}, color={0,0,127}));
-      else
-        connect(zero.y, P_storage_is[i, j]) annotation (Line(points={{6.6,-29},{14,-29},{14,96},{0,96},{0,110}}, color={0,0,127}));
-        connect(zero.y, P_max_load_storage[i, j]) annotation (Line(points={{6.6,-29},{18,-29},{18,92},{80,92},{80,110}}, color={0,0,127}));
-        connect(zero.y, P_max_unload_storage[i, j]) annotation (Line(points={{6.6,-29},{16,-29},{16,96},{40,96},{40,110}}, color={0,0,127}));
-      end if;
-    end for;
-    //end if;
-
-    //Power to Gas
-    if superstructure[i].PowerToGasPlantsInThisRegion then
-      connect(superstructure[i].P_set_PtG, P_set_PtG[i]) annotation (Line(points={{-10,-2.16667},{-60,-2.16667},{-60,-40},{-110,-40}},   color={0,0,127}));
-    end if;
-    //Curtailment
-    connect(superstructure[i].P_set_curtailment, P_set_curtailment[i]) annotation (Line(points={{-10,-4.33333},{-58,-4.33333},{-58,-80},{-110,-80}}, color={0,0,127}));
 
     //epp and gasPort
     connect(superstructure[i].epp, epp[i]) annotation (Line(
-        points={{10,1.66667},{90,1.66667},{90,20},{100,20}},
+        points={{10,0.666667},{90,0.666667},{90,20},{100,20}},
         color={28,108,200},
         thickness=0.5));
     connect(superstructure[i].gasPortIn, gasPortIn[i, :]) annotation (Line(
-        points={{10.1667,-1.66667},{90,-1.66667},{90,-20},{102,-20}},
+        points={{10.1667,-2.66667},{90,-2.66667},{90,-20},{102,-20}},
         color={255,255,0},
         thickness=1.5));
+
   end for;
 
-  connect(superstructure.P_set_ElectricalHeater, P_set_ElectricalHeater) annotation (Line(points={{-10,4.33333},{-56,4.33333},{-56,80},{-110,80}},                   color={0,0,127}));
-  connect(superstructure.P_DAC, P_DAC) annotation (Line(points={{10.8333,5.83333},{80,5.83333},{80,-52},{110,-52}}, color={0,0,127}));
-  connect(superstructure.P_PowerToGasPlant_is, P_PowerToGasPlant_is) annotation (Line(points={{10.8333,4.16667},{76,4.16667},{76,-70},{110,-70}}, color={0,0,127}));
-  connect(superstructure.P_PowerPlant_is, P_PowerPlant_is) annotation (Line(points={{10.8333,9.16667},{76,9.16667},{76,70},{110,70}}, color={0,0,127}));
+  //f_grid
 
-  connect(superstructure.P_renewable, P_renewable) annotation (Line(points={{10.8333,-7.5},{68,-7.5},{68,89},{111,89}}, color={0,0,127}));
-  connect(superstructure.P_surplus_region, P_surplus_region) annotation (Line(points={{10.8333,-5.83333},{12,-5.83333},{12,92},{-40,92},{-40,110}}, color={0,0,127}));
-  connect(superstructure.P_ElectricalHeater_max, P_ElectricalHeater_max) annotation (Line(points={{10.8333,-4.16667},{72,-4.16667},{72,-88},{110,-88}}, color={0,0,127}));
-  connect(expression_f_grid.y, f_grid) annotation (Line(points={{-79,90},{-80,90},{-80,110}}, color={0,0,127}));
-
-  annotation (
+  //Bus ports
+  connect(superstructure.outputBus, masterBus.outputBus) annotation (Line(
+      points={{8.33333,10},{8,10},{8,100.1},{0.1,100.1}},
+      color={255,204,51},
+      thickness=0.5));
+  connect(expression_f_grid.y, masterBus.f_grid) annotation (Line(points={{-59,78},{0.1,78},{0.1,100.1}},
+                                                                                                    color={0,0,127}), Text(
+      string="%second",
+      index=1,
+      extent={{6,3},{6,3}},
+      horizontalAlignment=TextAlignment.Left));
+  connect(superstructure.masterBusControl, masterBus.MasterBusControl) annotation (Line(
+      points={{0,10},{0,56},{0,100.1},{0.1,100.1}},
+      color={255,204,51},
+      thickness=0.5));
+  connect(superstructure.inputBus, masterBus.inputBus) annotation (Line(
+      points={{-8.33333,10},{-8.33333,100.1},{0.1,100.1}},
+      color={255,204,51},
+      thickness=0.5));
+   annotation (
     Dialog(tab="ControllerInput"),
     Icon(coordinateSystem(preserveAspectRatio=false), graphics={Rectangle(
                 extent={{58,24},{48,-2}},
