@@ -1,7 +1,6 @@
 Check
 PitchController
 TorqueController
-TorqueController_modified
 TorqueController_SI_deltaF
 PitchController_SI_deltaF
 TorqueController_SI_df_dt
