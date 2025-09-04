@@ -40,7 +40,7 @@ model TestHeatPump_DHN "Test model for the heat pump for the DHN simulations"
     P_el_max(displayUnit="kW") = 300000) annotation (Placement(transformation(extent={{-46,-146},{-26,-126}})));
   Modelica.Blocks.Sources.RealExpression realExpression3(y=60)
                                                              annotation (Placement(transformation(extent={{-90,-104},{-70,-84}})));
-  Modelica.Blocks.Sources.RealExpression realExpression6(y=heatpump1.inlet.m_flow*(4185*60 - inStream(heatpump1.inlet.h_outflow))) annotation (Placement(transformation(extent={{-78,-146},{-58,-126}})));
+  Modelica.Blocks.Sources.RealExpression realExpression6(y=heatpump1.inlet.m_flow*(4179*60 - inStream(heatpump1.inlet.h_outflow))) annotation (Placement(transformation(extent={{-78,-146},{-58,-126}})));
   Modelica.Blocks.Sources.RealExpression realExpression1(y=0.1)
                                                              annotation (Placement(transformation(extent={{-84,-74},{-64,-54}})));
   inner TransiEnt.SimCenter simCenter annotation (Placement(transformation(extent={{100,68},{120,88}})));
@@ -51,13 +51,18 @@ model TestHeatPump_DHN "Test model for the heat pump for the DHN simulations"
   TransiEnt.Components.Heat.Grid.IdealizedExpansionVessel idealizedExpansionVessel annotation (Placement(transformation(extent={{-40,38},{-20,58}})));
   TransiEnt.Components.Heat.PumpVLE_L1_simple pumpVLE_L1_simple(presetVariableType="m_flow", m_flow_fixed=0.03682)
                                                                                                                   annotation (Placement(transformation(extent={{-14,8},{6,28}})));
-  Modelica.Blocks.Sources.RealExpression realExpression2(y=heatpump.inlet.m_flow*(4184.71*60 - inStream(heatpump.inlet.h_outflow)))
+  Modelica.Blocks.Sources.RealExpression realExpression2(y=heatpump.inlet.m_flow*(4179*60 - inStream(heatpump.inlet.h_outflow)))
                                                              annotation (Placement(transformation(extent={{-92,-2},{-72,18}})));
   TransiEnt.Consumer.Heat.ConstantHeatConsumer constantHeatConsumer(Q_flow_const=5000) annotation (Placement(transformation(extent={{58,4},{38,24}})));
   TransiEnt.Components.Boundaries.FluidFlow.FluidSink sink annotation (Placement(transformation(extent={{2,-92},{-18,-72}})));
   Modelica.Blocks.Sources.RealExpression realExpression4(y=0.1)
                                                              annotation (Placement(transformation(extent={{-30,-70},{-10,-50}})));
-  TransiEnt.Consumer.Heat.Consumer_SLP consumer_HeatFlow annotation (Placement(transformation(extent={{20,-144},{48,-124}})));
+  TransiEnt.Consumer.Heat.Consumer_SLP consumer_HeatFlow(
+    gain_k=1,
+    cp=4179,
+    useInput=true)                                       annotation (Placement(transformation(extent={{20,-144},{48,-124}})));
+  Modelica.Blocks.Sources.RealExpression realExpression5(y=5000)
+                                                             annotation (Placement(transformation(extent={{80,-144},{60,-124}})));
 equation
 
   // _____________________________________________
@@ -96,6 +101,7 @@ equation
       points={{-62.6,8.6},{-66.8,8.6},{-66.8,8},{-71,8}},
       color={175,0,0},
       pattern=LinePattern.Dash));
+  connect(realExpression5.y, consumer_HeatFlow.Q_flow_demand) annotation (Line(points={{59,-134},{48,-134}}, color={0,0,127}));
   annotation (
     Icon(                                                                                                                                                                                  coordinateSystem(initialScale = 0.1, extent={{-160,-200},{140,100}})),
                                                                                                                                                                                                         experiment(StopTime=86400, __Dymola_Algorithm="Dassl"),

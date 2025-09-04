@@ -34,19 +34,18 @@ model Consumer_SLP "Simple model of a thermal consumer with a table-based heat f
   //          Visible Parameters
   // _____________________________________________
 
- parameter Real G = 155.737 "Thermal Conuctivity of the thermal resistor";
- parameter SI.HeatCapacity C = 570000 "Thermal capacity of the heat capacitor";
- parameter SI.PressureDifference delta_p_nom = 0.1e5 "Nominal pressure difference of the valve inside the consumer";
- parameter SI.MassFlowRate m_flow_nom = 0.18 "Nominal mass flow rate of the water (used in the valve)";
+
+ parameter SI.MassFlowRate m_flow_nom = 0.18 "Nominal mass flow rate of the water (used to limit the output of the P-Controller)";
  parameter SI.HeatFlowRate Q_flow_nom = 8e3 "Nominal heat flow rate (used in the heat exchanger)";
  parameter SI.HeatFlowRate Q_flow_Ref = 6.0563e3;
- parameter SI.Temperature T_room=295.15 "Set value for room temperature";
+ parameter Real gain_k=Q_flow_nom/Q_flow_Ref;
+ parameter SI.Density rho=981;
  //parameters of controller
- parameter SI.Time tau_i = 1000 "Constant for integrator part of PI-controller";
  parameter Real k = 20 "Constant for proportional part of PI-controller";
  parameter Real y_max = m_flow_nom "Max. opening of valve";//10, m_flow_nom
  parameter Real y_min = 0.0001 "Min. opening of valve";
  parameter SI.SpecificHeatCapacity cp=4186;
+ parameter Boolean useInput=false;
  parameter String relativepath="/heat/HeatLoad.txt";
  final parameter String path = TransiEnt.Basics.Functions.fullPathName(               Modelica.Utilities.System.getEnvironmentVariable("public-data") + relativepath);
 
@@ -82,17 +81,20 @@ model Consumer_SLP "Simple model of a thermal consumer with a table-based heat f
         origin={-100,-40},
         extent={{-10,-10},{10,10}},
         rotation=0)));
+  Modelica.Blocks.Interfaces.RealInput Q_flow_demand if useInput  annotation (Placement(transformation(extent={{200,-20},{160,20}})));
 
   // _____________________________________________
   //
   //          Intances of other classes
   // _____________________________________________
 
-  TransiEnt.Components.Heat.SimplePump_mflow pump annotation (Placement(transformation(
+  TransiEnt.Components.Heat.SimplePump_mflow pump(rho=rho)
+                                                  annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-54,26})));
-  TransiEnt.Components.Heat.HeatExchanger_simple heatExchanger annotation (Placement(transformation(
+  TransiEnt.Components.Heat.HeatExchanger_simple heatExchanger(rho=rho, cp=cp)
+                                                               annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-54,0})));
@@ -103,9 +105,9 @@ model Consumer_SLP "Simple model of a thermal consumer with a table-based heat f
     tableOnFile=true,
     tableName="default",
     fileName=path,
-    smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative) annotation (Placement(transformation(extent={{28,-10},
+    smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative) if not useInput annotation (Placement(transformation(extent={{28,-10},
             {8,10}})));
-  Modelica.Blocks.Math.Gain gain(k=Q_flow_nom/Q_flow_Ref)
+  Modelica.Blocks.Math.Gain gain(k=gain_k)
     annotation (Placement(transformation(extent={{-12,-10},{-32,10}})));
  Modelica.Blocks.Continuous.LimPID PID1(
     controllerType=Modelica.Blocks.Types.SimpleController.P,
@@ -120,6 +122,7 @@ model Consumer_SLP "Simple model of a thermal consumer with a table-based heat f
    Placement(transformation(extent={{14,58},{-6,78}})));
  Modelica.Blocks.Sources.RealExpression SetTemperature1(y=273.15 + 58)      annotation (
    Placement(visible = true, transformation(origin={40,68},    extent = {{10, -10}, {-10, 10}}, rotation = 0)));
+
 equation
 
   // _____________________________________________
@@ -137,8 +140,12 @@ equation
     annotation (Line(points={{16,68},{29,68}}, color={0,0,127}));
   connect(SetTemperature2.y, PID1.u_m)
     annotation (Line(points={{13,44},{4,44},{4,56}}, color={0,0,127}));
+  if useInput==false then
   connect(combiTimeTable.y[1], gain.u)
     annotation (Line(points={{7,0},{-10,0}}, color={0,0,127}));
+  else
+    connect(Q_flow_demand, gain.u);
+  end if;
   connect(gain.y, heatExchanger.Q_flow)
     annotation (Line(points={{-33,0},{-44,0}}, color={0,0,127}));
 
@@ -158,6 +165,10 @@ equation
 <li>Heat losses from the building to the environemnt</li>
 <li>Heat transport through the heat exchanger</li>
 </ul>
+<h4><span style=\"color: #008c48\">Interfaces</span></h4>
+<p>fluidPortIn_simple: inlet for the heat carrier</p>
+<p>fluidPortOut_simple: outlet for the heat carrier</p>
+<p>Q_flow_demand: input for the demanded heat flow (it can be turned off with the boolean parameter useInput, then the heat demand is set by the combi time table inside the model )</p>
 <h4><span style=\"color: #008c48\">References</span></h4>
 <p>The model is based on the model Consumer.Consumer</p>
 <h4><span style=\"color: #008c48\">Version History</span></h4>

@@ -71,7 +71,9 @@ model TestConsumer "Test model for the consumer"
                                                              annotation (Placement(transformation(extent={{138,-124},{118,-104}})));
   Consumer_LowTemperatureDHN consumer_LowTemperatureDHN annotation (Placement(transformation(extent={{76,-124},{104,-104}})));
   Modelica.Blocks.Sources.RealExpression realExpression11(y=268.13)
-                                                             annotation (Placement(transformation(extent={{18,46},{-2,66}})));
+                                                             annotation (Placement(transformation(extent={{16,46},{-4,66}})));
+  Modelica.Blocks.Sources.RealExpression realExpression12(y=5000)
+                                                             annotation (Placement(transformation(extent={{176,50},{156,70}})));
 equation
 
   // _____________________________________________

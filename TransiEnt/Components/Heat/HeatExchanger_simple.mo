@@ -35,16 +35,12 @@ model HeatExchanger_simple "Simple heat exchanger model"
   // _____________________________________________
 
   parameter SI.MassFlowRate m_flow_nom = 1 "Nominal mass flow rate of the water";
-  parameter SI.PressureDifference delta_p_nom = 0.02e3 "Pressure drop in the heat exchanger";
   parameter SI.Volume V = 0.01 "Volume of the heat exchanger";
   parameter SI.Density rho = 1000 "Density of the water";
   parameter SI.TemperatureDifference delta_T_nom = 35 "Nominal temperature difference between supply and return temperature";
   parameter SI.HeatFlowRate Q_flow_nom = 5e3*100 "Nominal heat flow rate at a given temperature difference";
   parameter Real n = 1.333 "Exponent for radiators";
   parameter SI.SpecificHeatCapacity cp = 4200 "Specific heat capacity";
-  parameter Real alpha=5.4e-7 "Factor for density change due to pressure change (unused)";
-  parameter Real beta=1.2e-4 "Factor for density change due to enthalpy change (unused)";
-  parameter Real kA=104;
 
   // _____________________________________________
   //

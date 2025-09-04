@@ -129,7 +129,7 @@ model Consumer "Simple model of a thermal consumer with simple fluid ports"
     period=14400,
     nperiod=1,
     offset=273.15,
-    startTime=86400)
+    startTime=86400) if not useInput
     annotation (Placement(transformation(extent={{104,76},{124,96}})));
   Modelica.Blocks.Interfaces.RealInput AmbientTemperatureIn if useInput annotation (Placement(transformation(
         extent={{-20,-20},{20,20}},

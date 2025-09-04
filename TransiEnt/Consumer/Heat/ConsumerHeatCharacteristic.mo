@@ -36,12 +36,10 @@ model ConsumerHeatCharacteristic "Simple model of a thermal consumer with a heat
 
  parameter Real G = 155.737 "Thermal Conuctivity of the thermal resistor";
  parameter SI.HeatCapacity C = 570000 "Thermal capacity of the heat capacitor";
- parameter SI.PressureDifference delta_p_nom = 0.001e5 "Nominal pressure difference of the valve inside the consumer";
  parameter SI.MassFlowRate m_flow_nom = 0.18 "Nominal mass flow rate of the water (used in the valve)";
  parameter SI.HeatFlowRate Q_flow_nom = 8e3 "Nominal heat flow rate (used in the heat exchanger)";
  parameter SI.Temperature T_room=295.15 "Set value for room temperature";
  //parameters of controller
- parameter SI.Time tau_i = 1000 "Constant for integrator part of PI-controller";
  parameter Real k = 20 "Constant for proportional part of PI-controller";
  parameter Real y_max = m_flow_nom "Max. opening of valve";//10, m_flow_nom
  parameter Real y_min = 0.0001 "Min. opening of valve";
