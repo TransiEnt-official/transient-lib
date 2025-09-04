@@ -45,7 +45,7 @@ model PQBoundary "L2 Active and reactive power by parameter or inputs, based on 
   //                   Parameters
   // _____________________________________________
 
-  parameter Boolean useInputConnectorP=false
+  parameter Boolean useInputConnectorP=true
     "Gets parameter from input connector" annotation (
     Evaluate=true,
     HideResult=true,
@@ -55,7 +55,7 @@ model PQBoundary "L2 Active and reactive power by parameter or inputs, based on 
   parameter SI.Power P_el_set_const=0 "Constant boundary"
     annotation (Dialog(group="Boundary", enable=not useInputConnectorP));
 
-  parameter Boolean useInputConnectorQ=false
+  parameter Boolean useInputConnectorQ=true
     "Gets parameter from input connector" annotation (
     Evaluate=true,
     HideResult=true,
