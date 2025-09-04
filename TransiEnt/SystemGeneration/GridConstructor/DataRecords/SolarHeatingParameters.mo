@@ -19,7 +19,7 @@ record SolarHeatingParameters
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -43,8 +43,8 @@ record SolarHeatingParameters
   parameter SI.Area area=5 "Aperture area";
   parameter SI.Temperature T_set=348.15 "Temperature set point for controller";
   parameter SI.Temperature T_max=368.15 "Maximum input temperature for collector switch-off";
-  parameter SI.Angle slope=53.55 "Slope of the tilted surface, assumption";
-  parameter SI.Angle azimuth=0 "Surface azimuth angle";
+  parameter Modelica.Units.NonSI.Angle_deg slope=53.55 "Slope of the tilted surface, assumption";
+  parameter Modelica.Units.NonSI.Angle_deg azimuth=0 "Surface azimuth angle, angle between the local meridian and the projection of the normal of the surface on a horizontal surface, west positive";
 
  //Storage
   parameter SI.Volume V=2 "Volume of the storage tank";
