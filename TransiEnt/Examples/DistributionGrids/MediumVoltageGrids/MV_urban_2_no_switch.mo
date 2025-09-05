@@ -53,7 +53,7 @@ model MV_urban_2_no_switch "Urban medium voltage distribution grid scenario with
 
   // ---- Lines rechter Zweig -----------------------------------------------------------------
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_31(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_31(
     r=0.122e-3,
     x=0.105e-3,
     b=143.257e-9,
@@ -61,7 +61,7 @@ model MV_urban_2_no_switch "Urban medium voltage distribution grid scenario with
     length=100,
     epp_p(v(start=10000)),
     epp_n(v(start=10000))) annotation (Placement(transformation(extent={{16,-12},{22,-6}})));
-  TransiEnt.Components.Electrical.Grid.Line_new line_32(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_32(
     r=0.122e-3,
     x=0.105e-3,
     b=143.257e-9,
@@ -69,7 +69,7 @@ model MV_urban_2_no_switch "Urban medium voltage distribution grid scenario with
     length=120,
     epp_p(v(start=10000)),
     epp_n(v(start=10000))) annotation (Placement(transformation(extent={{34,94},{40,100}})));
-  TransiEnt.Components.Electrical.Grid.Line_new line_33(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_33(
     r=0.122e-3,
     x=0.105e-3,
     b=143.257e-9,
@@ -77,7 +77,7 @@ model MV_urban_2_no_switch "Urban medium voltage distribution grid scenario with
     length=270,
     epp_p(v(start=10000)),
     epp_n(v(start=10000))) annotation (Placement(transformation(extent={{48,220},{54,226}})));
-  TransiEnt.Components.Electrical.Grid.Line_new line_34(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_34(
     r=0.122e-3,
     x=0.105e-3,
     b=143.257e-9,
@@ -85,7 +85,7 @@ model MV_urban_2_no_switch "Urban medium voltage distribution grid scenario with
     length=270,
     epp_p(v(start=10000)),
     epp_n(v(start=10000))) annotation (Placement(transformation(extent={{54,352},{60,358}})));
-  TransiEnt.Components.Electrical.Grid.Line_new line_35(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_35(
     r=0.122e-3,
     x=0.105e-3,
     b=143.257e-9,
@@ -93,7 +93,7 @@ model MV_urban_2_no_switch "Urban medium voltage distribution grid scenario with
     length=260,
     epp_p(v(start=10000)),
     epp_n(v(start=10000))) annotation (Placement(transformation(extent={{52,486},{58,492}})));
-  TransiEnt.Components.Electrical.Grid.Line_new line_36(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_36(
     r=0.122e-3,
     x=0.105e-3,
     b=143.257e-9,
@@ -101,7 +101,7 @@ model MV_urban_2_no_switch "Urban medium voltage distribution grid scenario with
     length=150,
     epp_p(v(start=10000)),
     epp_n(v(start=10000))) annotation (Placement(transformation(extent={{54,644},{60,650}})));
-  TransiEnt.Components.Electrical.Grid.Line_new line_37(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_37(
     r=0.122e-3,
     x=0.105e-3,
     b=143.257e-9,
@@ -109,7 +109,7 @@ model MV_urban_2_no_switch "Urban medium voltage distribution grid scenario with
     length=400,
     epp_p(v(start=10000)),
     epp_n(v(start=10000))) annotation (Placement(transformation(extent={{48,800},{54,806}})));
-  TransiEnt.Components.Electrical.Grid.Line_new line_38(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_38(
     r=0.122e-3,
     x=0.105e-3,
     b=143.257e-9,
@@ -117,7 +117,7 @@ model MV_urban_2_no_switch "Urban medium voltage distribution grid scenario with
     length=190,
     epp_p(v(start=10000)),
     epp_n(v(start=10000))) annotation (Placement(transformation(extent={{46,934},{52,940}})));
-  TransiEnt.Components.Electrical.Grid.Line_new line_39(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_39(
     r=0.122e-3,
     x=0.105e-3,
     b=143.257e-9,
@@ -125,7 +125,7 @@ model MV_urban_2_no_switch "Urban medium voltage distribution grid scenario with
     length=110,
     epp_p(v(start=10000)),
     epp_n(v(start=10000))) annotation (Placement(transformation(extent={{44,1052},{50,1058}})));
-  TransiEnt.Components.Electrical.Grid.Line_new line_40(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_40(
     r=0.122e-3,
     x=0.105e-3,
     b=143.257e-9,
@@ -147,7 +147,7 @@ model MV_urban_2_no_switch "Urban medium voltage distribution grid scenario with
 
   // ---- Lines linker Zweig -----------------------------------------------------------------
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_41(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_41(
     r=0.1e-3,
     x=0.0974e-3,
     b=150.796e-9,
@@ -155,7 +155,7 @@ model MV_urban_2_no_switch "Urban medium voltage distribution grid scenario with
     length=110,
     epp_p(v(start=10000)),
     epp_n(v(start=10000))) annotation (Placement(transformation(extent={{-30,-14},{-24,-8}})));
-  TransiEnt.Components.Electrical.Grid.Line_new line_42(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_42(
     r=0.1e-3,
     x=0.0974e-3,
     b=150.796e-9,
@@ -163,7 +163,7 @@ model MV_urban_2_no_switch "Urban medium voltage distribution grid scenario with
     length=350,
     epp_p(v(start=10000)),
     epp_n(v(start=10000))) annotation (Placement(transformation(extent={{-74,80},{-68,86}})));
-  TransiEnt.Components.Electrical.Grid.Line_new line_43(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_43(
     r=0.1e-3,
     x=0.0974e-3,
     b=150.796e-9,
@@ -171,7 +171,7 @@ model MV_urban_2_no_switch "Urban medium voltage distribution grid scenario with
     length=220,
     epp_p(v(start=10000)),
     epp_n(v(start=10000))) annotation (Placement(transformation(extent={{-110,176},{-104,182}})));
-  TransiEnt.Components.Electrical.Grid.Line_new line_44(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_44(
     r=0.1e-3,
     x=0.0974e-3,
     b=150.796e-9,
@@ -179,7 +179,7 @@ model MV_urban_2_no_switch "Urban medium voltage distribution grid scenario with
     length=350,
     epp_p(v(start=10000)),
     epp_n(v(start=10000))) annotation (Placement(transformation(extent={{-132,288},{-126,294}})));
-  TransiEnt.Components.Electrical.Grid.Line_new line_45(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_45(
     r=0.122e-3,
     x=0.105e-3,
     b=143.257e-9,
@@ -187,7 +187,7 @@ model MV_urban_2_no_switch "Urban medium voltage distribution grid scenario with
     length=390,
     epp_p(v(start=10000)),
     epp_n(v(start=10000))) annotation (Placement(transformation(extent={{-144,432},{-138,438}})));
-  TransiEnt.Components.Electrical.Grid.Line_new line_46(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_46(
     r=0.122e-3,
     x=0.105e-3,
     b=143.257e-9,
@@ -195,7 +195,7 @@ model MV_urban_2_no_switch "Urban medium voltage distribution grid scenario with
     length=430,
     epp_p(v(start=10000)),
     epp_n(v(start=10000))) annotation (Placement(transformation(extent={{-156,596},{-150,602}})));
-  TransiEnt.Components.Electrical.Grid.Line_new line_47(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_47(
     r=0.122e-3,
     x=0.105e-3,
     b=143.257e-9,
@@ -203,7 +203,7 @@ model MV_urban_2_no_switch "Urban medium voltage distribution grid scenario with
     length=330,
     epp_p(v(start=10000)),
     epp_n(v(start=10000))) annotation (Placement(transformation(extent={{-154,756},{-148,762}})));
-  TransiEnt.Components.Electrical.Grid.Line_new line_48(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_48(
     r=0.122e-3,
     x=0.105e-3,
     b=143.257e-9,

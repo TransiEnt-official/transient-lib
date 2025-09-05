@@ -482,8 +482,8 @@ equation
 <p>Please have a further look in the subcomponents.</p>
 <p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">9. References</span></b></p>
 <p><code>[1] </code>T. Steffen, B. Wiegel, D. Babazadeh, A. Youssfi, C. Becker and V. Turau, &quot;Generation of realistic Smart Meter Data from Prosumers for future energy system scenarios,&quot; <i>NEIS 2022; Conference on Sustainable Energy Supply and Energy Storage Systems</i>, Hamburg, Germany, 2022, pp. 1-6. </p>
-<p><code>[2]</code>  B. Wiegel, T. Steffen, D. Babazadeh and C. Becker, &quot;Towards a more comprehensive open-source model for interdisciplinary smart integrated energy systems,&quot; <i>2023 11th Workshop on Modelling and Simulation of Cyber-Physical Energy Systems (MSCPES)</i>, San Antonio, TX, USA, 2023, pp. 1-7, doi: 10.1109/MSCPES58582.2023.10123432.</p>
+<p><code>[2]</code> B. Wiegel, T. Steffen, D. Babazadeh and C. Becker, &quot;Towards a more comprehensive open-source model for interdisciplinary smart integrated energy systems,&quot; <i>2023 11th Workshop on Modelling and Simulation of Cyber-Physical Energy Systems (MSCPES)</i>, San Antonio, TX, USA, 2023, pp. 1-7, doi: 10.1109/MSCPES58582.2023.10123432.</p>
 <p><br><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">10. Version History</span></b></p>
-<pre>Added by Tom Steffe and B&eacute;la Wiegel, Techische Universit&auml;t Hamburg, Institut f&uuml;r Elektrische Energietechnik, 2025</pre>
+<pre>Added by Tom Steffen and B&eacute;la Wiegel, Techische Universit&auml;t Hamburg, Institut f&uuml;r Elektrische Energietechnik, 2025</pre>
 </html>"));
 end Prosumer;

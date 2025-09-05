@@ -57,7 +57,7 @@ model MV_rural_2_no_switch "Rural medium voltage distribution grid scenario with
 
   // ---- Lines (between nodes) ---------------------------------------------------------------
 
-  TransiEnt.Components.Electrical.Grid.Line_new Line_1(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph Line_1(
     r=0.000443,
     x=0.000132,
     b=596.903000023e-9,
@@ -66,7 +66,7 @@ model MV_rural_2_no_switch "Rural medium voltage distribution grid scenario with
     epp_p(v(start=20000)),
     epp_n(v(start=20000))) annotation (Placement(transformation(extent={{6.98,34.83},{11.98,39.83}})));
 
-  TransiEnt.Components.Electrical.Grid.Line_new Line_2(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph Line_2(
     r=0.000443,
     x=0.000132,
     b=596.903000023e-9,
@@ -75,7 +75,7 @@ model MV_rural_2_no_switch "Rural medium voltage distribution grid scenario with
     epp_p(v(start=20000)),
     epp_n(v(start=20000))) annotation (Placement(transformation(extent={{-80.52,118.83},{-75.52,123.83}})));
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_43(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_43(
     r=0.000443,
     x=0.000132,
     b=596.903000023e-9,
@@ -84,7 +84,7 @@ model MV_rural_2_no_switch "Rural medium voltage distribution grid scenario with
     epp_p(v(start=20000)),
     epp_n(v(start=20000))) annotation (Placement(transformation(extent={{-189.02,234.33},{-184.02,239.33}})));
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_44(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_44(
     r=8.342e-4,
     x=3.82e-4,
     b=287.456e-9,
@@ -93,7 +93,7 @@ model MV_rural_2_no_switch "Rural medium voltage distribution grid scenario with
     epp_p(v(start=20000)),
     epp_n(v(start=20000))) annotation (Placement(transformation(extent={{-290.52,353.33},{-285.52,358.33}})));
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_53(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_53(
     r=0.000443,
     x=0.000132,
     b=596.903000023e-9,
@@ -102,7 +102,7 @@ model MV_rural_2_no_switch "Rural medium voltage distribution grid scenario with
     epp_p(v(start=20000)),
     epp_n(v(start=20000))) annotation (Placement(transformation(extent={{-511.02,230.83},{-506.02,235.83}})));
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_54(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_54(
     r=0.000443,
     x=0.000132,
     b=596.903000023e-9,
@@ -111,7 +111,7 @@ model MV_rural_2_no_switch "Rural medium voltage distribution grid scenario with
     epp_p(v(start=20000)),
     epp_n(v(start=20000))) annotation (Placement(transformation(extent={{-682.52,286.83},{-677.52,291.83}})));
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_55(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_55(
     r=0.000443,
     x=0.000132,
     b=596.903000023e-9,
@@ -120,7 +120,7 @@ model MV_rural_2_no_switch "Rural medium voltage distribution grid scenario with
     epp_p(v(start=20000)),
     epp_n(v(start=20000))) annotation (Placement(transformation(extent={{-801.52,339.33},{-796.52,344.33}})));
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_56(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_56(
     r=0.000443,
     x=0.000132,
     b=596.903000023e-9,
@@ -129,7 +129,7 @@ model MV_rural_2_no_switch "Rural medium voltage distribution grid scenario with
     epp_p(v(start=20000)),
     epp_n(v(start=20000))) annotation (Placement(transformation(extent={{-861.02,402.33},{-856.02,407.33}})));
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_142(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_142(
     r=8.342e-4,
     x=3.82e-4,
     b=287.456e-9,
@@ -138,7 +138,7 @@ model MV_rural_2_no_switch "Rural medium voltage distribution grid scenario with
     epp_p(v(start=20000)),
     epp_n(v(start=20000))) annotation (Placement(transformation(extent={{-542.52,489.83},{-537.52,494.83}})));
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_49(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_49(
     r=2.53e-4,
     x=1.19e-4,
     b=722.566e-9,
@@ -147,7 +147,7 @@ model MV_rural_2_no_switch "Rural medium voltage distribution grid scenario with
     epp_p(v(start=20000)),
     epp_n(v(start=20000))) annotation (Placement(transformation(extent={{-10.52,21.83},{-5.52,26.83}})));
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_50(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_50(
     r=8.342e-4,
     x=3.82e-4,
     b=287.456e-9,
@@ -156,7 +156,7 @@ model MV_rural_2_no_switch "Rural medium voltage distribution grid scenario with
     epp_p(v(start=20000)),
     epp_n(v(start=20000))) annotation (Placement(transformation(extent={{-91.02,59.33},{-86.02,64.33}})));
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_51(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_51(
     r=8.342e-4,
     x=3.82e-4,
     b=287.456e-9,
@@ -165,7 +165,7 @@ model MV_rural_2_no_switch "Rural medium voltage distribution grid scenario with
     epp_p(v(start=20000)),
     epp_n(v(start=20000))) annotation (Placement(transformation(extent={{-234.52,129.33},{-229.52,134.33}})));
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_52(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_52(
     r=8.342e-4,
     x=3.82e-4,
     b=287.456e-9,

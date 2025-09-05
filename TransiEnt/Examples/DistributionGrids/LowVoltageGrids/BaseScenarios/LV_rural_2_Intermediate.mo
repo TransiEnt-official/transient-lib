@@ -422,7 +422,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // ---- Lines (between nodes) ---------------------------------------------------------------
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_1(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_1(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -432,7 +432,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_2(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_2(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -442,7 +442,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_3(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_3(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -452,7 +452,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_4(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_4(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -462,7 +462,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_5(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_5(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -472,7 +472,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_6(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_6(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -482,7 +482,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_7(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_7(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -492,7 +492,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_8(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_8(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -502,7 +502,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_9(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_9(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -512,7 +512,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_10(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_10(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -522,7 +522,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_11(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_11(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -532,7 +532,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_12(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_12(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -542,7 +542,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_13(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_13(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -552,7 +552,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_14(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_14(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -562,7 +562,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_15(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_15(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -572,7 +572,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_16(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_16(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -582,7 +582,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_17(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_17(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -592,7 +592,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_18(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_18(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -602,7 +602,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_19(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_19(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -612,7 +612,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_20(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_20(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -622,7 +622,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_21(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_21(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -632,7 +632,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_22(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_22(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -642,7 +642,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_23(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_23(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -652,7 +652,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_24(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_24(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -662,7 +662,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_25(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_25(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -672,7 +672,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_26(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_26(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -682,7 +682,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_27(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_27(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -692,7 +692,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_28(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_28(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -702,7 +702,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_29(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_29(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -712,7 +712,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_30(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_30(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -722,7 +722,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_31(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_31(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -732,7 +732,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_32(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_32(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -742,7 +742,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_33(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_33(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -752,7 +752,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_34(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_34(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -762,7 +762,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_35(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_35(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -772,7 +772,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_36(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_36(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -782,7 +782,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_37(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_37(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -792,7 +792,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_38(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_38(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -802,7 +802,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_39(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_39(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -812,7 +812,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_40(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_40(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -822,7 +822,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_41(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_41(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -832,7 +832,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_42(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_42(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -842,7 +842,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_43(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_43(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -852,7 +852,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_44(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_44(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -862,7 +862,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_45(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_45(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -872,7 +872,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_46(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_46(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -882,7 +882,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_47(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_47(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -892,7 +892,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_48(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_48(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -902,7 +902,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_49(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_49(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -912,7 +912,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_50(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_50(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -922,7 +922,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_51(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_51(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -932,7 +932,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_52(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_52(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -942,7 +942,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_53(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_53(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -952,7 +952,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_54(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_54(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -962,7 +962,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_55(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_55(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -972,7 +972,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_56(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_56(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -982,7 +982,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_57(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_57(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -992,7 +992,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_58(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_58(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -1002,7 +1002,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_59(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_59(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -1012,7 +1012,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_60(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_60(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -1022,7 +1022,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_61(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_61(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -1032,7 +1032,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_62(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_62(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -1042,7 +1042,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_63(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_63(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -1052,7 +1052,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_64(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_64(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -1062,7 +1062,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_65(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_65(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -1072,7 +1072,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_66(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_66(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -1082,7 +1082,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_67(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_67(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -1092,7 +1092,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_68(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_68(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -1102,7 +1102,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_69(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_69(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -1112,7 +1112,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_70(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_70(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -1122,7 +1122,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_71(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_71(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -1132,7 +1132,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_72(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_72(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -1142,7 +1142,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_73(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_73(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -1152,7 +1152,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_74(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_74(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -1162,7 +1162,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_75(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_75(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -1172,7 +1172,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_76(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_76(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -1182,7 +1182,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_77(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_77(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -1192,7 +1192,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_78(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_78(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -1202,7 +1202,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_79(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_79(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -1212,7 +1212,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_80(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_80(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -1222,7 +1222,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_81(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_81(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -1232,7 +1232,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_82(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_82(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -1242,7 +1242,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_83(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_83(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -1252,7 +1252,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_84(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_84(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -1262,7 +1262,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_85(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_85(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -1272,7 +1272,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_86(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_86(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -1282,7 +1282,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_87(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_87(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -1292,7 +1292,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_88(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_88(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -1302,7 +1302,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_89(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_89(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -1312,7 +1312,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_90(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_90(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -1322,7 +1322,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_91(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_91(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -1332,7 +1332,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_92(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_92(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -1342,7 +1342,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_93(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_93(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -1352,7 +1352,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_94(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_94(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -1362,7 +1362,7 @@ model LV_rural_2_Intermediate "Large rural low voltage distribution grid scenari
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_95(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_95(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,

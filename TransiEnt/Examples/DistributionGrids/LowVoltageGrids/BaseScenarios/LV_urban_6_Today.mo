@@ -269,630 +269,573 @@ model LV_urban_6_Today "Urban low voltage distribution grid scenario with 2024 t
 
   // ---- Lines (between nodes) ---------------------------------------------------------------
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_1(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_1(
     r=0.0001267,
     x=0.000079797,
     b=2.73319e-07,
     length=20.265000,
     i_n=364,
-    parallel=1)
-      annotation (Placement(transformation(extent={{-9.43,127.9},{-4.43,132.9}})));
+    parallel=1) annotation (Placement(transformation(extent={{-9.43,127.9},{-4.43,132.9}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_2(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_2(
     r=0.0001267,
     x=0.000079797,
     b=2.73319e-07,
     length=14.753000,
     i_n=364,
-    parallel=1)
-      annotation (Placement(transformation(extent={{-9.43,-26.1},{-4.43,-21.1}})));
+    parallel=1) annotation (Placement(transformation(extent={{-9.43,-26.1},{-4.43,-21.1}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_3(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_3(
     r=0.0001267,
     x=0.000079797,
     b=2.73319e-07,
     length=0.216000,
     i_n=364,
-    parallel=1)
-      annotation (Placement(transformation(extent={{71.07,89.4},{76.07,94.4}})));
+    parallel=1) annotation (Placement(transformation(extent={{71.07,89.4},{76.07,94.4}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_4(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_4(
     r=0.0001267,
     x=0.000079797,
     b=2.73319e-07,
     length=38.366000,
     i_n=364,
-    parallel=1)
-      annotation (Placement(transformation(extent={{165.57,19.4},{170.57,24.4}})));
+    parallel=1) annotation (Placement(transformation(extent={{165.57,19.4},{170.57,24.4}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_5(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_5(
     r=0.0001267,
     x=0.000079797,
     b=2.73319e-07,
     length=0.227000,
     i_n=364,
-    parallel=1)
-      annotation (Placement(transformation(extent={{155.07,64.9},{160.07,69.9}})));
+    parallel=1) annotation (Placement(transformation(extent={{155.07,64.9},{160.07,69.9}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_6(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_6(
     r=0.0001267,
     x=0.000079797,
     b=2.73319e-07,
     length=36.511000,
     i_n=364,
-    parallel=1)
-      annotation (Placement(transformation(extent={{155.07,89.4},{160.07,94.4}})));
+    parallel=1) annotation (Placement(transformation(extent={{155.07,89.4},{160.07,94.4}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_7(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_7(
     r=0.0001267,
     x=0.000079797,
     b=2.73319e-07,
     length=3.038000,
     i_n=364,
-    parallel=1)
-      annotation (Placement(transformation(extent={{127.07,-96.1},{132.07,-91.1}})));
+    parallel=1) annotation (Placement(transformation(extent={{127.07,-96.1},{132.07,-91.1}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_8(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_8(
     r=0.0001267,
     x=0.000079797,
     b=2.73319e-07,
     length=24.782000,
     i_n=364,
-    parallel=1)
-      annotation (Placement(transformation(extent={{-75.93,47.4},{-70.93,52.4}})));
+    parallel=1) annotation (Placement(transformation(extent={{-75.93,47.4},{-70.93,52.4}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_9(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_9(
     r=0.0001267,
     x=0.000079797,
     b=2.73319e-07,
     length=18.017000,
     i_n=364,
-    parallel=1)
-      annotation (Placement(transformation(extent={{123.57,-194.1},{128.57,-189.1}})));
+    parallel=1) annotation (Placement(transformation(extent={{123.57,-194.1},{128.57,-189.1}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_10(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_10(
     r=0.0001267,
     x=0.000079797,
     b=2.73319e-07,
     length=14.492000,
     i_n=364,
-    parallel=1)
-      annotation (Placement(transformation(extent={{127.07,-120.6},{132.07,-115.6}})));
+    parallel=1) annotation (Placement(transformation(extent={{127.07,-120.6},{132.07,-115.6}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_11(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_11(
     r=0.0001267,
     x=0.000079797,
     b=2.73319e-07,
     length=2.453000,
     i_n=364,
-    parallel=1)
-      annotation (Placement(transformation(extent={{-5.93,47.4},{-0.93,52.4}})));
+    parallel=1) annotation (Placement(transformation(extent={{-5.93,47.4},{-0.93,52.4}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_12(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_12(
     r=0.0001267,
     x=0.000079797,
     b=2.73319e-07,
     length=18.953000,
     i_n=364,
-    parallel=1)
-      annotation (Placement(transformation(extent={{-58.43,127.9},{-53.43,132.9}})));
+    parallel=1) annotation (Placement(transformation(extent={{-58.43,127.9},{-53.43,132.9}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_13(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_13(
     r=0.0001267,
     x=0.000079797,
     b=2.73319e-07,
     length=4.278000,
     i_n=364,
-    parallel=1)
-      annotation (Placement(transformation(extent={{123.57,-47.1},{128.57,-42.1}})));
+    parallel=1) annotation (Placement(transformation(extent={{123.57,-47.1},{128.57,-42.1}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_14(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_14(
     r=0.0001267,
     x=0.000079797,
     b=2.73319e-07,
     length=24.146000,
     i_n=364,
-    parallel=1)
-      annotation (Placement(transformation(extent={{-96.93,47.4},{-91.93,52.4}})));
+    parallel=1) annotation (Placement(transformation(extent={{-96.93,47.4},{-91.93,52.4}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_15(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_15(
     r=0.0001267,
     x=0.000079797,
     b=2.73319e-07,
     length=3.718000,
     i_n=364,
-    parallel=1)
-      annotation (Placement(transformation(extent={{-5.93,-50.6},{-0.93,-45.6}})));
+    parallel=1) annotation (Placement(transformation(extent={{-5.93,-50.6},{-0.93,-45.6}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_16(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_16(
     r=0.0001267,
     x=0.000079797,
     b=2.73319e-07,
     length=18.759000,
     i_n=364,
-    parallel=1)
-      annotation (Placement(transformation(extent={{8.07,68.4},{13.07,73.4}})));
+    parallel=1) annotation (Placement(transformation(extent={{8.07,68.4},{13.07,73.4}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_17(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_17(
     r=0.0001267,
     x=0.000079797,
     b=2.73319e-07,
     length=10.385000,
     i_n=364,
-    parallel=1)
-      annotation (Placement(transformation(extent={{148.07,-1.6},{153.07,3.4}})));
+    parallel=1) annotation (Placement(transformation(extent={{148.07,-1.6},{153.07,3.4}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_18(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_18(
     r=0.0001267,
     x=0.000079797,
     b=2.73319e-07,
     length=10.171000,
     i_n=364,
-    parallel=1)
-      annotation (Placement(transformation(extent={{-5.93,-124.1},{-0.93,-119.1}})));
+    parallel=1) annotation (Placement(transformation(extent={{-5.93,-124.1},{-0.93,-119.1}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_19(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_19(
     r=0.0001267,
     x=0.000079797,
     b=2.73319e-07,
     length=28.324000,
     i_n=364,
-    parallel=1)
-      annotation (Placement(transformation(extent={{-5.93,-148.6},{-0.93,-143.6}})));
+    parallel=1) annotation (Placement(transformation(extent={{-5.93,-148.6},{-0.93,-143.6}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_20(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_20(
     r=0.0001267,
     x=0.000079797,
     b=2.73319e-07,
     length=3.708000,
     i_n=364,
-    parallel=1)
-      annotation (Placement(transformation(extent={{123.57,-145.1},{128.57,-140.1}})));
+    parallel=1) annotation (Placement(transformation(extent={{123.57,-145.1},{128.57,-140.1}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_21(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_21(
     r=0.0001267,
     x=0.000079797,
     b=2.73319e-07,
     length=0.216000,
     i_n=364,
-    parallel=1)
-      annotation (Placement(transformation(extent={{71.07,68.4},{76.07,73.4}})));
+    parallel=1) annotation (Placement(transformation(extent={{71.07,68.4},{76.07,73.4}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_22(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_22(
     r=0.0001267,
     x=0.000079797,
     b=2.73319e-07,
     length=18.579000,
     i_n=364,
-    parallel=1)
-      annotation (Placement(transformation(extent={{218.07,-1.6},{223.07,3.4}})));
+    parallel=1) annotation (Placement(transformation(extent={{218.07,-1.6},{223.07,3.4}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_23(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_23(
     r=0.0001267,
     x=0.000079797,
     b=2.73319e-07,
     length=15.226000,
     i_n=364,
-    parallel=1)
-      annotation (Placement(transformation(extent={{127.07,-71.6},{132.07,-66.6}})));
+    parallel=1) annotation (Placement(transformation(extent={{127.07,-71.6},{132.07,-66.6}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_24(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_24(
     r=0.0001267,
     x=0.000079797,
     b=2.73319e-07,
     length=0.187000,
     i_n=364,
-    parallel=1)
-      annotation (Placement(transformation(extent={{-82.93,89.4},{-77.93,94.4}})));
+    parallel=1) annotation (Placement(transformation(extent={{-82.93,89.4},{-77.93,94.4}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_25(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_25(
     r=0.0001267,
     x=0.000079797,
     b=2.73319e-07,
     length=13.120000,
     i_n=364,
-    parallel=1)
-      annotation (Placement(transformation(extent={{-12.93,-1.6},{-7.93,3.4}})));
+    parallel=1) annotation (Placement(transformation(extent={{-12.93,-1.6},{-7.93,3.4}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_26(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_26(
     r=0.0001267,
     x=0.000079797,
     b=2.73319e-07,
     length=17.848000,
     i_n=364,
-    parallel=1)
-      annotation (Placement(transformation(extent={{15.07,47.4},{20.07,52.4}})));
+    parallel=1) annotation (Placement(transformation(extent={{15.07,47.4},{20.07,52.4}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_27(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_27(
     r=0.0001267,
     x=0.000079797,
     b=2.73319e-07,
     length=7.492000,
     i_n=364,
-    parallel=1)
-      annotation (Placement(transformation(extent={{-12.93,22.9},{-7.93,27.9}})));
+    parallel=1) annotation (Placement(transformation(extent={{-12.93,22.9},{-7.93,27.9}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_28(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_28(
     r=0.0001267,
     x=0.000079797,
     b=2.73319e-07,
     length=20.316000,
     i_n=364,
-    parallel=1)
-      annotation (Placement(transformation(extent={{197.07,19.4},{202.07,24.4}})));
+    parallel=1) annotation (Placement(transformation(extent={{197.07,19.4},{202.07,24.4}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_29(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_29(
     r=0.0001267,
     x=0.000079797,
     b=2.73319e-07,
     length=22.946000,
     i_n=364,
-    parallel=1)
-      annotation (Placement(transformation(extent={{74.57,22.9},{79.57,27.9}})));
+    parallel=1) annotation (Placement(transformation(extent={{74.57,22.9},{79.57,27.9}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_30(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_30(
     r=0.0001267,
     x=0.000079797,
     b=2.73319e-07,
     length=21.516000,
     i_n=364,
-    parallel=1)
-      annotation (Placement(transformation(extent={{130.57,-22.6},{135.57,-17.6}})));
+    parallel=1) annotation (Placement(transformation(extent={{130.57,-22.6},{135.57,-17.6}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_31(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_31(
     r=0.0001267,
     x=0.000079797,
     b=2.73319e-07,
     length=14.473000,
     i_n=364,
-    parallel=1)
-      annotation (Placement(transformation(extent={{120.07,-169.6},{125.07,-164.6}})));
+    parallel=1) annotation (Placement(transformation(extent={{120.07,-169.6},{125.07,-164.6}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_32(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_32(
     r=0.0001267,
     x=0.000079797,
     b=2.73319e-07,
     length=13.883000,
     i_n=364,
-    parallel=1)
-      annotation (Placement(transformation(extent={{71.07,47.4},{76.07,52.4}})));
+    parallel=1) annotation (Placement(transformation(extent={{71.07,47.4},{76.07,52.4}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_33(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_33(
     r=0.0001267,
     x=0.000079797,
     b=2.73319e-07,
     length=40.150000,
     i_n=364,
-    parallel=1)
-      annotation (Placement(transformation(extent={{15.07,89.4},{20.07,94.4}})));
+    parallel=1) annotation (Placement(transformation(extent={{15.07,89.4},{20.07,94.4}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_34(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_34(
     r=0.0001267,
     x=0.000079797,
     b=2.73319e-07,
     length=17.304000,
     i_n=364,
-    parallel=1)
-      annotation (Placement(transformation(extent={{165.57,40.4},{170.57,45.4}})));
+    parallel=1) annotation (Placement(transformation(extent={{165.57,40.4},{170.57,45.4}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_35(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_35(
     r=0.0001267,
     x=0.000079797,
     b=2.73319e-07,
     length=77.746000,
     i_n=364,
-    parallel=1)
-      annotation (Placement(transformation(extent={{-5.93,-169.6},{-0.93,-164.6}})));
+    parallel=1) annotation (Placement(transformation(extent={{-5.93,-169.6},{-0.93,-164.6}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_36(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_36(
     r=0.0001267,
     x=0.000079797,
     b=2.73319e-07,
     length=14.277000,
     i_n=364,
-    parallel=1)
-      annotation (Placement(transformation(extent={{-5.93,-75.1},{-0.93,-70.1}})));
+    parallel=1) annotation (Placement(transformation(extent={{-5.93,-75.1},{-0.93,-70.1}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_37(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_37(
     r=0.0001267,
     x=0.000079797,
     b=2.73319e-07,
     length=13.583000,
     i_n=364,
-    parallel=1)
-      annotation (Placement(transformation(extent={{-86.43,68.4},{-81.43,73.4}})));
+    parallel=1) annotation (Placement(transformation(extent={{-86.43,68.4},{-81.43,73.4}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_38(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_38(
     r=0.0001267,
     x=0.000079797,
     b=2.73319e-07,
     length=51.665000,
     i_n=364,
-    parallel=1)
-      annotation (Placement(transformation(extent={{158.57,-22.6},{163.57,-17.6}})));
+    parallel=1) annotation (Placement(transformation(extent={{158.57,-22.6},{163.57,-17.6}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_39(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_39(
     r=0.0001267,
     x=0.000079797,
     b=2.73319e-07,
     length=7.626000,
     i_n=364,
-    parallel=1)
-      annotation (Placement(transformation(extent={{-5.93,-99.6},{-0.93,-94.6}})));
+    parallel=1) annotation (Placement(transformation(extent={{-5.93,-99.6},{-0.93,-94.6}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_40(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_40(
     r=0.0001267,
     x=0.000079797,
     b=2.73319e-07,
     length=3.383000,
     i_n=364,
-    parallel=1)
-      annotation (Placement(transformation(extent={{123.57,-218.6},{128.57,-213.6}})));
+    parallel=1) annotation (Placement(transformation(extent={{123.57,-218.6},{128.57,-213.6}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_41(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_41(
     r=0.0001267,
     x=0.000079797,
     b=2.73319e-07,
     length=36.770000,
     i_n=364,
-    parallel=1)
-      annotation (Placement(transformation(extent={{-61.93,-1.6},{-56.93,3.4}})));
+    parallel=1) annotation (Placement(transformation(extent={{-61.93,-1.6},{-56.93,3.4}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_42(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_42(
     r=0.0001267,
     x=0.000079797,
     b=2.73319e-07,
     length=52.041000,
     i_n=364,
-    parallel=1)
-      annotation (Placement(transformation(extent={{-61.93,22.9},{-56.93,27.9}})));
+    parallel=1) annotation (Placement(transformation(extent={{-61.93,22.9},{-56.93,27.9}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_43(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_43(
     r=0.0001267,
     x=0.000079797,
     b=2.73319e-07,
     length=26.000000,
     i_n=364,
-    parallel=1)
-      annotation (Placement(transformation(extent={{-107.43,22.9},{-102.43,27.9}})));
+    parallel=1) annotation (Placement(transformation(extent={{-107.43,22.9},{-102.43,27.9}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_44(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_44(
     r=0.0001267,
     x=0.000079797,
     b=2.73319e-07,
     length=17.000000,
     i_n=364,
-    parallel=1)
-      annotation (Placement(transformation(extent={{-159.93,89.4},{-154.93,94.4}})));
+    parallel=1) annotation (Placement(transformation(extent={{-159.93,89.4},{-154.93,94.4}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_45(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_45(
     r=0.0001267,
     x=0.000079797,
     b=2.73319e-07,
     length=16.000000,
     i_n=364,
-    parallel=1)
-      annotation (Placement(transformation(extent={{-156.43,36.9},{-151.43,41.9}})));
+    parallel=1) annotation (Placement(transformation(extent={{-156.43,36.9},{-151.43,41.9}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_46(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_46(
     r=0.0001267,
     x=0.000079797,
     b=2.73319e-07,
     length=19.000000,
     i_n=364,
-    parallel=1)
-      annotation (Placement(transformation(extent={{-152.93,12.4},{-147.93,17.4}})));
+    parallel=1) annotation (Placement(transformation(extent={{-152.93,12.4},{-147.93,17.4}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_47(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_47(
     r=0.0001267,
     x=0.000079797,
     b=2.73319e-07,
     length=22.000000,
     i_n=364,
-    parallel=1)
-      annotation (Placement(transformation(extent={{-159.93,64.9},{-154.93,69.9}})));
+    parallel=1) annotation (Placement(transformation(extent={{-159.93,64.9},{-154.93,69.9}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_48(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_48(
     r=0.0001267,
     x=0.000079797,
     b=2.73319e-07,
     length=12.000000,
     i_n=364,
-    parallel=1)
-      annotation (Placement(transformation(extent={{-156.43,-12.1},{-151.43,-7.1}})));
+    parallel=1) annotation (Placement(transformation(extent={{-156.43,-12.1},{-151.43,-7.1}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_49(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_49(
     r=0.0001267,
     x=0.000079797,
     b=2.73319e-07,
     length=20.000000,
     i_n=364,
-    parallel=1)
-      annotation (Placement(transformation(extent={{-159.93,-36.6},{-154.93,-31.6}})));
+    parallel=1) annotation (Placement(transformation(extent={{-159.93,-36.6},{-154.93,-31.6}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_50(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_50(
     r=0.0001267,
     x=0.000079797,
     b=2.73319e-07,
     length=22.000000,
     i_n=364,
-    parallel=1)
-      annotation (Placement(transformation(extent={{-96.93,127.9},{-91.93,132.9}})));
+    parallel=1) annotation (Placement(transformation(extent={{-96.93,127.9},{-91.93,132.9}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_51(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_51(
     r=0.0001267,
     x=0.000079797,
     b=2.73319e-07,
     length=45.000000,
     i_n=364,
-    parallel=1)
-      annotation (Placement(transformation(extent={{-117.93,127.9},{-112.93,132.9}})));
+    parallel=1) annotation (Placement(transformation(extent={{-117.93,127.9},{-112.93,132.9}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_52(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_52(
     r=0.0001267,
     x=0.000079797,
     b=2.73319e-07,
     length=14.000000,
     i_n=364,
-    parallel=1)
-      annotation (Placement(transformation(extent={{-138.93,127.9},{-133.93,132.9}})));
+    parallel=1) annotation (Placement(transformation(extent={{-138.93,127.9},{-133.93,132.9}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_53(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_53(
     r=0.0001267,
     x=0.000079797,
     b=2.73319e-07,
     length=16.000000,
     i_n=364,
-    parallel=1)
-      annotation (Placement(transformation(extent={{-243.93,89.4},{-238.93,94.4}})));
+    parallel=1) annotation (Placement(transformation(extent={{-243.93,89.4},{-238.93,94.4}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_54(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_54(
     r=0.0001267,
     x=0.000079797,
     b=2.73319e-07,
     length=15.000000,
     i_n=364,
-    parallel=1)
-      annotation (Placement(transformation(extent={{-243.93,64.9},{-238.93,69.9}})));
+    parallel=1) annotation (Placement(transformation(extent={{-243.93,64.9},{-238.93,69.9}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_55(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_55(
     r=0.0001267,
     x=0.000079797,
     b=2.73319e-07,
     length=10.000000,
     i_n=364,
-    parallel=1)
-      annotation (Placement(transformation(extent={{-243.93,36.9},{-238.93,41.9}})));
+    parallel=1) annotation (Placement(transformation(extent={{-243.93,36.9},{-238.93,41.9}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_56(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_56(
     r=0.0001267,
     x=0.000079797,
     b=2.73319e-07,
     length=29.579000,
     i_n=364,
-    parallel=1)
-      annotation (Placement(transformation(extent={{60.57,127.9},{65.57,132.9}})));
+    parallel=1) annotation (Placement(transformation(extent={{60.57,127.9},{65.57,132.9}})));
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_57(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_57(
     r=0.0001267,
     x=0.000079797,
     b=2.73319e-07,
     length=18.226000,
     i_n=364,
-    parallel=1)
-      annotation (Placement(transformation(extent={{18.57,127.9},{23.57,132.9}})));
+    parallel=1) annotation (Placement(transformation(extent={{18.57,127.9},{23.57,132.9}})));
 
   // Basic Parameters
 

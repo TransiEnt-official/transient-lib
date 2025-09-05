@@ -94,7 +94,7 @@ model LV_rural_1_Today "Small rural low voltage distribution grid model"
 
   // ---- Lines (between nodes) ---------------------------------------------------------------
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_1(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_1(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -104,7 +104,7 @@ model LV_rural_1_Today "Small rural low voltage distribution grid model"
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_2(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_2(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -114,7 +114,7 @@ model LV_rural_1_Today "Small rural low voltage distribution grid model"
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_3(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_3(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -124,7 +124,7 @@ model LV_rural_1_Today "Small rural low voltage distribution grid model"
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_4(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_4(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -134,7 +134,7 @@ model LV_rural_1_Today "Small rural low voltage distribution grid model"
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_5(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_5(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -144,7 +144,7 @@ model LV_rural_1_Today "Small rural low voltage distribution grid model"
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_6(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_6(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -154,7 +154,7 @@ model LV_rural_1_Today "Small rural low voltage distribution grid model"
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_7(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_7(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -164,7 +164,7 @@ model LV_rural_1_Today "Small rural low voltage distribution grid model"
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_8(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_8(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -174,7 +174,7 @@ model LV_rural_1_Today "Small rural low voltage distribution grid model"
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_9(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_9(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -184,7 +184,7 @@ model LV_rural_1_Today "Small rural low voltage distribution grid model"
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_10(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_10(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -194,7 +194,7 @@ model LV_rural_1_Today "Small rural low voltage distribution grid model"
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_11(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_11(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -204,7 +204,7 @@ model LV_rural_1_Today "Small rural low voltage distribution grid model"
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_12(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_12(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
@@ -214,7 +214,7 @@ model LV_rural_1_Today "Small rural low voltage distribution grid model"
 
   // Basic Parameters
 
-  TransiEnt.Components.Electrical.Grid.Line_new line_13(
+  TransiEnt.Components.Electrical.Grid.PiModelComplexEfficient3ph line_13(
     r=0.0002067,
     x=0.000080425,
     b=2.60752e-07,
