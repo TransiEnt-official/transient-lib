@@ -389,7 +389,7 @@ model MV_urban_2_no_switch "Urban medium voltage distribution grid scenario with
   // ------------------------------------------------------------------------------------------
   //   Interface part
   // ------------------------------------------------------------------------------------------
-  Scenarios_CyEntEE.MV_Grids.Bus.MVGridControlBus controlBus annotation (Placement(transformation(extent={{-10,-12},{10,8}})));
+  Basics.Interfaces.General.ControlBus            controlBus annotation (Placement(transformation(extent={{-10,-12},{10,8}})));
 
   // ------------------------------------------------------------------------------------------
   //   Equation part

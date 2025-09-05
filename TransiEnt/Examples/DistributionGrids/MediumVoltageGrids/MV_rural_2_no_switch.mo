@@ -276,16 +276,34 @@ model MV_rural_2_no_switch "Rural medium voltage distribution grid scenario with
   TransiEnt.Producer.Electrical.Wind.Windturbine windturbine_1700kW(
     P_el_n(displayUnit="MW") = 1700000,
     redeclare TransiEnt.Basics.Interfaces.Electrical.ComplexPowerPort epp,
-    beta_start=0) annotation (Placement(transformation(extent={{-800,668},{-738,726}})));
+    beta_start=0,
+    Generator(redeclare TransiEnt.Basics.Interfaces.Electrical.ComplexPowerPort epp, redeclare TransiEnt.Components.Boundaries.Electrical.ComplexPower.PQBoundary terminal(
+        change_sign=true,
+        useInputConnectorQ=false,
+        cosphi_boundary=1) "PQ-Boundary for ComplexPowerPort"),
+    redeclare TransiEnt.Components.Electrical.Machines.ExcitationSystemsVoltageController.DummyExcitationSystem_ComplexPowerPort Exciter)
+                                                                                     annotation (Placement(transformation(extent={{-798,668},{-736,726}})));
   Basics.Tables.Ambient.GenericWindspeedDataTableResource table_Wind(fileName="modelica://TransiEnt/Tables/distribution/WeatherData/Hamelin_2019_Wind.txt") annotation (Placement(transformation(extent={{-954,670},{-896,728}})));
   TransiEnt.Producer.Electrical.Wind.Windturbine windturbine_4000kW(
     P_el_n(displayUnit="MW") = 4000000,
     redeclare TransiEnt.Basics.Interfaces.Electrical.ComplexPowerPort epp,
-    beta_start=0) annotation (Placement(transformation(extent={{-434,542},{-372,600}})));
+    beta_start=0,
+    Generator(redeclare TransiEnt.Basics.Interfaces.Electrical.ComplexPowerPort epp, redeclare TransiEnt.Components.Boundaries.Electrical.ComplexPower.PQBoundary terminal(
+        change_sign=true,
+        useInputConnectorQ=false,
+        cosphi_boundary=1) "PQ-Boundary for ComplexPowerPort"),
+    redeclare TransiEnt.Components.Electrical.Machines.ExcitationSystemsVoltageController.DummyExcitationSystem_ComplexPowerPort Exciter)
+                                                                                     annotation (Placement(transformation(extent={{-434,542},{-372,600}})));
   TransiEnt.Producer.Electrical.Wind.Windturbine windturbine_2000kW(
     P_el_n(displayUnit="MW") = 2000000,
     redeclare TransiEnt.Basics.Interfaces.Electrical.ComplexPowerPort epp,
-    beta_start=0) annotation (Placement(transformation(extent={{-168,-228},{-106,-170}})));
+    beta_start=0,
+    Generator(redeclare TransiEnt.Basics.Interfaces.Electrical.ComplexPowerPort epp, redeclare TransiEnt.Components.Boundaries.Electrical.ComplexPower.PQBoundary terminal(
+        change_sign=true,
+        useInputConnectorQ=false,
+        cosphi_boundary=1) "PQ-Boundary for ComplexPowerPort"),
+    redeclare TransiEnt.Components.Electrical.Machines.ExcitationSystemsVoltageController.DummyExcitationSystem_ComplexPowerPort Exciter)
+                  annotation (Placement(transformation(extent={{-162,-228},{-100,-170}})));
   Producer.Electrical.Photovoltaics.Advanced_PV.DNIDHI_Input.PVPlantControllable pVPlantControllable(P_inst=125000) annotation (Placement(transformation(extent={{-592,-62},{-538,-8}})));
   Basics.Tables.ElectricGrid.GenericLoadProfileDataTableResource table_LoadProfile_G3_A(
     powerScaleP=225700,
@@ -294,7 +312,7 @@ model MV_rural_2_no_switch "Rural medium voltage distribution grid scenario with
         extent={{-24,-23},{24,23}},
         rotation=180,
         origin={76,-255})));
-  Components.Boundaries.Electrical.ComplexPower.PQBoundary_new LoadProfile_G3_A(
+  Components.Boundaries.Electrical.ComplexPower.PQBoundary     LoadProfile_G3_A(
     v_n=20000,
     useInputConnectorP=true,
     useInputConnectorQ=true) annotation (Placement(transformation(
@@ -308,7 +326,7 @@ model MV_rural_2_no_switch "Rural medium voltage distribution grid scenario with
         extent={{-24,-23},{24,23}},
         rotation=180,
         origin={-744,483})));
-  Components.Boundaries.Electrical.ComplexPower.PQBoundary_new LoadProfile_L2_M(
+  Components.Boundaries.Electrical.ComplexPower.PQBoundary     LoadProfile_L2_M(
     v_n=20000,
     useInputConnectorP=true,
     useInputConnectorQ=true) annotation (Placement(transformation(
@@ -320,7 +338,7 @@ model MV_rural_2_no_switch "Rural medium voltage distribution grid scenario with
   // ------------------------------------------------------------------------------------------
   //   Equation part
   // ------------------------------------------------------------------------------------------
-  Scenarios_CyEntEE.MV_Grids.Bus.MVGridControlBus controlBus annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+  Basics.Interfaces.General.ControlBus            controlBus annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
 
   // ------------------------------------------------------------------------------------------
   //   Equation part
@@ -419,10 +437,10 @@ equation
       points={{87,214.32},{136,214.32},{136,136},{-8.02,136},{-8.02,45.33}},
       color={28,108,200},
       thickness=0.5));
-  connect(table_Wind.value, windturbine_1700kW.v_wind) annotation (Line(points={{-896,698.42},{-824,698.42},{-824,714.69},{-796.59,714.69}}, color={0,0,127}));
+  connect(table_Wind.value, windturbine_1700kW.v_wind) annotation (Line(points={{-896,698.42},{-824,698.42},{-824,714.69},{-794.59,714.69}}, color={0,0,127}));
   connect(table_Wind.value, windturbine_4000kW.v_wind) annotation (Line(points={{-896,698.42},{-778,698.42},{-778,788},{-410,788},{-410,588.69},{-430.59,588.69}}, color={0,0,127}));
-  connect(table_Wind.value, windturbine_2000kW.v_wind) annotation (Line(points={{-896,698.42},{-898,698.42},{-898,844},{-860,844},{-860,952},{-1252,952},{-1252,-181.31},{-164.59,-181.31}}, color={0,0,127}));
-  connect(pVPlantControllable.WindSpeed_in, windturbine_2000kW.v_wind) annotation (Line(points={{-597.4,-56.6},{-597.4,-181.31},{-164.59,-181.31}}, color={0,0,127}));
+  connect(table_Wind.value, windturbine_2000kW.v_wind) annotation (Line(points={{-896,698.42},{-898,698.42},{-898,844},{-860,844},{-860,952},{-1252,952},{-1252,-181.31},{-158.59,-181.31}}, color={0,0,127}));
+  connect(pVPlantControllable.WindSpeed_in, windturbine_2000kW.v_wind) annotation (Line(points={{-597.4,-56.6},{-597.4,-181.31},{-158.59,-181.31}}, color={0,0,127}));
   connect(LoadProfile_L2_M.epp, node_10.epp) annotation (Line(
       points={{-800,556},{-744,556},{-744,549.33},{-729.02,549.33}},
       color={28,108,200},
@@ -444,7 +462,7 @@ equation
       color={28,108,200},
       thickness=0.5));
   connect(windturbine_2000kW.epp, simpleTransformerComplex.epp_n) annotation (Line(
-      points={{-109.1,-178.7},{-112,-178.7},{-112,-128},{60,-128},{60,40}},
+      points={{-103.1,-178.7},{-112,-178.7},{-112,-128},{60,-128},{60,40}},
       color={28,108,200},
       thickness=0.5));
   connect(table_LoadProfile_G3_A.P, LoadProfile_G3_A.P_el_set) annotation (Line(
@@ -468,7 +486,7 @@ equation
       color={28,108,200},
       thickness=0.5));
   connect(node_10.epp, windturbine_1700kW.epp) annotation (Line(
-      points={{-729.02,549.33},{-729.02,717.3},{-741.1,717.3}},
+      points={{-729.02,549.33},{-729.02,717.3},{-739.1,717.3}},
       color={28,108,200},
       thickness=0.5));
   connect(genericDHIDNIDataTableResource.direct, pVPlantControllable.DNI_in) annotation (Line(points={{-681.2,-46},{-624,-46},{-624,-28.52},{-597.4,-28.52}}, color={0,0,127}));
