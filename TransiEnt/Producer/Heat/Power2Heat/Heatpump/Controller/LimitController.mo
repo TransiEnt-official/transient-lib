@@ -69,6 +69,8 @@ model LimitController "Limits electrical power consumption"
     annotation (Placement(transformation(extent={{-4,56},{4,64}})));
   Modelica.Blocks.Math.Gain COP_best(k=5)
     annotation (Placement(transformation(extent={{-14,80},{2,96}})));
+  Modelica.Blocks.Logical.Switch P_limit_active_switch1
+    annotation (Placement(transformation(extent={{-32,-38},{-12,-18}})));
 equation
   connect(P_limit_active,P_limit_active_switch. u2) annotation (Line(points={{-108,
           -60},{-34,-60}},            color={255,0,255}));
@@ -118,8 +120,16 @@ equation
           127}));
   connect(P_limit, COP_best.u) annotation (Line(points={{-110,60},{-74,60},{-74,
           74},{-76,74},{-76,88},{-15.6,88}}, color={0,0,127}));
-  connect(COP_best.y, controller_P_Limit.limit1) annotation (Line(points={{2.8,
-          88},{12,88},{12,52},{20,52}}, color={0,0,127}));
+  connect(P_limit_active, P_limit_active_switch1.u2) annotation (Line(points={{
+          -108,-60},{-50,-60},{-50,-28},{-34,-28}}, color={255,0,255}));
+  connect(Q_varLimiter_max.y, P_limit_active_switch1.u3) annotation (Line(
+        points={{-54,-78},{-42,-78},{-42,-36},{-34,-36}}, color={0,0,127}));
+  connect(COP_best.y, P_limit_active_switch1.u1) annotation (Line(points={{2.8,
+          88},{6,88},{6,76},{-42,76},{-42,30},{-46,30},{-46,-20},{-34,-20}},
+        color={0,0,127}));
+  connect(P_limit_active_switch1.y, controller_P_Limit.limit1) annotation (Line(
+        points={{-11,-28},{-4,-28},{-4,26},{6,26},{6,52},{20,52}}, color={0,0,
+          127}));
   annotation (Icon(graphics={   Rectangle(
         extent={{-100,-100},{100,100}},
         lineColor={0,0,127},

@@ -67,17 +67,6 @@ model Check_Heating
     startTime=3600)
     annotation (Placement(transformation(extent={{-26,76},{-2,96}})));
 
-  Modelica.Blocks.Sources.Step step_T_room(
-    height=2,
-    offset=0,
-    startTime=3600*12)
-    annotation (Placement(transformation(extent={{-22,-64},{-8,-50}})));
-  Modelica.Blocks.Sources.Step step_T_buffer(
-    height=10,
-    offset=0,
-    startTime=3600*6)
-    annotation (Placement(transformation(extent={{-22,-90},{-8,-76}})));
-
   Heating heating_Internal(
     Q_HP(displayUnit="kW") = 8000,
     A_living=200,
@@ -118,6 +107,9 @@ model Check_Heating
     initType=Modelica.Blocks.Types.Init.NoInit,
     useTappingCycles=false)
     annotation (Placement(transformation(extent={{42,-78},{62,-58}})));
+  Modelica.Blocks.Sources.BooleanPulse SignalActive2(period=4*3600, startTime=
+        3600)
+    annotation (Placement(transformation(extent={{-20,-82},{-6,-68}})));
 protected
   TransiEnt.Basics.Interfaces.General.ControlBus controlBus annotation (
       Placement(transformation(extent={{24,46},{32,54}}), iconTransformation(
@@ -152,8 +144,8 @@ equation
       index=-1,
       extent={{6,3},{6,3}},
       horizontalAlignment=TextAlignment.Left));
-  connect(heating_External_P.controlBus, controlBus) annotation (Line(points={{
-          44.1429,48.1429},{36,48.1429},{36,50},{28,50}}, color={0,0,0}), Text(
+  connect(heating_External_P.controlBus, controlBus) annotation (Line(points={{44.1429,
+          48.1429},{36,48.1429},{36,50},{28,50}},         color={0,0,0}), Text(
       string="%second",
       index=1,
       extent={{-6,3},{-6,3}},
@@ -170,8 +162,8 @@ equation
       thickness=0.5));
   connect(heating_Internal.T_amb, T_amb.y) annotation (Line(points={{42.8571,
           21.7143},{12,21.7143},{12,4},{1,4}}, color={0,0,127}));
-  connect(heating_Limit_P.controlBus, controlBus1) annotation (Line(points={{
-          44.1429,-75.8571},{44,-76},{30,-76}}, color={0,0,0}), Text(
+  connect(heating_Limit_P.controlBus, controlBus1) annotation (Line(points={{44.1429,
+          -75.8571},{44,-76},{30,-76}},         color={0,0,0}), Text(
       string="%second",
       index=1,
       extent={{-6,3},{-6,3}},
@@ -182,12 +174,6 @@ equation
       index=1,
       extent={{6,3},{6,3}},
       horizontalAlignment=TextAlignment.Left));
-  connect(controlBus1.SignalActive, SignalActive1.y) annotation (Line(points={{
-          30,-76},{30,36},{-4,36},{-4,51},{-5.3,51}}, color={0,0,0}), Text(
-      string="%first",
-      index=-1,
-      extent={{6,3},{6,3}},
-      horizontalAlignment=TextAlignment.Left));
   connect(heating_Limit_P.epp, electricGrid_1.epp) annotation (Line(
       points={{60.5714,-75.1429},{60.5714,-42},{72,-42},{72,-42.23},{74.2,
           -42.23}},
@@ -195,6 +181,12 @@ equation
       thickness=0.5));
   connect(heating_Limit_P.T_amb, T_amb.y) annotation (Line(points={{42.8571,
           -62.2857},{36,-62.2857},{36,4},{1,4}}, color={0,0,127}));
+  connect(SignalActive2.y, controlBus1.SignalActive) annotation (Line(points={{
+          -5.3,-75},{22,-75},{22,-76},{30,-76}}, color={255,0,255}), Text(
+      string="%second",
+      index=1,
+      extent={{6,3},{6,3}},
+      horizontalAlignment=TextAlignment.Left));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(
           preserveAspectRatio=false)),
     experiment(StopTime=86400, __Dymola_Algorithm="Dassl"));
