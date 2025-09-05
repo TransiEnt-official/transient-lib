@@ -54,5 +54,9 @@ equation
           extent={{-80,80},{80,-80}},
           lineColor={28,108,200},
           fillColor={0,128,255},
-          fillPattern=FillPattern.Solid)}));
+          fillPattern=FillPattern.Solid)}), Documentation(info="<html>
+<h4>Basic idea of the model</h4>
+<p>The Node model is useful when start values for complex voltages (argument and phase) is calulcated externally for a defined operation port. The Newton or also called Newton-Raphson algorithm implemented in Dymola sometimes does not converge properly, so that an external load flow calculation for finding proer start values may be necessary.</p>
+<p>In this case, put Node models at each node of the electrical grid model and set the start values in the Node model parameters.</p>
+</html>"));
 end Node;
