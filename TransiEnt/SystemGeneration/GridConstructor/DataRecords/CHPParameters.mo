@@ -1,5 +1,5 @@
 ﻿within TransiEnt.SystemGeneration.GridConstructor.DataRecords;
-record CHPParameters
+record CHPParameters "(Default) CHP system parameters for usage within the GridConstructor"
 
 
 
@@ -19,7 +19,7 @@ record CHPParameters
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -44,25 +44,14 @@ record CHPParameters
   parameter SI.SurfaceCoefficientOfHeatTransfer k_storage=0.08 "Coefficient of heat Transfer" annotation (HideResult=true);
   annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(preserveAspectRatio=false)),
     Documentation(info="<html>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">1. Purpose of model</span></b></p>
-<p>Accommodates all available parameters for CHPParameters</p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">2. Level of detail, physical effects considered, and physical insight</span></b></p>
-<p><span style=\"font-family: MS Shell Dlg 2;\">(no remarks)</span></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">3. Limits of validity </span></b></p>
-<p><span style=\"font-family: MS Shell Dlg 2;\">(no remarks)</span></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">4. Interfaces</span></b></p>
-<p><span style=\"font-family: MS Shell Dlg 2;\">(no remarks)</span></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">5. Nomenclature</span></b></p>
-<p><span style=\"font-family: MS Shell Dlg 2;\">(no remarks)</span></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">6. Governing Equations</span></b></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Purpose of model</span></b></p>
+<p>Accommodates all via GridConstructor adjustable parameters for the CHP system used in IndependentTechnologies.</p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Remarks for Usage</span></b> </p>
+<p>Changing the values within the record, will change the default values for the CHP system of all consumers equally (as long as no other values are given within your model). To change the parameters of the CHP system of a single consumer, please use the parameter dialogue of the GridConstructors (tab &quot;CHP&quot;) within your model.</p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">References</span></b></p>
 <p>(no remarks)</p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">7. Remarks for Usage</span></b> </p>
-<p>(no remarks)</p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">8. Validation</span></b></p>
-<p>(no remarks)</p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">9. References</span></b></p>
-<p>(no remarks)</p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">10. Version History</span></b></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Version History</span></b></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">Model created during IntegraNet I </span></p>
+<p><span style=\"font-family: MS Shell Dlg 2;\">Documentation update, January 2025</span></p>
 </html>"));
 end CHPParameters;

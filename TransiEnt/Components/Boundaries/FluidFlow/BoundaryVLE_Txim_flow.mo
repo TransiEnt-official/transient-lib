@@ -154,27 +154,16 @@ equation
           textString="%T, xi")}),                                Diagram(graphics,
                                                                          coordinateSystem(preserveAspectRatio=false)),
     Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
-<p>This model is a boundary for a vapor-liquid-equilibrium defining the temperature, the mass composition and the mass flow rate</p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
-<p>(Purely technical component without physical modeling.)</p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
-<p>(Purely technical component without physical modeling.)</p>
-<h4><span style=\"color: #008000\">4.Interfaces</span></h4>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
+<p>This model is a boundary for a vapor-liquid-equilibrium defining the temperature, the mass composition and the mass flow rate. It contains a fluid port that is used as an outlet/inlet for the fluid and a fluid model from the TIL media that is used to determin the state variables and fluid properties. The user can chose if the mass flow rate, the temperature or the mass fraction should be constant or set with an input. It is a purely technical component without physical modeling.</p>
+<h4><span style=\"color: #008000\">Interfaces</span></h4>
 <p>RealInput: mass flow rate in [kg/s]</p>
 <p>RealInput: temperature in [K]</p>
 <p>RealInput: mass fraction in [kg/kg]</p>
 <p>FluidPortOut</p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
-<p>(no equations)</p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
+<h4><span style=\"color: #008000\">Validation</span></h4>
 <p>Tested in check model &quot;TransiEnt.Components.Boundaries.FluidFlow.Check.TestBoundaryVLE_Txim_flow&quot;</p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
+<h4><span style=\"color: #008000\">Version History</span></h4>
+<p>The model was documented by Jan Westphal (j.westphal@tuhh.de) in August 2025</p>
 </html>"));
 end BoundaryVLE_Txim_flow;

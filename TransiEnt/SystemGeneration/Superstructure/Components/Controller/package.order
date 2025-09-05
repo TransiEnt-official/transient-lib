@@ -5,5 +5,5 @@ ControlPowerToGas
 ControlCO2
 ControlGasPressure
 FailureController_internal
-ElectricalPowerController_outer
 ElectricalPowerController_inner
+ElectricalPowerController_outer

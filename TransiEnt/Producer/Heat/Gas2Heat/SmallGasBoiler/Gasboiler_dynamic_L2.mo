@@ -1,4 +1,4 @@
-within TransiEnt.Producer.Heat.Gas2Heat.SmallGasBoiler;
+﻿within TransiEnt.Producer.Heat.Gas2Heat.SmallGasBoiler;
 model Gasboiler_dynamic_L2 "Full modulating or staged gasboiler with fluid volume"
 
 

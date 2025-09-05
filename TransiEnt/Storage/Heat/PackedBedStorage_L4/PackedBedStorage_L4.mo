@@ -410,14 +410,14 @@ equation
   annotation (Icon(coordinateSystem(extent={{-100,-100},{100,100}})),
       Diagram(coordinateSystem(extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">1. Purpose of model</span></b></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Purpose of model</span></b></p>
 <p>The model describes a sensible high-temperature packed-bed thermal energy storage unit. It is composed of the packed-bed, fluid in and outlet spaces, and thermal insulation. Gaseous heat transfer fluid and solid media storage material are generally assumed. It has been validated with air as heat transfer fluid and natural rock as storage material. Main focus is the</p>
 <ul>
 <li>transient behavior of the temperature field in the packed bed,</li>
 <li>fluid pressure loss and</li>
 <li>transmission heat losses to the environment.</li>
 </ul>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">2. Level of detail, physical effects considered, and physical insight</span></b></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Level of detail, physical effects considered, and physical insight</span></b></p>
 <ul>
 <li>The packed bed is discretized in one dimension, which is the main fluid flow direction.</li>
 <li>A single energy equation is used for each finite volume, meaning particle and fluid temperature are not distinct, but a mean packed-bed temperature is used. This generally holds for ideal heat transfer between the storage material and heat transfer fluid. Neverthess, the effect of a limited heat transfer between both can be still taken into account by adoption of the effective packed-bed thermal conductivity correlation for example using the approach of Vortmeyer (1974).</li>
@@ -427,7 +427,7 @@ equation
 <li>The thermal insulation model is replaceable and can therefore consider static or dynamic heat transfer with various heat paths and insulation layers.</li>
 <li>A storage material medium model is required, which has an additional state variable for the specific internal energy in order to account for a temperature variant specific heat capacity.</li>
 </ul>
-<p><br><br><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">3. Limits of validity </span></b></p>
+<p><br><br><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Limits of validity </span></b></p>
 <ul>
 <li>The one-dimensional spatial representation leads to the plug-flow assumption, meaning no lateral temperature and velocity variations are taken into account</li>
 <li>No gravitational force is taken into account in the dynamic momentum balance, as a horizontal air flow direction has been used at all tested plants so far. </li>
@@ -435,26 +435,26 @@ equation
 <li>The convective heat transfer between packed bed and insulation depends on the lateral packed bed temperature profile. This profile generally requires a dynamic model for the heat transfer coefficient. Nevertheless, several correlations are implemented, but the user should be aware of this.</li>
 <li>The thermal capacity and flow resistance of the grating used to hold the storage material at in and outlet is not taken into account, but added to the packed bed volume</li>
 </ul>
-<p><br><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">4. Interfaces</span></b></p>
+<p><br><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Interfaces</span></b></p>
 <ol>
 <li>Hot Air Inlet/Outlet</li>
 <li>Cold Air Inlet/Outlet</li>
 </ol>
-<p><br><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">5. Nomenclature</span></b></p>
+<p><br><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Nomenclature</span></b></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">(no remarks)</span></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">6. Governing Equations</span></b></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Governing Equations</span></b></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">(no remarks)</span></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">7. Remarks for Usage</span></b></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Remarks for Usage</span></b></p>
 <ul>
 <li><span style=\"font-family: MS Shell Dlg 2;\">The heat transfer fluid momentum balance is dynamic to allow very small mass flows without numerical errors</span></li>
 <li><span style=\"font-family: MS Shell Dlg 2;\">The mean sphericity describes the ratio of the surface of a set of monodisperse spheres with the same number and overall volume as the particle set to the particles set surface. It thus is not solely depended on the particles shape, but also on the particle size distribution.</span></li>
 </ul>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">8. Validation</span></b></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Validation</span></b></p>
 <p>The model has been validated with two experimental setups of Siemens Gamesa Renewable Energy in Hamburg-Altenwerder (6 MWh_th) and -Bergedorf (130 MWh_th), Germany.</p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">9. References</span></b></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">References</span></b></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">[1] M. von der Heyde, Abschlussbericht zum Teilprojekt der TUHH im Verbundforschungsprojekt Future Energy Solution (FES), BMWI 03ET6072C, 2021</span></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">[2] M. von der Heyde, Electric Thermal Energy Storage based on Packed Beds for Renewable Energy Integration, Dissertation, Hamburg University of Technology, 2021</span></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">10. Version History</span></b></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Version History</span></b></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">First Version in 04.2020 for the research project Future Energy Solution (FES) by Michael von der Heyde (heyde@tuhh.de)</span></p>
 </html>", revisions="<html>
 </html>"));

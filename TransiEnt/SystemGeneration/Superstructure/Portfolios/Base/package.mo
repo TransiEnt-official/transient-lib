@@ -1,10 +1,8 @@
 ﻿within TransiEnt.SystemGeneration.Superstructure.Portfolios;
 package Base
 
-
-
 //________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 2.0.3                             //
+// Component of the TransiEnt Library, version: 2.0.0                             //
 //                                                                                //
 // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
 // Copyright 2021, Hamburg University of Technology.                              //
@@ -19,19 +17,15 @@ package Base
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und Wärme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
 
-
-
   extends TransiEnt.Basics.Icons.BasesPackage;
 
   replaceable partial type PowerPlantType = enumeration(:);
-
   replaceable partial model PowerPlantSystem
-
 
     // _____________________________________________
     //
@@ -161,11 +155,9 @@ package Base
 </html>"));
 
   end PowerPlantSystem;
-
   extends TransiEnt.Basics.Icons.Package;
 
   replaceable partial type ElectricalStorageType = enumeration(:);
-
   replaceable partial model ElectricalStorageSystem
 
     // _____________________________________________
@@ -270,9 +262,7 @@ package Base
 <p>Model adjusted by Jon Babst (babst@xrg-simulation.de), 06.09.2021</p>
 </html>"));
   end ElectricalStorageSystem;
-
   replaceable partial type PowerToGasType = enumeration(:);
-
   replaceable partial model PowerToGasSystem
 
     // _____________________________________________
@@ -305,7 +295,7 @@ package Base
     //                  Interfaces
     // _____________________________________________
 
-    TransiEnt.SystemGeneration.Superstructure.Components.ControlBus controlBus annotation (Placement(transformation(
+    Superstructure.Components.ControlBus controlBus annotation (Placement(transformation(
           extent={{-20,-20},{20,20}},
           rotation=90,
           origin={-108,0})));
@@ -400,13 +390,8 @@ package Base
 <p>Model adjusted by Jon Babst (babst@xrg-simulation.de), 06.09.2021</p>
 </html>"));
   end PowerToGasSystem;
-
   replaceable partial type GasStorageType = enumeration(:);
-
   replaceable partial model GasStorageSystem
-
-
-
 
     // _____________________________________________
     //
@@ -430,7 +415,7 @@ package Base
     // _____________________________________________
 
     TransiEnt.Basics.Interfaces.Gas.RealGasPortIn gasPortIn(Medium=simCenter.gasModel1) annotation (Placement(transformation(rotation=0, extent={{95,-13},{105,-3}})));
-    TransiEnt.SystemGeneration.Superstructure.Components.ControlBus controlBus annotation (Placement(transformation(
+    Superstructure.Components.ControlBus controlBus annotation (Placement(transformation(
           extent={{-20,-20},{20,20}},
           rotation=90,
           origin={-100,0}), iconTransformation(
@@ -444,7 +429,7 @@ package Base
     //
     //             Variable Declarations
     // _____________________________________________
-    SI.Mass m_gas;
+    Modelica.Units.SI.Mass m_gas;
     annotation (Diagram(coordinateSystem(extent={{-100,-100},{100,100}})), Icon(coordinateSystem(extent={{-100,-100},{100,100}}), graphics={Ellipse(
                   lineColor={0,125,125},
                   fillColor={255,255,255},
@@ -708,7 +693,7 @@ package Base
     //           Instances of other Classes
     // _____________________________________________
 
-    TransiEnt.SystemGeneration.Superstructure.Components.ControlBus controlBus annotation (Placement(transformation(
+    Superstructure.Components.ControlBus controlBus annotation (Placement(transformation(
           extent={{-20,-20},{20,20}},
           rotation=90,
           origin={-100,0})));
@@ -915,7 +900,6 @@ package Base
 <p>Model adjusted by Jon Babst (babst@xrg-simulation.de), 06.09.2021</p>
 </html>"));
   end HeatingGrid;
-
 annotation (Icon(graphics={
         Ellipse(
           extent={{-30,-18},{30,42}},

@@ -1,10 +1,8 @@
 ﻿within TransiEnt.SystemGeneration.Superstructure.Components;
 model Superstructure "Representation of a certain region in terms of consumption and production of electrical power and gas"
 
-
-
 //________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 2.0.3                             //
+// Component of the TransiEnt Library, version: 2.0.0                             //
 //                                                                                //
 // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
 // Copyright 2021, Hamburg University of Technology.                              //
@@ -19,14 +17,10 @@ model Superstructure "Representation of a certain region in terms of consumption
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und Wärme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
-
-
-
-
 
   // _____________________________________________
   //
@@ -38,6 +32,9 @@ model Superstructure "Representation of a certain region in terms of consumption
   //
   //              General Parameters
   // _____________________________________________
+
+  parameter Integer MaximalDifferentTypesOfPowerPlants;
+  parameter Integer MaximalDifferentTypesOfElectricalStorages;
 
   replaceable package Config = Portfolios.Portfolio_Example constrainedby Portfolios.Base        annotation (choicesAllMatching=true);
   parameter Integer Region=1 "Define Region Number";
@@ -113,10 +110,10 @@ model Superstructure "Representation of a certain region in terms of consumption
   parameter Real splitRatio_localDemand[max(1, n_gasPortOut_localDemand)]={0.1} annotation (Dialog(group="GasPortSplitter"));
 
   //---Failures---//
-  parameter SI.Pressure p_min_operating_PowerPlants=1e5 "gas pressure threshold at which powerplants turn off" annotation (dialog(tab="Failures"));
-  parameter SI.Pressure p_min_operating_PowerPlants_backin=2e5 "gas pressure threshold at which powerplants turn back on after turning off" annotation (dialog(tab="Failures"));
-  parameter SI.Pressure p_min_operating_localDemand=1e5 "gas pressure threshold at which local consumers turn off" annotation (dialog(tab="Failures"));
-  parameter SI.Pressure p_min_operating_localDemand_backin=2e5 "gas pressure threshold at which powerplants turn back on after turning off" annotation (dialog(tab="Failures"));
+  parameter Modelica.Units.SI.Pressure p_min_operating_PowerPlants=1e5 "gas pressure threshold at which powerplants turn off" annotation (dialog(tab="Failures"));
+  parameter Modelica.Units.SI.Pressure p_min_operating_PowerPlants_backin=2e5 "gas pressure threshold at which powerplants turn back on after turning off" annotation (dialog(tab="Failures"));
+  parameter Modelica.Units.SI.Pressure p_min_operating_localDemand=1e5 "gas pressure threshold at which local consumers turn off" annotation (dialog(tab="Failures"));
+  parameter Modelica.Units.SI.Pressure p_min_operating_localDemand_backin=2e5 "gas pressure threshold at which powerplants turn back on after turning off" annotation (dialog(tab="Failures"));
 
   //---Tables---//
   parameter String localElectricDemand_pathToTable;
@@ -186,25 +183,17 @@ model Superstructure "Representation of a certain region in terms of consumption
   //                  Interfaces
   // _____________________________________________
 
-  TransiEnt.Basics.Interfaces.Electrical.ComplexPowerPort epp annotation (Placement(transformation(rotation=0, extent={{115,15},{125,25}})));
-  TransiEnt.Basics.Interfaces.Gas.RealGasPortIn gasPortIn[n_gasPort](each Medium=simCenter.gasModel1) annotation (Placement(transformation(extent={{112,-30},{132,-10}})));
+  TransiEnt.Basics.Interfaces.Electrical.ComplexPowerPort epp annotation (Placement(transformation(rotation=0, extent={{115,3},{125,13}})));
+  TransiEnt.Basics.Interfaces.Gas.RealGasPortIn gasPortIn[n_gasPort](each Medium=simCenter.gasModel1) annotation (Placement(transformation(extent={{112,-42},{132,-22}})));
 
-  Modelica.Blocks.Interfaces.RealInput P_set_PowerPlant[nPowerPlants] annotation (Placement(transformation(extent={{-140,6},{-100,46}})));
-  TransiEnt.Basics.Interfaces.Electrical.ElectricPowerIn P_set_ElectricalStorage[DifferentTypesOfElectricalStorages] annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
-  Modelica.Blocks.Interfaces.RealInput P_set_curtailment annotation (Placement(transformation(extent={{-140,-72},{-100,-32}})));
-  Modelica.Blocks.Interfaces.RealInput P_set_PtG annotation (Placement(transformation(extent={{-140,-46},{-100,-6}})));
-  Modelica.Blocks.Interfaces.RealInput P_set_ElectricalHeater annotation (Placement(transformation(extent={{-140,32},{-100,72}})));
-
-  Modelica.Blocks.Interfaces.RealOutput P_PowerPlant_max[DifferentTypesOfPowerPlants] if DifferentTypesOfPowerPlants >= 1 annotation (Placement(transformation(extent={{120,80},{140,100}})));
-  Modelica.Blocks.Interfaces.RealOutput P_PowerPlant_is annotation (Placement(transformation(extent={{120,100},{140,120}})));
-  Modelica.Blocks.Interfaces.RealOutput P_DAC annotation (Placement(transformation(extent={{120,60},{140,80}})));
-  Modelica.Blocks.Interfaces.RealOutput P_PowerToGasPlant_is annotation (Placement(transformation(extent={{120,40},{140,60}})));
-  Modelica.Blocks.Interfaces.RealOutput P_max_load_storage[DifferentTypesOfElectricalStorages] if DifferentTypesOfElectricalStorages >= 1 annotation (Placement(transformation(extent={{120,-140},{140,-120}})));
-  Modelica.Blocks.Interfaces.RealOutput P_max_unload_storage[DifferentTypesOfElectricalStorages] if DifferentTypesOfElectricalStorages >= 1 annotation (Placement(transformation(extent={{120,-160},{140,-140}})));
-  Modelica.Blocks.Interfaces.RealOutput P_storage_is[DifferentTypesOfElectricalStorages] if DifferentTypesOfElectricalStorages >= 1 annotation (Placement(transformation(extent={{120,-120},{140,-100}})));
-  Modelica.Blocks.Interfaces.RealOutput P_ElectricalHeater_max annotation (Placement(transformation(extent={{120,-60},{140,-40}})));
-  Modelica.Blocks.Interfaces.RealOutput P_surplus_region annotation (Placement(transformation(extent={{120,-80},{140,-60}})));
-  Modelica.Blocks.Interfaces.RealOutput P_renewable annotation (Placement(transformation(extent={{120,-100},{140,-80}})));
+  Modelica.Blocks.Routing.RealPassThrough
+                                        P_PowerPlant_is annotation (Placement(transformation(extent={{93,87},{99,93}})));
+  Modelica.Blocks.Routing.RealPassThrough
+                                        P_ElectricalHeater_max annotation (Placement(transformation(extent={{93,-73},{99,-67}})));
+  Modelica.Blocks.Routing.RealPassThrough
+                                        P_surplus_region annotation (Placement(transformation(extent={{93,-83},{99,-77}})));
+  Modelica.Blocks.Routing.RealPassThrough
+                                        P_renewable annotation (Placement(transformation(extent={{93,-99},{99,-93}})));
 
   // _____________________________________________
   //
@@ -215,7 +204,7 @@ model Superstructure "Representation of a certain region in terms of consumption
   Config.ElectricalStorageSystem electricalStorageSystem[DifferentTypesOfElectricalStorages](
     redeclare package Config = Config,
     electricalStorageType=electricalStorageInstancesRecord.electricalStorageType,
-    electricalStorageRecord=electricalStorageInstancesRecord.electricalStorageRecord) if ElectricalStoragesInThisRegion annotation (Placement(transformation(extent={{-10,-60},{10,-40}})));
+    electricalStorageRecord=electricalStorageInstancesRecord.electricalStorageRecord) if ElectricalStoragesInThisRegion annotation (Placement(transformation(extent={{-10,-72},{10,-52}})));
 
   //----Gas Storage----//
   Config.GasStorageSystem gasStorageSystem(
@@ -223,18 +212,7 @@ model Superstructure "Representation of a certain region in terms of consumption
     p_gasGrid_desired=p_gasGrid_desired,
     redeclare package Config = Config,
     gasStorageType=gasStorageInstancesRecord.gasStorageType,
-    gasStorageRecord=gasStorageInstancesRecord.gasStorageRecord) if GasStorageInThisRegion annotation (Placement(transformation(extent={{-10,56},{10,76}})));
-
-  Modelica.Blocks.Sources.RealExpression expression_pGas_gasStorage(y=gasPortIn[1].p) annotation (Placement(transformation(extent={{-103,59},{-93,73}})));
-
-  Controller.ControlGasStorage_oneWay controlGasStorage(
-    Vgeo_per_mMax=gasStorageInstancesRecord.gasStorageRecord.Vgeo_per_mMax,
-    m_flow_inMax=gasStorageInstancesRecord.gasStorageRecord.m_flow_inMax,
-    m_flow_outMax=gasStorageInstancesRecord.gasStorageRecord.m_flow_outMax,
-    GasStrorageTypeNo=gasStorageInstancesRecord.gasStorageRecord.GasStrorageTypeNo,
-    failure_table=failure_gasStorage_table,
-    p_gasGrid_desired=p_gasGrid_desired,
-    p_gasGrid_desired_bandwidth=p_gasGrid_desired_bandwidth) if GasStorageInThisRegion annotation (Placement(transformation(extent={{-82,60},{-66,74}})));
+    gasStorageRecord=gasStorageInstancesRecord.gasStorageRecord) if GasStorageInThisRegion annotation (Placement(transformation(extent={{-10,44},{10,64}})));
 
   //----Power Plants----//
   Config.PowerPlantSystem powerPlantSystem[nPowerPlants](
@@ -247,17 +225,9 @@ model Superstructure "Representation of a certain region in terms of consumption
     each CCSInPowerPlants=CCSInPowerPlants,
     each useHydrogenFromPtGInPowerPlants=useHydrogenFromPtGInPowerPlants,
     powerPlantType=powerPlantInstancesRecord.powerPlantType,
-    powerPlantRecord=powerPlantInstancesRecord.powerPlantRecord) if PowerPlantsInThisRegion annotation (Placement(transformation(extent={{-10,0},{10,20}})));
+    powerPlantRecord=powerPlantInstancesRecord.powerPlantRecord) if PowerPlantsInThisRegion annotation (Placement(transformation(extent={{-10,-12},{10,8}})));
 
-  Controller.ControlPowerPlant controlPowerPlant(
-    DifferentTypesOfPowerPlants=nPowerPlants,
-    p_min=p_min_operating_PowerPlants,
-    p_min_backin=p_min_operating_PowerPlants_backin,
-    powerPlants_P_el_n=powerPlantInstancesRecord.powerPlantRecord[:].P_el_n,
-    n_gasPortOut_split=n_gasPortOut_powerPlants,
-    splitRatio=splitRatio_powerPlants) if PowerPlantsInThisRegion annotation (Placement(transformation(extent={{-76,18},{-64,28}})));
-
-  Modelica.Blocks.Sources.RealExpression gasPressure[n_gasPortOut_powerPlants](y=gasPortIn[1].p) annotation (Placement(transformation(rotation=0, extent={{-96,16},{-84,24}})));
+  Modelica.Blocks.Sources.RealExpression gasPressure[n_gasPortOut_powerPlants](y=gasPortIn[1].p) annotation (Placement(transformation(rotation=0, extent={{-58,124},{-42,138}})));
 
   TransiEnt.Components.Gas.VolumesValvesFittings.Fittings.RealGasJunction_L2_nPorts_isoth junction1(
     n_ports=NeededGasPortsForJunction,
@@ -265,7 +235,7 @@ model Superstructure "Representation of a certain region in terms of consumption
     m_flow_nom=ones(junction1.n_ports)*(junction1.volume*48.3588/60)) if useOneGasPortOnly annotation (Placement(transformation(
         extent={{-6,-6},{6,6}},
         rotation=90,
-        origin={44,-20})));
+        origin={44,-32})));
 
   //----Local Demand----//
   Config.LocalDemand localDemand(
@@ -281,28 +251,28 @@ model Superstructure "Representation of a certain region in terms of consumption
     localGasDemand_pathToTable=localGasDemand_pathToTable,
     localGasDemand_constantMultiplier=localGasDemand_constantMultiplier,
     localSolarthermalProduction_pathToTable=localSolarthermalProduction_pathToTable,
-    localSolarthermalProduction_constantMultiplier=localSolarthermalProduction_constantMultiplier) annotation (Placement(transformation(extent={{-10,-116},{10,-94}})));
+    localSolarthermalProduction_constantMultiplier=localSolarthermalProduction_constantMultiplier) annotation (Placement(transformation(extent={{-10,-128},{10,-106}})));
   TransiEnt.Basics.Tables.GenericDataTable DataTable_HeatDemand(
     use_absolute_path=true,
     absolute_path=localHeatDemand_pathToTable,
-    constantfactor=localHeatDemand_constantMultiplier) annotation (Placement(transformation(extent={{-96,-116},{-86,-106}})));
-  Modelica.Blocks.Math.Gain gain_HeatingDemand_HeatingGrid(k=splitHeatingDemand_heatingGrid) annotation (Placement(transformation(extent={{-78,-106},{-72,-100}})));
-  Modelica.Blocks.Math.Gain gain_HeatingDemand_LocalDemand(k=splitHeatingDemand_localHeating) annotation (Placement(transformation(extent={{-78,-118},{-72,-112}})));
+    constantfactor=localHeatDemand_constantMultiplier) annotation (Placement(transformation(extent={{-96,-128},{-86,-118}})));
+  Modelica.Blocks.Math.Gain gain_HeatingDemand_HeatingGrid(k=splitHeatingDemand_heatingGrid) annotation (Placement(transformation(extent={{-78,-118},{-72,-112}})));
+  Modelica.Blocks.Math.Gain gain_HeatingDemand_LocalDemand(k=splitHeatingDemand_localHeating) annotation (Placement(transformation(extent={{-78,-130},{-72,-124}})));
   TransiEnt.Basics.Tables.GenericDataTable DataTable_Temperature(
     use_absolute_path=true,
     absolute_path=localTemperature_pathToTable,
-    constantfactor=localTemperature_constantMultiplier) annotation (Placement(transformation(extent={{-96,-102},{-86,-92}})));
+    constantfactor=localTemperature_constantMultiplier) annotation (Placement(transformation(extent={{-96,-114},{-86,-104}})));
 
   inner Modelica.Units.SI.Temperature T_region=DataTable_Temperature.y1;
 
   TransiEnt.Components.Sensors.ElectricPowerComplex electricPowerComplex_load annotation (Placement(transformation(
         extent={{-4,-4},{4,4}},
         rotation=0,
-        origin={16,-110})));
+        origin={16,-122})));
   TransiEnt.Components.Electrical.Grid.IdealPhaseShifter centralPhaseShifter if simCenter.idealSuperstructLocalGrid annotation (Placement(transformation(
         extent={{-5,-5},{5,5}},
         rotation=0,
-        origin={121,7})));
+        origin={121,-5})));
 
   //----Local Renewable Porduction----//
   Config.LocalRenewableProduction localRenewableProduction(
@@ -318,12 +288,12 @@ model Superstructure "Representation of a certain region in terms of consumption
     localPhotovoltaicProduction_pathToTable=localPhotovoltaicProduction_pathToTable,
     localPhotovoltaicProduction_constantMultiplier=localPhotovoltaicProduction_constantMultiplier,
     localWindOnshoreProduction_pathToTable=localWindOnshoreProduction_pathToTable,
-    localWindOnshoreProduction_constantMultiplier=localWindOnshoreProduction_constantMultiplier) annotation (Placement(transformation(extent={{-10,-90},{10,-68}})));
+    localWindOnshoreProduction_constantMultiplier=localWindOnshoreProduction_constantMultiplier) annotation (Placement(transformation(extent={{-10,-102},{10,-80}})));
 
   TransiEnt.Components.Sensors.ElectricPowerComplex electricPowerComplex_localRenewableProduction annotation (Placement(transformation(
         extent={{-4,-4},{4,4}},
         rotation=0,
-        origin={16,-80})));
+        origin={16,-92})));
 
   //----CO2System----//
   Config.CO2System cO2System(
@@ -331,14 +301,7 @@ model Superstructure "Representation of a certain region in terms of consumption
     CO2NeededForPowerToGas=CO2NeededForPowerToGas,
     CO2StorageNeeded=CO2StorageNeeded,
     nPowerPlants=powerPlantInstancesRecord.nPowerPlants,
-    cO2SystemRecord=cO2SystemInstancesRecord.cO2SystemRecord) if CO2StorageNeeded > 0 annotation (Placement(transformation(extent={{-10,28},{10,48}})));
-
-  Controller.ControlCO2 controlCO2(
-    CCSInPowerPlants=CCSInPowerPlants,
-    CO2NeededForPowerToGas=CO2NeededForPowerToGas,
-    usageOfWasteHeatOfPtG=usageOfWasteHeatOfPtG,
-    powertToGas_P_el_n=powerToGasInstancesRecord.powerToGasRecord.P_el_n,
-    powerToGas_eta_n=powerToGasInstancesRecord.powerToGasRecord.eta_n) annotation (Placement(transformation(extent={{-84,32},{-68,46}})));
+    cO2SystemRecord=cO2SystemInstancesRecord.cO2SystemRecord) if CO2StorageNeeded > 0 annotation (Placement(transformation(extent={{-10,16},{10,36}})));
 
   //----PowerToGasSystem----//
   Config.PowerToGasSystem powerToGasSystem(
@@ -352,18 +315,7 @@ model Superstructure "Representation of a certain region in terms of consumption
     useHydrogenFromPtGInPowerPlants=useHydrogenFromPtGInPowerPlants,
     CO2NeededForPowerToGas=CO2NeededForPowerToGas,
     T_supply_max_districtHeating=T_supply_max_districtHeating,
-    powerToGasType=powerToGasInstancesRecord.powerToGasType) if PowerToGasPlantsInThisRegion annotation (Placement(transformation(extent={{-40,-32},{-20,-12}})));
-
-  Controller.ControlPowerToGas controlPowerToGasStorage(
-    DifferentTypesOfPowerToGasPlants=1,
-    useHydrogenFromPtGInPowerPlants=useHydrogenFromPtGInPowerPlants,
-    usageOfWasteHeatOfPtG=usageOfWasteHeatOfPtG,
-    CO2NeededForPowerToGas=CO2NeededForPowerToGas,
-    P_el_n=powerToGasInstancesRecord.powerToGasRecord.P_el_n,
-    eta_n=powerToGasInstancesRecord.powerToGasRecord.eta_n,
-    typeIsMethanation=ptGTypeIsMethanation,
-    typeIsWOStorage=powerToGasSystem.typeIsWOStorage,
-    p_gasGrid_desired=p_gasGrid_desired) if PowerToGasPlantsInThisRegion annotation (Placement(transformation(extent={{-80,-28},{-64,-12}})));
+    powerToGasType=powerToGasInstancesRecord.powerToGasType) if PowerToGasPlantsInThisRegion annotation (Placement(transformation(extent={{-40,-44},{-20,-24}})));
 
   //----heating grid ---//
   Config.HeatingGrid heatingGridSystem_Storage(
@@ -373,13 +325,13 @@ model Superstructure "Representation of a certain region in terms of consumption
     T_return_min_districtHeating=T_return_min_districtHeating,
     heatingGridSystemStorageRecord=heatingGridSystemStorageInstancesRecord.heatingGridSystemStorageRecord,
     CHPPlantsInThisRegion=CHPPlantsInThisRegion,
-    ElectricalHeaterInThisRegion=ElectricalHeaterInThisRegion) if DifferentTypesOfCHPPlants + DifferentTypesOfElectricHeater >= 1 annotation (Placement(transformation(extent={{-10,94},{10,114}})));
+    ElectricalHeaterInThisRegion=ElectricalHeaterInThisRegion) if DifferentTypesOfCHPPlants + DifferentTypesOfElectricHeater >= 1 annotation (Placement(transformation(extent={{-10,82},{10,102}})));
 
   //----other blocks----//
-  Modelica.Blocks.Sources.RealExpression expression_pGas_pTG(y=gasPortIn[1].p) annotation (Placement(transformation(extent={{-98,-24},{-88,-10}})));
-  Modelica.Blocks.Sources.RealExpression expression_H2gasFrac[max(simCenter.gasModel1.nc - 1, 1)](y=if simCenter.gasModel1.nc == 1 then {1} else inStream(powerToGasSystem.gasPortOut_1.xi_outflow)) if PowerToGasPlantsInThisRegion annotation (Placement(transformation(extent={{-98,-34},{-88,-20}})));
-  Modelica.Blocks.Sources.RealExpression realExpression14(y=273.15 + 100) if CO2NeededForPowerToGas and (usageOfWasteHeatOfPtG == 1 or usageOfWasteHeatOfPtG == 3) annotation (Placement(transformation(extent={{-46,44},{-36,52}})));
-  Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature prescribedTemperature if CO2NeededForPowerToGas and (usageOfWasteHeatOfPtG == 1 or usageOfWasteHeatOfPtG == 3) annotation (Placement(transformation(extent={{-30,46},{-26,50}})));
+  Modelica.Blocks.Sources.RealExpression expression_pGas_pTG(y=gasPortIn[1].p) annotation (Placement(transformation(extent={{-58,164},{-42,178}})));
+  Modelica.Blocks.Sources.RealExpression expression_H2gasFrac[max(simCenter.gasModel1.nc - 1, 1)](y=if simCenter.gasModel1.nc == 1 then {1} else inStream(powerToGasSystem.gasPortOut_1.xi_outflow)) if PowerToGasPlantsInThisRegion annotation (Placement(transformation(extent={{-58,152},{-42,166}})));
+  Modelica.Blocks.Sources.RealExpression realExpression14(y=273.15 + 100) if CO2NeededForPowerToGas and (usageOfWasteHeatOfPtG == 1 or usageOfWasteHeatOfPtG == 3) annotation (Placement(transformation(extent={{-46,32},{-36,40}})));
+  Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature prescribedTemperature if CO2NeededForPowerToGas and (usageOfWasteHeatOfPtG == 1 or usageOfWasteHeatOfPtG == 3) annotation (Placement(transformation(extent={{-32,34},{-28,38}})));
   //Modelica.Blocks.Sources.RealExpression PP_gasMassFlow(y=sum(powerPlantSystem[:].massFlowSensor_PowerPlants.m_flow)) annotation (Placement(transformation(rotation=0, extent={{-88,-50},{-74,-40}})));
 
   TransiEnt.Consumer.Gas.GasConsumer_HFlow_NCV boundaryImportExportInRegion(
@@ -388,35 +340,35 @@ model Superstructure "Representation of a certain region in terms of consumption
     H_flow_const=0,
     mode="Both",
     usePIDcontroller=false,
-    flowDefinition=2) if useOneGasPortOnly and useImportExportBoundary annotation (Placement(transformation(extent={{140,20},{160,40}})));
+    flowDefinition=2) if useOneGasPortOnly and useImportExportBoundary annotation (Placement(transformation(extent={{140,8},{160,28}})));
 
   Modelica.Blocks.Sources.RealExpression Zero annotation (Placement(transformation(
-        extent={{-6,-7},{6,7}},
+        extent={{-5,-7},{5,7}},
         rotation=0,
-        origin={50,117})));
+        origin={53,105})));
 
-  Modelica.Blocks.Math.MultiSum localSurplusPowerIntern(nu=if DifferentTypesOfCHPPlants + DifferentTypesOfElectricHeater >= 1 then 3 else 2) annotation (Placement(transformation(extent={{106,-74},{114,-66}})));
+  Modelica.Blocks.Math.MultiSum localSurplusPowerIntern(nu=if DifferentTypesOfCHPPlants + DifferentTypesOfElectricHeater >= 1 then 3 else 2) annotation (Placement(transformation(extent={{82,-84},{90,-76}})));
 
-  Modelica.Blocks.Math.MultiSum sum_P_Powerplants_is(nu=1 + nPowerPlants) annotation (Placement(transformation(extent={{66,10},{72,16}})));
-  Modelica.Blocks.Math.MultiSum sum_m_flow_powerPlant_is(nu=1 + nPowerPlants) annotation (Placement(transformation(extent={{66,2},{72,8}})));
-  Modelica.Blocks.Math.MultiSum sum_P_PtG_is(nu=1 + (if (PowerToGasPlantsInThisRegion) then 1 else 0)) annotation (Placement(transformation(extent={{66,-28},{72,-22}})));
-  Modelica.Blocks.Math.MultiSum sum_m_flow_PtG_is(nu=1 + (if (PowerToGasPlantsInThisRegion)  then 1 else 0)) annotation (Placement(transformation(extent={{66,-36},{72,-30}})));
-  Modelica.Blocks.Math.MultiSum sum_E_electricalStorage_is(nu=1 + DifferentTypesOfElectricalStorages) annotation (Placement(transformation(extent={{66,-50},{72,-44}})));
-  Modelica.Blocks.Math.MultiSum sum_P_electricalStorage_is(nu=1 + DifferentTypesOfElectricalStorages) annotation (Placement(transformation(extent={{66,-58},{72,-52}})));
-  Modelica.Blocks.Math.MultiSum sum_m_gasStorage_is(nu=1 + DifferentTypesOfGasStorage) annotation (Placement(transformation(extent={{68,56},{74,62}})));
-  Modelica.Blocks.Math.MultiSum sum_m_flow_gasStorage_is(nu=1 + DifferentTypesOfGasStorage) annotation (Placement(transformation(extent={{68,64},{74,70}})));
-  Modelica.Blocks.Math.MultiSum sum_m_flow_CO2fromPowerplants(nu=1 + (if (CO2StorageNeeded>0) then 1 else 0)) annotation (Placement(transformation(extent={{68,34},{74,40}})));
-  Modelica.Blocks.Math.MultiSum sum_m_flow_CO2toPtG(nu=1 + (if (CO2StorageNeeded>0) then 1 else 0)) annotation (Placement(transformation(extent={{68,42},{74,48}})));
-  Modelica.Blocks.Math.MultiSum sum_P_CO2DAC_is(nu=1 + (if (CO2StorageNeeded>0) then 1 else 0)) annotation (Placement(transformation(extent={{68,26},{74,32}})));
-  Modelica.Blocks.Math.MultiSum sum_P_heatingGrid_is(nu=1 + (if (DifferentTypesOfElectricHeater + DifferentTypesOfGasBoiler + DifferentTypesOfCHPPlants) > 0 then 2 else 0)) annotation (Placement(transformation(extent={{68,100},{74,106}})));
-  Modelica.Blocks.Math.MultiSum sum_m_flow_heatingGridGas_is(nu=1 + (if (DifferentTypesOfElectricHeater + DifferentTypesOfGasBoiler + DifferentTypesOfCHPPlants) > 0 then 1 else 0)) annotation (Placement(transformation(extent={{68,92},{74,98}})));
+  Modelica.Blocks.Math.MultiSum sum_P_Powerplants_is(nu=1 + nPowerPlants) annotation (Placement(transformation(extent={{66,-2},{72,4}})));
+  Modelica.Blocks.Math.MultiSum sum_m_flow_powerPlant_is(nu=1 + nPowerPlants) annotation (Placement(transformation(extent={{66,-10},{72,-4}})));
+  Modelica.Blocks.Math.MultiSum sum_P_PtG_is(nu=1 + (if (PowerToGasPlantsInThisRegion) then 1 else 0)) annotation (Placement(transformation(extent={{66,-40},{72,-34}})));
+  Modelica.Blocks.Math.MultiSum sum_m_flow_PtG_is(nu=1 + (if (PowerToGasPlantsInThisRegion)  then 1 else 0)) annotation (Placement(transformation(extent={{66,-48},{72,-42}})));
+  Modelica.Blocks.Math.MultiSum sum_E_electricalStorage_is(nu=1 + DifferentTypesOfElectricalStorages) annotation (Placement(transformation(extent={{66,-62},{72,-56}})));
+  Modelica.Blocks.Math.MultiSum sum_P_electricalStorage_is(nu=1 + DifferentTypesOfElectricalStorages) annotation (Placement(transformation(extent={{66,-70},{72,-64}})));
+  Modelica.Blocks.Math.MultiSum sum_m_gasStorage_is(nu=1 + DifferentTypesOfGasStorage) annotation (Placement(transformation(extent={{68,44},{74,50}})));
+  Modelica.Blocks.Math.MultiSum sum_m_flow_gasStorage_is(nu=1 + DifferentTypesOfGasStorage) annotation (Placement(transformation(extent={{68,52},{74,58}})));
+  Modelica.Blocks.Math.MultiSum sum_m_flow_CO2fromPowerplants(nu=1 + (if (CO2StorageNeeded>0) then 1 else 0)) annotation (Placement(transformation(extent={{68,22},{74,28}})));
+  Modelica.Blocks.Math.MultiSum sum_m_flow_CO2toPtG(nu=1 + (if (CO2StorageNeeded>0) then 1 else 0)) annotation (Placement(transformation(extent={{68,30},{74,36}})));
+  Modelica.Blocks.Math.MultiSum sum_P_CO2DAC_is(nu=1 + (if (CO2StorageNeeded>0) then 1 else 0)) annotation (Placement(transformation(extent={{68,14},{74,20}})));
+  Modelica.Blocks.Math.MultiSum sum_P_heatingGrid_is(nu=1 + (if (DifferentTypesOfElectricHeater + DifferentTypesOfGasBoiler + DifferentTypesOfCHPPlants) > 0 then 2 else 0)) annotation (Placement(transformation(extent={{68,88},{74,94}})));
+  Modelica.Blocks.Math.MultiSum sum_m_flow_heatingGridGas_is(nu=1 + (if (DifferentTypesOfElectricHeater + DifferentTypesOfGasBoiler + DifferentTypesOfCHPPlants) > 0 then 1 else 0)) annotation (Placement(transformation(extent={{68,80},{74,86}})));
 
   Records.Summary summary(
-    P_set_powerPlants=sum({P_set_PowerPlant}),
-    P_set_PtG=sum({P_set_PtG}),
-    P_set_electricStorages=sum({P_set_ElectricalStorage}),
-    P_set_electricHeaters=sum({P_set_ElectricalHeater}),
-    P_set_curtailment=sum({P_set_curtailment}),
+    P_set_powerPlants=sum({inputBus.P_set_PowerPlant}),
+    P_set_PtG=sum({inputBus.P_set_PtG}),
+    P_set_electricStorages=sum({inputBus.P_set_ElectricalStorage}),
+    P_set_electricHeaters=(if (DifferentTypesOfCHPPlants + DifferentTypesOfElectricHeater) >= 1 then sum({inputBus.P_set_ElectricalHeater}) else 0),
+    P_set_curtailment=sum({inputBus.P_set_curtailment}),
     electricProduction_powerplants_P=sum_P_Powerplants_is.y,
     electricProduction_renewables_biomass_P=localRenewableProduction.BiomassPlant.epp.P,
     electricProduction_renewables_windOnShore_P=localRenewableProduction.windOnshorePlant.epp.P,
@@ -446,8 +398,39 @@ model Superstructure "Representation of a certain region in terms of consumption
     eppBoundray_P=epp.P,
     eppBoundary_Q=epp.Q,
     gasBoundary_p=sum(gasPortIn[:].p)/n_gasPort,
-    gasBoundary_m_flow=sum(gasPortIn.m_flow)) annotation (Placement(transformation(extent={{-100,-80},{-80,-60}})));
+    gasBoundary_m_flow=sum(gasPortIn.m_flow)) annotation (Placement(transformation(extent={{-114,-104},{-94,-84}})));
 
+  InputBus inputBus annotation (Placement(transformation(
+        extent={{-20,-20},{20,20}},
+        rotation=0,
+        origin={-100,120}),iconTransformation(
+        extent={{-20,-20},{20,20}},
+        rotation=0,
+        origin={-100,120})));
+  OutputBus outputBus annotation (Placement(transformation(
+        extent={{-20,-20},{20,20}},
+        rotation=0,
+        origin={100,120}),
+                         iconTransformation(
+        extent={{-20,-20},{20,20}},
+        rotation=0,
+        origin={100,120})));
+  Modelica.Blocks.Routing.RealPassThrough P_PowerPlant_maxOut[MaximalDifferentTypesOfPowerPlants] if DifferentTypesOfPowerPlants >= 1 annotation (Placement(transformation(extent={{107,67},{113,73}})));
+  Modelica.Blocks.Routing.RealPassThrough P_storage_isOut[MaximalDifferentTypesOfElectricalStorages] if DifferentTypesOfElectricalStorages >= 1 annotation (Placement(transformation(extent={{107,-113},{113,-107}})));
+  Modelica.Blocks.Routing.RealPassThrough P_max_unload_storageOut[MaximalDifferentTypesOfElectricalStorages] if DifferentTypesOfElectricalStorages >= 1 annotation (Placement(transformation(extent={{107,-133},{113,-127}})));
+  Modelica.Blocks.Routing.RealPassThrough P_max_load_storageOut[MaximalDifferentTypesOfElectricalStorages] if DifferentTypesOfElectricalStorages >= 1 annotation (Placement(transformation(extent={{107,-123},{113,-117}})));
+  MasterBusControl masterBusControl annotation (Placement(transformation(
+        extent={{-20,-20},{20,20}},
+        rotation=0,
+        origin={0,120}),  iconTransformation(
+        extent={{-20,-20},{20,20}},
+        rotation=0,
+        origin={0,120})));
+  Modelica.Blocks.Sources.RealExpression expression_pGas_gasStorage(y=gasPortIn[1].p) annotation (Placement(transformation(extent={{-58,136},{-42,150}})));
+  Modelica.Blocks.Routing.RealPassThrough P_max_noCCSout[MaximalDifferentTypesOfPowerPlants] if DifferentTypesOfPowerPlants >= 1 annotation (Placement(transformation(
+        extent={{-3,-3},{3,3}},
+        rotation=90,
+        origin={-82,16})));
 equation
   // _____________________________________________
   //
@@ -457,28 +440,38 @@ equation
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   ////////////////////////////////////////connect statements for electrical storages/////////////////////////////////
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  connect(P_set_ElectricalStorage, electricalStorageSystem.P_set) annotation (Line(points={{-120,0},{-62,0},{-62,-42.05},{-11.55,-42.05}}, color={0,127,127}));
+public
+  Modelica.Blocks.Routing.RealPassThrough
+                                        P_PowerPlant_max[DifferentTypesOfPowerPlants] if DifferentTypesOfPowerPlants >= 1 annotation (Placement(transformation(extent={{93,67},{99,73}})));
+  Modelica.Blocks.Routing.RealPassThrough
+                                        P_DAC annotation (Placement(transformation(extent={{93,47},{99,53}})));
+  Modelica.Blocks.Routing.RealPassThrough
+                                        P_PowerToGasPlant_is annotation (Placement(transformation(extent={{93,27},{99,33}})));
+  Modelica.Blocks.Routing.RealPassThrough
+                                        P_storage_is[DifferentTypesOfElectricalStorages] if DifferentTypesOfElectricalStorages >= 1 annotation (Placement(transformation(extent={{93,-113},{99,-107}})));
+  Modelica.Blocks.Routing.RealPassThrough
+                                        P_max_load_storage[DifferentTypesOfElectricalStorages] if DifferentTypesOfElectricalStorages >= 1 annotation (Placement(transformation(extent={{93,-123},{99,-117}})));
+  Modelica.Blocks.Routing.RealPassThrough
+                                        P_max_unload_storage[DifferentTypesOfElectricalStorages] if DifferentTypesOfElectricalStorages >= 1 annotation (Placement(transformation(extent={{93,-133},{99,-127}})));
+equation
   for i in 1:DifferentTypesOfElectricalStorages loop
     connect(electricalStorageSystem[i].epp, epp) annotation (Line(
-        points={{10,-50},{40,-50},{40,20},{120,20}},
+        points={{10,-62},{40,-62},{40,8},{120,8}},
         color={28,108,200},
         thickness=0.5));
   end for;
-  connect(electricalStorageSystem.P_max_load_storage, P_max_load_storage) annotation (Line(points={{11.6,-52},{92,-52},{92,-130},{130,-130}}, color={0,0,127}));
-  connect(electricalStorageSystem.P_max_unload_storage, P_max_unload_storage) annotation (Line(points={{11.6,-55.8},{90,-55.8},{90,-150},{130,-150}}, color={0,0,127}));
-  connect(electricalStorageSystem.P_storage_is, P_storage_is) annotation (Line(points={{11.6,-59},{11.6,-60},{94,-60},{94,-110},{130,-110}}, color={0,0,127}));
+  connect(electricalStorageSystem.P_max_load_storage, P_max_load_storage.u) annotation (Line(points={{11.6,-64},{52,-64},{52,-120},{92.4,-120}},color={0,0,127}));
+  connect(electricalStorageSystem.P_max_unload_storage, P_max_unload_storage.u) annotation (Line(points={{11.6,-67.8},{12,-67.8},{12,-68},{48,-68},{48,-130},{92.4,-130}},
+                                                                                                                                                        color={0,0,127}));
+  connect(electricalStorageSystem.P_storage_is, P_storage_is.u) annotation (Line(points={{11.6,-71},{11.6,-71.5},{56,-71.5},{56,-110},{92.4,-110}},
+                                                                                                                                               color={0,0,127}));
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   ////////////////////////////////////////connect statements for gas storages////////////////////////////////////////
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  connect(expression_pGas_gasStorage.y, controlGasStorage.p_gas_region) annotation (Line(points={{-92.5,66},{-92.5,66.3778},{-82.32,66.3778}}, color={0,0,127}));
-  connect(controlGasStorage.controlBus, gasStorageSystem.controlBus) annotation (Line(
-      points={{-66.16,66.2222},{-10,66}},
-      color={255,204,51},
-      thickness=0.5));
 
   if useOneGasPortOnly then
     connect(gasStorageSystem.gasPortIn, junction1.gasPort[connectGasStorages + 1]) annotation (Line(
-        points={{10,65.2},{32,65.2},{32,-20},{44,-20}},
+        points={{10,53.2},{32,53.2},{32,-32},{44,-32}},
         color={255,255,0},
         thickness=1.5));
   else
@@ -490,28 +483,27 @@ equation
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   for i in 1:nPowerPlants loop
     connect(powerPlantSystem[i].epp_OUT, epp) annotation (Line(
-        points={{0,20},{120,20}},
+        points={{0,8},{120,8}},
         color={28,108,200},
         thickness=0.5));
-
-    connect(powerToGasSystem.controlBus, powerPlantSystem[i].controlBus) annotation (Line(
-        points={{-40.8,-22},{-44,-22},{-44,10},{-10.2,10}},
+    connect(masterBusControl.CO2System, powerPlantSystem[i].controlBus) annotation (Line(
+        points={{0.1,120.1},{-66,120.1},{-66,-2},{-10.2,-2}},
         color={255,204,51},
         thickness=0.5));
-    connect(controlCO2.controlBus, powerPlantSystem[i].controlBus) annotation (Line(
-        points={{-68,38.2222},{-44,38.2222},{-44,10},{-10.2,10}},
+    connect(powerToGasSystem.controlBus, powerPlantSystem[i].controlBus) annotation (Line(
+        points={{-40.8,-34},{-66,-34},{-66,-2},{-10.2,-2}},
         color={255,204,51},
         thickness=0.5));
     if useHydrogenFromPtGInPowerPlants then
       connect(powerPlantSystem[i].gasPortIn1, powerToGasSystem.gasPortOut_H2_toPowerPlant) annotation (Line(
-          points={{10,4},{22,4},{22,-20},{-20,-20}},
+          points={{10,-8},{22,-8},{22,-32},{-20,-32}},
           color={170,213,255},
           thickness=1.5));
     else
     end if;
     if useOneGasPortOnly then
       connect(powerPlantSystem[i].gasPortIn, junction1.gasPort[i + connectPowerPlants]) annotation (Line(
-          points={{10,10},{32,10},{32,-20},{44,-20}},
+          points={{10,-2},{32,-2},{32,-32},{44,-32}},
           color={255,255,0},
           thickness=1.5));
     else
@@ -520,15 +512,11 @@ equation
   end for;
 
   connect(cO2System.gasPortIn, powerPlantSystem.gasPortOut_CDE) annotation (Line(
-      points={{10.2,44},{24,44},{24,14},{10,14}},
+      points={{10.2,32},{24,32},{24,2},{10,2}},
       color={215,215,215},
       thickness=1.5));
-  connect(controlPowerPlant.P_el_set_out, powerPlantSystem.P_el_set) annotation (Line(points={{-63.7,20.2778},{-10.6,19.4}}, color={0,0,127}));
-  connect(gasPressure.y, controlPowerPlant.p_gas) annotation (Line(points={{-83.4,20},{-78,20},{-78,20.1944},{-76.75,20.1944}}, color={0,0,127}));
-  connect(P_set_PowerPlant, controlPowerPlant.P_el_set_in) annotation (Line(points={{-120,26},{-80,26},{-80,22.4167},{-76.75,22.4167}}, color={0,0,127}));
-  connect(powerPlantSystem.P_max_noCCs, controlPowerPlant.P_max_PowerPlant_in) annotation (Line(points={{-10.6,17.2},{-62,17.2},{-62,14},{-78,14},{-78,24.6389},{-76.75,24.6389}}, color={0,0,127}));
 
-  connect(P_PowerPlant_is, sum_P_Powerplants_is.y) annotation (Line(points={{130,110},{108,110},{108,13},{72.51,13}}, color={0,0,127}));
+  connect(P_PowerPlant_is.u, sum_P_Powerplants_is.y) annotation (Line(points={{92.4,90},{78,90},{78,1},{72.51,1}},      color={0,0,127}));
 
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   ////////////////////////////////////////connect statements for local demand////////////////////////////////////////
@@ -536,50 +524,48 @@ equation
 
   if useOneGasPortOnly then
     connect(junction1.gasPort[1], gasPortIn[1]) annotation (Line(
-        points={{44,-20},{122,-20}},
+        points={{44,-32},{122,-32}},
         color={255,255,0},
         thickness=1.5));
     connect(localDemand.gasPortOut, junction1.gasPort[connectLocalDemand + 1]) annotation (Line(
-        points={{10,-102},{32,-102},{32,-20},{44,-20}},
+        points={{10,-114},{32,-114},{32,-32},{44,-32}},
         color={255,255,0},
         thickness=1.5));
   else
     connect(localDemand.gasPortOut, gasPortIn[connectLocalDemand]);
   end if;
 
-  connect(DataTable_HeatDemand.y1, gain_HeatingDemand_LocalDemand.u) annotation (Line(points={{-85.5,-111},{-82,-111},{-82,-115},{-78.6,-115}}, color={0,0,127}));
-  connect(gain_HeatingDemand_LocalDemand.y, localDemand.Q_flow) annotation (Line(points={{-71.7,-115},{-16,-115},{-16,-108},{-12,-108}}));
+  connect(DataTable_HeatDemand.y1, gain_HeatingDemand_LocalDemand.u) annotation (Line(points={{-85.5,-123},{-82,-123},{-82,-127},{-78.6,-127}}, color={0,0,127}));
+  connect(gain_HeatingDemand_LocalDemand.y, localDemand.Q_flow) annotation (Line(points={{-71.7,-127},{-16,-127},{-16,-120},{-12,-120}}));
   connect(electricPowerComplex_load.epp_OUT, epp) annotation (Line(
-      points={{19.76,-110},{40,-110},{40,20},{120,20}},
+      points={{19.76,-122},{40,-122},{40,8},{120,8}},
       color={28,108,200},
       thickness=0.5));
 
   connect(localDemand.epp, electricPowerComplex_load.epp_IN) annotation (Line(
-      points={{10,-110},{12.32,-110}},
+      points={{10,-122},{12.32,-122}},
       color={28,108,200},
       thickness=0.5));
 
-  connect(localDemand.Load, localSurplusPowerIntern.u[2]) annotation (Line(points={{11.4,-115.2},{98,-115.2},{98,-70},{106,-70}}, color={0,0,127}));
+  connect(localDemand.Load, localSurplusPowerIntern.u[2]) annotation (Line(points={{11.4,-127.2},{82,-127.2},{82,-80}},           color={0,0,127}));
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   ////////////////////////////////////////connect statements for local demand and local renewable production/////////
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  connect(localSurplusPowerIntern.u[1], localRenewableProduction.P_RE_potential) annotation (Line(points={{106,-70},{98,-70},{98,-70.8},{11,-70.8}}, color={0,0,127}));
-
-  connect(localRenewableProduction.P_curtailment, P_set_curtailment) annotation (Line(points={{-12,-70.4},{-16,-70.4},{-16,-52},{-120,-52}}, color={0,0,127}));
+  connect(localSurplusPowerIntern.u[1], localRenewableProduction.P_RE_potential) annotation (Line(points={{82,-80},{82,-82.8},{11,-82.8}},           color={0,0,127}));
 
   connect(localRenewableProduction.epp, electricPowerComplex_localRenewableProduction.epp_IN) annotation (Line(
-      points={{10,-80},{12.32,-80}},
+      points={{10,-92},{12.32,-92}},
       color={28,108,200},
       thickness=0.5));
   connect(electricPowerComplex_localRenewableProduction.epp_OUT, epp) annotation (Line(
-      points={{19.76,-80},{40,-80},{40,20},{120,20}},
+      points={{19.76,-92},{40,-92},{40,8},{120,8}},
       color={28,108,200},
       thickness=0.5));
 
   if useOneGasPortOnly then
     connect(localRenewableProduction.gasPortOut, junction1.gasPort[connectlocalRenewableProduction]) annotation (Line(
-        points={{10,-86},{32,-86},{32,-20},{44,-20}},
+        points={{10,-98},{32,-98},{32,-32},{44,-32}},
         color={255,255,0},
         thickness=1.5));
   else
@@ -590,25 +576,18 @@ equation
   ////////////////////////////////////////connect statements for power-to-gas plants/////////////////////////////////
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  connect(P_set_PtG, controlPowerToGasStorage.u2) annotation (Line(points={{-120,-26},{-94,-26},{-94,-21.6},{-80.8,-21.6}}, color={0,0,127}));
-  connect(expression_pGas_pTG.y, controlPowerToGasStorage.p_gas_region) annotation (Line(points={{-87.5,-17},{-80.8,-16.8}}, color={0,0,127}));
-  connect(expression_H2gasFrac.y, controlPowerToGasStorage.gasComposition) annotation (Line(points={{-87.5,-27},{-80.8,-26.4}}, color={0,0,127}));
-  connect(controlPowerToGasStorage.controlBus, powerToGasSystem.controlBus) annotation (Line(
-      points={{-64,-21.6},{-53.4,-21.6},{-53.4,-22},{-40.8,-22}},
-      color={255,204,51},
-      thickness=0.5));
   connect(powerToGasSystem.epp_OUT, epp) annotation (Line(
-      points={{-28.4,-12},{-28.4,-6},{40,-6},{40,20},{120,20}},
+      points={{-28.4,-24},{-28.4,-18},{40,-18},{40,8},{120,8}},
       color={28,108,200},
       thickness=0.5));
   connect(powerToGasSystem.gasPortIn_CO2, cO2System.gasPortOut) annotation (Line(
-      points={{-20,-14},{16,-14},{16,34},{10,34}},
+      points={{-20,-26},{16,-26},{16,22},{10,22}},
       color={215,215,215},
       thickness=1.5));
 
   if useOneGasPortOnly then
     connect(powerToGasSystem.gasPortOut_1, junction1.gasPort[connectPowerToGas + 1]) annotation (Line(
-        points={{-20,-24},{32,-24},{32,-20},{44,-20}},
+        points={{-20,-36},{32,-36},{32,-32},{44,-32}},
         color={255,255,0},
         thickness=1.5));
   else
@@ -617,14 +596,14 @@ equation
 
   if PowerToGasPlantsInThisRegion and ptGTypeIsMethanation then
     if usageOfWasteHeatOfPtG == 2 then
-      connect(powerToGasSystem.port_a, cO2System.port_a) annotation (Line(points={{-24,-32},{-24,48},{-6,48}}, color={191,0,0}));
+      connect(powerToGasSystem.port_a, cO2System.port_a) annotation (Line(points={{-24,-44},{-24,36},{-6,36}}, color={191,0,0}));
     elseif usageOfWasteHeatOfPtG == 3 then
       connect(powerToGasSystem.fluidPortIn, heatingGridSystem_Storage.WaterPortOut_ExternalHeatSource) annotation (Line(
-          points={{-34,-32},{-34,-40},{-52,-40},{-52,90},{4,90},{4,93.8}},
+          points={{-34,-44},{-34,-52},{-52,-52},{-52,78},{4,78},{4,81.8}},
           color={175,0,0},
           thickness=0.5));
       connect(powerToGasSystem.fluidPortOut, heatingGridSystem_Storage.WaterPortIn_ExternalHeatSource) annotation (Line(
-          points={{-36,-32},{-36,-36},{-50,-36},{-50,94},{-4,94},{-4,93.8}},
+          points={{-36,-44},{-36,-48},{-50,-48},{-50,82},{-4,82},{-4,81.8}},
           color={175,0,0},
           thickness=0.5));
     end if;
@@ -638,29 +617,28 @@ equation
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   ////////////////////////////////////////connect statements for heating grid////////////////////////////////////////
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  connect(DataTable_HeatDemand.y1, gain_HeatingDemand_HeatingGrid.u) annotation (Line(points={{-85.5,-111},{-82,-111},{-82,-103},{-78.6,-103}}, color={0,0,127}));
+  connect(DataTable_HeatDemand.y1, gain_HeatingDemand_HeatingGrid.u) annotation (Line(points={{-85.5,-123},{-82,-123},{-82,-115},{-78.6,-115}}, color={0,0,127}));
 
-  connect(heatingGridSystem_Storage.P_el_CHP, localSurplusPowerIntern.u[3]) annotation (Line(points={{11.4,110},{98,110},{98,-70},{106,-70}}, color={0,0,127}));
-  connect(gain_HeatingDemand_HeatingGrid.y, heatingGridSystem_Storage.Q_demand) annotation (Line(points={{-71.7,-103},{-58,-103},{-58,108.2},{-12,108.2}}));
+  connect(heatingGridSystem_Storage.P_el_CHP, localSurplusPowerIntern.u[3]) annotation (Line(points={{11.4,98},{82,98},{82,-80}},             color={0,0,127}));
+  connect(gain_HeatingDemand_HeatingGrid.y, heatingGridSystem_Storage.Q_demand) annotation (Line(points={{-71.7,-115},{-58,-115},{-58,96.2},{-12,96.2}}));
   connect(heatingGridSystem_Storage.epp, epp) annotation (Line(
-      points={{9.5,98.6},{40,98.6},{40,20},{120,20}},
+      points={{9.5,86.6},{40,86.6},{40,8},{120,8}},
       color={28,108,200},
       thickness=0.5));
   if useOneGasPortOnly then
     connect(junction1.gasPort[integer(4 + TransiEnt.Basics.Functions.boolean2integer(PowerToGasPlantsInThisRegion) + nPowerPlants + TransiEnt.Basics.Functions.boolean2integer(GasStorageInThisRegion))], heatingGridSystem_Storage.gasPortIn) annotation (Line(
-        points={{44,-20},{32,-20},{32,95},{10,95}},
+        points={{44,-32},{32,-32},{32,83},{10,83}},
         color={255,255,0},
         thickness=1.5));
   else
     connect(heatingGridSystem_Storage.gasPortIn, gasPortIn[3]);
   end if;
 
-  connect(heatingGridSystem_Storage.P_set_ElectricalHeater, P_set_ElectricalHeater) annotation (Line(points={{-12,113},{-86,113},{-86,52},{-120,52}}));
-
   if DifferentTypesOfElectricHeater >= 1 then
-    connect(heatingGridSystem_Storage.P_ElectricalHeater_max, P_ElectricalHeater_max) annotation (Line(points={{11.4,113},{100,113},{100,-50},{130,-50}}, color={0,0,127}));
+    connect(heatingGridSystem_Storage.P_ElectricalHeater_max, P_ElectricalHeater_max.u) annotation (Line(points={{11.4,101},{11.4,100.5},{86.1,100.5},{86.1,-70},{92.4,-70}},
+                                                                                                                                                            color={0,0,127}));
   else
-    connect(P_ElectricalHeater_max, Zero.y);
+    connect(P_ElectricalHeater_max.u, Zero.y);
   end if;
   //connect(P_ElectricalHeater_max, heatingGridSystem_Storage.P_ElectricalHeater_max) annotation (Line(points={{112,-66},{92,-66},{92,113},{11.4,113}}, color={0,0,127}));
 
@@ -668,14 +646,10 @@ equation
   ////////////////////////////////////////connect statements for CO2System/////////////////////////////////
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  connect(controlCO2.controlBus, cO2System.controlBus) annotation (Line(
-      points={{-68,38.2222},{-30,38.2222},{-30,38},{-10,38}},
-      color={255,204,51},
-      thickness=0.5));
-  connect(realExpression14.y, prescribedTemperature.T) annotation (Line(points={{-35.5,48},{-30.4,48}}, color={0,0,127}));
-  connect(prescribedTemperature.port, cO2System.port_a) annotation (Line(points={{-26,48},{-6,48}}, color={191,0,0}));
+  connect(realExpression14.y, prescribedTemperature.T) annotation (Line(points={{-35.5,36},{-32.4,36}}, color={0,0,127}));
+  connect(prescribedTemperature.port, cO2System.port_a) annotation (Line(points={{-28,36},{-6,36}}, color={191,0,0}));
   connect(cO2System.epp, powerToGasSystem.epp_IN) annotation (Line(
-      points={{6,48.2},{6,52},{40,52},{40,-6},{-32,-6},{-32,-12}},
+      points={{6,36.2},{6,40},{40,40},{40,-18},{-32,-18},{-32,-24}},
       color={28,108,200},
       thickness=0.5));
 
@@ -683,7 +657,7 @@ equation
   ////////////////////////////////////////connect statements for other components/////////////////////////////////
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   connect(centralPhaseShifter.epp, epp) annotation (Line(
-      points={{116,7},{110,7},{110,20},{120,20}},
+      points={{116,-5},{110,-5},{110,8},{120,8}},
       color={28,108,200},
       thickness=0.5));
 
@@ -691,66 +665,250 @@ equation
     connect(junction1.gasPort[NeededGasPortsForJunction], boundaryImportExportInRegion.fluidPortIn);
   end if;
 
-  connect(cO2System.P_el, P_DAC) annotation (Line(
-      points={{-10.4,36},{-22,36},{-22,22},{104,22},{104,70},{130,70}},
+  connect(cO2System.P_el, P_DAC.u) annotation (Line(
+      points={{-10.4,24},{-24,24},{-24,10},{88,10},{88,50},{92.4,50}},
       color={0,135,135},
       pattern=LinePattern.Dash));
-  connect(controlPowerPlant.P_max_PowerPlant_out, P_PowerPlant_max) annotation (Line(points={{-63.76,24.6667},{106,24.6667},{106,90},{130,90}}, color={0,0,127}));
 
-  connect(localRenewableProduction.P_RE_potential, P_renewable) annotation (Line(points={{11,-70.8},{96,-70.8},{96,-90},{130,-90}}, color={0,0,127}));
-  connect(P_surplus_region, localSurplusPowerIntern.y) annotation (Line(points={{130,-70},{114.68,-70}}, color={0,0,127}));
+  connect(localRenewableProduction.P_RE_potential, P_renewable.u) annotation (Line(points={{11,-82.8},{72,-82.8},{72,-96},{92.4,-96}},color={0,0,127}));
+  connect(P_surplus_region.u, localSurplusPowerIntern.y) annotation (Line(points={{92.4,-80},{90.68,-80}}, color={0,0,127}));
 
   //sum
 
-  connect(Zero.y, sum_P_heatingGrid_is.u[1]) annotation (Line(points={{56.6,117},{60,117},{60,103},{68,103}}, color={0,0,127}));
-  connect(Zero.y, sum_m_flow_heatingGridGas_is.u[1]) annotation (Line(points={{56.6,117},{60,117},{60,95},{68,95}}, color={0,0,127}));
-  connect(Zero.y, sum_m_flow_gasStorage_is.u[1]) annotation (Line(points={{56.6,117},{60,117},{60,67},{68,67}}, color={0,0,127}));
-  connect(Zero.y, sum_m_gasStorage_is.u[1]) annotation (Line(points={{56.6,117},{60,117},{60,59},{68,59}}, color={0,0,127}));
-  connect(Zero.y, sum_m_flow_CO2toPtG.u[1]) annotation (Line(points={{56.6,117},{60,117},{60,45},{68,45}}, color={0,0,127}));
-  connect(Zero.y, sum_m_flow_CO2fromPowerplants.u[1]) annotation (Line(points={{56.6,117},{60,117},{60,37},{68,37}}, color={0,0,127}));
-  connect(Zero.y, sum_P_CO2DAC_is.u[1]) annotation (Line(points={{56.6,117},{60,117},{60,22},{66,22},{66,26},{68,26},{68,29}}, color={0,0,127}));
-  connect(Zero.y, sum_P_Powerplants_is.u[1]) annotation (Line(points={{56.6,117},{60,117},{60,13},{66,13}}, color={0,0,127}));
-  connect(Zero.y, sum_m_flow_powerPlant_is.u[1]) annotation (Line(points={{56.6,117},{60,117},{60,5},{66,5}}, color={0,0,127}));
-  connect(Zero.y, sum_P_PtG_is.u[1]) annotation (Line(points={{56.6,117},{60,117},{60,-25},{66,-25}}, color={0,0,127}));
-  connect(Zero.y, sum_m_flow_PtG_is.u[1]) annotation (Line(points={{56.6,117},{60,117},{60,-33},{66,-33}}, color={0,0,127}));
-  connect(Zero.y, sum_E_electricalStorage_is.u[1]) annotation (Line(points={{56.6,117},{60,117},{60,-47},{66,-47}}, color={0,0,127}));
-  connect(Zero.y, sum_P_electricalStorage_is.u[1]) annotation (Line(points={{56.6,117},{60,117},{60,-55},{66,-55}}, color={0,0,127}));
+  connect(Zero.y, sum_P_heatingGrid_is.u[1]) annotation (Line(points={{58.5,105},{60,105},{60,91},{68,91}},   color={0,0,127}));
+  connect(Zero.y, sum_m_flow_heatingGridGas_is.u[1]) annotation (Line(points={{58.5,105},{60,105},{60,83},{68,83}}, color={0,0,127}));
+  connect(Zero.y, sum_m_flow_gasStorage_is.u[1]) annotation (Line(points={{58.5,105},{60,105},{60,55},{68,55}}, color={0,0,127}));
+  connect(Zero.y, sum_m_gasStorage_is.u[1]) annotation (Line(points={{58.5,105},{60,105},{60,47},{68,47}}, color={0,0,127}));
+  connect(Zero.y, sum_m_flow_CO2toPtG.u[1]) annotation (Line(points={{58.5,105},{60,105},{60,33},{68,33}}, color={0,0,127}));
+  connect(Zero.y, sum_m_flow_CO2fromPowerplants.u[1]) annotation (Line(points={{58.5,105},{60,105},{60,25},{68,25}}, color={0,0,127}));
+  connect(Zero.y, sum_P_CO2DAC_is.u[1]) annotation (Line(points={{58.5,105},{60,105},{60,10},{66,10},{66,14},{68,14},{68,17}}, color={0,0,127}));
+  connect(Zero.y, sum_P_Powerplants_is.u[1]) annotation (Line(points={{58.5,105},{60,105},{60,1},{66,1}},   color={0,0,127}));
+  connect(Zero.y, sum_m_flow_powerPlant_is.u[1]) annotation (Line(points={{58.5,105},{60,105},{60,-7},{66,-7}},
+                                                                                                              color={0,0,127}));
+  connect(Zero.y, sum_P_PtG_is.u[1]) annotation (Line(points={{58.5,105},{60,105},{60,-37},{66,-37}}, color={0,0,127}));
+  connect(Zero.y, sum_m_flow_PtG_is.u[1]) annotation (Line(points={{58.5,105},{60,105},{60,-45},{66,-45}}, color={0,0,127}));
+  connect(Zero.y, sum_E_electricalStorage_is.u[1]) annotation (Line(points={{58.5,105},{60,105},{60,-59},{66,-59}}, color={0,0,127}));
+  connect(Zero.y, sum_P_electricalStorage_is.u[1]) annotation (Line(points={{58.5,105},{60,105},{60,-67},{66,-67}}, color={0,0,127}));
 
-  connect(heatingGridSystem_Storage.P_ElectricalHeater_max, sum_P_heatingGrid_is.u[1+(if (DifferentTypesOfElectricHeater + DifferentTypesOfGasBoiler + DifferentTypesOfCHPPlants) > 0 then 1 else 0)]) annotation (Line(points={{11.4,113},{60,113},{60,103},{68,103}}, color={0,0,127}));
-  connect(heatingGridSystem_Storage.P_el_CHP, sum_P_heatingGrid_is.u[1+(if (DifferentTypesOfElectricHeater + DifferentTypesOfGasBoiler + DifferentTypesOfCHPPlants) > 0 then 2 else 0)]) annotation (Line(points={{11.4,110},{58,110},{58,103},{68,103}}, color={0,0,127}));
-  connect(heatingGridSystem_Storage.m_flow_gas, sum_m_flow_heatingGridGas_is.u[1+(if (DifferentTypesOfElectricHeater + DifferentTypesOfGasBoiler + DifferentTypesOfCHPPlants) > 0 then 1 else 0)]) annotation (Line(points={{11.4,107},{56,107},{56,95},{68,95}}, color={0,0,127}));
+  connect(heatingGridSystem_Storage.P_ElectricalHeater_max, sum_P_heatingGrid_is.u[1+(if (DifferentTypesOfElectricHeater + DifferentTypesOfGasBoiler + DifferentTypesOfCHPPlants) > 0 then 1 else 0)]) annotation (Line(points={{11.4,101},{60,101},{60,91},{68,91}},   color={0,0,127}));
+  connect(heatingGridSystem_Storage.P_el_CHP, sum_P_heatingGrid_is.u[1+(if (DifferentTypesOfElectricHeater + DifferentTypesOfGasBoiler + DifferentTypesOfCHPPlants) > 0 then 2 else 0)]) annotation (Line(points={{11.4,98},{58,98},{58,91},{68,91}},     color={0,0,127}));
+  connect(heatingGridSystem_Storage.m_flow_gas, sum_m_flow_heatingGridGas_is.u[1+(if (DifferentTypesOfElectricHeater + DifferentTypesOfGasBoiler + DifferentTypesOfCHPPlants) > 0 then 1 else 0)]) annotation (Line(points={{11.4,95},{56,95},{56,83},{68,83}},   color={0,0,127}));
 
-  connect(gasStorageSystem.m_flow_storage, sum_m_flow_gasStorage_is.u[1 .+(1:DifferentTypesOfGasStorage)]) annotation (Line(points={{11,71},{60,71},{60,67},{68,67}}, color={0,0,127}));
-  connect(gasStorageSystem.m_storage, sum_m_gasStorage_is.u[1 .+(1:DifferentTypesOfGasStorage)]) annotation (Line(points={{11,73},{56,73},{56,59},{68,59}}, color={0,0,127}));
+  connect(gasStorageSystem.m_flow_storage, sum_m_flow_gasStorage_is.u[1 .+(1:DifferentTypesOfGasStorage)]) annotation (Line(points={{11,59},{60,59},{60,55},{68,55}}, color={0,0,127}));
+  connect(gasStorageSystem.m_storage, sum_m_gasStorage_is.u[1 .+(1:DifferentTypesOfGasStorage)]) annotation (Line(points={{11,61},{56,61},{56,47},{68,47}}, color={0,0,127}));
 
-  connect(cO2System.m_flow_toPtG, sum_m_flow_CO2toPtG.u[1 + (if (CO2StorageNeeded>0) then 1 else 0)]) annotation (Line(points={{11,29.2},{60,29.2},{60,45},{68,45}}, color={0,0,127}));
-  connect(cO2System.m_flow_fromPowerplants, sum_m_flow_CO2fromPowerplants.u[1 + (if (CO2StorageNeeded>0) then 1 else 0)]) annotation (Line(points={{11,31.2},{56,31.2},{56,37},{68,37}}, color={0,0,127}));
+  connect(cO2System.m_flow_toPtG, sum_m_flow_CO2toPtG.u[1 + (if (CO2StorageNeeded>0) then 1 else 0)]) annotation (Line(points={{11,17.2},{60,17.2},{60,33},{68,33}}, color={0,0,127}));
+  connect(cO2System.m_flow_fromPowerplants, sum_m_flow_CO2fromPowerplants.u[1 + (if (CO2StorageNeeded>0) then 1 else 0)]) annotation (Line(points={{11,19.2},{56,19.2},{56,25},{68,25}}, color={0,0,127}));
   connect(cO2System.P_el, sum_P_CO2DAC_is.u[1 + (if (CO2StorageNeeded>0) then 1 else 0)]) annotation (Line(
-      points={{-10.4,36},{-24,36},{-24,22},{66,22},{66,28},{68,28},{68,29}},
+      points={{-10.4,24},{-24,24},{-24,10},{66,10},{66,16},{68,16},{68,17}},
       color={0,135,135},
       pattern=LinePattern.Dash));
 
   connect(powerPlantSystem.P_Powerplant_is, sum_P_Powerplants_is.u[1 .+ (1:nPowerPlants)]) annotation (Line(
-      points={{10.6,19},{48,19},{48,13},{66,13}},
+      points={{10.6,7},{48,7},{48,1},{66,1}},
       color={0,135,135},
       pattern=LinePattern.Dash));
-  connect(powerPlantSystem.m_flow_Powerplant_is, sum_m_flow_powerPlant_is.u[1 .+ (1:nPowerPlants)]) annotation (Line(points={{10.6,17},{44,17},{44,5},{66,5}}, color={0,0,127}));
+  connect(powerPlantSystem.m_flow_Powerplant_is, sum_m_flow_powerPlant_is.u[1 .+ (1:nPowerPlants)]) annotation (Line(points={{10.6,5},{44,5},{44,-7},{66,-7}}, color={0,0,127}));
 
   connect(powerToGasSystem.P, sum_P_PtG_is.u[1 + (if (PowerToGasPlantsInThisRegion)  then 1 else 0)]) annotation (Line(
-      points={{-40.4,-24.6},{-52,-24.6},{-52,-38},{56,-38},{56,-26},{66,-26},{66,-25}},
+      points={{-40.4,-36.6},{-52,-36.6},{-52,-50},{56,-50},{56,-38},{66,-38},{66,-37}},
       color={0,135,135},
       pattern=LinePattern.Dash));
-  connect(powerToGasSystem.m_flow_gas_out, sum_m_flow_PtG_is.u[1 + (if (PowerToGasPlantsInThisRegion)  then 1 else 0)]) annotation (Line(points={{-40.4,-27.6},{-40.4,-34},{60,-34},{60,-33},{66,-33}}, color={0,0,127}));
+  connect(powerToGasSystem.m_flow_gas_out, sum_m_flow_PtG_is.u[1 + (if (PowerToGasPlantsInThisRegion)  then 1 else 0)]) annotation (Line(points={{-40.4,-39.6},{-40.4,-46},{60,-46},{60,-45},{66,-45}}, color={0,0,127}));
 
-  connect(electricalStorageSystem.E_storage_is, sum_E_electricalStorage_is.u[1 .+(1:DifferentTypesOfElectricalStorages)]) annotation (Line(points={{11.6,-43},{60,-43},{60,-47},{66,-47}}, color={0,0,127}));
-  connect(electricalStorageSystem.P_storage_is, sum_P_electricalStorage_is.u[1 .+(1:DifferentTypesOfElectricalStorages)]) annotation (Line(points={{11.6,-59},{60,-59},{60,-55},{66,-55}}, color={0,0,127}));
+  connect(electricalStorageSystem.E_storage_is, sum_E_electricalStorage_is.u[1 .+(1:DifferentTypesOfElectricalStorages)]) annotation (Line(points={{11.6,-55},{60,-55},{60,-59},{66,-59}}, color={0,0,127}));
+  connect(electricalStorageSystem.P_storage_is, sum_P_electricalStorage_is.u[1 .+(1:DifferentTypesOfElectricalStorages)]) annotation (Line(points={{11.6,-71},{60,-71},{60,-67},{66,-67}}, color={0,0,127}));
 
-  connect(sum_m_flow_powerPlant_is.y, powerToGasSystem.PP_m_flowGas) annotation (Line(points={{72.51,5},{74,5},{74,-4},{-48,-4},{-48,-31},{-40,-31}}, color={0,0,127}));
-  connect(sum_P_PtG_is.y, P_PowerToGasPlant_is) annotation (Line(points={{72.51,-25},{102,-25},{102,50},{130,50}}, color={0,0,127}));
+  connect(sum_m_flow_powerPlant_is.y, powerToGasSystem.PP_m_flowGas) annotation (Line(points={{72.51,-7},{74,-7},{74,-16},{-48,-16},{-48,-43},{-40,-43}},
+                                                                                                                                                      color={0,0,127}));
+  connect(sum_P_PtG_is.y, P_PowerToGasPlant_is.u) annotation (Line(points={{72.51,-37},{72.51,-36},{90,-36},{90,30},{92.4,30}},
+                                                                                                                     color={0,0,127}));
 
-  annotation (
+  connect(inputBus.P_set_ElectricalHeater, heatingGridSystem_Storage.P_set_ElectricalHeater) annotation (Line(
+      points={{-99.9,120.1},{-99.9,100},{-12,100},{-12,101}},
+      color={255,204,51},
+      thickness=0.5), Text(
+      string="%first",
+      index=-1,
+      extent={{-6,3},{-6,3}},
+      horizontalAlignment=TextAlignment.Right));
+  connect(inputBus.P_set_ElectricalStorage, electricalStorageSystem.P_set) annotation (Line(
+      points={{-99.9,120.1},{-99.9,-54},{-54,-54},{-54,-54.05},{-11.55,-54.05}},
+      color={255,204,51},
+      thickness=0.5), Text(
+      string="%first",
+      index=-1,
+      extent={{-6,3},{-6,3}},
+      horizontalAlignment=TextAlignment.Right));
+  connect(inputBus.P_set_curtailment, localRenewableProduction.P_curtailment) annotation (Line(
+      points={{-99.9,120.1},{-99.9,-82.4},{-12,-82.4}},
+      color={255,204,51},
+      thickness=0.5), Text(
+      string="%first",
+      index=-1,
+      extent={{-6,3},{-6,3}},
+      horizontalAlignment=TextAlignment.Right));
+  connect(P_PowerPlant_is.y, outputBus.P_PowerPlant_is) annotation (Line(points={{99.3,90},{170,90},{170,120.1},{100.1,120.1}},
+                                                                                                                       color={0,0,127}), Text(
+      string="%second",
+      index=1,
+      extent={{6,3},{6,3}},
+      horizontalAlignment=TextAlignment.Left));
+  connect(P_DAC.y, outputBus.P_DAC) annotation (Line(points={{99.3,50},{170,50},{170,120.1},{100.1,120.1}},
+                                                                                                 color={0,0,127}), Text(
+      string="%second",
+      index=1,
+      extent={{6,3},{6,3}},
+      horizontalAlignment=TextAlignment.Left));
+  connect(P_ElectricalHeater_max.y, outputBus.P_ElectricalHeater_max) annotation (Line(points={{99.3,-70},{170,-70},{170,120.1},{100.1,120.1}},
+                                                                                                                                     color={0,0,127}), Text(
+      string="%second",
+      index=1,
+      extent={{6,3},{6,3}},
+      horizontalAlignment=TextAlignment.Left));
+  connect(P_surplus_region.y, outputBus.P_surplus_region) annotation (Line(points={{99.3,-80},{170,-80},{170,120.1},{100.1,120.1}},
+                                                                                                                         color={0,0,127}), Text(
+      string="%second",
+      index=1,
+      extent={{6,3},{6,3}},
+      horizontalAlignment=TextAlignment.Left));
+  connect(P_renewable.y, outputBus.P_renewable) annotation (Line(points={{99.3,-96},{170,-96},{170,120.1},{100.1,120.1}},
+                                                                                                               color={0,0,127}), Text(
+      string="%second",
+      index=1,
+      extent={{6,3},{6,3}},
+      horizontalAlignment=TextAlignment.Left));
+  connect(P_PowerToGasPlant_is.y, outputBus.P_PowerToGasPlant_is) annotation (Line(points={{99.3,30},{170,30},{170,120.1},{100.1,120.1}},
+                                                                                                                               color={0,0,127}), Text(
+      string="%second",
+      index=1,
+      extent={{6,3},{6,3}},
+      horizontalAlignment=TextAlignment.Left));
+
+  // _____________________________________________
+  //
+  //                   Connects for fillup
+  // _____________________________________________
+  //Power Plants
+  for j in 1:MaximalDifferentTypesOfPowerPlants loop
+    if j <= DifferentTypesOfPowerPlants then
+      connect(P_PowerPlant_max[j].y, P_PowerPlant_maxOut[j].u) annotation (Line(points={{99.3,70},{106.4,70}},                    color={0,0,127}));
+      connect(powerPlantSystem.P_max_noCCs, P_max_noCCSout.u) annotation (Line(points={{-10.6,5.2},{-82,5.2},{-82,12.4}},   color={0,0,127}));
+
+    else
+      connect(Zero.y, P_PowerPlant_maxOut[j].u) annotation (Line(points={{58.5,105},{58.5,104.5},{60.5,104.5},{60.5,70},{106.4,70}},
+                                                                                                               color={0,0,127}));
+      connect(Zero.y, P_max_noCCSout.u) annotation (Line(points={{58.5,105},{60,105},{60,12.4},{-82,12.4}},                    color={0,0,127}));
+    end if;
+  end for;
+
+  //Electrical Storages
+  for j in 1:MaximalDifferentTypesOfElectricalStorages loop
+    if j <= DifferentTypesOfElectricalStorages then
+      connect(P_storage_is[j].y, P_storage_isOut[j].u) annotation (Line(points={{99.3,-110},{106.4,-110}},                                                 color={0,0,127}));
+      connect(P_max_load_storage[j].y, P_max_load_storageOut[j].u) annotation (Line(points={{99.3,-120},{106.4,-120}},                                                color={0,0,127}));
+      connect(P_max_unload_storage[j].y, P_max_unload_storageOut[j].u) annotation (Line(points={{99.3,-130},{106.4,-130}},                                          color={0,0,127}));
+    else
+      connect(Zero.y, P_storage_isOut[j].u) annotation (Line(points={{58.5,105},{60,105},{60,-110},{106.4,-110}},
+                                                                                                               color={0,0,127}));
+      connect(Zero.y, P_max_load_storageOut[j].u) annotation (Line(points={{58.5,105},{60,105},{60,-120},{106.4,-120}},color={0,0,127}));
+      connect(Zero.y, P_max_unload_storageOut[j].u) annotation (Line(points={{58.5,105},{60,105},{60,-130},{106.4,-130}},color={0,0,127}));
+    end if;
+  end for;
+
+  connect(P_PowerPlant_maxOut.y, outputBus.P_PowerPlant_max) annotation (Line(points={{113.3,70},{170,70},{170,120.1},{100.1,120.1}},
+                                                                                                                                    color={0,0,127}), Text(
+      string="%second",
+      index=1,
+      extent={{6,3},{6,3}},
+      horizontalAlignment=TextAlignment.Left));
+  connect(P_storage_isOut.y, outputBus.P_storage_is) annotation (Line(points={{113.3,-110},{170,-110},{170,120.1},{100.1,120.1}}, color={0,0,127}), Text(
+      string="%second",
+      index=1,
+      extent={{6,3},{6,3}},
+      horizontalAlignment=TextAlignment.Left));
+  connect(P_max_load_storageOut.y, outputBus.P_max_load_storage) annotation (Line(points={{113.3,-120},{170,-120},{170,120.1},{100.1,120.1}}, color={0,0,127}), Text(
+      string="%second",
+      index=1,
+      extent={{6,3},{6,3}},
+      horizontalAlignment=TextAlignment.Left));
+  connect(P_max_unload_storageOut.y, outputBus.P_max_unload_storage) annotation (Line(points={{113.3,-130},{170,-130},{170,120.1},{100.1,120.1}}, color={0,0,127}), Text(
+      string="%second",
+      index=1,
+      extent={{6,3},{6,3}},
+      horizontalAlignment=TextAlignment.Left));
+  connect(masterBusControl.GasStorageSystem, gasStorageSystem.controlBus) annotation (Line(
+      points={{0.1,120.1},{-66,120.1},{-66,54},{-10,54}},
+      color={255,204,51},
+      thickness=0.5), Text(
+      string="%first",
+      index=-1,
+      extent={{-6,3},{-6,3}},
+      horizontalAlignment=TextAlignment.Right));
+  connect(expression_pGas_gasStorage.y, masterBusControl.GasStorageSystem.pGas_gasStorage) annotation (Line(points={{-41.2,143},{-26,143},{-26,120.1},{0.1,120.1}},
+                                                                                                                                                     color={0,0,127}), Text(
+      string="%second",
+      index=1,
+      extent={{6,3},{6,3}},
+      horizontalAlignment=TextAlignment.Left));
+  connect(cO2System.controlBus, masterBusControl.CO2System) annotation (Line(
+      points={{-10,26},{-66,26},{-66,120.1},{0.1,120.1}},
+      color={255,204,51},
+      thickness=0.5), Text(
+      string="%second",
+      index=1,
+      extent={{-6,3},{-6,3}},
+      horizontalAlignment=TextAlignment.Right));
+  connect(powerToGasSystem.controlBus, masterBusControl.PowerToGasSystem) annotation (Line(
+      points={{-40.8,-34},{-66,-34},{-66,120.1},{0.1,120.1}},
+      color={255,204,51},
+      thickness=0.5), Text(
+      string="%second",
+      index=1,
+      extent={{-6,3},{-6,3}},
+      horizontalAlignment=TextAlignment.Right));
+  connect(expression_H2gasFrac.y, masterBusControl.PowerToGasSystem.H2gasFrac) annotation (Line(points={{-41.2,159},{-26,159},{-26,120.1},{0.1,120.1}},
+                                                                                                                                                  color={0,0,127}), Text(
+      string="%second",
+      index=1,
+      extent={{6,3},{6,3}},
+      horizontalAlignment=TextAlignment.Left));
+  connect(expression_pGas_pTG.y, masterBusControl.PowerToGasSystem.pGas_pTG) annotation (Line(points={{-41.2,171},{-26,171},{-26,120.1},{0.1,120.1}},
+                                                                                                                                                color={0,0,127}), Text(
+      string="%second",
+      index=1,
+      extent={{6,3},{6,3}},
+      horizontalAlignment=TextAlignment.Left));
+  connect(gasPressure.y, masterBusControl.PowerPlantSystem.gasPressure) annotation (Line(points={{-41.2,131},{-26,131},{-26,120.1},{0.1,120.1}},
+                                                                                                                                           color={0,0,127}), Text(
+      string="%second",
+      index=1,
+      extent={{6,3},{6,3}},
+      horizontalAlignment=TextAlignment.Left));
+  connect(masterBusControl.PowerPlantSystem.P_max_PowerPlant_out, P_PowerPlant_max.u) annotation (Line(
+      points={{0.1,120.1},{44,120.1},{44,70},{92.4,70}},
+      color={255,204,51},
+      thickness=0.5), Text(
+      string="%first",
+      index=-1,
+      extent={{-6,3},{-6,3}},
+      horizontalAlignment=TextAlignment.Right));
+  connect(masterBusControl.PowerPlantSystem.P_el_set_out, powerPlantSystem.P_el_set) annotation (Line(
+      points={{0.1,120.1},{-66,120.1},{-66,7.4},{-10.6,7.4}},
+      color={255,204,51},
+      thickness=0.5), Text(
+      string="%first",
+      index=-1,
+      extent={{-6,3},{-6,3}},
+      horizontalAlignment=TextAlignment.Right));
+  connect(P_max_noCCSout.y, masterBusControl.PowerPlantSystem.P_max_noCCs) annotation (Line(points={{-82,19.3},{-82,120.1},{0.1,120.1}},      color={0,0,127}), Text(
+          string="%second",
+          index=1,
+          extent={{-6,3},{-6,3}},
+          horizontalAlignment=TextAlignment.Right));
+     annotation (
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-120,-120},{120,120}})),
-    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-120,-120},{120,120}})),
+    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-120,-140},{120,120}})),
     Documentation(info="<html>
 <p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">1. Purpose of model</span></b></p>
 <p>The superstructure component provides a representation of a certain region in terms of consumption and production of power and gas. This representation is comprised of multiple elements that connect with the central electric and gas ports and either consume or generate gas or electrical power. Superstructures are to be used as arrays enclosed in <a href=\"ResiliEntEE.Superstructure_JB_DELIVERY.Portfolios.Portfolio_Example.Superstructures_PortfolioMask\">superstructure portolio masks</a> for maximum utilization.</p>

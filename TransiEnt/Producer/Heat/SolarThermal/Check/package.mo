@@ -1,4 +1,4 @@
-within TransiEnt.Producer.Heat.SolarThermal;
+﻿within TransiEnt.Producer.Heat.SolarThermal;
 package Check
 
 

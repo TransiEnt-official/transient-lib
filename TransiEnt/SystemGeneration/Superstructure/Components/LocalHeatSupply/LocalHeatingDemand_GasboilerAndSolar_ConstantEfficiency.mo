@@ -1,10 +1,8 @@
 ﻿within TransiEnt.SystemGeneration.Superstructure.Components.LocalHeatSupply;
 model LocalHeatingDemand_GasboilerAndSolar_ConstantEfficiency
 
-
-
 //________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 2.0.3                             //
+// Component of the TransiEnt Library, version: 2.0.0                             //
 //                                                                                //
 // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
 // Copyright 2021, Hamburg University of Technology.                              //
@@ -19,21 +17,17 @@ model LocalHeatingDemand_GasboilerAndSolar_ConstantEfficiency
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und Wärme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
-
-
-
-
 
   // _____________________________________________
   //
   //          Imports and Class Hierarchy
   // _____________________________________________
 
-  extends TransiEnt.SystemGeneration.Superstructure.Components.LocalHeatSupply.Base.PartialLocalHeatingDemand_Gasboiler;
+  extends .TransiEnt.SystemGeneration.Superstructure.Components.LocalHeatSupply.Base.PartialLocalHeatingDemand_Gasboiler;
 
   // _____________________________________________
   //
@@ -41,8 +35,8 @@ model LocalHeatingDemand_GasboilerAndSolar_ConstantEfficiency
   // _____________________________________________
 
   parameter Modelica.Units.SI.Efficiency eta_gasboiler=0.9;
-  parameter SI.Heat Q_annual_solarthermal;
-  parameter SI.Heat Q_max_storage;
+  parameter Modelica.Units.SI.Heat Q_annual_solarthermal;
+  parameter Modelica.Units.SI.Heat Q_max_storage;
 
   // _____________________________________________
   //
@@ -62,7 +56,7 @@ model LocalHeatingDemand_GasboilerAndSolar_ConstantEfficiency
   //             Variable Declarations
   // _____________________________________________
 
-  outer SI.HeatFlowRate Q_flow_solarthermal_pu;
+  outer Modelica.Units.SI.HeatFlowRate Q_flow_solarthermal_pu;
 
 equation
 

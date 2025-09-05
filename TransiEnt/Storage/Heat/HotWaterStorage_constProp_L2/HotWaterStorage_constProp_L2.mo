@@ -309,30 +309,32 @@ equation
           smooth=Smooth.None,
           arrow={Arrow.None,Arrow.Filled})}),
     Documentation(info="<html>
-<p><b><span style=\"color: #008000;\">1. Purpose of model</span></b></p>
-<p>Simple energy balance model of a hot water storage without spatial discretisation. Thermodynamic properties are not calculated in dependance of the temperature.</p>
-<p><b><span style=\"color: #008000;\">2. Level of detail, physical effects considered, and physical insight</span></b></p>
-<p>(Purely technical component without physical modeling.)</p>
-<p><b><span style=\"color: #008000;\">3. Limits of validity </span></b></p>
-<p>(Purely technical component without physical modeling.)</p>
-<p><b><span style=\"color: #008000;\">4. Interfaces</span></b></p>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
+<p>Simple energy balance model of a hot water storage without spatial discretisation. Thermodynamic properties are not calculated in dependence on the temperature. The model consists of two heat exchangers that are connected artificially with an energy balance. </p>
+<h4><span style=\"color: #008000\">Level of detail, physical effects considered, and physical insight</span></h4>
+<ul>
+<li>Consideration of heat losses</li>
+<li>Dynamic energy balance</li>
+<li>No pressure losses considered</li>
+<li>No stratification considered (no discretization)</li>
+</ul>
+<h4><span style=\"color: #008000\">Interfaces</span></h4>
 <p>fpGenIn: inlet from heat generator</p>
 <p>fpGenOut: outlet from heat generator</p>
 <p>fpGridIn: inlet (return) from consumer/grid</p>
 <p>fpGridOut: outlet to consumer/grid</p>
 <p>T_stor_out: Temperature in heat reservoir in K [K]</p>
 <p>SoC: State of charge of the storage</p>
-<p><b><span style=\"color: #008000;\">5. Nomenclature</span></b></p>
-<p>(no elements)</p>
-<p><b><span style=\"color: #008000;\">6. Governing Equations</span></b></p>
-<p>(no equations)</p>
-<p><b><span style=\"color: #008000;\">7. Remarks for Usage</span></b></p>
-<p>(no remarks)</p>
-<p><b><span style=\"color: #008000;\">8. Validation</span></b></p>
-<p>(no remarks)</p>
-<p><b><span style=\"color: #008000;\">9. References</span></b></p>
-<p>(no remarks)</p>
-<p><b><span style=\"color: #008000;\">10. Version History</span></b></p>
+<h4><span style=\"color: #008000\">Governing Equations</span></h4>
+<p>Q_flow_loss=k*A*(T_store-T_amb)</p>
+<p>dE_stor/dt&nbsp;=&nbsp;Q_flow_gen&nbsp;-&nbsp;Q_flow_con&nbsp;-&nbsp;Q_flow_loss;</p>
+<p>Q_flow_con=Q_flow_demand (Q_demand is an input)</p>
+<p>Q_flow_gen=Q_flow_store (Q_flow_store is an input)</p>
+<p>T_stor&nbsp;=&nbsp;E_stor/(Volume*rho*cp)&nbsp;+&nbsp;273.15;</p>
+<h4><span style=\"color: #008000\">Validation</span></h4>
+<p>The model was tested in the test model:</p>
+<p>TransiEnt.Storage.Heat.HotWaterStorage_constProp_L2.Check.Check_HotWaterStorage_constProp_L2</p>
+<h4><span style=\"color: #008000\">Version History</span></h4>
 <p>Created by Arne Koeppen (arne.koeppen@tuhh.de), Apr 2013</p>
 <p>Edited and revised by Lisa Andresen (andresen@tuhh.de), Jun 2013</p>
 <p>Modified by Anne Senkel (anne.senkel@tuhh.de), Dec 2017</p>

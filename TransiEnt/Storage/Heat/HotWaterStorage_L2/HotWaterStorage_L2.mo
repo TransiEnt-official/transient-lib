@@ -20,7 +20,7 @@ model HotWaterStorage_L2 "Stratified hot water storage without spatial discretis
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -205,7 +205,7 @@ end if;
 T_genOut=GenOut_State.T;
 T_conOut=ConOut_State.T;
 
-//Differential equation
+//Differential equation --> Energy balance
 der(E_stor)=-Q_flow_gen-Q_flow_loss-Q_flow_con;
 
  v_Gen=GenIn.m_flow/(GenIn_State.d*A_crossSectionalGenPipe);
@@ -374,33 +374,39 @@ annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100}
                                   Diagram(graphics,
                                           coordinateSystem(
         preserveAspectRatio=false, extent={{-100,-100},{100,100}})),          Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
-<p>Hot water storage without spatial discretisation (based on analytic solution for output temperature at steady state). Thermodynamic properties are calculated in dependance of the temperature.</p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
-<p>(Purely technical component without physical modeling.)</p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
-<p>(Purely technical component without physical modeling.)</p>
-<h4><span style=\"color: #008000\">4. Interfaces</span></h4>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
+<p>Hot water storage without spatial discretisation (based on analytic solution for output temperature at steady state). Thermodynamic properties are calculated in dependence on the thermodynamic state with the fluid models of the TIL media. The model can be used to determine the average temperature of the heat storage in operation. Moreover, the heat losses of the storage are calculated. </p>
+<h4><span style=\"color: #008000\">Level of detail, physical effects considered, and physical insight</span></h4>
+<p>Level L2 (defined in the Coding Conventions)</p>
+<ul>
+<li>consideration of heat losses</li>
+<li>two static mass balances, the circuits of the heat generation and consumption are decoupled</li>
+<li>static momentum balances for both circuits</li>
+<li>assumption of a constant pressure loss</li>
+<li>a simple dynamic energy balanced based on the stored energy</li>
+</ul>
+<h4><span style=\"color: #008000\">Interfaces</span></h4>
 <p>GenIn: inlet from heat generator</p>
 <p>GenOut: outlet to heat generator</p>
 <p>ConIn: inlet from heat consumer</p>
 <p>ConOut: outlet to heat consumer</p>
-<p>Q_flow_gen: generated heat flow [W]</p>
+<p>Q_flow_gen: output for the generated heat flow [W]</p>
 <p>T_Stor: output for temperature in heat reservoir in K [K]</p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
-<p>mass balances</p>
-<p>heat loss to environment</p>
-<p>first law of thermodynamics</p>
-<p>impulse balances</p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
+<h4><span style=\"color: #008000\">Governing Equations</span></h4>
+<p>Mass balances: </p>
+<p>Generator: GenIn.m_flow&nbsp;+&nbsp;GenOut.m_flow&nbsp;=0</p>
+<p>Consumer: ConIn.m_flow&nbsp;+&nbsp;ConOut.m_flow&nbsp;=0</p>
+<p>Heat losses to environment: Q_flow_loss=k*A*(T_stor-T_amb)</p>
+<p>Energy balance: dE_stor/dt=-Q_flow_gen-Q_flow_loss-Q_flow_con</p>
+<p>Impulse balances:</p>
+<p>GenIn.p&nbsp;-&nbsp;GenOut.p&nbsp;=&nbsp;dp (constant pressure loss)</p>
+<p>ConIn.p&nbsp;-&nbsp;ConOut.p=dp (constant pressure loss)</p>
+<h4><span style=\"color: #008000\">Remarks for Usage</span></h4>
+<p>The circuits for generation and consumption are decoupled. Therefore, when using the storage model a pressure should be defined by the hydraulic grids in BOTH circuits. Look at the test model for an example how to connect the fluid ports. </p>
+<h4><span style=\"color: #008000\">Validation</span></h4>
+<p>The model was tested in the test model:</p>
+<p>TransiEnt.Storage.Heat.HotWaterStorage_L2.Check.Check_HotWaterStorage_L2</p>
+<h4><span style=\"color: #008000\">Version History</span></h4>
 <p>Created by Inken Knop (inken.knop@tuhh.de), Jun 2015</p>
 <p>Edited by Pascal Dubucq (dubucq@tuhh.de), Aug 2015</p>
 <p>Revised by Lisa Andresen (andresen@tuhh.de), Dec 2016</p>

@@ -60,24 +60,31 @@ model Split_L2_Y "Split model extended from the ClaRa library"
           fillPattern=FillPattern.Solid,
           textString="L2
 ",        lineColor={0,0,0})}), Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
-<p>A simple model of a split</p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
+<p>A model of a split/join that is used to split or join mass flow rates in a hydraulic circuit. It is based on the three balance equations of mass, energy, and momentum. It is not discretized and only features one control volume. No heat losses are considered, but a replaceable pressure loss model is implemented. It contains four fluid models from the TIL media that are used to determine the states of the fluid from the specific enthalpy, the mass fractions of the components of the fluid, and the pressure. </p>
+<h4><span style=\"color: #008000\">Level of detail, physical effects considered, and physical insight</span></h4>
 <p>L2 (defined in the CodingConventions)</p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">4. Interfaces</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
-<p>(no equations)</p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
-<p>(no validation or testing necessary)</p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
+<ul>
+<li>pressure loss</li>
+<li>thermal intertia</li>
+<li>variable fluid properties</li>
+<li>mass storages due to density changes</li>
+</ul>
+<h4><span style=\"color: #008000\">Limits of validity </span></h4>
+<p>The volume of the split has to be known. Moreover, the chosen pressure loss model has to fit the investigation purpose.</p>
+<h4><span style=\"color: #008000\">Interfaces</span></h4>
+<p><img src=\"modelica://TransiEnt/Images/Schemes/Split.jpg\"/></p>
+<h4><span style=\"color: #008000\">Governing Equations</span></h4>
+<p>The equations have been simplified for an easier description of the model.</p>
+<p>V*rho*dh/dt=m_in*h_in+m_out1*h_out1+m_out2*h_out2</p>
+<p>p_in-p=delta_p(m_flow_in)</p>
+<p>p-p_out1=delta_p(m_flow_out1)</p>
+<p>p-p_out2=delta_p(m_flow_out2)</p>
+<p>drho/dt*V=m_flow_in+m_flow_out1+m_flow_out2</p>
+<p>delta_p is calculated according to the chosen pressure loss model. </p>
+<h4><span style=\"color: #008000\">References</span></h4>
+<p>The model was extended from the ClaRa library.</p>
+<h4><span style=\"color: #008000\">Version History</span></h4>
+<p>Model was documented by Jan Westphal (j.westphal@tuhh.de) January 2025</p>
 </html>"));
 end Split_L2_Y;

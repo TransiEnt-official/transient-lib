@@ -153,28 +153,18 @@ equation
           color={0,0,255},
           smooth=Smooth.None)}),
     Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
-<p>Control return temperature in heat grids.</p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
-<p>(Purely technical component without physical modeling.)</p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
-<p>(Purely technical component without physical modeling.)</p>
-<h4><span style=\"color: #008000\">4. Interfaces</span></h4>
-<p>waterPortOut: fluidPortOut</p>
-<p>waterPortIn: fluidPortIn</p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
+<p>The model is used to control the return temperature in hydraulic grids. It consists of two fluid ports that have to be connected to the hydraulic grid, a pump, a PID-Controller and temperature sensor. The PID-Controller sets the power of the pump so that the return temperature of the hydraulic grid equals a given target value. The pump model is from the ClaRa Library and documented there. Furthermore, a similar pump model is used in the TransiEnt Library and explained in the documentation here: </p>
+<p>TransiEnt.Components.Heat.PumpVLE_L1_simple</p>
+<h4><span style=\"color: #008000\">Interfaces</span></h4>
+<p>waterPortOut: fluid outlet</p>
+<p>waterPortIn: fluid inlet</p>
+<h4><span style=\"color: #008000\">Nomenclature</span></h4>
 <p>T_return = returnTemperatureSensor.T is a temperature in K</p>
 <p>Delta_p=pump.Delta_p is a pressure difference in Pa</p>
 <p>P_drive_pump = pump.P_drive is a power in W</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
-<p>(no equations)</p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
-<p>(no validation or testing necessary)</p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
+<h4><span style=\"color: #008000\">Version History</span></h4>
 <p>Model created by Lisa Andresen (andresen@tuhh.de), Dec 2014</p>
+<p>Model documented by Jan Westphal (j.westphal@tuhh.de) August 2025</p>
 </html>"));
 end ReturnTemperatureControl;
