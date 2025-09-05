@@ -1,4 +1,4 @@
-within TransiEnt.Producer.Gas.BiogasPlant.MaterialValues.Materials;
+﻿within TransiEnt.Producer.Gas.BiogasPlant.MaterialValues.Materials;
 model SteelReinforcedConcrete "Model containing material data of steel reinforced concrete"
 
 

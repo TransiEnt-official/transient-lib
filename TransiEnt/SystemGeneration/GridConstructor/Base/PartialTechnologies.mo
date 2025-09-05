@@ -91,27 +91,17 @@ partial model PartialTechnologies
 
   // Real-Input Ports for load profile data
 
-  TransiEnt.Basics.Interfaces.Electrical.ElectricPowerIn el_Demand annotation (Placement(transformation(
-        extent={{-14,-14},{14,14}},
-        rotation=270,
-        origin={-60,94}), iconTransformation(
-        extent={{-16,-14},{16,14}},
-        rotation=270,
-        origin={-62,92})));
-
-  TransiEnt.Basics.Interfaces.Thermal.HeatFlowRateIn q_Demand annotation (Placement(transformation(
-        extent={{-14,-14},{14,14}},
-        rotation=270,
-        origin={0,94})));
-
-  TransiEnt.Basics.Interfaces.Thermal.HeatFlowRateIn q_Demand_water annotation (Placement(transformation(
-        extent={{-14,-14},{14,14}},
-        rotation=270,
-        origin={60,94})));
   TransiEnt.Basics.Interfaces.Thermal.FluidPortIn waterPortIn(Medium=simCenter.fluid1) if DHN == 1 annotation (Placement(transformation(extent={{-30,-108},{-10,-88}})));
   TransiEnt.Basics.Interfaces.Thermal.FluidPortOut waterPortOut(Medium=simCenter.fluid1) if DHN == 1 annotation (Placement(transformation(extent={{10,-108},{30,-88}})));
   TransiEnt.Basics.Interfaces.Gas.RealGasPortIn gasIn_grid(Medium=simCenter.gasModel1) if useGasPort and Boiler == 1 or useGasPort and CHP == 1 or useGasPort and ST == 1 and fuel_ST == TransiEnt.Basics.Types.FuelType.Gas annotation (Placement(transformation(extent={{70,-106},{90,-86}})));
 
+  Basics.Interfaces.Combined.HouseholdDemandIn demand annotation (Placement(transformation(
+        extent={{-18,-37},{18,37}},
+        rotation=270,
+        origin={1,96}), iconTransformation(
+        extent={{-14,-15},{14,15}},
+        rotation=270,
+        origin={1,94})));
 equation
 
   annotation (

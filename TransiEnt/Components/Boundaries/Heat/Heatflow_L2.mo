@@ -193,26 +193,25 @@ equation
                                                coordinateSystem(
           preserveAspectRatio=false, extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
-<p>Boundary with L2 Heat exchanger from ClaRa</p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
+<p>A model of a heat boundary with a L2 heat exchanger from the ClaRa Library and a generic valve from the ClaRa Library. Both component models are documented in the ClaRa Library. The heat flow can be set constant or can be set via an input. The valve is used to </p>
+<h4><span style=\"color: #008000\">Level of detail, physical effects considered, and physical insight</span></h4>
 <p>L2 (defined in the CodingConventions)</p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">4. Interfaces</span></h4>
-<p>TransiEnt.Base.Interfaces.Thermal.FluidPortIn (x2)</p>
+<ul>
+<li>consideration of a pressure loss according to a chosen pressure loss model</li>
+<li>dynamic mass and energy balance inside the heat exchanger model</li>
+<li>consideration of variable fluid properties</li>
+</ul>
+<h4><span style=\"color: #008000\">Interfaces</span></h4>
+<p>FluidPortIn</p>
+<p>FluidPortOut</p>
 <p>RealInput (for specification of boundary power)</p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
+<h4><span style=\"color: #008000\">Validation</span></h4>
+<p>The model was tested here:</p>
+<p>TransiEnt.Components.Boundaries.Heat.Check.Test_Heatflow_L2</p>
+<h4><span style=\"color: #008000\">References</span></h4>
+<p>The heat exchanger model and the valve model are from the ClaRa Library.</p>
+<h4><span style=\"color: #008000\">Version History</span></h4>
 <p>Model created by Arne Koeppen / Lisa Andresen (andresen@tuhh.de), Jul 2013</p>
 <p>Refactoring after new boundary / consumer concept by Pascal Dubucq (dubucq@tuhh.de) on Mon Aug 18 2014</p>
 </html>"));

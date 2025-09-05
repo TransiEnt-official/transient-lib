@@ -1,4 +1,4 @@
-within TransiEnt.Producer.Gas.BiogasPlant.MaterialValues.Materials;
+﻿within TransiEnt.Producer.Gas.BiogasPlant.MaterialValues.Materials;
 model InsulationOrstechLSP_H_50C "Model containing material data of orstech insulation at 50°C"
 
 

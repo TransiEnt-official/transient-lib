@@ -1,11 +1,8 @@
 ﻿within TransiEnt.SystemGeneration.Superstructure.Components.LocalHeatSupply;
 model LocalHeatingDemand_HeatStorage
 
-
-
-
 //________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 2.0.3                             //
+// Component of the TransiEnt Library, version: 2.0.0                             //
 //                                                                                //
 // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
 // Copyright 2021, Hamburg University of Technology.                              //
@@ -20,14 +17,10 @@ model LocalHeatingDemand_HeatStorage
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und Wärme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
-
-
-
-
 
   // _____________________________________________
   //
@@ -43,8 +36,8 @@ model LocalHeatingDemand_HeatStorage
   //              Visible Parameters
   // _____________________________________________
 
-  parameter SI.Heat Q_annual_solarthermal;
-  parameter SI.Heat Q_max_storage;
+  parameter Modelica.Units.SI.Heat Q_annual_solarthermal;
+  parameter Modelica.Units.SI.Heat Q_max_storage;
 
   // _____________________________________________
   //

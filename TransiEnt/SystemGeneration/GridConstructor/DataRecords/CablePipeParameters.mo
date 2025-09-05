@@ -1,5 +1,5 @@
 ﻿within TransiEnt.SystemGeneration.GridConstructor.DataRecords;
-record CablePipeParameters
+record CablePipeParameters "Record containing the (default) values of cable and pipe parameters"
 
 
 
@@ -19,7 +19,7 @@ record CablePipeParameters
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -44,25 +44,14 @@ record CablePipeParameters
   annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
         coordinateSystem(preserveAspectRatio=false)),
     Documentation(info="<html>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">1. Purpose of model</span></b></p>
-<p>Accommodates all available parameters for CablePipeParameters</p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">2. Level of detail, physical effects considered, and physical insight</span></b></p>
-<p><span style=\"font-family: MS Shell Dlg 2;\">(no remarks)</span></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">3. Limits of validity </span></b></p>
-<p><span style=\"font-family: MS Shell Dlg 2;\">(no remarks)</span></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">4. Interfaces</span></b></p>
-<p><span style=\"font-family: MS Shell Dlg 2;\">(no remarks)</span></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">5. Nomenclature</span></b></p>
-<p><span style=\"font-family: MS Shell Dlg 2;\">(no remarks)</span></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">6. Governing Equations</span></b></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Purpose of model</span></b></p>
+<p>The record contains the default values for the diameter <span style=\"font-family: Courier New;\">diameter_i</span> and length <span style=\"font-family: Courier New;\">l_pipe</span> of gas pipes and the length <span style=\"font-family: Courier New;\">l_cable</span> of electric cables, as well as the type of the electric cable within the GridElements.</p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Remarks for Usage</span></b> </p>
+<p>Changing the values within the record, will change the default values of all GridElements within GridConstructors equally (as long as no other values are given within your model). To change the pipe or cable parameters of a single GridElement, please use the parameter dialogue of the GridConstructors (tab &quot;<span style=\"font-family: Courier New;\">Cables&nbsp;and&nbsp;Piping</span>&quot;) within your model.</p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">References</span></b></p>
 <p>(no remarks)</p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">7. Remarks for Usage</span></b> </p>
-<p>(no remarks)</p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">8. Validation</span></b></p>
-<p>(no remarks)</p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">9. References</span></b></p>
-<p>(no remarks)</p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">10. Version History</span></b></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Version History</span></b></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">Model created during IntegraNet I </span></p>
+<p><span style=\"font-family: MS Shell Dlg 2;\">Documentation update, January 2025</span></p>
 </html>"));
 end CablePipeParameters;

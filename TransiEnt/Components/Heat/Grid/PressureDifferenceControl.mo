@@ -83,7 +83,8 @@ model PressureDifferenceControl "ClaRa pump regulated by pressure differnce in h
   ClaRa.Components.Sensors.SensorVLE_L1_p supplyPressureSensor1(medium=Medium) annotation (Placement(transformation(extent={{104,-50},{84,-70}})));
 
   Modelica.Blocks.Sources.Constant p_set_Consumer(k=Delta_p_set)
-                                                            annotation (Placement(transformation(extent={{6,-6},{-6,6}}, rotation=90)));
+                                                            annotation (Placement(transformation(extent={{6,-6},{-6,6}}, rotation=90,
+        origin={-8,76})));
   Modelica.Blocks.Math.Feedback feedbackLoop
     annotation (Placement(transformation(extent={{-6,-6},{6,6}},
         rotation=270,
@@ -159,7 +160,8 @@ equation
       color={0,131,169},
       thickness=0.5,
       smooth=Smooth.None));
-  connect(feedbackLoop.u1,p_set_Consumer.y)  annotation (Line(points={{-8,54.8},{-8,24},{-8,-6.6},{0,-6.6}}, color={0,0,127}));
+  connect(feedbackLoop.u1,p_set_Consumer.y)  annotation (Line(points={{-8,54.8},{-8,62.1},{-8,62.1},{-8,69.4}},
+                                                                                                             color={0,0,127}));
   connect(gain.y, feedbackLoop.u2) annotation (Line(points={{-49.2,50},{-40,50},{-12.8,50}},        color={0,0,127}));
   connect(gain.u, Delta_p_measured) annotation (Line(points={{-67.6,50},{-108,50}},        color={0,0,127}));
   connect(feedbackLoop.y, pascal2Bar.u) annotation (Line(points={{-8,44.6},{-8,44.6},{-8,29.6}},
@@ -181,27 +183,19 @@ equation
           points={{-60,80},{100,2},{-60,-80}},
           color={0,0,255},
           smooth=Smooth.None)}),Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
-<p>Pump regulated due to target pressure difference in hydraulic grid. </p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
-<p>(Purely technical component without physical modeling.)</p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
-<p>(Purely technical component without physical modeling.)</p>
-<h4><span style=\"color: #008000\">4. Interfaces</span></h4>
-<p>fPReturnConsumer, fPSupplyConsumer - fluid ports</p>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
+<p>Regulated pump due to a target pressure in the hydraulic grid. The model consists of a pump, two pressure sensors and a PID-Controller. The power of the pump is set by the PID-Controller so that the pressure difference at the bad point of the hydraulic grid remains constant at a target pressure difference. The pressure difference at the bad point is given by a RealInput. This control concept is often used in district heating networks. The Input for the PI-Controller is calculated using that input, the target pressure difference and a feedback block. The pump model is from the ClaRa Library and documented there. Furthermore, a similar pump model is used in the TransiEnt Library and explained in the documentation here: </p>
+<p>TransiEnt.Components.Heat.PumpVLE_L1_simple</p>
+<p>A limiter block is used to limit the output of the PID-Controller. The main difference between the model Pressure Control_p_input and PressureDifferenceControl is the controller. In this model a PID-Controller is used.</p>
+<h4><span style=\"color: #008000\">Interfaces</span></h4>
+<p>waterPortIn: fluid inlet for hydraulic grid</p>
+<p>waterPortOut: fluid outlet for hydraulic grid</p>
 <p>Delta_p_measured - RealInput for measured pressure difference </p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
-<p>(no equations)</p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
-<p>(no validation or testing necessary)</p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
+<h4><span style=\"color: #008c48\">References</span></h4>
+<p>The pump model is from the ClaRa Library and documented there.</p>
+<h4><span style=\"color: #008000\">Version History</span></h4>
 <p>Model created by Tobias Ramm (tobias.ramm@tuhh.de) November 2015</p>
 <p>Model modified by Lisa Andresen (andresen@tuhh.de) December 2015</p>
+<p>Modeli documented by Jan Westphal (j.westphal@tuhh.de) August 2025</p>
 </html>"));
 end PressureDifferenceControl;

@@ -1,4 +1,4 @@
-within TransiEnt.Basics.Media.Base;
+﻿within TransiEnt.Basics.Media.Base;
 partial model BaseSolidWithTemperatureVariantHeatCapacity "Base Solid with two additional variables: specific internal Energy and specific Entropy"
 
 

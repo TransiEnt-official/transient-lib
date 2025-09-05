@@ -105,6 +105,8 @@ equation
     Documentation(info="<html>
 <h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
 <p>The model controls the Turbine valve aperture as a function of the control strategy. </p>
+<p>The model is used to create the model of a power plant, that can be found here:</p>
+<p>TransiEnt.Producer.Electrical.Conventional.Components.VDI3508Plant</p>
 <h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
 <p>(Description)</p>
 <h4><span style=\"color: #008000\">3. Limits of validity </span></h4>

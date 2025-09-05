@@ -1,11 +1,8 @@
 ﻿within TransiEnt.SystemGeneration.Superstructure.Scenarios;
 model Example_Scenario "Example use-case of superstructures"
 
-
-
-
 //________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 2.0.3                             //
+// Component of the TransiEnt Library, version: 2.0.0                             //
 //                                                                                //
 // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
 // Copyright 2021, Hamburg University of Technology.                              //
@@ -20,14 +17,10 @@ model Example_Scenario "Example use-case of superstructures"
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und Wärme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
-
-
-
-
 
   extends TransiEnt.Basics.Icons.Checkmodel;
 
@@ -41,8 +34,8 @@ model Example_Scenario "Example use-case of superstructures"
 
   Portfolios.Portfolio_Example.Superstructures_PortfolioMask superstructures(
     useImportExportBoundary=true,
-    redeclare package Config_info = TransiEnt.SystemGeneration.Superstructure.Portfolios.Portfolio_Example,
-    redeclare package Config = TransiEnt.SystemGeneration.Superstructure.Portfolios.Portfolio_Example,
+    redeclare package Config_info = Superstructure.Portfolios.Portfolio_Example,
+    redeclare package Config = Superstructure.Portfolios.Portfolio_Example,
     SimulationCounter_info=99,
     scaleFactorGasStorageCap_info=1.2,
     scaleFactorGasStoragePower_info=2,
@@ -56,32 +49,44 @@ model Example_Scenario "Example use-case of superstructures"
     NumberOfElectricalStoragesOverAllRegions=superstructures.NumberOfElectricalStoragesOverAllRegions,
     NumberOfPowerToGasPlantsOverAllRegions=superstructures.NumberOfPowerToGasPlantsOverAllRegions,
     NumberOfElectricalHeatersOverAllRegions=superstructures.NumberOfElectricalHeatersOverAllRegions,
+    p_gasGrid_desired=superstructures.p_gasGrid_desired,
+    p_gasGrid_desired_bandwidth=superstructures.p_gasGrid_desired_bandwidth,
+    p_min_operating_PowerPlants=superstructures.p_min_operating_PowerPlants,
+    p_min_operating_PowerPlants_backin=superstructures.p_min_operating_PowerPlants_backin,
+    useHydrogenFromPtGInPowerPlants=superstructures.useHydrogenFromPtGInPowerPlants,
+    usageOfWasteHeatOfPtG=superstructures.usageOfWasteHeatOfPtG,
+    powerPlantInstancesRecord=superstructures.powerPlantInstancesRecordRegionInfo,
+    powerToGasInstancesRecord=superstructures.powerToGasInstancesRecordRegionInfo,
+    gasStorageInstancesRecord=superstructures.gasStorageInstancesRecordRegionInfo,
     nRegions=superstructures.nRegions,
     MeritOrderPositionElectricHeater=3,
     MeritOrderPositionElectricStorages=1,
     MeritOrderPositionPowerToGas=2,
     powerPlantMatrix=cat(
-            2,
-            matrix(superstructures.controllerInputGeneration.regionOfPowerPlant_List),
-            matrix(superstructures.controllerInputGeneration.typeOfPowerplant_List)),
+        2,
+        matrix(superstructures.controllerInputGeneration.regionOfPowerPlant_List),
+        matrix(superstructures.controllerInputGeneration.typeOfPowerplant_List)),
     electricalStorageMatrix=cat(
-            2,
-            matrix(superstructures.controllerInputGeneration.regionOfElectricalStorages_List),
-            matrix(superstructures.controllerInputGeneration.typeOfElectricalStorage_List)),
+        2,
+        matrix(superstructures.controllerInputGeneration.regionOfElectricalStorages_List),
+        matrix(superstructures.controllerInputGeneration.typeOfElectricalStorage_List)),
     ptGMatrix=cat(
-            2,
-            matrix(superstructures.controllerInputGeneration.regionOfPtG_List),
-            matrix(superstructures.controllerInputGeneration.typeOfPtG_List)),
+        2,
+        matrix(superstructures.controllerInputGeneration.regionOfPtG_List),
+        matrix(superstructures.controllerInputGeneration.typeOfPtG_List)),
     electricalHeaterMatrix=cat(
-            2,
-            matrix(superstructures.controllerInputGeneration.regionOfElectricHeaters_List),
-            matrix(superstructures.controllerInputGeneration.typeOfElectricHeater_List)),
+        2,
+        matrix(superstructures.controllerInputGeneration.regionOfElectricHeaters_List),
+        matrix(superstructures.controllerInputGeneration.typeOfElectricHeater_List)),
     P_nom_PowerPlant=superstructures.controllerInputGeneration.P_nom_Powerplants_List,
     P_min_const_PowerPlant=superstructures.controllerInputGeneration.P_min_const_Powerplants_List,
     P_max_const_PowerPlant=superstructures.controllerInputGeneration.P_max_const_Powerplants_List,
     P_nom_load_ElectricalStorage_input=superstructures.controllerInputGeneration.P_nom_load_ElectricStorage_List,
     P_nom_unload_ElectricalStorage_input=superstructures.controllerInputGeneration.P_nom_unload_ElectricStorage_List,
-    P_nom_load_PtG_input=superstructures.controllerInputGeneration.P_nom_load_PtG_List) annotation (Placement(transformation(extent={{-18,4},{-38,24}})));
+    P_nom_load_PtG_input=superstructures.controllerInputGeneration.P_nom_load_PtG_List) annotation (Placement(transformation(
+        extent={{10,-10},{-10,10}},
+        rotation=180,
+        origin={-28,14})));
 
   TransiEnt.Grid.Electrical.GridConnector.GridConnector       gridConnector(
     nNodes=superstructures.nRegions,
@@ -301,7 +306,11 @@ model Example_Scenario "Example use-case of superstructures"
     eppBoundary_Q=superstructures.superstructure.summary.eppBoundary_Q,
     gasBoundary_p=superstructures.superstructure.summary.gasBoundary_p,
     gasBoundary_m_flow=superstructures.superstructure.summary.gasBoundary_m_flow)
-                                                               annotation (Placement(transformation(extent={{-72,-80},{-52,-60}})));
+                                                               annotation (Placement(transformation(extent={{-66,-90},{-46,-70}})));
+  inner Components.BusVariableDeclaration busVariableDeclaration(
+    nRegions=superstructures.nRegions,                           MaximalDifferentTypesOfPowerPlants=superstructures.MaximumDifferentTypesOfPowerPlants, MaximalDifferentTypesOfElectricalStorages=superstructures.MaximumDifferentTypesOfElectricalStorages,
+    nFracH2=max(simCenter.gasModel1.nc - 1, 1),
+    n_gasPortOut_powerPlants=superstructures.n_gasPort)                                                                                                                                                                                                      annotation (Placement(transformation(extent={{70,-90},{90,-70}})));
 equation
   //epp Boundary
   connect(gridConnector.epp, superstructures.epp) annotation (Line(
@@ -310,27 +319,14 @@ equation
       thickness=0.5));
   //GasBoundary
 
-  connect(superstructures.P_renewable, controller_ConnectedRegions.P_renewable) annotation (Line(points={{-16.9,-5.1},{-14,-5.1},{-14,6},{-17,6}}, color={0,0,127}));
-  connect(superstructures.P_PowerPlant_max, controller_ConnectedRegions.P_PowerPlant_max) annotation (Line(points={{-17,-9},{-10,-9},{-10,12.4},{-17,12.4}}, color={0,0,127}));
-  connect(superstructures.P_DAC, controller_ConnectedRegions.P_DAC) annotation (Line(points={{-17,-19.2},{-8,-19.2},{-8,15.6},{-17,15.6}}, color={0,0,127}));
-  connect(superstructures.P_PowerPlant_is, controller_ConnectedRegions.P_PowerPlant_is) annotation (Line(points={{-17,-7},{-12,-7},{-12,9.2},{-17,9.2}}, color={0,0,127}));
-  connect(superstructures.P_PowerToGasPlant_is, controller_ConnectedRegions.P_PowerToGasPlant_is) annotation (Line(points={{-17,-21},{-6,-21},{-6,18.8},{-17,18.8}}, color={0,0,127}));
-  connect(superstructures.P_max_load_storage, controller_ConnectedRegions.P_max_load_storage) annotation (Line(points={{-20,-3},{-20,3}}, color={0,0,127}));
-  connect(superstructures.P_max_unload_storage, controller_ConnectedRegions.P_max_unload_storage) annotation (Line(points={{-24,-3},{-24,3}}, color={0,0,127}));
-  connect(controller_ConnectedRegions.P_residual_Region, superstructures.P_surplus_region) annotation (Line(points={{-32,3},{-32,-3}}, color={0,0,127}));
-  connect(superstructures.P_ElectricalHeater_max, controller_ConnectedRegions.P_ElectricalHeater_max) annotation (Line(points={{-17,-22.8},{-4,-22.8},{-4,22},{-17,22}}, color={0,0,127}));
-  connect(controller_ConnectedRegions.P_curtailment_Region, superstructures.P_set_curtailment) annotation (Line(points={{-39,20},{-50,20},{-50,-22},{-39,-22}}, color={0,0,127}));
-  connect(controller_ConnectedRegions.P_set_PowerPlant, superstructures.P_set_PowerPlant) annotation (Line(points={{-39,10},{-44,10},{-44,-10},{-39,-10}}, color={0,0,127}));
-  connect(controller_ConnectedRegions.P_set_PtG[:, 1], superstructures.P_set_PtG) annotation (Line(points={{-39,17},{-48,17},{-48,-18},{-39,-18}}, color={0,0,127}));
-  connect(controller_ConnectedRegions.P_set_ElectricalStorage, superstructures.P_set_ElectricalStorage) annotation (Line(points={{-39,14},{-46,14},{-46,-14},{-39,-14}}, color={0,0,127}));
-  connect(controller_ConnectedRegions.P_set_ElectricalHeater, superstructures.P_set_ElectricalHeater) annotation (Line(points={{-39,7},{-42,7},{-42,-6},{-39,-6}}, color={0,0,127}));
-  connect(superstructures.P_storage_is, controller_ConnectedRegions.P_storage_is) annotation (Line(points={{-28,-3},{-28,3}}, color={0,0,127}));
-  connect(superstructures.f_grid, controller_ConnectedRegions.f_grid) annotation (Line(points={{-36,-3},{-36,3}}, color={0,0,127}));
-
   connect(gasGrid_JunctionWithConstantPressureSource.gasPortOut, superstructures.gasPortIn) annotation (Line(
       points={{14,-36},{2,-36},{2,-16},{-17.8,-16}},
       color={255,255,0},
       thickness=1.5));
+  connect(controller_ConnectedRegions.masterBus, superstructures.masterBus) annotation (Line(
+      points={{-28,4},{-28,-4}},
+      color={255,204,51},
+      thickness=0.5));
   annotation (
     Dialog(tab="Power To Gas"),
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-120,-100},{100,100}})),

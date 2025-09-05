@@ -1,5 +1,5 @@
 ﻿within TransiEnt.SystemGeneration.GridConstructor.DataRecords;
-record HeatPumpParameters
+record HeatPumpParameters "(Default) HeatPumpSystem parameters for usage within the GridConstructor"
 
 
 
@@ -19,7 +19,7 @@ record HeatPumpParameters
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -40,29 +40,18 @@ record HeatPumpParameters
     parameter SI.Temperature T_storage_max=313.15 "Maximum storage temperature of heat pump system";
     parameter SI.Volume V_storage=0.2 "Volume of the storage of heat pump system";
     parameter SI.Height h_storage=0.5 "Height of heat storage in heat pump system";
-  parameter Modelica.Units.NonSI.Temperature_degC T_storage_amb=15 "Assumed constant temperature in tank installation room in heat pump system";
+    parameter Modelica.Units.NonSI.Temperature_degC T_storage_amb=15 "Assumed constant temperature in tank installation room in heat pump system";
     parameter SI.SurfaceCoefficientOfHeatTransfer k_storage=0.08 "Coefficient of heat transfer through tank surface in heat pump system";
   annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(preserveAspectRatio=false)),
     Documentation(info="<html>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">1. Purpose of model</span></b></p>
-<p>Accommodates all available parameters for HeatPumpParameters</p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">2. Level of detail, physical effects considered, and physical insight</span></b></p>
-<p><span style=\"font-family: MS Shell Dlg 2;\">(no remarks)</span></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">3. Limits of validity </span></b></p>
-<p><span style=\"font-family: MS Shell Dlg 2;\">(no remarks)</span></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">4. Interfaces</span></b></p>
-<p><span style=\"font-family: MS Shell Dlg 2;\">(no remarks)</span></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">5. Nomenclature</span></b></p>
-<p><span style=\"font-family: MS Shell Dlg 2;\">(no remarks)</span></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">6. Governing Equations</span></b></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Purpose of model</span></b></p>
+<p>Accommodates all via GridConstructor adjustable parameters for the heat pump system used in IndependentTechnologies.</p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Remarks for Usage</span></b> </p>
+<p>Changing the values within the record, will change the default values of the heat pump systems of all consumers equally (as long as no other values are given within your model). To change the parameters of the heat pump system of a single consumer, please use the parameter dialogue of the GridConstructors (tab &quot;HeatPump&quot;) within your model.</p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">References</span></b></p>
 <p>(no remarks)</p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">7. Remarks for Usage</span></b> </p>
-<p>(no remarks)</p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">8. Validation</span></b></p>
-<p>(no remarks)</p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">9. References</span></b></p>
-<p>(no remarks)</p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">10. Version History</span></b></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Version History</span></b></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">Model created during IntegraNet I </span></p>
+<p><span style=\"font-family: MS Shell Dlg 2;\">Documentation update, January 2025</span></p>
 </html>"));
 end HeatPumpParameters;

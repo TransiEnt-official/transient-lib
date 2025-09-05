@@ -1,10 +1,8 @@
 ﻿within TransiEnt.SystemGeneration.Superstructure.Components.Controller.Base;
 model ControlCO2_Base
 
-
-
 //________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 2.0.3                             //
+// Component of the TransiEnt Library, version: 2.0.0                             //
 //                                                                                //
 // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
 // Copyright 2021, Hamburg University of Technology.                              //
@@ -19,13 +17,10 @@ model ControlCO2_Base
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und Wärme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
-
-
-
 
   // _____________________________________________
   //
@@ -50,7 +45,7 @@ model ControlCO2_Base
   //           Instances of other Classes
   // _____________________________________________
 
-  TransiEnt.SystemGeneration.Superstructure.Components.ControlBus controlBus annotation (Placement(transformation(
+  .TransiEnt.SystemGeneration.Superstructure.Components.ControlBus controlBus annotation (Placement(transformation(
         extent={{-20,-20},{20,20}},
         rotation=90,
         origin={100,0})));

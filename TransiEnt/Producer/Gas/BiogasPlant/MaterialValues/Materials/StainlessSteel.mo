@@ -1,4 +1,4 @@
-within TransiEnt.Producer.Gas.BiogasPlant.MaterialValues.Materials;
+﻿within TransiEnt.Producer.Gas.BiogasPlant.MaterialValues.Materials;
 model StainlessSteel "Model containing material data of stainless steel"
 
 

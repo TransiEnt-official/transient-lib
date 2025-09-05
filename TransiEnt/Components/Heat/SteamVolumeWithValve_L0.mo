@@ -75,11 +75,11 @@ equation
   //               Connect Statements
   // _____________________________________________
 
-  connect(massBalance.u[1], m_flow_steam_in) annotation (Line(points={{-74,-0.4},{-90,-0.4},{-90,0},{-104,0}}, color={0,0,127}));
+  connect(massBalance.u[1], m_flow_steam_in) annotation (Line(points={{-74,-8.8},{-90,-8.8},{-90,0},{-104,0}}, color={0,0,127}));
   connect(massBalance.y, SteamStorage.u) annotation (Line(points={{-39.28,-6},{-32,-6},{-25.2,-6}}, color={0,0,127}));
   connect(SteamStorage.y, Valve.u2) annotation (Line(points={{11.6,-6},{34.8,-6},{34.8,-5.6}}, color={0,0,127}));
   connect(Valve.y, m_flow_steam_out) annotation (Line(points={{71.6,4},{84,4},{84,0},{108,0}}, color={0,0,127}));
-  connect(Valve.y, massBalance.u[2]) annotation (Line(points={{71.6,4},{84,4},{84,-74},{-88,-74},{-88,-11.6},{-74,-11.6}}, color={0,0,127}));
+  connect(Valve.y, massBalance.u[2]) annotation (Line(points={{71.6,4},{84,4},{84,-74},{-88,-74},{-88,-3.2},{-74,-3.2}},   color={0,0,127}));
   connect(opening, Valve.u1) annotation (Line(points={{0,100},{0,56},{20,56},{20,13.6},{34.8,13.6}}, color={0,0,127}));
   annotation (defaultComponentName="SteamVolume", Diagram(graphics,
                                                           coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}})), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
@@ -120,26 +120,26 @@ equation
           fillColor={0,0,0},
           fillPattern=FillPattern.Solid)}),
     Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
-<p>Model for a steam volume unit with valve.</p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
-<p>(Description)</p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
-<p>(Description)</p>
-<h4><span style=\"color: #008000\">4. Interfaces</span></h4>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
+<p>Model for a steam volume unit with a valve. The model is based on VDI 3508. It was used to create a power plant model that can be found here:</p>
+<p>TransiEnt.Producer.Electrical.Conventional.Components.VDI3508Plant</p>
+<h4><span style=\"color: #008000\">Level of detail, physical effects considered, and physical insight</span></h4>
+<p>L0 (defined in the CodingConventions)</p>
+<ul>
+<li>the thermal inertia of the generator is modelled</li>
+<li>no efficiencies have been considered</li>
+</ul>
+<h4><span style=\"color: #008000\">Interfaces</span></h4>
 <p>RealInput: m_flow_steam_in (inflowing steam with enthalpy setpoint)</p>
 <p>RealOutput: m_flow_steam_out (Real Output signal)</p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<p>T is the time</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
-<p>(no equations)</p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
-<p>(none)</p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
-<p>(no validation or testing necessary)</p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
+<h4><span style=\"color: #008000\">Nomenclature</span></h4>
+<p>T is the time constant of the integrator not the temperature</p>
+<h4><span style=\"color: #008000\">Validation</span></h4>
+<p>The model was tested in the test model:</p>
+<p>TransiEnt.Components.Heat.Check.TestTurbineValveController</p>
+<h4><span style=\"color: #008000\">References</span></h4>
 <p>VDI 3508</p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
-<p>(no remarks)</p>
+<h4><span style=\"color: #008000\">Version History</span></h4>
+<p>The model was documented by Jan Westphal (j.westphal@tuhh.de) in August 2025</p>
 </html>"));
 end SteamVolumeWithValve_L0;

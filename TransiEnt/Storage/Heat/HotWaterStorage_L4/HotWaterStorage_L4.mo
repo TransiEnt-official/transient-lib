@@ -515,14 +515,14 @@ end if;
 // _____________________________________________
 
   annotation (Documentation(info="<html>
-<p><b><span style=\"color: #008000;\">1. Purpose of model</span></b> </p>
+<p><b><span style=\"color: #008000;\">Purpose of model</span></b> </p>
 <p>One dimensional fluid storage model with stratification. Intention of the model is to represent a hot water storage in a bigger system with more accurate outflow temperatures compared to a zero dimensional storage model. </p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
+<h4><span style=\"color: #008000\">Level of detail, physical effects considered, and physical insight</span></h4>
 <p>L4: Storage is diveded in layered volumes. Each volume is ideally stirred. Between the fluid volumes heat conduction and boyancy are considered. </p>
 <p>Heat losses to the ambient are simplified as heat conduction through top, side wall and bottom. </p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
+<h4><span style=\"color: #008000\">Limits of validity </span></h4>
 <p>The storage model includes just a vertical temperature distribution. No horizontal temperature distribution is modeled. Mixing effects due to the velocity of the fluid at inlets an outlets are not modelled. </p>
-<h4><span style=\"color: #008000\">4. Interfaces</span></h4>
+<h4><span style=\"color: #008000\">Interfaces</span></h4>
 <h5>Heat</h5>
 <p>heatLosses: ambient temperature and the collected heat flow to the ambient through top, side wall and bottom</p>
 <p>heatPorts(optinal): temperature of connected fluid volume and heat flow to or from the fluid volume </p>
@@ -534,7 +534,7 @@ end if;
 <p>inletSolar (optional): fluid connection from solar thermie, fluid flows depending on the temperature to different storage layers </p>
 <p>outletSolar (optional): fluid connection to Solar thermie system, fluid flows from solar thermie to the storage</p>
 <p>addPorts (optional): a various number of fluid connections to other components for example chiler. </p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
+<h4><span style=\"color: #008000\">Nomenclature</span></h4>
 <p><br>Just parameters and of the main model are described. Further explanations are in the sub models. medium: medium in the hot water storage. Has to be one phase fluid from the TILMedia library</p>
 <p><br>nSeg: number of vertical layered fluid segments</p>
 <p><br>maxTemperature_allowed: maximum allowed temperatur inside the storage</p>
@@ -543,15 +543,13 @@ end if;
 <p><br>Use_HeatPorts(Boolean): if true heatPorts is active</p>
 <p><br>nHeatPorts: number of heat ports</p>
 <p><br>nAdditionalFluidPorts: number of additional fluid ports </p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
+<h4><span style=\"color: #008000\">Governing Equations</span></h4>
 <p>Energy and mass or volume balance inside every volume segment. Heat losses due to one dimensional thermal conductance through top, bottom and side wall. Thermal conductance between volume segments. Modeled boyancy introducing heat flow from lower to higher segment if the lower segemnt has a higher temperature. Direct fluid connection between the volumes. <img src=\"modelica://TransiEnt/Images/waermespeicher_modell_eng.png\"/> </p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
+<h4><span style=\"color: #008000\">Remarks for Usage</span></h4>
 <p>The allowed minimum number of volume segements is two. The higher the number of segments the higher the number of equations. </p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
+<h4><span style=\"color: #008000\">Validation</span></h4>
 <p>The model is validated with hot water storage Vitocell 160E. The storage tank has a capacity of 1000 liters and an inner height of 1.88 metres (without insulation). The tank has multiple fluid inflow and outflow connections. The storage is used for climatisation and is installted at TUHH for research purposes. The model is validated against measurements and simulations from Harmsen. Parts of the Validation are shown in the figures below. The temperatures in the storage have been measured in four different heights (red: 1.592m, blue: 1.044m, green: 0.618m, black: 0.293m). The dotted lines show the measured temperatures, the dashed lines the temperatures from a reference simulation and the solid lines the temperatures of this model. The following picture shows the overnight cooling while no fluid flows entered or left the storage. The simulation was done with disretizing the storage in ten segemnts. <img src=\"modelica://TransiEnt/Images/validation_night.png\"/> </p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
+<h4><span style=\"color: #008000\">Version History</span></h4>
 <p>Model created by Tobias Ramm (tobias.ramm@tuhh.de), Mar 2015</p>
 <p>Revised and edited by Lisa Andresen (andresen@tuhh.de), Jun 2015</p>
 </html>"),
