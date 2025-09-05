@@ -1,32 +1,26 @@
 within TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics;
 record Volkswagen_ID3
   extends TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_measurements;
-  //________________________________________________________________________________//
-  // Component of the TransiEnt Library, version: 3.0.0                             //
-  //                                                                                //
-  // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
-  // Copyright 2021, Hamburg University of Technology.                              //
-  //________________________________________________________________________________//
-  //                                                                                //
-  // TransiEnt.EE, ResiliEntEE, IntegraNet and IntegraNet II are research projects  //
-  // supported by the German Federal Ministry of Economics and Energy               //
-  // (FKZ 03ET4003, 03ET4048, 0324027 and 03EI1008).                                //
-  // The TransiEnt Library research team consists of the following project partners://
-  // Institute of Engineering Thermodynamics (Hamburg University of Technology),    //
-  // Institute of Energy Systems (Hamburg University of Technology),                //
-  // Institute of Electrical Power and Energy Technology                            //
-  // (Hamburg University of Technology)                                             //
-  // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-  // Gas- und Wärme-Institut Essen                                                  //
-  // and                                                                            //
-  // XRG Simulation GmbH (Hamburg, Germany).                                        //
-  //                                                                                //
-  //                                                                                //
-  // Data Record from ERIGrid 2.0 Project MOVES                                     //
-  //                                                                                //
-  // Last Author: Tom Steffen, Last Update: 12.08.2025, Email: tom.steffen@tuhh.de  //
-  //________________________________________________________________________________//
-
+//________________________________________________________________________________//
+// Component of the TransiEnt Library, version: 3.0.0                             //
+//                                                                                //
+// Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
+// Copyright 2021, Hamburg University of Technology.                              //
+//________________________________________________________________________________//
+//                                                                                //
+// TransiEnt.EE, ResiliEntEE, IntegraNet and IntegraNet II are research projects  //
+// supported by the German Federal Ministry of Economics and Energy               //
+// (FKZ 03ET4003, 03ET4048, 0324027 and 03EI1008).                                //
+// The TransiEnt Library research team consists of the following project partners://
+// Institute of Engineering Thermodynamics (Hamburg University of Technology),    //
+// Institute of Energy Systems (Hamburg University of Technology),                //
+// Institute of Electrical Power and Energy Technology                            //
+// (Hamburg University of Technology)                                             //
+// Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
+// Gas- und WÃ¤rme-Institut Essen						  //
+// and                                                                            //
+// XRG Simulation GmbH (Hamburg, Germany).                                        //
+//________________________________________________________________________________//
   parameter Real eta_mean_over_P_grid_and_V_grid[:,:] = [0.0, 400.0;4200.0, 0.9405541938357677;4300.0, 0.9445237501994509;4600.0, 0.9377931935265715;4700.0, 0.9368713831332726;5300.0, 0.9338662973981198;5400.0, 0.9416087994124366;6000.0, 0.9329296793687278;6700.0, 0.9404071794579479;6800.0, 0.9276291476482935;7400.0, 0.9390391931474378;8100.0, 0.934496064630003;8800.0, 0.9383882535917584;9500.0, 0.9376828675861981;10200.0, 0.93309161267398;10900.0, 0.9353085226710157;11100.0, 0.9231225318671692;11200.0, 0.9148170879746138];
 
   parameter Real P_loss_over_P_bat_and_V_grid[:,:] = [0.0, 400.0;0.0, 0.0;4200.0, 252.30424307839917;4300.0, 236.03207280616874;4600.0, 289.06066146296166;4700.0, 293.73224744476767;5300.0, 352.70209582891493;5400.0, 313.0603690185545;6000.0, 404.7443149895731;6700.0, 400.97667974930783;6800.0, 488.67928481920603;7400.0, 451.57322178849415;8100.0, 531.9773185158512;8800.0, 542.254487059208;9500.0, 590.9250964041319;10200.0, 682.8225869578462;10900.0, 705.5408133880304;11100.0, 856.2714320068733;11200.0, 950.8970069500151];
@@ -69,10 +63,12 @@ Measurements where taken in the ERIGrid 2.0 Project MOVES")}),
 <pre>This research has been performed using the ERIGrid 2.0 Research Infrastructure and is part of a project that has received funding from the European Union&rsquo;s Horizon 2020 
 Research and Innovation Programme under the Grant Agreement No. 870620. The support of the European Research Infrastructure ERIGrid 2.0 and its partner DTU is very much appreciated. 
 Report: https://zenodo.org/records/17054821 
-
+
+
 This research was funded by the Federal Ministry for Economic Affairs and Climate Action in the project &ldquo;EffiziEntEE &ndash; 
 Effiziente Einbindung hoher Anteile Erneuerbarer Energien in technisch-wirtschaftlich integrierte Energiesysteme&rdquo; under the project number 03EI1050
-
+
+
 [1] K. Sevdari, L. Calearo, B. H. Bakken, P. B. Andersen, und M. Marinelli, &ldquo;Experimental Validation of Onboard Electric Vehicle Chargers to Improve the Efficiency of Smart Charging Operation,&rdquo; Sustainable Energy Technologies and Assessments, Bd. 60, S. 103512, Dec. 2023.</pre>
 <p><br><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">10. Version History</span></b></p>
 <pre>Volkswagen_ID3 by Tom Steffen, Techische Universit&auml;t Hamburg, Institut f&uuml;r Elektrische Energietechnik, 2025</pre>

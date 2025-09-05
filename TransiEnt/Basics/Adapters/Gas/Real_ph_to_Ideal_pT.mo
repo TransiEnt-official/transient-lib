@@ -2,7 +2,7 @@
 model Real_ph_to_Ideal_pT "Adapter that switches from real to ideal fluid models"
 
 //________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 2.0.3                             //
+// Component of the TransiEnt Library, version: 3.0.0                             //
 //                                                                                //
 // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
 // Copyright 2021, Hamburg University of Technology.                              //
@@ -20,8 +20,7 @@ model Real_ph_to_Ideal_pT "Adapter that switches from real to ideal fluid models
 // Gas- und WÃ¤rme-Institut Essen						  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
-//________________________________________________________________________________//
-  // _____________________________________________
+//________________________________________________________________________________//  // _____________________________________________
   //
   //          Imports and Class Hierarchy
   // _____________________________________________

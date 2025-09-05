@@ -5,7 +5,7 @@ model GasStorage_varXi_L2 "L2: Model of a simple gas storage volume for variable
 
 
 //________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 2.0.3                             //
+// Component of the TransiEnt Library, version: 3.0.0                             //
 //                                                                                //
 // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
 // Copyright 2021, Hamburg University of Technology.                              //
@@ -24,7 +24,6 @@ model GasStorage_varXi_L2 "L2: Model of a simple gas storage volume for variable
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
-
 
 
 

@@ -4,7 +4,7 @@ record PQ_Characteristics_WW2 "Black coal steam unit based on 'Wedel Block 2 (WW
 
 
 //________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 2.0.3                             //
+// Component of the TransiEnt Library, version: 3.0.0                             //
 //                                                                                //
 // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
 // Copyright 2021, Hamburg University of Technology.                              //
@@ -23,7 +23,6 @@ record PQ_Characteristics_WW2 "Black coal steam unit based on 'Wedel Block 2 (WW
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
-
 
 
 

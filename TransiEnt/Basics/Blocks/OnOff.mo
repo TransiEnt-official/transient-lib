@@ -1,6 +1,26 @@
 within TransiEnt.Basics.Blocks;
 model OnOff "OnOff - Latching on/off with minimum hold times"
 
+//________________________________________________________________________________//
+// Component of the TransiEnt Library, version: 3.0.0                             //
+//                                                                                //
+// Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
+// Copyright 2021, Hamburg University of Technology.                              //
+//________________________________________________________________________________//
+//                                                                                //
+// TransiEnt.EE, ResiliEntEE, IntegraNet and IntegraNet II are research projects  //
+// supported by the German Federal Ministry of Economics and Energy               //
+// (FKZ 03ET4003, 03ET4048, 0324027 and 03EI1008).                                //
+// The TransiEnt Library research team consists of the following project partners://
+// Institute of Engineering Thermodynamics (Hamburg University of Technology),    //
+// Institute of Energy Systems (Hamburg University of Technology),                //
+// Institute of Electrical Power and Energy Technology                            //
+// (Hamburg University of Technology)                                             //
+// Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
+// Gas- und WÃ¤rme-Institut Essen						  //
+// and                                                                            //
+// XRG Simulation GmbH (Hamburg, Germany).                                        //
+//________________________________________________________________________________//
   // ------------------------------------------------------------------------------------------
   //   Parameter
   // ------------------------------------------------------------------------------------------
@@ -59,30 +79,250 @@ initial equation
   // assume that a change is directly possible after simulation start
   t_lastChange = -t_holdOff;
   blocked = false;
-  blocked_on = false;
-  blocked_off = false;
 
+//________________________________________________________________________________//
+// Component of the TransiEnt Library, version: 3.0.0                             //
+//                                                                                //
+// Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
+// Copyright 2021, Hamburg University of Technology.                              //
+//________________________________________________________________________________//
+//                                                                                //
+// TransiEnt.EE, ResiliEntEE, IntegraNet and IntegraNet II are research projects  //
+// supported by the German Federal Ministry of Economics and Energy               //
+// (FKZ 03ET4003, 03ET4048, 0324027 and 03EI1008).                                //
+// The TransiEnt Library research team consists of the following project partners://
+// Institute of Engineering Thermodynamics (Hamburg University of Technology),    //
+// Institute of Energy Systems (Hamburg University of Technology),                //
+// Institute of Electrical Power and Energy Technology                            //
+// (Hamburg University of Technology)                                             //
+// Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
+// Gas- und WÃ¤rme-Institut Essen						  //
+// and                                                                            //
+// XRG Simulation GmbH (Hamburg, Germany).                                        //
+//________________________________________________________________________________//  blocked_on = false;
+
+//________________________________________________________________________________//
+// Component of the TransiEnt Library, version: 3.0.0                             //
+//                                                                                //
+// Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
+// Copyright 2021, Hamburg University of Technology.                              //
+//________________________________________________________________________________//
+//                                                                                //
+// TransiEnt.EE, ResiliEntEE, IntegraNet and IntegraNet II are research projects  //
+// supported by the German Federal Ministry of Economics and Energy               //
+// (FKZ 03ET4003, 03ET4048, 0324027 and 03EI1008).                                //
+// The TransiEnt Library research team consists of the following project partners://
+// Institute of Engineering Thermodynamics (Hamburg University of Technology),    //
+// Institute of Energy Systems (Hamburg University of Technology),                //
+// Institute of Electrical Power and Energy Technology                            //
+// (Hamburg University of Technology)                                             //
+// Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
+// Gas- und WÃ¤rme-Institut Essen						  //
+// and                                                                            //
+// XRG Simulation GmbH (Hamburg, Germany).                                        //
+//________________________________________________________________________________//  blocked_off = false;
+
+//________________________________________________________________________________//
+// Component of the TransiEnt Library, version: 3.0.0                             //
+//                                                                                //
+// Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
+// Copyright 2021, Hamburg University of Technology.                              //
+//________________________________________________________________________________//
+//                                                                                //
+// TransiEnt.EE, ResiliEntEE, IntegraNet and IntegraNet II are research projects  //
+// supported by the German Federal Ministry of Economics and Energy               //
+// (FKZ 03ET4003, 03ET4048, 0324027 and 03EI1008).                                //
+// The TransiEnt Library research team consists of the following project partners://
+// Institute of Engineering Thermodynamics (Hamburg University of Technology),    //
+// Institute of Energy Systems (Hamburg University of Technology),                //
+// Institute of Electrical Power and Energy Technology                            //
+// (Hamburg University of Technology)                                             //
+// Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
+// Gas- und WÃ¤rme-Institut Essen						  //
+// and                                                                            //
+// XRG Simulation GmbH (Hamburg, Germany).                                        //
+//________________________________________________________________________________//
 algorithm
   when request and not pre(signal) and not pre(blocked) then
      signal :=true;
      blocked :=true;
-     blocked_on :=true;
-     t_lastChange :=time;
+
+//________________________________________________________________________________//
+// Component of the TransiEnt Library, version: 3.0.0                             //
+//                                                                                //
+// Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
+// Copyright 2021, Hamburg University of Technology.                              //
+//________________________________________________________________________________//
+//                                                                                //
+// TransiEnt.EE, ResiliEntEE, IntegraNet and IntegraNet II are research projects  //
+// supported by the German Federal Ministry of Economics and Energy               //
+// (FKZ 03ET4003, 03ET4048, 0324027 and 03EI1008).                                //
+// The TransiEnt Library research team consists of the following project partners://
+// Institute of Engineering Thermodynamics (Hamburg University of Technology),    //
+// Institute of Energy Systems (Hamburg University of Technology),                //
+// Institute of Electrical Power and Energy Technology                            //
+// (Hamburg University of Technology)                                             //
+// Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
+// Gas- und WÃ¤rme-Institut Essen						  //
+// and                                                                            //
+// XRG Simulation GmbH (Hamburg, Germany).                                        //
+//________________________________________________________________________________//     blocked_on :=true;
+
+//________________________________________________________________________________//
+// Component of the TransiEnt Library, version: 3.0.0                             //
+//                                                                                //
+// Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
+// Copyright 2021, Hamburg University of Technology.                              //
+//________________________________________________________________________________//
+//                                                                                //
+// TransiEnt.EE, ResiliEntEE, IntegraNet and IntegraNet II are research projects  //
+// supported by the German Federal Ministry of Economics and Energy               //
+// (FKZ 03ET4003, 03ET4048, 0324027 and 03EI1008).                                //
+// The TransiEnt Library research team consists of the following project partners://
+// Institute of Engineering Thermodynamics (Hamburg University of Technology),    //
+// Institute of Energy Systems (Hamburg University of Technology),                //
+// Institute of Electrical Power and Energy Technology                            //
+// (Hamburg University of Technology)                                             //
+// Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
+// Gas- und WÃ¤rme-Institut Essen						  //
+// and                                                                            //
+// XRG Simulation GmbH (Hamburg, Germany).                                        //
+//________________________________________________________________________________//     t_lastChange :=time;
   elsewhen not request and pre(signal) and not pre(blocked) then
      signal :=false;
      blocked :=true;
-     blocked_off :=true;
-     t_lastChange :=time;
+
+//________________________________________________________________________________//
+// Component of the TransiEnt Library, version: 3.0.0                             //
+//                                                                                //
+// Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
+// Copyright 2021, Hamburg University of Technology.                              //
+//________________________________________________________________________________//
+//                                                                                //
+// TransiEnt.EE, ResiliEntEE, IntegraNet and IntegraNet II are research projects  //
+// supported by the German Federal Ministry of Economics and Energy               //
+// (FKZ 03ET4003, 03ET4048, 0324027 and 03EI1008).                                //
+// The TransiEnt Library research team consists of the following project partners://
+// Institute of Engineering Thermodynamics (Hamburg University of Technology),    //
+// Institute of Energy Systems (Hamburg University of Technology),                //
+// Institute of Electrical Power and Energy Technology                            //
+// (Hamburg University of Technology)                                             //
+// Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
+// Gas- und WÃ¤rme-Institut Essen						  //
+// and                                                                            //
+// XRG Simulation GmbH (Hamburg, Germany).                                        //
+//________________________________________________________________________________//     blocked_off :=true;
+
+//________________________________________________________________________________//
+// Component of the TransiEnt Library, version: 3.0.0                             //
+//                                                                                //
+// Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
+// Copyright 2021, Hamburg University of Technology.                              //
+//________________________________________________________________________________//
+//                                                                                //
+// TransiEnt.EE, ResiliEntEE, IntegraNet and IntegraNet II are research projects  //
+// supported by the German Federal Ministry of Economics and Energy               //
+// (FKZ 03ET4003, 03ET4048, 0324027 and 03EI1008).                                //
+// The TransiEnt Library research team consists of the following project partners://
+// Institute of Engineering Thermodynamics (Hamburg University of Technology),    //
+// Institute of Energy Systems (Hamburg University of Technology),                //
+// Institute of Electrical Power and Energy Technology                            //
+// (Hamburg University of Technology)                                             //
+// Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
+// Gas- und WÃ¤rme-Institut Essen						  //
+// and                                                                            //
+// XRG Simulation GmbH (Hamburg, Germany).                                        //
+//________________________________________________________________________________//     t_lastChange :=time;
   end when;
 
   // block after a state change, and unblock after edge specific time
   when not pre(signal) and time > pre(t_lastChange) + t_holdOff then
     blocked :=false;
-    blocked_off :=false;
-  elsewhen pre(signal) and time > pre(t_lastChange) + t_holdOn then
+
+//________________________________________________________________________________//
+// Component of the TransiEnt Library, version: 3.0.0                             //
+//                                                                                //
+// Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
+// Copyright 2021, Hamburg University of Technology.                              //
+//________________________________________________________________________________//
+//                                                                                //
+// TransiEnt.EE, ResiliEntEE, IntegraNet and IntegraNet II are research projects  //
+// supported by the German Federal Ministry of Economics and Energy               //
+// (FKZ 03ET4003, 03ET4048, 0324027 and 03EI1008).                                //
+// The TransiEnt Library research team consists of the following project partners://
+// Institute of Engineering Thermodynamics (Hamburg University of Technology),    //
+// Institute of Energy Systems (Hamburg University of Technology),                //
+// Institute of Electrical Power and Energy Technology                            //
+// (Hamburg University of Technology)                                             //
+// Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
+// Gas- und WÃ¤rme-Institut Essen						  //
+// and                                                                            //
+// XRG Simulation GmbH (Hamburg, Germany).                                        //
+//________________________________________________________________________________//    blocked_off :=false;
+
+//________________________________________________________________________________//
+// Component of the TransiEnt Library, version: 3.0.0                             //
+//                                                                                //
+// Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
+// Copyright 2021, Hamburg University of Technology.                              //
+//________________________________________________________________________________//
+//                                                                                //
+// TransiEnt.EE, ResiliEntEE, IntegraNet and IntegraNet II are research projects  //
+// supported by the German Federal Ministry of Economics and Energy               //
+// (FKZ 03ET4003, 03ET4048, 0324027 and 03EI1008).                                //
+// The TransiEnt Library research team consists of the following project partners://
+// Institute of Engineering Thermodynamics (Hamburg University of Technology),    //
+// Institute of Energy Systems (Hamburg University of Technology),                //
+// Institute of Electrical Power and Energy Technology                            //
+// (Hamburg University of Technology)                                             //
+// Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
+// Gas- und WÃ¤rme-Institut Essen						  //
+// and                                                                            //
+// XRG Simulation GmbH (Hamburg, Germany).                                        //
+//________________________________________________________________________________//  elsewhen pre(signal) and time > pre(t_lastChange) + t_holdOn then
     blocked :=false;
-    blocked_on :=false;
-  end when;
+
+//________________________________________________________________________________//
+// Component of the TransiEnt Library, version: 3.0.0                             //
+//                                                                                //
+// Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
+// Copyright 2021, Hamburg University of Technology.                              //
+//________________________________________________________________________________//
+//                                                                                //
+// TransiEnt.EE, ResiliEntEE, IntegraNet and IntegraNet II are research projects  //
+// supported by the German Federal Ministry of Economics and Energy               //
+// (FKZ 03ET4003, 03ET4048, 0324027 and 03EI1008).                                //
+// The TransiEnt Library research team consists of the following project partners://
+// Institute of Engineering Thermodynamics (Hamburg University of Technology),    //
+// Institute of Energy Systems (Hamburg University of Technology),                //
+// Institute of Electrical Power and Energy Technology                            //
+// (Hamburg University of Technology)                                             //
+// Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
+// Gas- und WÃ¤rme-Institut Essen						  //
+// and                                                                            //
+// XRG Simulation GmbH (Hamburg, Germany).                                        //
+//________________________________________________________________________________//    blocked_on :=false;
+
+//________________________________________________________________________________//
+// Component of the TransiEnt Library, version: 3.0.0                             //
+//                                                                                //
+// Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
+// Copyright 2021, Hamburg University of Technology.                              //
+//________________________________________________________________________________//
+//                                                                                //
+// TransiEnt.EE, ResiliEntEE, IntegraNet and IntegraNet II are research projects  //
+// supported by the German Federal Ministry of Economics and Energy               //
+// (FKZ 03ET4003, 03ET4048, 0324027 and 03EI1008).                                //
+// The TransiEnt Library research team consists of the following project partners://
+// Institute of Engineering Thermodynamics (Hamburg University of Technology),    //
+// Institute of Energy Systems (Hamburg University of Technology),                //
+// Institute of Electrical Power and Energy Technology                            //
+// (Hamburg University of Technology)                                             //
+// Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
+// Gas- und WÃ¤rme-Institut Essen						  //
+// and                                                                            //
+// XRG Simulation GmbH (Hamburg, Germany).                                        //
+//________________________________________________________________________________//  end when;
 
   annotation (Icon(graphics={   Rectangle(
         extent={{-100,-100},{100,100}},

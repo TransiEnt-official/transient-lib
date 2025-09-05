@@ -4,7 +4,7 @@ model TestPEMElectrolyzer_L1_Charline_HeatProvision "Tester for an PEM electroly
 
 
 //________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 2.0.3                             //
+// Component of the TransiEnt Library, version: 3.0.0                             //
 //                                                                                //
 // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
 // Copyright 2021, Hamburg University of Technology.                              //
@@ -23,7 +23,6 @@ model TestPEMElectrolyzer_L1_Charline_HeatProvision "Tester for an PEM electroly
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
-
 
 
 

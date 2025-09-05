@@ -1,32 +1,26 @@
 within TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics;
 record Renault_Zoe_R90
   extends TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_measurements;
-  //________________________________________________________________________________//
-  // Component of the TransiEnt Library, version: 3.0.0                             //
-  //                                                                                //
-  // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
-  // Copyright 2021, Hamburg University of Technology.                              //
-  //________________________________________________________________________________//
-  //                                                                                //
-  // TransiEnt.EE, ResiliEntEE, IntegraNet and IntegraNet II are research projects  //
-  // supported by the German Federal Ministry of Economics and Energy               //
-  // (FKZ 03ET4003, 03ET4048, 0324027 and 03EI1008).                                //
-  // The TransiEnt Library research team consists of the following project partners://
-  // Institute of Engineering Thermodynamics (Hamburg University of Technology),    //
-  // Institute of Energy Systems (Hamburg University of Technology),                //
-  // Institute of Electrical Power and Energy Technology                            //
-  // (Hamburg University of Technology)                                             //
-  // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-  // Gas- und Wärme-Institut Essen                                                  //
-  // and                                                                            //
-  // XRG Simulation GmbH (Hamburg, Germany).                                        //
-  //                                                                                //
-  //                                                                                //
-  // Data Record from ERIGrid 2.0 Project MOVES                                     //
-  //                                                                                //
-  // Last Author: Tom Steffen, Last Update: 12.08.2025, Email: tom.steffen@tuhh.de  //
-  //________________________________________________________________________________//
-
+//________________________________________________________________________________//
+// Component of the TransiEnt Library, version: 3.0.0                             //
+//                                                                                //
+// Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
+// Copyright 2021, Hamburg University of Technology.                              //
+//________________________________________________________________________________//
+//                                                                                //
+// TransiEnt.EE, ResiliEntEE, IntegraNet and IntegraNet II are research projects  //
+// supported by the German Federal Ministry of Economics and Energy               //
+// (FKZ 03ET4003, 03ET4048, 0324027 and 03EI1008).                                //
+// The TransiEnt Library research team consists of the following project partners://
+// Institute of Engineering Thermodynamics (Hamburg University of Technology),    //
+// Institute of Energy Systems (Hamburg University of Technology),                //
+// Institute of Electrical Power and Energy Technology                            //
+// (Hamburg University of Technology)                                             //
+// Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
+// Gas- und WÃ¤rme-Institut Essen						  //
+// and                                                                            //
+// XRG Simulation GmbH (Hamburg, Germany).                                        //
+//________________________________________________________________________________//
   parameter Real eta_mean_over_P_grid_and_V_grid[:,:] = [0.0, 400.0;1900.0, 0.7179055909388967;2000.0, 0.7126740786291575;2500.0, 0.7796820268334171;3100.0, 0.8286941770010146;3700.0, 0.8628287360777832;3800.0, 0.85860097477918;4300.0, 0.8838317429974195;4400.0, 0.8833302894764582;5000.0, 0.9027148789619595;5600.0, 0.9138518066533334;6300.0, 0.933401472010231;6700.0, 0.9567118134787858;6800.0, 0.9414131099058853;6900.0, 0.9524231117759085;7000.0, 0.9547259116968275;7100.0, 0.9509204541477564;7200.0, 0.9360177085405269;7300.0, 0.9532502217760191;7400.0, 0.9514388648234081;7500.0, 0.9411465512248446;7600.0, 0.9417604549310601;7700.0, 0.9347949987032232;7800.0, 0.9412493421562314;7900.0, 0.9399400853502237;8000.0, 0.9495942887507004;8100.0, 0.9465499642896822;8200.0, 0.9676383862622032;8300.0, 0.9518918340243341;8400.0, 0.9492474670566647;8700.0, 0.9517381040676778;9000.0, 0.9572380566808371;9300.0, 0.9566628103564342;9400.0, 0.9589667174932833;9600.0, 0.9322350360799921;9700.0, 0.9577236776421498;10000.0, 0.9630597230333314;10300.0, 0.9658990254692581;10400.0, 0.9684233777704164;10600.0, 0.963992503988296;10700.0, 0.965008521671424;10900.0, 0.9720953292744101;11000.0, 0.9727563201039189];
 
   parameter Real P_loss_over_P_bat_and_V_grid[:,:] = [0.0, 400.0;1900.0, 546.8038329026701;2000.0, 564.4068627450981;2500.0, 555.5408037475345;3100.0, 535.512482168331;3700.0, 512.8180983847284;3800.0, 531.3052168021679;4300.0, 504.78124999999994;4400.0, 508.59915966386546;5000.0, 487.22343324250676;5600.0, 484.48295880149817;6300.0, 417.05016181229774;6700.0, 290.6500000000003;6800.0, 398.9999999999996;6900.0, 327.8401360544218;7000.0, 315.97916666666646;7100.0, 348.3333333333327;7200.0, 461.0683050847458;7300.0, 340.36458333333303;7400.0, 361.44714506172835;7500.0, 439.2001070090957;7600.0, 443.8136363636364;7700.0, 501.0265604249669;7800.0, 456.66452991452985;7900.0, 472.8724489795921;8000.0, 405.52500000000026;8100.0, 431.35793871866304;8200.0, 265.9999999999987;8300.0, 401.1428571428571;8400.0, 424.9847396768401;8700.0, 419.34546703296706;9000.0, 385.4757486979166;9300.0, 404.60948477751765;9400.0, 384.09782608695645;9600.0, 652.0260416666669;9700.0, 409.0323787409701;10000.0, 369.37554484973606;10300.0, 352.12168674698796;10400.0, 327.3382352941171;10600.0, 382.8323129251701;10700.0, 373.05873015873;10900.0, 305.43191056910536;11000.0, 298.88060538116594];
@@ -70,10 +64,12 @@ Measurements where taken in the ERIGrid 2.0 Project MOVES")}),
 <pre>This research has been performed using the ERIGrid 2.0 Research Infrastructure and is part of a project that has received funding from the European Union&rsquo;s Horizon 2020 
 Research and Innovation Programme under the Grant Agreement No. 870620. The support of the European Research Infrastructure ERIGrid 2.0 and its partner DTU is very much appreciated. 
 Report: https://zenodo.org/records/17054821 
-
+
+
 This research was funded by the Federal Ministry for Economic Affairs and Climate Action in the project &ldquo;EffiziEntEE &ndash; 
 Effiziente Einbindung hoher Anteile Erneuerbarer Energien in technisch-wirtschaftlich integrierte Energiesysteme&rdquo; under the project number 03EI1050A.
-
+
+
 [1] K. Sevdari, L. Calearo, B. H. Bakken, P. B. Andersen, und M. Marinelli, &ldquo;Experimental Validation of Onboard Electric Vehicle Chargers to Improve the Efficiency of Smart Charging Operation,&rdquo; Sustainable Energy Technologies and Assessments, Bd. 60, S. 103512, Dec. 2023.</pre>
 <p><br><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">10. Version History</span></b></p>
 <pre>Renault_Zoe_R90 by Tom Steffen, Techische Universit&auml;t Hamburg, Institut f&uuml;r Elektrische Energietechnik, 2025</pre>

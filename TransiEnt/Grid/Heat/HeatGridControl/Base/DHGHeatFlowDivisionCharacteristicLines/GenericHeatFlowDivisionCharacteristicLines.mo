@@ -4,7 +4,7 @@ record GenericHeatFlowDivisionCharacteristicLines "record for generic heat flow 
 
 
 //________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 2.0.3                             //
+// Component of the TransiEnt Library, version: 3.0.0                             //
 //                                                                                //
 // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
 // Copyright 2021, Hamburg University of Technology.                              //
@@ -23,7 +23,6 @@ record GenericHeatFlowDivisionCharacteristicLines "record for generic heat flow 
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
-
 
 
 

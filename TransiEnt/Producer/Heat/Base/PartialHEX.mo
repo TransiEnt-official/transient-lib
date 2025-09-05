@@ -4,7 +4,7 @@ partial model PartialHEX
 
 
 //________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 2.0.3                             //
+// Component of the TransiEnt Library, version: 3.0.0                             //
 //                                                                                //
 // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
 // Copyright 2021, Hamburg University of Technology.                              //
@@ -23,7 +23,6 @@ partial model PartialHEX
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
-
   extends TransiEnt.Basics.Icons.Model;
   annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
         Polygon(

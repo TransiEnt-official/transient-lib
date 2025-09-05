@@ -1,32 +1,26 @@
 within TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics;
 record Volkswagen_ID4
   extends TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_measurements;
-  //________________________________________________________________________________//
-  // Component of the TransiEnt Library, version: 3.0.0                             //
-  //                                                                                //
-  // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
-  // Copyright 2021, Hamburg University of Technology.                              //
-  //________________________________________________________________________________//
-  //                                                                                //
-  // TransiEnt.EE, ResiliEntEE, IntegraNet and IntegraNet II are research projects  //
-  // supported by the German Federal Ministry of Economics and Energy               //
-  // (FKZ 03ET4003, 03ET4048, 0324027 and 03EI1008).                                //
-  // The TransiEnt Library research team consists of the following project partners://
-  // Institute of Engineering Thermodynamics (Hamburg University of Technology),    //
-  // Institute of Energy Systems (Hamburg University of Technology),                //
-  // Institute of Electrical Power and Energy Technology                            //
-  // (Hamburg University of Technology)                                             //
-  // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-  // Gas- und Wärme-Institut Essen                                                  //
-  // and                                                                            //
-  // XRG Simulation GmbH (Hamburg, Germany).                                        //
-  //                                                                                //
-  //                                                                                //
-  // Data Record from ERIGrid 2.0 Project MOVES                                     //
-  //                                                                                //
-  // Last Author: Tom Steffen, Last Update: 12.08.2025, Email: tom.steffen@tuhh.de  //
-  //________________________________________________________________________________//
-
+//________________________________________________________________________________//
+// Component of the TransiEnt Library, version: 3.0.0                             //
+//                                                                                //
+// Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
+// Copyright 2021, Hamburg University of Technology.                              //
+//________________________________________________________________________________//
+//                                                                                //
+// TransiEnt.EE, ResiliEntEE, IntegraNet and IntegraNet II are research projects  //
+// supported by the German Federal Ministry of Economics and Energy               //
+// (FKZ 03ET4003, 03ET4048, 0324027 and 03EI1008).                                //
+// The TransiEnt Library research team consists of the following project partners://
+// Institute of Engineering Thermodynamics (Hamburg University of Technology),    //
+// Institute of Energy Systems (Hamburg University of Technology),                //
+// Institute of Electrical Power and Energy Technology                            //
+// (Hamburg University of Technology)                                             //
+// Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
+// Gas- und WÃ¤rme-Institut Essen						  //
+// and                                                                            //
+// XRG Simulation GmbH (Hamburg, Germany).                                        //
+//________________________________________________________________________________//
   parameter Real eta_mean_over_P_grid_and_V_grid[:,:] = [0.0, 400.0;4100.0, 0.8540212414079775;6500.0, 0.9075810333134954;6600.0, 0.8982492530634091;8600.0, 0.9076432755406225;8700.0, 0.9145651132287294;10700.0, 0.8999280471257506;10900.0, 0.9074777748708281;11000.0, 0.9156695303534464;11100.0, 0.9176503936458992];
 
   parameter Real P_loss_over_P_bat_and_V_grid[:,:] = [0.0, 400.0;0.0, 0.0;4100.0, 598.9016357738647;6500.0, 604.8645571645513;6600.0, 669.2682467307802;8600.0, 796.894828045986;8700.0, 740.9659919825071;10700.0, 1070.9410470385758;10900.0, 1012.1219205939663;11000.0, 928.571091495063;11100.0, 911.2618766364416];
@@ -69,10 +63,12 @@ Measurements where taken in the ERIGrid 2.0 Project MOVES")}),
 <pre>This research has been performed using the ERIGrid 2.0 Research Infrastructure and is part of a project that has received funding from the European Union&rsquo;s Horizon 2020 
 Research and Innovation Programme under the Grant Agreement No. 870620. The support of the European Research Infrastructure ERIGrid 2.0 and its partner DTU is very much appreciated. 
 Report: https://zenodo.org/records/17054821 
-
+
+
 This research was funded by the Federal Ministry for Economic Affairs and Climate Action in the project &ldquo;EffiziEntEE &ndash; 
 Effiziente Einbindung hoher Anteile Erneuerbarer Energien in technisch-wirtschaftlich integrierte Energiesysteme&rdquo; under the project number 03EI1050
-
+
+
 [1] K. Sevdari, L. Calearo, B. H. Bakken, P. B. Andersen, und M. Marinelli, &ldquo;Experimental Validation of Onboard Electric Vehicle Chargers to Improve the Efficiency of Smart Charging Operation,&rdquo; Sustainable Energy Technologies and Assessments, Bd. 60, S. 103512, Dec. 2023.</pre>
 <p><br><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">10. Version History</span></b></p>
 <pre>Volkswagen_ID4 by Tom Steffen, Techische Universit&auml;t Hamburg, Institut f&uuml;r Elektrische Energietechnik, 2025</pre>

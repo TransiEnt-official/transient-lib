@@ -1,7 +1,7 @@
 within TransiEnt.Components.Electrical.Grid.Check;
 model Check_PiModelComplexEfficient3ph
 //________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 2.0.3                             //
+// Component of the TransiEnt Library, version: 3.0.0                             //
 //                                                                                //
 // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
 // Copyright 2021, Hamburg University of Technology.                              //
@@ -16,11 +16,10 @@ model Check_PiModelComplexEfficient3ph
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen                                                 //
+// Gas- und WÃ¤rme-Institut Essen						  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
-//________________________________________________________________________________//
-  extends TransiEnt.Basics.Icons.Checkmodel;
+//________________________________________________________________________________//  extends TransiEnt.Basics.Icons.Checkmodel;
 
   PiModelComplexEfficient3ph piModelComplexEfficient3ph(
     length=1,

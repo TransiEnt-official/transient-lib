@@ -1,32 +1,26 @@
 within TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics;
 record Nissan_Leaf
   extends TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.BEV_measurements;
-  //________________________________________________________________________________//
-  // Component of the TransiEnt Library, version: 3.0.0                             //
-  //                                                                                //
-  // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
-  // Copyright 2021, Hamburg University of Technology.                              //
-  //________________________________________________________________________________//
-  //                                                                                //
-  // TransiEnt.EE, ResiliEntEE, IntegraNet and IntegraNet II are research projects  //
-  // supported by the German Federal Ministry of Economics and Energy               //
-  // (FKZ 03ET4003, 03ET4048, 0324027 and 03EI1008).                                //
-  // The TransiEnt Library research team consists of the following project partners://
-  // Institute of Engineering Thermodynamics (Hamburg University of Technology),    //
-  // Institute of Energy Systems (Hamburg University of Technology),                //
-  // Institute of Electrical Power and Energy Technology                            //
-  // (Hamburg University of Technology)                                             //
-  // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-  // Gas- und Wärme-Institut Essen                                                  //
-  // and                                                                            //
-  // XRG Simulation GmbH (Hamburg, Germany).                                        //
-  //                                                                                //
-  //                                                                                //
-  // Data Record from ERIGrid 2.0 Project MOVES                                     //
-  //                                                                                //
-  // Last Author: Tom Steffen, Last Update: 12.08.2025, Email: tom.steffen@tuhh.de  //
-  //________________________________________________________________________________//
-
+//________________________________________________________________________________//
+// Component of the TransiEnt Library, version: 3.0.0                             //
+//                                                                                //
+// Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
+// Copyright 2021, Hamburg University of Technology.                              //
+//________________________________________________________________________________//
+//                                                                                //
+// TransiEnt.EE, ResiliEntEE, IntegraNet and IntegraNet II are research projects  //
+// supported by the German Federal Ministry of Economics and Energy               //
+// (FKZ 03ET4003, 03ET4048, 0324027 and 03EI1008).                                //
+// The TransiEnt Library research team consists of the following project partners://
+// Institute of Engineering Thermodynamics (Hamburg University of Technology),    //
+// Institute of Energy Systems (Hamburg University of Technology),                //
+// Institute of Electrical Power and Energy Technology                            //
+// (Hamburg University of Technology)                                             //
+// Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
+// Gas- und WÃ¤rme-Institut Essen						  //
+// and                                                                            //
+// XRG Simulation GmbH (Hamburg, Germany).                                        //
+//________________________________________________________________________________//
   parameter Real eta_mean_over_P_grid_and_V_grid[:,:] = [0.0, 400.0;1400.0, 0.8409140884692236;1500.0, 0.8208911390282563;1600.0, 0.7741494484214092;1700.0, 0.697639968128957;1800.0, 0.7530612262406898;1900.0, 0.8050690703990894;2000.0, 0.8224764074372704;2100.0, 0.716637534546759;2200.0, 0.7860867768422214;2300.0, 0.7472018725984476;2400.0, 0.8585550457898314;2500.0, 0.827339435272291;2600.0, 0.7706761067997693;2700.0, 0.7978965160274326;2800.0, 0.7788504374799727;2900.0, 0.8363180794035291;3000.0, 0.8494368847137874;3100.0, 0.8548956549680007;3200.0, 0.8411515246066531;3300.0, 0.8536653284483333;3400.0, 0.8713940434430829;3500.0, 0.8010077278252757;3600.0, 0.8460827973849145;3700.0, 0.8370946982338575;3800.0, 0.8505885673122275;3900.0, 0.8418773290070384;4000.0, 0.8592561306892478;4100.0, 0.875325646279445;4200.0, 0.8546187194639742;4300.0, 0.8335378973252823;4400.0, 0.8499097977942224;4500.0, 0.8330861772465119;4600.0, 0.8624244236895214;4700.0, 0.8380313898206122;4800.0, 0.8616657004444926;4900.0, 0.8595691248127381;5000.0, 0.8839059831328951;5100.0, 0.8513068354205574;5200.0, 0.8310819489299124;5300.0, 0.8638138377469454;5400.0, 0.8553687906094148;5500.0, 0.8812638964994459;5600.0, 0.8567330119524056;5700.0, 0.865857496596392;5800.0, 0.8513615282933373;5900.0, 0.8334143900640437;6000.0, 0.8742515761943718;6100.0, 0.8759282850294182;6200.0, 0.8842835927922522;6300.0, 0.8761357947486503;6400.0, 0.8645118207282912;6600.0, 0.8889774376355509];
 
   parameter Real P_loss_over_P_bat_and_V_grid[:,:] = [0.0, 400.0;0.0, 0.0;1400.0, 217.86956416666663;1500.0, 274.1719548269581;1600.0, 353.2944619913421;1700.0, 513.8927902;1800.0, 441.5435870531914;1900.0, 368.4432301388889;2000.0, 352.72874729166665;2100.0, 596.2976806944445;2200.0, 476.93222143874647;2300.0, 572.1028033333333;2400.0, 343.02799027777775;2500.0, 428.8911063173652;2600.0, 597.7855586666666;2700.0, 549.0841862619048;2800.0, 624.7935511111111;2900.0, 477.3211755454543;3000.0, 446.9200992857143;3100.0, 453.56095839999995;3200.0, 505.7044415454545;3300.0, 482.08019833333316;3400.0, 435.2897166666667;3500.0, 697.8708316666667;3600.0, 554.76890690625;3700.0, 598.5152799180327;3800.0, 571.2817912857143;3900.0, 615.7037486307693;4000.0, 559.4434241441443;4100.0, 510.9313083523809;4200.0, 605.5423690123457;4300.0, 720.0431480555555;4400.0, 658.8443150347223;4500.0, 752.7323973333329;4600.0, 633.038826740413;4700.0, 762.9901252083331;4800.0, 666.7243133864118;4900.0, 685.2125458008658;5000.0, 581.1160446666669;5100.0, 758.9992795238095;5200.0, 881.3159021111111;5300.0, 722.0985392464878;5400.0, 777.2479148655913;5500.0, 656.1696755079365;5600.0, 801.8467000000004;5700.0, 763.9731978571428;5800.0, 860.9089963888887;5900.0, 980.9053983333329;6000.0, 754.7369885714286;6100.0, 759.1534666666666;6200.0, 719.9891944444446;6300.0, 777.3369083986925;6400.0, 870.6470400000006;6600.0, 728.9541121091953];
@@ -69,10 +63,12 @@ Measurements where taken in the ERIGrid 2.0 Project MOVES")}),
 <pre>This research has been performed using the ERIGrid 2.0 Research Infrastructure and is part of a project that has received funding from the European Union&rsquo;s Horizon 2020 
 Research and Innovation Programme under the Grant Agreement No. 870620. The support of the European Research Infrastructure ERIGrid 2.0 and its partner DTU is very much appreciated. 
 Report: https://zenodo.org/records/17054821 
-
+
+
 This research was funded by the Federal Ministry for Economic Affairs and Climate Action in the project &ldquo;EffiziEntEE &ndash; 
 Effiziente Einbindung hoher Anteile Erneuerbarer Energien in technisch-wirtschaftlich integrierte Energiesysteme&rdquo; under the project number 03EI1050
-
+
+
 [1] K. Sevdari, L. Calearo, B. H. Bakken, P. B. Andersen, und M. Marinelli, &ldquo;Experimental Validation of Onboard Electric Vehicle Chargers to Improve the Efficiency of Smart Charging Operation,&rdquo; Sustainable Energy Technologies and Assessments, Bd. 60, S. 103512, Dec. 2023.</pre>
 <p><br><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">10. Version History</span></b></p>
 <pre>Nissan_Leaf by Tom Steffen, Techische Universit&auml;t Hamburg, Institut f&uuml;r Elektrische Energietechnik, 2025</pre>

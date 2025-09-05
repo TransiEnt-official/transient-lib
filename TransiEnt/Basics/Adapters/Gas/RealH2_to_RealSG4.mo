@@ -5,7 +5,7 @@ model RealH2_to_RealSG4 "Adapter that switches from real H2 to real SG4 fluid mo
 
 
 //________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 2.0.3                             //
+// Component of the TransiEnt Library, version: 3.0.0                             //
 //                                                                                //
 // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
 // Copyright 2021, Hamburg University of Technology.                              //
@@ -24,7 +24,6 @@ model RealH2_to_RealSG4 "Adapter that switches from real H2 to real SG4 fluid mo
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
-
 
 
 

@@ -5,7 +5,7 @@ model RealSG6_to_RealNG7_SG_O2 "Adapter that switches from real sg6 to real ng7_
 
 
 //________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 2.0.3                             //
+// Component of the TransiEnt Library, version: 3.0.0                             //
 //                                                                                //
 // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
 // Copyright 2021, Hamburg University of Technology.                              //
@@ -24,7 +24,6 @@ model RealSG6_to_RealNG7_SG_O2 "Adapter that switches from real sg6 to real ng7_
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
-
 
 
 

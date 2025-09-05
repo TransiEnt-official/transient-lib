@@ -4,7 +4,7 @@ function get_init_segment_enthalpy_piecewise_linear "[nLayer, T1, T2, T3, T4, T1
 
 
 //________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 2.0.3                             //
+// Component of the TransiEnt Library, version: 3.0.0                             //
 //                                                                                //
 // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
 // Copyright 2021, Hamburg University of Technology.                              //
@@ -23,7 +23,6 @@ function get_init_segment_enthalpy_piecewise_linear "[nLayer, T1, T2, T3, T4, T1
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
-
 
 
 

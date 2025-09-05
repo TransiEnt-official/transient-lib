@@ -4,7 +4,7 @@ model CheckTwoAxisSynchronousMachineComplexSubtransient "Test for TwoAxisSynchro
 
 
 //________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 2.0.3                             //
+// Component of the TransiEnt Library, version: 3.0.0                             //
 //                                                                                //
 // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
 // Copyright 2021, Hamburg University of Technology.                              //
@@ -23,7 +23,6 @@ model CheckTwoAxisSynchronousMachineComplexSubtransient "Test for TwoAxisSynchro
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
-
 
 
 

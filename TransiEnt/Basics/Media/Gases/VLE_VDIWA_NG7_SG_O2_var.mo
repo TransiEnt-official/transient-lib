@@ -5,7 +5,7 @@ record VLE_VDIWA_NG7_SG_O2_var "var{CH4,C2H6,C3H8,C4H10,N2,CO2,H2O,CO,O2,H2} VDI
 
 
 //________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 2.0.3                             //
+// Component of the TransiEnt Library, version: 3.0.0                             //
 //                                                                                //
 // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
 // Copyright 2021, Hamburg University of Technology.                              //
@@ -24,7 +24,6 @@ record VLE_VDIWA_NG7_SG_O2_var "var{CH4,C2H6,C3H8,C4H10,N2,CO2,H2O,CO,O2,H2} VDI
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
-
 
 
 
