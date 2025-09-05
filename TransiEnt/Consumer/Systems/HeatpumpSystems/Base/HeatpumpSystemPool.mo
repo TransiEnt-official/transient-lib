@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Systems.HeatpumpSystems.Base;
+within TransiEnt.Consumer.Systems.HeatpumpSystems.Base;
 model HeatpumpSystemPool
 
 
@@ -19,7 +19,7 @@ model HeatpumpSystemPool
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -43,7 +43,7 @@ model HeatpumpSystemPool
 
   parameter TransiEnt.Basics.Types.Poolsize N=20;
 
-  final parameter Real[N,TransiEnt.Producer.Heat.Power2Heat.Heatpump.Base.nPar - 1] A=Modelica_LinearSystems2.Internal.Streams.readMatrixInternal(
+  final parameter Real[N,TransiEnt.Producer.Heat.Power2Heat.Heatpump.Base.nPar - 1] A=Modelica.Utilities.Streams.readRealMatrix(
       getFileName(N),
       "A",
       N,

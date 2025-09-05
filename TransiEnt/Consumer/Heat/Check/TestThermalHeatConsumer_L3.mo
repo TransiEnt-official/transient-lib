@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Heat.Check;
+within TransiEnt.Consumer.Heat.Check;
 model TestThermalHeatConsumer_L3
 
 
@@ -20,7 +20,7 @@ model TestThermalHeatConsumer_L3
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -40,7 +40,7 @@ model TestThermalHeatConsumer_L3
     p_drop=0,
     useGasPort=false,
     redeclare TransiEnt.Components.Boundaries.Heat.Heatflow_L1 heatFlowBoundary(p_drop=0)) annotation (Placement(transformation(extent={{-10,28},{10,48}})));
-  ClaRa.Basics.ControlVolumes.FluidVolumes.VolumeVLE_2 volumeVLE_2_1(
+  ClaRa.Basics.ControlVolumes.FluidVolumes.VolumeVLE_L2 volumeVLE_2_1(
     m_flow_nom=0.04,
     h_nom=4200*60,
     initOption=0,

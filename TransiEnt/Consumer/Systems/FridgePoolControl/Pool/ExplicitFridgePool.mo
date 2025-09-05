@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Systems.FridgePoolControl.Pool;
+within TransiEnt.Consumer.Systems.FridgePoolControl.Pool;
 model ExplicitFridgePool
 
 
@@ -19,7 +19,7 @@ model ExplicitFridgePool
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -36,7 +36,7 @@ model ExplicitFridgePool
   parameter Boolean isExternalControl = false;
   parameter SI.Period samplePeriodPoolControl=3600 "Communication intervall between pool controller and heatpumpsystem unit";
 
-  final parameter Real[N,nPar] A=Modelica_LinearSystems2.Internal.Streams.readMatrixInternal(
+  final parameter Real[N,nPar] A=Modelica.Utilities.Streams.readRealMatrix(
       Components.Base.getFileName(N),
       "A",
       N,

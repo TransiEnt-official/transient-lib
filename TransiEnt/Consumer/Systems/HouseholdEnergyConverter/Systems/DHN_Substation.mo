@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Systems.HouseholdEnergyConverter.Systems;
+within TransiEnt.Consumer.Systems.HouseholdEnergyConverter.Systems;
 model DHN_Substation "Substation for district hot water"
 
 
@@ -20,7 +20,7 @@ model DHN_Substation "Substation for district hot water"
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -47,7 +47,7 @@ model DHN_Substation "Substation for district hot water"
 
   parameter SI.MassFlowRate m_flow_min=0.0001 "Minimum massflow rate";
   parameter SI.Temperature T_start=90 + 273.15 "Temperature at start of the simulation" annotation (Dialog(group="Temperature"));
-  parameter Real dT=20 "Constant Temperature Difference between supply and return" annotation (Dialog(group="Temperature"));
+  //parameter Real dT=20 "Constant Temperature Difference between supply and return" annotation (Dialog(group="Temperature"));
 
   // _____________________________________________
   //
@@ -58,7 +58,7 @@ model DHN_Substation "Substation for district hot water"
 
   TransiEnt.Producer.Heat.Heat2Heat.Substation_indirect_noStorage_L1 substation_indirect_noStorage_L1_1(
     T_start=T_start,
-    dT=dT,
+    //dT=dT,
     m_flow_min=m_flow_min) annotation (Placement(transformation(extent={{-14,6},{14,26}})));
 equation
 

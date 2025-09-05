@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Combined.SmallScaleCHP;
+within TransiEnt.Producer.Combined.SmallScaleCHP;
 model Documentation "Documentation of a Combined Heat and Power Unit"
 
 
@@ -19,7 +19,7 @@ model Documentation "Documentation of a Combined Heat and Power Unit"
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -27,7 +27,7 @@ model Documentation "Documentation of a Combined Heat and Power Unit"
 
 
 
-extends ModelicaReference.Icons.Information;
+extends Modelica.Icons.Information;
   annotation (Documentation(info="<html>
 <h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
 <p>Model of a (block) Combined Heat and Power (CHP) plant based on an internal combustion engine.</p>

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Systems.FridgePoolControl.Components.Controller;
+within TransiEnt.Consumer.Systems.FridgePoolControl.Components.Controller;
 model ENTSOEThermostat "Frequency dependent thermostat as proposed by ENTSO-E"
 
 
@@ -19,7 +19,7 @@ model ENTSOEThermostat "Frequency dependent thermostat as proposed by ENTSO-E"
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -48,7 +48,9 @@ model ENTSOEThermostat "Frequency dependent thermostat as proposed by ENTSO-E"
   //        Constants
   // _____________________________________________
 
- parameter SI.Frequency f_n = simCenter.f_n "Nominal grid frequency";
+  parameter SI.Frequency f_n = simCenter.f_n "Nominal grid frequency";
+  parameter Integer globalSeed = 2000 "Globalseed to initialize random number generator";
+  parameter Integer id = Modelica.Math.Random.Utilities.initializeImpureRandom(globalSeed);
 
   // _____________________________________________
   //
@@ -93,7 +95,8 @@ equation
  isWithinDeadband =  (abs(epp.f-f_n) <= (delta_f_db/2));
 
   when edge(isWithinDeadband) then
-    t_delay=300*Design.Experimentation.RandomNumber.Functions.random(); // random delay time between 0 und 300s
+    //t_delay=300*Design.Experimentation.RandomNumber.Functions.random(); // random delay time between 0 und 300s
+    t_delay = 300*Modelica.Math.Random.Utilities.impureRandom(id); //random delay time beween 0 and 300s
     starttime=time;
     T_set_transition=pre(T_set_new);
   end when;

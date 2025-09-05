@@ -239,13 +239,8 @@ import      Modelica.Units.SI
 
 
 annotation (uses(
-    Modelica_StateGraph2(version="2.0.4"),
-    DataFiles(version="1.0.5"),
-    Design(version="1.2.1"),
-    Buildings(version="7.0.0"),
+    Buildings(version="12.0.0"),
     Modelica(version="4.0.0"),
-    Modelica_LinearSystems2(version="2.4.0"),
-    ModelicaReference(version="4.0.0"),
     TILMedia(version="1.8.1 ClaRa"),
     ClaRa(version="1.8.1"),
     DymolaCommands(version="1.11")),           Icon(coordinateSystem(
@@ -256,8 +251,8 @@ annotation (uses(
 <p>Coordinating developers:</p>
 <ul>
 <li>Gillner, Markus</li>
-<li>Heckel, Jan-Peter</li>
 <li>Westphal, Jan</li>
+<li>Wiegel, Béla</li>
 </ul>
 <p>Consulting developers:</p>
 <ul>

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.SolarThermal.Base;
+within TransiEnt.Producer.Heat.SolarThermal.Base;
 model HeatFlow_SolarThermal "Heat flow boundary with h_in and Q_flow_collector as input to be used in SolarCollector"
 
 
@@ -20,7 +20,7 @@ model HeatFlow_SolarThermal "Heat flow boundary with h_in and Q_flow_collector a
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -84,7 +84,7 @@ equation
 
   waterPortIn.m_flow + waterPortOut.m_flow = 0;
 
-  waterPortIn.h_outflow = inStream(waterPortIn.h_outflow);
+  waterPortIn.h_outflow = inStream(waterPortOut.h_outflow);
   waterPortOut.h_outflow=Q_flow_collector/waterPortIn.m_flow+inStream(waterPortIn.h_outflow);
 
   waterPortIn.xi_outflow = inStream(waterPortOut.xi_outflow);
