@@ -30,9 +30,10 @@ Installation:
 
 1. Download transient-lib and copy the library to your preferred folder
 
-Currently, only Dymola provides full suppport of TransiEnt. The development team has tested all models carefully using Dymola 2023x Refresh1.
+Currently, only Dymola provides full suppport of TransiEnt. The development team has tested all models carefully using Dymola 2025x Refresh1. Except for the superstructure models, which only work perfectly until Dymola 2023.
 
 2. Download the ClaRa library 1.8.1 from the official github page (https://github.com/xrg-simulation/ClaRa-official/releases/tag/1.8.1). Copy the content of the unzipped folder ClaRa-official-1.8.1 into! the transient-lib folder named ClaRa.
+Or fork our repository and checkout the hash of our Release. Don't forget to update the submodules. An installation structure can be found at https://www.tuhh.de/transient-ee/getting-started/installation-instruction.
 
 
 3. Open the Library using a MOS Script
@@ -71,20 +72,38 @@ Release Notes :
  
 ***New Features***
  
-Basic
-- Add gas adapter Real_ph_to_Ideal_pT.mo
+Superstructure
+	- Previously internally defined controllers removed from physical model
+	- Control models now completely outside superstructure
+	- Bus system for internal ad external communication  
+	- At present only compatible with Dymola2023x or below
+
+Heating Components
+	- inserted numerically improved models for the simulation of large-scale district heating networks (DHN)
+	- created a Tutorial (on website) with corresponding Tutorial models for giving an overview on how to simulate DHN using the TransiEnt Library
+
+Electrical Components
+	- new prosumer model that includes Battery Electric Vehicles (BEV), Building Heating Systems with Electric Heat Pumps, Battery Energy Storage Systems, and Photovoltaics, enabling a realistic and modular representation of prosumer behavior and energy Management
+	- a series of low- and medium-voltage grid scenarios based on the SimBench dataset have been added, covering urban, semi-urban, and rural configurations. These examples provide valuable test cases for grid simulation and analysis, facilitating validation and further development of grid-related models
+	- All new components include internal controllers that reflect typical customer base loads and can be simulated directly. Moreover, the models are designed for external interaction, allowing integration with control algorithms implemented outside Modelica. This enables large-scale studies on electrical low- and medium-voltage systems, supporting investigations into modern energy management techniques such as congestion analysis and flexibility assessments.
+
 
 ***Renamed***
 
 
 ***Fixed Bugs***
 
-Heating Components
-- Correction of parameter ymax in PID for PV-oriented heatpump control
-
 
 ***Others***
-- some minor design changes
+- Better documentation of Heat Models and GridConstructor
+
+
+*******************************************
+Acknowledgement for Release 3.0.0
+*******************************************
+This research has been performed among other things using the ERIGrid 2.0 Research Infrastructure and is part of a project that has received funding from the European Union’s Horizon 2020 Research and Innovation Programme under the Grant Agreement No. 870620. The support of the European Research Infrastructure ERIGrid 2.0 and its partner DTU is very much appreciated.
+
+This research was funded by the Federal Ministry for Economic Affairs and Climate Action in the projects “EffiziEntEE” (03EI1050A), “Integranet“ (0324027B), “IntegranetII“ (03EI1008B).
 
 *******************************************	
 Contact:	
