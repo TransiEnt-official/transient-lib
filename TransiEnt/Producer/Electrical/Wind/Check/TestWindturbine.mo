@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Wind.Check;
+within TransiEnt.Producer.Electrical.Wind.Check;
 model TestWindturbine
 
 
@@ -19,7 +19,7 @@ model TestWindturbine
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -34,7 +34,7 @@ model TestWindturbine
   inner TransiEnt.ModelStatistics modelStatistics annotation (Placement(transformation(extent={{-60,80},{-40,100}})));
 
   Windturbine windTurbinePitchControlled(
-    torqueController_modified(tau_friction(k=-0.05)),
+    torqueController(tau_friction(k=-0.05)),
     turbineCharacteristics=
         TransiEnt.Producer.Electrical.Wind.Characteristics.VariableSpeed.MOD2(),
 

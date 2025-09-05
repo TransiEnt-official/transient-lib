@@ -5,10 +5,10 @@ model Check_MV_rural_2
     development_scenario="Intermediate",
     weatherLocation="Hamelin",
     weatherYear="2019",
-    photovoltaicControlType=Models_CyEntEE.CellModels.Controller.Base.ControlType.Limit_P,
-    batteryControlType=Models_CyEntEE.CellModels.Controller.Base.ControlType.Limit_P,
-    heatingControlType=Models_CyEntEE.CellModels.Controller.Base.ControlType.Limit_P,
-    bevControlType=Models_CyEntEE.CellModels.Controller.Base.ControlType.Limit_P) annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
+    photovoltaicControlType=TransiEnt.Basics.Types.ControlType.Limit_P,
+    batteryControlType=TransiEnt.Basics.Types.ControlType.Limit_P,
+    heatingControlType=TransiEnt.Basics.Types.ControlType.Limit_P,
+    bevControlType=TransiEnt.Basics.Types.ControlType.Limit_P) annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
   Components.Boundaries.Electrical.ComplexPower.SlackBoundary               vDelta1(v_gen=110e3, f_n=50)
                     annotation (Placement(transformation(extent={{20,-10},{40,10}})));
   Basics.Interfaces.General.ControlBus            controlBus annotation (Placement(transformation(extent={{-100,-10},{-80,10}})));
