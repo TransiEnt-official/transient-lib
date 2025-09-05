@@ -1,0 +1,84 @@
+within TransiEnt.Consumer.Electrical.ElectricVehicle.Check;
+model Check_BatteryElectricVehicle
+
+
+
+
+//________________________________________________________________________________//
+// Component of the TransiEnt Library, version: 2.0.3                             //
+//                                                                                //
+// Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
+// Copyright 2021, Hamburg University of Technology.                              //
+//________________________________________________________________________________//
+//                                                                                //
+// TransiEnt.EE, ResiliEntEE, IntegraNet and IntegraNet II are research projects  //
+// supported by the German Federal Ministry of Economics and Energy               //
+// (FKZ 03ET4003, 03ET4048, 0324027 and 03EI1008).                                //
+// The TransiEnt Library research team consists of the following project partners://
+// Institute of Engineering Thermodynamics (Hamburg University of Technology),    //
+// Institute of Energy Systems (Hamburg University of Technology),                //
+// Institute of Electrical Power and Energy Technology                            //
+// (Hamburg University of Technology)                                             //
+// Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
+// and                                                                            //
+// XRG Simulation GmbH (Hamburg, Germany).                                        //
+//________________________________________________________________________________//
+
+
+
+
+
+  // _____________________________________________
+  //
+  //          Imports and Class Hierarchy
+  // _____________________________________________
+
+  extends TransiEnt.Basics.Icons.Checkmodel;
+
+  BatteryElectricVehicle batteryElectricVehicle(
+    controlType=TransiEnt.Basics.Types.ControlType.Limit_P,
+    Charger_Params=TransiEnt.Consumer.Electrical.ElectricVehicle.Characteristics.Volkswagen_ID4()) annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+  TransiEnt.Basics.Interfaces.General.ControlBus controlBus annotation (Placement(transformation(extent={{-10,-60},{10,-40}})));
+  TransiEnt.Basics.Tables.DrivingProfiles.Example_DrivingProfile example_DrivingProfile annotation (Placement(transformation(
+        extent={{-10,-10},{10,10}},
+        rotation=180,
+        origin={70,0})));
+  TransiEnt.Components.Boundaries.Electrical.ComplexPower.SlackBoundary vDelta1(v_gen=400,       f_n=50) annotation (Placement(transformation(
+        extent={{-10,-10},{10,10}},
+        rotation=180,
+        origin={-70,-2})));
+  Modelica.Blocks.Sources.Step step(
+    height=2500,
+    offset=5000,
+    startTime=7200) annotation (Placement(transformation(extent={{-80,-60},{-60,-40}})));
+  Modelica.Blocks.Sources.BooleanStep booleanStep(startTime=3600) annotation (Placement(transformation(extent={{-80,-100},{-60,-80}})));
+equation
+  connect(batteryElectricVehicle.controlBus, controlBus) annotation (Line(
+      points={{0,-10},{0,-50}},
+      color={255,204,51},
+      thickness=0.5), Text(
+      string="%second",
+      index=1,
+      extent={{-3,-6},{-3,-6}},
+      horizontalAlignment=TextAlignment.Right));
+  connect(example_DrivingProfile.SOC_Consumption, batteryElectricVehicle.SOC_consumption) annotation (Line(points={{61,4},{14,4},{14,6},{9,6}}, color={0,0,127}));
+  connect(example_DrivingProfile.isConnected, batteryElectricVehicle.isConnected) annotation (Line(points={{61,-4},{16,-4},{16,2},{9,2}}, color={255,0,255}));
+  connect(vDelta1.epp, batteryElectricVehicle.epp) annotation (Line(
+      points={{-60,-2},{-34,-2},{-34,0},{-9.8,0}},
+      color={28,108,200},
+      thickness=0.5));
+  connect(step.y, controlBus.P_limit) annotation (Line(points={{-59,-50},{0,-50}}, color={0,0,127}), Text(
+      string="%second",
+      index=1,
+      extent={{6,3},{6,3}},
+      horizontalAlignment=TextAlignment.Left));
+  connect(booleanStep.y, controlBus.SignalActive) annotation (Line(points={{-59,-90},{0,-90},{0,-50}}, color={255,0,255}), Text(
+      string="%second",
+      index=1,
+      extent={{6,3},{6,3}},
+      horizontalAlignment=TextAlignment.Left));
+  annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(preserveAspectRatio=false)),
+    experiment(StopTime=86400, __Dymola_Algorithm="Dassl"),
+    __Dymola_experimentSetupOutput(equidistant=false));
+end Check_BatteryElectricVehicle;

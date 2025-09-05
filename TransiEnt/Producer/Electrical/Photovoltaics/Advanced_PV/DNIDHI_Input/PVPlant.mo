@@ -170,6 +170,8 @@ model PVPlant "Simple efficiency-based PV model"
   Modelica.Units.SI.Area Area_demand;
   Real ModulesPerString "Choose amount of modules per string";
 
+  Modelica.Units.SI.Irradiance irradiance_pu_factor=1
+    "Just to have no unit errors in equations below where the irradiance is needed in empirical equations";
 
   // _____________________________________________
   //
@@ -301,7 +303,7 @@ equation
   // _____________________________________________
 
   //calculation of module temperature
-  T_module = 273.15 + T_in + POA_Irradiation*(exp(-3.47 - 0.0594*WindSpeed_in));
+  T_module = 273.15 + T_in + POA_Irradiation/irradiance_pu_factor*(exp(-3.47 - 0.0594*WindSpeed_in));
   //https://pvpmc.sandia.gov/modeling-steps/2-dc-module-iv/module-temperature/sandia-module-temperature-model/
 
   //calculation of cell temperature

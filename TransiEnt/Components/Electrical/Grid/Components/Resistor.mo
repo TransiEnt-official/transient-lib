@@ -20,7 +20,7 @@ model Resistor "Modell for a specific Resistor. Resistance will be calculated fr
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und Wärme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -51,12 +51,26 @@ protected
 
 public
   parameter TransiEnt.Basics.Units.SpecificResistance r=1 "specific Resistance";
+  parameter Boolean electricOutput=false "Creates Outputs for loss active power and phase current" annotation (choices(__Dymola_checkBox=true));
+
+  // Thermal
+  parameter Boolean thermalEffect=false "if thermal effects shall be taken into consideration by means of linear resistance expansion" annotation (Dialog(group="Thermal Properties"), choices(__Dymola_checkBox=true));
+  parameter Boolean useHeatPort = false "if heatport should be used" annotation (Dialog(enable=thermalEffect, group="Thermal Properties"), choices(__Dymola_checkBox=true));
+  parameter Modelica.Units.SI.LinearTemperatureCoefficient alpha = 0 "linear specific Resistance" annotation (Dialog(enable=thermalEffect, group="Thermal Properties"));
+  parameter Modelica.Units.SI.Temperature T_ref=293.15 "linear specific Resistance" annotation (Dialog(enable=thermalEffect, group="Thermal Properties"));
+  parameter Modelica.Units.SI.Temperature T = T_ref "Actual Temperature" annotation (Dialog(enable=thermalEffect and not useHeatPort, group="Thermal Properties"));
 
   // _____________________________________________
   //
   //                  Interfaces
   // _____________________________________________
-
+  Modelica.Blocks.Interfaces.RealInput T_in if useHeatPort annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=90,      origin={0,-104}), iconTransformation(      extent={{-10,-10},{10,10}},       rotation=90,       origin={0,-30})));
+  TransiEnt.Basics.Interfaces.Electrical.ElectricPowerOut P_loss  if electricOutput "Power Lost" annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=90, origin={0,104})));
+  TransiEnt.Basics.Interfaces.Electrical.ElectricPowerOut P_loss_thermalInduced  if electricOutput "Power Lost in comparison to no thermal induced heading" annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=90, origin={0,104}), iconTransformation(
+        extent={{-10,-10},{10,10}},
+        rotation=90,
+        origin={-40,104})));
+  TransiEnt.Basics.Interfaces.Electrical.ElectricCurrentOut I_str if electricOutput "1-Phase Current or one of the three phase currents in 3-Phase" annotation (Placement(transformation(extent={{-10,-10},{10,10}},rotation=90,origin={40,104})));
   // _____________________________________________
   //
   //           Instances of other Classes
@@ -73,6 +87,12 @@ public
   // _____________________________________________
 
   //public
+  TransiEnt.Basics.Interfaces.Electrical.ElectricPowerOut P_loss_internal;
+  TransiEnt.Basics.Interfaces.Electrical.ElectricPowerOut P_loss_thermalInduced_internal;
+  TransiEnt.Basics.Interfaces.Electrical.ElectricCurrentOut I_str_internal;
+  Modelica.Blocks.Interfaces.RealOutput T_internal(start=0) "Temperature";
+  Modelica.Units.SI.Resistance R_actual;
+
   //protected
 
   // _____________________________________________
@@ -81,13 +101,27 @@ public
   // _____________________________________________
 
 equation
-    Z.re = R;
-    Z.im = 0;
 
+    if not useHeatPort then
+      T_internal = T;
+    end if;
+
+    //assert((1 + alpha*(T_internal - T_ref)) >= Modelica.Constants.eps, "Temperature outside scope of model!");
+    R_actual = R * (1 + alpha * (T_internal - T_ref));
+    Z.re = R_actual;
+    Z.im = 0;
+    P_loss_internal = S_lost.re;
+    P_loss_thermalInduced_internal = I_str_internal^2 * R * (alpha * (T_internal - T_ref));
+    I_str_internal = Modelica.ComplexMath.abs(I);
   // _____________________________________________
   //
   //               Connect Statements
   // _____________________________________________
+
+  connect(P_loss, P_loss_internal);
+  connect(P_loss_thermalInduced_internal, P_loss_thermalInduced);
+  connect(I_str, I_str_internal);
+  connect(T_in, T_internal);
 
   annotation(Diagram(coordinateSystem(preserveAspectRatio = false, extent = {{-100,-100},{100,100}}), graphics), Icon(coordinateSystem(preserveAspectRatio = false, extent = {{-100,-100},{100,100}}), graphics={  Line(points = {{-100,0},{100,0}}, color = {0,0,0}, smooth = Smooth.None),Rectangle(extent = {{-60,32},{60,-30}}, lineColor = {0,0,255}, fillColor = {255,255,255},
             fillPattern =                                                                                                   FillPattern.Solid),Text(extent = {{-62,88},{58,50}}, lineColor = {0,0,0}, fillColor = {255,255,255},

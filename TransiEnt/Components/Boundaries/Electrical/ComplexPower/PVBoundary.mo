@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.Electrical.ComplexPower;
+within TransiEnt.Components.Boundaries.Electrical.ComplexPower;
 model PVBoundary "PV Bus in TransiEnt"
 
 

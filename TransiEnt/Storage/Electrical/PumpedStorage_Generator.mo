@@ -35,10 +35,13 @@ model PumpedStorage_Generator "Model of a pumped storage"
 
   extends TransiEnt.Storage.Electrical.Base.GenericElectricStorage_Generator(
     StorageModelParams=TransiEnt.Storage.Electrical.Specifications.PumpedStorage(T_plant=10),
-    redeclare model StationaryLossModel = TransiEnt.Storage.Base.NoStationaryLoss,
-    replaceable model CostModel = TransiEnt.Components.Statistics.ConfigurationData.StorageCostSpecs.PumpStorage,
+    redeclare model StationaryLossModel =
+        TransiEnt.Storage.Base.NoStationaryLoss,
+    replaceable model CostModel =
+        TransiEnt.Components.Statistics.ConfigurationData.StorageCostSpecs.PumpStorage,
     storageModel(use_PowerRateLimiter=use_PowerRateLimiter, use_plantDynamic=true),
-    prescribedPower(change_sign=false));
+    prescribedPower(change_sign=false, phi_is(fixed=false)),
+    constantInertia(J=J, phi(fixed=true)));
     //collectCosts(redeclare model StorageCostModel = CostVariables),
   extends TransiEnt.Basics.Icons.Hydroturbine;
   // _____________________________________________

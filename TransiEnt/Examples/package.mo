@@ -1,4 +1,4 @@
-﻿within TransiEnt;
+within TransiEnt;
 package Examples "Basic examples of library usage. All models in this package should be simulated without errors"
 
 

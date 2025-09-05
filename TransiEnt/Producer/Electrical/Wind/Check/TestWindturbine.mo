@@ -28,32 +28,37 @@ model TestWindturbine
 
 
   extends TransiEnt.Basics.Icons.Checkmodel;
-  TransiEnt.Components.Boundaries.Electrical.ActivePower.Frequency Grid(useInputConnector=false) annotation (Placement(transformation(extent={{62,-10},{82,10}})));
+  TransiEnt.Components.Boundaries.Electrical.ActivePower.Frequency Grid(useInputConnector=false) annotation (Placement(transformation(extent={{58,-8},
+            {78,12}})));
   inner TransiEnt.SimCenter simCenter annotation (Placement(transformation(extent={{-90,80},{-70,100}})));
   inner TransiEnt.ModelStatistics modelStatistics annotation (Placement(transformation(extent={{-60,80},{-40,100}})));
 
   Windturbine windTurbinePitchControlled(
-    turbineCharacteristics=TransiEnt.Producer.Electrical.Wind.Characteristics.VariableSpeed.MOD2(),
-    operationRanges=TransiEnt.Producer.Electrical.Wind.Characteristics.VariableSpeed.WindSpeedOperationRanges(),
+    torqueController_modified(tau_friction(k=-0.05)),
+    turbineCharacteristics=
+        TransiEnt.Producer.Electrical.Wind.Characteristics.VariableSpeed.MOD2(),
+
+    operationRanges=
+        TransiEnt.Producer.Electrical.Wind.Characteristics.VariableSpeed.WindSpeedOperationRanges(),
+
     beta_start=85,
-    v_wind_start=0,
-    torqueController(tau_friction(k=-0.05)))
-                                           annotation (Placement(transformation(extent={{2,-16},{22,4}})));
+    v_wind_start=0)
+    annotation (Placement(transformation(extent={{0,-16},{20,4}})));
 
   Modelica.Blocks.Sources.Ramp Wind(
-    height=25,
+    height=35,
     startTime=0,
     offset=0,
-    duration=500)
+    duration=1000)
     annotation (Placement(transformation(extent={{-52,-10},{-32,10}})));
   inner TransiEnt.Components.Boundaries.Ambient.AmbientConditions ambientConditions annotation (Placement(transformation(extent={{-40,80},{-20,100}})));
 equation
   connect(windTurbinePitchControlled.epp, Grid.epp) annotation (Line(
-      points={{21,1},{44,1},{44,0},{62,0}},
+      points={{19,1},{44,1},{44,2},{58,2}},
       color={0,135,135},
       thickness=0.5));
-  connect(Wind.y, windTurbinePitchControlled.v_wind) annotation (Line(points={{-31,0},{-22,0},{-22,0.1},{3.1,0.1}},
-                                                   color={0,0,127}));
+  connect(Wind.y, windTurbinePitchControlled.v_wind) annotation (Line(points={{-31,0},
+          {-22,0},{-22,0.1},{1.1,0.1}},            color={0,0,127}));
 public
 function plotResult
 

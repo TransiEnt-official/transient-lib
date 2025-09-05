@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.Electrical.Base;
+within TransiEnt.Components.Boundaries.Electrical.Base;
 partial model PartialModelPowerBoundary
 
 
@@ -19,11 +19,10 @@ partial model PartialModelPowerBoundary
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
-
 
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.Electrical;
+within TransiEnt.Components.Boundaries.Electrical;
 package ComplexPower
 
 
@@ -38,5 +38,7 @@ annotation (Icon(graphics={
         lineColor={95,95,95},
         extent={{-38.4,-54},{25.6,6}},
         fillColor={28,108,200},
-        fillPattern=FillPattern.Solid)}));
+        fillPattern=FillPattern.Solid)}), Documentation(info="<html>
+<p>New models were developed and are integrated into the TransiEnt Libaray with the model name ending <code>_new</code>.</p>
+</html>"));
 end ComplexPower;

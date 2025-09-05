@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.Electrical.ComplexPower;
+within TransiEnt.Components.Boundaries.Electrical.ComplexPower;
 model PQBoundary "L2 Active and reactive power by parameter or inputs, based on ComplexPowerPort"
 
 
@@ -113,7 +113,7 @@ model PQBoundary "L2 Active and reactive power by parameter or inputs, based on 
 
   SI.ReactivePower Q=epp.Q;
   SI.ApparentPower S;
-  SI.Angle delta_cp(start=-0.08726646259971647)
+  SI.Angle delta_cp(start=-0.087266462599716)
     annotation (Dialog(group="Initialization", showStartAttribute=true));
   SI.Voltage v_cp(start=v_n)
     annotation (Dialog(group="Initialization", showStartAttribute=true));

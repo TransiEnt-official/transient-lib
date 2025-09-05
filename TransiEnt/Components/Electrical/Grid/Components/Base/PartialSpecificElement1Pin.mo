@@ -20,7 +20,7 @@ partial model PartialSpecificElement1Pin "Partial modell for one pin Inductor, C
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und Wärme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -51,7 +51,7 @@ partial model PartialSpecificElement1Pin "Partial modell for one pin Inductor, C
   //                  Interfaces
   // _____________________________________________
 
-  TransiEnt.Basics.Interfaces.Electrical.ApparentPowerPort epp_p annotation (Placement(transformation(extent={{-10,90},{10,110}})));
+  TransiEnt.Basics.Interfaces.Electrical.ApparentPowerPort epp_p(P(start=0), Q(start=0)) annotation (Placement(transformation(extent={{-10,90},{10,110}})));
 
   // _____________________________________________
   //

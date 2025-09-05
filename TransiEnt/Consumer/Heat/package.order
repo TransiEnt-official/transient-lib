@@ -9,6 +9,7 @@ FirstOrderHeatingNetworkConsumer
 ThermalHeatConsumer
 ThermalHeatConsumer_L3
 DomesticHotWater
+TappingCycles
 Consumer
 Consumer_SLP
 ConsumerHeatCharacteristic
@@ -16,4 +17,3 @@ HeatCharacteristic
 Consumer_LowTemperatureDHN
 HeatCharacteristicDoublePort
 HeatConsumerSubstation
-
