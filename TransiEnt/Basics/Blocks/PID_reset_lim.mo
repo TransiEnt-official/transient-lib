@@ -11,7 +11,8 @@ block PID_reset_lim
         zero "Use zero",
         xi_start "Use xi_start",
         limit1 "Use lower limit (sampled value)",
-        limit2 "Use upper limit (sampled value)");
+        limit2 "Use upper limit (sampled value)",
+        limitMean "Use mean of both limits (sampled value)");
   end Types;
 
   // ------------------------------------------------------------------------------------------
@@ -201,6 +202,8 @@ equation
     reinit(I.y, variableLimiter.limit1);
   elsewhen reset_internal and reinitMethod == Types.reinitMethods.limit2 then
     reinit(I.y, variableLimiter.limit2);
+  elsewhen reset_internal and reinitMethod == Types.reinitMethods.limitMean then
+    reinit(I.y, (variableLimiter.limit1 + variableLimiter.limit2) / 2);
   end when;
 
   // dead zone
