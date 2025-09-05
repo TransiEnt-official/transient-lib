@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.MethanatorSystem.Check;
+within TransiEnt.Producer.Gas.MethanatorSystem.Check;
 model Test_FeedInStation_Methanator_WithCoolant "Model for testing the Methanator FeedInStation"
 
 
@@ -199,7 +199,7 @@ model Test_FeedInStation_Methanator_WithCoolant "Model for testing the Methanato
   ClaRa.Components.Sensors.SensorVLE_L1_m_flow sensorVLE_L1_m_flow3 annotation (Placement(transformation(extent={{-42,-150},{-32,-138}})));
 equation
   connect(boundaryRealGas_pTxi9.gasPort,feedInSystem_Methanation6. gasPortOut) annotation (Line(
-      points={{-54,20},{-54,25.9},{-54.5,25.9}},
+      points={{-54,20},{-54,26.1},{-54,26.1}},
       color={255,255,0},
       thickness=1.5));
   connect(ElectricGrid6.epp,feedInSystem_Methanation6. epp) annotation (Line(
@@ -214,7 +214,7 @@ equation
       color={175,0,0},
       thickness=0.5));
   connect(boundaryRealGas_pTxi10.gasPort, feedInSystem_Methanation7.gasPortOut) annotation (Line(
-      points={{-52,80},{-52,85.9},{-52.5,85.9}},
+      points={{-52,80},{-52,86.1},{-52,86.1}},
       color={255,255,0},
       thickness=1.5));
   connect(ElectricGrid7.epp,feedInSystem_Methanation7. epp) annotation (Line(
@@ -226,7 +226,7 @@ equation
   connect(feedInSystem_Methanation7.heat, fixedTemperature.port) annotation (Line(points={{-42,89.4},{-36,89.4},{-36,90},{-28,90},{-28,80},{-22,80}},
                                                                                                                                                     color={191,0,0}));
   connect(boundaryRealGas_pTxi1.gasPort,feedInSystem_Methanation1. gasPortOut) annotation (Line(
-      points={{-54,-100},{-54,-94.1},{-54.5,-94.1}},
+      points={{-54,-100},{-54,-93.9},{-54,-93.9}},
       color={255,255,0},
       thickness=1.5));
   connect(ElectricGrid1.epp,feedInSystem_Methanation1. epp) annotation (Line(
@@ -240,7 +240,7 @@ equation
       color={175,0,0},
       thickness=0.5));
   connect(boundaryRealGas_pTxi2.gasPort,feedInSystem_Methanation2. gasPortOut) annotation (Line(
-      points={{-52,-40},{-52,-34.1},{-52.5,-34.1}},
+      points={{-52,-40},{-52,-33.9},{-52,-33.9}},
       color={255,255,0},
       thickness=1.5));
   connect(ElectricGrid2.epp,feedInSystem_Methanation2. epp) annotation (Line(
@@ -293,7 +293,7 @@ equation
       pattern=LinePattern.Solid,
       thickness=0.5));
   connect(boundaryRealGas_pTxi3.gasPort,feedInSystem_Methanation3. gasPortOut) annotation (Line(
-      points={{-56,-162},{-56,-156.1},{-56.5,-156.1}},
+      points={{-56,-162},{-56,-155.9},{-56,-155.9}},
       color={255,255,0},
       thickness=1.5));
   connect(ElectricGrid3.epp,feedInSystem_Methanation3. epp) annotation (Line(
@@ -347,25 +347,9 @@ equation
           textString="fluid port + heat from methanation and electrolyzer + mass flow defined by boundary")}),
     experiment(StopTime=360000, Interval=600),
     Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
 <p>Test environment for the Methanator FeedInStation</p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
-<p>(Purely technical component without physical modeling.)</p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
-<p>(Purely technical component without physical modeling.)</p>
-<h4><span style=\"color: #008000\">4.Interfaces</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
-<p>(no equations)</p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
-<p>(no validation or testing necessary)</p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
+<h4><span style=\"color: #008000\">Version History</span></h4>
 </html>"),
     __Dymola_experimentFlags(
       Advanced(GenerateVariableDependencies=false, OutputModelicaCode=false),

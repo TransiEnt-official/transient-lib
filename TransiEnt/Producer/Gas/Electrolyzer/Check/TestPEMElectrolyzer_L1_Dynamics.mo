@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer.Check;
+within TransiEnt.Producer.Gas.Electrolyzer.Check;
 model TestPEMElectrolyzer_L1_Dynamics "Tester for a PEM electrolyzer"
 
 
@@ -131,8 +131,9 @@ equation
       points={{40,-50},{40,-50},{20,-50}},
       color={255,255,0},
       thickness=1.5));
-  connect(step.y, multiSum.u[1]) annotation (Line(points={{-79,52},{-70,52},{-70,52.1},{-60,52.1}}, color={0,0,127}));
-  connect(step1.y, multiSum.u[2]) annotation (Line(points={{-79,22},{-70,22},{-70,48},{-64,48},{-60,48},{-60,47.9}},
+  connect(step.y, multiSum.u[1]) annotation (Line(points={{-79,52},{-70,52},{-70,48.95},{-60,48.95}},
+                                                                                                    color={0,0,127}));
+  connect(step1.y, multiSum.u[2]) annotation (Line(points={{-79,22},{-70,22},{-70,48},{-64,48},{-60,48},{-60,51.05}},
                                                                                                  color={0,0,127}));
   connect(ElectricGrid_0thOrder.epp, electrolyzer_0thOrder.epp) annotation (Line(
       points={{-20,30},{0,30},{0,30}},
@@ -164,24 +165,8 @@ with electricity price 103.3 EUR/MWh")}),
     __Dymola_experimentSetupOutput,
     __Dymola_Commands(executeCall=TransiEnt.Components.Convertor.Power2Gas.Check.TestPEMElectrolyzer_L1_Dynamics.plotResult() "Plot example results"),
     Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
 <p>Test environment for PEMElectrolyzer_L1_Dynamics</p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
-<p>(Purely technical component without physical modeling.)</p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
-<p>(Purely technical component without physical modeling.)</p>
-<h4><span style=\"color: #008000\">4.Interfaces</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
-<p>(no equations)</p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
-<p>(no validation or testing necessary)</p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
+<h4><span style=\"color: #008000\">Version History</span></h4>
 </html>"));
 end TestPEMElectrolyzer_L1_Dynamics;

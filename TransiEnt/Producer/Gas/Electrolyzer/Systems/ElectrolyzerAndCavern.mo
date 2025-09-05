@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer.Systems;
+within TransiEnt.Producer.Gas.Electrolyzer.Systems;
 model ElectrolyzerAndCavern "Simple model of an electrolyzer plant and a hydrogen cavern (use with: TransiEnt.Producer.Combined.LargeScaleCHP.H2CofiringCHP)"
 
 
@@ -292,9 +292,10 @@ equation
     Diagram(graphics,
             coordinateSystem(preserveAspectRatio=false)),
     Documentation(info="<html>
-<p><b><span style=\"font-family: Arial,sans-serif; color: #008000;\">1. Purpose of model</span></b></p>
-<p><span style=\"font-family: Arial,sans-serif;\">This simple model simulates the behavior of a hydrogen cavern. It should be used together with the component <a href=\"TransiEnt.Producer.Combined.LargeScaleCHP.H2CofiringCHP\">TransiEnt.Producer.Combined.LargeScaleCHP.H2CofiringCHP</a>.</span></p><p><span style=\"font-family: MS Shell Dlg 2;\">The default parameters are based on the sample cavern of one of the NOW studies [1].</span></p>
-<p><br><b><span style=\"font-family: Arial,sans-serif; color: #008000;\">2. Level of detail, physical effects considered, and physical insight</span></b></p>
+<p><b><span style=\"font-family: Arial; color: #008000;\">Purpose of model</span></b></p>
+<p><span style=\"font-family: Arial;\">This simple model simulates the behavior of a hydrogen cavern. It should be used together with the component <a href=\"TransiEnt.Producer.Combined.LargeScaleCHP.H2CofiringCHP\">TransiEnt.Producer.Combined.LargeScaleCHP.H2CofiringCHP</a>.</span></p>
+<p><span style=\"font-family: MS Shell Dlg 2;\">The default parameters are based on the sample cavern of one of the NOW studies [1].</span></p>
+<p><br><b><span style=\"font-family: Arial; color: #008000;\">Level of detail, physical effects considered, and physical insight</span></b></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">Loading: </span></p>
 <ul>
 <li><span style=\"font-family: MS Shell Dlg 2;\">This component takes into consideration the amount of power being sent to the electrolyzer to calculate the produced amount of hydrogen.</span></li>
@@ -306,24 +307,24 @@ equation
 <li><span style=\"font-family: MS Shell Dlg 2;\">Hydrogen is unloaded from the cavern if there is enough hydrogen in the cavern (more than the cushion-gas) and if there is hydrogen demand.</span></li>
 <li><span style=\"font-family: MS Shell Dlg 2;\">The amount of hydrogen to be unloaded depends on the co-firing ration as defined in <span style=\"color: #0000ff;\">SimCenter.k_H2_fraction</span>.</li>
 </ul>
-<p><br><br><b><span style=\"font-family: Arial,sans-serif; color: #008000;\">3. Limits of validity </span></b></p>
-<p><span style=\"font-family: Arial,sans-serif;\">Due to its simplifcation level, this model should not be used for detailed dimensioning of underground hydrogen caverns.</span></p>
-<p><span style=\"font-family: Arial,sans-serif;\">Its usage is rather recommended for large system models.</span></p>
-<p><br><b><span style=\"font-family: Arial,sans-serif; color: #008000;\">4. Interfaces</span></b></p>
+<p><br><br><b><span style=\"font-family: Arial; color: #008000;\">Limits of validity </span></b></p>
+<p><span style=\"font-family: Arial;\">Due to its simplifcation level, this model should not be used for detailed dimensioning of underground hydrogen caverns.</span></p>
+<p><span style=\"font-family: Arial;\">Its usage is rather recommended for large system models.</span></p>
+<p><br><b><span style=\"font-family: Arial; color: #008000;\">Interfaces</span></b></p>
 <p>Inputs:</p>
 <ul>
-<li><span style=\"font-family: Arial,sans-serif;\">P_ely_set</span></li>
-<li><span style=\"font-family: Arial,sans-serif;\">Q_flow_fuel_GuD</span></li>
+<li><span style=\"font-family: Arial;\">P_ely_set</span></li>
+<li><span style=\"font-family: Arial;\">Q_flow_fuel_GuD</span></li>
 </ul>
-<p><br><span style=\"font-family: Arial,sans-serif;\">Outputs:</span></p>
+<p><br><span style=\"font-family: Arial;\">Outputs:</span></p>
 <ul>
-<li><span style=\"font-family: Arial,sans-serif;\">h2Available (boolean)</span></li>
+<li><span style=\"font-family: Arial;\">h2Available (boolean)</span></li>
 </ul>
-<p><br><b><span style=\"font-family: Arial,sans-serif; color: #008000;\">5. Nomenclature</span></b></p>
-<p><span style=\"font-family: Arial,sans-serif;\">Electrolyzer Parameters:</span></p>
+<p><br><b><span style=\"font-family: Arial; color: #008000;\">Nomenclature</span></b></p>
+<p><span style=\"font-family: Arial;\">Electrolyzer Parameters:</span></p>
 <ul>
-<li><span style=\"font-family: Arial,sans-serif;\">P_nom_ely: nominal electric power of electrolyzer</span></li>
-<li><span style=\"font-family: Arial,sans-serif;\">eta_nom_ely: nominal efficiency of electrolyzer</span></li>
+<li><span style=\"font-family: Arial;\">P_nom_ely: nominal electric power of electrolyzer</span></li>
+<li><span style=\"font-family: Arial;\">eta_nom_ely: nominal efficiency of electrolyzer</span></li>
 </ul>
 <p><br>Cavern Parameters:</p>
 <ul>
@@ -332,16 +333,12 @@ equation
 <li>V_cushion: cushion gas volume <span style=\"font-family: MS Shell Dlg 2;\">(converted into mass via calculated density)</span></li>
 <li>k_H2_fraction: co-firing ratio (Q_flow_fuel_H2/Q_flow_fuel_CH4)</li>
 </ul>
-<p><br><b><span style=\"font-family: Arial,sans-serif; color: #008000;\">6. Governing Equations</span></b></p>
-<p><span style=\"font-family: Arial,sans-serif;\">(no equations)</span></p>
-<p><br><b><span style=\"font-family: Arial,sans-serif; color: #008000;\">7. Remarks for Usage</span></b></p>
-<p><br>(none)</p>
-<p><br><b><span style=\"font-family: Arial,sans-serif; color: #008000;\">8. Validation</span></b></p>
+<p><br><br><b><span style=\"font-family: Arial; color: #008000;\">Validation</span></b></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">See Check-Model &quot;TransiEnt.Producer.Gas.Electrolyzer.Systems.Check.TestElectrolyzerAndCavern&quot;</span></p>
-<p><br><b><span style=\"font-family: Arial,sans-serif; color: #008000;\">9. References</span></b></p>
+<p><br><b><span style=\"font-family: Arial; color: #008000;\">References</span></b></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">[1] Stolzenburg, Klaus ; Hamelmann, Roland ; Wietschel, Martin ; Genoese, Fabio ; Michaelis, Julia ; Lehmann, Jochen ; Miege, Andreas ; Krause, Stephan ; Sponholz, Christian ; u. a.: <i>Integration von Wind-Wasserstoff-Systemen in das Energiesystem Abschlussbericht</i>, 2014</span></p>
-<p><br><b><span style=\"font-family: Arial,sans-serif; color: #008000;\">10. Version History</span></b></p>
-<p><span style=\"font-family: Arial,sans-serif;\">Ricardo Peniche, 2016</span></p>
+<p><br><b><span style=\"font-family: Arial; color: #008000;\">Version History</span></b></p>
+<p><span style=\"font-family: Arial;\">Ricardo Peniche, 2016</span></p>
 <p><br><br><br><br><br><br><br>Sources: </p>
 </html>"));
 end ElectrolyzerAndCavern;

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.MethanatorSystem;
+within TransiEnt.Producer.Gas.MethanatorSystem;
 partial model PartialMethanatorSystem
 
 
@@ -183,13 +183,11 @@ equation
           thickness=0.5,
           smooth=Smooth.Bezier)}),                               Diagram(coordinateSystem(preserveAspectRatio=false)),
     Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
 <p>This model is partial model for methanator systems.</p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
+<h4><span style=\"color: #008000\">Level of detail, physical effects considered, and physical insight</span></h4>
 <p>Calculation of heat losses via simplified correlation taken from calculation results from model &apos;EquilibriumModel.Methanation.ThreeStages&apos;.</p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">4. Interfaces</span></h4>
+<h4><span style=\"color: #008000\">Interfaces</span></h4>
 <p>gasPortIn: inlet for real gas</p>
 <p>gasPortOut: outlet for real gas</p>
 <p>gasPortIn_CDE: inlet for CO2 mass flow</p>
@@ -197,17 +195,7 @@ equation
 <p>fluidPortIn: fluid Port for coolant - active if &apos;useFluidCoolandPort=true&apos;</p>
 <p>fluidPortOut: fluid Port for coolant - active if &apos;useFluidCoolandPort=true&apos;</p>
 <p>temperatureIn: defines output temperature of coolant - active if &apos;useVariableCoolantOutputTemperature=true&apos;</p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
+<h4><span style=\"color: #008000\">Version History</span></h4>
 <p>Model created by Oliver Sch&uuml;lting (oliver.schuelting@tuhh.de) in Jul 2019</p>
 </html>"));
 end PartialMethanatorSystem;

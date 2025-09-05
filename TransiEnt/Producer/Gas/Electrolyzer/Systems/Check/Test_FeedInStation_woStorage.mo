@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer.Systems.Check;
+within TransiEnt.Producer.Gas.Electrolyzer.Systems.Check;
 model Test_FeedInStation_woStorage "Model for testing a feed in station without a storage"
 
 
@@ -95,7 +95,7 @@ equation
       color={0,135,135},
       thickness=0.5));
   connect(feedInStation.gasPortOut, boundaryRealGas_pTxi.gasPort) annotation (Line(
-      points={{-26.5,-64.1},{-26.5,-68.05},{-26,-68.05},{-26,-72}},
+      points={{-26,-63.9},{-26,-68.05},{-26,-68.05},{-26,-72}},
       color={255,255,0},
       thickness=1.5));
   connect(rampP1.y, feedInStation.P_el_set) annotation (Line(points={{-57,10},{-26,10},{-26,-43.6}}, color={0,0,127}));
@@ -131,8 +131,7 @@ protected
           extent={{-98,98},{84,60}},
           lineColor={28,108,200},
           horizontalAlignment=TextAlignment.Left,
-          textString="#LA, 12.09.2016
-- with two ramps, simulate 3600 s
+          textString="- with two ramps, simulate 3600 s
 - P-controlled with k=1e10
 - look at electrolyzer power compared to set power: electrolyzer starts when P_set > P_min and shuts down
 when P(m_flow_set) < P_min; when max. time in overload is exceeded, it regulates down to rated power
@@ -149,24 +148,9 @@ m_flow_n (eta_n=0.75, P_el_n=1e6) = 5.29e-3 kg/s",
     __Dymola_experimentSetupOutput,
     __Dymola_Commands(executeCall=TransiEnt.Storage.PtG.Check.Check_FeedInStation_woStorage.plotResult() "Plot example results"),
     Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
 <p>Test environment for FeedInStation_woStorage</p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
-<p>(Purely technical component without physical modeling.)</p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
-<p>(Purely technical component without physical modeling.)</p>
-<h4><span style=\"color: #008000\">4.Interfaces</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
-<p>(no equations)</p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
-<p>(no validation or testing necessary)</p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
+<h4><span style=\"color: #008000\">Version History</span></h4>
+<p>added by Lisa Andresen (September, 2016)</p>
 </html>"));
 end Test_FeedInStation_woStorage;

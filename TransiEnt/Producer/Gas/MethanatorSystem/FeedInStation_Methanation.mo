@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.MethanatorSystem;
+within TransiEnt.Producer.Gas.MethanatorSystem;
 model FeedInStation_Methanation
 
 
@@ -381,36 +381,30 @@ equation
           textStyle={TextStyle.Bold},
           textString="Syngas")}),                                Diagram(coordinateSystem(preserveAspectRatio=false)),
     Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
 <p>This model represents a feed in station where hydrogen is produced with an electrolyzer and methanated in a methanator to be fed in into a natural gas grid. </p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
+<h4><span style=\"color: #008000\">Level of detail, physical effects considered, and physical insight</span></h4>
 <p>The hydrogen can be produced in an electrolyzer and be stored if desired. Herefore one of the FeedInSystems with an electrolzer can be chosen. </p>
 <p>The methanation of hydrogen takes place after the hydrogen production and the possible storage. </p>
 <p>The methanation can be avoided by a bypass. This bypass is is controlled by the output molar content of hydrogen which can be defined by the parameter &apos;hydrogenContentOutput&apos;. If this parameter is set to &apos;1&apos; all hydrogen is bypassed. If the parameter is set to &apos;0&apos; all hydrogen is methanated. The bypass fraction is controlled via a PID-controller whereby the set value is equal to &apos;hydrogenContentOutput&apos;. if &apos;<span style=\"font-family: Courier New;\">useVariableHydrogenFraction&apos;=false the meassurement-signal is equal to the volumetric hydrogen fraction at the output. If &apos;useVariableHydrogenFraction&apos;=true the meassurement-signal is equal to the input value &apos;hydrogenFraction_input&apos;. </span>This allows defining the hydrogen fraction in the SNG depending of the hydrogen fraction in an outer gas grid.</p>
 <p>Consider that the output of the methanator still contains hydrogen such that an actual molar hydrogen content of &apos;0&apos; can not be achieved.</p>
 <p>Via the parameter &apos;<span style=\"font-family: Courier New;\">useSeperateHydrogenOutput</span>&apos; an additional hydrogen output can be activated. The gas of this output is not methanated before and can be controlled via the input m_flow_feedIn_H2.</p>
 <p>Via parameter &apos;useLeakageMassFlow&apos; a small mass flow of &apos;simCenter.m_flow_small&apos; is always flowing out of gas ports (to avoid Zero-Mass-Flow problems)</p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
+<h4><span style=\"color: #008000\">Limits of validity </span></h4>
 <p>see sub models </p>
-<h4><span style=\"color: #008000\">4. Interfaces</span></h4>
+<h4><span style=\"color: #008000\">Interfaces</span></h4>
 <p>P_el_set: input for the set value for the electric power </p>
 <p>m_flow_feedIn: input for the possible feed-in mass flow into the natural grid etc. </p>
 <p>m_flow_feedIn_H2: input for the possible feed-in mass flow of Hydrogen into the natural grid etc. </p>
 <p>epp: electric power port for the electrolyzer </p>
 <p>gasPortOut: outlet of SNG </p>
 <p>gasPortOut_H2: outlet of hydrogen</p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
+<h4><span style=\"color: #008000\">Remarks for Usage</span></h4>
 <p>For start up, a small hydrogen mass flow for the electrolyzer can be set to allow for simpler initialisation. </p>
 <p>If useMassFlowControl=true, the electrical power of the electrolyzer will no more be limited by given m_flow_feed. This simplifies the controller if limitation is not needed. useMassFlowControl=false should only be used if feedInStation_Hydrogen has no hydrogen storage and the parameter useMassFlowControl is set to &apos;false&apos; in feedInStation_Hydrogen as well.</p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
+<h4><span style=\"color: #008000\">Validation</span></h4>
 <p>Tested in check model TransiEnt.Producer.Gas.MethanatorSystem.Check.Test FeedInStation_Methanator</p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
+<h4><span style=\"color: #008000\">Version History</span></h4>
 <p><br>Model created by Oliver Sch&uuml;lting (oliver.schuelting@tuhh.de) in Feb 2018</p>
 <p>Model modified by Oliver Sch&uuml;lting (oliver.schuelting@tuhh.de) in Jul 2018: added conditional separate hydrogen port</p>
 <p>Model modified by Oliver Sch&uuml;lting (oliver.schuelting@tuhh.de) in Nov 2018: TWV for Hydrogen output is controled without PID now for faster simulation results. useLeakageMassFlow added</p>

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.SteamMethaneReformerSystem;
+within TransiEnt.Producer.Gas.SteamMethaneReformerSystem;
 model SMRSystem_noH2Loop "Steam methane reformer system with sufficient H2 in feed containing prereformer, SMR, WGS, dryer, PSA and heat exchangers"
 
 
@@ -668,33 +668,24 @@ connect(junction_feedH2O.gasPort3, moleCompDryGasBeforePreRe.gasPortIn) annotati
   annotation (Icon(graphics,
                    coordinateSystem(preserveAspectRatio=false, extent={{-240,-100},{240,100}})),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-240,-100},{240,100}})),
   Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
 <p>This model represents typical setup of a steam methane reformer system with enough hydrogen in the feed. </p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
+<h4><span style=\"color: #008000\">Level of detail, physical effects considered, and physical insight</span></h4>
 <p>The feed is preheated, mixed with preheated steam and the higher hydrocarbons are decomposed. Thereafter, the steam methane reformer produces hydrogen out of methane and steam. Afterwards, the hydrogen yield is increased in the water gas shift reactor. In the end, the stream is cooled, dried and purified in a</p>
 <p>pressure swing adsorption reactor (PSA). In a real system there are many more heat exchangers but most of the models work simplified and thus independent of the temperature. Necessary for this process is heat for the preheaters and the steam methane reformer which is usually delivered by a burner in which the PSA off-</p>
 <p>gas is burned. </p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
+<h4><span style=\"color: #008000\">Limits of validity </span></h4>
 <p>The model is valid if there is enough hydrogen in the stream. The applicability of the submodels should be checked as well before using this model. </p>
-<h4><span style=\"color: #008000\">4. Interfaces</span></h4>
+<h4><span style=\"color: #008000\">Interfaces</span></h4>
 <p>gasPortIn: real gas inlet </p>
 <p>gasPortOut_offGas: real gas outlet for the PSA off-gas </p>
 <p>gasPortOut_hydrogen: real gas outlet for the produced hydrogen </p>
 <p>heatFeedPreheater: heat port for the feed preheater </p>
 <p>heatSteamPreheater: heat port for the steam preheater </p>
 <p>heatSMR: heat port for the steam methane reformer </p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
+<h4><span style=\"color: #008000\">Validation</span></h4>
 <p>Tested in check models &quot;TransiEnt.Producer.Gas.SteamMethaneReformerSystem.Check.TestSMRSystem_noH2Loop&quot; and &quot;TransiEnt.Producer.Gas.SteamMethaneReformerSystem.Check.TestSMRSystem_noH2Loop&quot;</p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
-<p>Model created by Carsten Bode (c.bode@tuhh.de) in March 2017</p>
-<p><br>Model revised by Carsten Bode (c.bode@tuhh.de) in Apr 2018 (fixed for update to ClaRa 1.3.0)</p>
+<h4><span style=\"color: #008000\">Version History</span></h4>
+<p>Model created by Carsten Bode (c.bode@tuhh.de) in March 2017</p><p>Model revised by Carsten Bode (c.bode@tuhh.de) in Apr 2018 (fixed for update to ClaRa 1.3.0)</p>
 </html>"));
 end SMRSystem_noH2Loop;

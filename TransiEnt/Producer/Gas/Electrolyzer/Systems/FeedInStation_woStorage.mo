@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer.Systems;
+within TransiEnt.Producer.Gas.Electrolyzer.Systems;
 model FeedInStation_woStorage
 
 
@@ -245,7 +245,7 @@ equation
       thickness=1.5));
   if useFluidAdapter then
     connect(gasPortOut, h2toNG.gasPortOut) annotation (Line(
-      points={{0,-96},{0,-96},{0,-76},{-4.996e-016,-76}},
+      points={{5,-94},{5,-94},{5,-76},{0,-76}},
       color={255,255,0},
       thickness=1.5));
     connect(h2toNG.gasPortIn, massflowSensor.gasPortOut) annotation (Line(
@@ -254,7 +254,7 @@ equation
       thickness=1.5));
   else
     connect(massflowSensor.gasPortOut, gasPortOut) annotation (Line(
-      points={{0,-56},{-16,-56},{-16,-96},{0,-96}},
+      points={{0,-56},{-16,-56},{-16,-94},{5,-94}},
       color={255,255,0},
       thickness=1.5));
   end if;
@@ -263,7 +263,7 @@ equation
       color={255,255,0},
       thickness=1.5));
   connect(valve_pBeforeValveDes.gasPortOut, massflowSensor.gasPortIn) annotation (Line(
-      points={{19.4286,-20},{19.4286,-36},{0,-36},{0,-42},{-1.77636e-15,-42}},
+      points={{19.4286,-20},{19.4286,-36},{0,-36},{0,-42},{0,-42}},
       color={255,255,0},
       thickness=1.5));
   if useMassFlowControl then
@@ -302,30 +302,22 @@ equation
           origin={0,149},
           rotation=360)}),
     Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
 <p>This model represents a feed in station where hydrogen is produced with an electrolyzer and fed directly into a natural gas grid. </p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
+<h4><span style=\"color: #008000\">Level of detail, physical effects considered, and physical insight</span></h4>
 <p>see sub models </p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
+<h4><span style=\"color: #008000\">Limits of validity </span></h4>
 <p>see sub models </p>
-<h4><span style=\"color: #008000\">4. Interfaces</span></h4>
+<h4><span style=\"color: #008000\">Interfaces</span></h4>
 <p>P_el_set: input for the set value for the electric power </p>
 <p>m_flow_feedIn: input for the possible feed-in mass flow into the natural grid etc. </p>
 <p>epp: electric power port for the electrolyzer, type can be chosen </p>
 <p>gasPortOut: outlet of the hydrogen </p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
+<h4><span style=\"color: #008000\">Remarks for Usage</span></h4>
 <p>For start up, a small hydrogen mass flow for the electrolyzer can be set to allow for simpler initialisation. </p>
 <p>If <span style=\"font-family: Courier New;\">useMassFlowControl</span>=true, the electrical power of the electrolyzer will no more be limited by given m_flow_feed. This simplifies the controller if limitation is not needed.</p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
-<p>(no remarks) </p>
 <h4><span style=\"color: #008000\">10. Version History</span></h4>
 <p>Model created by Lisa Andresen (andresen@tuhh.de) in September 2016</p>
-<p><br>Model modified by Oliver Sch&uuml;lting (oliver.schuelting@tuhh.de) in April 2019: added Boolean <span style=\"font-family: Courier New;\">useMassFlowControl</span></p>
+<p>Model modified by Oliver Sch&uuml;lting (oliver.schuelting@tuhh.de) in April 2019: added Boolean <span style=\"font-family: Courier New;\">useMassFlowControl</span></p>
 </html>"));
 end FeedInStation_woStorage;

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer.Check;
+within TransiEnt.Producer.Gas.Electrolyzer.Check;
 model ComparisonOfElectrolyzer "Model for comparing the ElectrolyzerL1 with the ElectrolyzerL2"
 
 
@@ -257,8 +257,10 @@ equation
       color={0,131,169},
       pattern=LinePattern.Solid,
       thickness=0.5));
-  connect(step.y, multiSum.u[1]) annotation (Line(points={{-107,120},{-94,120},{-94,106.1},{-82,106.1}}, color={0,0,127}));
-  connect(step1.y, multiSum.u[2]) annotation (Line(points={{-107,82},{-94,82},{-94,101.9},{-82,101.9}}, color={0,0,127}));
+  connect(step.y, multiSum.u[1]) annotation (Line(points={{-107,120},{-94,120},{-94,102.95},{-82,102.95}},
+                                                                                                         color={0,0,127}));
+  connect(step1.y, multiSum.u[2]) annotation (Line(points={{-107,82},{-94,82},{-94,105.05},{-82,105.05}},
+                                                                                                        color={0,0,127}));
   annotation (
     Diagram(coordinateSystem(extent={{-160,-180},{200,140}}), graphics={
         Text(
@@ -289,25 +291,9 @@ with a high time constant
     Icon(coordinateSystem(extent={{-160,-180},{200,140}})),
     experiment(StopTime=36000, __Dymola_Algorithm="Dassl"),
     Documentation(info="<html>
-<h4><span style=\"color: #008300\">1. Purpose of model</span></h4>
+<h4><span style=\"color: #008300\">Purpose of model</span></h4>
 <p>Model for testing and comparing the L2 electrolyzer to the L1 electrolyzer. They can be compared in terms of dynamic behaviour, heat production and efficiency.</p>
-<h4><span style=\"color: #008300\">2. Level of detail, physical effects considered, and physical insight</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008300\">3. Limits of validity </span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color: #008300\">4. Interfaces</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color: #008300\">5. Nomenclature</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color: #008300\">6. Governing Equations</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008300\">7. Remarks for Usage</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color: #008300\">8. Validation</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color: #008300\">9. References</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color: #008300\">10. Version History</span></h4>
+<h4><span style=\"color: #008300\">Version History</span></h4>
 <p>Created by Jan Westphal (j.westphal@tuhh.de) dec 2019.</p>
 </html>"));
 end ComparisonOfElectrolyzer;

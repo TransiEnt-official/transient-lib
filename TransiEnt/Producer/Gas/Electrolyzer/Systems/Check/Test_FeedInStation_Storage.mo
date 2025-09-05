@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer.Systems.Check;
+within TransiEnt.Producer.Gas.Electrolyzer.Systems.Check;
 model Test_FeedInStation_Storage "Model for testing a feed in station for hydrogen with a storage"
 
 
@@ -81,7 +81,7 @@ model Test_FeedInStation_Storage "Model for testing a feed in station for hydrog
   inner TransiEnt.ModelStatistics                                         modelStatistics annotation (Placement(transformation(extent={{40,40},{60,60}})));
 equation
   connect(feedInStation.gasPortOut, boundaryRealGas_pTxi.gasPort) annotation (Line(
-      points={{-28.5,-64.1},{-28.5,-72},{-28,-72}},
+      points={{-28,-63.9},{-28,-72},{-28,-72}},
       color={255,255,0},
       thickness=1.5));
   connect(feedInStation.epp, ElectricGrid.epp) annotation (Line(
@@ -95,8 +95,7 @@ equation
           extent={{-96,98},{100,58}},
           lineColor={28,108,200},
           horizontalAlignment=TextAlignment.Left,
-          textString="#LA, 12.09.2016:
-- with two ramps, simulate 3600 s
+          textString="- with two ramps, simulate 3600 s
 - p_start= 50 bar, V_geo=100 m3
 - P-controlled with k=1e10
 - look at electrolyzer power compared to set power: electrolyzer starts when P_set>P_min, regulates down when storage is full
@@ -106,24 +105,9 @@ and shuts down when P(m_flow_set)<P_min & storage is full; when max. time in ove
     experiment(StopTime=3600, __Dymola_NumberOfIntervals=10000),
     __Dymola_experimentSetupOutput,
     Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
 <p>Test environment for FeedInStation_Storage</p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
-<p>(Purely technical component without physical modeling.)</p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
-<p>(Purely technical component without physical modeling.)</p>
-<h4><span style=\"color: #008000\">4.Interfaces</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
-<p>(no equations)</p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
-<p>(no validation or testing necessary)</p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
+<h4><span style=\"color: #008000\">Version History</span></h4>
+<p>added by Lisa Andresen (September, 2016)</p>
 </html>"));
 end Test_FeedInStation_Storage;

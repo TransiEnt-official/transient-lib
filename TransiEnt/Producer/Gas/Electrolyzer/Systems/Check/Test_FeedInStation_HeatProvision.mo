@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer.Systems.Check;
+within TransiEnt.Producer.Gas.Electrolyzer.Systems.Check;
 model Test_FeedInStation_HeatProvision "Model for testing a feed in station without a storage"
 
 
@@ -202,7 +202,7 @@ equation
       color={0,135,135},
       thickness=0.5));
   connect(feedInStation.gasPortOut, boundaryRealGas_pTxi.gasPort) annotation (Line(
-      points={{-48.5,53.9},{-48.5,49.95},{-48,49.95},{-48,48}},
+      points={{-48,54.1},{-48,49.95},{-48,49.95},{-48,48}},
       color={255,255,0},
       thickness=1.5));
   connect(rampP1.y, feedInStation.P_el_set) annotation (Line(points={{-79,92},{-48,92},{-48,74.4}},  color={0,0,127}));
@@ -239,7 +239,7 @@ equation
       color={0,135,135},
       thickness=0.5));
   connect(feedInStation1.gasPortOut, boundaryRealGas_pTxi1.gasPort) annotation (Line(
-      points={{-48.5,-20.1},{-48.5,-24.05},{-48,-24.05},{-48,-22}},
+      points={{-48,-19.9},{-48,-24.05},{-48,-24.05},{-48,-22}},
       color={255,255,0},
       thickness=1.5));
   connect(rampP2.y, feedInStation1.P_el_set) annotation (Line(points={{-79,18},{-48,18},{-48,0.4}}, color={0,0,127}));
@@ -249,7 +249,7 @@ equation
       color={0,135,135},
       thickness=0.5));
   connect(feedInStation2.gasPortOut, boundaryRealGas_pTxi2.gasPort) annotation (Line(
-      points={{-48.5,-84.1},{-48.5,-88.05},{-48,-88.05},{-48,-90}},
+      points={{-48,-83.9},{-48,-88.05},{-48,-88.05},{-48,-90}},
       color={255,255,0},
       thickness=1.5));
   connect(rampP3.y, feedInStation2.P_el_set) annotation (Line(points={{-79,-46},{-48,-46},{-48,-63.6}}, color={0,0,127}));
@@ -316,24 +316,9 @@ equation
     __Dymola_experimentSetupOutput,
     __Dymola_Commands(executeCall=TransiEnt.Storage.PtG.Check.Check_FeedInStation_woStorage.plotResult() "Plot example results"),
     Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
 <p>Test environment for FeedInStation_woStorage</p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
-<p>(Purely technical component without physical modeling.)</p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
-<p>(Purely technical component without physical modeling.)</p>
-<h4><span style=\"color: #008000\">4.Interfaces</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
-<p>(no equations)</p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
-<p>(no validation or testing necessary)</p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
+<h4><span style=\"color: #008000\">Version History</span></h4>
+<p>Add by Lisa Andresen (September 2016)</p>
 </html>"));
 end Test_FeedInStation_HeatProvision;

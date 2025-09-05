@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.MethanatorSystem.Controller;
+within TransiEnt.Producer.Gas.MethanatorSystem.Controller;
 model ControllerCO2ForMethanator
 
 
@@ -94,26 +94,13 @@ equation
                   coordinateSystem(preserveAspectRatio=false)), Diagram(graphics,
                                                                         coordinateSystem(preserveAspectRatio=false)),
     Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
 <p>This model is used to control m_flow_CO2 for a Methanator system. It is dependent on m_flow_H2.</p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
-<p>(Description)</p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
-<p>(Description)</p>
-<h4><span style=\"color: #008000\">4. Interfaces</span></h4>
+<h4><span style=\"color: #008000\">Interfaces</span></h4>
 <p><span style=\"font-family: MS Shell Dlg 2;\">Modelica RealInput: m_flow_H2 in [kg/s]</span></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">Modelica RealOutput: m_flow_CO2 in [kg/s]</span></p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
+<h4><span style=\"color: #008000\">Governing Equations</span></h4>
 <p>m_flow_CO2=-(m_flow_H2*M_CO2/(molarRatioH2toCO2*M_H2))</p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
-<p>(none)</p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
-<p>(no validation or testing necessary)</p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
-<p>(none)</p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
-<p>(no remarks)</p>
+<h4><span style=\"color: #008000\">Version History</span></h4>
 </html>"));
 end ControllerCO2ForMethanator;

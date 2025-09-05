@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.MethanatorSystem.EquilibriumModel.Check;
+within TransiEnt.Producer.Gas.MethanatorSystem.EquilibriumModel.Check;
 model Check_MethanatorBlock_equilibrium_L2_
 
 
@@ -477,5 +477,10 @@ Q_flow_loss7=reactor_09_real7.Block1.Q_flow_loss+reactor_09_real7.Block2.Q_flow_
     experiment(
       StopTime=450000,
       Interval=60,
-      Tolerance=1e-07));
+      Tolerance=1e-07),
+    Documentation(info="<html>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Purpose of model</span></b></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Version History</span></b></p>
+<p><span style=\"font-family: MS Shell Dlg 2;\">Model created by Oliver Sch&uuml;lting (oliver.schuelting@tuhh.de) in Nov 2019</span></p>
+</html>"));
 end Check_MethanatorBlock_equilibrium_L2_;

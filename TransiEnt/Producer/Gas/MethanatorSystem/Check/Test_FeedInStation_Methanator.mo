@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.MethanatorSystem.Check;
+within TransiEnt.Producer.Gas.MethanatorSystem.Check;
 model Test_FeedInStation_Methanator "Model for testing the Methanator FeedInStation"
 
 
@@ -188,7 +188,7 @@ model Test_FeedInStation_Methanator "Model for testing the Methanator FeedInStat
                                                     annotation (Placement(transformation(extent={{-22,-272},{-2,-252}})));
 equation
   connect(boundaryRealGas_pTxi.gasPort, feedInSystem_Methanation.gasPortOut) annotation (Line(
-      points={{-44,6},{-44,23.9},{-44.5,23.9}},
+      points={{-44,6},{-44,24.1},{-44,24.1}},
       color={255,255,0},
       thickness=1.5));
   connect(ElectricGrid.epp, feedInSystem_Methanation.epp) annotation (Line(
@@ -200,7 +200,7 @@ equation
   connect(feedInSystem_Methanation.m_flow_feedIn, realExpression1.y) annotation (Line(points={{-34,42},{-24,42},{-24,58},{-3,58}},
                                                                                                                               color={0,0,127}));
   connect(boundaryRealGas_pTxi3.gasPort, feedInSystem_Methanation2.gasPortOut) annotation (Line(
-      points={{10,-132},{10,-114.1},{9.5,-114.1}},
+      points={{10,-132},{10,-113.9},{10,-113.9}},
       color={255,255,0},
       thickness=1.5));
   connect(ElectricGrid2.epp, feedInSystem_Methanation2.epp) annotation (Line(
@@ -210,7 +210,7 @@ equation
   connect(realExpression5.y, feedInSystem_Methanation2.P_el_set) annotation (Line(points={{-9,-70},{10,-70},{10,-93.6}}, color={0,0,127}));
   connect(feedInSystem_Methanation2.m_flow_feedIn, realExpression6.y) annotation (Line(points={{20,-96},{30,-96},{30,-80},{51,-80}}, color={0,0,127}));
   connect(boundaryRealGas_pTxi1.gasPort, feedInSystem_Methanation1.gasPortOut) annotation (Line(
-      points={{-116,-134},{-116,-116.1},{-116.5,-116.1}},
+      points={{-116,-134},{-116,-115.9},{-116,-115.9}},
       color={255,255,0},
       thickness=1.5));
   connect(ElectricGrid1.epp, feedInSystem_Methanation1.epp) annotation (Line(
@@ -223,7 +223,7 @@ equation
       color={255,255,0},
       thickness=1.5));
   connect(boundaryRealGas_pTxi4.gasPort,feedInSystem_Methanation3. gasPortOut) annotation (Line(
-      points={{-128,-262},{-128,-244.1},{-128.5,-244.1}},
+      points={{-128,-262},{-128,-243.9},{-128,-243.9}},
       color={255,255,0},
       thickness=1.5));
   connect(ElectricGrid3.epp,feedInSystem_Methanation3. epp) annotation (Line(
@@ -244,7 +244,7 @@ equation
   connect(feedInSystem_Methanation1.m_flow_feedIn, realExpression4.y) annotation (Line(points={{-106,-98},{-106,-64},{-75,-64}}, color={0,0,127}));
   connect(ramp1.y, feedInSystem_Methanation1.m_flow_feedIn_H2) annotation (Line(points={{-167,-84},{-130,-84},{-130,-98},{-125.8,-98}}, color={0,0,127}));
   connect(boundaryRealGas_pTxi6.gasPort, feedInSystem_Methanation4.gasPortOut) annotation (Line(
-      points={{-164,18},{-164,23.9},{-164.5,23.9}},
+      points={{-164,18},{-164,24.1},{-164,24.1}},
       color={255,255,0},
       thickness=1.5));
   connect(ElectricGrid4.epp, feedInSystem_Methanation4.epp) annotation (Line(
@@ -254,7 +254,7 @@ equation
   connect(realExpression3.y, feedInSystem_Methanation4.P_el_set) annotation (Line(points={{-183,68},{-164,68},{-164,44.4}}, color={0,0,127}));
   connect(feedInSystem_Methanation4.m_flow_feedIn, realExpression10.y) annotation (Line(points={{-154,42},{-144,42},{-144,58},{-123,58}}, color={0,0,127}));
   connect(boundaryRealGas_pTxi7.gasPort,feedInSystem_Methanation5. gasPortOut) annotation (Line(
-      points={{24,-254},{24,-238.1},{23.5,-238.1}},
+      points={{24,-254},{24,-237.9},{24,-237.9}},
       color={255,255,0},
       thickness=1.5));
   connect(ElectricGrid5.epp,feedInSystem_Methanation5. epp) annotation (Line(
@@ -288,25 +288,9 @@ The bypass of the FeedInStation is calibrated such that the molar hydrogen conte
           textString="Difference of the two following feedInStations: Left one with MethanatorSystem_L4, right one with MethanatorSystem_L2")}),
     experiment(StopTime=360000, Interval=600),
     Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
 <p>Test environment for the Methanator FeedInStation</p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
-<p>(Purely technical component without physical modeling.)</p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
-<p>(Purely technical component without physical modeling.)</p>
-<h4><span style=\"color: #008000\">4.Interfaces</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
-<p>(no equations)</p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
-<p>(no validation or testing necessary)</p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
+<h4><span style=\"color: #008000\">Version History</span></h4>
 </html>"),
     __Dymola_experimentFlags(
       Advanced(GenerateVariableDependencies=false, OutputModelicaCode=false),

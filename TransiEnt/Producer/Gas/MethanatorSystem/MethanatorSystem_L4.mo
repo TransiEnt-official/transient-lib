@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.MethanatorSystem;
+within TransiEnt.Producer.Gas.MethanatorSystem;
 model MethanatorSystem_L4
 
 
@@ -478,27 +478,17 @@ equation
           thickness=0.5,
           smooth=Smooth.Bezier)}),                               Diagram(coordinateSystem(preserveAspectRatio=false)),
     Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
 <p>This model is based on the Methanator model and is basically only expanded by a dryer-model such that the product gas stream has sufficient properties to be fed in the natural gas grid according to DNVGW G 260/262.</p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
+<h4><span style=\"color: #008000\">Level of detail, physical effects considered, and physical insight</span></h4>
 <p>Calculation of Coolant Heat Flow:</p>
 <p>Via the parameteres &apos;useHeatPort&apos; or &apos;useFluidCoolantPort&apos; a heat port or two fluid ports can be activated to model the needed coolant heat flow. Only one port at a time can be modeled. When using the fluid ports the output temperature can be defined via the input &apos;T_set_coolant_out&apos;. This temperature will be limited by the technical feasible temperature. This input needs to be activated via the parameter &apos;useVariableCoolantOutputTemperature&apos;. If not used the temperature of the coolant will be equal to the technical feasible temperature. Consider that using the heatPort will allow a simplified simulation of the heat Flow but will neglect the temperature level of the heat.</p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">4. Interfaces</span></h4>
+<h4><span style=\"color: #008000\">Interfaces</span></h4>
 <p>gasPortIn: inlet for real gas</p>
 <p>gasPortOut: outlet for real gas</p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
+<h4><span style=\"color: #008000\">Validation</span></h4>
 <p>Tested in the check model &quot;TransiEnt.Producer.Gas.MethanatorSystem.Check.Test_MethanatorSystem&quot;</p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
+<h4><span style=\"color: #008000\">Version History</span></h4>
 <p>Model created by Oliver Sch&uuml;lting (oliver.schuelting@tuhh.de) in Feb 2018</p>
 <p>Model modified by Oliver Sch&uuml;lting (oliver.schuelting@tuhh.de) in April 2018: added H2 bypass, changed medium type of gasPortIn/gasPortOut</p>
 </html>"));

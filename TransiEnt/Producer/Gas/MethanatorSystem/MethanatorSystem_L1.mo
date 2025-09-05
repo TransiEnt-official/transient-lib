@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.MethanatorSystem;
+within TransiEnt.Producer.Gas.MethanatorSystem;
 model MethanatorSystem_L1
 
 
@@ -351,28 +351,18 @@ equation
           thickness=0.5,
           smooth=Smooth.Bezier)}),                               Diagram(coordinateSystem(preserveAspectRatio=false)),
     Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
 <p>This represents a simplified version of the model &apos;MethanatorSystem&apos;.</p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
+<h4><span style=\"color: #008000\">Level of detail, physical effects considered, and physical insight</span></h4>
 <p>This model contains no detailed physical equations, but mainly consists of a stoichiometric balance for the methanation process. The methanation process can be defined via the parameter &apos;conversionFactor_H2&apos; which defines the fraction of input hydrogen, that is methanation. With a conversion factor &lt;1 the product gas also contains H2 and CO2 besides CH4 which represents a physically realistic result.</p>
 <p>Calculation of Coolant Heat Flow:</p>
 <p>Via the parameteres &apos;useHeatPort&apos; or &apos;useFluidCoolantPort&apos; a heat port or two fluid ports can be activated to model the needed coolant heat flow. Only one port at a time can be modeled. When using the fluid ports the output temperature can be defined via the input &apos;T_set_coolant_out&apos;. This temperature will be limited by the technical feasible temperature. This input needs to be activated via the parameter &apos;useVariableCoolantOutputTemperature&apos;. If not used the temperature of the coolant will be equal to the technical feasible temperature, in this case defined by the parameter &apos;T_coolant_out_max_set&apos;. </p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">4. Interfaces</span></h4>
+<h4><span style=\"color: #008000\">Interfaces</span></h4>
 <p>gasPortIn: inlet for real gas</p>
 <p>gasPortOut: outlet for real gas</p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
+<h4><span style=\"color: #008000\">Remarks for Usage</span></h4>
 <p>Hydrogen has to be the last component in the fluid model.</p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
-<p>(no remarks)</p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
+<h4><span style=\"color: #008000\">Version History</span></h4>
 <p>Model created by Oliver Sch&uuml;lting (oliver.schuelting@tuhh.de) in Jul 2019</p>
 <p>Model modified by Carsten Bode (c.bode@tuhh.de) in Feb 2021 (made model more general so that it works for other fluids as well)</p>
 </html>"));

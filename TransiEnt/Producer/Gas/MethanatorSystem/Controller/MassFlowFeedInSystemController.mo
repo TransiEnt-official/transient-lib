@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.MethanatorSystem.Controller;
+within TransiEnt.Producer.Gas.MethanatorSystem.Controller;
 model MassFlowFeedInSystemController
 
 
@@ -108,7 +108,7 @@ connect(P_el_set, P_el_ely) annotation (Line(points={{-120,0},{110,0},{110,0}}, 
   connect(add.u2, add1.y) annotation (Line(points={{66,62},{56,62},{56,56},{45,56}}, color={0,0,127}));
   connect(division.y, add1.u1) annotation (Line(points={{1,62},{22,62}}, color={0,0,127}));
   connect(add1.u2, m_flow_feed_H2) annotation (Line(points={{22,50},{0,50},{0,-120}}, color={0,0,127}));
-connect(PID.u_m, m_flow_feed_CH4_is) annotation (Line(points={{-10,78},{-10,78},{60,78},{60,96},{60,120}},       color={0,0,127}));
+connect(PID.u_m, m_flow_feed_CH4_is) annotation (Line(points={{-9.9,78},{-9.9,78},{60,78},{60,96},{60,120}},     color={0,0,127}));
 connect(division.u2, realExpression.y) annotation (Line(points={{-22,56},{-30,56},{-39,56}}, color={0,0,127}));
 connect(division.u1, m_flow_feed) annotation (Line(points={{-22,68},{-60,68},{-60,120}}, color={0,0,127}));
 connect(PID.u_s, m_flow_feed) annotation (Line(points={{-22,90},{-60,90},{-60,120}}, color={0,0,127}));
@@ -121,30 +121,16 @@ connect(add.u1, PID.y) annotation (Line(points={{66,74},{40,74},{12,74},{12,90},
   annotation (Icon(graphics,
                    coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(preserveAspectRatio=false)),
     Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
 <p>This model is used to control the Electrolyzer in a Methanator system.</p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
-<p>(Description)</p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
-<p>(Description)</p>
-<h4><span style=\"color: #008000\">4. Interfaces</span></h4>
+<h4><span style=\"color: #008000\">Interfaces</span></h4>
 <p>TransiEnt.Basics.Interfaces.Electrical.ElectricPowerIn P_el_set &quot;Input for electric power&quot; </p>
 <p>TransiEnt.Basics.Interfaces.General.MassFlowRateIn m_flow_feed &quot;Input for mass flow rate&quot; </p>
 <p>TransiEnt.Basics.Interfaces.General.MassFlowRateIn m_flow_feed_H2 &quot;Input for mass flow rate of H2 output&quot; </p>
 <p>TransiEnt.Basics.Interfaces.Electrical.ElectricPowerOut P_el_ely &quot;Output for electric power&quot; </p>
 <p>TransiEnt.Basics.Interfaces.General.MassFlowRateOut m_flow_feed_ely &quot;Output for mass flow rate&quot; </p>
 <p>TransiEnt.Basics.Interfaces.General.MassFlowRateIn m_flow_feed_CH4_is &quot;Input for mass flow rate of CH4&quot; </p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
-<p>(none)</p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
-<p>(no validation or testing necessary)</p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
-<p>(none)</p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
-<p>Model created by Oliver Schülting (oliver.schuelting@tuhh.de)</p>
+<h4><span style=\"color: #008000\">Version History</span></h4>
+<p>Model created by Oliver Sch&uuml;lting (oliver.schuelting@tuhh.de)</p>
 </html>"));
 end MassFlowFeedInSystemController;

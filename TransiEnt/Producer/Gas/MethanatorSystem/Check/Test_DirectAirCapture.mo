@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.MethanatorSystem.Check;
+within TransiEnt.Producer.Gas.MethanatorSystem.Check;
 model Test_DirectAirCapture
 
 
@@ -84,5 +84,10 @@ equation
       color={255,255,0},
       thickness=1.5));
   connect(boundary_Txim_flow.m_flow, realExpression2.y) annotation (Line(points={{78,-60},{85,-60}}, color={0,0,127}));
-  annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(preserveAspectRatio=false)));
+  annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(preserveAspectRatio=false)),
+    Documentation(info="<html>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
+<p>Test environment for the Test_DirectAirCapture using the normal gas boundaries</p>
+<h4><span style=\"color: #008000\">Version History</span></h4>
+</html>"));
 end Test_DirectAirCapture;

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer.Systems;
+within TransiEnt.Producer.Gas.Electrolyzer.Systems;
 model FeedInStation_CavernComp
 
 
@@ -477,7 +477,7 @@ equation
       pattern=LinePattern.Dash));
   if useFluidAdapter then
     connect(h2toNG.gasPortOut, gasPortOut) annotation (Line(
-      points={{0,-80},{0,-96}},
+      points={{0,-80},{0,-88},{0,-94},{5,-94}},
       color={255,255,0},
       thickness=1.5));
   end if;
@@ -515,7 +515,7 @@ equation
         thickness=1.5));
     else
       connect(mix_H2.gasPort1, gasPortOut) annotation (Line(
-        points={{0,-56},{-30,-56},{-30,-96},{0,-96}},
+        points={{0,-56},{-30,-56},{-30,-94},{5,-94}},
         color={255,255,0},
         thickness=1.5));
     end if;
@@ -535,7 +535,7 @@ equation
         thickness=1.5));
     else
       connect(mix_H2_isoth.gasPort1, gasPortOut) annotation (Line(
-        points={{-18,-50},{-24,-50},{-24,-96},{0,-96}},
+        points={{-18,-50},{-24,-50},{-24,-94},{5,-94}},
         color={255,255,0},
         thickness=1.5));
     end if;
@@ -594,29 +594,25 @@ equation
           origin={0,149},
           rotation=360)}),
   Documentation(info="<html>
-<h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
 <p>This model represents a feed in station where hydrogen is produced with an electrolyzer, compressed with an ionic compressor, stored in an underground storage (salt cavern) and fed into a natural gas grid. The storage can by bypassed and the hydrogen is fed directly into the grid. </p>
-<h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
+<h4><span style=\"color: #008000\">Level of detail, physical effects considered, and physical insight</span></h4>
 <p>see sub models </p>
-<h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
+<h4><span style=\"color: #008000\">Limits of validity </span></h4>
 <p>see sub models </p>
-<h4><span style=\"color: #008000\">4. Interfaces</span></h4>
+<h4><span style=\"color: #008000\">Interfaces</span></h4>
 <p>P_el_set: input for the set value for the electric power </p>
 <p>m_flow_feedIn: input for the possible feed-in mass flow into the natural grid etc. </p>
 <p>epp: electric power port for the electrolyzer </p>
 <p>gasPortOut: outlet of the hydrogen </p>
-<h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<p>(no elements)</p>
-<h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
-<p>(no remarks) </p>
-<h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
+<h4><span style=\"color: #008000\">Remarks for Usage</span></h4>
 <p>For start up, a small hydrogen mass flow for the electrolyzer can be set to allow for simpler initialisation. </p>
 <p>Constant mass flow &apos;m_flow_hydrogenDemand_constant&apos; is pulled from hydrogen storage if storage pressure is above p_min_Low_constantDemand. If pressure falls below &apos;p_minLow&apos; hydrogen in storage is only used for supply of &apos;m_flow_hydrogenDemand_constant&apos; and no more hydrogen can be fed in.</p>
-<h4><span style=\"color: #008000\">8. Validation</span></h4>
+<h4><span style=\"color: #008000\">Validation</span></h4>
 <p>Tested in check model &quot;TransiEnt.Producer.Gas.Electrolyzer.Systems.Check.Test_FeedInStation_CavernComp&quot;</p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
+<h4><span style=\"color: #008000\">References</span></h4>
 <p>(no remarks) </p>
-<h4><span style=\"color: #008000\">10. Version History</span></h4>
+<h4><span style=\"color: #008000\">Version History</span></h4>
 <p>Model created by Lisa Andresen (andresen@tuhh.de) in September 2016</p>
 <p>Model revised by Carsten Bode (c.bode@tuhh.de) in Apr 2018 (fixed for update to ClaRa 1.3.0)</p>
 <p>Model modified by Oliver Sch&uuml;lting (oliver.schuelting@tuhh.de) in Mar 2020: added boundary for constant internal hydrogen demand</p>

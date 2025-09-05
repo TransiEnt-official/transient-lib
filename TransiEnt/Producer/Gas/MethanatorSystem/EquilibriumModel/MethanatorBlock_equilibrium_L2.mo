@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.MethanatorSystem.EquilibriumModel;
+within TransiEnt.Producer.Gas.MethanatorSystem.EquilibriumModel;
 model MethanatorBlock_equilibrium_L2 "model of a methanation block"
 
 
@@ -323,17 +323,17 @@ equation
   delta=2*s_min;
 
   annotation (Documentation(info="<html>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">1. Purpose of model</span></b></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Purpose of model</span></b></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">Equilibrium model of reactor block for methanation of hydrogen.</span></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">2. Level of detail, physical effects considered, and physical insight</span></b></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Level of detail, physical effects considered, and physical insight</span></b></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">The model is based on the equilibrium constants for the reaction equations of CO2-methanation, CO-methanation und CO-Shift. The gas components in the output are in an equilibrium. The model considers the heat of the exothermal reaction and therewith the temperature increase of the product gas and of the temperature increase of the reactor. A detailed description is found in [1].</span></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">3. Limits of validity </span></b></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Limits of validity </span></b></p>
 <p>The calculation of the equilibrium is validated in [1].</p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">4. Interfaces</span></b></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Interfaces</span></b></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">gasPortIn: Input port for methanation</span></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">gasPortOut: Output port of product gas</span></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">5. Nomenclature</span></b></p>
-<p><br><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">6. Governing Equations</span></b></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Nomenclature</span></b></p>
+<p><br><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Governing Equations</span></b></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">The chemical balance considers the equilibrium constants. These are calculated via the following formulas:</span></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">1. equilibrium constant of CO-methanation: </span><img src=\"modelica://TransiEnt/Images/equations/equation-zuNCA2Z1.png\" alt=\"p_CH4*p_H2O/(p_CO*p_H2^3)=9.74*10^(-11)*exp(26830/T_1-30.11)\"/> </p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">2. equilibirum constant for CO-shift: </span><img src=\"modelica://TransiEnt/Images/equations/equation-uQplxM2p.png\" alt=\"p_H2*p_CO2/(p_CO*p_H2O)=exp(4400/T_1-4.063)\"/></p>
@@ -352,12 +352,11 @@ equation
 <p>Here F_i stands for the molar flow of the respective substance and h1 and h3 stand for the specific molar reaction heat. These specifc molar reaction heat depend on the temperature. As a simplification the reaction heat are calculated with the input temperature T_in:</p>
 <p>specific molar reaction heat for CO-methanation: <img src=\"modelica://TransiEnt/Images/equations/equation-vJ5LGwLp.png\" alt=\"h_1=0.0266*T_0^2-47.7331*T_0-205094.5788\"/></p>
 <p>specific molar reaction heat for CO-shift: <img src=\"modelica://TransiEnt/Images/equations/equation-dYCn7Miq.png\" alt=\"h_3=0.0026*T_0^2-7.4437*T_0-41557.3842\"/></p>
-<p><br><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">7. Remarks for Usage</span></b></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">8. Validation</span></b></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Validation</span></b></p>
 <p>Validated in [1].</p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">9. References</span></b></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">References</span></b></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">[1] Sch&uuml;lting, Oliver - Vergleich von Power-to-Gas-Speichern mit Ziel der R&uuml;ckverstromung unter derzeit g&uuml;ltigen technischen Restriktionen (Masterarbeit), Technische Universit&auml;t Hamburg - Institut f&uuml;r Energietechnik, 2016</span></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">10. Version History</span></b></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Version History</span></b></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">Model created by Oliver Sch&uuml;lting (oliver.schuelting@tuhh.de) in Nov 2019</span></p>
 </html>"));
 end MethanatorBlock_equilibrium_L2;

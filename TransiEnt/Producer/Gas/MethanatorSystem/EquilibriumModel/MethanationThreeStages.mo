@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.MethanatorSystem.EquilibriumModel;
+within TransiEnt.Producer.Gas.MethanatorSystem.EquilibriumModel;
 model MethanationThreeStages "three staged methanation reactor with intermediate cooling"
 
 
@@ -278,26 +278,25 @@ equation
       thickness=0.5));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(preserveAspectRatio=false)),
     Documentation(info="<html>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">1. Purpose of model</span></b></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Purpose of model</span></b></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">This model represents a three staged methanation reactor with intermediate cooling and a recirculation at the first reactor block</span></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">2. Level of detail, physical effects considered, and physical insight</span></b></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Level of detail, physical effects considered, and physical insight</span></b></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">The detail of this model is the same as the detail of the single reactor blocks. The heat exchanger are simplified heat exchangers with a fixed output temperature. A detailed description is found in [1].</span></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">3. Limits of validity </span></b></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">4. Interfaces</span></b></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Interfaces</span></b></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">gaPortsIn: input of process gas</span></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">gasPortOut: output of process gas</span></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">fluidPortIn: input of cooling fluid (e.g. water)</span></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">fluidPortOut: output of cooling fluid (e.g. water)</span></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">5. Nomenclature</span></b></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">6. Governing Equations</span></b></p>
-<p><span style=\"font-family: MS Shell Dlg 2;\">The recycle ratio defines the ratio of process gas that is recycled.</span></p><p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">7. Remarks for Usage</span></b></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Governing Equations</span></b></p>
+<p><span style=\"font-family: MS Shell Dlg 2;\">The recycle ratio defines the ratio of process gas that is recycled.</span></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Remarks for Usage</span></b></p>
 <p>The predefined parameter values come from a calibration with an input pressure of 25 bar and an input composition of 84.4884&percnt; CO2 and 15.5116&percnt; H2 which represents the composition for an ideal methanation. Herefore the recycle rate is calibrated to a value of 1.6, such that the hydrogen share in the product gas is always below 5 mol-&percnt; which is the maximum share according to the DVGW G 260/262 which regulated the conditions for the integration of gas into the natural gas grid in Germany.</p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">8. Validation</span></b></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Validation</span></b></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">Validated in [1] with data from [2].</span></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">9. References</span></b></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">References</span></b></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">[1] Sch&uuml;lting, Oliver - Vergleich von Power-to-Gas-Speichern mit Ziel der R&uuml;ckverstromung unter derzeit g&uuml;ltigen technischen Restriktionen (Masterarbeit), Technische Universit&auml;t Hamburg - Institut f&uuml;r Energietechnik, 2016</span></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">[2] Harms, Hans - Methanisierung kohlenmonoxidreicher Gase beim Energie-Transport, Chem.-Ing.-Tech, 1980</span></p>
-<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">10. Version History</span></b></p>
+<p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">Version History</span></b></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">Model created by Oliver Sch&uuml;lting (oliver.schuelting@tuhh.de) in Nov 2019</span></p>
 </html>"));
 end MethanationThreeStages;
