@@ -17,7 +17,7 @@ block PID_reset_lim
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//  "MSL PID block enhanced by variable limits, dead zone and reset function"
@@ -34,26 +34,7 @@ block PID_reset_lim
         limit2 "Use upper limit (sampled value)",
         limitMean "Use mean of both limits (sampled value)");
 
-//________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 3.0.0                             //
-//                                                                                //
-// Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
-// Copyright 2021, Hamburg University of Technology.                              //
-//________________________________________________________________________________//
-//                                                                                //
-// TransiEnt.EE, ResiliEntEE, IntegraNet and IntegraNet II are research projects  //
-// supported by the German Federal Ministry of Economics and Energy               //
-// (FKZ 03ET4003, 03ET4048, 0324027 and 03EI1008).                                //
-// The TransiEnt Library research team consists of the following project partners://
-// Institute of Engineering Thermodynamics (Hamburg University of Technology),    //
-// Institute of Energy Systems (Hamburg University of Technology),                //
-// Institute of Electrical Power and Energy Technology                            //
-// (Hamburg University of Technology)                                             //
-// Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
-// and                                                                            //
-// XRG Simulation GmbH (Hamburg, Germany).                                        //
-//________________________________________________________________________________//  end Types;
+  end Types;
 
   // ------------------------------------------------------------------------------------------
   //   Parameter
@@ -215,7 +196,7 @@ block PID_reset_lim
     annotation (Placement(transformation(extent={{48,-35},{58,-25}})));
   Modelica.Blocks.Sources.Constant constLimit1(k=yMax) if not useVariableLimits
     annotation (Placement(transformation(extent={{48,23},{58,33}})));
-protected
+  protected
   parameter Boolean with_I=controllerType == SimpleController.PI or
       controllerType == SimpleController.PID
     annotation (Evaluate=true, HideResult=true);

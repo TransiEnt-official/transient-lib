@@ -17,10 +17,12 @@ block DerivativeReset "Derivative block with reset"
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
-//________________________________________________________________________________//  extends Modelica.Blocks.Continuous.Derivative;
+  //________________________________________________________________________________//
+
+  extends Modelica.Blocks.Continuous.Derivative;
 
   Modelica.Blocks.Interfaces.BooleanInput reset annotation (
       Placement(transformation(

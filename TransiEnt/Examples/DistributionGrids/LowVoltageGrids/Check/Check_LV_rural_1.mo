@@ -17,10 +17,11 @@ model Check_LV_rural_1
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
-//________________________________________________________________________________//  extends TransiEnt.Basics.Icons.Checkmodel;
+  //________________________________________________________________________________//
+  extends TransiEnt.Basics.Icons.Checkmodel;
   import TransiEnt.Basics.Types.ControlType;
 
   // ------------------------------------------------------------------------------------------

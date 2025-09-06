@@ -17,10 +17,12 @@ model Check_MV_rural_2
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
-//________________________________________________________________________________//  extends TransiEnt.Basics.Icons.Checkmodel;
+  //________________________________________________________________________________//
+
+  extends TransiEnt.Basics.Icons.Checkmodel;
   MV_rural_2_no_switch                            mV_rural_2_no_switch(
     development_scenario="Intermediate",
     weatherLocation="Hamelin",

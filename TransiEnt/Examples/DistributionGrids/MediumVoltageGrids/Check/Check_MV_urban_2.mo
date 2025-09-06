@@ -17,10 +17,12 @@ model Check_MV_urban_2
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
-//________________________________________________________________________________//  extends TransiEnt.Basics.Icons.Checkmodel;
+  //________________________________________________________________________________//
+
+  extends TransiEnt.Basics.Icons.Checkmodel;
   Components.Boundaries.Electrical.ComplexPower.SlackBoundary               vDelta1(v_gen=110e3, f_n=50)
                     annotation (Placement(transformation(extent={{20,-10},{40,10}})));
   MV_urban_2_no_switch mV_urban_2_no_switch(development_scenario="Today") annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
