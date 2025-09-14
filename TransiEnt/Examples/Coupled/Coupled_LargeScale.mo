@@ -491,7 +491,7 @@ model Coupled_LargeScale "Coupled small-scale example with CPP and meshed electr
         extent={{13,-12},{-13,12}},
         rotation=0,
         origin={-229,-170})));
-  TransiEnt.Components.Heat.Grid.IdealizedExpansionVessel idealizedExpansionVessel1(p(displayUnit="bar") = 600000) annotation (Placement(transformation(extent={{-254,-136},{-240,-120}})));
+  TransiEnt.Components.Heat.Grid.IdealizedExpansionVessel idealizedExpansionVessel1(p(displayUnit="bar") = 600000) annotation (Placement(transformation(extent={{-253,-136},{-239,-120}})));
 
   ClaRa.Components.VolumesValvesFittings.Valves.ThreeWayValveVLE_L1_simple tWV(splitRatio_input=true) annotation (Placement(transformation(extent={{-276,-166},{-260,-182}})));
   ClaRa.Components.VolumesValvesFittings.Fittings.JoinVLE_L2_Y joinGrid(
@@ -668,6 +668,13 @@ model Coupled_LargeScale "Coupled small-scale example with CPP and meshed electr
     y_start=1,
     y_inactive=0) annotation (Placement(transformation(extent={{193,94},{205,106}})));
 
+  TransiEnt.Basics.Adapters.FluidPortAdapter fluidPortAdapter annotation (Placement(transformation(extent={{-120,-178},{-128,-170}})));
+  TransiEnt.Basics.Adapters.FluidPortAdapter fluidPortAdapter1 annotation (Placement(transformation(extent={{-196,-179},{-188,-171}})));
+  TransiEnt.Basics.Adapters.FluidPortAdapter fluidPortAdapter2 annotation (Placement(transformation(
+        extent={{4,-4},{-4,4}},
+        rotation=270,
+        origin={-242,-153})));
+  TransiEnt.Basics.Adapters.FluidPortAdapter fluidPortAdapter3 annotation (Placement(transformation(extent={{-250,-179},{-258,-171}})));
 equation
 
   if false then
@@ -799,10 +806,6 @@ equation
       color={28,108,200},
       thickness=0.5));
   connect(setValueTemperature.y, PID_PumpGrid.u_s) annotation (Line(points={{-353,-114},{-347.2,-114}}, color={0,0,127}));
-  connect(hotWaterStorage.waterPortOut_prod[1],pumpProd. fluidPortIn) annotation (Line(
-      points={{-216,-174.8},{-216,-175},{-168,-175}},
-      color={175,0,0},
-      thickness=0.5));
   connect(thermalHeatConsumer_CHP.T_room, PID_PumpGrid.u_m) annotation (Line(points={{-391.4,-101.2},{-386,-101.2},{-386,-124},{-339.94,-124},{-339.94,-121.2}}, color={0,0,127}));
   connect(set_m_flow_pump.y, pumpProd.m_flow_in) annotation (Line(points={{-183,-160},{-166,-160},{-166,-164}}, color={0,0,127}));
   connect(PID_PumpGrid.y, pumpGrid.m_flow_in) annotation (Line(points={{-333.4,-114},{-326,-114},{-326,-133}}, color={0,0,127}));
@@ -810,14 +813,6 @@ equation
       points={{-268,-166},{-268,-152},{-269,-152}},
       color={175,0,0},
       pattern=LinePattern.Solid,
-      thickness=0.5));
-  connect(hotWaterStorage.waterPortOut_grid[1],joinGrid. inlet1) annotation (Line(
-      points={{-242,-165.2},{-242,-144},{-260,-144}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(hotWaterStorage.waterPortIn_grid[1],tWV. outlet1) annotation (Line(
-      points={{-242,-174.8},{-254,-174.8},{-254,-174.889},{-260,-174.889}},
-      color={175,0,0},
       thickness=0.5));
   connect(thermalHeatConsumer_CHP.port_HeatDemand,heatFlowMultiplier1. port_a) annotation (Line(points={{-392.4,-107.6},{-392.4,-110.8},{-392,-110.8},{-392,-114}},
                                                                                                                                                             color={191,0,0}));
@@ -827,14 +822,6 @@ equation
       thickness=0.5));
   connect(pumpGrid.fluidPortIn,tempBeforeCons. port) annotation (Line(
       points={{-324,-144},{-294,-144}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(largeScaleCHP.inlet, pumpProd.fluidPortOut) annotation (Line(
-      points={{-88.4,-147.9},{-90,-147.9},{-90,-175},{-148,-175}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(hotWaterStorage.waterPortIn_prod[1], largeScaleCHP.outlet) annotation (Line(
-      points={{-216,-165.2},{-216,-142.767},{-88.4,-142.767}},
       color={175,0,0},
       thickness=0.5));
   connect(tempAfterCons.port,tWV. inlet) annotation (Line(
@@ -1008,10 +995,6 @@ equation
   connect(PIDGasBoiler_ne.y, gain_ne.u) annotation (Line(points={{205.6,100},{216,100},{216,124},{193,124}}, color={0,0,127}));
   connect(gain_se.u, PIDGasBoiler_se.y) annotation (Line(points={{191,41},{214,41},{214,16},{209.6,16}}, color={0,0,127}));
   connect(SetConsumption.y, gasConsumer_nw.H_flow) annotation (Line(points={{-191,130},{-167,130},{-167,124}}, color={0,0,127}));
-  connect(idealizedExpansionVessel1.waterPort, hotWaterStorage.waterPortOut_grid[1]) annotation (Line(
-      points={{-247,-136},{-242,-136},{-242,-165.2}},
-      color={175,0,0},
-      thickness=0.5));
   connect(tempBeforeCons.T, PID_TWV.u_m) annotation (Line(points={{-302.8,-136},{-312,-136},{-312,-210.8},{-284.91,-210.8}}, color={0,0,127}));
   connect(heatingCurve.T_Supply, PID_TWV.u_s) annotation (Line(points={{-331.2,-200.4},{-300,-200.4},{-300,-200},{-295.8,-200}}, color={0,0,127}));
   connect(PID_TWV.y, tWV.splitRatio_external) annotation (Line(points={{-275.1,-200},{-268,-200},{-268,-182.889}},
@@ -1025,6 +1008,31 @@ equation
   connect(PES.P_set, controllerMeritOrderSimple.P_el_storage_desired[4]) annotation (Line(points={{-435,35.4},{-434,35.4},{-434,38},{-462,38},{-462,-7},{-482,-7}}, color={0,127,127}));
   connect(heatFlowMultiplier2.port_b, gasBoiler_se.heatPort) annotation (Line(points={{158.5,14},{158.6,14},{158.6,31}}, color={191,0,0}));
   connect(heatFlowMultiplier3.port_b, gasBoiler_ne.heatPort) annotation (Line(points={{154.5,96},{154.6,96},{154.6,114}}, color={191,0,0}));
+  connect(largeScaleCHP.outlet, hotWaterStorage.waterPortIn_prod[1]) annotation (Line(points={{-88.4,-142.767},{-216,-142.767},{-216,-165.2}}, color={0,0,0}));
+  connect(pumpProd.fluidPortOut, fluidPortAdapter.fluidPortOut) annotation (Line(
+      points={{-148,-175},{-148,-174},{-128,-174}},
+      color={175,0,0},
+      thickness=0.5));
+  connect(fluidPortAdapter.fluidPortIn, largeScaleCHP.inlet) annotation (Line(points={{-120,-174},{-112,-174},{-112,-147.9},{-88.4,-147.9}}, color={0,0,0}));
+  connect(fluidPortAdapter1.fluidPortIn, hotWaterStorage.waterPortOut_prod[1]) annotation (Line(points={{-196,-175},{-196,-174.8},{-216,-174.8}}, color={0,0,0}));
+  connect(fluidPortAdapter1.fluidPortOut, pumpProd.fluidPortIn) annotation (Line(
+      points={{-188,-175},{-168,-175}},
+      color={175,0,0},
+      thickness=0.5));
+  connect(fluidPortAdapter2.fluidPortIn, hotWaterStorage.waterPortOut_grid[1]) annotation (Line(points={{-242,-157},{-242,-165.2}}, color={0,0,0}));
+  connect(fluidPortAdapter2.fluidPortOut, joinGrid.inlet1) annotation (Line(
+      points={{-242,-149},{-242,-144},{-260,-144}},
+      color={175,0,0},
+      thickness=0.5));
+  connect(idealizedExpansionVessel1.waterPort, joinGrid.inlet1) annotation (Line(
+      points={{-246,-136},{-246,-144},{-260,-144}},
+      color={175,0,0},
+      thickness=0.5));
+  connect(fluidPortAdapter3.fluidPortOut, tWV.outlet1) annotation (Line(
+      points={{-258,-175},{-259,-175},{-259,-174.889},{-260,-174.889}},
+      color={175,0,0},
+      thickness=0.5));
+  connect(hotWaterStorage.waterPortIn_grid[1], fluidPortAdapter3.fluidPortIn) annotation (Line(points={{-242,-174.8},{-242,-178},{-250,-178},{-250,-175}}, color={0,0,0}));
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=false,

@@ -1,89 +1,60 @@
 ﻿within TransiEnt.Consumer.Heat.Check;
 model TestTableBased
 
-
-
-
 //________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 2.0.3                             //
-//                                                                                //
-// Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
-// Copyright 2021, Hamburg University of Technology.                              //
-//________________________________________________________________________________//
-//                                                                                //
-// TransiEnt.EE, ResiliEntEE, IntegraNet and IntegraNet II are research projects  //
-// supported by the German Federal Ministry of Economics and Energy               //
-// (FKZ 03ET4003, 03ET4048, 0324027 and 03EI1008).                                //
-// The TransiEnt Library research team consists of the following project partners://
-// Institute of Engineering Thermodynamics (Hamburg University of Technology),    //
-// Institute of Energy Systems (Hamburg University of Technology),                //
-// Institute of Electrical Power and Energy Technology                            //
-// (Hamburg University of Technology)                                             //
-// Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
-// and                                                                            //
-// XRG Simulation GmbH (Hamburg, Germany).                                        //
-//________________________________________________________________________________//
-
-
-
-
-
+  // Component of the TransiEnt Library, version: 2.0.3                             //
+  //                                                                                //
+  // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
+  // Copyright 2021, Hamburg University of Technology.                              //
+  //________________________________________________________________________________//
+  //                                                                                //
+  // TransiEnt.EE, ResiliEntEE, IntegraNet and IntegraNet II are research projects  //
+  // supported by the German Federal Ministry of Economics and Energy               //
+  // (FKZ 03ET4003, 03ET4048, 0324027 and 03EI1008).                                //
+  // The TransiEnt Library research team consists of the following project partners://
+  // Institute of Engineering Thermodynamics (Hamburg University of Technology),    //
+  // Institute of Energy Systems (Hamburg University of Technology),                //
+  // Institute of Electrical Power and Energy Technology                            //
+  // (Hamburg University of Technology)                                             //
+  // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
+  // Gas- und WÃ¤rme-Institut Essen						  //
+  // and                                                                            //
+  // XRG Simulation GmbH (Hamburg, Germany).                                        //
+  //________________________________________________________________________________//
   // _____________________________________________
   //
   //          Imports and Class Hierarchy
   // _____________________________________________
-
   extends TransiEnt.Basics.Icons.Checkmodel;
 
-  // _____________________________________________
+// _____________________________________________
   //
   //           Instances of other Classes
   // _____________________________________________
-
   inner TransiEnt.SimCenter simCenter(
     useHomotopy=false,
     redeclare replaceable TILMedia.VLEFluidTypes.TILMedia_Water fluid1,
     useClaRaDelay=true) annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
-  ClaRa.Components.BoundaryConditions.BoundaryVLE_hxim_flow districtHeatingSupply(
-    m_flow_const=0.1,
-    m_flow_nom=0,
-    p_nom=1000,
-    variable_m_flow=false,
-    variable_h=false,
-    h_const=400e3) annotation (Placement(transformation(extent={{94,16},{42,62}})));
-  ClaRa.Components.BoundaryConditions.BoundaryVLE_phxi districtHeatingReturn(
-    m_flow_nom=100,
-    p_const=1000000,
-    Delta_p=100000,
-    variable_p=false,
-    h_const=400e3) annotation (Placement(transformation(
-        extent={{-16,-21},{16,21}},
-        rotation=180,
-        origin={72,-41})));
   TableBasedHeatConsumer tableBasedHeatConsumer_L1(redeclare TransiEnt.Basics.Tables.HeatGrid.HeatDemand.HeatDemand_SLPGas_MFH_2012_3600s consumerDataTable, change_of_sign=true,
     integrateHeatFlow=false)
     annotation (Placement(transformation(extent={{-60,-28},{6,34}})));
-
-  inner TransiEnt.ModelStatistics modelStatistics annotation (Placement(transformation(extent={{-80,40},{-60,60}})));
+  TransiEnt.Components.Boundaries.FluidFlow.FluidSource fluidSource annotation (Placement(transformation(extent={{64,2},{44,22}})));
+  TransiEnt.Components.Boundaries.FluidFlow.FluidSink fluidSink annotation (Placement(transformation(extent={{64,-38},{44,-18}})));
+  Modelica.Blocks.Sources.RealExpression realExpression(y=1000000) annotation (Placement(transformation(extent={{92,-38},{72,-18}})));
+  Modelica.Blocks.Sources.RealExpression realExpression1(y=0.1) annotation (Placement(transformation(extent={{82,8},{70,22}})));
+  Modelica.Blocks.Sources.RealExpression realExpression2(y=400e3) annotation (Placement(transformation(extent={{82,-6},{70,8}})));
 equation
-  // _____________________________________________
-  //
-  //               Connect Statements
-  // _____________________________________________
-
-  connect(tableBasedHeatConsumer_L1.fluidPortIn, districtHeatingSupply.steam_a)
-    annotation (Line(
-      points={{6,-9.4},{30,-9.4},{30,38},{42,38},{42,39}},
-      color={175,0,0},
-      smooth=Smooth.None));
-  connect(tableBasedHeatConsumer_L1.fluidPortOut, districtHeatingReturn.steam_a)
-    annotation (Line(
-      points={{6,-21.8},{30,-21.8},{30,-41},{56,-41}},
-      color={175,0,0},
-      smooth=Smooth.None));
+// _____________________________________________
+//
+//               Connect Statements
+// _____________________________________________
+  connect(realExpression.y, fluidSink.p_in) annotation (Line(points={{71,-28},{62,-28}}, color={0,0,127}));
+  connect(realExpression1.y, fluidSource.m_flow_in) annotation (Line(points={{69.4,15},{62,15}}, color={0,0,127}));
+  connect(realExpression2.y, fluidSource.h_in) annotation (Line(points={{69.4,1},{66,1},{66,10},{62,10}}, color={0,0,127}));
+  connect(fluidSource.port_a, tableBasedHeatConsumer_L1.fluidPortIn) annotation (Line(points={{44,12},{12,12},{12,-9.4},{6,-9.4}}, color={0,0,0}));
+  connect(fluidSink.port_a, tableBasedHeatConsumer_L1.fluidPortOut) annotation (Line(points={{44,-28},{12,-28},{12,-21.8},{6,-21.8}}, color={0,0,0}));
   annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-80,-80},
-            {100,80}}),      graphics), Icon(graphics,
+            {100,80}})),                Icon(graphics,
                                              coordinateSystem(extent={{-80,-80},
             {100,80}})),
     Documentation(info="<html>

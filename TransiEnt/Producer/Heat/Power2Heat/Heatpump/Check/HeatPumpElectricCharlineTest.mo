@@ -99,14 +99,6 @@ model HeatPumpElectricCharlineTest
         extent={{10,10},{-10,-10}},
         rotation=180,
         origin={-70,-40})));
-  TransiEnt.Components.Boundaries.FluidFlow.BoundaryVLE_Txim_flow boundaryVLE_Txim_flow(variable_m_flow=false, boundaryConditions(m_flow_const=1)) annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
-        rotation=90,
-        origin={-70,-100})));
-  TransiEnt.Components.Boundaries.FluidFlow.BoundaryVLE_pTxi boundaryVLE_pTxi(boundaryConditions(p_const(displayUnit="bar") = 100000)) annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
-        rotation=90,
-        origin={-30,-100})));
   Modelica.Blocks.Sources.Sine sine6(
     amplitude=1500,
     f=1/86400,
@@ -131,14 +123,6 @@ model HeatPumpElectricCharlineTest
         extent={{10,10},{-10,-10}},
         rotation=180,
         origin={40,-40})));
-  TransiEnt.Components.Boundaries.FluidFlow.BoundaryVLE_Txim_flow boundaryVLE_Txim_flow1(variable_m_flow=false, boundaryConditions(m_flow_const=1)) annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
-        rotation=90,
-        origin={40,-100})));
-  TransiEnt.Components.Boundaries.FluidFlow.BoundaryVLE_pTxi boundaryVLE_pTxi1(boundaryConditions(p_const(displayUnit="bar") = 100000)) annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
-        rotation=90,
-        origin={80,-100})));
   .TransiEnt.Producer.Heat.Power2Heat.Heatpump.HeatPumpElectricCharline heatPump(
     use_T_source_input_K=true,
     useFluidPorts=false,
@@ -149,6 +133,16 @@ model HeatPumpElectricCharlineTest
     useFluidPorts=false,
     usePowerPort=true) annotation (Placement(transformation(extent={{50,40},{70,60}})));
   inner SimCenter simCenter annotation (Placement(transformation(extent={{-12,80},{8,100}})));
+  Components.Boundaries.FluidFlow.FluidSink fluidSink annotation (Placement(transformation(extent={{-24,-112},{-44,-92}})));
+  Modelica.Blocks.Sources.RealExpression realExpression2(y=1e5) annotation (Placement(transformation(extent={{2,-112},{-18,-92}})));
+  Modelica.Blocks.Sources.RealExpression Temperature(y=20*4200)     annotation (Placement(transformation(extent={{-96,-117},{-82,-104}})));
+  Modelica.Blocks.Sources.RealExpression massFlow(y=1)    annotation (Placement(transformation(extent={{-96,-108},{-82,-98}})));
+  Components.Boundaries.FluidFlow.FluidSource fluidSource annotation (Placement(transformation(extent={{-78,-118},{-58,-98}})));
+  Modelica.Blocks.Sources.RealExpression Temperature1(y=20*4200)    annotation (Placement(transformation(extent={{14,-113},{28,-100}})));
+  Modelica.Blocks.Sources.RealExpression massFlow1(y=1)   annotation (Placement(transformation(extent={{14,-104},{28,-94}})));
+  Components.Boundaries.FluidFlow.FluidSource fluidSource1 annotation (Placement(transformation(extent={{32,-114},{52,-94}})));
+  Modelica.Blocks.Sources.RealExpression realExpression1(y=1e5) annotation (Placement(transformation(extent={{120,-112},{100,-92}})));
+  Components.Boundaries.FluidFlow.FluidSink fluidSink1 annotation (Placement(transformation(extent={{94,-112},{74,-92}})));
 equation
   connect(gain.y, heatPump.Q_flow_set) annotation (Line(points={{-65.6,50},{-60,50}}, color={0,0,127}));
   connect(sine.y, gain.u) annotation (Line(points={{-79,50},{-74.8,50}},
@@ -169,26 +163,10 @@ equation
       points={{-30,-70},{-40,-70}},
       color={0,135,135},
       thickness=0.5));
-  connect(boundaryVLE_pTxi.fluidPortIn, heatPump2.waterPortOut) annotation (Line(
-      points={{-30,-90},{-30,-80},{-46,-80}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(boundaryVLE_Txim_flow.fluidPortOut, heatPump2.waterPortIn) annotation (Line(
-      points={{-70,-90},{-70,-80},{-54,-80}},
-      color={175,0,0},
-      thickness=0.5));
   connect(sine7.y, heatPump3.T_source_input_K) annotation (Line(points={{51,-40},{60,-40},{60,-60}}, color={0,0,127}));
   connect(ElectricGrid3.epp, heatPump3.epp) annotation (Line(
       points={{80,-70},{70,-70}},
       color={0,135,135},
-      thickness=0.5));
-  connect(boundaryVLE_pTxi1.fluidPortIn, heatPump3.waterPortOut) annotation (Line(
-      points={{80,-90},{80,-80},{64,-80}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(boundaryVLE_Txim_flow1.fluidPortOut, heatPump3.waterPortIn) annotation (Line(
-      points={{40,-90},{40,-80},{56,-80}},
-      color={175,0,0},
       thickness=0.5));
   connect(sine6.y, heatPump3.P_el_set) annotation (Line(points={{31,-70},{40,-70},{40,-61.8},{50,-61.8}},
                                                                                     color={0,0,127}));
@@ -202,6 +180,16 @@ equation
       thickness=0.5));
   connect(sine3.y, heatPump1.T_source_input_K) annotation (Line(points={{51,80},{60,80},{60,60}}, color={0,0,127}));
   connect(sine1.y, heatPump1.P_el_set) annotation (Line(points={{31,50},{42,50},{42,58.2},{50,58.2}}, color={0,0,127}));
+  connect(realExpression2.y, fluidSink.p_in) annotation (Line(points={{-19,-102},{-26,-102}}, color={0,0,127}));
+  connect(fluidSink.port_a, heatPump2.waterPortOut) annotation (Line(points={{-44,-102},{-48,-102},{-48,-80},{-46,-80}}, color={0,0,0}));
+  connect(massFlow.y, fluidSource.m_flow_in) annotation (Line(points={{-81.3,-103},{-81.3,-105},{-76,-105}}, color={0,0,127}));
+  connect(Temperature.y, fluidSource.h_in) annotation (Line(points={{-81.3,-110.5},{-79.65,-110.5},{-79.65,-110},{-76,-110}}, color={0,0,127}));
+  connect(fluidSource.port_a, heatPump2.waterPortIn) annotation (Line(points={{-58,-108},{-54,-108},{-54,-80}}, color={0,0,0}));
+  connect(massFlow1.y, fluidSource1.m_flow_in) annotation (Line(points={{28.7,-99},{28.7,-101},{34,-101}}, color={0,0,127}));
+  connect(Temperature1.y, fluidSource1.h_in) annotation (Line(points={{28.7,-106.5},{30.35,-106.5},{30.35,-106},{34,-106}}, color={0,0,127}));
+  connect(fluidSource1.port_a, heatPump3.waterPortIn) annotation (Line(points={{52,-104},{56,-104},{56,-80}}, color={0,0,0}));
+  connect(realExpression1.y, fluidSink1.p_in) annotation (Line(points={{99,-102},{92,-102}}, color={0,0,127}));
+  connect(fluidSink1.port_a, heatPump3.waterPortOut) annotation (Line(points={{74,-102},{64,-102},{64,-80}}, color={0,0,0}));
   annotation (
     Icon(graphics,
          coordinateSystem(preserveAspectRatio=false, extent={{-100,-120},{100,100}})),

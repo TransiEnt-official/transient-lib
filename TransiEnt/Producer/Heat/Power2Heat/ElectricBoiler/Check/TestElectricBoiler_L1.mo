@@ -42,18 +42,6 @@ model TestElectricBoiler_L1
     startTime=3600,
     duration=900)
     annotation (Placement(transformation(extent={{-54,70},{-34,90}})));
-  ClaRa.Components.BoundaryConditions.BoundaryVLE_pTxi sink1(medium=simCenter.fluid1, p_const=17e5)
-                          annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
-        rotation=270,
-        origin={46,-7})));
-  ClaRa.Components.BoundaryConditions.BoundaryVLE_Txim_flow source1(
-    variable_m_flow=false,
-    T_const=60 + 273,
-    m_flow_const=400) annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
-        rotation=90,
-        origin={-16,-60})));
   TransiEnt.Components.Boundaries.Electrical.ActivePower.Frequency electricGrid1(useInputConnector=false) annotation (Placement(transformation(extent={{8,-62},{28,-42}})));
   TransiEnt.Producer.Heat.Power2Heat.ElectricBoiler.ElectricBoiler simpleElectricBoiler1(
     Q_flow_n=140e6,
@@ -78,38 +66,41 @@ model TestElectricBoiler_L1
     startTime=3600,
     duration=900)
     annotation (Placement(transformation(extent={{-50,-106},{-30,-86}})));
+  TransiEnt.Components.Boundaries.FluidFlow.FluidSource fluidSource annotation (Placement(transformation(extent={{-52,-50},{-32,-30}})));
+  Modelica.Blocks.Sources.RealExpression realExpression(y=400) annotation (Placement(transformation(extent={{-78,-47},{-58,-27}})));
+  Modelica.Blocks.Sources.RealExpression realExpression1(y=60*4200) annotation (Placement(transformation(extent={{-78,-63},{-58,-43}})));
+  TransiEnt.Components.Boundaries.FluidFlow.FluidSink fluidSink annotation (Placement(transformation(extent={{54,-32},{34,-12}})));
+  Modelica.Blocks.Sources.RealExpression realExpression2(y=17e5) annotation (Placement(transformation(extent={{86,-32},{66,-12}})));
 equation
 
   connect(ramp.y, simpleElectricBoiler.Q_flow_set) annotation (Line(
-      points={{-33,80},{0,80},{0,70}},
+      points={{-33,80},{-10.4,80},{-10.4,61}},
       color={0,0,127},
       smooth=Smooth.None));
   connect(electricGrid.epp, simpleElectricBoiler.epp) annotation (Line(
-      points={{8,30},{0,30},{0,50}},
+      points={{8,30},{0,30},{0,49.8}},
       color={0,135,135},
       thickness=0.5));
-  connect(simpleElectricBoiler1.fluidPortIn, source1.steam_a) annotation (Line(
-      points={{-9.8,-22},{-16,-22},{-16,-50}},
-      color={175,0,0},
-      smooth=Smooth.None));
-  connect(simpleElectricBoiler1.fluidPortOut, sink1.steam_a) annotation (Line(
-      points={{10,-22},{46,-22},{46,-17}},
-      color={175,0,0},
-      smooth=Smooth.None));
   connect(ramp1.y, simpleElectricBoiler1.Q_flow_set) annotation (Line(
-      points={{-33,-2},{0,-2},{0,-12}},
+      points={{-33,-2},{-10.4,-2},{-10.4,-21}},
       color={0,0,127},
       smooth=Smooth.None));
   connect(electricGrid1.epp, simpleElectricBoiler1.epp) annotation (Line(
-      points={{8,-52},{0,-52},{0,-32}},
+      points={{8,-52},{0,-52},{0,-32.2}},
       color={0,135,135},
       thickness=0.5));
-  connect(fixedTemperature.port, simpleElectricBoiler.heat) annotation (Line(points={{20,60},{10,60}}, color={191,0,0}));
+  connect(fixedTemperature.port, simpleElectricBoiler.heat) annotation (Line(points={{20,60},{16,60},{16,63.8},{10.4,63.8}},
+                                                                                                       color={191,0,0}));
   connect(electricGrid2.epp,simpleElectricBoiler2. epp) annotation (Line(
-      points={{28,-120},{16,-120},{16,-126},{2,-126},{2,-122}},
+      points={{28,-120},{16,-120},{16,-126},{2,-126},{2,-122.2}},
       color={0,135,135},
       thickness=0.5));
-  connect(ramp2.y, simpleElectricBoiler2.P_el_set) annotation (Line(points={{-29,-96},{-8.6,-96},{-8.6,-115.2}}, color={0,0,127}));
+  connect(ramp2.y, simpleElectricBoiler2.P_el_set) annotation (Line(points={{-29,-96},{-7.6,-96},{-7.6,-114.4}}, color={0,0,127}));
+  connect(fluidSource.port_a, simpleElectricBoiler1.fluidPortIn) annotation (Line(points={{-32,-40},{-16,-40},{-16,-22},{-10.4,-22}}, color={0,0,0}));
+  connect(realExpression.y, fluidSource.m_flow_in) annotation (Line(points={{-57,-37},{-50,-37}}, color={0,0,127}));
+  connect(realExpression1.y, fluidSource.h_in) annotation (Line(points={{-57,-53},{-57,-48},{-50,-48},{-50,-42}}, color={0,0,127}));
+  connect(realExpression2.y, fluidSink.p_in) annotation (Line(points={{65,-22},{52,-22}}, color={0,0,127}));
+  connect(fluidSink.port_a, simpleElectricBoiler1.fluidPortOut) annotation (Line(points={{34,-22},{10.2,-22}}, color={0,0,0}));
   annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-140},{100,100}})),
                                 experiment(StopTime=7200),
     Icon(coordinateSystem(extent={{-100,-140},{100,100}})));

@@ -19,7 +19,7 @@ model Heatpump "Simple heatpump model that calculates the heat output from the e
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -29,7 +29,7 @@ model Heatpump "Simple heatpump model that calculates the heat output from the e
 
 
  outer TransiEnt.SimCenter simCenter;
- outer TransiEnt.ModelStatistics modelStatistics;
+
 
    //___________________________________________________________________________
    //
@@ -44,6 +44,8 @@ model Heatpump "Simple heatpump model that calculates the heat output from the e
   parameter Real COP_n=3.7 "Coefficient of performance at nominal conditions according to EN14511" annotation (Dialog(group="Heat pump parameters"));
 
   final parameter Real eta_HP=COP_n/((273.15 + 40)/(40 - 2));
+  parameter SI.Density rho=981;
+  parameter SI.SpecificHeatCapacity cf=4186;
   final parameter Modelica.Units.SI.Power P_el_n=Q_flow_n/COP_n;
 
   Modelica.Units.SI.Temperature T_source=simCenter.ambientConditions.temperature.value + 273.15 "Temperature of heat source" annotation (Dialog(group="Heat pump parameters", enable=not use_T_source_input_K), choices(choice=simCenter.ambientConditions.temperature.value + 273.15 "Ambient Temperature", choice=IntegraNet.SimCenter.Ground_Temperature + 273.15 "Ground Temperature"));
@@ -88,8 +90,8 @@ model Heatpump "Simple heatpump model that calculates the heat output from the e
    PowerPortModel epp if usePowerPort annotation (
     Placement(transformation(extent={{66,-110},{86,-90}})));
 
-  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn inlet(Medium=medium) if useFluidPorts annotation (Placement(transformation(extent={{94,-68},{114,-48}}),iconTransformation(extent={{90,-48},{110,-28}})));
-  TransiEnt.Basics.Interfaces.Thermal.FluidPortOut outlet(Medium=medium) if useFluidPorts annotation (Placement(transformation(extent={{92,20},{112,40}}), iconTransformation(extent={{92,20},{112,40}})));
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn_simple inlet if useFluidPorts annotation (Placement(transformation(extent={{94,-68},{114,-48}}),iconTransformation(extent={{90,-48},{110,-28}})));
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortOut_simple outlet if useFluidPorts annotation (Placement(transformation(extent={{92,20},{112,40}}), iconTransformation(extent={{92,20},{112,40}})));
 
   Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_b heatPort if (useHeatPort) and not
                                                                                        (useFluidPorts) annotation (Placement(transformation(extent={{90,68},
@@ -103,14 +105,6 @@ public
   Modelica.Blocks.Math.Division P_el annotation (Placement(transformation(extent={{-26,30},{-6,50}})));
   Modelica.Blocks.Sources.RealExpression COP(y=COP_Carnot*eta_HP) annotation (Placement(transformation(extent={{-64,24},{-44,44}})));
 
-  TransiEnt.Components.Statistics.Collectors.LocalCollectors.HeatingPlantCost heatingPlantCost(
-    calculateCost=true,
-    consumes_H_flow=false,
-    Q_flow_n=Q_flow_n,
-    Q_flow_is=-P_el.y,
-    produces_m_flow_CDE=false,
-    m_flow_CDE_is=0) annotation (Placement(transformation(extent={{-60,-100},{-40,-80}})));
-
   replaceable model heatFlowBoundaryModel =
   TransiEnt.Components.Boundaries.Heat.Heatflow_L1 constrainedby TransiEnt.Components.Boundaries.Heat.Heatflow_L1
                                        annotation (choicesAllMatching=true,
@@ -118,23 +112,11 @@ public
 
   heatFlowBoundaryModel heatFlowBoundary(
     p_drop=p_drop,
-    Medium=medium,
     change_sign=true,
     use_Q_flow_in=true) if useFluidPorts annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={18,-44})));
-  TransiEnt.Components.Sensors.TemperatureSensor T_in_sensor if useFluidPorts annotation (Placement(transformation(
-        extent={{-10,10},{10,-10}},
-        rotation=180,
-        origin={80,-40})));
-  TransiEnt.Components.Sensors.TemperatureSensor T_out_sensor if useFluidPorts annotation (Placement(transformation(
-        extent={{-10,10},{10,-10}},
-        rotation=180,
-        origin={78,44})));
-  TransiEnt.Components.Sensors.SpecificEnthalpySensorVLE specificEnthalpySensorVLE if useFluidPorts annotation (Placement(transformation(extent={{52,-16},{72,4}})));
-  ClaRa.Components.Sensors.SensorVLE_L1_m_flow massFlowSensorVLE if useFluidPorts annotation (Placement(transformation(extent={{28,-16},{48,4}})));
-  TransiEnt.Components.Sensors.SpecificEnthalpySensorVLE specificEnthalpySensorVLE1 if useFluidPorts annotation (Placement(transformation(extent={{42,-50},{62,-30}})));
 
   replaceable model PowerBoundaryModel = TransiEnt.Components.Boundaries.Electrical.ActivePower.Power constrainedby TransiEnt.Components.Boundaries.Electrical.Base.PartialModelPowerBoundary  "Choice of power boundary model. The power boundary model must match the power port."     annotation (
     choicesAllMatching=true,
@@ -149,11 +131,9 @@ public
   TransiEnt.Basics.Interfaces.General.TemperatureOut T_source_internal "Temperature of heat source used for calculation";
 
   //Statistics
-public
-   TransiEnt.Components.Statistics.Collectors.LocalCollectors.CollectElectricPower collectElectricPower(typeOfResource=TransiEnt.Basics.Types.TypeOfResource.Consumer) annotation (Placement(transformation(extent={{-100,-100},{-80,-80}})));
-   TransiEnt.Components.Statistics.Collectors.LocalCollectors.CollectHeatingPower collectHeatingPower(typeOfResource=TransiEnt.Basics.Types.TypeOfResource.Conventional)
-                                                                                                                                                                    annotation (Placement(transformation(extent={{-80,-100},{-60,-80}})));
 
+  Modelica.Blocks.Sources.RealExpression T_out(y=(outlet.h_outflow - inlet.p*1/rho)/cf) if useFluidPorts
+                                                                                        annotation (Placement(transformation(extent={{34,-20},{54,0}})));
 equation
 
   // _____________________________________________
@@ -165,45 +145,10 @@ equation
     T_source_internal =T_source;
   end if;
 
- collectElectricPower.powerCollector.P=Q_flow_set;
- collectHeatingPower.heatFlowCollector.Q_flow=-P_el.y;
 
   connect(T_source_internal, T_source_input_K);
 
-  connect(modelStatistics.powerCollector[collectElectricPower.typeOfResource],collectElectricPower.powerCollector);
-  connect(modelStatistics.heatFlowCollector[collectHeatingPower.typeOfResource],collectHeatingPower.heatFlowCollector);
-  connect(modelStatistics.costsCollector, heatingPlantCost.costsCollector);
 
-  connect(T_in_sensor.port,inlet)  annotation (Line(
-      points={{80,-50},{80,-58},{104,-58}},
-      color={0,0,0},
-      smooth=Smooth.None));
-  connect(outlet,T_out_sensor.port) annotation (Line(
-      points={{102,30},{78,30},{78,34}},
-      color={175,0,0},
-      thickness=0.5,
-      smooth=Smooth.None));
-  connect(outlet,specificEnthalpySensorVLE.outlet) annotation (Line(
-      points={{102,30},{68,30},{68,8},{80,8},{80,-16},{72,-16}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(specificEnthalpySensorVLE.inlet,massFlowSensorVLE.outlet) annotation (Line(
-      points={{52,-16},{52,-20},{48,-20},{48,-16}},
-      color={0,131,169},
-      pattern=LinePattern.Solid,
-      thickness=0.5));
-  connect(heatFlowBoundary.fluidPortOut,massFlowSensorVLE.inlet) annotation (Line(
-      points={{28,-38},{32,-38},{32,-20},{28,-20},{28,-16}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(inlet,specificEnthalpySensorVLE1.outlet) annotation (Line(
-      points={{104,-58},{104,-56},{62,-56},{62,-50}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(heatFlowBoundary.fluidPortIn,specificEnthalpySensorVLE1.inlet) annotation (Line(
-      points={{28,-50},{36,-50},{36,-54},{42,-54},{42,-50}},
-      color={175,0,0},
-      thickness=0.5));
   connect(prescribedHeatFlow.port, heatPort) annotation (Line(points={{66,78},{100,78}}, color={191,0,0}));
   connect(Power.epp, epp) annotation (Line(
       points={{-6,-80},{76,-80},{76,-100}},
@@ -215,6 +160,8 @@ equation
   connect(Q_flow_set, heatFlowBoundary.Q_flow_prescribed) annotation (Line(points={{-106,-54},{2,-54},{2,-50},{10,-50}}, color={0,127,127}));
   connect(Q_flow_set, prescribedHeatFlow.Q_flow) annotation (Line(points={{-106,-54},{-36,-54},{-36,16},{28,16},{28,78},{46,78}}, color={0,127,127}));
   connect(Q_flow_set, Heat_output) annotation (Line(points={{-106,-54},{-36,-54},{-36,16},{50,16},{50,58},{116,58}}, color={0,127,127}));
+  connect(heatFlowBoundary.fluidPortOut, outlet) annotation (Line(points={{28,-38},{88,-38},{88,30},{102,30}}, color={0,0,0}));
+  connect(heatFlowBoundary.fluidPortIn, inlet) annotation (Line(points={{28,-50},{88,-50},{88,-58},{104,-58}}, color={0,0,0}));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
                                    Ellipse(
           lineColor={0,125,125},

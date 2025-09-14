@@ -190,16 +190,6 @@ equation
   else
      connect(Zero.y,m_flow_cde_gain.u);
   end if;
-  connect(T_out_sensor.port, HX.fluidPortOut) annotation (Line(
-      points={{78,4},{72,4},{72,-12},{64,-12}},
-      color={0,131,169},
-      pattern=LinePattern.Solid,
-      thickness=0.5));
-  connect(T_in_sensor.port, HX.fluidPortIn) annotation (Line(
-      points={{78,-42},{72,-42},{72,-24},{64,-24}},
-      color={0,131,169},
-      pattern=LinePattern.Solid,
-      thickness=0.5));
 
 
 
@@ -208,10 +198,10 @@ equation
   end for;
 
 for i in 1:quantity loop
-  connect(P_limit_on[i].y,P_limit[i].u[1]) annotation (Line(points={{-31.5,105},{-25.2,105},{-25.2,103.4}},        color={0,0,127}));
+  connect(P_limit_on[i].y,P_limit[i].u[1]) annotation (Line(points={{-31.5,105},{-25.2,105},{-25.2,103.7}},        color={0,0,127}));
   connect(pQDiagram[i].P_max, P_limit_on[i].limit1) annotation (Line(points={{-11,128.4},{-48,128.4},{-48,109},{-43,109}},       color={0,0,127}));
   connect(pQDiagram[i].P_min, P_limit_on[i].limit2) annotation (Line(points={{-11,121},{-46,121},{-46,101},{-43,101}},     color={0,0,127}));
-  connect(P_limit_off[i].y,P_limit[i]. u[2]) annotation (Line(points={{-31,86},{-28,86},{-28,104.6},{-25.2,104.6}},                    color={0,0,127}));
+  connect(P_limit_off[i].y,P_limit[i]. u[2]) annotation (Line(points={{-31,86},{-28,86},{-28,104.3},{-25.2,104.3}},                    color={0,0,127}));
   connect(P_limit[i].y, Q_flow_set_SG[i].P) annotation (Line(points={{-11.4,104},{-7.27273,104},{-7.27273,102}},  color={0,0,127}));
   connect(Q_flow_set_SG[i].Q_flow_input, multiSum_Q_flow_SG.u[i]) annotation (Line(
       points={{-0.909091,79},{-0.909091,66},{-44,66}},
@@ -224,11 +214,14 @@ for i in 1:quantity loop
 
   connect(P_set, gain.u) annotation (Line(points={{-84,144},{-84,108},{-76.8,108}}, color={0,0,127}));
   connect(steamGenerator.u, multiSum_Q_flow_SG.y) annotation (Line(points={{-76,12},{-80,12},{-80,66},{-52.68,66}}, color={0,0,127}));
-  connect(Q_flow_peak.y,Q_flow. u[2]) annotation (Line(points={{9,-52},{16,-52},{16,-23.5},{23,-23.5}},  color={0,0,127}));
-  connect(heatingCondenser.y, Q_flow.u[1]) annotation (Line(points={{3,-12},{16,-12},{16,-24.5},{23,-24.5}}, color={0,0,127}));
+  connect(Q_flow_peak.y,Q_flow. u[2]) annotation (Line(points={{9,-52},{16,-52},{16,-23.75},{23,-23.75}},color={0,0,127}));
+  connect(heatingCondenser.y, Q_flow.u[1]) annotation (Line(points={{3,-12},{16,-12},{16,-24.25},{23,-24.25}},
+                                                                                                             color={0,0,127}));
   connect(Q_flow.y, HX.Q_flow_prescribed) annotation (Line(points={{34.5,-24},{46,-24}}, color={0,0,127}));
   connect(realExpression3.y, P_limit_on.u) annotation (Line(points={{-65,90},{-60,90},{-60,100},{-56,100},{-56,105},{-43,105}}, color={0,0,127}));
   connect(fuelMassFlow_set.y, gasConsumer_HFlow_NCV.H_flow) annotation (Line(points={{31,70},{34,70},{34,92},{43,92}}, color={0,0,127}));
+  connect(outlet, HX.fluidPortOut) annotation (Line(points={{100,4},{70,4},{70,-12},{64,-12}}, color={0,0,0}));
+  connect(HX.fluidPortIn, inlet) annotation (Line(points={{64,-24},{100,-24}}, color={0,0,0}));
   annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,140}})), Documentation(info="<html>
 <p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">1. Purpose of model</span></b></p>
 <p>This model is equal to the model &apos;ContinuousCHP&apos; except for that the heat exchanger model is exchanged by a simple heat boundary</p><p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">2. Level of detail, physical effects considered, and physical insight</span></b></p>

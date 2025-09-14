@@ -20,7 +20,7 @@ partial model PartialCHP "Model consisting of replaceable engine and generator a
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -36,7 +36,7 @@ partial model PartialCHP "Model consisting of replaceable engine and generator a
   import TransiEnt;
   extends TransiEnt.Basics.Icons.CHP;
   outer TransiEnt.SimCenter simCenter;
-  outer TransiEnt.ModelStatistics modelStatistics;
+
 
   // _____________________________________________
   //
@@ -140,25 +140,6 @@ public
   TransiEnt.Basics.Interfaces.Thermal.FluidPortIn waterPortIn(Medium=WaterMedium) annotation (Placement(transformation(extent={{90,-100},{110,-80}}), iconTransformation(extent={{90,59},{110,79}})));
 
   // Model Statistics
-  TransiEnt.Components.Statistics.Collectors.LocalCollectors.CollectGwpEmissionsElectric collectGwpEmissionsElectrical(typeOfEnergyCarrier=TypeOfEnergyCarrierElectricity) annotation (Placement(transformation(extent={{-60,-100},{-40,-80}})));
-  TransiEnt.Components.Statistics.Collectors.LocalCollectors.CollectGwpEmissionsHeat collectGwpEmissionsHeat(typeOfEnergyCarrierHeat=TypeOfEnergyCarrierHeat) annotation (Placement(transformation(extent={{-40,-100},{-20,-80}})));
-  TransiEnt.Components.Statistics.Collectors.LocalCollectors.CollectElectricPower collectElectricPower(typeOfResource=TypeOfResource) annotation (Placement(transformation(extent={{-100,-100},{-80,-80}})));
-  TransiEnt.Components.Statistics.Collectors.LocalCollectors.CollectHeatingPower collectHeatingPower(typeOfResource=TypeOfResource) annotation (Placement(transformation(extent={{-80,-100},{-60,-80}})));
-  TransiEnt.Components.Statistics.Collectors.LocalCollectors.CollectCostsGeneral collectCosts(
-    redeclare model CostRecordGeneral = CostRecordCHP,
-    der_E_n=Specification.P_el_max,
-    P_el=P_el_out,
-    Q_flow=Q_flow_out,
-    H_flow=Q_flow_fuel,
-    m_flow_CDE=-m_flow_CDE,
-    E_n=0,
-    Cspec_demAndRev_gas_fuel=Cspec_demAndRev_gas_fuel,
-    consumes_P_el=false,
-    consumes_Q_flow=false,
-    produces_H_flow=false,
-    produces_other_flow=false,
-    consumes_other_flow=false,
-    consumes_m_flow_CDE=false) annotation (Placement(transformation(extent={{-20,-100},{0,-80}})));
 
   // _____________________________________________
   //
@@ -194,13 +175,7 @@ equation
     eta_el=eta_el,
     eta_th=eta_th);
 
-  //write CDE emissions to collectors
-  collectGwpEmissionsElectrical.gwpCollector.m_flow_cde = m_CDE[1]*gasPortIn.m_flow*motorblock.NCV/1e6;
-  collectGwpEmissionsHeat.gwpCollector.m_flow_cde = m_CDE[2]*gasPortIn.m_flow*motorblock.NCV/1e6;
 
-  //write energy flow rates
-  collectHeatingPower.heatFlowCollector.Q_flow = Q_flow_out;
-  collectElectricPower.powerCollector.P = P_el_out;
 
   // _____________________________________________
   //
@@ -222,11 +197,6 @@ equation
   // _____________________________________________
 
   // Model statistics
-  connect(modelStatistics.heatFlowCollector[TypeOfResource], collectHeatingPower.heatFlowCollector);
-  connect(modelStatistics.powerCollector[TypeOfResource], collectElectricPower.powerCollector);
-  connect(modelStatistics.gwpCollector[TypeOfEnergyCarrierElectricity], collectGwpEmissionsElectrical.gwpCollector);
-  connect(modelStatistics.gwpCollectorHeat[TypeOfEnergyCarrierHeat], collectGwpEmissionsHeat.gwpCollector);
-  connect(modelStatistics.costsCollector, collectCosts.costsCollector);
 
   // Physical connections
   connect(gasPortOut, gasPortOut) annotation (Line(

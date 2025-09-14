@@ -30,7 +30,6 @@ model Test_PQDiagram_Display
   extends TransiEnt.Basics.Icons.Checkmodel;
 
   TransiEnt.Producer.Combined.LargeScaleCHP.ContinuousCHP largeScaleCHP_L1_TimeConstant(
-    redeclare model ProducerCosts = TransiEnt.Components.Statistics.ConfigurationData.PowerProducerCostSpecs.HardCoal,
     m_flow_nom=500,
     Q_flow_init=145e6,
     h_nom=547e3,
@@ -78,6 +77,8 @@ model Test_PQDiagram_Display
     amplitude=0.2,
     offset=0.8,
     width=50)                                                   annotation (Placement(transformation(extent={{-76,14},{-56,34}})));
+  Basics.Adapters.FluidPortAdapter fluidPortAdapter annotation (Placement(transformation(extent={{20,-4},{26,2}})));
+  Basics.Adapters.FluidPortAdapter fluidPortAdapter1 annotation (Placement(transformation(extent={{20,-14},{26,-8}})));
 equation
   connect(largeScaleCHP_L1_TimeConstant.epp, constantFrequency_L1_1.epp) annotation (Line(
       points={{9.5,3},{9.5,52},{40,52}},
@@ -91,25 +92,28 @@ equation
                                                                                                                            color={28,108,200}));
   connect(P_set.y, largeScaleCHP_L1_TimeConstant.P_set) annotation (Line(points={{-58,64},{-12,64},{-12,7.66667},{-6.1,7.66667}},
                                                                                                                             color={0,0,127}));
-  connect(largeScaleCHP_L1_TimeConstant.outlet, valve.inlet) annotation (Line(
-      points={{10.2,-2.16667},{22,-2.16667},{22,-1},{34,-1}},
-      color={175,0,0},
-      thickness=0.5));
   connect(pressureSink_pT2.steam_a, valve.outlet) annotation (Line(
       points={{70,1.22125e-15},{62,1.22125e-15},{62,-1},{54,-1}},
       color={0,131,169},
       thickness=0.5));
   connect(quadruple2.eye, valve.eye) annotation (Line(points={{32,23},{58,23},{58,-5},{54,-5}}, color={190,190,190}));
-  connect(boundaryVLE_Txim_flow.steam_a, largeScaleCHP_L1_TimeConstant.inlet) annotation (Line(
-      points={{72,-24},{16,-24},{16,-4.5},{10.2,-4.5}},
-      color={0,131,169},
-      thickness=0.5));
   connect(boundaryVLE_Txim_flow.m_flow, Q_flow_set1.y) annotation (Line(points={{94,-18},{96,-18},{96,-60}}, color={0,0,127}));
   connect(pQDiagram_Display.eyeIn, largeScaleCHP_L1_TimeConstant.eye) annotation (Line(points={{-32.12,-67},{-38.12,-67},{-38.12,-52},{-38.12,-9.16667},{11,-9.16667}},
                                                                                                     color={28,108,200}));
   connect(gain.y, largeScaleCHP_L1_TimeConstant.Q_flow_set) annotation (Line(points={{-17,24},{4,24},{4,20},{4,12},{3.7,12},{3.7,7.66667}},
                                                                                                                                          color={0,0,127}));
   connect(gain.u, pulse.y) annotation (Line(points={{-40,24},{-55,24}}, color={0,0,127}));
+  connect(fluidPortAdapter.fluidPortOut, valve.inlet) annotation (Line(
+      points={{26,-1},{34,-1}},
+      color={175,0,0},
+      thickness=0.5));
+  connect(largeScaleCHP_L1_TimeConstant.outlet, fluidPortAdapter.fluidPortIn) annotation (Line(points={{10.2,-2.16667},{10.2,-1},{20,-1}}, color={0,0,0}));
+  connect(fluidPortAdapter1.fluidPortIn, largeScaleCHP_L1_TimeConstant.inlet) annotation (Line(points={{20,-11},{10.2,-11},{10.2,-4.5}}, color={0,0,0}));
+  connect(boundaryVLE_Txim_flow.steam_a, fluidPortAdapter1.fluidPortOut) annotation (Line(
+      points={{72,-24},{32,-24},{32,-11},{26,-11}},
+      color={0,131,169},
+      pattern=LinePattern.Solid,
+      thickness=0.5));
   annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                                          Bitmap(extent={{-122,-100},{-44,-44}},
                                                                               fileName="modelica://TransiEnt/Images/PQ_WW1.PNG")}),

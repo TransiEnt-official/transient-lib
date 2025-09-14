@@ -20,7 +20,7 @@ model HeatPumpElectricCharline "Electric heat pump model that produces a given h
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -44,6 +44,7 @@ model HeatPumpElectricCharline "Electric heat pump model that produces a given h
   // _____________________________________________
 
   parameter Boolean usePowerPort=false  annotation(Dialog(group="Fundamental Definitions"));
+  parameter SI.SpecificHeatCapacity cf=4200;
 
   // _____________________________________________
   //
@@ -71,10 +72,8 @@ model HeatPumpElectricCharline "Electric heat pump model that produces a given h
         extent={{10,-10},{-10,10}},
         rotation=0,
         origin={90,-46})));
-protected
-  TransiEnt.Components.Statistics.Collectors.LocalCollectors.CollectElectricPower collectElectricPower(typeOfResource=TransiEnt.Basics.Types.TypeOfResource.Consumer)
-                                                                                                                                      annotation (Placement(transformation(extent={{-100,-100},{-80,-80}})));
 
+protected
   Modelica.Blocks.Sources.RealExpression realExpression(y=P_el) if usePowerPort annotation (Placement(transformation(extent={{74,-34},{94,-14}})));
   Modelica.Blocks.Math.Gain P_el_set_(k=1) annotation (Placement(transformation(extent={{-60,20},{-40,40}})));
   Modelica.Blocks.Sources.Constant const1(k=1)
@@ -86,6 +85,12 @@ protected
 
 public
   SI.Power P_el;
+  Modelica.Blocks.Sources.RealExpression PrescribedHeatFlow1(y=T_out.y) if useFluidPorts
+                                                                      annotation (Placement(transformation(extent={{28,54},{48,74}})));
+  Modelica.Blocks.Sources.RealExpression T_in(y=inStream(waterPortIn.h_outflow)/cf) if useFluidPorts
+                                                                                    annotation (Placement(transformation(extent={{-8,-44},{12,-24}})));
+  Modelica.Blocks.Sources.RealExpression T_out(y=waterPortOut.h_outflow/cf) if useFluidPorts
+                                                                            annotation (Placement(transformation(extent={{-4,-78},{16,-58}})));
 equation
   // _____________________________________________
   //
@@ -103,15 +108,12 @@ equation
   //charline
   COP=COP_n*1/3.4744*(0.0005*DeltaT^2-0.0973*DeltaT+6.1408); //source: Andreas Palzer. 2016. Sektorübergreifende Modellierung Und Optimierung Eines Zukünftigen Deutschen Energiesystems Unter Berücksichtigung von Energieeffizienzmaßnahmen Im Gebäudesektor. Stuttgart: Fraunhofer Verlag. http://publica.fraunhofer.de/eprints/urn_nbn_de_0011-n-408742-11.pdf.
 
-  //collector
-  collectElectricPower.powerCollector.P=P_el;
 
   // _____________________________________________
   //
   //               Connect Statements
   // _____________________________________________
 
-  connect(modelStatistics.powerCollector[collectElectricPower.typeOfResource],collectElectricPower.powerCollector);
   if usePowerPort then
     connect(powerBoundary.epp, epp) annotation (Line(
       points={{100,-46},{110,-46},{110,10}},
@@ -128,6 +130,7 @@ equation
   end if;
 
   connect(realExpression.y, powerBoundary.P_el_set) annotation (Line(points={{95,-24},{96,-24},{96,-34}},    color={0,0,127}));
+  connect(PrescribedHeatFlow1.y, sum1.u[1]) annotation (Line(points={{49,64},{58,64},{58,55.5},{68,55.5}}, color={0,0,127}));
 annotation (Documentation(info="<html>
 <h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
 <p>Base class for simple heat pump models that produce a given heat flow via fluid ports and use a charline.</p>

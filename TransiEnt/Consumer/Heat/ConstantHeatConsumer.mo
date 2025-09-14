@@ -20,7 +20,7 @@ model ConstantHeatConsumer "A consumer model with a constant heat demand"
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -41,7 +41,7 @@ model ConstantHeatConsumer "A consumer model with a constant heat demand"
   //                 Outer Models
   // _____________________________________________
 
-  outer TransiEnt.SimCenter simCenter;
+  //outer TransiEnt.SimCenter simCenter;
 
   replaceable TransiEnt.Components.Boundaries.Heat.Heatflow_L1 heatBoundary(use_Q_flow_in=false, Q_flow_const=Q_flow_const)
                                                                                                  constrainedby TransiEnt.Components.Boundaries.Heat.Base.PartialHeatBoundary annotation (choicesAllMatching=true, Placement(transformation(
@@ -54,8 +54,7 @@ model ConstantHeatConsumer "A consumer model with a constant heat demand"
   // _____________________________________________
 
  parameter SI.Power Q_flow_const=0;
-  parameter SI.Pressure p_drop=simCenter.p_nom[2] -
-     simCenter.p_nom[1];
+  parameter SI.Pressure p_drop=100; //simCenter.p_nom[2] -simCenter.p_nom[1];
 
 equation
 
@@ -64,15 +63,8 @@ equation
   //               Connect Statements
   // _____________________________________________
 
-    connect(heatBoundary.fluidPortIn, fluidPortIn) annotation (Line(
-      points={{-8,6},{-36.9,6},{-36.9,20},{-98,20}},
-      color={175,0,0},
-      smooth=Smooth.None));
-  connect(heatBoundary.fluidPortOut, fluidPortOut) annotation (Line(
-      points={{-8,-6},{-35.9,-6},{-35.9,-20},{-98,-20}},
-      color={175,0,0},
-      smooth=Smooth.None));
-
+  connect(heatBoundary.fluidPortIn, fluidPortIn) annotation (Line(points={{-8,6},{-82,6},{-82,20},{-98,20}}, color={0,0,0}));
+  connect(heatBoundary.fluidPortOut, fluidPortOut) annotation (Line(points={{-8,-6},{-8,-4},{-84,-4},{-84,-20},{-98,-20}}, color={0,0,0}));
   annotation (Documentation(info="<html>
 <p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">1. Purpose of model</span></b></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">This model is a heat sink with a constant consumer.</span></p>

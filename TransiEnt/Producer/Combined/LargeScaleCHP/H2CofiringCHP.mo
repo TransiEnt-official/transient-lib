@@ -19,7 +19,7 @@ model H2CofiringCHP "Continuous combined cycle CHP plant with hydrogen cofiring 
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -33,9 +33,7 @@ model H2CofiringCHP "Continuous combined cycle CHP plant with hydrogen cofiring 
   //          Imports and Class Hierarchy
   // _____________________________________________
 
-  extends Base.PartialCHP(collectCosts(Q_flow_fuel_is=Q_flow_input_basefuel),
-    redeclare model ProducerCosts = Components.Statistics.ConfigurationData.PowerProducerCostSpecs.GasCCGT,
-    typeOfPrimaryEnergyCarrier=TransiEnt.Basics.Types.TypeOfPrimaryEnergyCarrier.NaturalGas);
+  extends Base.PartialCHP;
 
   // _____________________________________________
   //
@@ -74,21 +72,6 @@ model H2CofiringCHP "Continuous combined cycle CHP plant with hydrogen cofiring 
   //             Components
   // _____________________________________________
 
-  ClaRa.Components.HeatExchangers.TubeBundle_L2 HX(
-    length=15,
-    N_tubes=10,
-    N_passes=2,
-    h_start=467624,
-    redeclare model HeatTransfer = ClaRa.Basics.ControlVolumes.Fundamentals.HeatTransport.Generic_HT.IdealHeatTransfer_L2,
-    m_flow_nom=m_flow_nom,
-    p_nom(displayUnit="Pa") = p_nom,
-    h_nom=h_nom,
-    redeclare model PressureLoss = ClaRa.Basics.ControlVolumes.Fundamentals.PressureLoss.Generic_PL.LinearPressureLoss_L2,
-    p_start=1079200) annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
-        rotation=90,
-        origin={62,-10})));
-
   Modelica.Blocks.Interfaces.BooleanInput h2Available annotation (Placement(transformation(extent={{-124,-60},{-84,-20}}), iconTransformation(extent={{-110,-16},{-78,16}})));
   Modelica.Blocks.Continuous.FirstOrder turboGenerator(
     T=T_turboGenerator,
@@ -105,12 +88,6 @@ model H2CofiringCHP "Continuous combined cycle CHP plant with hydrogen cofiring 
     T=T_heatingCondenser,
     initType=Modelica.Blocks.Types.Init.InitialOutput,
     y_start=Q_flow_init)                              annotation (Placement(transformation(extent={{-8,-20},{12,0}})));
-  Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow prescribedHeatFlow(T_ref(displayUnit="degC"))
-     annotation (Placement(
-        transformation(
-        extent={{-9,-9},{9,9}},
-        rotation=0,
-        origin={31,-10})));
   Modelica.Blocks.Sources.RealExpression eta_el_source(y=eta_el_target)
                                                                  annotation (Placement(transformation(extent={{-62,44},{-42,64}})));
   Modelica.Blocks.Math.Product product annotation (Placement(transformation(extent={{-30,48},{-22,40}})));
@@ -138,6 +115,10 @@ public
   Modelica.Blocks.Math.Sum P_limit[quantity](each nin=2)          annotation (Placement(transformation(extent={{-24,98},{-12,110}})));
   Modelica.Blocks.Math.Add add1  [quantity](each k2=-1) annotation (Placement(transformation(extent={{-62,98},{-50,110}})));
   Modelica.Blocks.Math.Gain gain(k=-1) annotation (Placement(transformation(extent={{-76,104},{-68,112}})));
+  Components.Boundaries.Heat.Heatflow_L1           HX(change_sign=true) annotation (Placement(transformation(
+        extent={{-10,-10},{10,10}},
+        rotation=90,
+        origin={56,-10})));
 equation
   // _____________________________________________
   //
@@ -158,16 +139,6 @@ equation
   // _____________________________________________
 
   //Connect statements
-  connect(outlet, HX.outlet) annotation (Line(
-      points={{100,4},{65,4},{65,0},{62,0}},
-      color={175,0,0},
-      thickness=0.5,
-      smooth=Smooth.None));
-  connect(inlet, HX.inlet) annotation (Line(
-      points={{100,-24},{62,-24},{62,-20}},
-      color={175,0,0},
-      thickness=0.5,
-      smooth=Smooth.None));
 
   //Annotations
   connect(eta_el_source.y,product. u2) annotation (Line(points={{-41,54},{-41,54},{-36,54},{-34.8,54},{-34.8,46.4},{-30.8,46.4}}, color={0,0,127}));
@@ -178,8 +149,6 @@ equation
   connect(steamGenerator.y,product. u1) annotation (Line(points={{-43,22},{-38,22},{-38,41.6},{-30.8,41.6}}, color={0,0,127}));
   connect(steamGenerator.y,product1. u1) annotation (Line(points={{-43,22},{-36,22},{-36,-7.6},{-26.8,-7.6}}, color={0,0,127}));
   connect(product1.y,heatingCondenser. u) annotation (Line(points={{-17.6,-10},{-14,-10},{-10,-10}},   color={0,0,127}));
-  connect(heatingCondenser.y,prescribedHeatFlow. Q_flow) annotation (Line(points={{13,-10},{22,-10}},                  color={0,0,127}));
-  connect(prescribedHeatFlow.port, HX.heat) annotation (Line(points={{40,-10},{52,-10}},                   color={191,0,0}));
   connect(terminal.epp, epp) annotation (Line(
       points={{82,60},{82,60},{82,60},{100,60}},
       color={0,135,135},
@@ -204,10 +173,10 @@ equation
   end for;
 
 for i in 1:quantity loop
-  connect(P_limit_on[i].y,P_limit[i].u[1]) annotation (Line(points={{-31.5,105},{-25.2,105},{-25.2,103.4}},        color={0,0,127}));
+  connect(P_limit_on[i].y,P_limit[i].u[1]) annotation (Line(points={{-31.5,105},{-25.2,105},{-25.2,103.7}},        color={0,0,127}));
   connect(pQDiagram[i].P_max, P_limit_on[i].limit1) annotation (Line(points={{-11,128.4},{-48,128.4},{-48,109},{-43,109}},       color={0,0,127}));
   connect(pQDiagram[i].P_min, P_limit_on[i].limit2) annotation (Line(points={{-11,121},{-46,121},{-46,101},{-43,101}},     color={0,0,127}));
-  connect(P_limit_off[i].y,P_limit[i]. u[2]) annotation (Line(points={{-31,86},{-28,86},{-28,104.6},{-25.2,104.6}},                    color={0,0,127}));
+  connect(P_limit_off[i].y,P_limit[i]. u[2]) annotation (Line(points={{-31,86},{-28,86},{-28,104.3},{-25.2,104.3}},                    color={0,0,127}));
   connect(P_limit[i].y, Q_flow_set_SG[i].P) annotation (Line(points={{-11.4,104},{-7.27273,104},{-7.27273,102}},  color={0,0,127}));
   connect(add1[i].y, P_limit_on[i].u) annotation (Line(points={{-49.4,104},{-46,104},{-46,105},{-43,105}}, color={0,0,127}));
   connect(gain.y, add1[i].u1) annotation (Line(
@@ -227,6 +196,9 @@ for i in 1:quantity loop
 
   connect(P_set, gain.u) annotation (Line(points={{-84,144},{-84,108},{-76.8,108}}, color={0,0,127}));
   connect(multiSum_Q_flow_SG.y, steamGenerator.u) annotation (Line(points={{-52.68,76},{-80,76},{-80,22},{-66,22}}, color={0,0,127}));
+  connect(HX.fluidPortOut, outlet) annotation (Line(points={{66,-4},{66,4},{100,4}}, color={0,0,0}));
+  connect(HX.fluidPortIn, inlet) annotation (Line(points={{66,-16},{66,-24},{100,-24}}, color={0,0,0}));
+  connect(heatingCondenser.y, HX.Q_flow_prescribed) annotation (Line(points={{13,-10},{28,-10},{28,-16},{48,-16}}, color={0,0,127}));
   annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,120}})), Icon(coordinateSystem(extent={{-100,-100},{100,120}}),
                                                                                                          graphics={
         Ellipse(

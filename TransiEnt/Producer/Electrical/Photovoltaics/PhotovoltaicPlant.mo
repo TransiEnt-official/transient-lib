@@ -116,7 +116,7 @@ model PhotovoltaicPlant "Simple efficiency-based PV model with constant efficien
           extent={{90,-10},{110,10}})));
   Modelica.Blocks.Sources.RealExpression GlobalSolarRadiation(y=simCenter.ambientConditions.globalSolarRadiation.value)
     annotation (Placement(transformation(extent={{-60,46},{-44,82}})));
-  Modelica.Blocks.Math.Gain Conversion(k(unit="m2", value=A_module*eta))
+  Modelica.Blocks.Math.Gain Conversion(k=A_module*eta)
     annotation (Placement(transformation(extent={{22,20},{42,40}})));
   Modelica.Blocks.Logical.Switch switch1
     annotation (Placement(transformation(extent={{-20,20},{0,40}})));

@@ -20,7 +20,7 @@ model IdealHeatingNetworkConsumer "Heating network consumer, ideally hydraulic d
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -45,8 +45,10 @@ model IdealHeatingNetworkConsumer "Heating network consumer, ideally hydraulic d
   parameter SI.Pressure p_feed_const = 12e5 "Pressure at consumer station, feed water side";
   parameter SI.Pressure p_return_const = 10e5 "Pressure at consumer station, return water side";
   parameter SI.MassFlowRate m_flow_large=2000 "Limit of mass flow rate";
-  parameter SI.MassFlowRate m_flow_small=simCenter.m_flow_small "Lower limits of input signals";
+  parameter SI.MassFlowRate m_flow_small=Modelica.Constants.eps;//simCenter.m_flow_small "Lower limits of input signals";
   parameter Boolean use_T_return_const = true;
+  parameter SI.SpecificHeatCapacity cf=4186 "Specific heat capacity of the fluid";
+  parameter SI.Density rho=1000 "Density of the fluid";
 
   // _____________________________________________
   //
@@ -84,17 +86,6 @@ protected
   // _____________________________________________
 
 public
-  ClaRa.Components.BoundaryConditions.BoundaryVLE_Txim_flow source(
-    m_flow_const=550,
-    variable_m_flow=true,
-    p_nom=p_return_const,
-    variable_T=true)      annotation (Placement(transformation(extent={{-26,-44},{-46,-24}})));
-  ClaRa.Components.BoundaryConditions.BoundaryVLE_pTxi sink(                                       p_const(displayUnit="bar") = p_feed_const, variable_T=true)
-                                                                                                    annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
-        rotation=180,
-        origin={-44,34})));
-
   Modelica.Blocks.Sources.RealExpression m_flow_unlimited(y=m_flow) annotation (Placement(transformation(extent={{46,-38},{26,-18}})));
 
   // _____________________________________________
@@ -103,18 +94,25 @@ public
   // _____________________________________________
 
   SI.MassFlowRate m_flow "Mass flow is determined by heat balance";
-  SI.SpecificHeatCapacity cp = TILMedia.Internals.VLEFluidConfigurations.FullyMixtureCompatible.VLEFluidFunctions.liquidSpecificHeatCapacity_phxi(medium, fluidPortIn.p, inStream(fluidPortIn.h_outflow), inStream(fluidPortIn.xi_outflow));
-  SI.Density rho = TILMedia.Internals.VLEFluidConfigurations.FullyMixtureCompatible.VLEFluidFunctions.liquidDensity_phxi(medium, fluidPortIn.p, inStream(fluidPortIn.h_outflow), inStream(fluidPortIn.xi_outflow));
+  SI.Temperature T_in "Temperature flowing into the consumer";
+  //SI.Density rho = TILMedia.Internals.VLEFluidConfigurations.FullyMixtureCompatible.VLEFluidFunctions.liquidDensity_phxi(medium, fluidPortIn.p, inStream(fluidPortIn.h_outflow), inStream(fluidPortIn.xi_outflow));
 
   Modelica.Blocks.Nonlinear.Limiter m_flow_set(uMax=m_flow_large, uMin=m_flow_small) annotation (Placement(transformation(extent={{6,-38},{-14,-18}})));
 
+  TransiEnt.Components.Boundaries.FluidFlow.FluidSink sink2(h=95*4186) annotation (Placement(transformation(extent={{-68,70},{-48,90}})));
+  Modelica.Blocks.Sources.RealExpression realExpression2(y=p_feed_const)
+                                                             annotation (Placement(transformation(extent={{-96,70},{-76,90}})));
+  TransiEnt.Components.Boundaries.FluidFlow.FluidSource fluidSource annotation (Placement(transformation(extent={{-36,-41},{-56,-21}})));
+  Modelica.Blocks.Sources.RealExpression realExpression1(y=T_return_internal*cf)
+                                                             annotation (Placement(transformation(extent={{12,-80},{-8,-60}})));
 equation
   // _____________________________________________
   //
   //           Characteristic Equations
   // _____________________________________________
 
-  Q_flow_demand = m_flow*cp*(T_in.T - T_return_internal);
+  Q_flow_demand = m_flow*cf*(T_in - T_return_internal);
+  T_in=inStream(fluidPortIn.h_outflow)/cf;
 
   if use_T_return_const then
     T_return_internal = T_return_const;
@@ -128,17 +126,11 @@ equation
   connect(T_return_internal, T_return_set);
 
   connect(m_flow_unlimited.y, m_flow_set.u) annotation (Line(points={{25,-28},{16,-28},{8,-28}}, color={0,0,127}));
-  connect(m_flow_set.y, source.m_flow) annotation (Line(points={{-15,-28},{-24,-28}}, color={0,0,127}));
-  connect(T_return_internal, sink.T) annotation (Line(points={{15,34},{15,34},{-34,34}}, color={0,0,127}));
-  connect(T_return_internal, source.T) annotation (Line(points={{15,34},{-18,34},{-18,-34},{-24,-34}}, color={0,0,127}));
-  connect(fluidPortIn, sink.steam_a) annotation (Line(
-      points={{-98,20},{-70,20},{-70,34},{-54,34}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(fluidPortOut, source.steam_a) annotation (Line(
-      points={{-98,-20},{-80,-20},{-80,-40},{-56,-40},{-56,-34},{-46,-34}},
-      color={175,0,0},
-      thickness=0.5));
+  connect(realExpression2.y,sink2. p_in) annotation (Line(points={{-75,80},{-66,80}},                       color={0,0,127}));
+  connect(sink2.port_a, fluidPortIn) annotation (Line(points={{-48,80},{-30,80},{-30,20},{-98,20}}, color={0,0,0}));
+  connect(fluidSource.port_a, fluidPortOut) annotation (Line(points={{-56,-31},{-82,-31},{-82,-20},{-98,-20}}, color={0,0,0}));
+  connect(m_flow_set.y, fluidSource.m_flow_in) annotation (Line(points={{-15,-28},{-38,-28}}, color={0,0,127}));
+  connect(realExpression1.y, fluidSource.h_in) annotation (Line(points={{-9,-70},{-32,-70},{-32,-33},{-38,-33}}, color={0,0,127}));
   annotation (Documentation(info="<html>
 <p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">1. Purpose of model</span></b></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">Model represents a district heating station consumer. The model calculates the mass flow according to the feed water temperature and the prescribed heat flow demand. It reacts to a change in feed water temperature by reducing mass flow in returning mass flow path. There is no mass flow balance active.</span></p>
@@ -172,6 +164,5 @@ equation
           extent={{-75,-75},{75,75}}),
         Line(points={{46,60},{-60,-46}}, color={0,127,127}),
         Line(points={{60,46},{-46,-60}}, color={0,127,127})}),
-    Diagram(graphics,
-            coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}})));
+    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}})));
 end IdealHeatingNetworkConsumer;

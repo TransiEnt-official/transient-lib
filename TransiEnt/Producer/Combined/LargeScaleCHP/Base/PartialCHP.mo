@@ -19,7 +19,7 @@ partial model PartialCHP "Partial model of a large scale CHP plant with characte
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -42,8 +42,6 @@ partial model PartialCHP "Partial model of a large scale CHP plant with characte
 
   outer TransiEnt.SimCenter simCenter;
 
-  outer TransiEnt.ModelStatistics modelStatistics;
-
   // _____________________________________________
   //
   //                   Parameters
@@ -58,6 +56,8 @@ partial model PartialCHP "Partial model of a large scale CHP plant with characte
   parameter Modelica.Units.SI.HeatFlowRate Q_flow_n_CHP=PQCharacteristics.PQboundaries[end, 1]/PQCharacteristics.k_Q_flow "Maximum possible heat flow according to PQ diagram" annotation (Dialog(group="Physical Constraints"));
   parameter Modelica.Units.SI.HeatFlowRate Q_flow_n_Peak=0 "Additional thermal capacity (e.g. peak load heaters)" annotation (Dialog(group="Physical Constraints"));
   final parameter Modelica.Units.SI.HeatFlowRate Q_flow_n_total=Q_flow_n_CHP + Q_flow_n_Peak;
+  parameter SI.SpecificHeatCapacity cf=4186 "Specific heat capacity of the fluid";
+  parameter SI.Density rho=981 "Density of the fluid";
 
   parameter SI.ActivePower P_el_init=P_el_n "Initial or guess value of output (= state)" annotation(Dialog(group="Initialization", tab="Advanced"));
   parameter SI.HeatFlowRate Q_flow_init=Q_flow_n_total "Initial or guess value of output (= state)" annotation(Dialog(group="Initialization", tab="Advanced"));
@@ -77,10 +77,7 @@ partial model PartialCHP "Partial model of a large scale CHP plant with characte
 
   // Statistics
 
-   replaceable model ProducerCosts =
-      TransiEnt.Components.Statistics.ConfigurationData.PowerProducerCostSpecs.HardCoal
-    constrainedby TransiEnt.Components.Statistics.ConfigurationData.PowerProducerCostSpecs.PartialPowerPlantCostSpecs
-                                                                                            annotation (Dialog(group="Statistics"), __Dymola_choicesAllMatching=true);
+
 
    final parameter TransiEnt.Basics.Types.TypeOfResource typeOfResource=TransiEnt.Basics.Types.TypeOfResource.Cogeneration "Type of energy resource for global model statistics" annotation (
     Dialog(group="Statistics"),
@@ -133,9 +130,9 @@ partial model PartialCHP "Partial model of a large scale CHP plant with characte
 
   // Fuid ports
 
-  TransiEnt.Basics.Interfaces.Thermal.FluidPortOut outlet(Medium=medium) annotation (Placement(transformation(extent={{90,-6},{110,14}}), iconTransformation(extent={{92,-16},{112,4}})));
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortOut_simple outlet annotation (Placement(transformation(extent={{90,-6},{110,14}}), iconTransformation(extent={{92,-16},{112,4}})));
 
-  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn inlet(Medium=medium) annotation (Placement(transformation(extent={{90,-34},{110,-14}}), iconTransformation(extent={{92,-44},{112,-24}})));
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn_simple inlet annotation (Placement(transformation(extent={{90,-34},{110,-14}}), iconTransformation(extent={{92,-44},{112,-24}})));
 
   // _____________________________________________
   //
@@ -159,31 +156,7 @@ partial model PartialCHP "Partial model of a large scale CHP plant with characte
     each P_n=P_el_n_single)
                      "Possible operating regime of electric output for given thermal output" annotation (Placement(transformation(extent={{10,114},{-10,134}})));
 
-  TransiEnt.Components.Sensors.TemperatureSensor T_out_sensor annotation (Placement(transformation(extent={{88,4},{68,24}})));
-
-  TransiEnt.Components.Sensors.TemperatureSensor T_in_sensor annotation (Placement(transformation(extent={{88,-42},{68,-24}})));
-
   // Statistical Collectors
-
-  TransiEnt.Components.Statistics.Collectors.LocalCollectors.CollectElectricPower collectElectricPower annotation (Placement(transformation(extent={{-100,-100},{-80,-80}})));
-
-  TransiEnt.Components.Statistics.Collectors.LocalCollectors.CollectHeatingPower collectHeatingPower(typeOfResource=TransiEnt.Basics.Types.TypeOfResource.Cogeneration) annotation (Placement(transformation(extent={{12,-100},{32,-80}})));
-
-  TransiEnt.Components.Statistics.Collectors.LocalCollectors.CollectGwpEmissionsElectric collectPowerEmissions annotation (Placement(transformation(extent={{34,-100},{54,-80}})));
-
-  TransiEnt.Components.Statistics.Collectors.LocalCollectors.CollectGwpEmissionsElectric collectHeatingEmissions annotation (Placement(transformation(extent={{56,-100},{76,-80}})));
-
-  TransiEnt.Components.Statistics.Collectors.LocalCollectors.CogenerationPlantCost collectCosts(
-    Q_flow_fuel_is=Q_flow_input,
-    Q_flow_is=-Q_flow_is,
-    P_el_is=-P_el_is,
-    P_n=P_el_n,
-    A_alloc_power=A_cde_alloc_power,
-    A_alloc_heat=A_cde_alloc_heat,
-    redeclare model PowerPlantCostModel = ProducerCosts) annotation (Dialog(tab="Advanced"), Placement(transformation(
-        extent={{-10.5,-10},{10.5,10}},
-        rotation=0,
-        origin={89.5,-90})));
 
   TransiEnt.Components.Statistics.Functions.GetFuelSpecificCO2Emissions fuelSpecificEmissions(typeOfPrimaryEnergyCarrier=typeOfPrimaryEnergyCarrier);
   // _____________________________________________
@@ -251,6 +224,8 @@ public
                                annotation (Placement(transformation(extent={{-5.5,-5},{5.5,5}},
         rotation=180,
         origin={79.5,111})));
+  Modelica.Blocks.Sources.RealExpression T_in(y=inStream(inlet.h_outflow)/cf) annotation (Placement(transformation(extent={{-76,-18},{-42,16}})));
+  Modelica.Blocks.Sources.RealExpression T_out(y=outlet.h_outflow/cf) annotation (Placement(transformation(extent={{-76,-46},{-42,-12}})));
 equation
     // _____________________________________________
   //
@@ -297,8 +272,8 @@ end if;
 
   eye.P=P_el_is;
   eye.Q_flow=Q_flow_is;
-  eye.T_supply=T_out_sensor.T_celsius;
-  eye.T_return=T_in_sensor.T_celsius;
+  eye.T_supply=T_out.y;
+  eye.T_return=T_in.y;
   eye.p = outlet.p/1e5;
   eye.h_supply = outlet.h_outflow/1e3;
   eye.h_return = inlet.h_outflow/1e3;
@@ -313,31 +288,6 @@ end if;
   //
   //               Connect Statements
   // _____________________________________________
-
-  // ------------ Statistics ----------
-
-  // Electric output statistics
-  collectElectricPower.powerCollector.P=epp.P;
-  connect(modelStatistics.powerCollector[typeOfResource],collectElectricPower.powerCollector);
-
-  //Thermal output statistics
-  collectHeatingPower.heatFlowCollector.Q_flow = -Q_flow_is;
-  connect(modelStatistics.heatFlowCollector[typeOfResource],collectHeatingPower.heatFlowCollector);
-
-  //Emissions statistics
-  collectPowerEmissions.gwpCollector.m_flow_cde=-m_flow_cde_power;
-  collectHeatingEmissions.gwpCollector.m_flow_cde=-m_flow_cde_heat;
-  connect(modelStatistics.gwpCollector[typeOfPrimaryEnergyCarrier],collectPowerEmissions.gwpCollector);
-  connect(modelStatistics.gwpCollectorHeat[typeOfPrimaryEnergyCarrierHeat],collectHeatingEmissions.gwpCollector);
-
-  // Economics statistics
-
-  connect(modelStatistics.costsCollector, collectCosts.costsCollector);
-
-  connect(outlet, T_out_sensor.port) annotation (Line(points={{100,4},{78,4}},             color={175,0,0}, thickness=0.5));
-
-  connect(inlet, T_in_sensor.port) annotation (Line(points={{100,-24},{96,-24},{96,-42},{92,-42},{78,-42}},
-                                                                                              color={175,0,0}, thickness=0.5));
 
   //General Annotations
   for i in 1:quantity loop
@@ -365,33 +315,9 @@ end if;
       points={{85,111},{85,119.5},{86,119.5},{86,144}},
       color={175,0,0},
       pattern=LinePattern.Dash));
-   annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,140}}), graphics={
-                                                                                Line(
-          points={{88,-60},{88,-74}},
-          pattern=LinePattern.Dash,
-          smooth=Smooth.None,
-          color={0,0,0},
-          arrow={Arrow.None,Arrow.Filled}),                                     Line(
-          points={{88,-60},{-90,-60},{-90,-76}},
-          pattern=LinePattern.Dash,
-          smooth=Smooth.None,
-          color={0,0,0},
-          arrow={Arrow.None,Arrow.Filled}),                                     Line(
-          points={{66,-60},{66,-74}},
-          pattern=LinePattern.Dash,
-          smooth=Smooth.None,
-          color={0,0,0},
-          arrow={Arrow.None,Arrow.Filled}),                                     Line(
-          points={{16,-60},{16,-76}},
-          pattern=LinePattern.Dash,
-          smooth=Smooth.None,
-          color={0,0,0},
-          arrow={Arrow.None,Arrow.Filled}),                                     Line(
-          points={{44,-60},{44,-74}},
-          pattern=LinePattern.Dash,
-          smooth=Smooth.None,
-          color={0,0,0},
-          arrow={Arrow.None,Arrow.Filled})}), Icon(graphics,
+                                                                                            annotation (Dialog(group="Statistics"), __Dymola_choicesAllMatching=true,
+               Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,140}})),
+                                              Icon(graphics,
                                                    coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,140}})),
     Documentation(info="<html>
 <p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">1. Purpose of model</span></b></p>

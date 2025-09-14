@@ -85,29 +85,7 @@ model ContinuousCHP "Simple large CHP model with plant limits, time constants an
     initType=Modelica.Blocks.Types.Init.InitialOutput,
     y_start=Q_flow_init)                              annotation (Placement(transformation(extent={{-18,-22},{2,-2}})));
 
-  Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow prescribedHeatFlow(T_ref(displayUnit="degC"))
-     annotation (Placement(
-        transformation(
-        extent={{-9,-9},{9,9}},
-        rotation=0,
-        origin={37,-13})));
-
   TransiEnt.Components.Boundaries.Electrical.ActivePower.Power terminal(change_sign=true) annotation (Placement(transformation(extent={{80,50},{60,70}})));
-
-  ClaRa.Components.HeatExchangers.TubeBundle_L2 HX(
-    length=15,
-    N_tubes=10,
-    N_passes=2,
-    redeclare model HeatTransfer = ClaRa.Basics.ControlVolumes.Fundamentals.HeatTransport.Generic_HT.IdealHeatTransfer_L2,
-    m_flow_nom=m_flow_nom,
-    p_nom(displayUnit="Pa") = p_nom,
-    h_nom=h_nom,
-    redeclare model PressureLoss = ClaRa.Basics.ControlVolumes.Fundamentals.PressureLoss.Generic_PL.LinearPressureLoss_L2,
-    h_start=h_start,
-    p_start=p_nom) annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
-        rotation=90,
-        origin={64,-12})));
 
   Modelica.Blocks.Sources.RealExpression eta_el_source(y=eta_el_target)
                                                                  annotation (Placement(transformation(extent={{-72,32},{-52,52}})));
@@ -144,6 +122,12 @@ public
   Modelica.Blocks.Sources.RealExpression realExpression3[quantity](y=-P_set_single)                                                  annotation (Placement(transformation(extent={{-84,82},{-64,102}})));
   Modelica.Blocks.Sources.RealExpression fuelMassFlow_set(y=if P_set + Q_flow_set >= 0 then 0 else steamGenerator.y + Q_flow_peak.y/eta_peakload)
                                                                                                                    if useGasPort annotation (Placement(transformation(extent={{14,50},{34,70}})));
+  Components.Heat.HeatExchanger_simple heatExchanger_simple annotation (Placement(transformation(
+        extent={{-10,-10},{10,10}},
+        rotation=90,
+        origin={60,-10})));
+  Modelica.Blocks.Math.Gain gain1(k=-1)
+                                       annotation (Placement(transformation(extent={{36,-14},{44,-6}})));
 equation
 
   // _____________________________________________
@@ -174,22 +158,6 @@ equation
   //
   //               Connect Statements
   // _____________________________________________
-  connect(prescribedHeatFlow.port, HX.heat) annotation (Line(
-      points={{46,-13},{48,-13},{48,-12},{54,-12}},
-      color={191,0,0},
-      smooth=Smooth.None));
-
-  connect(outlet, HX.outlet) annotation (Line(
-      points={{100,4},{65,4},{65,-2},{64,-2}},
-      color={175,0,0},
-      thickness=0.5,
-      smooth=Smooth.None));
-
-  connect(inlet, HX.inlet) annotation (Line(
-      points={{100,-24},{64,-24},{64,-22}},
-      color={175,0,0},
-      thickness=0.5,
-      smooth=Smooth.None));
 
   connect(eta_el_source.y, product.u2) annotation (Line(points={{-51,42},{-51,42},{-46,42},{-44.8,42},{-44.8,36.4},{-40.8,36.4}}, color={0,0,127}));
 
@@ -230,10 +198,10 @@ equation
   end for;
 
 for i in 1:quantity loop
-  connect(P_limit_on[i].y,P_limit[i].u[1]) annotation (Line(points={{-31.5,105},{-25.2,105},{-25.2,103.4}},        color={0,0,127}));
+  connect(P_limit_on[i].y,P_limit[i].u[1]) annotation (Line(points={{-31.5,105},{-25.2,105},{-25.2,103.7}},        color={0,0,127}));
   connect(pQDiagram[i].P_max, P_limit_on[i].limit1) annotation (Line(points={{-11,128.4},{-48,128.4},{-48,109},{-43,109}},       color={0,0,127}));
   connect(pQDiagram[i].P_min, P_limit_on[i].limit2) annotation (Line(points={{-11,121},{-46,121},{-46,101},{-43,101}},     color={0,0,127}));
-  connect(P_limit_off[i].y,P_limit[i]. u[2]) annotation (Line(points={{-31,86},{-28,86},{-28,104.6},{-25.2,104.6}},                    color={0,0,127}));
+  connect(P_limit_off[i].y,P_limit[i]. u[2]) annotation (Line(points={{-31,86},{-28,86},{-28,104.3},{-25.2,104.3}},                    color={0,0,127}));
   connect(P_limit[i].y, Q_flow_set_SG[i].P) annotation (Line(points={{-11.4,104},{-7.27273,104},{-7.27273,102}},  color={0,0,127}));
   connect(Q_flow_set_SG[i].Q_flow_input, multiSum_Q_flow_SG.u[i]) annotation (Line(
       points={{-0.909091,79},{-0.909091,66},{-44,66}},
@@ -245,11 +213,15 @@ for i in 1:quantity loop
   end for;
 
   connect(P_set, gain.u) annotation (Line(points={{-84,144},{-84,108},{-76.8,108}}, color={0,0,127}));
-  connect(Q_flow_peak.y,Q_flow. u[2]) annotation (Line(points={{1,-48},{4,-48},{4,-35.5},{9,-35.5}},     color={0,0,127}));
-  connect(heatingCondenser.y, Q_flow.u[1]) annotation (Line(points={{3,-12},{8,-12},{8,-36.5},{9,-36.5}}, color={0,0,127}));
-  connect(Q_flow.y, prescribedHeatFlow.Q_flow) annotation (Line(points={{20.5,-36},{20.5,-35},{28,-35},{28,-13}}, color={0,0,127}));
+  connect(Q_flow_peak.y,Q_flow. u[2]) annotation (Line(points={{1,-48},{4,-48},{4,-35.75},{9,-35.75}},   color={0,0,127}));
+  connect(heatingCondenser.y, Q_flow.u[1]) annotation (Line(points={{3,-12},{8,-12},{8,-36.25},{9,-36.25}},
+                                                                                                          color={0,0,127}));
   connect(realExpression3.y, P_limit_on.u) annotation (Line(points={{-63,92},{-58,92},{-58,104},{-54,104},{-54,105},{-43,105}}, color={0,0,127}));
   connect(fuelMassFlow_set.y, gasConsumer_HFlow_NCV.H_flow) annotation (Line(points={{35,60},{38,60},{38,84},{41,84}}, color={0,0,127}));
+  connect(heatExchanger_simple.outlet, outlet) annotation (Line(points={{60,0},{60,4},{100,4}}, color={0,0,0}));
+  connect(heatExchanger_simple.inlet, inlet) annotation (Line(points={{60,-20},{60,-24},{100,-24}}, color={0,0,0}));
+  connect(gain1.y, heatExchanger_simple.Q_flow) annotation (Line(points={{44.4,-10},{50,-10}}, color={0,0,127}));
+  connect(Q_flow.y, gain1.u) annotation (Line(points={{20.5,-36},{30,-36},{30,-10},{35.2,-10}}, color={0,0,127}));
   annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,140}})), Documentation(info="<html>
 <p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">1. Purpose of model</span></b></p>
 <p>This model represents the simplest of all large scale CHP models in the library. It allows a quick representation of a CHP plant with three main characteristics:</p>

@@ -19,7 +19,7 @@ model SimpleBoiler "Simple gas boiler model with composition adaptive control"
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -76,7 +76,6 @@ public
   replaceable model BoilerCostModel = Components.Statistics.ConfigurationData.PowerProducerCostSpecs.GasBoiler constrainedby Components.Statistics.ConfigurationData.PowerProducerCostSpecs.BoilerCost annotation (Dialog(group="Statistics"), choicesAllMatching=true);
   replaceable Components.Boundaries.Heat.Heatflow_L1 heatFlowBoundary(
     p_drop=p_drop,
-    Medium=medium,
     change_sign=true,
     use_Q_flow_in=true) if useFluidPorts  constrainedby Components.Boundaries.Heat.Base.PartialHeatBoundary  annotation (
     choicesAllMatching=true,
@@ -86,27 +85,10 @@ public
 
   Modelica.Blocks.Sources.RealExpression H_flow_set(y=H_flow_fuel_demand) "just for visualisation on diagram layer" annotation (Placement(transformation(extent={{-92,18},{-62,38}})));
 
-  TransiEnt.Components.Sensors.TemperatureSensor T_in_sensor if useFluidPorts annotation (Placement(transformation(
-        extent={{-10,10},{10,-10}},
-        rotation=180,
-        origin={80,10})));
-  TransiEnt.Components.Sensors.TemperatureSensor T_out_sensor if useFluidPorts annotation (Placement(transformation(
-        extent={{-10,10},{10,-10}},
-        rotation=180,
-        origin={82,70})));
-  TransiEnt.Components.Statistics.Collectors.LocalCollectors.CollectHeatingPower collectHeatingPower(typeOfResource=TransiEnt.Basics.Types.TypeOfResource.Conventional) annotation (Placement(transformation(extent={{80,-100},{100,-80}})));
 
-  Components.Statistics.Collectors.LocalCollectors.HeatingPlantCost collectCosts(
-    Q_flow_n=Q_flow_n,
-    m_flow_CDE_is=-collectGwpEmissions.gwpCollector.m_flow_cde,
-    Q_flow_is=Q_flow_set,
-    Q_flow_fuel_is=H_flow_fuel_demand,
-    redeclare model HeatingPlantCostModel = BoilerCostModel) annotation (Placement(transformation(extent={{-6,-100},{14,-80}}, rotation=0)));
 
   //Visualization
-  TransiEnt.Basics.Interfaces.General.EyeOut eye if useFluidPorts annotation (Placement(transformation(extent={{100,-100},{120,-80}})));
 
-  TransiEnt.Components.Statistics.Collectors.LocalCollectors.CollectGwpEmissionsElectric collectGwpEmissions(typeOfEnergyCarrier=TransiEnt.Basics.Functions.getPrimaryEnergyCarrierFromHeat(typeOfPrimaryEnergyCarrier)) annotation (Placement(transformation(extent={{-26,-100},{-6,-80}})));
   TransiEnt.Components.Sensors.RealGas.MassFlowSensor massflowSensor(medium=gasMedium, xiNumber=massflowSensor.medium.nc)   if useGasPort annotation (Placement(transformation(
         extent={{7,-7},{-7,7}},
         rotation=90,
@@ -123,9 +105,6 @@ public
         extent={{8,-7},{-8,7}},
         rotation=90,
         origin={-7,78})));
-  Components.Sensors.SpecificEnthalpySensorVLE specificEnthalpySensorVLE if useFluidPorts annotation (Placement(transformation(extent={{52,34},{72,54}})));
-  ClaRa.Components.Sensors.SensorVLE_L1_m_flow massFlowSensorVLE if useFluidPorts annotation (Placement(transformation(extent={{28,34},{48,54}})));
-  Components.Sensors.SpecificEnthalpySensorVLE specificEnthalpySensorVLE1 if useFluidPorts annotation (Placement(transformation(extent={{42,0},{62,20}})));
   Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow prescribedHeatFlow if not (useFluidPorts) and (useHeatPort) annotation (Placement(transformation(extent={{46,76},{66,96}})));
   Modelica.Blocks.Math.Gain gain(k=-1) if useFluidPorts annotation (Placement(transformation(extent={{-4,-37},{16,-17}})));
   Modelica.Blocks.Math.Sum sum1(nin=2) if useFluidPorts annotation (Placement(transformation(extent={{26,-36},{46,-16}})));
@@ -151,6 +130,12 @@ public
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={48,-100})));
+  Modelica.Blocks.Sources.RealExpression specificEnthalpy(y=heatFlowBoundary.fluidPortOut.h_outflow) if useFluidPorts
+                                                                                                     "just for visualisation on diagram layer" annotation (Placement(transformation(extent={{-30,-58},{-12,-36}})));
+  Modelica.Blocks.Sources.RealExpression specificEnthalpy1(y=inStream(heatFlowBoundary.fluidPortIn.h_outflow)) if useFluidPorts
+                                                                                                               "just for visualisation on diagram layer" annotation (Placement(transformation(extent={{-38,-38},{-20,-16}})));
+  Modelica.Blocks.Sources.RealExpression specificEnthalpy2(y=heatFlowBoundary.fluidPortIn.m_flow) if useFluidPorts
+                                                                                                  "just for visualisation on diagram layer" annotation (Placement(transformation(extent={{-20,-76},{-2,-54}})));
 protected
   TransiEnt.Components.Statistics.Functions.GetFuelSpecificCO2Emissions fuelSpecificCO2Emissions(typeOfPrimaryEnergyCarrier=TransiEnt.Basics.Functions.getPrimaryEnergyCarrierFromHeat(typeOfPrimaryEnergyCarrier));
 
@@ -173,9 +158,7 @@ equation
 
   // === GWP Emissions ===
 
-  collectGwpEmissions.gwpCollector.m_flow_cde = -fuelSpecificCO2Emissions.m_flow_CDE_per_Energy*H_flow_fuel_demand;
-  collectHeatingPower.heatFlowCollector.Q_flow = -Q_flow_gen;
-  connect(modelStatistics.heatFlowCollector[TransiEnt.Basics.Types.TypeOfResource.Conventional], collectHeatingPower.heatFlowCollector);
+
 
 
   // _____________________________________________
@@ -183,8 +166,7 @@ equation
   //                Connect Statements
   // _____________________________________________
 
-  connect(modelStatistics.gwpCollectorHeat[typeOfPrimaryEnergyCarrier], collectGwpEmissions.gwpCollector);
-  connect(modelStatistics.costsCollector, collectCosts.costsCollector);
+
 
   connect(sign.y, heatFlowBoundary.Q_flow_prescribed) annotation (Line(
       points={{-21.1,0},{-6,0},{-6,-6},{-8,-6}},
@@ -193,15 +175,6 @@ equation
   connect(sign.u, Q_flow_set) annotation (Line(
       points={{-41.8,0},{-104,0}},
       color={0,0,127},
-      smooth=Smooth.None));
-  connect(T_in_sensor.port, inlet) annotation (Line(
-      points={{80,0},{100,0}},
-      color={0,0,0},
-      smooth=Smooth.None));
-  connect(outlet, T_out_sensor.port) annotation (Line(
-      points={{100,50},{82,50},{82,60}},
-      color={175,0,0},
-      thickness=0.5,
       smooth=Smooth.None));
   connect(nCVController.m_flow_desired, boundaryRealGas.m_flow) annotation (Line(points={{-35,28},{-28,28}}, color={0,0,127}));
   connect(massflowSensor.m_flow, nCVController.m_flow_is) annotation (Line(points={{-7,49.3},{-42,49.3},{-42,38.6}}, color={0,0,127}));
@@ -219,43 +192,15 @@ equation
       thickness=1.5));
   connect(nCVController.H_flow_set, H_flow_set.y) annotation (Line(points={{-57,28},{-60.5,28}}, color={0,0,127}));
   connect(vleNCVSensor.NCV, nCVController.NCV_is_sink) annotation (Line(points={{-7,69.2},{-7,68},{-50,68},{-50,38.6}}, color={0,0,127}));
-  connect(outlet, specificEnthalpySensorVLE.outlet) annotation (Line(
-      points={{100,50},{86,50},{86,34},{72,34}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(specificEnthalpySensorVLE.inlet, massFlowSensorVLE.outlet) annotation (Line(
-      points={{52,34},{48,34}},
-      color={0,131,169},
-      pattern=LinePattern.Solid,
-      thickness=0.5));
-  connect(heatFlowBoundary.fluidPortOut, massFlowSensorVLE.inlet) annotation (Line(
-      points={{10,6},{10,20},{28,20},{28,34}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(inlet, specificEnthalpySensorVLE1.outlet) annotation (Line(
-      points={{100,0},{62,0}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(heatFlowBoundary.fluidPortIn, specificEnthalpySensorVLE1.inlet) annotation (Line(
-      points={{10,-6},{36,-6},{36,0},{42,0}},
-      color={175,0,0},
-      thickness=0.5));
   connect(prescribedHeatFlow.port, heatPort) annotation (Line(points={{66,86},{100,86}}, color={191,0,0}));
   connect(sign.y, prescribedHeatFlow.Q_flow) annotation (Line(points={{-21.1,0},{-6,0},{-6,12},{6,12},{6,86},{46,86}}, color={0,0,127}));
-  connect(gain.y, sum1.u[1]) annotation (Line(points={{17,-27},{24,-27}}, color={0,0,127}));
+  connect(gain.y, sum1.u[1]) annotation (Line(points={{17,-27},{20,-27},{20,-26.5},{24,-26.5}},
+                                                                          color={0,0,127}));
   connect(sum1.y, product.u1) annotation (Line(points={{47,-26},{56,-26}}, color={0,0,127}));
   connect(product.y, Q_flow_gen) annotation (Line(points={{79,-32},{110,-32}}, color={0,0,127}));
-  connect(specificEnthalpySensorVLE1.h, gain.u);
-  connect(massFlowSensorVLE.m_flow, product.u2);
-  connect(specificEnthalpySensorVLE.h, sum1.u[2]);
-  connect(T_in_sensor.T, eye.T_return);
-  connect(T_out_sensor.T, eye.T_supply);
-  connect(massFlowSensorVLE.m_flow, eye.m_flow);
-  connect(specificEnthalpySensorVLE.h, eye.h_supply);
-  connect(specificEnthalpySensorVLE1.h, eye.h_return);
-  connect(eye.p, realExpression.y);
-  connect(eye.P, P.y);
-  connect(eye.Q_flow, Q_flow_gen);
+ // connect(specificEnthalpySensorVLE1.h, gain.u);
+ // connect(massFlowSensorVLE.m_flow, product.u2);
+ // connect(specificEnthalpySensorVLE.h, sum1.u[2]);
 
   connect(Q_flow_gen, realExpression1.y) annotation (Line(
       points={{110,-32},{90,-32},{90,-54},{73,-54}},
@@ -271,6 +216,11 @@ equation
   connect(realExpression4.y, CalorificValue) annotation (Line(points={{33,-82},{48,-82},{48,-100}}, color={0,0,127}));
   connect(nCVController.NCV_is_sink, CalorificValue) annotation (Line(points={{-50,38.6},{-50,68},{-8,68},{-8,66},{12,66},{12,30},{18,30},{18,-24},{20,-24},{20,-32},{22,-32},{22,-68},{48,-68},{48,-100}}, color={0,0,127}));
   connect(nCVController.NCV_is_source, vleNCVSensor.NCV) annotation (Line(points={{-46,38.6},{-46,69.2},{-7,69.2}}, color={0,0,127}));
+  connect(heatFlowBoundary.fluidPortOut, outlet) annotation (Line(points={{10,6},{10,4},{84,4},{84,50},{100,50}}, color={0,0,0}));
+  connect(heatFlowBoundary.fluidPortIn, inlet) annotation (Line(points={{10,-6},{84,-6},{84,0},{100,0}}, color={0,0,0}));
+  connect(specificEnthalpy.y, sum1.u[2]) annotation (Line(points={{-11.1,-47},{10,-47},{10,-25.5},{24,-25.5}}, color={0,0,127}));
+  connect(specificEnthalpy1.y, gain.u) annotation (Line(points={{-19.1,-27},{-6,-27}}, color={0,0,127}));
+  connect(specificEnthalpy2.y, product.u2) annotation (Line(points={{-1.1,-65},{16,-65},{16,-38},{56,-38}}, color={0,0,127}));
   annotation (
     defaultComponentName="gasBoiler",
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={Polygon(
@@ -285,12 +235,7 @@ equation
           thickness=0.5,
           smooth=Smooth.None,
           arrow={Arrow.None,Arrow.Filled},
-          pattern=LinePattern.Dash), Line(
-          points={{-16,22},{-16,-40},{-16,-40},{-16,-74}},
-          pattern=LinePattern.Dash,
-          smooth=Smooth.None,
-          color={0,0,0},
-          arrow={Arrow.None,Arrow.Filled})}),
+          pattern=LinePattern.Dash)}),
     Documentation(info="<html>
 <p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">1. Purpose of model</span></b></p>
 <p><span style=\"font-family: MS Shell Dlg 2;\">Model of a gas boiler using TransiEnt interfaces and TransiEnt.Statistics. Gas Consumption is computed using a constant efficiency and constant heat of combustion.</span></p>

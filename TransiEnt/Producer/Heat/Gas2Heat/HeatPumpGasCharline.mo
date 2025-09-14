@@ -20,7 +20,7 @@ model HeatPumpGasCharline "Gas heat pump model that produces a given heat flow v
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -70,8 +70,6 @@ model HeatPumpGasCharline "Gas heat pump model that produces a given heat flow v
   // _____________________________________________
   Modelica.Units.SI.MassFlowRate m_flow_cde_total;
   SI.EnthalpyFlowRate H_flow;
-public
-  Components.Statistics.Collectors.LocalCollectors.CollectGwpEmissionsElectric collectGwpEmissions(typeOfEnergyCarrier=TransiEnt.Basics.Types.TypeOfPrimaryEnergyCarrier.NaturalGas) annotation (Placement(transformation(extent={{-40,-100},{-20,-80}})));
   Modelica.Blocks.Sources.RealExpression realExpression1(y=H_flow) annotation (Placement(transformation(extent={{-88,84},{-68,104}})));
   Modelica.Blocks.Math.Division division annotation (Placement(transformation(extent={{-60,78},{-40,98}})));
 
@@ -95,7 +93,6 @@ equation
   //charline
   COP=COP_n*1/1.37726*(4e-5*DeltaT^2-0.0111*DeltaT+1.7); //source: Andreas Palzer. 2016. Sektorübergreifende Modellierung Und Optimierung Eines Zukünftigen Deutschen Energiesystems Unter Berücksichtigung von Energieeffizienzmaßnahmen Im Gebäudesektor. Stuttgart: Fraunhofer Verlag. http://publica.fraunhofer.de/eprints/urn_nbn_de_0011-n-408742-11.pdf.
   // === CO2 Emissions ===
-  collectGwpEmissions.gwpCollector.m_flow_cde=m_flow_cde_total;
   m_flow_cde_total=-ElementCompositionFuel[1]*44.0095/1000;
   ElementCompositionFuel=TransiEnt.Basics.Functions.GasProperties.comps2Elements_realGas(
     mediumGas,
@@ -107,7 +104,7 @@ equation
   //
   //               Connect Statements
   // _____________________________________________
-  connect(modelStatistics.gwpCollectorHeat[PrimaryEnergyCarrier.NaturalGas],collectGwpEmissions.gwpCollector);
+
 
   if not
         (use_Q_flow_input) then

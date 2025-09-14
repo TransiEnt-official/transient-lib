@@ -19,7 +19,7 @@ model IncompressibleFluidVolume "Control volume for incompressible liquids like 
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -38,15 +38,14 @@ model IncompressibleFluidVolume "Control volume for incompressible liquids like 
   import ClaRa;
   import      Modelica.Units.SI;
 
-  outer TransiEnt.SimCenter simCenter;
+
 
   // _____________________________________________
   //
   //                   Parameters
   // _____________________________________________
 
-  inner parameter TILMedia.VLEFluidTypes.BaseVLEFluid   medium=simCenter.fluid1 "Medium in the component"
-                                     annotation(Dialog(group="Fundamental Definitions"), choicesAllMatching);
+
 
   parameter Integer nPorts = 2 "Number of fluid ports";
   parameter SI.Volume V=1e3 "Volume";
@@ -72,7 +71,7 @@ model IncompressibleFluidVolume "Control volume for incompressible liquids like 
   //                  Interfaces
   // _____________________________________________
 
-  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn[nPorts] ports(each Medium=medium) "Fluid port" annotation (Placement(transformation(extent={{-10,-108},{10,-88}})));
+ TransiEnt.Basics.Interfaces.Thermal.FluidPortIn_simple[nPorts] ports "Fluid port" annotation (Placement(transformation(extent={{-10,-108},{10,-88}})));
 
   Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort annotation (Placement(transformation(extent={{-10,86},{10,106}})));
 

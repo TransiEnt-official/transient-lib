@@ -75,11 +75,11 @@ model GwpEmissionsStatistics
   TransiEnt.Basics.Units.MassOfCDE m_CDE[nTypes](
     each start=0,
     each fixed=true,
-    stateSelect=StateSelect.never) annotation (HideResult=simCenter.expertMode);
+    each stateSelect=StateSelect.never) annotation (HideResult=simCenter.expertMode);
   TransiEnt.Basics.Units.MassOfCDE m_CDE_heat[nTypesHeat](
     each start=0,
     each fixed=true,
-    stateSelect=StateSelect.never) annotation (HideResult=simCenter.expertMode);
+    each stateSelect=StateSelect.never) annotation (HideResult=simCenter.expertMode);
 
   // Visible Variables: Total mass
   SI.Mass m_CDE_total = sum(m_CDE) + sum(m_CDE_heat);

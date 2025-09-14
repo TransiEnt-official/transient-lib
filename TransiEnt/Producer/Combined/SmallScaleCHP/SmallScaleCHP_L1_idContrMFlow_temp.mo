@@ -19,7 +19,7 @@ model SmallScaleCHP_L1_idContrMFlow_temp "Model for a small scale CHP plant with
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -62,7 +62,6 @@ model SmallScaleCHP_L1_idContrMFlow_temp "Model for a small scale CHP plant with
   //           Instances of other Classes
   // _____________________________________________
 
-  Components.Statistics.Collectors.LocalCollectors.CollectElectricPower collectElectricPower(typeOfResource=typeOfResource) annotation (Placement(transformation(extent={{40,-100},{60,-80}})));
    Modelica.Blocks.Sources.RealExpression realExpression(y=P_el) annotation (Placement(transformation(extent={{-72,52},{-52,72}})));
   replaceable Components.Boundaries.Electrical.ActivePower.Power powerBoundary
                                                                              if usePowerPort constrainedby Components.Boundaries.Electrical.ActivePower.Power "Choice of power boundary model. The power boundary model must match the power port." annotation (
@@ -94,14 +93,13 @@ equation
   H_flow=-(Q_flow + P_el)/(eta_el + eta_th);
   P_el = Q_flow*eta_el/eta_th;
 
-  collectElectricPower.powerCollector.P =-P_el;
+
 
   // _____________________________________________
   //
   //               Connect Statements
   // _____________________________________________
 
-  connect(modelStatistics.powerCollector[collectElectricPower.typeOfResource], collectElectricPower.powerCollector);
   if usePowerPort then
   connect(realExpression.y,powerBoundary. P_el_set) annotation (Line(points={{-51,62},{-34,62},{-34,52}}, color={0,0,127}));
   connect(powerBoundary.epp,epp)  annotation (Line(

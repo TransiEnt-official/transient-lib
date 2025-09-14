@@ -20,7 +20,7 @@ model BivalentHeatPumpWithControl "Heatpump with selectable Controller and elect
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -83,8 +83,8 @@ model BivalentHeatPumpWithControl "Heatpump with selectable Controller and elect
   Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_b heatPort if (useHeatPort) and not
                                                                                        (useFluidPorts) annotation (Placement(transformation(extent={{84,54},{104,74}})));
   Basics.Interfaces.Thermal.HeatFlowRateOut Heat_output "Setpoint value, e.g. Storage setpoint temperature" annotation (Placement(transformation(extent={{90,24},{130,64}}), iconTransformation(extent={{90,82},{130,122}})));
-  Basics.Interfaces.Thermal.FluidPortOut outlet(Medium=medium) if useFluidPorts annotation (Placement(transformation(extent={{86,6},{106,26}}), iconTransformation(extent={{92,20},{112,40}})));
-  Basics.Interfaces.Thermal.FluidPortIn inlet(Medium=medium) if useFluidPorts annotation (Placement(transformation(extent={{88,-82},{108,-62}}), iconTransformation(extent={{90,-48},{110,-28}})));
+  Basics.Interfaces.Thermal.FluidPortOut_simple outlet if useFluidPorts annotation (Placement(transformation(extent={{86,6},{106,26}}), iconTransformation(extent={{92,20},{112,40}})));
+  Basics.Interfaces.Thermal.FluidPortIn_simple inlet if useFluidPorts annotation (Placement(transformation(extent={{88,-82},{108,-62}}), iconTransformation(extent={{90,-48},{110,-28}})));
   Basics.Interfaces.General.TemperatureIn T_set "Setpoint value, e.g. Storage setpoint temperature" annotation (Placement(transformation(extent={{-120,-90},{-86,-56}}), iconTransformation(extent={{-120,-90},{-86,-56}})));
   Modelica.Blocks.Sources.RealExpression COP(y=T_source_internal) annotation (Placement(transformation(extent={{-68,18},{-48,38}})));
 
@@ -154,9 +154,10 @@ public
 
   replaceable model PowerBoundaryModel = TransiEnt.Components.Boundaries.Electrical.ActivePower.Power constrainedby TransiEnt.Components.Boundaries.Electrical.Base.PartialModelPowerBoundary "Choice of power boundary model. The power boundary model must match the power port." annotation (choicesAllMatching=true, Dialog(group="Replaceable Components"));
   replaceable model heatFlowBoundaryModel = TransiEnt.Components.Boundaries.Heat.Heatflow_L1 annotation (__Dymola_choicesAllMatching=true, Dialog(group="Replaceable Components"));
-  ClaRa.Components.Sensors.SensorVLE_L1_T T_out(medium=medium) if useFluidPorts annotation (Placement(transformation(extent={{32,42},{12,62}})));
   Modelica.Blocks.Math.Add add if CalculatePHeater annotation (Placement(transformation(extent={{60,34},{74,48}})));
 
+  Modelica.Blocks.Sources.RealExpression T_out(y=outlet.h_outflow/4186) if useFluidPorts
+                                                                        annotation (Placement(transformation(extent={{-70,48},{-90,68}})));
 equation
   // _____________________________________________
   //
@@ -196,31 +197,11 @@ equation
       points={{18,-78.32},{18,-82},{58,-82},{58,-98}},
       color={0,135,135},
       thickness=0.5));
-  connect(inlet, heatPump.inlet) annotation (Line(
-      points={{98,-72},{82,-72},{82,-16},{64,-16},{64,-15.6},{44,-15.6}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(heatPump.outlet, electricBoiler.fluidPortIn) annotation (Line(
-      points={{44.42,-2},{50,-2},{50,-36},{-6,-36},{-6,-62},{1.36,-62}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(electricBoiler.fluidPortOut, outlet) annotation (Line(
-      points={{34.32,-62},{84,-62},{84,16},{96,16}},
-      color={175,0,0},
-      thickness=0.5));
   if not CalculatePHeater and useFluidPorts then
-    connect(heatPump.outlet, outlet) annotation (Line(
-        points={{44.42,-2},{50,-2},{50,-4},{84,-4},{84,16},{96,16}},
-        color={175,0,0},
-        thickness=0.5));
   end if;
-  connect(outlet, T_out.port) annotation (Line(
-      points={{96,16},{22,16},{22,42}},
-      color={175,0,0},
-      thickness=0.5));
 
   if not T_External then
-    connect(T_out.T, controller.T) annotation (Line(points={{11,52},{-84,52},{-84,-10.6},{-64.74,-10.6}}, color={0,0,127}));
+    connect(T_out.y, controller.T) annotation (Line(points={{-91,58},{-96,58},{-96,14},{-78,14},{-78,-10.6},{-64.74,-10.6}}, color={0,0,127}));
   end if;
 
   connect(add.y, Heat_output) annotation (Line(points={{74.7,41},{80,41},{80,44},{110,44}}, color={0,0,127}));
@@ -232,6 +213,11 @@ equation
       points={{34.96,-48.88},{48,-48.88},{48,36.8},{58.6,36.8}},
       color={175,0,0},
       pattern=LinePattern.Dash));
+  connect(heatPump.inlet, inlet) annotation (Line(points={{44,-15.6},{58,-15.6},{58,-16},{70,-16},{70,-72},{98,-72}}, color={0,0,0}));
+  connect(electricBoiler.fluidPortOut, outlet) annotation (Line(points={{34.32,-62},{62,-62},{62,-58},{96,-58},{96,16}}, color={0,0,0}));
+  connect(heatPump.outlet, outlet) annotation (Line(points={{44.42,-2},{84,-2},{84,16},{96,16}}, color={0,0,0}));
+  connect(electricBoiler.fluidPortIn, heatPump.outlet) annotation (Line(points={{1.36,-62},{-8,-62},{-8,-64},{-12,-64},{-12,-32},{54,-32},{54,-2},{44.42,-2}}, color={0,0,0}));
+
   annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(preserveAspectRatio=false)),
     Documentation(info="<html>
 <p><b><span style=\"color: #008000;\">1. Purpose of model</span></b></p>

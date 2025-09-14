@@ -19,7 +19,7 @@ partial model Heatflow_L1_idContr_temp_base "Base class for heat flow boundaries
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -54,7 +54,6 @@ partial model Heatflow_L1_idContr_temp_base "Base class for heat flow boundaries
   // _____________________________________________
 
   outer TransiEnt.SimCenter simCenter;
-  outer TransiEnt.ModelStatistics modelStatistics;
 
   // _____________________________________________
   //
@@ -78,7 +77,6 @@ partial model Heatflow_L1_idContr_temp_base "Base class for heat flow boundaries
     vleFluidType=medium,
     p=fluidPortOut.p,
     T=T_out_set_in) annotation (Placement(transformation(extent={{30,-80},{50,-60}})));
-  TransiEnt.Components.Statistics.Collectors.LocalCollectors.CollectHeatingPower collectHeatingPower(typeOfResource=typeOfResource)                                 annotation (Placement(transformation(extent={{60,-100},{80,-80}})));
 
   // _____________________________________________
   //
@@ -102,14 +100,11 @@ equation
   fluidPortIn.h_outflow=inStream(fluidPortOut.h_outflow);
   fluidPortOut.h_outflow=fluidOut.h;
 
-  collectHeatingPower.heatFlowCollector.Q_flow=Q_flow;
 
   // _____________________________________________
   //
   //               Connect Statements
   // _____________________________________________
-
-  connect(modelStatistics.heatFlowCollector[TransiEnt.Basics.Types.TypeOfResource.Consumer],collectHeatingPower.heatFlowCollector);
 
    annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
         Line(

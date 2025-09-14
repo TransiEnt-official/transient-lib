@@ -42,30 +42,17 @@ model Test_Heatflow_L1 "Model for testing Heatflow_L1"
   // ____________________________________________
 
   inner TransiEnt.SimCenter simCenter annotation (Placement(transformation(extent={{-100,80},{-80,100}})));
-  ClaRa.Components.BoundaryConditions.BoundaryVLE_phxi massFlowSink(
-    m_flow_nom=100,
-    p_const=1000000,
-    Delta_p=100000,
-    variable_p=false,
-    h_const=400e3) annotation (Placement(transformation(
-        extent={{10,-10},{-10,10}},
-        rotation=270,
-        origin={56,12})));
-  ClaRa.Components.BoundaryConditions.BoundaryVLE_hxim_flow massFlowSource(
-    m_flow_nom=0,
-    p_nom=1000,
-    variable_m_flow=false,
-    variable_h=false,
-    h_const=400e3,
-    m_flow_const=1)
-                   annotation (Placement(transformation(extent={{-58,14},{-38,34}})));
   TransiEnt.Components.Boundaries.Heat.Heatflow_L1 constantHeatflow_L1_1(
     p_drop=0,
     use_Q_flow_in=true,
     change_sign=false) annotation (Placement(transformation(extent={{12,22},{32,42}})));
   Modelica.Blocks.Sources.RealExpression realExpression(y=-100e3) annotation (Placement(transformation(extent={{-16,40},{4,60}})));
-  ClaRa.Visualisation.StatePoint_phTs statePoint_inlet annotation (Placement(transformation(extent={{-46,46},{-22,74}})));
-  ClaRa.Visualisation.StatePoint_phTs statePoint_outlet annotation (Placement(transformation(extent={{74,50},{96,74}})));
+  TransiEnt.Components.Boundaries.FluidFlow.FluidSource fluidSource annotation (Placement(transformation(extent={{-30,-4},{-10,16}})));
+  Modelica.Blocks.Sources.RealExpression realExpression1(y=1)     annotation (Placement(transformation(extent={{-86,-1},{-66,19}})));
+  Modelica.Blocks.Sources.RealExpression realExpression2(y=400e3) annotation (Placement(transformation(extent={{-86,-17},{-66,3}})));
+  TransiEnt.Components.Boundaries.FluidFlow.FluidSink fluidSink(h=400e3) annotation (Placement(transformation(extent={{68,-30},{48,-10}})));
+  Modelica.Blocks.Sources.RealExpression realExpression3(y=1000000)
+                                                                  annotation (Placement(transformation(extent={{92,-30},{72,-10}})));
 equation
 
   // _____________________________________________
@@ -74,24 +61,12 @@ equation
   // _____________________________________________
 
   connect(realExpression.y, constantHeatflow_L1_1.Q_flow_prescribed) annotation (Line(points={{5,50},{10,50},{10,40},{16,40}},     color={0,0,127}));
-  connect(statePoint_inlet.port, massFlowSource.steam_a) annotation (Line(
-      points={{-46,46},{-34,46},{-34,24},{-38,24}},
-      color={0,131,169},
-      thickness=0.5));
-  connect(statePoint_outlet.port, massFlowSink.steam_a) annotation (Line(
-      points={{74,50},{62,50},{62,22},{56,22}},
-      color={0,131,169},
-      thickness=0.5));
-  connect(massFlowSource.steam_a, constantHeatflow_L1_1.fluidPortIn) annotation (Line(
-      points={{-38,24},{-30,24},{-30,26},{16,26},{16,22}},
-      color={0,131,169},
-      thickness=0.5));
-  connect(constantHeatflow_L1_1.fluidPortOut, massFlowSink.steam_a) annotation (Line(
-      points={{28,22},{56,22},{56,22}},
-      color={175,0,0},
-      thickness=0.5));
-  annotation (Diagram(graphics,
-                      coordinateSystem(preserveAspectRatio=false, extent={{-100,
+  connect(realExpression1.y, fluidSource.m_flow_in) annotation (Line(points={{-65,9},{-28,9}}, color={0,0,127}));
+  connect(realExpression2.y, fluidSource.h_in) annotation (Line(points={{-65,-7},{-36,-7},{-36,4},{-28,4}}, color={0,0,127}));
+  connect(realExpression3.y, fluidSink.p_in) annotation (Line(points={{71,-20},{66,-20}}, color={0,0,127}));
+  connect(fluidSource.port_a, constantHeatflow_L1_1.fluidPortIn) annotation (Line(points={{-10,6},{16,6},{16,22}}, color={0,0,0}));
+  connect(fluidSink.port_a, constantHeatflow_L1_1.fluidPortOut) annotation (Line(points={{48,-20},{28,-20},{28,22}}, color={0,0,0}));
+  annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}})), Documentation(info="<html>
 <h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
 <p>Test environment for Heatflow_L1. This model contains the necessary components and connections for simulating the heatflow model</p>

@@ -19,7 +19,7 @@ model PumpVLE_L1_simple "A pump for VLE mixtures with a volume flow rate dependi
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -83,7 +83,7 @@ model PumpVLE_L1_simple "A pump for VLE mixtures with a volume flow rate dependi
   //                 Outer Models
   // _____________________________________________
 
-  replaceable model CostSpecsGeneral = TransiEnt.Components.Statistics.ConfigurationData.GeneralCostSpecs.Empty constrainedby TransiEnt.Components.Statistics.ConfigurationData.GeneralCostSpecs.PartialCostSpecs "General Cost Model" annotation(Dialog(group="Statistics"),choicesAllMatching);
+
 
   // _____________________________________________
   //
@@ -139,60 +139,7 @@ protected
   Modelica.Blocks.Sources.Constant m_flow_in_(k=0) if not m_flowInput;
   Modelica.Blocks.Sources.Constant V_flow_in_(k=0) if not V_flowInput;
   Modelica.Blocks.Sources.Constant P_el_in_(k=0) if not use_P_elInput;
-public
-  inner Summary summary(
-    outline(
-      V_flow=V_flow,
-      P_hyd=P_hyd,
-      P_shaft=P_el*eta_el,
-      P_el=P_el,
-      W_el=collectElectricPower.E,
-      Pi=fluidPortOut.p/fluidPortIn.p,
-      Delta_p=fluidPortOut.p - fluidPortIn.p,
-      eta=eta_mech*eta_el),
-    fluidPortIn(
-      mediumModel=medium,
-      xi=fluidIn.xi,
-      x=fluidIn.x,
-      m_flow=fluidPortIn.m_flow,
-      T=fluidIn.T,
-      p=fluidPortIn.p,
-      h=fluidIn.h,
-      rho=fluidIn.d),
-    fluidPortOut(
-      mediumModel=medium,
-      xi=fluidOut.xi,
-      x=fluidOut.x,
-      m_flow=-fluidPortOut.m_flow,
-      T=fluidOut.T,
-      p=fluidPortOut.p,
-      h=fluidOut.h,
-      rho=fluidOut.d),
-    costs(
-      costs=collectCosts.costsCollector.Costs,
-      investCosts=collectCosts.costsCollector.InvestCosts,
-      demandCosts=collectCosts.costsCollector.DemandCosts,
-      oMCosts=collectCosts.costsCollector.OMCosts,
-      otherCosts=collectCosts.costsCollector.OtherCosts,
-      revenues=collectCosts.costsCollector.Revenues)) annotation (Placement(transformation(extent={{-100,-114},{-80,-94}})));
-protected
-  TransiEnt.Components.Statistics.Collectors.LocalCollectors.CollectElectricPower collectElectricPower(typeOfResource=typeOfResource) annotation (Placement(transformation(extent={{-40,-100},{-20,-80}})));
-  TransiEnt.Components.Statistics.Collectors.LocalCollectors.CollectCostsGeneral collectCosts(
-    der_E_n=0,
-    E_n=0,
-    redeclare model CostRecordGeneral = CostSpecsGeneral,
-    Cspec_demAndRev_el=Cspec_demAndRev_el,
-    P_el=P_el,
-    produces_P_el=false,
-    produces_Q_flow=false,
-    consumes_Q_flow=false,
-    produces_H_flow=false,
-    consumes_H_flow=false,
-    produces_other_flow=false,
-    consumes_other_flow=false,
-    produces_m_flow_CDE=false,
-    consumes_m_flow_CDE=false)
-               annotation (Placement(transformation(extent={{-20,-100},{0,-80}})));
+
 
   // _____________________________________________
   //
@@ -270,16 +217,12 @@ equation
   fluidPortOut.xi_outflow = inStream(fluidPortIn.xi_outflow);
   fluidPortIn.xi_outflow = inStream(fluidPortOut.xi_outflow);
 
-  //collectors
-  collectElectricPower.powerCollector.P=P_el;
 
   // _____________________________________________
   //
   //               Connect Statements
   // _____________________________________________
 
-  connect(modelStatistics.powerCollector[typeOfResource],collectElectricPower.powerCollector);
-  connect(modelStatistics.costsCollector,collectCosts.costsCollector);
   connect(Delta_p_in_.y, getInputs.dp_in);
   connect(V_flow_in_.y, getInputs.V_flow_in);
   connect(m_flow_in_.y, getInputs.m_flow_in);

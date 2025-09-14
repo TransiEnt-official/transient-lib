@@ -20,7 +20,7 @@ model TestHeatpumpWithControl_bivalent_fluidports_sine "Model for testing Heatpu
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -43,14 +43,7 @@ model TestHeatpumpWithControl_bivalent_fluidports_sine "Model for testing Heatpu
     p_drop=0,
     useHeatPort=false,
     controller(Startupramp=false),
-    heatPump(T_set=heatPumpWithControl.heatPump.T_out_sensor.T)) annotation (Placement(transformation(extent={{-8,-8},{12,12}})));
-  ClaRa.Components.BoundaryConditions.BoundaryVLE_Txim_flow source1(
-    variable_m_flow=false,
-    T_const=30 + 273,
-    m_flow_const=0.1) annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
-        rotation=90,
-        origin={64,-32})));
+    heatPump(T_set=heatPumpWithControl.heatPump.T_out.y)) annotation (Placement(transformation(extent={{-8,-8},{12,12}})));
   TransiEnt.Components.Boundaries.Electrical.ActivePower.Frequency electricGrid1(useInputConnector=false)
                                                                                                          annotation (Placement(transformation(extent={{20,-46},{40,-26}})));
   Modelica.Blocks.Sources.Sine T_room_is_K1(
@@ -58,13 +51,11 @@ model TestHeatpumpWithControl_bivalent_fluidports_sine "Model for testing Heatpu
     offset=20 + 273.15,
     phase=3.1415926535898,
     f=1/4000) annotation (Placement(transformation(extent={{-57,10},{-37,30}})));
-  ClaRa.Components.BoundaryConditions.BoundaryVLE_phxi sink1(medium=simCenter.fluid1, p_const=17e5)
-                          annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
-        rotation=270,
-        origin={62,21})));
-  ClaRa.Components.Sensors.SensorVLE_L1_T temperature1
-                                                      annotation (Placement(transformation(extent={{20,8},{40,28}})));
+  TransiEnt.Components.Boundaries.FluidFlow.FluidSink fluidSink annotation (Placement(transformation(extent={{40,48},{60,68}})));
+  Modelica.Blocks.Sources.RealExpression realExpression(y=17e5) annotation (Placement(transformation(extent={{10,48},{30,68}})));
+  Modelica.Blocks.Sources.RealExpression realExpression1(y=0.1) annotation (Placement(transformation(extent={{88,-18},{68,2}})));
+  TransiEnt.Components.Boundaries.FluidFlow.FluidSource fluidSource annotation (Placement(transformation(extent={{56,-20},{36,0}})));
+  Modelica.Blocks.Sources.RealExpression realExpression2(y=30*4186) annotation (Placement(transformation(extent={{94,-36},{74,-16}})));
 equation
 
 public
@@ -91,21 +82,13 @@ equation
       points={{7.8,-7.8},{7.8,-36},{20,-36}},
       color={0,135,135},
       thickness=0.5));
-  connect(heatPumpWithControl.inlet, source1.steam_a) annotation (Line(
-      points={{12,-1.8},{64,-1.8},{64,-22}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(heatPumpWithControl.outlet, sink1.steam_a) annotation (Line(
-      points={{12.2,5},{16,5},{16,4},{62,4},{62,11}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(temperature1.port, sink1.steam_a) annotation (Line(
-      points={{30,8},{30,4},{62,4},{62,11}},
-      color={0,131,169},
-      pattern=LinePattern.Solid,
-      thickness=0.5));
   connect(T_room_set_K1.y, heatPumpWithControl.T_set) annotation (Line(points={{-30,-18},{-16,-18},{-16,-5.3},{-8.3,-5.3}},    color={0,0,127}));
   connect(T_room_is_K1.y, heatPumpWithControl.T) annotation (Line(points={{-36,20},{-12,20},{-12,6},{-7.6,6}},        color={0,0,127}));
+  connect(realExpression.y, fluidSink.p_in) annotation (Line(points={{31,58},{42,58}}, color={0,0,127}));
+  connect(realExpression1.y, fluidSource.m_flow_in) annotation (Line(points={{67,-8},{67,-7},{54,-7}}, color={0,0,127}));
+  connect(realExpression2.y, fluidSource.h_in) annotation (Line(points={{73,-26},{66,-26},{66,-12},{54,-12}}, color={0,0,127}));
+  connect(fluidSink.port_a, heatPumpWithControl.outlet) annotation (Line(points={{60,58},{84,58},{84,38},{30,38},{30,5},{12.2,5}}, color={0,0,0}));
+  connect(fluidSource.port_a, heatPumpWithControl.inlet) annotation (Line(points={{36,-10},{18,-10},{18,-1.8},{12,-1.8}}, color={0,0,0}));
   annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}}), graphics={Text(
           extent={{-44,96},{70,70}},

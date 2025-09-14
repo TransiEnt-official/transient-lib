@@ -19,7 +19,7 @@ model TwoBlockCHP "Example model of plants consisting of several units"
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -58,7 +58,7 @@ model TwoBlockCHP "Example model of plants consisting of several units"
   parameter TILMedia.VLEFluidTypes.BaseVLEFluid   medium=simCenter.fluid1 "Medium to be used" annotation(choicesAllMatching, Dialog(group="Fundamental Definitions"));
   parameter Boolean useGasPort=false "Choose if gas port is used or not" annotation(Dialog(group="Fundamental Definitions"));
   parameter TILMedia.VLEFluidTypes.BaseVLEFluid medium_gas=simCenter.gasModel1 if useGasPort==true "Gas Medium to be used - only if useGasPort==true" annotation(Dialog(group="Fundamental Definitions",enable=if useGasPort==true then true else false));
-
+  parameter SI.SpecificHeatCapacity cf=4200 "Specific heat capacity of the heat carrier";
   // _____________________________________________
   //
   //                  Components
@@ -81,15 +81,6 @@ model TwoBlockCHP "Example model of plants consisting of several units"
                          constrainedby Base.PartialCHP annotation (choicesAllMatching=true, Placement(transformation(extent={{-4,14},{16,34}})));
 
   //Boundaries
-  TransiEnt.Components.Boundaries.FluidFlow.BoundaryVLE_Txim_flow massflow_Tm_flow4(variable_m_flow=true, variable_T=true) annotation (Placement(transformation(
-        extent={{-4,-3},{4,3}},
-        rotation=90,
-        origin={-19,4})));
-
-  TransiEnt.Components.Boundaries.FluidFlow.BoundaryVLE_Txim_flow massflow_Tm_flow3(variable_m_flow=true, variable_T=true) annotation (Placement(transformation(
-        extent={{-4,-3},{4,3}},
-        rotation=90,
-        origin={19,4})));
 
   //Visualization
 
@@ -146,7 +137,7 @@ model TwoBlockCHP "Example model of plants consisting of several units"
         extent={{-14,-14},{14,14}},
         rotation=90,
         origin={184,-146})));
-  Basics.Interfaces.Thermal.FluidPortOut outlet(Medium=medium) annotation (Placement(transformation(extent={{240,-28},{260,-8}}), iconTransformation(extent={{240,-28},{260,-8}})));
+  Basics.Interfaces.Thermal.FluidPortOut_simple outlet annotation (Placement(transformation(extent={{240,-28},{260,-8}}), iconTransformation(extent={{240,-28},{260,-8}})));
   Basics.Interfaces.General.TemperatureIn T_return_B1 "Set return temperature B1" annotation (Placement(transformation(
         extent={{-14,-14},{14,14}},
         rotation=90,
@@ -160,11 +151,23 @@ model TwoBlockCHP "Example model of plants consisting of several units"
 
 
   //Sensors
-  Components.Sensors.TemperatureSensor T_out_sensor annotation (Placement(transformation(extent={{114,26},{134,46}})));
-  Components.Sensors.TemperatureSensor T_in_sensor annotation (Placement(transformation(extent={{72,-2},{92,18}})));
 
   Basics.Interfaces.General.EyeOut eye_Block1 annotation (Placement(transformation(extent={{240,-152},{260,-132}}), iconTransformation(extent={{240,-148},{260,-128}})));
   Basics.Interfaces.General.EyeOut eye_Block2 annotation (Placement(transformation(extent={{240,-176},{260,-156}}), iconTransformation(extent={{240,-170},{260,-150}})));
+  Components.Boundaries.FluidFlow.FluidSource           fluidSource1
+                                                                    annotation (Placement(transformation(extent={{10,-10},{-10,10}},
+        rotation=270,
+        origin={-36,-20})));
+  Modelica.Blocks.Sources.RealExpression realExpression4(y=T_return_B1*cf)
+                                                                    annotation (Placement(transformation(extent={{-10,-60},{-30,-43}})));
+  Components.Boundaries.FluidFlow.FluidSource           fluidSource2
+                                                                    annotation (Placement(transformation(extent={{4,-3},{-4,3}},
+        rotation=270,
+        origin={11,-6})));
+  Modelica.Blocks.Sources.RealExpression realExpression1(y=T_return_B2*cf)
+                                                                    annotation (Placement(transformation(extent={{16,-42},{4,-29}})));
+  Modelica.Blocks.Sources.RealExpression T_out(y=outlet.h_outflow/cf) annotation (Placement(transformation(extent={{94,0},{74,17}})));
+  Modelica.Blocks.Sources.RealExpression T_in(y=inStream(Block_2.inlet.h_outflow)/cf) annotation (Placement(transformation(extent={{98,-16},{78,1}})));
 equation
   // _____________________________________________
   //
@@ -178,8 +181,8 @@ equation
   //Eye values
   eye.P=P_out_net;
   eye.Q_flow=Q_flow_gen;
-  eye.T_supply=T_out_sensor.T_celsius;
-  eye.T_return=T_in_sensor.T_celsius;
+  eye.T_supply=T_out.y;
+  eye.T_return=T_in.y;
   eye.p = outlet.p/1e5;
   eye.h_supply = outlet.h_outflow/1e3;
   eye.h_return = Block_1.inlet.h_outflow/1e3;
@@ -192,14 +195,6 @@ equation
 
   //Connect statements
 
-  connect(massflow_Tm_flow4.fluidPortOut, Block_1.inlet) annotation (Line(
-      points={{-19,8},{-19,22},{-25.8,22},{-25.8,21.5}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(massflow_Tm_flow3.fluidPortOut, Block_2.inlet) annotation (Line(
-      points={{19,8},{19,20},{16.2,20},{16.2,19.5}},
-      color={175,0,0},
-      thickness=0.5));
   connect(Block_1.eye, infoBoxLargeCHP3.eye) annotation (Line(points={{-25,16.8333},{-24,16.8333},{-24,16},{-24,0},{-56,0},{-60.3,0},{-60.3,-43.0909}},
                                                                                                     color={28,108,200}));
   connect(Block_2.eye, infoBoxLargeCHP2.eye) annotation (Line(points={{17,14.8333},{27.5,14.8333},{27.5,-43.0909},{54.3,-43.0909}},
@@ -220,22 +215,6 @@ equation
       points={{71,111},{71,73.5},{9.7,73.5},{9.7,31.6667}},
       color={162,29,33},
       pattern=LinePattern.Dash));
-  connect(m_flow_set_B1, massflow_Tm_flow4.m_flow) annotation (Line(points={{-57,-100},{-57,-7},{-20.8,-7},{-20.8,-0.8}},     color={0,0,127}));
-  connect(m_flow_set_B2, massflow_Tm_flow3.m_flow) annotation (Line(points={{48,-100},{18,-100},{18,-0.8},{17.2,-0.8}},   color={0,0,127}));
-  connect(T_return_B2, massflow_Tm_flow3.T) annotation (Line(points={{84,-100},{84,-100},{84,-86},{84,-86},{20.2,-86},{20.2,-0.8},{19,-0.8}},  color={0,0,127}));
-  connect(Block_1.outlet, outlet) annotation (Line(
-      points={{-25.8,23.8333},{-15.9,23.8333},{-15.9,-18},{250,-18}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(Block_2.outlet, outlet) annotation (Line(
-      points={{16.2,21.8333},{52.1,21.8333},{52.1,-18},{250,-18}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(outlet, T_out_sensor.port) annotation (Line(
-      points={{250,-18},{124,-18},{124,26}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(massflow_Tm_flow4.T, T_return_B1) annotation (Line(points={{-19,-0.8},{-19,-48.4},{-30,-48.4},{-30,-100}},     color={0,0,127}));
   connect(Block_1.epp, epp) annotation (Line(
       points={{-26.5,29},{-20.25,29},{-20.25,132},{248,132}},
       color={0,135,135},
@@ -243,10 +222,6 @@ equation
   connect(Block_2.epp, epp) annotation (Line(
       points={{15.5,27},{27.75,27},{27.75,132},{248,132}},
       color={0,135,135},
-      thickness=0.5));
-  connect(massflow_Tm_flow3.fluidPortOut, T_in_sensor.port) annotation (Line(
-      points={{19,8},{64,8},{64,-2},{82,-2}},
-      color={175,0,0},
       thickness=0.5));
 
   //General annotations
@@ -270,8 +245,15 @@ equation
       color={255,255,0},
       thickness=1.5));
   end if;
-  annotation (Diagram(graphics,
-                      coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}})), Icon(graphics,
+  connect(fluidSource1.port_a, Block_1.inlet) annotation (Line(points={{-36,-10},{-36,-8},{-20,-8},{-20,21.5},{-25.8,21.5}}, color={0,0,0}));
+  connect(fluidSource2.port_a, Block_2.inlet) annotation (Line(points={{11,-2},{10,-2},{10,4},{22,4},{22,19.5},{16.2,19.5}}, color={0,0,0}));
+  connect(realExpression4.y, fluidSource1.h_in) annotation (Line(points={{-31,-51.5},{-38,-51.5},{-38,-28}}, color={0,0,127}));
+  connect(m_flow_set_B1, fluidSource1.m_flow_in) annotation (Line(points={{-57,-100},{-57,-70},{-33,-70},{-33,-28}}, color={0,0,127}));
+  connect(m_flow_set_B2, fluidSource2.m_flow_in) annotation (Line(points={{48,-100},{48,-70},{11.9,-70},{11.9,-9.2}}, color={0,0,127}));
+  connect(realExpression1.y, fluidSource2.h_in) annotation (Line(points={{3.4,-35.5},{2,-35.5},{2,-14},{10.4,-14},{10.4,-9.2}}, color={0,0,127}));
+  connect(Block_2.outlet, outlet) annotation (Line(points={{16.2,21.8333},{56,21.8333},{56,-18},{250,-18}}, color={0,0,0}));
+  connect(Block_1.outlet, outlet) annotation (Line(points={{-25.8,23.8333},{-8,23.8333},{-8,-18},{250,-18}}, color={0,0,0}));
+  annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}})), Icon(graphics,
                                                                                                          coordinateSystem(preserveAspectRatio=false, extent={{-220,-160},{240,160}})),
     Documentation(info="<html>
 <p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">1. Purpose of model</span></b></p>

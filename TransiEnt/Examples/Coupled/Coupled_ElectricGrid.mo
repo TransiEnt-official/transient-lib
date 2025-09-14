@@ -52,15 +52,7 @@ model Coupled_ElectricGrid "Example for sector coupling in TransiEnt library"
     h_nom=110*4.2e3,
     T_feed_init=383.15) annotation (Placement(transformation(extent={{-202,90},{-122,170}})));
   TransiEnt.Producer.Heat.Gas2Heat.SimpleGasBoiler.SimpleBoiler gasBoiler(Q_flow_n=5e6, typeOfPrimaryEnergyCarrier=TransiEnt.Basics.Types.TypeOfPrimaryEnergyCarrierHeat.NaturalGas,
-    redeclare TransiEnt.Components.Boundaries.Heat.Heatflow_L2 heatFlowBoundary(
-      Q_flow_n=gasBoiler.Q_flow_n,
-      change_sign=true,
-      m_flow_nom=38,
-      p_nom=2400000,
-      h_nom=4200*60,
-      C=1e6,
-      p_start=2400000,
-      T_start=333.15))                                                                                                                                                               annotation (Placement(transformation(
+    redeclare TransiEnt.Components.Boundaries.Heat.Heatflow_L1 heatFlowBoundary)                                                                                                     annotation (Placement(transformation(
         extent={{-20,-20},{20,20}},
         rotation=0,
         origin={40,24})));
@@ -108,16 +100,14 @@ model Coupled_ElectricGrid "Example for sector coupling in TransiEnt library"
         extent={{-63.5,-11.5},{63.5,11.5}},
         rotation=0,
         origin={29.5,-118.5})));
-  TransiEnt.Components.Boundaries.FluidFlow.BoundaryVLE_Txim_flow DHN_source(
-    variable_m_flow=true,
-    variable_T=true,
-    changeSign=true) annotation (Placement(transformation(extent={{204,106},{164,146}})));
   Modelica.Blocks.Sources.RealExpression m_flow_DHN(y=-38) annotation (Placement(transformation(extent={{302,134},{236,162}})));
   TransiEnt.Components.Boundaries.FluidFlow.BoundaryVLE_pTxi dHN_sink(boundaryConditions(p_const=24e5, T_const=100 + 273.15)) annotation (Placement(transformation(extent={{206,44},{166,84}})));
-  Modelica.Blocks.Sources.RealExpression T_VL(y=273.15 + 60) annotation (Placement(transformation(extent={{300,106},{236,132}})));
+  Modelica.Blocks.Sources.RealExpression T_VL(y=60*4200)     annotation (Placement(transformation(extent={{300,106},{236,132}})));
   ClaRa.Components.VolumesValvesFittings.Valves.GenericValveVLE_L1 valveVLE_L1_1(redeclare model PressureLoss = ClaRa.Components.VolumesValvesFittings.Valves.Fundamentals.Quadratic_EN60534_incompressible (Kvs_in=38/1000*3600, m_flow_nom=38))
                                                                                                                                                                                                         annotation (Placement(transformation(extent={{112,58},{132,70}})));
   ClaRa.Components.Sensors.SensorVLE_L1_T T_vl_is(unitOption=2) annotation (Placement(transformation(extent={{138,64},{158,84}})));
+  TransiEnt.Components.Boundaries.FluidFlow.FluidSource fluidSource annotation (Placement(transformation(extent={{192,128},{172,148}})));
+  TransiEnt.Basics.Adapters.FluidPortAdapter fluidPortAdapter annotation (Placement(transformation(extent={{72,14},{92,34}})));
 equation
   // _____________________________________________
   //
@@ -127,10 +117,6 @@ equation
   connect(P_12.epp_OUT, UCTE.epp) annotation (Line(
       points={{7.16,-180},{7.16,-180},{20,-180}},
       color={0,135,135},
-      thickness=0.5));
-  connect(CHP.outlet, gasBoiler.inlet) annotation (Line(
-      points={{-121.2,121.333},{-96,121.333},{-96,24},{8,24},{20.4,24}},
-      color={175,0,0},
       thickness=0.5));
   connect(electricGrid_SubSystem.epp_UCTE, P_12.epp_IN) annotation (Line(
       points={{-96,-180},{-96,-180},{-18.88,-180}},
@@ -157,23 +143,22 @@ equation
   connect(residualElectricPowerForPtG.y, firstOrder.u) annotation (Line(points={{99.35,-118.5},{88.675,-118.5},{88.675,-119},{106,-119}}, color={0,0,127}));
   connect(electricDemandTable.y1, electricDemand.P_el_set) annotation (Line(points={{-340,-50},{-310,-50},{-310,-49},{-246.2,-49}}, color={0,0,127}));
   connect(heatDemandTable.y1, totalHeatDemand.u2) annotation (Line(points={{-348,96},{-334,96},{-334,106},{-306,106}}, color={0,0,127}));
-  connect(m_flow_DHN.y, DHN_source.m_flow) annotation (Line(points={{232.7,148},{217.05,148},{217.05,138},{208,138}}, color={0,0,127}));
-  connect(T_VL.y, DHN_source.T) annotation (Line(points={{232.8,119},{218.05,119},{218.05,126},{208,126}}, color={0,0,127}));
-  connect(gasBoiler.outlet, valveVLE_L1_1.inlet) annotation (Line(
-      points={{60,24},{86,24},{86,64},{112,64}},
-      color={175,0,0},
-      thickness=0.5));
   connect(valveVLE_L1_1.outlet, T_vl_is.port) annotation (Line(
       points={{132,64},{140,64},{148,64}},
       color={0,131,169},
       pattern=LinePattern.Solid,
       thickness=0.5));
-  connect(DHN_source.fluidPortOut, CHP.inlet) annotation (Line(
-      points={{164,126},{122,126},{-30,126},{-30,112},{-121.2,112}},
-      color={175,0,0},
-      thickness=0.5));
   connect(dHN_sink.fluidPortIn, T_vl_is.port) annotation (Line(
       points={{166,64},{158,64},{158,64},{148,64}},
+      color={175,0,0},
+      thickness=0.5));
+  connect(m_flow_DHN.y, fluidSource.m_flow_in) annotation (Line(points={{232.7,148},{200,148},{200,141},{190,141}}, color={0,0,127}));
+  connect(T_VL.y, fluidSource.h_in) annotation (Line(points={{232.8,119},{232.8,116},{200,116},{200,136},{190,136}}, color={0,0,127}));
+  connect(gasBoiler.inlet, CHP.outlet) annotation (Line(points={{20.4,24},{-32,24},{-32,22},{-88,22},{-88,121.333},{-121.2,121.333}}, color={0,0,0}));
+  connect(fluidSource.port_a, CHP.inlet) annotation (Line(points={{172,138},{172,136},{-92,136},{-92,112},{-121.2,112}}, color={0,0,0}));
+  connect(fluidPortAdapter.fluidPortIn, gasBoiler.outlet) annotation (Line(points={{72,24},{60,24}}, color={0,0,0}));
+  connect(fluidPortAdapter.fluidPortOut, valveVLE_L1_1.inlet) annotation (Line(
+      points={{92,24},{104,24},{104,64},{112,64}},
       color={175,0,0},
       thickness=0.5));
   annotation (

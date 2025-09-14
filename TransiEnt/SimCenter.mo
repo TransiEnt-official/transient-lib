@@ -20,7 +20,7 @@ model SimCenter "SimCenter for global parameters, ambient conditions and collect
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -42,7 +42,7 @@ model SimCenter "SimCenter for global parameters, ambient conditions and collect
   //                   Components
   // _____________________________________________
 
-  inner replaceable Components.Boundaries.Ambient.AmbientConditions ambientConditions constrainedby Components.Boundaries.Ambient.AmbientConditions "Click book icon, to edit" annotation (
+   replaceable Components.Boundaries.Ambient.AmbientConditions ambientConditions constrainedby Components.Boundaries.Ambient.AmbientConditions "Click book icon, to edit" annotation (
     choicesAllMatching=true,
     Placement(transformation(extent={{-8,-8},{12,12}})),
     Dialog(tab="Ambience", group="Varying ambient conditions"));
@@ -65,10 +65,10 @@ model SimCenter "SimCenter for global parameters, ambient conditions and collect
   parameter SI.Temperature T_ground = 282.48 "|Ambience|Ambience parameters|Ground temperature"; //same as T_amb_const in average
   parameter Boolean variable_T_ground = false "Use variable temperature profile"
                                                                                 annotation (choicesAllMatching=true,Dialog(tab="Ambience",group="Ambience parameters"));
-  replaceable model Ground_Temperature =
-     TransiEnt.Basics.Tables.Ambient.UndergroundTemperature_Duesseldorf_1m_3600s_TMY  constrainedby TransiEnt.Components.Boundaries.Ambient.Base.PartialTemperature
+  /*replaceable model Ground_Temperature =
+     TransiEnt.Basics.Tables.Ambient.UndergroundTemperature_Duesseldorf_1m_3600s_TMY constrainedby TransiEnt.Components.Boundaries.Ambient.Base.PartialTemperature
                                                "Profile for the ground temperature" annotation (choicesAllMatching=true,Dialog(tab="Ambience",group="Ambience parameters"));
-  Ground_Temperature Variable_Ground_Temperature;
+  Ground_Temperature Variable_Ground_Temperature;*/
 
   parameter Real lambda=10 "degree of longitude of location" annotation(Dialog(tab="Ambience", group="Location parameters"));
   parameter Real phi=53.63 "degree of latitude of location" annotation(Dialog(tab="Ambience", group="Location parameters"));
@@ -102,7 +102,8 @@ model SimCenter "SimCenter for global parameters, ambient conditions and collect
   parameter Integer n_consumers=10 "Number of globaly parameterized consumers" annotation(Dialog(tab="Electric Grid", group="Optional"));
   parameter Modelica.Units.SI.ActivePower P_consumer[n_consumers]=zeros(n_consumers) "Globaly defined consumer data" annotation (Dialog(tab="Electric Grid", group="Optional"));
 
-  replaceable TransiEnt.Grid.Electrical.Base.ExampleGenerationPark generationPark constrainedby TransiEnt.Grid.Electrical.Base.PartialGenerationPark "Properties of generaton park" annotation (Dialog(tab="Electric Grid", group="Optional"), choicesAllMatching=true);
+   TransiEnt.Grid.Electrical.Base.ExampleGenerationPark generationPark                                                                         "Properties of generaton park" annotation (Dialog(tab="Electric Grid", group="Optional"), choicesAllMatching=true);
+                                                                       /*constrainedby TransiEnt.Grid.Electrical.Base.PartialGenerationPark */
   parameter Modelica.Units.SI.Power P_n_ref_1=generationPark.P_total "Reference power of subgrid 1, i.e. detailed grid  (for inertia constant calculation)" annotation (Dialog(tab="Electric Grid", group="Optional"));
   parameter Modelica.Units.SI.Power P_n_ref_2=P_n_high "Reference power of subgrid 2, i.e. surrounding grid  (for inertia constant calculation)" annotation (Dialog(tab="Electric Grid", group="Optional"));
 
@@ -130,7 +131,8 @@ model SimCenter "SimCenter for global parameters, ambient conditions and collect
   parameter SI.MassFlowRate m_flow_nom=30 "Nominal mass flow in grid" annotation (Dialog(tab="District Heating Grid", group="Nominal Values"));
   replaceable parameter TILMedia.VLEFluidTypes.TILMedia_SplineWater fluid1
    constrainedby TILMedia.VLEFluidTypes.BaseVLEFluid(final ID=1) "Medium name of working fluid in district heating grid" annotation(choicesAllMatching, Dialog(tab="District Heating Grid"));
-  replaceable Basics.Tables.HeatGrid.HeatingCurves.ConstantSupplyTemperature heatingCurve constrainedby Basics.Tables.HeatGrid.HeatingCurves.PartialHeatingCurve "Heating curve defining supply and return water temperatures" annotation (Dialog(tab="District Heating Grid"), choicesAllMatching);
+ // replaceable Basics.Tables.HeatGrid.HeatingCurves.ConstantSupplyTemperature heatingCurve constrainedby Basics.Tables.HeatGrid.HeatingCurves.PartialHeatingCurve "Heating curve defining supply and return water temperatures" annotation (Dialog(tab="District Heating Grid"), choicesAllMatching);
+  TransiEnt.Basics.Tables.HeatGrid.heatingCurveConstant heatingCurve;
   replaceable parameter TILMedia.VLEFluidTypes.TILMedia_SplineWater refrigerantFluid1
    constrainedby TILMedia.VLEFluidTypes.BaseVLEFluid(final ID=1) "Medium name of working fluid for refrigerant based cycles, e.g. heat pumps"
                                                                                               annotation(choicesAllMatching, Dialog(tab="District Heating Grid"));
@@ -157,7 +159,7 @@ model SimCenter "SimCenter for global parameters, ambient conditions and collect
   replaceable model DHN_Pipe_Manufacturer = TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.Base.DHN_Pipes.DN_IsoPlus
     constrainedby TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.Base.DHN_Pipes.DN_table_base
                                                                                                 "Type of DN-Data to be used" annotation(choicesAllMatching=true,Dialog(tab="District Heating Grid", group="Pipe Data"));
- final parameter Real DNmat[:,:] = DHN_Pipe_Manufacturer.DNmat;
+  final parameter Real DNmat[:,:] = DHN_Pipe_Manufacturer.DNmat;
 
   // ==== Gas grid ====
 
@@ -188,7 +190,7 @@ model SimCenter "SimCenter for global parameters, ambient conditions and collect
       choice=1 "ClaRa formulation",
       choice=2 "TransiEnt formulation 1a",
       choice=3 "TransiEnt formulation 1b"));
-  parameter Integer variableCompositionEntriesGasPipes[:](min=0)={0} "Entries of medium vector in gas pipes which are supposed to be completely variable" annotation(Dialog(tab="Gas Grid",group="Parameters",enable=not useConstCompInGasComp));
+  parameter Integer variableCompositionEntriesGasPipes[:](each min=0)={0} "Entries of medium vector in gas pipes which are supposed to be completely variable" annotation(Dialog(tab="Gas Grid",group="Parameters",enable=not useConstCompInGasComp));
 
   parameter SI.Height roughnessGasPipes=0.1e-3 "Absolute roughness of gas pipes" annotation (Dialog(tab="Gas Grid", group="Parameters"));
 
@@ -358,7 +360,7 @@ model SimCenter "SimCenter for global parameters, ambient conditions and collect
 
                                                                                                                                                                                            //Source: https://www.eex.com/en/market-data/power/futures/phelix-futures oder http://www.finanzen.net/rohstoffe/eex-strom-phelix-baseload-year-future
   //Electricity selling prices time series in EUR/kWh
-  replaceable TransiEnt.Basics.Tables.ElectricGrid.ElectricityPrices.SpotPriceElectricity_Phelix_DayAhead_3600s_2011 electricityPrice constrainedby TransiEnt.Basics.Tables.ElectricGrid.ElectricityPrices.GenericElectricityPriceTable "Electricity market prices in EUR per kWh" annotation (Dialog(tab="PricesAndSubsidies"), choicesAllMatching);
+ // replaceable TransiEnt.Basics.Tables.ElectricGrid.ElectricityPrices.SpotPriceElectricity_Phelix_DayAhead_3600s_2011 electricityPrice constrainedby TransiEnt.Basics.Tables.ElectricGrid.ElectricityPrices.GenericElectricityPriceTable "Electricity market prices in EUR per kWh" annotation (Dialog(tab="PricesAndSubsidies"), choicesAllMatching);
 
 
   //Demand-related cost
@@ -384,7 +386,7 @@ model SimCenter "SimCenter for global parameters, ambient conditions and collect
   TransiEnt.Basics.Interfaces.Ambient.IrradianceOut i_global=ambientConditions.globalSolarRadiation.value "Global solar radiation (from component ambientConditions)";
   TransiEnt.Basics.Interfaces.Ambient.IrradianceOut i_direct=ambientConditions.directSolarRadiation.value "Direct solar radiation (from component ambientConditions)";
   TransiEnt.Basics.Interfaces.Ambient.IrradianceOut i_diffuse=ambientConditions.diffuseSolarRadiation.value "Diffuse solar radiation (from component ambientConditions)";
-  Modelica.Blocks.Interfaces.RealOutput T_ground_var(value=if variable_T_ground then Variable_Ground_Temperature.value else T_ground)  "Diffuse solar radiation (from component ambientConditions)";
+  Modelica.Blocks.Interfaces.RealOutput T_ground_var= T_ground  "Diffuse solar radiation (from component ambientConditions)";
 
    annotation ( defaultComponentName="simCenter",
     defaultComponentPrefixes="inner",

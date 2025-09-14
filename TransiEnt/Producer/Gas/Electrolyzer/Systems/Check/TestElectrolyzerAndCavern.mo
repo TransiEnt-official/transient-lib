@@ -70,7 +70,6 @@ end plotResult;
     useConstantSigma=true,
     sigma=0.95,
     quantity=1,
-    redeclare model ProducerCosts = TransiEnt.Components.Statistics.ConfigurationData.PowerProducerCostSpecs.GasCCGT,
     typeOfPrimaryEnergyCarrier=TransiEnt.Basics.Types.TypeOfPrimaryEnergyCarrier.NaturalGas,
     P_grad_max_star=0.08,
     P_el_n=470e6,
@@ -98,19 +97,16 @@ end plotResult;
     f=1/(3600*24),
     amplitude=(20*40e6)/2,
     offset=20*40e6/2 + 1e8) annotation (Placement(transformation(extent={{-84,12},{-64,32}})));
-  ClaRa.Components.BoundaryConditions.BoundaryVLE_Txim_flow source(T_const(displayUnit="degC") = 338.15, m_flow_const=1000) annotation (Placement(transformation(
-        extent={{-7,-9},{7,9}},
-        rotation=180,
-        origin={47,-8})));
-  ClaRa.Visualisation.Quadruple quadruple annotation (Placement(transformation(extent={{96,-3},{132,18}})));
-  ClaRa.Components.BoundaryConditions.BoundaryVLE_pTxi sink(
-    m_flow_nom=577.967,
-    Delta_p=0,
-    p_const(displayUnit="bar") = 1600000,
-    T_const(displayUnit="degC")) annotation (Placement(transformation(
-        extent={{-7,-8},{7,8}},
-        rotation=180,
-        origin={51,18})));
+  Components.Visualization.PQDiagram_Display           pQDiagram_Display1
+                                                                         annotation (Placement(transformation(extent={{84,-102},{134,-54}})));
+  Components.Boundaries.FluidFlow.FluidSink           fluidSink(h=52*4200)
+                                                                annotation (Placement(transformation(extent={{68,-14},{48,6}})));
+  Modelica.Blocks.Sources.RealExpression realExpression2(y=16e5) annotation (Placement(transformation(extent={{100,-14},{80,6}})));
+  Components.Boundaries.FluidFlow.FluidSource           fluidSource1
+                                                                    annotation (Placement(transformation(extent={{66,52},{46,72}})));
+  Modelica.Blocks.Sources.RealExpression realExpression3(y=1000)
+                                                               annotation (Placement(transformation(extent={{98,55},{78,75}})));
+  Modelica.Blocks.Sources.RealExpression realExpression4(y=65*4200) annotation (Placement(transformation(extent={{98,42},{78,59}})));
 equation
   connect(infoBoxLargeCHP.eye, CHP_Plant_two_fuels.eye) annotation (Line(points={{35.4,-20.8727},{32,-20.8727},{32,-14},{24,-14},{24,-13},{7,-13},{7,-13.0909}},
                                                                                                                                                              color={28,108,200}));
@@ -129,16 +125,13 @@ equation
       points={{-46.2,-1},{-54,-1},{-54,22},{-63,22}},
       color={0,135,135},
       thickness=0.5));
-  connect(source.eye,quadruple. eye) annotation (Line(points={{40,-0.8},{40,7.5},{96,7.5}},                  color={190,190,190}));
-  connect(CHP_Plant_two_fuels.inlet, source.steam_a) annotation (Line(
-      points={{6.2,-8},{40,-8}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(CHP_Plant_two_fuels.outlet, sink.steam_a) annotation (Line(
-      points={{6.2,-5.45455},{36,-5.45455},{36,18},{44,18}},
-      color={175,0,0},
-      thickness=0.5));
   connect(electrolyzerAndCavern.h2Available, CHP_Plant_two_fuels.h2Available) annotation (Line(points={{-30.6,-3.8},{-29.3,-3.8},{-29.3,-4.90909},{-13.4,-4.90909}}, color={255,0,255}));
+  connect(realExpression2.y,fluidSink. p_in) annotation (Line(points={{79,-4},{66,-4}},   color={0,0,127}));
+  connect(realExpression3.y,fluidSource1. m_flow_in) annotation (Line(points={{77,65},{64,65}}, color={0,0,127}));
+  connect(realExpression4.y,fluidSource1. h_in) annotation (Line(points={{77,50.5},{74,50.5},{74,50},{72,50},{72,60},{64,60}},     color={0,0,127}));
+  connect(fluidSink.port_a, CHP_Plant_two_fuels.outlet) annotation (Line(points={{48,-4},{46,-4},{46,-5.45455},{6.2,-5.45455}}, color={0,0,0}));
+  connect(fluidSource1.port_a, CHP_Plant_two_fuels.inlet) annotation (Line(points={{46,62},{38,62},{38,-8},{6.2,-8}}, color={0,0,0}));
+  connect(CHP_Plant_two_fuels.eye, pQDiagram_Display1.eyeIn) annotation (Line(points={{7,-13.0909},{24,-13.0909},{24,-52},{34,-52},{34,-78},{77,-78}}, color={28,108,200}));
   annotation (Icon(graphics,
                    coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(preserveAspectRatio=false)),
     experiment(StopTime=604800),

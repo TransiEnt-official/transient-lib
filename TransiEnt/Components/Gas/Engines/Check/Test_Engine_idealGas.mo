@@ -31,7 +31,8 @@ model Test_Engine_idealGas
   Engine_idealGas engine(
     Specification=Producer.Combined.SmallScaleCHP.Specifications.Dachs_HKA_G_5_5kW(),
     redeclare model MechanicModel = Mechanics.DynamicEngineMechanics,
-    redeclare model HeatFlowModel = HeatFlow.DynamicHeatFlow_simple) annotation (Placement(transformation(extent={{-24,-26},{28,26}})));
+    redeclare model HeatFlowModel = TransiEnt.Components.Gas.Engines.HeatFlow.StaticHeatFlow)
+                                                                     annotation (Placement(transformation(extent={{-24,-26},{28,26}})));
   Electrical.Machines.ActivePowerGenerator activePowerGenerator annotation (Placement(transformation(extent={{46,-30},{66,-10}})));
   Boundaries.Electrical.ActivePower.Frequency ElectricGrid annotation (Placement(transformation(extent={{74,-30},{94,-10}})));
   Boundaries.Gas.BoundaryIdealGas_pTxi sink(gasModel=simCenter.exhaustGasModel) annotation (Placement(transformation(extent={{-60,26},{-40,46}})));
@@ -59,8 +60,6 @@ model Test_Engine_idealGas
     redeclare TransiEnt.Basics.Tables.HeatGrid.HeatingCurves.HeatingCurveEONHanse heatingCurve,
     ambientConditions(redeclare TransiEnt.Basics.Tables.Ambient.Temperature_Hamburg_Fuhlsbuettel_3600s_2012 temperature))
     annotation (Placement(transformation(extent={{-90,80},{-70,100}})));
-  inner ModelStatistics           modelStatistics
-    annotation (Placement(transformation(extent={{-90,60},{-70,80}})));
   Modelica.Blocks.Sources.Sine sine(
     f=2/86400,
     amplitude=0,

@@ -45,7 +45,7 @@ partial model PartialMechanicalConnection "Abstract mechanical connection model 
   //                  Interfaces
   // _____________________________________________
 
-  TransiEnt.Components.Statistics.Collectors.LocalCollectors.CollectKineticEnergy collectKineticEnergy annotation (Placement(transformation(extent={{-19,-100},{1,-80}})));
+ /* TransiEnt.Components.Statistics.Collectors.LocalCollectors.CollectKineticEnergy collectKineticEnergy annotation (Placement(transformation(extent={{-19,-100},{1,-80}})));*/
 
   TransiEnt.Basics.Interfaces.General.MechanicalPowerPort mpp_a "Left flange of shaft" annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=0), iconTransformation(extent={{-110,-10},{-90,10}})));
   TransiEnt.Basics.Interfaces.General.MechanicalPowerPort mpp_b "Right flange of shaft" annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0), iconTransformation(extent={{90,-10},{110,10}})));
@@ -60,7 +60,7 @@ partial model PartialMechanicalConnection "Abstract mechanical connection model 
   //                Complex Components
   // _____________________________________________
 
-  outer ModelStatistics modelStatistics;
+  //outer ModelStatistics modelStatistics;
   outer SimCenter simCenter;
 
   // _____________________________________________
@@ -74,8 +74,8 @@ equation
   phi = mpp_b.phi;
   omega = der(phi);
 
-  collectKineticEnergy.kineticEnergyCollector.E_kin=E_kin;
-  connect(modelStatistics.kineticEnergyCollector[nSubgrid],collectKineticEnergy.kineticEnergyCollector);
+ // collectKineticEnergy.kineticEnergyCollector.E_kin=E_kin;
+  //connect(modelStatistics.kineticEnergyCollector[nSubgrid],collectKineticEnergy.kineticEnergyCollector);
 
   annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}}), graphics={

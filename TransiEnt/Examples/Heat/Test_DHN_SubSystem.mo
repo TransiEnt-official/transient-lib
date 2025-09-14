@@ -40,7 +40,6 @@ model Test_DHN_SubSystem
   //           Instances of other Classes
   // _____________________________________________
 
-  inner TransiEnt.ModelStatistics modelStatistics annotation (Placement(transformation(extent={{-340,180},{-320,200}})));
   inner TransiEnt.SimCenter simCenter(
     k_H2_fraction=0.6,
     showExpertSummary=false,
@@ -74,6 +73,10 @@ model Test_DHN_SubSystem
         rotation=90,
         origin={-302,-168})));
 
+  TransiEnt.Basics.Adapters.FluidPortAdapter fluidPortAdapter annotation (Placement(transformation(extent={{-274,-137},{-264,-127}})));
+  TransiEnt.Basics.Adapters.FluidPortAdapter fluidPortAdapter1 annotation (Placement(transformation(extent={{-274,-197},{-264,-187}})));
+  TransiEnt.Basics.Adapters.FluidPortAdapter fluidPortAdapter2 annotation (Placement(transformation(extent={{154,135},{164,145}})));
+  TransiEnt.Basics.Adapters.FluidPortAdapter fluidPortAdapter3 annotation (Placement(transformation(extent={{118,135},{108,145}})));
 equation
   // _____________________________________________
   //
@@ -84,28 +87,32 @@ equation
       points={{152,195},{152,195},{152,176},{148,176}},
       color={0,135,135},
       pattern=LinePattern.Dash));
-  connect(dHN_SubSystem.consumerInlet, consumer2.fluidPortIn) annotation (Line(
-      points={{168,128},{168,140},{148,140}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(consumer2.fluidPortOut, dHN_SubSystem.consumerOutlet) annotation (Line(
-      points={{124,140},{108,140},{108,127}},
-      color={175,0,0},
-      thickness=0.5));
   connect(p_setWedel4.y, PID_hot_temperature.u_s) annotation (Line(points={{-6.6,0},{-318,0},{-318,-232},{-332,-232},{-332,-224}}, color={0,0,127}));
   connect(PID_hot_temperature.y, producer1.Q_flow_prescribed) annotation (Line(points={{-332,-201},{-332,-201},{-332,-154},{-318,-154},{-318,-156}}, color={0,0,127}));
-  connect(producer1.fluidPortIn, dHN_SubSystem.producerInlet) annotation (Line(
-      points={{-282,-156},{-282,-132},{-252,-132}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(producer1.fluidPortOut, dHN_SubSystem.producerOutlet) annotation (Line(
-      points={{-282,-180},{-282,-192},{-252,-192}},
-      color={175,0,0},
-      thickness=0.5));
   connect(dHN_SubSystem.T1, PID_hot_temperature.u_m) annotation (Line(points={{-256,-212},{-288,-212},{-288,-211.9},{-320,-211.9}}, color={0,0,127}));
+  connect(fluidPortAdapter.fluidPortOut, dHN_SubSystem.producerInlet) annotation (Line(
+      points={{-264,-132},{-252,-132}},
+      color={175,0,0},
+      thickness=0.5));
+  connect(producer1.fluidPortIn, fluidPortAdapter.fluidPortIn) annotation (Line(points={{-282,-156},{-282,-132},{-274,-132}}, color={0,0,0}));
+  connect(fluidPortAdapter1.fluidPortOut, dHN_SubSystem.producerOutlet) annotation (Line(
+      points={{-264,-192},{-252,-192}},
+      color={175,0,0},
+      thickness=0.5));
+  connect(fluidPortAdapter1.fluidPortIn, producer1.fluidPortOut) annotation (Line(points={{-274,-192},{-282,-192},{-282,-180}}, color={0,0,0}));
+  connect(consumer2.fluidPortIn, fluidPortAdapter2.fluidPortIn) annotation (Line(points={{148,140},{154,140}}, color={0,0,0}));
+  connect(fluidPortAdapter2.fluidPortOut, dHN_SubSystem.consumerInlet) annotation (Line(
+      points={{164,140},{168,140},{168,128}},
+      color={175,0,0},
+      thickness=0.5));
+  connect(fluidPortAdapter3.fluidPortIn, consumer2.fluidPortOut) annotation (Line(points={{118,140},{124,140}}, color={0,0,0}));
+  connect(fluidPortAdapter3.fluidPortOut, dHN_SubSystem.consumerOutlet) annotation (Line(
+      points={{108,140},{108,127}},
+      color={175,0,0},
+      thickness=0.5));
   annotation (
     Icon(graphics, coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}})),
-    Diagram(graphics, coordinateSystem(preserveAspectRatio=false, extent={{-360,-260},{360,220}})),
+    Diagram(          coordinateSystem(preserveAspectRatio=false, extent={{-360,-260},{360,220}})),
     experiment(StopTime=86400, Interval=900),
     __Dymola_experimentSetupOutput(inputs=false, events=false),
     __Dymola_experimentFlags(

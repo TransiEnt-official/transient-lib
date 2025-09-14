@@ -19,7 +19,7 @@ model IncompressibleFluidVolume_noFluidPorts "Control volume for incompressible 
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -38,15 +38,12 @@ model IncompressibleFluidVolume_noFluidPorts "Control volume for incompressible 
   import ClaRa;
   import      Modelica.Units.SI;
 
-  outer TransiEnt.SimCenter simCenter;
+
 
   // _____________________________________________
   //
   //                   Parameters
   // _____________________________________________
-
-  inner parameter TILMedia.VLEFluidTypes.BaseVLEFluid   medium=simCenter.fluid1 "Medium in the component"
-                                     annotation(Dialog(group="Fundamental Definitions"), choicesAllMatching);
 
   parameter SI.Volume V=1e3 "Volume";
   parameter SI.Density d = 1e3 "Diameter";

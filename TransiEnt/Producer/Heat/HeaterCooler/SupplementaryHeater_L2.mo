@@ -20,7 +20,7 @@ model SupplementaryHeater_L2 "Model of a boiler that holds temperature in a grid
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -32,7 +32,6 @@ model SupplementaryHeater_L2 "Model of a boiler that holds temperature in a grid
   import TransiEnt;
   extends TransiEnt.Basics.Icons.Combustion;
   outer TransiEnt.SimCenter simCenter;
-  outer TransiEnt.ModelStatistics modelStatistics;
 
   // _____________________________________________
   //
@@ -69,7 +68,6 @@ model SupplementaryHeater_L2 "Model of a boiler that holds temperature in a grid
       extent={{-10,-10},{10,10}},
       rotation=90,
       origin={0,-48})));
-  TransiEnt.Components.Statistics.Collectors.LocalCollectors.CollectHeatingPower collectHeatingPower(typeOfResource=EnergyResource.Conventional) annotation (Placement(transformation(extent={{-80,80},{-60,100}})));
 
   // _____________________________________________
   //
@@ -111,7 +109,6 @@ equation
   else
     boilerHeat.Q_flow = 0;
   end if;
-  boilerHeat.Q_flow = -collectHeatingPower.heatFlowCollector.Q_flow;
 
   //Calculation of heating values not yet implemented
   m_flow_fuel = -boilerHeat.Q_flow/CalorificValue(fuelMedium,inStream(gasPortIn.xi_outflow), 4.5e6)/eta;
@@ -126,8 +123,6 @@ equation
   //            Connect statements
   // _____________________________________________
 
-  connect(collectHeatingPower.heatFlowCollector, modelStatistics.heatFlowCollector[
-    typeOfResource]);
   connect(temperatureOut.port, waterPortOut) annotation (Line(
       points={{84,24},{100,24},{100,0}},
       color={0,0,0},

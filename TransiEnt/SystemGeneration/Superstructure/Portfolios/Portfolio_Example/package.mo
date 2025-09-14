@@ -3020,11 +3020,12 @@ powerToGasRecord: parametrization records for PtGplants in region [nPowerToGasPl
 
     TransiEnt.Components.Boundaries.Gas.BoundaryRealGas_Txim_flow boundary_Txim_flow annotation (Placement(transformation(extent={{60,-100},{80,-80}})));
     TransiEnt.Components.Boundaries.Heat.Heatflow_L1 heatflow_L1_1(
-      Medium=medium_water,
       Q_flow_const=0,
       use_Q_flow_in=false) annotation (Placement(transformation(extent={{-8,-60},{12,-40}})));
     Modelica.Blocks.Sources.RealExpression realExpression_zero annotation (Placement(transformation(extent={{60,64},{80,84}})));
 
+  Basics.Adapters.FluidPortAdapter fluidPortAdapter annotation (Placement(transformation(extent={{-16,-80},{-24,-72}})));
+  Basics.Adapters.FluidPortAdapter fluidPortAdapter1 annotation (Placement(transformation(extent={{16,-80},{24,-72}})));
   equation
     // _____________________________________________
     //
@@ -3042,17 +3043,19 @@ powerToGasRecord: parametrization records for PtGplants in region [nPowerToGasPl
         points={{80,-90},{100,-90}},
         color={255,255,0},
         thickness=1.5));
-    connect(heatflow_L1_1.fluidPortIn, WaterPortIn_ExternalHeatSource) annotation (Line(
-        points={{-4,-60},{-4,-92},{-40,-92},{-40,-102}},
-        color={175,0,0},
-        thickness=0.5));
-    connect(heatflow_L1_1.fluidPortOut, WaterPortOut_ExternalHeatSource) annotation (Line(
-        points={{8,-60},{8,-92},{40,-92},{40,-102}},
-        color={175,0,0},
-        thickness=0.5));
   connect(P_ElectricalHeater_max, realExpression_zero.y) annotation (Line(points={{114,90},{90,90},{90,74},{81,74}}, color={0,0,127}));
   connect(P_el_CHP, realExpression_zero.y) annotation (Line(points={{114,60},{90,60},{90,74},{81,74}}, color={0,0,127}));
   connect(m_flow_gas, realExpression_zero.y) annotation (Line(points={{114,30},{90,30},{90,74},{81,74}}, color={0,0,127}));
+  connect(fluidPortAdapter.fluidPortOut, WaterPortIn_ExternalHeatSource) annotation (Line(
+      points={{-24,-76},{-40,-76},{-40,-102}},
+      color={175,0,0},
+      thickness=0.5));
+  connect(fluidPortAdapter.fluidPortIn, heatflow_L1_1.fluidPortIn) annotation (Line(points={{-16,-76},{-4,-76},{-4,-60}}, color={0,0,0}));
+  connect(fluidPortAdapter1.fluidPortOut, WaterPortOut_ExternalHeatSource) annotation (Line(
+      points={{24,-76},{40,-76},{40,-102}},
+      color={175,0,0},
+      thickness=0.5));
+  connect(fluidPortAdapter1.fluidPortIn, heatflow_L1_1.fluidPortOut) annotation (Line(points={{16,-76},{8,-76},{8,-60}}, color={0,0,0}));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=false)),
       Diagram(coordinateSystem(preserveAspectRatio=false)),

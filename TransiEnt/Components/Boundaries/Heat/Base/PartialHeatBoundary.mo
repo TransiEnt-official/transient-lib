@@ -20,7 +20,7 @@ partial model PartialHeatBoundary
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -41,22 +41,20 @@ partial model PartialHeatBoundary
   //                 Outer Models
   // _____________________________________________
 
-  outer TransiEnt.SimCenter simCenter;
 
   // _____________________________________________
   //
   //             Visible Parameters
   // _____________________________________________
 
-  parameter TILMedia.VLEFluidTypes.BaseVLEFluid  Medium=simCenter.fluid1 "Medium model";
 
   // _____________________________________________
   //
   //                  Interfaces
   // _____________________________________________
 
-  TransiEnt.Basics.Interfaces.Thermal.FluidPortOut fluidPortOut(Medium=Medium) annotation (Placement(transformation(extent={{-10,90},{10,110}}), iconTransformation(extent={{50,-110},{70,-90}})));
-  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn fluidPortIn(Medium=Medium) annotation (Placement(transformation(extent={{-10,-110},{10,-90}}), iconTransformation(extent={{-70,-110},{-50,-90}})));
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortOut_simple fluidPortOut annotation (Placement(transformation(extent={{-10,90},{10,110}}), iconTransformation(extent={{50,-110},{70,-90}})));
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn_simple fluidPortIn annotation (Placement(transformation(extent={{-10,-110},{10,-90}}), iconTransformation(extent={{-70,-110},{-50,-90}})));
 
   // _____________________________________________
   //

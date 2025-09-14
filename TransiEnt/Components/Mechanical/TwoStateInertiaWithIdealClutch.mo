@@ -52,7 +52,7 @@ model TwoStateInertiaWithIdealClutch "1D-rotational component with inertia. Send
   //                Complex Components
   // _____________________________________________
 
-  outer TransiEnt.ModelStatistics modelStatistics;
+ 
 
   // _____________________________________________
   //

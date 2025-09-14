@@ -51,7 +51,6 @@ model ConstantInertia "1D-rotational component with inertia"
   //                Complex Components
   // _____________________________________________
 
-  outer TransiEnt.ModelStatistics modelStatistics;
 
 equation
   // _____________________________________________

@@ -20,7 +20,7 @@ model ElectricBoilerImpedance "Electric Boiler with constant efficiency, spatial
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -41,7 +41,7 @@ model ElectricBoilerImpedance "Electric Boiler with constant efficiency, spatial
   // _____________________________________________
 
   outer TransiEnt.SimCenter simCenter;
-  outer TransiEnt.ModelStatistics modelStatistics;
+
   // _____________________________________________
   //
   //                Parameters
@@ -49,6 +49,7 @@ model ElectricBoilerImpedance "Electric Boiler with constant efficiency, spatial
 
   parameter Modelica.Units.SI.Voltage v_n=simCenter.v_n;
   parameter Modelica.Units.SI.PowerFactor cosphi=0.9;
+  parameter Modelica.Units.SI.SpecificHeatCapacity cf=4200 "Specific heat capacity of the heat carrier";
 
   parameter TILMedia.VLEFluidTypes.BaseVLEFluid   medium= simCenter.fluid1 "Medium to be used"
                          annotation(choicesAllMatching, Dialog(group="Fluid Definition"));
@@ -66,10 +67,8 @@ model ElectricBoilerImpedance "Electric Boiler with constant efficiency, spatial
   // _____________________________________________
 
   TransiEnt.Basics.Interfaces.Electrical.ComplexPowerPort epp  "Choice of power port" annotation (Dialog(group="Replaceable Components"), Placement(transformation(extent={{-10,88},{10,108}}), iconTransformation(extent={{-10,-110},{10,-90}})));
-  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn fluidPortIn(Medium=medium)
-                                                                       if useFluidPorts annotation (Placement(transformation(extent={{90,-50},{110,-30}}), iconTransformation(extent={{-108,-10},{-88,10}})));
-  TransiEnt.Basics.Interfaces.Thermal.FluidPortOut fluidPortOut(Medium=medium)
-                                                                         if useFluidPorts annotation (Placement(transformation(extent={{90,30},{110,50}}), iconTransformation(extent={{90,-10},{110,10}})));
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn_simple fluidPortIn   if useFluidPorts annotation (Placement(transformation(extent={{90,-50},{110,-30}}), iconTransformation(extent={{-108,-10},{-88,10}})));
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortOut_simple fluidPortOut   if useFluidPorts annotation (Placement(transformation(extent={{90,30},{110,50}}), iconTransformation(extent={{90,-10},{110,10}})));
   TransiEnt.Basics.Interfaces.Thermal.HeatFlowRateIn Q_flow_set "Setpoint for thermal heat, should be negative"
     annotation (Placement(transformation(extent={{-114,-10},{-94,10}}),
         iconTransformation(extent={{-10,-10},{10,10}},
@@ -90,23 +89,8 @@ model ElectricBoilerImpedance "Electric Boiler with constant efficiency, spatial
     annotation (Placement(transformation(extent={{-36,54},{-18,72}})));
   Modelica.Blocks.Math.Gain sign(k=if heatFlowBoundary.change_sign==true then -1 else 1) if useFluidPorts
     annotation (Placement(transformation(extent={{-20,-9},{-2,9}})));
-  ClaRa.Components.Sensors.SensorVLE_L1_T temperatureSensor_hex_coolant_in(medium=medium) if useFluidPorts annotation (Placement(transformation(
-        extent={{-7,-7},{7,7}},
-        rotation=180,
-        origin={47,-31})));
-  ClaRa.Components.Sensors.SensorVLE_L1_T temperatureSensor_hex_coolant_out(medium=medium) if useFluidPorts annotation (Placement(transformation(extent={{53,39},{39,53}})));
   Modelica.Blocks.Nonlinear.Limiter Q_flow_set_limit(uMax=0, uMin=-Q_flow_n)
                                                      annotation (Placement(transformation(extent={{-72,-10},{-52,10}})));
-  TransiEnt.Components.Statistics.Collectors.LocalCollectors.HeatingPlantCost collectCosts_HeatProducer(
-    redeclare model HeatingPlantCostModel = ProducerCosts,
-    Q_flow_fuel_is=0,
-    m_flow_CDE_is=0,
-    Q_flow_n=Q_flow_n,
-    Q_flow_is=-Q_flow_is,
-    consumes_H_flow=false,
-    produces_m_flow_CDE=false)
-                         annotation (Placement(transformation(extent={{10,-100},{30,-80}})));
-  TransiEnt.Components.Statistics.Collectors.LocalCollectors.CollectHeatingPower collectHeatingPower(typeOfResource=TransiEnt.Basics.Types.TypeOfResource.Conventional) annotation (Placement(transformation(extent={{-100,-100},{-80,-80}})));
 
   Modelica.Units.SI.HeatFlowRate Q_flow_is=-Q_flow_set_limit.y;
   Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow prescribedHeatFlow if not
@@ -123,13 +107,14 @@ model ElectricBoilerImpedance "Electric Boiler with constant efficiency, spatial
     beta=2) annotation (Placement(transformation(extent={{10,28},{-10,48}})));
   Modelica.Blocks.Sources.RealExpression PowerImpedance(y=-load.P*eta)
                                                                       annotation (Placement(transformation(extent={{-76,-46},{-56,-26}})));
-protected
-  TransiEnt.Components.Statistics.Collectors.LocalCollectors.CollectElectricPower collectElectricPower(typeOfResource=TransiEnt.Basics.Types.TypeOfResource.Consumer)
-                                                                                                                                      annotation (Placement(transformation(extent={{-80,-100},{-60,-80}})));
   // _____________________________________________
   //
   //             Variable Declarations
   // _____________________________________________
+
+protected
+  Modelica.Units.SI.Temperature T_in "Temperature inflowing into the component, temperature at inlet";
+  Modelica.Units.SI.Temperature T_out "Temperature flowing out of the component, temperature at outlet";
 
 public
   SI.Power P_el "Consumed electric power";
@@ -137,34 +122,21 @@ public
 equation
 
   P_el=efficiency.y;
-  collectElectricPower.powerCollector.P=P_el;
-  collectHeatingPower.heatFlowCollector.Q_flow = -Q_flow_is;
+  T_in=noEvent(actualStream(fluidPortIn.h_outflow))/cf;
+  T_out=noEvent(actualStream(fluidPortOut.h_outflow))/cf;
+
 
   // _____________________________________________
   //
   //                Connect Equations
   // _____________________________________________
 
-  connect(modelStatistics.powerCollector[collectElectricPower.typeOfResource],collectElectricPower.powerCollector);
-  connect(modelStatistics.heatFlowCollector[collectHeatingPower.typeOfResource],collectHeatingPower.heatFlowCollector);
-  connect(modelStatistics.costsCollector, collectCosts_HeatProducer.costsCollector);
+
 
   if useFluidPorts then
-    connect(fluidPortIn, heatFlowBoundary.fluidPortIn) annotation (Line(points={{100,-40},{70,-40},{70,1},{46,1}}, color={175,0,0}));
-    connect(heatFlowBoundary.fluidPortOut, fluidPortOut) annotation (Line(points={{46,13},{58,13},{58,15},{70,15},{70,40},{100,40}}, color={175,0,0}));
     connect(sign.y, heatFlowBoundary.Q_flow_prescribed) annotation (Line(
       points={{-1.1,0},{12.45,0},{12.45,1},{28,1}},
       color={0,0,127}));
-    connect(heatFlowBoundary.fluidPortOut, temperatureSensor_hex_coolant_out.port)
-      annotation (Line(
-        points={{46,13},{46,38.3},{46,38.3},{46,39}},
-        color={175,0,0},
-        thickness=0.5));
-    connect(heatFlowBoundary.fluidPortIn, temperatureSensor_hex_coolant_in.port)
-      annotation (Line(
-        points={{46,1},{46,-24},{47,-24}},
-        color={175,0,0},
-        thickness=0.5));
   else
     connect(prescribedHeatFlow.Q_flow, sign1.y) annotation (Line(points={{26,-70},{-1.1,-70}}, color={0,0,127}));
     connect(prescribedHeatFlow.port, heat) annotation (Line(points={{46,-70},{74,-70},{74,0},{100,0}}, color={191,0,0}));
@@ -181,6 +153,8 @@ equation
   connect(efficiency.y, load.P_el_set) annotation (Line(points={{-17.1,63},{0,63},{0,49.6}}, color={0,0,127}));
   connect(PowerImpedance.y, sign.u) annotation (Line(points={{-55,-36},{-30,-36},{-30,0},{-21.8,0}}, color={0,0,127}));
   connect(sign1.u, sign.u) annotation (Line(points={{-21.8,-70},{-30,-70},{-30,0},{-21.8,0}}, color={0,0,127}));
+  connect(heatFlowBoundary.fluidPortOut, fluidPortOut) annotation (Line(points={{46,13},{46,12},{86,12},{86,40},{100,40}}, color={0,0,0}));
+  connect(fluidPortIn, heatFlowBoundary.fluidPortIn) annotation (Line(points={{100,-40},{80,-40},{80,1},{46,1}}, color={0,0,0}));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
             {100,100}}), graphics={
         Ellipse(

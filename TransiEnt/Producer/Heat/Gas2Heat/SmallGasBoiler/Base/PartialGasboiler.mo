@@ -20,7 +20,7 @@ partial model PartialGasboiler "Full modulating gasboiler, partial model with sp
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -37,7 +37,6 @@ partial model PartialGasboiler "Full modulating gasboiler, partial model with sp
   import TransiEnt;
   extends TransiEnt.Basics.Icons.Boiler;
   outer TransiEnt.SimCenter simCenter;
-  outer TransiEnt.ModelStatistics modelStatistics;
 
   // _____________________________________________
   //
@@ -158,25 +157,6 @@ public
   Modelica.Blocks.Sources.RealExpression t_return(y=T_return) annotation (Placement(transformation(extent={{-98,36},{-78,56}})));
   Modelica.Blocks.Sources.RealExpression t_max(y=T_supply_set_internal) annotation (Placement(transformation(extent={{-98,50},{-78,70}})));
 
-  TransiEnt.Components.Statistics.Collectors.LocalCollectors.CollectHeatingPower collectHeatingPower(typeOfResource=TypeOfResource, is_setter=true) annotation (Placement(transformation(extent={{80,100},{100,120}})));
-  TransiEnt.Components.Statistics.Collectors.LocalCollectors.CollectGwpEmissionsHeat collectGwpEmissions(typeOfEnergyCarrierHeat=TypeOfEnergyCarrierHeat) annotation (Placement(transformation(extent={{100,100},{120,120}})));
-  TransiEnt.Components.Statistics.Collectors.LocalCollectors.CollectCostsGeneral collectCosts(
-    der_E_n=Q_flow_n,
-    E_n=0,
-    redeclare model CostRecordGeneral = CostRecordBoiler,
-    Cspec_demAndRev_gas_fuel=Cspec_demAndRev_gas_fuel,
-    Q_flow=-Q_flow_out,
-    H_flow=Q_flow_fuel,
-    m_flow_CDE=-m_flow_CDE,
-    produces_P_el=false,
-    consumes_P_el=false,
-    consumes_Q_flow=false,
-    produces_H_flow=false,
-    produces_other_flow=false,
-    consumes_other_flow=false,
-    consumes_m_flow_CDE=false)
-                            annotation (Placement(transformation(extent={{60,100},{80,120}})));
-
 equation
   //Assertions
   assert(gasPortIn.m_flow >= 0, "Your boiler is a gas source.",
@@ -225,14 +205,7 @@ equation
     switch = pre(switch);
   end if;
 
-  //Write generated heat and emissions to statistical collectors
-  collectHeatingPower.heatFlowCollector.Q_flow=Q_flow_out;
-  collectGwpEmissions.gwpCollector.m_flow_cde =m_flow_CDE;
-
   //Statistics
-  connect(modelStatistics.heatFlowCollector[TypeOfResource],collectHeatingPower.heatFlowCollector);
-  connect(modelStatistics.gwpCollectorHeat[TypeOfEnergyCarrierHeat],collectGwpEmissions.gwpCollector);
-  connect(modelStatistics.costsCollector, collectCosts.costsCollector);
 
   connect(temperatureWaterIn.T, rT2EfficiencyCharline.T_return) annotation (Line(
       points={{-75,-110},{-82,-110},{-82,-48},{-20,-48},{-20,50},{19.6,50}},

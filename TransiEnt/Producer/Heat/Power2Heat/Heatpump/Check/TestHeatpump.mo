@@ -37,13 +37,6 @@ model TestHeatpump
     p_drop=0,
     useHeatPort=false,
     T_set=323.15)                                                                             annotation (Placement(transformation(extent={{-14,-10},{6,10}})));
-  ClaRa.Components.BoundaryConditions.BoundaryVLE_Txim_flow source1(
-    variable_m_flow=false,
-    T_const=30 + 273,
-    m_flow_const=0.1) annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
-        rotation=90,
-        origin={64,-32})));
   TransiEnt.Components.Boundaries.Electrical.ActivePower.Frequency electricGrid1(useInputConnector=false)
                                                                                                          annotation (Placement(transformation(extent={{20,-46},{40,-26}})));
   Modelica.Blocks.Sources.Sine Q_flow_set(
@@ -51,13 +44,11 @@ model TestHeatpump
     offset=1000,
     phase=3.1415926535898,
     f=1/4000) annotation (Placement(transformation(extent={{-56,-14},{-39,4}})));
-  ClaRa.Components.BoundaryConditions.BoundaryVLE_phxi sink1(medium=simCenter.fluid1, p_const=17e5)
-                          annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
-        rotation=270,
-        origin={62,21})));
-  ClaRa.Components.Sensors.SensorVLE_L1_T temperature1
-                                                      annotation (Placement(transformation(extent={{26,12},{46,32}})));
+  TransiEnt.Components.Boundaries.FluidFlow.FluidSink fluidSink annotation (Placement(transformation(extent={{4,20},{24,40}})));
+  TransiEnt.Components.Boundaries.FluidFlow.FluidSource fluidSource annotation (Placement(transformation(extent={{52,-36},{72,-16}})));
+  Modelica.Blocks.Sources.RealExpression realExpression(y=17e5) annotation (Placement(transformation(extent={{-26,20},{-6,40}})));
+  Modelica.Blocks.Sources.RealExpression realExpression1(y=0.1) annotation (Placement(transformation(extent={{18,-26},{38,-6}})));
+  Modelica.Blocks.Sources.RealExpression realExpression2(y=30*4186) annotation (Placement(transformation(extent={{14,-74},{34,-54}})));
 equation
 
 public
@@ -84,20 +75,12 @@ equation
       points={{3.6,-10},{3.6,-36},{20,-36}},
       color={0,135,135},
       thickness=0.5));
-  connect(heatpump.inlet, source1.steam_a) annotation (Line(
-      points={{6,-3.8},{64,-3.8},{64,-22}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(heatpump.outlet, sink1.steam_a) annotation (Line(
-      points={{6.2,3},{16,3},{16,4},{62,4},{62,11}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(temperature1.port, sink1.steam_a) annotation (Line(
-      points={{36,12},{36,4},{62,4},{62,11}},
-      color={0,131,169},
-      pattern=LinePattern.Solid,
-      thickness=0.5));
   connect(Q_flow_set.y, heatpump.Q_flow_set) annotation (Line(points={{-38.15,-5},{-38.15,-5.4},{-14.6,-5.4}}, color={0,0,127}));
+  connect(fluidSink.port_a, heatpump.outlet) annotation (Line(points={{24,30},{44,30},{44,3},{6.2,3}}, color={0,0,0}));
+  connect(fluidSource.port_a, heatpump.inlet) annotation (Line(points={{72,-26},{84,-26},{84,-3.8},{6,-3.8}}, color={0,0,0}));
+  connect(realExpression.y, fluidSink.p_in) annotation (Line(points={{-5,30},{6,30}}, color={0,0,127}));
+  connect(realExpression1.y, fluidSource.m_flow_in) annotation (Line(points={{39,-16},{48,-16},{48,-23},{54,-23}}, color={0,0,127}));
+  connect(realExpression2.y, fluidSource.h_in) annotation (Line(points={{35,-64},{46,-64},{46,-28},{54,-28}}, color={0,0,127}));
   annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}}), graphics={Text(
           extent={{-82,76},{84,52}},

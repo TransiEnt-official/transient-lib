@@ -45,44 +45,27 @@ model TestConstantHeatConsumer
     useHomotopy=false,
     redeclare replaceable TILMedia.VLEFluidTypes.TILMedia_Water fluid1,
     useClaRaDelay=true) annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
-  ClaRa.Components.BoundaryConditions.BoundaryVLE_hxim_flow districtHeatingSupply(
-    m_flow_const=0.1,
-    m_flow_nom=0,
-    p_nom=1000,
-    variable_m_flow=false,
-    variable_h=false,
-    h_const=400e3) annotation (Placement(transformation(extent={{94,16},{42,62}})));
-  ClaRa.Components.BoundaryConditions.BoundaryVLE_phxi districtHeatingReturn(
-    m_flow_nom=100,
-    p_const=1000000,
-    Delta_p=100000,
-    variable_p=false,
-    h_const=400e3) annotation (Placement(transformation(
-        extent={{-16,-21},{16,21}},
-        rotation=180,
-        origin={72,-41})));
   ConstantHeatConsumer constantHeatConsumer(Q_flow_const=1000)
     annotation (Placement(transformation(extent={{-60,-28},{6,34}})));
 
-  inner TransiEnt.ModelStatistics modelStatistics annotation (Placement(transformation(extent={{-80,40},{-60,60}})));
+  TransiEnt.Components.Boundaries.FluidFlow.FluidSource fluidSource annotation (Placement(transformation(extent={{46,0},{26,20}})));
+  TransiEnt.Components.Boundaries.FluidFlow.FluidSink fluidSink annotation (Placement(transformation(extent={{60,-32},{40,-12}})));
+  Modelica.Blocks.Sources.RealExpression realExpression(y=1000000) annotation (Placement(transformation(extent={{88,-32},{68,-12}})));
+  Modelica.Blocks.Sources.RealExpression realExpression1(y=0.1) annotation (Placement(transformation(extent={{64,6},{52,20}})));
+  Modelica.Blocks.Sources.RealExpression realExpression2(y=400e3) annotation (Placement(transformation(extent={{64,-8},{52,6}})));
 equation
   // _____________________________________________
   //
   //               Connect Statements
   // _____________________________________________
 
-  connect(constantHeatConsumer.fluidPortIn, districtHeatingSupply.steam_a)
-    annotation (Line(
-      points={{6,-9.4},{30,-9.4},{30,38},{42,38},{42,39}},
-      color={175,0,0},
-      smooth=Smooth.None));
-  connect(constantHeatConsumer.fluidPortOut, districtHeatingReturn.steam_a)
-    annotation (Line(
-      points={{6,-21.8},{30,-21.8},{30,-41},{56,-41}},
-      color={175,0,0},
-      smooth=Smooth.None));
+  connect(realExpression.y, fluidSink.p_in) annotation (Line(points={{67,-22},{58,-22}}, color={0,0,127}));
+  connect(fluidSink.port_a, constantHeatConsumer.fluidPortOut) annotation (Line(points={{40,-22},{23,-22},{23,-21.8},{6,-21.8}}, color={0,0,0}));
+  connect(fluidSource.port_a, constantHeatConsumer.fluidPortIn) annotation (Line(points={{26,10},{14,10},{14,-9.4},{6,-9.4}}, color={0,0,0}));
+  connect(realExpression1.y, fluidSource.m_flow_in) annotation (Line(points={{51.4,13},{44,13}}, color={0,0,127}));
+  connect(realExpression2.y, fluidSource.h_in) annotation (Line(points={{51.4,-1},{48,-1},{48,8},{44,8}}, color={0,0,127}));
   annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-80,-80},
-            {100,80}}),      graphics), Icon(graphics,
+            {100,80}})),                Icon(graphics,
                                              coordinateSystem(extent={{-80,-80},
             {100,80}})),
     Documentation(info="<html>

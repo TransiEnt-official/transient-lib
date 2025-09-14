@@ -31,44 +31,24 @@ model TestHeatpumpWithControl_bivalent_fluidports_ramp "Model for testing Heatpu
   extends TransiEnt.Basics.Icons.Checkmodel;
   inner SimCenter simCenter(ambientConditions(redeclare TransiEnt.Basics.Tables.Ambient.Temperature_Hamburg_900s_2012 temperature))
                             annotation (Placement(transformation(extent={{-98,80},{-78,100}})));
-  ClaRa.Components.BoundaryConditions.BoundaryVLE_pTxi sink(
-    medium=simCenter.fluid1,
-    p_const=1.2e5,
-    T_const=45 + 273.15)  annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
-        rotation=270,
-        origin={44,25})));
-  ClaRa.Components.BoundaryConditions.BoundaryVLE_Txim_flow source(
-    variable_m_flow=false,
-    T_const=35 + 273,
-    m_flow_const=hps.Q_flow_n/(4.2e3*20))
-                      annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
-        rotation=90,
-        origin={44,-14})));
   TransiEnt.Components.Boundaries.Electrical.ActivePower.Frequency electricGrid(useInputConnector=false) annotation (Placement(transformation(extent={{12,-40},{32,-20}})));
   TransiEnt.Producer.Heat.Power2Heat.Heatpump.BivalentHeatPumpWithControl hps(
     T_External=false,
     Delta_T_db=5,
     t_min_on=300,
     t_min_off=300,
-    controller(T_bivalent(displayUnit="K") = 265.15),
-    T_out(unitOption=1)) annotation (Placement(transformation(extent={{-12,-6},{8,14}})));
+    controller(T_bivalent(displayUnit="K") = 265.15)) annotation (Placement(transformation(extent={{-12,-6},{8,14}})));
   Modelica.Blocks.Sources.Ramp T_feed_set(
     offset=35 + 273.15,
     startTime=0,
     duration=80000,
     height=5) annotation (Placement(transformation(extent={{-62,-6},{-42,14}})));
-  inner TransiEnt.ModelStatistics modelStatistics annotation (Placement(transformation(extent={{-78,80},{-58,100}})));
+  TransiEnt.Components.Boundaries.FluidFlow.FluidSink fluidSink(h=45*4186) annotation (Placement(transformation(extent={{-8,46},{12,66}})));
+  Modelica.Blocks.Sources.RealExpression realExpression(y=1.2e5) annotation (Placement(transformation(extent={{-38,46},{-18,66}})));
+  Modelica.Blocks.Sources.RealExpression realExpression1(y=hps.Q_flow_n/(4.2e3*20)) annotation (Placement(transformation(extent={{-114,-62},{-94,-42}})));
+  TransiEnt.Components.Boundaries.FluidFlow.FluidSource fluidSource annotation (Placement(transformation(extent={{-80,-72},{-60,-52}})));
+  Modelica.Blocks.Sources.RealExpression realExpression2(y=35*4186) annotation (Placement(transformation(extent={{-118,-110},{-98,-90}})));
 equation
-  connect(hps.inlet, source.steam_a) annotation (Line(
-      points={{8,0.2},{44,0.2},{44,-4}},
-      color={175,0,0},
-      smooth=Smooth.None));
-  connect(hps.outlet, sink.steam_a) annotation (Line(
-      points={{8.2,7},{44,7},{44,15}},
-      color={175,0,0},
-      smooth=Smooth.None));
   connect(electricGrid.epp, hps.epp) annotation (Line(
       points={{12,-30},{4,-30},{4,-5.8},{3.8,-5.8}},
       color={0,0,0},
@@ -97,6 +77,11 @@ algorithm
 end plotResult;
 equation
   connect(T_feed_set.y, hps.T_set) annotation (Line(points={{-41,4},{-18,4},{-18,-3.3},{-12.3,-3.3}}, color={0,0,127}));
+  connect(realExpression.y, fluidSink.p_in) annotation (Line(points={{-17,56},{-6,56}}, color={0,0,127}));
+  connect(realExpression1.y, fluidSource.m_flow_in) annotation (Line(points={{-93,-52},{-84,-52},{-84,-59},{-78,-59}}, color={0,0,127}));
+  connect(realExpression2.y, fluidSource.h_in) annotation (Line(points={{-97,-100},{-86,-100},{-86,-64},{-78,-64}}, color={0,0,127}));
+  connect(fluidSource.port_a, hps.inlet) annotation (Line(points={{-60,-62},{80,-62},{80,0.2},{8,0.2}}, color={0,0,0}));
+  connect(fluidSink.port_a, hps.outlet) annotation (Line(points={{12,56},{34,56},{34,50},{36,50},{36,7},{8.2,7}}, color={0,0,0}));
   annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}}), graphics={Text(
           extent={{-48,92},{66,66}},

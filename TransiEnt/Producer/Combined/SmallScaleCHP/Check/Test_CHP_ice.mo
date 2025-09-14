@@ -39,7 +39,6 @@ model Test_CHP_ice
     //redeclare function EfficiencyFunction = Basics.Functions.efficiency_linear,
   TransiEnt.Components.Boundaries.Electrical.ActivePower.Frequency ElectricGrid annotation (Placement(transformation(extent={{54,-70},{76,-48}})));
   Components.Boundaries.Gas.BoundaryIdealGas_pTxi sink(gasModel=simCenter.exhaustGasModel) annotation (Placement(transformation(extent={{-88,34},{-68,54}})));
-  inner ModelStatistics modelStatistics annotation (Placement(transformation(extent={{-110,60},{-90,80}})));
   inner SimCenter simCenter(redeclare TransiEnt.Basics.Media.Gases.VLE_VDIWA_NG7_H2_var gasModel1) annotation (Placement(transformation(extent={{-110,80},{-90,100}})));
   Controller.ControllerHeatLed controllerHeatLed(
     controllerType=Modelica.Blocks.Types.SimpleController.PI,

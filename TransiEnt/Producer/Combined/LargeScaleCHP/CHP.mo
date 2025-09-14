@@ -231,24 +231,16 @@ equation
   // ____________________________________________
 
   //Annotations
-  connect(ElectricEfficiency.y, P_set_electric.u[1]) annotation (Line(points={{-73.6,8},{-70,8},{-70,6.6},{-66,6.6}},
+  connect(ElectricEfficiency.y, P_set_electric.u[1]) annotation (Line(points={{-73.6,8},{-70,8},{-70,8.7},{-66,8.7}},
                                                                                                             color={0,0,127}));
   connect(eta_el_is.y, ElectricEfficiency.u2) annotation (Line(points={{-91,10},{-88,10},{-88,10.4},{-82.8,10.4}},
                                                                                                                  color={0,0,127}));
   connect(eta_th_is.y, product1.u2) annotation (Line(points={{-81,-38},{-74.8,-38},{-74.8,-38.4}}, color={0,0,127}));
-  connect(Q_flow_peak.y, Q_flow.u[2]) annotation (Line(points={{-23,-54},{-20,-54},{-20,-41.5},{-19,-41.5}},
+  connect(Q_flow_peak.y, Q_flow.u[2]) annotation (Line(points={{-23,-54},{-20,-54},{-20,-41.75},{-19,-41.75}},
                                                                                                          color={0,0,127}));
 //  connect(P_SB_set_internal,P_set_total. u[2]) annotation (Line(points={{-156,60},{-98,60},{-98,105.5}},             color={0,0,127}));
 
 connect(Zero.y,P_set_total. u[2]);
-  connect(inlet, HX.fluidPortIn) annotation (Line(
-      points={{100,-24},{90,-24},{90,-22},{66,-22},{66,-16}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(HX.fluidPortOut, outlet) annotation (Line(
-      points={{66,-4},{66,4},{100,4}},
-      color={175,0,0},
-      thickness=0.5));
   connect(Q_flow.y, HX.Q_flow_prescribed) annotation (Line(points={{-7.5,-42},{4,-42},{4,-16},{48,-16}},     color={0,0,127}));
   if useGasPort==true then
    connect(cO2EmissionOfIdealCombustion.gasPortOut, gasConsumer_HFlow_NCV.fluidPortIn) annotation (Line(
@@ -267,10 +259,10 @@ connect(Zero.y,P_set_total. u[2]);
   end if;
 
   for i in 1:quantity loop
-  connect(P_limit_on[i].y,P_limit[i].u[1]) annotation (Line(points={{-31.5,105},{-25.2,105},{-25.2,103.4}},        color={0,0,127}));
+  connect(P_limit_on[i].y,P_limit[i].u[1]) annotation (Line(points={{-31.5,105},{-25.2,105},{-25.2,103.7}},        color={0,0,127}));
   connect(pQDiagram[i].P_max, P_limit_on[i].limit1) annotation (Line(points={{-11,128.4},{-48,128.4},{-48,109},{-43,109}},       color={0,0,127}));
   connect(pQDiagram[i].P_min, P_limit_on[i].limit2) annotation (Line(points={{-11,121},{-46,121},{-46,101},{-43,101}},     color={0,0,127}));
-  connect(P_limit_off[i].y,P_limit[i]. u[2]) annotation (Line(points={{-29,88},{-28,88},{-28,104.6},{-25.2,104.6}},                    color={0,0,127}));
+  connect(P_limit_off[i].y,P_limit[i]. u[2]) annotation (Line(points={{-29,88},{-28,88},{-28,104.3},{-25.2,104.3}},                    color={0,0,127}));
   connect(P_limit[i].y, Q_flow_set_SG[i].P) annotation (Line(points={{-11.4,104},{-7.27273,104},{-7.27273,102}},  color={0,0,127}));
   //connect(add1[i].y, P_limit_on[i].u) annotation (Line(points={{-49.4,104},{-46,104},{-46,105},{-43,105}}, color={0,0,127}));
 
@@ -292,7 +284,7 @@ connect(Zero.y,P_set_total. u[2]);
   else
   connect(gridFrequencySensor.mpp, Generator.mpp) annotation (Line(points={{33.2,54},{44,54},{44,36},{57,36}}, color={95,95,95}));
   connect(primaryBalancingController.P_PBP_set, P_set_electric.u[2]) annotation (Line(
-      points={{-28.6,54},{-68,54},{-68,9.4},{-66,9.4}},
+      points={{-28.6,54},{-68,54},{-68,7.3},{-66,7.3}},
       color={0,135,135},
       pattern=LinePattern.Dash));
   connect(Generator.epp, epp) annotation (Line(
@@ -316,7 +308,7 @@ connect(Zero.y,P_set_total. u[2]);
   connect(steamGenerator.y, ElectricEfficiency.u1) annotation (Line(points={{-89,-14},{-86,-14},{-86,5.6},{-82.8,5.6}}, color={0,0,127}));
 
   connect(Q_flow_CHP.u, product1.y) annotation (Line(points={{-62,-36},{-65.6,-36}},           color={0,0,127}));
-  connect(Q_flow_CHP.y, Q_flow.u[1]) annotation (Line(points={{-39,-36},{-30,-36},{-30,-42.5},{-19,-42.5}},               color={0,0,127}));
+  connect(Q_flow_CHP.y, Q_flow.u[1]) annotation (Line(points={{-39,-36},{-30,-36},{-30,-42.25},{-19,-42.25}},             color={0,0,127}));
 
 
 
@@ -325,7 +317,7 @@ connect(Zero.y,P_set_total. u[2]);
 
 
 if  useGasPort then
-  connect(variableLimiter.y, P_set_total.u[1]) annotation (Line(points={{-81.5,107},{-79.75,107},{-79.75,106.5},{-78,106.5}},  color={0,0,127}));
+  connect(variableLimiter.y, P_set_total.u[1]) annotation (Line(points={{-81.5,107},{-79.75,107},{-79.75,106.75},{-78,106.75}},color={0,0,127}));
   connect(variableLimiter.u, P_set) annotation (Line(points={{-93,107},{-104,107},{-104,122},{-84,122},{-84,144}},  color={0,0,127}));
   connect(variableLimiter.limit2, realExpression2.y) annotation (Line(points={{-93,103},{-95.7,103}},   color={0,0,127}));
   connect(realExpression1.y, variableLimiter.limit1) annotation (Line(points={{-95.7,111},{-93,111}},                               color={0,0,127}));
@@ -340,6 +332,8 @@ end if;
   connect(constantInertia.mpp_b, Generator.mpp) annotation (Line(points={{48,10},{57,10},{57,36}}, color={95,95,95}));
   connect(constantInertia.mpp_a, Shaft.mpp_b) annotation (Line(points={{28,10},{24,10},{24,9.5},{20,9.5}}, color={95,95,95}));
   connect(realExpression3.y, P_limit_on.u) annotation (Line(points={{-65,88},{-48,88},{-48,106},{-44,106},{-44,105},{-43,105}}, color={0,0,127}));
+  connect(HX.fluidPortOut, outlet) annotation (Line(points={{66,-4},{66,4},{100,4}}, color={0,0,0}));
+  connect(HX.fluidPortIn, inlet) annotation (Line(points={{66,-16},{66,-24},{100,-24}}, color={0,0,0}));
   annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,140}})), Icon(graphics,
                                                                                                          coordinateSystem(extent={{-100,-100},{100,140}}, preserveAspectRatio=false)),
     Documentation(info="<html>

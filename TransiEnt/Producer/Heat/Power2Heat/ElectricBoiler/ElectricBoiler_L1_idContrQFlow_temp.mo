@@ -19,7 +19,7 @@ model ElectricBoiler_L1_idContrQFlow_temp "Model for electric boilers with ideal
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -58,7 +58,6 @@ model ElectricBoiler_L1_idContrQFlow_temp "Model for electric boilers with ideal
   // _____________________________________________
 
   outer TransiEnt.SimCenter simCenter;
-  outer TransiEnt.ModelStatistics modelStatistics;
 
   // _____________________________________________
   //
@@ -84,19 +83,9 @@ model ElectricBoiler_L1_idContrQFlow_temp "Model for electric boilers with ideal
     vleFluidType=medium,
     p=fluidPortOut.p,
     T=T_out_set_in) annotation (Placement(transformation(extent={{30,-80},{50,-60}})));
-  TransiEnt.Components.Statistics.Collectors.LocalCollectors.CollectHeatingPower collectHeatingPower(typeOfResource=typeOfResource) annotation (Placement(transformation(extent={{60,-100},{80,-80}})));
 
   replaceable model ProducerCosts = TransiEnt.Components.Statistics.ConfigurationData.PowerProducerCostSpecs.Empty constrainedby TransiEnt.Components.Statistics.ConfigurationData.PowerProducerCostSpecs.PartialPowerPlantCostSpecs annotation (Dialog(group="Statistics"), __Dymola_choicesAllMatching=true);
 
-  TransiEnt.Components.Statistics.Collectors.LocalCollectors.HeatingPlantCost collectCosts_HeatProducer(
-    redeclare model HeatingPlantCostModel = ProducerCosts,
-    Q_flow_fuel_is=0,
-    m_flow_CDE_is=0,
-    Q_flow_n=Q_flow_n,
-    Q_flow_is=Q_flow,
-    consumes_H_flow=false,
-    produces_m_flow_CDE=false) annotation (Placement(transformation(extent={{80,-100},{100,-80}})));
-  TransiEnt.Components.Statistics.Collectors.LocalCollectors.CollectElectricPower collectElectricPower(typeOfResource=TransiEnt.Basics.Types.TypeOfResource.Consumer) annotation (Placement(transformation(extent={{40,-100},{60,-80}})));
   Modelica.Blocks.Sources.RealExpression realExpression(y=P_el) annotation (Placement(transformation(extent={{-72,52},{-52,72}})));
   replaceable TransiEnt.Components.Boundaries.Electrical.ActivePower.Power powerBoundary
                                                                              if usePowerPort constrainedby TransiEnt.Components.Boundaries.Electrical.ActivePower.Power "Choice of power boundary model. The power boundary model must match the power port." annotation (
@@ -140,17 +129,12 @@ equation
   Q_flow = fluidPortOut.m_flow*(fluidPortOut.h_outflow - inStream(fluidPortIn.h_outflow));
   P_el = -Q_flow/eta;
 
-  collectHeatingPower.heatFlowCollector.Q_flow = Q_flow;
-  collectElectricPower.powerCollector.P = P_el;
 
   // _____________________________________________
   //
   //               Connect Statements
   // _____________________________________________
 
-  connect(modelStatistics.costsCollector, collectCosts_HeatProducer.costsCollector);
-  connect(modelStatistics.heatFlowCollector[TransiEnt.Basics.Types.TypeOfResource.Consumer], collectHeatingPower.heatFlowCollector);
-  connect(modelStatistics.powerCollector[collectElectricPower.typeOfResource], collectElectricPower.powerCollector);
   if usePowerPort then
   connect(powerBoundary.epp, epp) annotation (Line(
       points={{-38,40},{-60,40},{-60,0},{-100,0}},

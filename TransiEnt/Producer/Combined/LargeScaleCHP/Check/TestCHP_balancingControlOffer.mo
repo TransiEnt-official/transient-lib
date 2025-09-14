@@ -1,34 +1,27 @@
 ﻿within TransiEnt.Producer.Combined.LargeScaleCHP.Check;
 model TestCHP_balancingControlOffer "Example how the CHP model provides information about balancing power reserves"
 
-
-
 //________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 2.0.3                             //
-//                                                                                //
-// Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
-// Copyright 2021, Hamburg University of Technology.                              //
-//________________________________________________________________________________//
-//                                                                                //
-// TransiEnt.EE, ResiliEntEE, IntegraNet and IntegraNet II are research projects  //
-// supported by the German Federal Ministry of Economics and Energy               //
-// (FKZ 03ET4003, 03ET4048, 0324027 and 03EI1008).                                //
-// The TransiEnt Library research team consists of the following project partners://
-// Institute of Engineering Thermodynamics (Hamburg University of Technology),    //
-// Institute of Energy Systems (Hamburg University of Technology),                //
-// Institute of Electrical Power and Energy Technology                            //
-// (Hamburg University of Technology)                                             //
-// Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
-// and                                                                            //
-// XRG Simulation GmbH (Hamburg, Germany).                                        //
-//________________________________________________________________________________//
-
-
-
-
+  // Component of the TransiEnt Library, version: 2.0.3                             //
+  //                                                                                //
+  // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
+  // Copyright 2021, Hamburg University of Technology.                              //
+  //________________________________________________________________________________//
+  //                                                                                //
+  // TransiEnt.EE, ResiliEntEE, IntegraNet and IntegraNet II are research projects  //
+  // supported by the German Federal Ministry of Economics and Energy               //
+  // (FKZ 03ET4003, 03ET4048, 0324027 and 03EI1008).                                //
+  // The TransiEnt Library research team consists of the following project partners://
+  // Institute of Engineering Thermodynamics (Hamburg University of Technology),    //
+  // Institute of Energy Systems (Hamburg University of Technology),                //
+  // Institute of Electrical Power and Energy Technology                            //
+  // (Hamburg University of Technology)                                             //
+  // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
+  // Gas- und WÃ¤rme-Institut Essen						  //
+  // and                                                                            //
+  // XRG Simulation GmbH (Hamburg, Germany).                                        //
+  //________________________________________________________________________________//
   extends TransiEnt.Basics.Icons.Checkmodel;
-  inner TransiEnt.ModelStatistics modelStatistics annotation (Placement(transformation(extent={{-100,79},{-80,99}})));
   inner TransiEnt.SimCenter simCenter annotation (Placement(transformation(extent={{-70,79},{-50,99}})));
   Modelica.Blocks.Sources.RealExpression P_set(y=if time < 5e4 then -Plant.pQDiagram[1].P_min else -Plant.pQDiagram[1].P_max)
                                                         annotation (Placement(
@@ -44,7 +37,6 @@ model TestCHP_balancingControlOffer "Example how the CHP model provides informat
     eta_th_const=0.696296,
     p_nom=20e5,
     m_flow_nom=750,
-    redeclare model ProducerCosts = TransiEnt.Components.Statistics.ConfigurationData.PowerProducerCostSpecs.HardCoal,
     PQCharacteristics=Base.Characteristics.PQ_Characteristics_WT(),
     P_el_n=200e6,
     Q_flow_n_CHP=290e6,
@@ -64,19 +56,6 @@ model TestCHP_balancingControlOffer "Example how the CHP model provides informat
         extent={{-11,-9.5},{11,9.5}},
         rotation=0,
         origin={-19,47.5})));
-  ClaRa.Components.BoundaryConditions.BoundaryVLE_Txim_flow source(T_const(displayUnit="degC") = 338.15, m_flow_const=1000) annotation (Placement(transformation(
-        extent={{-7,-9},{7,9}},
-        rotation=180,
-        origin={35,-10})));
-  ClaRa.Visualisation.Quadruple quadruple annotation (Placement(transformation(extent={{46,1},{82,22}})));
-  ClaRa.Components.BoundaryConditions.BoundaryVLE_pTxi sink(
-    m_flow_nom=577.967,
-    Delta_p=0,
-    p_const(displayUnit="bar") = 1600000,
-    T_const(displayUnit="degC")) annotation (Placement(transformation(
-        extent={{-7,-8},{7,8}},
-        rotation=180,
-        origin={31,34})));
   Components.Visualization.PQDiagram_Display PQDiagram(PQCharacteristics=Base.Characteristics.PQ_Characteristics_WT()) annotation (Placement(transformation(extent={{66,-34},{96,-6}})));
   Components.Visualization.InfoBoxLargeCHP infoBoxLargeCHP annotation (Placement(transformation(extent={{26,-51},{44,-29}})));
   Modelica.Blocks.Sources.Constant
@@ -85,27 +64,13 @@ model TestCHP_balancingControlOffer "Example how the CHP model provides informat
         extent={{-11,-9.5},{11,9.5}},
         rotation=0,
         origin={-71,7.5})));
-equation
-  connect(Plant.epp,Grid. epp) annotation (Line(
-      points={{8.85,6.6},{10,6.6},{10,56},{20,56}},
-      color={0,135,135},
-      thickness=0.5));
-  connect(Plant.P_set,P_set. y) annotation (Line(points={{-27.03,16.8667},{-27.03,31.5},{-60.9,31.5}},
-                                                                                           color={0,0,127}));
-  connect(Q_flow_set.y, Plant.Q_flow_set) annotation (Line(points={{-6.9,47.5},{-4,47.5},{-4,16.8667},{-4.49,16.8667}},   color={0,0,127}));
-  connect(Plant.outlet, sink.steam_a) annotation (Line(
-      points={{10.46,-4.76667},{14,-4.76667},{14,34},{24,34}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(source.steam_a, Plant.inlet) annotation (Line(
-      points={{28,-10},{22,-10},{22,-9.9},{10.46,-9.9}},
-      color={0,131,169},
-      thickness=0.5));
-  connect(source.eye, quadruple.eye) annotation (Line(points={{28,-2.8},{28,-2.8},{28,-10},{28,11.5},{46,11.5}},
-                                                                                                             color={190,190,190}));
-  connect(Plant.eye, PQDiagram.eyeIn) annotation (Line(points={{12.3,-20.1667},{20,-20.1667},{20,-20},{61.8,-20}}, color={28,108,200}));
-  connect(Plant.eye, infoBoxLargeCHP.eye) annotation (Line(points={{12.3,-20.1667},{20,-20.1667},{20,-38},{24,-38},{24,-38.2},{26.9,-38.2}}, color={28,108,200}));
-public
+  Components.Boundaries.FluidFlow.FluidSink           fluidSink annotation (Placement(transformation(extent={{50,22},{30,42}})));
+  Modelica.Blocks.Sources.RealExpression realExpression2(y=16e5) annotation (Placement(transformation(extent={{82,22},{62,42}})));
+  Modelica.Blocks.Sources.RealExpression realExpression3(y=1000)
+                                                               annotation (Placement(transformation(extent={{98,9},{78,29}})));
+  Modelica.Blocks.Sources.RealExpression realExpression4(y=65*4200) annotation (Placement(transformation(extent={{98,-4},{78,13}})));
+  Components.Boundaries.FluidFlow.FluidSource           fluidSource1
+                                                                    annotation (Placement(transformation(extent={{66,6},{46,26}})));
 function plotResult
 
   constant String resultFileName = "TestCHP_balancingControlOffer.mat";
@@ -127,7 +92,22 @@ createPlot(id=2, position={746, 0, 728, 311}, y={"Plant.controlPowerModel.P_sec_
 
 end plotResult;
 equation
+  connect(Plant.epp,Grid. epp) annotation (Line(
+      points={{8.85,6.6},{10,6.6},{10,56},{20,56}},
+      color={0,135,135},
+      thickness=0.5));
+  connect(Plant.P_set,P_set. y) annotation (Line(points={{-27.03,16.8667},{-27.03,31.5},{-60.9,31.5}},
+                                                                                           color={0,0,127}));
+  connect(Q_flow_set.y, Plant.Q_flow_set) annotation (Line(points={{-6.9,47.5},{-4,47.5},{-4,16.8667},{-4.49,16.8667}},   color={0,0,127}));
+  connect(Plant.eye, PQDiagram.eyeIn) annotation (Line(points={{12.3,-20.1667},{20,-20.1667},{20,-20},{61.8,-20}}, color={28,108,200}));
+  connect(Plant.eye, infoBoxLargeCHP.eye) annotation (Line(points={{12.3,-20.1667},{20,-20.1667},{20,-38},{24,-38},{24,-38.2},{26.9,-38.2}}, color={28,108,200}));
+equation
   connect(P_el_SB_set.y, Plant.P_SB_set) annotation (Line(points={{-58.9,7.5},{-42,7.5},{-42,20},{-33.47,20},{-33.47,12.65}}, color={0,0,127}));
+  connect(realExpression2.y,fluidSink. p_in) annotation (Line(points={{61,32},{48,32}},   color={0,0,127}));
+  connect(realExpression3.y, fluidSource1.m_flow_in) annotation (Line(points={{77,19},{64,19}}, color={0,0,127}));
+  connect(realExpression4.y, fluidSource1.h_in) annotation (Line(points={{77,4.5},{74,4.5},{74,4},{72,4},{72,14},{64,14}}, color={0,0,127}));
+  connect(fluidSink.port_a, Plant.outlet) annotation (Line(points={{30,32},{22,32},{22,30},{20,30},{20,-4.76667},{10.46,-4.76667}}, color={0,0,0}));
+  connect(fluidSource1.port_a, Plant.inlet) annotation (Line(points={{46,16},{40,16},{40,-9.9},{10.46,-9.9}}, color={0,0,0}));
   annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}})),
     experiment(StopTime=86400),
     __Dymola_experimentSetupOutput(equidistant=false),

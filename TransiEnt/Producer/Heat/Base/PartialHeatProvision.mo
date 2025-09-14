@@ -101,6 +101,10 @@ partial model PartialHeatProvision
   //     //add ,filename=resultFileName at the end of first createPlot command
   //   end plotResult;
 
+  Basics.Adapters.FluidPortAdapter fluidPortAdapter if useFluidCoolantPort and externalMassFlowControl
+                                                    annotation (Placement(transformation(extent={{76,-64},{80,-60}})));
+  Basics.Adapters.FluidPortAdapter fluidPortAdapter1 if useFluidCoolantPort and externalMassFlowControl
+                                                     annotation (Placement(transformation(extent={{76,-74},{80,-70}})));
 equation
   // _____________________________________________
   //
@@ -114,14 +118,6 @@ equation
 
 if useFluidCoolantPort then
   if externalMassFlowControl then
-    connect(heatFlow_externalMassFlowControl.fluidPortIn,fluidPortIn)  annotation (Line(
-        points={{74,-68},{82,-68},{82,-90},{100,-90}},
-        color={175,0,0},
-        thickness=0.5));
-    connect(fluidPortOut,heatFlow_externalMassFlowControl. fluidPortOut) annotation (Line(
-        points={{100,-40},{82,-40},{82,-62},{74,-62}},
-        color={175,0,0},
-        thickness=0.5));
     connect(heatFlow_externalMassFlowControl.Q_flow_prescribed,Q_flow_positive. y) annotation (Line(
         points={{65,-68},{64,-68},{64,-78},{60.6,-78}},
         color={175,0,0},
@@ -157,6 +153,16 @@ end if;
   connect(prescribedHeatFlow.Q_flow,Q_flow_positive. y) annotation (Line(points={{82,-66},{78,-66},{78,-78},{60.6,-78}},
                                                                                                                      color={0,0,127}));
 
+  connect(fluidPortAdapter.fluidPortIn, heatFlow_externalMassFlowControl.fluidPortOut) annotation (Line(points={{76,-62},{74,-62}}, color={0,0,0}));
+  connect(fluidPortAdapter.fluidPortOut, fluidPortOut) annotation (Line(
+      points={{80,-62},{86,-62},{86,-40},{100,-40}},
+      color={175,0,0},
+      thickness=0.5));
+  connect(fluidPortAdapter1.fluidPortIn, heatFlow_externalMassFlowControl.fluidPortIn) annotation (Line(points={{76,-72},{74,-72},{74,-68}}, color={0,0,0}));
+  connect(fluidPortAdapter1.fluidPortOut, fluidPortIn) annotation (Line(
+      points={{80,-72},{82,-72},{82,-90},{100,-90}},
+      color={175,0,0},
+      thickness=0.5));
   annotation (Documentation(info="<html>
 <h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
 <p>(Description) </p>

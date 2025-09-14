@@ -1,34 +1,26 @@
 ﻿within TransiEnt.Producer.Heat.Heat2Heat.Check;
 model TestSubstation_indirect_noStorage_L1
 
-
-
-
 //________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 2.0.3                             //
-//                                                                                //
-// Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
-// Copyright 2021, Hamburg University of Technology.                              //
-//________________________________________________________________________________//
-//                                                                                //
-// TransiEnt.EE, ResiliEntEE, IntegraNet and IntegraNet II are research projects  //
-// supported by the German Federal Ministry of Economics and Energy               //
-// (FKZ 03ET4003, 03ET4048, 0324027 and 03EI1008).                                //
-// The TransiEnt Library research team consists of the following project partners://
-// Institute of Engineering Thermodynamics (Hamburg University of Technology),    //
-// Institute of Energy Systems (Hamburg University of Technology),                //
-// Institute of Electrical Power and Energy Technology                            //
-// (Hamburg University of Technology)                                             //
-// Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
-// and                                                                            //
-// XRG Simulation GmbH (Hamburg, Germany).                                        //
-//________________________________________________________________________________//
-
-
-
-
-
+  // Component of the TransiEnt Library, version: 2.0.3                             //
+  //                                                                                //
+  // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
+  // Copyright 2021, Hamburg University of Technology.                              //
+  //________________________________________________________________________________//
+  //                                                                                //
+  // TransiEnt.EE, ResiliEntEE, IntegraNet and IntegraNet II are research projects  //
+  // supported by the German Federal Ministry of Economics and Energy               //
+  // (FKZ 03ET4003, 03ET4048, 0324027 and 03EI1008).                                //
+  // The TransiEnt Library research team consists of the following project partners://
+  // Institute of Engineering Thermodynamics (Hamburg University of Technology),    //
+  // Institute of Energy Systems (Hamburg University of Technology),                //
+  // Institute of Electrical Power and Energy Technology                            //
+  // (Hamburg University of Technology)                                             //
+  // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
+  // Gas- und WÃ¤rme-Institut Essen						  //
+  // and                                                                            //
+  // XRG Simulation GmbH (Hamburg, Germany).                                        //
+  //________________________________________________________________________________//
   extends TransiEnt.Basics.Icons.Checkmodel;
   inner SimCenter simCenter annotation (Placement(transformation(extent={{-90,80},{-70,100}})));
   ClaRa.Components.BoundaryConditions.BoundaryVLE_pTxi sink(
@@ -43,7 +35,6 @@ model TestSubstation_indirect_noStorage_L1
     duration=900,
     height=-2e3,
     offset=10e3) annotation (Placement(transformation(extent={{-66,30},{-40,56}})));
-  inner TransiEnt.ModelStatistics modelStatistics annotation (Placement(transformation(extent={{-62,80},{-42,100}})));
   TransiEnt.Producer.Heat.Heat2Heat.Substation_indirect_noStorage_L1 substation_indirect_noStorage_L1_1 annotation (Placement(transformation(extent={{-20,16},{8,36}})));
   ClaRa.Components.BoundaryConditions.BoundaryVLE_pTxi sink1(
     medium=simCenter.fluid1,
@@ -70,16 +61,9 @@ equation
       thickness=0.5));
   connect(Q_demand_RH.y, substation_indirect_noStorage_L1_1.Q_demand_RH) annotation (Line(points={{-38.7,43},{-17,43},{-17,35}}, color={0,0,127}));
   connect(substation_indirect_noStorage_L1_1.Q_demand_DHW, Q_demand_DHW.y) annotation (Line(points={{5,35},{5,43},{38.7,43}}, color={0,0,127}));
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
-                                                                   Text(
-          extent={{-82,-36},{-26,-56}},
-          lineColor={0,0,0},
-          fillColor={255,255,0},
-          fillPattern=FillPattern.Solid,
-          horizontalAlignment=TextAlignment.Left,
-          textString="look at 
+  annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={Text(extent = {{-82, -36}, {-26, -56}}, textString = "look at 
 - mass flow rate
-- T_in and T_out of the Substation Model")}),                                                       experiment(
+- T_in and T_out of the Substation Model", horizontalAlignment = TextAlignment.Left)}),                                                       experiment(
       StopTime=10000,
       Interval=60,
       __Dymola_Algorithm="Cvode"),

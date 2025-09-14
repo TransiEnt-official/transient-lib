@@ -50,20 +50,6 @@ model CheckStratifiedHotWaterStorage_L4_Unloading "Validation of one dimensional
   //_____________________________________________________________________________
   inner TransiEnt.SimCenter simCenter(useHomotopy=false) annotation (Placement(transformation(extent={{-90,80},{-70,100}})));
 
-  ClaRa.Components.BoundaryConditions.BoundaryVLE_Txim_flow FluidFromHeatingGrid(
-    m_flow_const=0,
-    m_flow_nom=0,
-    variable_m_flow=true,
-    variable_T=false,
-    T_const=300)  annotation (Placement(transformation(extent={{46,-64},{26,-44}})));
-
-  ClaRa.Components.BoundaryConditions.BoundaryVLE_Txim_flow HeatFromPowerPlant(
-    m_flow_nom=0,
-    T_const=360,
-    variable_m_flow=false,
-    variable_T=false,
-    m_flow_const=0)       annotation (Placement(transformation(extent={{-68,-46},{-48,-26}})));
-
   TransiEnt.Storage.Heat.HotWaterStorage_constProp_L4.HotWaterStorage_constProp_L4 hotWaterStorage(
     N_cv=100,
     tau_buoyancy=1,
@@ -92,19 +78,6 @@ model CheckStratifiedHotWaterStorage_L4_Unloading "Validation of one dimensional
 //    Equations
 //_____________________________________________________________________________
 
-  ClaRa.Components.BoundaryConditions.BoundaryVLE_pTxi heat_toGrid(
-    p_const(displayUnit="bar") = 100000,
-    variable_T=false,
-    T_const=363) annotation (Placement(transformation(
-        extent={{10,10},{-10,-10}},
-        rotation=0,
-        origin={34,-28})));
-  ClaRa.Components.BoundaryConditions.BoundaryVLE_Txim_flow Fluid_toCHP(
-    showData=true,
-    variable_T=false,
-    m_flow_const=0,
-    m_flow_nom=0,
-    T_const=293) annotation (Placement(transformation(extent={{-80,-80},{-60,-60}})));
   Modelica.Blocks.Sources.Ramp m_flow_return(
     height=0.01,
     duration=14160,
@@ -116,28 +89,28 @@ model CheckStratifiedHotWaterStorage_L4_Unloading "Validation of one dimensional
   Modelica.Blocks.Sources.RealExpression T_60(y=hotWaterStorage.controlVolume[60].T - 273.15) annotation (Placement(transformation(extent={{-88,12},{-68,32}})));
   Modelica.Blocks.Sources.RealExpression T_80(y=hotWaterStorage.controlVolume[80].T - 273.15) annotation (Placement(transformation(extent={{-48,14},{-28,34}})));
   Modelica.Blocks.Sources.RealExpression T_100(y=hotWaterStorage.controlVolume[100].T - 273.15) annotation (Placement(transformation(extent={{-8,14},{12,34}})));
+  Modelica.Blocks.Sources.RealExpression realExpression6(y=60*4200)
+                                                                  annotation (Placement(transformation(extent={{-98,-61},{-86,-47}})));
+  Modelica.Blocks.Sources.RealExpression realExpression2(y=0)   annotation (Placement(transformation(extent={{-98,-42},{-86,-28}})));
+  TransiEnt.Components.Boundaries.FluidFlow.FluidSource fluidSource2
+                                                                    annotation (Placement(transformation(extent={{-70,-52},{-50,-32}})));
+  Modelica.Blocks.Sources.RealExpression realExpression1(y=20*4200)
+                                                                  annotation (Placement(transformation(extent={{-94,-97},{-82,-83}})));
+  Modelica.Blocks.Sources.RealExpression realExpression3(y=0)   annotation (Placement(transformation(extent={{-94,-84},{-82,-70}})));
+  TransiEnt.Components.Boundaries.FluidFlow.FluidSource fluidSource1
+                                                                    annotation (Placement(transformation(extent={{-76,-90},{-56,-70}})));
+  TransiEnt.Components.Boundaries.FluidFlow.FluidSink fluidSink(h=90*4200)
+                                                                annotation (Placement(transformation(extent={{36,-32},{16,-12}})));
+  Modelica.Blocks.Sources.RealExpression realExpression7(y=1e5)  annotation (Placement(transformation(extent={{84,-20},{64,0}})));
+  Modelica.Blocks.Sources.RealExpression realExpression4(y=30*4200)
+                                                                  annotation (Placement(transformation(extent={{60,-71},{48,-57}})));
+  TransiEnt.Components.Boundaries.FluidFlow.FluidSource fluidSource3
+                                                                    annotation (Placement(transformation(extent={{42,-72},{22,-52}})));
 equation
 //_____________________________________________________________________________
 //    Connections
 //_____________________________________________________________________________
 
-  connect(hotWaterStorage.waterPortIn_prod[1], HeatFromPowerPlant.steam_a) annotation (Line(
-      points={{-38,-41.4},{-42,-41.4},{-42,-42},{-48,-42},{-48,-36}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(FluidFromHeatingGrid.steam_a, hotWaterStorage.waterPortIn_grid[1]) annotation (Line(
-      points={{26,-54},{0,-54},{0,-56.6}},
-      color={0,131,169},
-      thickness=0.5));
-  connect(hotWaterStorage.waterPortOut_grid[1], heat_toGrid.steam_a) annotation (Line(
-      points={{0,-41.4},{12,-41.4},{12,-28},{24,-28}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(Fluid_toCHP.steam_a, hotWaterStorage.waterPortOut_prod[1]) annotation (Line(
-      points={{-60,-70},{-54,-70},{-54,-68},{-52,-68},{-52,-56.6},{-38,-56.6}},
-      color={0,131,169},
-      thickness=0.5));
-  connect(FluidFromHeatingGrid.m_flow, m_flow_return.y) annotation (Line(points={{48,-48},{54,-48},{54,-32},{61,-32}}, color={0,0,127}));
   connect(prescribedTemperature.port, hotWaterStorage.heatPortAmbient) annotation (Line(points={{-19,-26},{-19,-26},{-19,-32.85}}, color={191,0,0}));
 public
 function plotResult
@@ -164,6 +137,19 @@ algorithm
   resultFile := "Successfully plotted results for file: " + resultFile;
 
 end plotResult;
+equation
+  connect(realExpression6.y, fluidSource2.h_in) annotation (Line(points={{-85.4,-54},{-76,-54},{-76,-44},{-68,-44}}, color={0,0,127}));
+  connect(realExpression2.y, fluidSource2.m_flow_in) annotation (Line(points={{-85.4,-35},{-74,-35},{-74,-39},{-68,-39}}, color={0,0,127}));
+  connect(fluidSource2.port_a, hotWaterStorage.waterPortIn_prod[1]) annotation (Line(points={{-50,-42},{-44,-42},{-44,-41.4},{-38,-41.4}}, color={0,0,0}));
+  connect(realExpression1.y, fluidSource1.h_in) annotation (Line(points={{-81.4,-90},{-78,-90},{-78,-82},{-74,-82}}, color={0,0,127}));
+  connect(realExpression3.y, fluidSource1.m_flow_in) annotation (Line(points={{-81.4,-77},{-74,-77}}, color={0,0,127}));
+  connect(fluidSource1.port_a, hotWaterStorage.waterPortOut_prod[1]) annotation (Line(points={{-56,-80},{-44,-80},{-44,-56.6},{-38,-56.6}}, color={0,0,0}));
+  connect(realExpression7.y,fluidSink. p_in) annotation (Line(points={{63,-10},{42,-10},{42,-22},{34,-22}},
+                                                                                          color={0,0,127}));
+  connect(fluidSink.port_a, hotWaterStorage.waterPortOut_grid[1]) annotation (Line(points={{16,-22},{4,-22},{4,-41.4},{0,-41.4}}, color={0,0,0}));
+  connect(realExpression4.y, fluidSource3.h_in) annotation (Line(points={{47.4,-64},{40,-64}}, color={0,0,127}));
+  connect(hotWaterStorage.waterPortIn_grid[1], fluidSource3.port_a) annotation (Line(points={{0,-56.6},{12,-56.6},{12,-62},{22,-62}}, color={0,0,0}));
+  connect(m_flow_return.y, fluidSource3.m_flow_in) annotation (Line(points={{61,-32},{54,-32},{54,-59},{40,-59}}, color={0,0,127}));
   annotation (Documentation(info="<html>
 <h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
 <p>Tester for unloading HotWaterStorage_constProp_L4</p>

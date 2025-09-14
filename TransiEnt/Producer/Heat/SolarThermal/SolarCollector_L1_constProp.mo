@@ -20,7 +20,7 @@ model SolarCollector_L1_constProp "Solar flat plate collector model (EN 12975) w
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -44,7 +44,6 @@ model SolarCollector_L1_constProp "Solar flat plate collector model (EN 12975) w
   // _____________________________________________
 
   outer TransiEnt.SimCenter simCenter;
-  outer TransiEnt.ModelStatistics modelStatistics;
   inner TransiEnt.Producer.Heat.SolarThermal.Base.IrradianceOnATiltedSurface irradiance(use_input_data=use_input_data, redeclare model Skymodel = Skymodel) annotation (Placement(transformation(extent={{-68,-60},{-36,-32}})));
 
   // _____________________________________________
@@ -183,27 +182,6 @@ public
     iam_SRCC=iam_SRCC,
     theta=theta) annotation (Placement(transformation(extent={{40,-58},{60,-38}})));
 
-public
-  TransiEnt.Components.Statistics.Collectors.LocalCollectors.CollectHeatingPower collectHeatingPower(typeOfResource=TransiEnt.Basics.Types.TypeOfResource.Renewable) annotation (Placement(transformation(extent={{-40,100},{-20,80}})));
-  TransiEnt.Components.Statistics.Collectors.LocalCollectors.CollectCostsGeneral collectCosts(
-    der_E_n=Q_flow_n,
-    E_n=0,
-    redeclare model CostRecordGeneral = CostRecordSolarThermal (size1=area),
-    Q_flow=Q_flow_out,
-    produces_P_el=false,
-    consumes_P_el=false,
-    consumes_Q_flow=false,
-    produces_H_flow=false,
-    consumes_H_flow=false,
-    produces_other_flow=false,
-    consumes_other_flow=false,
-    produces_m_flow_CDE=false,
-    consumes_m_flow_CDE=false) annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
-        rotation=180,
-        origin={10,90})));
-  TransiEnt.Components.Statistics.Collectors.LocalCollectors.CollectGwpEmissionsHeat collectGwpEmissions(typeOfEnergyCarrierHeat=TransiEnt.Basics.Types.TypeOfPrimaryEnergyCarrierHeat.Solar) annotation (Placement(transformation(extent={{-20,100},{0,80}})));
-
           Modelica.Blocks.Interfaces.RealInput m_flow if not useFluidPorts annotation (Placement(transformation(
         extent={{11,-11},{-11,11}},
         rotation=90,
@@ -268,16 +246,10 @@ end if;
 
  // Statistics
  // Heating power Q_flow has to be negative
- collectHeatingPower.heatFlowCollector.Q_flow= Q_flow_out;
- // Emissions
- collectGwpEmissions.gwpCollector.m_flow_cde=fuelSpecificCO2Emissions.m_flow_CDE_per_Energy*Q_flow_collector;
+
 
   h_in=c*(T_in_int - 273.15) + h_0;
   h_out=c*(T_out - 273.15) + h_0;
-
- connect(modelStatistics.costsCollector, collectCosts.costsCollector);
- connect(modelStatistics.heatFlowCollector[TransiEnt.Basics.Types.TypeOfResource.Renewable],collectHeatingPower.heatFlowCollector);
- connect(modelStatistics.gwpCollectorHeat[TransiEnt.Basics.Types.TypeOfPrimaryEnergyCarrier.Solar],collectGwpEmissions.gwpCollector);
 
  if use_input_data then
    connect(irradiance_diffuse_horizontal_input,irradiance.irradiance_diffuse_horizontal_input);

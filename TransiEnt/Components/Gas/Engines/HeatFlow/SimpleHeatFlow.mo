@@ -56,14 +56,8 @@ equation
   TemperaturesOut[1]=293.15;
   TemperaturesOut[2]=293.15;
 
-  connect(heatflow_L1_1.fluidPortOut, waterPortOut) annotation (Line(
-      points={{120,18.4},{130,18.4},{130,18},{146,18},{146,130},{230,130}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(heatflow_L1_1.fluidPortIn, waterPortIn) annotation (Line(
-      points={{120,-4.4},{146,-4.4},{146,-110},{230,-110}},
-      color={175,0,0},
-      thickness=0.5));
   connect(HeatFlow.y, heatflow_L1_1.Q_flow_prescribed) annotation (Line(points={{43,-6},{80,-6},{80,-4.4},{85.8,-4.4}}, color={0,0,127}));
+  connect(waterPortOut, heatflow_L1_1.fluidPortOut) annotation (Line(points={{230,130},{150,130},{150,18.4},{120,18.4}}, color={0,0,0}));
+  connect(heatflow_L1_1.fluidPortIn, waterPortIn) annotation (Line(points={{120,-4.4},{134,-4.4},{134,-4},{154,-4},{154,-110},{230,-110}}, color={0,0,0}));
   annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-200,-160},{220,160}})));
 end SimpleHeatFlow;

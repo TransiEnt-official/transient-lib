@@ -85,7 +85,6 @@ public
     longitude_local=0.17453292519943,
     surfaceAzimuthAngle=0.17453292519943) annotation (Placement(transformation(extent={{38,-32},{58,-12}})));
 
-  inner ModelStatistics modelStatistics annotation (Placement(transformation(extent={{-100,58},{-80,78}})));
   Modelica.Blocks.Sources.RealExpression realExpression(y=20 + 273.15)                  annotation (Placement(transformation(extent={{-48,-32},{-28,-12}})));
   ClaRa.Components.BoundaryConditions.BoundaryVLE_pTxi sink1(
     variable_p=false,

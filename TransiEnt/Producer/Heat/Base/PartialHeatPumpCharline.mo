@@ -20,7 +20,7 @@ partial model PartialHeatPumpCharline "Partial heat pump model that produces a g
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -51,7 +51,8 @@ partial model PartialHeatPumpCharline "Partial heat pump model that produces a g
   replaceable model ProducerCosts = TransiEnt.Components.Statistics.ConfigurationData.PowerProducerCostSpecs.Empty constrainedby TransiEnt.Components.Statistics.ConfigurationData.PowerProducerCostSpecs.PartialPowerPlantCostSpecs annotation (Dialog(group="Statistics"), __Dymola_choicesAllMatching=true);
   parameter Boolean useFluidPorts=true "True if fluid ports shall be used" annotation (Dialog(group="Technical Specifications"));
   parameter TILMedia.VLEFluidTypes.BaseVLEFluid mediumWater=simCenter.fluid1 "Medium to be used" annotation (choicesAllMatching, Dialog(group="Fundamental Definitions"));
-  parameter SI.Pressure p_drop=heatFlowBoundary.simCenter.p_nom[2] - heatFlowBoundary.simCenter.p_nom[1] annotation (Dialog(group="Fundamental Definitions"));
+  parameter SI.Pressure p_drop=10 annotation (Dialog(group="Fundamental Definitions"));
+  parameter SI.SpecificHeatCapacity cf=4200;
 
 
   // _____________________________________________
@@ -60,7 +61,6 @@ partial model PartialHeatPumpCharline "Partial heat pump model that produces a g
   // _____________________________________________
 
   outer TransiEnt.SimCenter simCenter;
-  outer TransiEnt.ModelStatistics modelStatistics;
 
   // _____________________________________________
   //
@@ -102,26 +102,12 @@ public
   Real COP;
 
 
-  TransiEnt.Components.Statistics.Collectors.LocalCollectors.HeatingPlantCost collectCosts_HeatProducer(
-    redeclare model HeatingPlantCostModel = ProducerCosts,
-    Q_flow_fuel_is=0,
-    m_flow_CDE_is=0,
-    Q_flow_n=Q_flow_n,
-    Q_flow_is=Q_flow,
-    consumes_H_flow=false,
-    produces_m_flow_CDE=false) annotation (Placement(transformation(extent={{-80,-100},{-60,-80}})));
-  TransiEnt.Components.Statistics.Collectors.LocalCollectors.CollectHeatingPower collectHeatingPower(typeOfResource=TransiEnt.Basics.Types.TypeOfResource.Conventional) annotation (Placement(transformation(extent={{-100,-100},{-80,-80}})));
   Modelica.Blocks.Math.Gain Q_flow_set_(k=1) annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
   Modelica.Blocks.Sources.Constant const(k=1) annotation (Placement(transformation(extent={{-100,20},{-80,40}})));
-  Components.Sensors.TemperatureSensor T_in_sensor if useFluidPorts annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
-        rotation=90,
-        origin={-50,-40})));
 public
   replaceable Components.Boundaries.Heat.Heatflow_L1 heatFlowBoundary(
     p_drop=p_drop,
     use_Q_flow_in=true,
-    Medium=mediumWater,
     change_sign=false) if useFluidPorts constrainedby Components.Boundaries.Heat.Heatflow_L1 annotation (
     Dialog(group="Replaceable Components"),
     choicesAllMatching=true,
@@ -136,17 +122,15 @@ public
         origin={48,40})));
   Modelica.Blocks.Sources.RealExpression T_source(y=T_source_internal) annotation (Placement(transformation(extent={{6,30},{26,50}})));
   Modelica.Blocks.Math.Sum sum1(nin=2) if useFluidPorts annotation (Placement(transformation(extent={{70,46},{90,66}})));
-  Modelica.Blocks.Sources.RealExpression Temperature(y=heat.T)     if not (useFluidPorts) annotation (Placement(transformation(extent={{102,-18},{82,2}})));
-  Basics.Interfaces.Thermal.FluidPortOut waterPortOut(Medium=mediumWater)           if useFluidPorts annotation (Placement(transformation(extent={{30,-110},{50,-90}}), iconTransformation(extent={{30,-110},{50,-90}})));
-  Basics.Interfaces.Thermal.FluidPortIn waterPortIn(Medium=mediumWater)           if useFluidPorts annotation (Placement(transformation(extent={{-50,-110},{-30,-90}}), iconTransformation(extent={{-50,-110},{-30,-90}})));
-  Components.Sensors.TemperatureSensor T_out_sensor if useFluidPorts annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
-        rotation=90,
-        origin={20,-40})));
+  Modelica.Blocks.Sources.RealExpression Temperature(y=heat.T) if not (useFluidPorts)     annotation (Placement(transformation(extent={{102,-18},{82,2}})));
+  Basics.Interfaces.Thermal.FluidPortOut_simple waterPortOut         if useFluidPorts annotation (Placement(transformation(extent={{30,-110},{50,-90}}), iconTransformation(extent={{30,-110},{50,-90}})));
+  Basics.Interfaces.Thermal.FluidPortIn_simple waterPortIn          if useFluidPorts annotation (Placement(transformation(extent={{-50,-110},{-30,-90}}), iconTransformation(extent={{-50,-110},{-30,-90}})));
 
   Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow heatFlowBoundary1 if not (useFluidPorts) annotation (Placement(transformation(extent={{34,-10},{54,10}})));
   Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_b heat if not (useFluidPorts) annotation (Placement(transformation(extent={{-10,-110},{10,-90}}, rotation=0), iconTransformation(extent={{-10,-110},{10,-90}})));
   Modelica.Blocks.Math.Sum sum2(nin=2) if not (useFluidPorts) annotation (Placement(transformation(extent={{70,20},{90,40}})));
+  Modelica.Blocks.Sources.RealExpression T_out(y=waterPortOut.h_outflow/cf) if useFluidPorts annotation (Placement(transformation(extent={{22,60},{42,80}})));
+  Modelica.Blocks.Sources.RealExpression T_in(y=inStream(waterPortIn.h_outflow)/cf) if useFluidPorts annotation (Placement(transformation(extent={{22,80},{42,100}})));
 equation
   // _____________________________________________
   //
@@ -157,15 +141,10 @@ equation
     T_source_internal =Modelica.Units.Conversions.from_degC(simCenter.T_amb_var);
   end if;
 
-  collectHeatingPower.heatFlowCollector.Q_flow = -Q_flow;
-
   // _____________________________________________
   //
   //               Connect Statements
   // _____________________________________________
-
-  connect(modelStatistics.heatFlowCollector[collectHeatingPower.typeOfResource], collectHeatingPower.heatFlowCollector);
-  connect(modelStatistics.costsCollector, collectCosts_HeatProducer.costsCollector);
 
   connect(T_source_internal, T_source_input_K);
   if use_Q_flow_input then
@@ -178,27 +157,10 @@ equation
   end if;
 
   if useFluidPorts then
-    connect(T_in_sensor.T, sum1.u[1]) annotation (Line(points={{-50,-29},{-50,-20},{60,-20},{60,16},{32,16},{32,55},{68,55}}, color={0,0,127}));
-    connect(waterPortIn, heatFlowBoundary.fluidPortIn) annotation (Line(
-        points={{-40,-100},{-40,-10},{-6,-10}},
-        color={175,0,0},
-        smooth=Smooth.None));
-    connect(waterPortIn, T_in_sensor.port) annotation (Line(
-        points={{-40,-100},{-40,-40}},
-        color={175,0,0},
-        thickness=0.5));
     connect(PrescribedHeatFlow.y, heatFlowBoundary.Q_flow_prescribed) annotation (Line(points={{-13,64},{-6,64},{-6,8}}, color={0,0,127}));
-    connect(waterPortOut, T_out_sensor.port) annotation (Line(
-        points={{40,-100},{40,-40},{30,-40}},
-        color={175,0,0},
-        thickness=0.5,
-        smooth=Smooth.None));
-    connect(heatFlowBoundary.fluidPortOut, waterPortOut) annotation (Line(
-        points={{6,-10},{40,-10},{40,-100}},
-        color={175,0,0},
-        smooth=Smooth.None));
     connect(sum1.y, DeltaT) annotation (Line(points={{91,56},{106,56},{106,50},{120,50}}, color={0,0,127}));
-    connect(gain.y, sum1.u[2]) annotation (Line(points={{59,40},{59,57},{68,57}}, color={0,0,127}));
+    connect(gain.y, sum1.u[2]) annotation (Line(points={{59,40},{59,56.5},{68,56.5}},
+                                                                                  color={0,0,127}));
   end if;
 
 
@@ -207,13 +169,21 @@ equation
   if not (useFluidPorts) then
     connect(heatFlowBoundary1.port, heat) annotation (Line(points={{54,0},{74,0},{74,-100},{0,-100}}, color={191,0,0}));
     connect(PrescribedHeatFlow.y, heatFlowBoundary1.Q_flow) annotation (Line(points={{-13,64},{2,64},{2,20},{18,20},{18,0},{34,0}}, color={0,0,127}));
-    connect(Temperature.y, sum2.u[1]) annotation (Line(points={{81,-8},{78,-8},{78,12},{62,12},{62,29},{68,29}}, color={0,0,127}));
+    connect(Temperature.y, sum2.u[1]) annotation (Line(points={{81,-8},{78,-8},{78,12},{62,12},{62,29.5},{68,29.5}},
+                                                                                                                 color={0,0,127}));
     connect(sum2.y, DeltaT) annotation (Line(points={{91,30},{96,30},{96,50},{120,50}}, color={0,0,127}));
-    connect(gain.y, sum2.u[2]) annotation (Line(points={{59,40},{59,31},{68,31}}, color={0,0,127}));
+    connect(gain.y, sum2.u[2]) annotation (Line(points={{59,40},{59,30.5},{68,30.5}},
+                                                                                  color={0,0,127}));
 
   end if;
    connect(T_source.y, gain.u) annotation (Line(points={{27,40},{36,40}}, color={0,0,127}));
 
+  connect(heatFlowBoundary.fluidPortIn, waterPortIn) annotation (Line(points={{-6,-10},{-40,-10},{-40,-100}}, color={0,0,0}));
+  connect(heatFlowBoundary.fluidPortOut, waterPortOut) annotation (Line(points={{6,-10},{20,-10},{20,-12},{40,-12},{40,-100}}, color={0,0,0}));
+  if useFluidPorts then
+  connect(T_out.y, sum1.u[1]) annotation (Line(points={{43,70},{56,70},{56,55.5},{68,55.5}},
+                                                                                         color={0,0,127}));
+  end if;
   annotation (Documentation(info="<html>
 <h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
 <p>Base class for simple heat pump models that produce a given heat flow and use a charline.</p>

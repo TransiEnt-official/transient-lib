@@ -20,7 +20,7 @@ model SmallScaleCHP_simple "Small scale CHP model using a constant efficiency an
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -57,7 +57,8 @@ model SmallScaleCHP_simple "Small scale CHP model using a constant efficiency an
   parameter Boolean change_sign=false "If false, setpoint value needs to be negative" annotation (Dialog(group="Configuration"), choices(checkBox=true));
 
   parameter TILMedia.VLEFluidTypes.BaseVLEFluid mediumWater=simCenter.fluid1 "Medium to be used" annotation (choicesAllMatching, Dialog(group="Fundamental Definitions", enable=useFluidPorts));
-  parameter SI.Pressure p_drop=heatFlowBoundary.simCenter.p_nom[2] - heatFlowBoundary.simCenter.p_nom[1] "Pressure drop" annotation (Dialog(group="Fundamental Definitions", enable=useFluidPorts));
+  parameter SI.Pressure p_drop=10 "Pressure drop" annotation (Dialog(group="Fundamental Definitions", enable=useFluidPorts));
+  parameter SI.SpecificHeatCapacity cf=4200 "Specific heat capacity of the heat carrier";
   parameter SI.Power P_el_n=3.5e3 "Nominal electric power" annotation (Dialog(group="Fundamental Definitions"));
   parameter SI.Efficiency eta_el=0.3 "Constant electric efficiency" annotation (Dialog(group="Fundamental Definitions"));
   parameter SI.Efficiency eta_th=0.6 "Constant thermal efficiency" annotation (Dialog(group="Fundamental Definitions"));
@@ -86,15 +87,15 @@ model SmallScaleCHP_simple "Small scale CHP model using a constant efficiency an
   // _____________________________________________
 
   outer TransiEnt.SimCenter simCenter;
-  outer TransiEnt.ModelStatistics modelStatistics;
+
 
   // _____________________________________________
   //
   //                  Interfaces
   // _____________________________________________
 
-  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn waterPortIn(Medium=mediumWater) if useFluidPorts annotation (Placement(transformation(extent={{90,-30},{110,-10}}), iconTransformation(extent={{90,-30},{110,-10}})));
-  TransiEnt.Basics.Interfaces.Thermal.FluidPortOut waterPortOut(Medium=mediumWater) if useFluidPorts annotation (Placement(transformation(extent={{90,30},{110,50}}), iconTransformation(extent={{90,30},{110,50}})));
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn_simple waterPortIn if useFluidPorts annotation (Placement(transformation(extent={{90,-30},{110,-10}}), iconTransformation(extent={{90,-30},{110,-10}})));
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortOut_simple waterPortOut if useFluidPorts annotation (Placement(transformation(extent={{90,30},{110,50}}), iconTransformation(extent={{90,30},{110,50}})));
   Modelica.Blocks.Interfaces.RealInput Q_flow_set "Setpoint value of the heat flow rate, should be negative" annotation (Placement(transformation(extent={{-120,-20},{-80,20}})));
   Modelica.Blocks.Interfaces.RealOutput H_flow "Consumed gas enthalpy flow" annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
@@ -118,22 +119,9 @@ model SmallScaleCHP_simple "Small scale CHP model using a constant efficiency an
   //           Instances of other Classes
   // _____________________________________________
 
-  TransiEnt.Components.Statistics.Collectors.LocalCollectors.CogenerationPlantCost collectCosts(
-    Q_flow_fuel_is=0,
-    m_flow_CDE_is=0,
-    produces_m_flow_CDE=false,
-    calculateCost=calculateCost,
-    Q_flow_is=Q_flow_set,
-    P_el_is=P_el,
-    redeclare model PowerPlantCostModel = ProducerCosts,
-    P_n=P_el_n) annotation (Placement(transformation(extent={{-60,-100},{-40,-80}})));
-
-  TransiEnt.Components.Statistics.Collectors.LocalCollectors.CollectHeatingPower collectHeatingPower(typeOfResource=TransiEnt.Basics.Types.TypeOfResource.Cogeneration, integrateHeatFlow=integrateHeatFlow) annotation (Placement(transformation(extent={{-80,-100},{-60,-80}})));
-
   replaceable TransiEnt.Components.Boundaries.Heat.Heatflow_L1 heatFlowBoundary(
     p_drop=p_drop,
     use_Q_flow_in=true,
-    Medium=mediumWater,
     change_sign=true)  if useFluidPorts constrainedby TransiEnt.Components.Boundaries.Heat.Heatflow_L1 annotation (
     Dialog(group="Replaceable Components"),
     choicesAllMatching=true,
@@ -141,18 +129,6 @@ model SmallScaleCHP_simple "Small scale CHP model using a constant efficiency an
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={0,6})));
-
-  TransiEnt.Components.Sensors.TemperatureSensor T_in_sensor if useFluidPorts annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
-        rotation=90,
-        origin={70,-36})));
-
-  TransiEnt.Components.Sensors.TemperatureSensor T_out_sensor if useFluidPorts annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
-        rotation=90,
-        origin={70,26})));
-
-  TransiEnt.Components.Statistics.Collectors.LocalCollectors.CollectElectricPower collectElectricPower(typeOfResource=TransiEnt.Basics.Types.TypeOfResource.Cogeneration, integrateElPower=integrateElPower) annotation (Placement(transformation(extent={{-100,-100},{-80,-80}})));
 
   Modelica.Blocks.Sources.RealExpression P_el_set(y=P_el) if usePowerPort annotation (Placement(transformation(extent={{4,-64},{24,-44}})));
 
@@ -172,6 +148,10 @@ model SmallScaleCHP_simple "Small scale CHP model using a constant efficiency an
 
   SI.Power P_el "Electric power";
 
+
+  Modelica.Blocks.Sources.RealExpression T_in(y=noEvent(actualStream(waterPortIn.h_outflow))/cf) if useFluidPorts annotation (Placement(transformation(extent={{-76,-58},{-56,-38}})));
+  Modelica.Blocks.Sources.RealExpression T_out(y=noEvent(actualStream(waterPortOut.h_outflow))/cf) if useFluidPorts
+                                                                             annotation (Placement(transformation(extent={{-76,-82},{-56,-62}})));
 equation
 
   // _____________________________________________
@@ -185,17 +165,11 @@ equation
   //m_flow_gas=H_flow/vleNCVSensor.NCV;
 
 
-  collectElectricPower.powerCollector.P = P_el;
-  collectHeatingPower.heatFlowCollector.Q_flow = -Q_flow_gen;
 
   // _____________________________________________
   //
   //               Connect Statements
   // _____________________________________________
-
-  connect(modelStatistics.powerCollector[collectElectricPower.typeOfResource], collectElectricPower.powerCollector);
-  connect(modelStatistics.heatFlowCollector[collectHeatingPower.typeOfResource], collectHeatingPower.heatFlowCollector);
-  connect(modelStatistics.costsCollector, collectCosts.costsCollector);
 
   if usePowerPort then
      connect(Power.epp, epp) annotation (Line(
@@ -205,22 +179,6 @@ equation
     connect(P_el_set.y, Power.P_el_set) annotation (Line(points={{25,-54},{56,-54},{56,-66}}, color={0,0,127}));
   end if;
   if useFluidPorts then
-    connect(heatFlowBoundary.fluidPortIn, waterPortIn) annotation (Line(
-        points={{10,-8.88178e-16},{10,-20},{100,-20}},
-        color={175,0,0},
-        thickness=0.5));
-    connect(heatFlowBoundary.fluidPortOut, waterPortOut) annotation (Line(
-        points={{10,12},{10,40},{100,40}},
-        color={175,0,0},
-        thickness=0.5));
-    connect(waterPortOut, T_out_sensor.port) annotation (Line(
-        points={{100,40},{80,40},{80,26}},
-        color={175,0,0},
-        thickness=0.5));
-    connect(waterPortIn, T_in_sensor.port) annotation (Line(
-        points={{100,-20},{80,-20},{80,-36}},
-        color={175,0,0},
-        thickness=0.5));
   end if;
   if not (useFluidPorts) then
     connect(prescribedHeatFlow.port, heatPort) annotation (Line(points={{-8,62},{100,62}}, color={191,0,0}));
@@ -241,6 +199,8 @@ equation
   connect(realExpression3.y, Q_flow_gen) annotation (Line(points={{65,2},{90,2},{90,14},{108,14}}, color={0,0,127}));
   connect(HoC_constant.y, division.u2) annotation (Line(points={{-79,66},{-70,66},{-70,82}}, color={0,0,127}));
 
+  connect(heatFlowBoundary.fluidPortOut, waterPortOut) annotation (Line(points={{10,12},{10,40},{100,40}}, color={0,0,0}));
+  connect(heatFlowBoundary.fluidPortIn, waterPortIn) annotation (Line(points={{10,-8.88178e-16},{12,-8.88178e-16},{12,-20},{100,-20}}, color={0,0,0}));
   annotation (Documentation(info="<html>
 <p><b><span style=\"color: #008000;\">1. Purpose of model</span></b></p>
 <p>Simple small scale CHP model with constant efficiencies.</p>

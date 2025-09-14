@@ -19,7 +19,7 @@ model ElectricBoiler_L1_idContrMFlow_temp "Model for electric boilers with a pum
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -48,8 +48,6 @@ model ElectricBoiler_L1_idContrMFlow_temp "Model for electric boilers with a pum
   //           Instances of other Classes
   // _____________________________________________
 
-  TransiEnt.Components.Statistics.Collectors.LocalCollectors.CollectElectricPower collectElectricPower(typeOfResource=TransiEnt.Basics.Types.TypeOfResource.Consumer)
-                                                                                                                                      annotation (Placement(transformation(extent={{40,-100},{60,-80}})));
   Modelica.Blocks.Sources.RealExpression realExpression(y=P_el) annotation (Placement(transformation(extent={{-72,52},{-52,72}})));
   replaceable TransiEnt.Components.Boundaries.Electrical.ActivePower.Power powerBoundary
                                                                              if usePowerPort constrainedby TransiEnt.Components.Boundaries.Electrical.ActivePower.Power "Choice of power boundary model. The power boundary model must match the power port." annotation (
@@ -80,14 +78,12 @@ equation
 
   P_el=-Q_flow/eta;
 
-  collectElectricPower.powerCollector.P=P_el;
 
   // _____________________________________________
   //
   //               Connect Statements
   // _____________________________________________
 
-  connect(modelStatistics.powerCollector[collectElectricPower.typeOfResource],collectElectricPower.powerCollector);
   if usePowerPort then
   connect(powerBoundary.epp,epp)  annotation (Line(
       points={{-38,40},{-60,40},{-60,0},{-100,0}},

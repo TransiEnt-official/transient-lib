@@ -81,16 +81,20 @@ model ElectricGrid_StandAlone
     P_pr_grad_max_star=0.02/30,
     beta=0.2,
     redeclare TransiEnt.Grid.Electrical.Noise.TypicalLumpedGridError genericGridError) annotation (Placement(transformation(extent={{18,-160},{-62,-80}})));
-  Modelica.Blocks.Sources.RealExpression massFlowDHN(y=-25) annotation (Placement(transformation(
+  Modelica.Blocks.Sources.RealExpression massFlowDHN(y=25)  annotation (Placement(transformation(
         extent={{14,-15},{-14,15}},
         rotation=0,
         origin={-74,81})));
-  Modelica.Blocks.Sources.RealExpression returnTemperatureDNH(y=70 + 273) annotation (Placement(transformation(
+  Modelica.Blocks.Sources.RealExpression returnTemperatureDNH(y=70*4200)  annotation (Placement(transformation(
         extent={{14,-15},{-14,15}},
         rotation=0,
         origin={-74,55})));
-  TransiEnt.Components.Boundaries.FluidFlow.BoundaryVLE_Txim_flow boundaryVLE_Txim_flow(variable_T=true, boundaryConditions(p_nom=20e5)) annotation (Placement(transformation(extent={{-114,54},{-134,74}})));
-  TransiEnt.Components.Boundaries.FluidFlow.BoundaryVLE_pTxi boundaryVLE_pTxi(boundaryConditions(p_const=16e5)) annotation (Placement(transformation(extent={{-114,30},{-134,50}})));
+  TransiEnt.Components.Boundaries.FluidFlow.FluidSink fluidSink annotation (Placement(transformation(extent={{-110,-6},{-130,14}})));
+  Modelica.Blocks.Sources.RealExpression Pressure(y=16e5) annotation (Placement(transformation(
+        extent={{14,-15},{-14,15}},
+        rotation=0,
+        origin={-74,4})));
+  TransiEnt.Components.Boundaries.FluidFlow.FluidSource fluidSource annotation (Placement(transformation(extent={{-110,54},{-130,74}})));
 equation
   // _____________________________________________
   //
@@ -125,20 +129,15 @@ equation
       color={0,135,135},
       thickness=0.5));
   connect(CHP.Q_flow_set, constHeatDemandCHP.y) annotation (Line(points={{-194.9,27},{-194.9,-1.8},{-195,-1.8},{-195,-18}}, color={0,0,127}));
-  connect(CHP.inlet, boundaryVLE_Txim_flow.fluidPortOut) annotation (Line(
-      points={{-175.4,63.5},{-134,63.5},{-134,64}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(boundaryVLE_pTxi.fluidPortIn, CHP.outlet) annotation (Line(
-      points={{-134,40},{-144,40},{-144,56.5},{-175.4,56.5}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(boundaryVLE_Txim_flow.T, returnTemperatureDNH.y) annotation (Line(points={{-112,64},{-104,64},{-104,55},{-89.4,55}}, color={0,0,127}));
-  connect(massFlowDHN.y, boundaryVLE_Txim_flow.m_flow) annotation (Line(points={{-89.4,81},{-98,81},{-98,70},{-112,70}}, color={0,0,127}));
   connect(electricDemandTable.y1, electricDemand.P_el_set) annotation (Line(points={{-230,148},{-182.257,148},{-182.257,147.907}}, color={0,0,127}));
+  connect(Pressure.y, fluidSink.p_in) annotation (Line(points={{-89.4,4},{-112,4}}, color={0,0,127}));
+  connect(fluidSink.port_a, CHP.outlet) annotation (Line(points={{-130,4},{-164,4},{-164,56.5},{-175.4,56.5}}, color={0,0,0}));
+  connect(fluidSource.port_a, CHP.inlet) annotation (Line(points={{-130,64},{-152.7,64},{-152.7,63.5},{-175.4,63.5}}, color={0,0,0}));
+  connect(massFlowDHN.y, fluidSource.m_flow_in) annotation (Line(points={{-89.4,81},{-100,81},{-100,67},{-112,67}}, color={0,0,127}));
+  connect(returnTemperatureDNH.y, fluidSource.h_in) annotation (Line(points={{-89.4,55},{-104,55},{-104,62},{-112,62}}, color={0,0,127}));
   annotation (
     Icon(graphics, coordinateSystem(preserveAspectRatio=false, initialScale=0.1)),
-    Diagram(graphics, coordinateSystem(
+    Diagram(          coordinateSystem(
         preserveAspectRatio=false,
         extent={{-300,-300},{300,300}},
         initialScale=0.1)),

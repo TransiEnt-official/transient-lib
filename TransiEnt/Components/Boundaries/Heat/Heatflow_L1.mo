@@ -20,7 +20,7 @@ model Heatflow_L1 "Ideal Heat flow boundary with constant or prescribed power an
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -45,8 +45,10 @@ model Heatflow_L1 "Ideal Heat flow boundary with constant or prescribed power an
   parameter SI.Power Q_flow_const=100e3 "Constant heating Power"                                       annotation (Dialog(enable = not use_Q_flow_in));
   parameter Boolean use_Q_flow_in=true "Use external Value for Q_flow" annotation(choices(__Dymola_checkBox=true));
   parameter Boolean use_T_out_limit=false "Use limitation of output temperature" annotation(choices(__Dymola_checkBox=true));
+  parameter SI.Density rho=981;
+  parameter SI.SpecificHeatCapacity cf=4186;
 
-  parameter SI.Pressure p_drop=simCenter.p_nom[2]-simCenter.p_nom[1] "Nominal pressure drop";
+  parameter SI.Pressure p_drop=0.01e5;//simCenter.p_nom[2]-simCenter.p_nom[1] "Nominal pressure drop";
   parameter Boolean change_sign=false "Change sign on input values, false: negative setpoint will produce heat";
   parameter SI.Temperature T_out_limit_const=273.15+100 "maximum output temperature - if change_sign==true: minimum output temperature" annotation(Dialog(enable=use_T_out_limit));
   parameter Boolean useVariableToutlimit=false "Define limit of output muss flow by input";
@@ -105,19 +107,11 @@ equation
     fluidPortIn.h_outflow =if change_sign then inStream(fluidPortOut.h_outflow) + h else inStream(fluidPortOut.h_outflow) - h;
   end if;
 
-// No chemical reaction taking place:
-   fluidPortIn.xi_outflow  = inStream(fluidPortOut.xi_outflow);
-   fluidPortOut.xi_outflow = inStream(fluidPortIn.xi_outflow);
-
-  h = Q_flow_internal/max(abs(fluidPortOut.m_flow), simCenter.m_flow_small);
+  h = Q_flow_internal/max(abs(fluidPortOut.m_flow), 1e-5);
 
   //limitation of output temperature by T_out_limit
  if use_T_out_limit then
-     h_out_limit = TILMedia.Internals.VLEFluidConfigurations.FullyMixtureCompatible.VLEFluidFunctions.specificEnthalpy_pTxi(
-       vleFluidType=Medium,
-       p=fluidPortOut.p,
-       T=T_out_limit_internal,
-       xi=fluidPortOut.xi_outflow);
+     h_out_limit = cf*T_out_limit_internal+fluidPortIn.p*1/rho;
   else
     h_out_limit=-999;
   end if;

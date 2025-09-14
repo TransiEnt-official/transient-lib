@@ -19,7 +19,7 @@ partial model XtH_L1_idContrMFlow_temp_base "Base class for heat producers with 
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -56,7 +56,6 @@ partial model XtH_L1_idContrMFlow_temp_base "Base class for heat producers with 
   // _____________________________________________
 
   outer TransiEnt.SimCenter simCenter;
-  outer TransiEnt.ModelStatistics modelStatistics;
 
   // _____________________________________________
   //
@@ -78,25 +77,11 @@ partial model XtH_L1_idContrMFlow_temp_base "Base class for heat producers with 
   //           Instances of other Classes
   // _____________________________________________
 
-  replaceable model ProducerCosts =
-      TransiEnt.Components.Statistics.ConfigurationData.PowerProducerCostSpecs.Empty
-    constrainedby TransiEnt.Components.Statistics.ConfigurationData.PowerProducerCostSpecs.PartialPowerPlantCostSpecs annotation (Dialog(group="Statistics"), __Dymola_choicesAllMatching=true);
 
   TILMedia.Internals.VLEFluidConfigurations.FullyMixtureCompatible.VLEFluid_pT fluidOut(
     vleFluidType=medium,
     p=fluidPortOut.p,
     T=T_out_set_in) annotation (Placement(transformation(extent={{30,-80},{50,-60}})));
-
-  TransiEnt.Components.Statistics.Collectors.LocalCollectors.HeatingPlantCost collectCosts_HeatProducer(
-    redeclare model HeatingPlantCostModel = ProducerCosts,
-    Q_flow_fuel_is=0,
-    m_flow_CDE_is=0,
-    Q_flow_n=Q_flow_n,
-    Q_flow_is=Q_flow,
-    consumes_H_flow=false,
-    produces_m_flow_CDE=false)
-                         annotation (Placement(transformation(extent={{80,-100},{100,-80}})));
-  TransiEnt.Components.Statistics.Collectors.LocalCollectors.CollectHeatingPower collectHeatingPower(typeOfResource=typeOfResource) annotation (Placement(transformation(extent={{60,-100},{80,-80}})));
 
   // _____________________________________________
   //
@@ -134,15 +119,11 @@ equation
 
   Q_flow=fluidPortOut.m_flow*(fluidPortOut.h_outflow-inStream(fluidPortIn.h_outflow));
 
-  collectHeatingPower.heatFlowCollector.Q_flow=Q_flow;
-
   // _____________________________________________
   //
   //               Connect Statements
   // _____________________________________________
 
-  connect(modelStatistics.heatFlowCollector[TransiEnt.Basics.Types.TypeOfResource.Consumer],collectHeatingPower.heatFlowCollector);
-  connect(modelStatistics.costsCollector, collectCosts_HeatProducer.costsCollector);
   annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
         Line(
           points={{-40,14},{-40,58},{40,58},{40,-100}},

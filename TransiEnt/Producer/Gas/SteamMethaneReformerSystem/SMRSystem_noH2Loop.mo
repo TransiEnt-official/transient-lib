@@ -257,7 +257,6 @@ protected
     medium=water,
     eta_mech=eta_mech_pump_H2O,
     eta_el=eta_el_pump_H2O,
-    redeclare model CostSpecsGeneral = TransiEnt.Components.Statistics.ConfigurationData.GeneralCostSpecs.Empty,
     Cspec_demAndRev_el=Cspec_demAndRev_el) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
@@ -299,164 +298,12 @@ protected
         rotation=270,
         origin={118,26})));
 
-public
-  Summary summary(
-    outline(
-      m_waterIn=source_H2O_m,
-      m_waterOut=sink_H2O_m,
-      Delta_m_water=source_H2O_m + sink_H2O_m,
-      P_el_pump=pump_H2O.summary.outline.P_el,
-      W_el_puimp=pump_H2O.summary.outline.W_el),
-    gasPortIn(
-      mediumModel=heatExchanger_feed.summary.gasPortIn.mediumModel,
-      useFluidModelsForSummary=useFluidModelsForSummary,
-      xi=heatExchanger_feed.summary.gasPortIn.xi,
-      x=heatExchanger_feed.summary.gasPortIn.x,
-      m_flow=heatExchanger_feed.summary.gasPortIn.m_flow,
-      T=heatExchanger_feed.summary.gasPortIn.T,
-      p=heatExchanger_feed.summary.gasPortIn.p,
-      h=heatExchanger_feed.summary.gasPortIn.h,
-      rho=heatExchanger_feed.summary.gasPortIn.rho),
-    gasAfterHEX1(
-      mediumModel=heatExchanger_feed.summary.gasPortOut.mediumModel,
-      useFluidModelsForSummary=useFluidModelsForSummary,
-      xi=heatExchanger_feed.summary.gasPortOut.xi,
-      x=heatExchanger_feed.summary.gasPortOut.x,
-      m_flow=heatExchanger_feed.summary.gasPortOut.m_flow,
-      T=heatExchanger_feed.summary.gasPortOut.T,
-      p=heatExchanger_feed.summary.gasPortOut.p,
-      h=heatExchanger_feed.summary.gasPortOut.h,
-      rho=heatExchanger_feed.summary.gasPortOut.rho),
-    gasAfterMix(
-      mediumModel=junction_feedH2O.summary.gasPort3.mediumModel,
-      xi=junction_feedH2O.summary.gasPort3.xi,
-      x=junction_feedH2O.summary.gasPort3.x,
-      m_flow=junction_feedH2O.summary.gasPort3.m_flow,
-      T=junction_feedH2O.summary.gasPort3.T,
-      p=junction_feedH2O.summary.gasPort3.p,
-      h=junction_feedH2O.summary.gasPort3.h,
-      rho=junction_feedH2O.summary.gasPort3.rho),
-    gasSMRIn(
-      mediumModel=sMR.summary.gasPortIn.mediumModel,
-      xi=sMR.summary.gasPortIn.xi,
-      x=sMR.summary.gasPortIn.x,
-      m_flow=sMR.summary.gasPortIn.m_flow,
-      T=sMR.summary.gasPortIn.T,
-      p=sMR.summary.gasPortIn.p,
-      h=sMR.summary.gasPortIn.h,
-      rho=sMR.summary.gasPortIn.rho),
-    gasSMRBulk(
-      N_cv=sMR.summary.gasBulk.N_cv,
-      mediumModel=sMR.summary.gasBulk.mediumModel,
-      xi=sMR.summary.gasBulk.xi,
-      x=sMR.summary.gasBulk.x,
-      mass=sMR.summary.gasBulk.mass,
-      T=sMR.summary.gasBulk.T,
-      p=sMR.summary.gasBulk.p,
-      h=sMR.summary.gasBulk.h,
-      rho=sMR.summary.gasBulk.rho),
-    gasSMROut(
-      mediumModel=sMR.summary.gasPortOut.mediumModel,
-      xi=sMR.summary.gasPortOut.xi,
-      x=sMR.summary.gasPortOut.x,
-      m_flow=sMR.summary.gasPortOut.m_flow,
-      T=sMR.summary.gasPortOut.T,
-      p=sMR.summary.gasPortOut.p,
-      h=sMR.summary.gasPortOut.h,
-      rho=sMR.summary.gasPortOut.rho),
-    gasAfterWGS(
-      mediumModel=wGS.summary.gasPortOut.mediumModel,
-      useFluidModelsForSummary=useFluidModelsForSummary,
-      xi=wGS.summary.gasPortOut.xi,
-      x=wGS.summary.gasPortOut.x,
-      m_flow=wGS.summary.gasPortOut.m_flow,
-      T=wGS.summary.gasPortOut.T,
-      p=wGS.summary.gasPortOut.p,
-      h=wGS.summary.gasPortOut.h,
-      rho=wGS.summary.gasPortOut.rho),
-    gasAfterHEX2(
-      mediumModel=heatExchanger_SynGasH2O.summary.gasPortOut.mediumModel,
-      useFluidModelsForSummary=useFluidModelsForSummary,
-      xi=heatExchanger_SynGasH2O.summary.gasPortOut.xi,
-      x=heatExchanger_SynGasH2O.summary.gasPortOut.x,
-      m_flow=heatExchanger_SynGasH2O.summary.gasPortOut.m_flow,
-      T=heatExchanger_SynGasH2O.summary.gasPortOut.T,
-      p=heatExchanger_SynGasH2O.summary.gasPortOut.p,
-      h=heatExchanger_SynGasH2O.summary.gasPortOut.h,
-      rho=heatExchanger_SynGasH2O.summary.gasPortOut.rho),
-    gasAfterDryer(
-      mediumModel=dryer.summary.gasPortOut.mediumModel,
-      xi=dryer.summary.gasPortOut.xi,
-      x=dryer.summary.gasPortOut.x,
-      m_flow=dryer.summary.gasPortOut.m_flow,
-      T=dryer.summary.gasPortOut.T,
-      p=dryer.summary.gasPortOut.p,
-      h=dryer.summary.gasPortOut.h,
-      rho=dryer.summary.gasPortOut.rho),
-    gasPortOutOffGas(
-      mediumModel=pSA.summary.gasPortOut_offGas.mediumModel,
-      xi=pSA.summary.gasPortOut_offGas.xi,
-      x=pSA.summary.gasPortOut_offGas.x,
-      m_flow=pSA.summary.gasPortOut_offGas.m_flow,
-      T=pSA.summary.gasPortOut_offGas.T,
-      p=pSA.summary.gasPortOut_offGas.p,
-      h=pSA.summary.gasPortOut_offGas.h,
-      rho=pSA.summary.gasPortOut_offGas.rho),
-    gasPortOutHydrogen(
-      mediumModel=pSA.summary.gasPortOut_hydrogen.mediumModel,
-      xi=pSA.summary.gasPortOut_hydrogen.xi,
-      x=pSA.summary.gasPortOut_hydrogen.x,
-      m_flow=pSA.summary.gasPortOut_hydrogen.m_flow,
-      T=pSA.summary.gasPortOut_hydrogen.T,
-      p=pSA.summary.gasPortOut_hydrogen.p,
-      h=pSA.summary.gasPortOut_hydrogen.h,
-      rho=pSA.summary.gasPortOut_hydrogen.rho),
-    molarDryCompositions(
-      molarDryCompAfterMix=moleCompDryGasBeforePreRe.fractionDry,
-      molarDryCompSMRIn=moleCompDryGasBeforeSMR.fractionDry,
-      molarDryCompSMROut=moleCompDryGasBeforeWGS.fractionDry,
-      molarDryCompAfterHEX2=moleCompDryGasBeforeDryer.fractionDry),
-    waterIn(
-      mediumModel=pump_H2O.summary.fluidPortIn.mediumModel,
-      xi=pump_H2O.summary.fluidPortIn.xi,
-      x=pump_H2O.summary.fluidPortIn.x,
-      m_flow=pump_H2O.summary.fluidPortIn.m_flow,
-      T=pump_H2O.summary.fluidPortIn.T,
-      p=pump_H2O.summary.fluidPortIn.p,
-      h=pump_H2O.summary.fluidPortIn.h,
-      rho=pump_H2O.summary.fluidPortIn.rho),
-    waterAfterHEX2(
-      mediumModel=heatExchanger_SynGasH2O.summary.fluidPortOut.mediumModel,
-      xi=heatExchanger_SynGasH2O.summary.fluidPortOut.xi,
-      x=heatExchanger_SynGasH2O.summary.fluidPortOut.x,
-      m_flow=heatExchanger_SynGasH2O.summary.fluidPortOut.m_flow,
-      T=heatExchanger_SynGasH2O.summary.fluidPortOut.T,
-      p=heatExchanger_SynGasH2O.summary.fluidPortOut.p,
-      h=heatExchanger_SynGasH2O.summary.fluidPortOut.h,
-      rho=heatExchanger_SynGasH2O.summary.fluidPortOut.rho),
-    waterAfterHEX3(
-      mediumModel=heatExchanger_H2O.summary.gasPortOut.mediumModel,
-      xi=heatExchanger_H2O.summary.gasPortOut.xi,
-      x=heatExchanger_H2O.summary.gasPortOut.x,
-      m_flow=heatExchanger_H2O.summary.gasPortOut.m_flow,
-      T=heatExchanger_H2O.summary.gasPortOut.T,
-      p=heatExchanger_H2O.summary.gasPortOut.p,
-      h=heatExchanger_H2O.summary.gasPortOut.h,
-      rho=heatExchanger_H2O.summary.gasPortOut.rho),
-    heatFeedPreheater(Q_flow=heatExchanger_feed.summary.heat.Q_flow, T=heatExchanger_feed.summary.heat.T),
-    heatWaterPreheater(Q_flow=heatExchanger_H2O.summary.heat.Q_flow, T=heatExchanger_H2O.summary.heat.T),
-    heatSMR(
-      N_cv=sMR.summary.heat.N_cv,
-      Q_flow=sMR.summary.heat.Q_flow,
-      T_flueGas=sMR.summary.heat.T_flueGas,
-      T_wall_i=sMR.summary.heat.T_wall_i,
-      T_wall_o=sMR.summary.heat.T_wall_o)) annotation (Placement(transformation(extent={{-200,-100},{-180,-80}})));
-
   // _____________________________________________
   //
   //             Variable Declarations
   // _____________________________________________
 
+public
   Real expressionSteamToCarbonRatio=4.8 "Desired molar ratio of H2O to C for the steam controller" annotation(Dialog(group="Steam Junction"));
 
   SI.Mass source_H2O_m(start=0, fixed=true) "Mass from the water source";

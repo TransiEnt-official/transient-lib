@@ -20,7 +20,7 @@ model EmergencyCooler_L2 "Emergency cooler, e.g. if return temperature to an ape
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -54,7 +54,6 @@ parameter SI.MassFlowRate m_flow_nom=simCenter.m_flow_nom;
   // _____________________________________________
 
   outer TransiEnt.SimCenter simCenter;
-  outer TransiEnt.ModelStatistics modelStatistics;
 
 Boolean switch;
 Boolean switch_stor;
@@ -117,7 +116,6 @@ Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow supplyCooler(Q_flow(
       rotation=90,
       origin={0,14})));
 
-  TransiEnt.Components.Statistics.Collectors.LocalCollectors.CollectHeatingPower collectHeatingPower annotation (Placement(transformation(extent={{-60,80},{-40,100}})));
 ClaRa.Components.HeatExchangers.IdealShell_L2 returnHeatExchanger1(
     medium=Medium,
     h_start=50*4200,
@@ -151,15 +149,12 @@ equation
     supplyCooler.Q_flow=0;
   end if;
 
-//Power is substracted from cogenerated Energy
-  collectHeatingPower.heatFlowCollector.Q_flow=returnCooler.Q_flow+supplyCooler.Q_flow;
 
   // _____________________________________________
   //
   //               Connect Statements
   // _____________________________________________
 
-  connect(collectHeatingPower.heatFlowCollector,modelStatistics.heatFlowCollector[3]);
 
   connect(temperatureReturnIn.port, fpReturnIn)
                                                annotation (Line(

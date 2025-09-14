@@ -48,7 +48,6 @@ model DHN_StandAlone
   // _____________________________________________
 
   inner TransiEnt.SimCenter simCenter(k_H2_fraction=0.6, showExpertSummary=false) annotation (Placement(transformation(extent={{-280,140},{-260,160}})));
-  inner TransiEnt.ModelStatistics modelStatistics annotation (Placement(transformation(extent={{-280,120},{-260,140}})));
 
 
   // Consumer
@@ -281,6 +280,15 @@ model DHN_StandAlone
         origin={-180,-58})));
 
 
+  TransiEnt.Basics.Adapters.FluidPortAdapter fluidPortAdapter annotation (Placement(transformation(extent={{62,58},{46,74}})));
+  TransiEnt.Basics.Adapters.FluidPortAdapter fluidPortAdapter1 annotation (Placement(transformation(extent={{108,58},{124,74}})));
+  TransiEnt.Basics.Adapters.FluidPortAdapter fluidPortAdapter2 annotation (Placement(transformation(extent={{-92,2},{-108,18}})));
+  TransiEnt.Basics.Adapters.FluidPortAdapter fluidPortAdapter3 annotation (Placement(transformation(extent={{-40,2},{-24,18}})));
+  TransiEnt.Basics.Adapters.FluidPortAdapter fluidPortAdapter4 annotation (Placement(transformation(extent={{-230,-144},{-214,-128}})));
+  TransiEnt.Basics.Adapters.FluidPortAdapter fluidPortAdapter5 annotation (Placement(transformation(
+        extent={{-8,-8},{8,8}},
+        rotation=90,
+        origin={-236,-78})));
 equation
   // _____________________________________________
   //
@@ -288,10 +296,6 @@ equation
   // _____________________________________________
 
 
-  connect(producer1.fluidPortOut, balanceTank1.inlet3) annotation (Line(
-      points={{-236,-122},{-206.2,-122},{-206.2,-128},{-178,-128}},
-      color={175,0,0},
-      thickness=0.5));
   connect(pressure_reduction_valve.inlet, ambience.gas_a) annotation (Line(
       points={{-132,-102},{-126,-101},{-124,-101}},
       color={118,106,98},
@@ -319,19 +323,9 @@ equation
       color={0,131,169},
       pattern=LinePattern.Solid,
       thickness=0.5));
-  connect(pipe1.outlet, consumer1.fluidPortIn) annotation (Line(
-      points={{-12,-20},{-12,-20},{-12,10},{-52,10}},
-      color={0,131,169},
-      pattern=LinePattern.Solid,
-      thickness=0.5));
   connect(pump.inlet, balanceTank1.outlet) annotation (Line(
       points={{-146,-154},{-150.4,-154},{-150.4,-153.8}},
       color={0,131,169},
-      thickness=0.5));
-  connect(pipe2.outlet, consumer2.fluidPortIn) annotation (Line(
-      points={{120,-20},{120,-20},{120,66},{98,66}},
-      color={0,131,169},
-      pattern=LinePattern.Solid,
       thickness=0.5));
   connect(split_cold.outlet1, pipe2.inlet) annotation (Line(
       points={{-2,-154},{-2,-154},{120,-154},{120,-54}},
@@ -342,19 +336,6 @@ equation
       points={{-236,0},{-236,0},{-236,-20}},
       color={0,131,169},
       pattern=LinePattern.Solid,
-      thickness=0.5));
-  connect(pipe3.outlet, producer1.fluidPortIn) annotation (Line(
-      points={{-236,-54},{-236,-54},{-236,-98}},
-      color={0,131,169},
-      pattern=LinePattern.Solid,
-      thickness=0.5));
-  connect(join_hot.inlet2, consumer1.fluidPortOut) annotation (Line(
-      points={{-226,10},{-76,10},{-76,10}},
-      color={0,131,169},
-      thickness=0.5));
-  connect(consumer2.fluidPortOut, pipe4.inlet) annotation (Line(
-      points={{74,66},{37.4,66},{37.4,67},{37,67}},
-      color={175,0,0},
       thickness=0.5));
   connect(join_hot.inlet1, pipe4.outlet) annotation (Line(
       points={{-236,20},{-236,67},{3,67}},
@@ -395,9 +376,39 @@ equation
       points={{98,102},{98,105},{102,105},{102,121}},
       color={175,0,0},
       pattern=LinePattern.Dash));
+  connect(fluidPortAdapter.fluidPortOut, pipe4.inlet) annotation (Line(
+      points={{46,66},{46,67},{37,67}},
+      color={175,0,0},
+      thickness=0.5));
+  connect(fluidPortAdapter.fluidPortIn, consumer2.fluidPortOut) annotation (Line(points={{62,66},{74,66}}, color={0,0,0}));
+  connect(fluidPortAdapter2.fluidPortOut, statePoint_phTs.port) annotation (Line(
+      points={{-108,10},{-146,10},{-146,9},{-172,9},{-172,10}},
+      color={175,0,0},
+      thickness=0.5));
+  connect(fluidPortAdapter1.fluidPortIn, consumer2.fluidPortIn) annotation (Line(points={{108,66},{98,66}}, color={0,0,0}));
+  connect(fluidPortAdapter1.fluidPortOut, pipe2.outlet) annotation (Line(
+      points={{124,66},{134,66},{134,38},{120,38},{120,-20}},
+      color={175,0,0},
+      thickness=0.5));
+  connect(fluidPortAdapter2.fluidPortIn, consumer1.fluidPortOut) annotation (Line(points={{-92,10},{-76,10}}, color={0,0,0}));
+  connect(fluidPortAdapter3.fluidPortIn, consumer1.fluidPortIn) annotation (Line(points={{-40,10},{-52,10}}, color={0,0,0}));
+  connect(fluidPortAdapter3.fluidPortOut, pipe1.outlet) annotation (Line(
+      points={{-24,10},{-12,10},{-12,-20}},
+      color={175,0,0},
+      thickness=0.5));
+  connect(fluidPortAdapter4.fluidPortIn, producer1.fluidPortOut) annotation (Line(points={{-230,-136},{-234,-136},{-234,-134},{-236,-134},{-236,-122}}, color={0,0,0}));
+  connect(fluidPortAdapter4.fluidPortOut, temperature.port) annotation (Line(
+      points={{-214,-136},{-206,-136},{-206,-140}},
+      color={175,0,0},
+      thickness=0.5));
+  connect(fluidPortAdapter5.fluidPortIn, producer1.fluidPortIn) annotation (Line(points={{-236,-86},{-236,-98}}, color={0,0,0}));
+  connect(fluidPortAdapter5.fluidPortOut, pipe3.outlet) annotation (Line(
+      points={{-236,-70},{-236,-54}},
+      color={175,0,0},
+      thickness=0.5));
   annotation (
     Icon(graphics, coordinateSystem(preserveAspectRatio=false, initialScale=0.1)),
-    Diagram(graphics, coordinateSystem(preserveAspectRatio=false, extent={{-300,-220},{200,160}})),
+    Diagram(          coordinateSystem(preserveAspectRatio=false, extent={{-300,-220},{200,160}})),
     experiment(
       StopTime=259200,
       Interval=900,

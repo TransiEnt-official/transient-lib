@@ -33,7 +33,7 @@ function cogenerationEmissionAllocationFactors "Function to calculate CO2 emissi
   extends TransiEnt.Basics.Icons.Function;
 
   // Parameters
-
+protected
   parameter SI.Efficiency eta_el_ref=0.525 "Reference efficiency for electric generation (used in PES method of allocation)";
   parameter SI.Efficiency eta_th_ref=0.820 "Reference efficiency for thermal generation (used in PES method of allocation)";
 
@@ -41,6 +41,7 @@ function cogenerationEmissionAllocationFactors "Function to calculate CO2 emissi
   constant Real smallNumber=1e-4 "Small number to prevent division by zero if plant is off";
 
   // Inputs
+public
   input TransiEnt.Basics.Types.TypeOfCO2AllocationMethod typeOfCO2Allocation;
   input SI.Efficiency eta_el "Electric efficiency";
   input SI.Efficiency eta_th "Themal efficiency";

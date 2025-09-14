@@ -125,6 +125,16 @@ model Coupled_ElectricGrid_DHN_GasGrid "Example for sector coupling in TransiEnt
         rotation=0,
         origin={-32.5,62.5})));
   Modelica.Blocks.Math.Gain gain1(k=-1.2) annotation (Placement(transformation(extent={{-332,4},{-312,24}})));
+  TransiEnt.Basics.Adapters.FluidPortAdapter fluidPortAdapter annotation (Placement(transformation(extent={{82,66},{90,74}})));
+  TransiEnt.Basics.Adapters.FluidPortAdapter fluidPortAdapter1 annotation (Placement(transformation(extent={{82,30},{90,38}})));
+  TransiEnt.Basics.Adapters.FluidPortAdapter fluidPortAdapter2 annotation (Placement(transformation(
+        extent={{-4,-4},{4,4}},
+        rotation=270,
+        origin={322,230})));
+  TransiEnt.Basics.Adapters.FluidPortAdapter fluidPortAdapter3 annotation (Placement(transformation(
+        extent={{-4,-4},{4,4}},
+        rotation=270,
+        origin={355,230})));
 equation
   // _____________________________________________
   //
@@ -137,23 +147,11 @@ equation
       color={0,135,135},
       thickness=0.5));
   connect(heatDemandTable.y1, gain1.u) annotation (Line(points={{-342,14},{-342,14},{-334,14}}, color={0,0,127}));
-  connect(gasBoiler.outlet, dHN_SubSystem.producerOutlet) annotation (Line(
-      points={{60,34},{120,34},{120,34.7368}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(CHP.outlet, gasBoiler.inlet) annotation (Line(
-      points={{-121.2,121.333},{-104,121.333},{-104,34},{-2,34},{20.4,34}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(dHN_SubSystem.producerInlet, CHP.inlet) annotation (Line(
-      points={{120,69.4737},{94,69.4737},{94,69},{68,69},{68,112},{-121.2,112}},
-      color={175,0,0},
-      thickness=0.5));
   connect(dHN_SubSystem.T1, PID_hot_temperature.u_m) annotation (Line(points={{117.76,23.1579},{90,23.1579},{90,-41.8},{88.89,-41.8}}, color={0,0,127}));
   connect(varHeatDemandGasBoiler.y, gasBoiler.Q_flow_set) annotation (Line(points={{6.55,62.5},{6.55,64.25},{40,64.25},{40,54}}, color={0,0,127}));
   connect(heatDemand.Q_flow_prescribed, gain1.y) annotation (Line(points={{350,278},{350,292},{300,292},{300,252},{-310,252},{-310,14},{-311,14}}, color={0,0,127}));
   connect(gasBoiler.gasIn, gasGrid_subSystem.gasIn) annotation (Line(
-      points={{40.4,14},{40,14},{40,-20},{40,-16},{394,-16},{394,-212},{380,-212},{380.5,-212},{380.5,-211.313}},
+      points={{40.4,14},{40,14},{40,-20},{40,-16},{394,-16},{394,-212},{380,-212},{380.5,-212},{380.5,-211.312}},
       color={255,255,0},
       thickness=1.5));
   connect(residualElectricPowerForPtG.y, firstOrder.u) annotation (Line(points={{105.35,-106.5},{94.675,-106.5},{94.675,-107},{112,-107}}, color={0,0,127}));
@@ -168,14 +166,6 @@ equation
       points={{-124,142},{-124,-94},{-124.333,-94}},
       color={0,135,135},
       thickness=0.5));
-  connect(heatDemand.fluidPortOut, dHN_SubSystem.consumerOutlet) annotation (Line(
-      points={{326,242},{326,231.2},{321.6,231.2},{321.6,219.421}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(heatDemand.fluidPortIn, dHN_SubSystem.consumerInlet) annotation (Line(
-      points={{350,242},{350,232.2},{355.2,232.2},{355.2,220}},
-      color={175,0,0},
-      thickness=0.5));
   connect(CHP.Q_flow_set, varHeatDemandCHP.y) annotation (Line(points={{-147.2,160.667},{-147.2,216.6},{-199.225,216.6},{-199.225,216.25}}, color={0,0,127}));
   connect(CHP.P_set, electricityDemandCHP.y) annotation (Line(points={{-186.4,160.667},{-186.4,184},{-182,184},{-195,184}}, color={0,0,127}));
   connect(PID_hot_temperature.u_s, T_set.y) annotation (Line(points={{102.2,-55},{117.1,-55},{117.1,-56},{119,-56}}, color={0,0,127}));
@@ -188,9 +178,30 @@ equation
       color={0,135,135},
       thickness=0.5));
   connect(gain.y, electricDemand.P_el_set) annotation (Line(points={{-303,-50},{-246.2,-50},{-246.2,-49}}, color={0,0,127}));
+  connect(fluidPortAdapter1.fluidPortIn, gasBoiler.outlet) annotation (Line(points={{82,34},{60,34}}, color={0,0,0}));
+  connect(fluidPortAdapter1.fluidPortOut, dHN_SubSystem.producerOutlet) annotation (Line(
+      points={{90,34},{105,34},{105,34.7368},{120,34.7368}},
+      color={175,0,0},
+      thickness=0.5));
+  connect(gasBoiler.inlet, CHP.outlet) annotation (Line(points={{20.4,34},{-90,34},{-90,121.333},{-121.2,121.333}}, color={0,0,0}));
+  connect(fluidPortAdapter.fluidPortOut, dHN_SubSystem.producerInlet) annotation (Line(
+      points={{90,70},{92,70},{92,69.4737},{120,69.4737}},
+      color={175,0,0},
+      thickness=0.5));
+  connect(fluidPortAdapter.fluidPortIn, CHP.inlet) annotation (Line(points={{82,70},{52,70},{52,82},{-94,82},{-94,112},{-121.2,112}}, color={0,0,0}));
+  connect(fluidPortAdapter2.fluidPortOut, dHN_SubSystem.consumerOutlet) annotation (Line(
+      points={{322,226},{321.6,226},{321.6,219.421}},
+      color={175,0,0},
+      thickness=0.5));
+  connect(fluidPortAdapter2.fluidPortIn, heatDemand.fluidPortOut) annotation (Line(points={{322,234},{322,242},{326,242}}, color={0,0,0}));
+  connect(fluidPortAdapter3.fluidPortIn, heatDemand.fluidPortIn) annotation (Line(points={{355,234},{355,242},{350,242}}, color={0,0,0}));
+  connect(fluidPortAdapter3.fluidPortOut, dHN_SubSystem.consumerInlet) annotation (Line(
+      points={{355,226},{355,223},{355.2,223},{355.2,220}},
+      color={175,0,0},
+      thickness=0.5));
   annotation (
     Icon(graphics, coordinateSystem(preserveAspectRatio=false, initialScale=0.1)),
-    Diagram(graphics, coordinateSystem(
+    Diagram(          coordinateSystem(
         preserveAspectRatio=false,
         extent={{-400,-300},{400,300}},
         initialScale=0.1)),

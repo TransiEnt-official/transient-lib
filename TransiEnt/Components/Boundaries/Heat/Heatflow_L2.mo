@@ -20,7 +20,7 @@ model Heatflow_L2 "Heat flow boundary with prescribed power and given volume (L2
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -35,7 +35,9 @@ model Heatflow_L2 "Heat flow boundary with prescribed power and given volume (L2
   // _____________________________________________
 
   import TransiEnt;
-  extends TransiEnt.Components.Boundaries.Heat.Base.PartialHeatBoundary;
+  extends TransiEnt.Basics.Icons.HeatSink;
+  outer TransiEnt.SimCenter simCenter;
+  //extends TransiEnt.Components.Boundaries.Heat.Base.PartialHeatBoundary;
 
   // _____________________________________________
   //
@@ -46,7 +48,7 @@ model Heatflow_L2 "Heat flow boundary with prescribed power and given volume (L2
   parameter Boolean use_Q_flow_in=true "|Heat demand|Use external value for Q_flow" annotation(choices(__Dymola_checkBox=true));
   parameter Boolean change_sign=false "Change sign on input value (false: setpoint < 0 means producing heat)";
   parameter SI.Power Q_flow_const=100e3 "|Heat demand|Constant heating power" annotation (Dialog(enable = not use_Q_flow_in));
-
+  parameter TILMedia.VLEFluidTypes.BaseVLEFluid Medium=simCenter.fluid1 "Medium to be used";
   parameter SI.MassFlowRate m_flow_nom=simCenter.m_flow_nom "|Heat exchanger|Nominal mass flow rate";
   parameter SI.Pressure p_nom=simCenter.p_nom[1] "Nominal pressure" annotation (Dialog(group="Heat exchanger"));
   parameter ClaRa.Basics.Units.EnthalpyMassSpecific h_nom=1e5 "|Heat exchanger|Nominal specific enthalpy";
@@ -82,11 +84,23 @@ model Heatflow_L2 "Heat flow boundary with prescribed power and given volume (L2
 
   // _____________________________________________
   //
+  //                  Variables
+  // _____________________________________________
+
+
+  Modelica.Units.SI.HeatFlowRate Q_flow_boundary=fluidPortIn.m_flow*(actualStream(fluidPortIn.h_outflow) - actualStream(fluidPortOut.h_outflow));
+
+  // _____________________________________________
+  //
   //                  Interfaces
   // _____________________________________________
 
 protected
   TransiEnt.Basics.Interfaces.Thermal.HeatFlowRateIn Q_flow_internal;
+public
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortOut fluidPortOut(Medium=Medium) annotation (Placement(transformation(extent={{-10,90},{10,110}}), iconTransformation(extent={{50,-110},{70,-90}})));
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn fluidPortIn( Medium=Medium) annotation (Placement(transformation(extent={{-10,-110},{10,-90}}), iconTransformation(extent={{-70,-110},{-50,-90}})));
+
 
 public
   TransiEnt.Basics.Interfaces.Thermal.HeatFlowRateIn Q_flow_prescribed if use_Q_flow_in "RealInput (for specification of boundary power)"

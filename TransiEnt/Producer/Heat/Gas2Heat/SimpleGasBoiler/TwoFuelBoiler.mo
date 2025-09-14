@@ -19,7 +19,7 @@ model TwoFuelBoiler "Abstract model for boilers using two different fuel types"
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -55,8 +55,8 @@ model TwoFuelBoiler "Abstract model for boilers using two different fuel types"
   //                Interfaces
   // _____________________________________________
 
-  Basics.Interfaces.Thermal.FluidPortIn inlet(Medium=medium) annotation (Placement(transformation(extent={{-111,-7},{-91,13}}), iconTransformation(extent={{-108,-10},{-88,10}})));
-  Basics.Interfaces.Thermal.FluidPortOut outlet(Medium=medium) annotation (Placement(transformation(extent={{94,-10},{114,10}}), iconTransformation(extent={{90,-10},{110,10}})));
+  Basics.Interfaces.Thermal.FluidPortIn_simple inlet annotation (Placement(transformation(extent={{-111,-7},{-91,13}}), iconTransformation(extent={{-108,-10},{-88,10}})));
+  Basics.Interfaces.Thermal.FluidPortOut_simple outlet annotation (Placement(transformation(extent={{94,-10},{114,10}}), iconTransformation(extent={{90,-10},{110,10}})));
   TransiEnt.Basics.Interfaces.Thermal.HeatFlowRateIn Q_flow_set_B1 "Setpoint for thermal heat of boiler 1"
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},
         rotation=270,
@@ -89,18 +89,9 @@ equation
 
   connect(boiler2.Q_flow_set, Q_flow_set_B2) annotation (Line(points={{52.5,23},{52.5,62},{53,62},{53,102}}, color={0,0,127}));
   connect(boiler1.Q_flow_set, Q_flow_set_B1) annotation (Line(points={{-35.5,23},{-35.5,59},{-36,59},{-36,102}}, color={0,0,127}));
-  connect(boiler1.inlet, inlet) annotation (Line(
-      points={{-60.49,0},{-101,0},{-101,3}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(boiler1.outlet, boiler2.inlet) annotation (Line(
-      points={{-10,0},{-10,0},{27.51,0}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(boiler2.outlet, outlet) annotation (Line(
-      points={{78,0},{91,0},{104,0}},
-      color={175,0,0},
-      thickness=0.5));
+  connect(inlet, boiler1.inlet) annotation (Line(points={{-101,3},{-101,0},{-60.49,0}}, color={0,0,0}));
+  connect(boiler1.outlet, boiler2.inlet) annotation (Line(points={{-10,0},{27.51,0}}, color={0,0,0}));
+  connect(boiler2.outlet, outlet) annotation (Line(points={{78,0},{104,0}}, color={0,0,0}));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
                          graphics={
         Rectangle(
@@ -115,8 +106,7 @@ equation
           pattern=LinePattern.None),
         Line(points={{-86,0},{-86,0},{-54,0},{-42,16},{-28,-12},{-18,0},{4,0}},color={162,29,33}),
         Line(points={{-2,0},{-2,0},{30,0},{42,16},{56,-12},{66,0},{88,0}},     color={162,29,33})}),
-                                  Diagram(graphics,
-                                          coordinateSystem(preserveAspectRatio=false,
+                                  Diagram(coordinateSystem(preserveAspectRatio=false,
           extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">1. Purpose of model</span></b></p>

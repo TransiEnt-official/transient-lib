@@ -20,7 +20,7 @@ partial model BasicHeatFlow "Partial heat transfer model for gas engine"
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -40,6 +40,7 @@ partial model BasicHeatFlow "Partial heat transfer model for gas engine"
   //        Visible Parameters
   // _____________________________________________
   parameter ClaRa.Basics.Units.PressureDifference Delta_p_nom=1e5 "Nominal pressure drop";
+  parameter TILMedia.VLEFluidTypes.BaseVLEFluid Medium=simCenter.fluid1 "Medium to be used";
   parameter Modelica.Units.SI.MassFlowRate m_flow_nom=simCenter.m_flow_nom "Nominal mass flow rates at inlet";
 
   //Initialization
@@ -76,8 +77,8 @@ partial model BasicHeatFlow "Partial heat transfer model for gas engine"
         extent={{20,-20},{-20,20}},
         rotation=-90,
         origin={90,160})));
-  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn waterPortIn(Medium=simCenter.fluid1) annotation (Placement(transformation(extent={{220,-120},{240,-100}}), iconTransformation(extent={{200,-140},{240,-100}})));
-  TransiEnt.Basics.Interfaces.Thermal.FluidPortOut waterPortOut(Medium=simCenter.fluid1) annotation (Placement(transformation(extent={{220,120},{240,140}}), iconTransformation(extent={{200,100},{240,140}})));
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn waterPortIn( Medium=Medium) annotation (Placement(transformation(extent={{220,-120},{240,-100}}), iconTransformation(extent={{200,-140},{240,-100}})));
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortOut waterPortOut( Medium=Medium) annotation (Placement(transformation(extent={{220,120},{240,140}}), iconTransformation(extent={{200,100},{240,140}})));
 
   // _____________________________________________
   //

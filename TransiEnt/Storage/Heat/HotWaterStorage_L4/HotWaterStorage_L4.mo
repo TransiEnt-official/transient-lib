@@ -20,7 +20,7 @@ model HotWaterStorage_L4 "Temperature and Heat flow rate based model of a strati
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -44,7 +44,6 @@ model HotWaterStorage_L4 "Temperature and Heat flow rate based model of a strati
   // _____________________________________________
 
   outer TransiEnt.SimCenter simCenter;
-  outer TransiEnt.ModelStatistics modelStatistics;
 
   // _____________________________________________
   //
@@ -229,13 +228,6 @@ if used_Ports_Int == 0 then Utilities.get_Ports_noSolar(
   TransiEnt.Basics.Interfaces.Thermal.HeatFlowRateOut heatOutFlow annotation (Placement(transformation(extent={{96,60},{112,76}})));
 
   // Statistics (TODO: Nominal capacity has to be defined properly)
-  TransiEnt.Components.Statistics.Collectors.LocalCollectors.StorageCost collectCosts_Storage(
-    redeclare model StorageCostModel = CostVariables,
-    isThermalStorage=true,
-    Q_flow_is=heatOutFlow,
-    Delta_E_n=(maxTemperature_allowed - refTemperature)*Geometry.volume*1e3*4.2e3,
-    produces_P_el=false,
-    consumes_P_el=false)                                                           annotation (Placement(transformation(extent={{40,-100},{60,-80}})));
 
   // _____________________________________________
   //
@@ -498,7 +490,6 @@ end if;
  end for;
  end if;
 
- connect(modelStatistics.costsCollector, collectCosts_Storage.costsCollector);
  if Add_ElectricHeater then
      connect(heatingElectrode.heat, heatPorts[1]) annotation (Line(
       points={{-29.4,68},{-14,68},{-14,86}},

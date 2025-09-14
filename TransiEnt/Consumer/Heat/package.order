@@ -6,7 +6,6 @@ ConstantHeatConsumer
 TableBasedHeatConsumer
 IdealHeatingNetworkConsumer
 FirstOrderHeatingNetworkConsumer
-ThermalHeatConsumer
 ThermalHeatConsumer_L3
 DomesticHotWater
 Consumer
@@ -16,4 +15,3 @@ HeatCharacteristic
 Consumer_LowTemperatureDHN
 HeatCharacteristicDoublePort
 HeatConsumerSubstation
-

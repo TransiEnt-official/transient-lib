@@ -37,7 +37,7 @@ model Substation_indirect_noStorage_L1 "Simple model of a substation with indire
 
  import      Modelica.Units.SI;
  outer TransiEnt.SimCenter simCenter;
- outer TransiEnt.ModelStatistics modelStatistics;
+// outer TransiEnt.ModelStatistics modelStatistics;
 
  // _____________________________________________
  //

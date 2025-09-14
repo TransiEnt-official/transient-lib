@@ -20,7 +20,7 @@ model TableBasedHeatConsumer "Table based heat consumer without mass flow influe
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -41,15 +41,15 @@ model TableBasedHeatConsumer "Table based heat consumer without mass flow influe
   //                 Outer Models
   // _____________________________________________
 
-  outer TransiEnt.SimCenter simCenter;
-  outer TransiEnt.ModelStatistics modelStatistics;
+  //outer TransiEnt.SimCenter simCenter;
+  //outer TransiEnt.ModelStatistics modelStatistics;
 
   // _____________________________________________
   //
   //              Visible Parameters
   // _____________________________________________
 
-  parameter SI.Pressure p_drop=simCenter.p_nom[2] - simCenter.p_nom[1];
+  parameter SI.Pressure p_drop=10;
   parameter Boolean change_of_sign=false "Change sign of output signal relative to table data" annotation (choices(__Dymola_checkBox=true));
   parameter Real constantfactor=1.0 "Multiply output with constant factor";
   parameter Boolean integrateHeatFlow=false "True if heat flow shall be integrated";
@@ -81,15 +81,6 @@ model TableBasedHeatConsumer "Table based heat consumer without mass flow influe
 
 equation
 
-    connect(heatBoundary.fluidPortIn, fluidPortIn) annotation (Line(
-      points={{-8,6},{-36.9,6},{-36.9,20},{-98,20}},
-      color={175,0,0},
-      smooth=Smooth.None));
-  connect(heatBoundary.fluidPortOut, fluidPortOut) annotation (Line(
-      points={{-8,-6},{-35.9,-6},{-35.9,-20},{-98,-20}},
-      color={175,0,0},
-      smooth=Smooth.None));
-
    Q_flow_dem=-1*consumerDataTable.y1;
 
   if integrateHeatFlow then
@@ -107,9 +98,11 @@ equation
       points={{45,2},{28,2},{28,6},{10,6}},
       color={0,0,127},
       smooth=Smooth.None));
+  connect(heatBoundary.fluidPortIn, fluidPortIn) annotation (Line(points={{-8,6},{-82,6},{-82,20},{-98,20}}, color={0,0,0}));
+  connect(heatBoundary.fluidPortOut, fluidPortOut) annotation (Line(points={{-8,-6},{-8,-4},{-84,-4},{-84,-20},{-98,-20}}, color={0,0,0}));
   annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-            -100},{100,100}}),
-        graphics), Documentation(info="<html>
+            -100},{100,100}})),
+                   Documentation(info="<html>
 <p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">1. Purpose of model</span></b></p>
 <p>This model is a table based heat consumer without mass flow influence. The model calculates the heat flow demand according to the data table.</p>
 <p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">2. Level of detail, physical effects considered, and physical insight</span></b></p>

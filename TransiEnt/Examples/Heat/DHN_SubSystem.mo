@@ -19,7 +19,7 @@ model DHN_SubSystem "A subsystem derived from DHN_StandAlone"
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -44,7 +44,6 @@ model DHN_SubSystem "A subsystem derived from DHN_StandAlone"
   // _____________________________________________
 
   outer TransiEnt.SimCenter simCenter;
-  outer TransiEnt.ModelStatistics modelStatistics;
 
   // _____________________________________________
   //
@@ -65,7 +64,7 @@ model DHN_SubSystem "A subsystem derived from DHN_StandAlone"
 
 
   // Consumer
-  TransiEnt.Components.Boundaries.Heat.Heatflow_L1 consumer1(use_Q_flow_in=true, Medium=medium) annotation (Placement(transformation(
+  TransiEnt.Components.Boundaries.Heat.Heatflow_L1 consumer1(use_Q_flow_in=true)                annotation (Placement(transformation(
         extent={{20,-20},{-20,20}},
         rotation=0,
         origin={-64,30})));
@@ -279,6 +278,8 @@ model DHN_SubSystem "A subsystem derived from DHN_StandAlone"
         origin={-180,-58})));
 
 
+  TransiEnt.Basics.Adapters.FluidPortAdapter fluidPortAdapter annotation (Placement(transformation(extent={{-38,5},{-28,15}})));
+  TransiEnt.Basics.Adapters.FluidPortAdapter fluidPortAdapter1 annotation (Placement(transformation(extent={{-92,5},{-102,15}})));
 equation
   // _____________________________________________
   //
@@ -312,11 +313,6 @@ equation
       color={0,131,169},
       pattern=LinePattern.Solid,
       thickness=0.5));
-  connect(pipe1.outlet, consumer1.fluidPortIn) annotation (Line(
-      points={{-12,-20},{-12,-20},{-12,10},{-52,10}},
-      color={0,131,169},
-      pattern=LinePattern.Solid,
-      thickness=0.5));
   connect(pump.inlet, balanceTank1.outlet) annotation (Line(
       points={{-146,-154},{-150.4,-154},{-150.4,-153.8}},
       color={0,131,169},
@@ -330,10 +326,6 @@ equation
       points={{-236,0},{-236,-20}},
       color={0,131,169},
       pattern=LinePattern.Solid,
-      thickness=0.5));
-  connect(join_hot.inlet2, consumer1.fluidPortOut) annotation (Line(
-      points={{-226,10},{-76,10},{-76,10}},
-      color={0,131,169},
       thickness=0.5));
   connect(join_hot.inlet1, pipe4.outlet) annotation (Line(
       points={{-236,20},{-236,67},{3,67}},
@@ -384,6 +376,16 @@ equation
       points={{-81,54},{-52,54},{-52,46}},
       color={175,0,0},
       pattern=LinePattern.Dash));
+  connect(fluidPortAdapter.fluidPortIn, consumer1.fluidPortIn) annotation (Line(points={{-38,10},{-52,10}}, color={0,0,0}));
+  connect(fluidPortAdapter.fluidPortOut, pipe1.outlet) annotation (Line(
+      points={{-28,10},{-12,10},{-12,-20}},
+      color={175,0,0},
+      thickness=0.5));
+  connect(fluidPortAdapter1.fluidPortIn, consumer1.fluidPortOut) annotation (Line(points={{-92,10},{-76,10}}, color={0,0,0}));
+  connect(fluidPortAdapter1.fluidPortOut, statePoint_phTs.port) annotation (Line(
+      points={{-102,10},{-172,10}},
+      color={175,0,0},
+      thickness=0.5));
   annotation (
     Icon(coordinateSystem(
         preserveAspectRatio=false,
@@ -409,7 +411,7 @@ equation
         preserveAspectRatio=false,
         extent={{-300,-220},{200,160}},
         initialScale=1), graphics={Rectangle(
-          extent={{-300,160},{200,-220}},
+          extent={{-300,172},{200,-208}},
           lineColor={135,135,135},
           radius=5,
           fillColor={255,255,255},

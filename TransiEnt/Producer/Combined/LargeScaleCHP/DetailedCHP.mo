@@ -426,6 +426,8 @@ model DetailedCHP "Example of how a detailed thermodynamic cycle model of a stea
         origin={-204,144})));
   Modelica.Blocks.Sources.RealExpression Q_flow_boiler5(y=-1)
     annotation (Placement(transformation(extent={{-400,-76},{-380,-56}})));
+  Basics.Adapters.FluidPortAdapter fluidPortAdapter annotation (Placement(transformation(extent={{76,-2},{62,12}})));
+  Basics.Adapters.FluidPortAdapter fluidPortAdapter1 annotation (Placement(transformation(extent={{76,-30},{62,-16}})));
 equation
 
   // _____________________________________________
@@ -566,17 +568,8 @@ equation
       points={{-202,-98},{-180,-98},{-156,-98}},
       color={0,131,169},
       thickness=0.5));
-  connect(pumpVLE_L1_simple.inlet, inlet) annotation (Line(
-      points={{-136,-98},{-130,-98},{-130,-90},{-130,-24},{100,-24}},
-      color={0,131,169},
-      thickness=0.5));
   connect(sensorVLE_L1_p.p, PID_pump_DH.u_m) annotation (Line(points={{-151,-28},{-144,-28},{-144,-38},{-152,-38},{-152,-44}}, color={0,0,127}));
   connect(PID_pump_DH.u_s, Q_flow_boiler4.y) annotation (Line(points={{-164,-56},{-166,-56},{-169,-56}}, color={0,0,127}));
-  connect(A5.Out2, T_out_sensor.port) annotation (Line(
-      points={{-204,-28},{-174,-28},{-174,4},{78,4},{78,4}},
-      color={0,131,169},
-      pattern=LinePattern.Solid,
-      thickness=0.5));
   connect(A4.Out2, A5.In2) annotation (Line(
       points={{-202,-88},{-198,-88},{-196,-88},{-196,-38},{-204,-38}},
       color={0,131,169},
@@ -620,6 +613,18 @@ equation
   connect(Exciter.epp1, epp) annotation (Line(
       points={{54.5,60},{100,60}},
       color={0,135,135},
+      thickness=0.5));
+  connect(fluidPortAdapter.fluidPortIn, outlet) annotation (Line(points={{76,5},{89,5},{89,4},{100,4}}, color={0,0,0}));
+  connect(A5.Out2, fluidPortAdapter.fluidPortOut) annotation (Line(
+      points={{-204,-28},{-176,-28},{-176,-20},{-132,-20},{-132,5},{62,5}},
+      color={0,131,169},
+      pattern=LinePattern.Solid,
+      thickness=0.5));
+  connect(fluidPortAdapter1.fluidPortIn, inlet) annotation (Line(points={{76,-23},{88,-23},{88,-24},{100,-24}}, color={0,0,0}));
+  connect(pumpVLE_L1_simple.inlet, fluidPortAdapter1.fluidPortOut) annotation (Line(
+      points={{-136,-98},{-130,-98},{-130,-100},{-108,-100},{-108,-23},{62,-23}},
+      color={0,131,169},
+      pattern=LinePattern.Solid,
       thickness=0.5));
   annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-500,-220},{260,240}}),
                       graphics={

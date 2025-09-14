@@ -19,7 +19,7 @@ model HotWaterStorage_constProp_L4 "Temperature and heat flow rate based model o
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -41,16 +41,14 @@ model HotWaterStorage_constProp_L4 "Temperature and heat flow rate based model o
   //                Outer models
   // _____________________________________________
 
-  outer TransiEnt.SimCenter simCenter;
-  outer TransiEnt.ModelStatistics modelStatistics;
+
 
   // _____________________________________________
   //
   //                   Parameters
   // _____________________________________________
 
-  parameter TILMedia.VLEFluidTypes.BaseVLEFluid medium=simCenter.fluid1 "Medium to be used"
-                         annotation(choicesAllMatching, Dialog(group="Fluid Definition", enable=useFluidPorts));
+
 
   parameter Integer N_cv=5 "Number of finite control volumes";
 
@@ -165,17 +163,9 @@ model HotWaterStorage_constProp_L4 "Temperature and heat flow rate based model o
         rotation=90,
         origin={0,56})));
 
-  TransiEnt.Components.Statistics.Collectors.LocalCollectors.StorageCost collectStorageCosts(
-    isThermalStorage=true,
-    Delta_E_n=m*c_v*(T_max_ref - T_min_ref),
-    redeclare model StorageCostModel = CostStatisticsModel,
-    produces_P_el=false,
-    consumes_P_el=false)     annotation (Placement(transformation(extent={{40,-100},{60,-80}})));
-
   TransiEnt.Producer.Heat.Power2Heat.ElectricBoiler.ElectricBoiler electricHeater[n_elHeater](
     each useFluidPorts=false,
     each usePowerPort=usePowerPort,
-    each medium=medium,
     Q_flow_n=Q_flow_n_elHeater,
     each eta=eta_elHeater,
     useHeatPort=true,
@@ -231,13 +221,13 @@ model HotWaterStorage_constProp_L4 "Temperature and heat flow rate based model o
 
   // ==== Primary Heat Source conncetors
 
-  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn waterPortIn_prod[n_prodIn](each final Medium=medium) if useFluidPorts annotation (Placement(transformation(extent={{-110,50},{-90,70}}), iconTransformation(extent={{-110,30},{-90,50}})));
-  TransiEnt.Basics.Interfaces.Thermal.FluidPortOut waterPortOut_prod[n_prodOut](each final Medium=medium) if useFluidPorts annotation (Placement(transformation(extent={{-110,-70},{-90,-50}}), iconTransformation(extent={{-110,-50},{-90,-30}})));
+ TransiEnt.Basics.Interfaces.Thermal.FluidPortIn_simple waterPortIn_prod[n_prodIn] if useFluidPorts annotation (Placement(transformation(extent={{-110,50},{-90,70}}), iconTransformation(extent={{-110,30},{-90,50}})));
+ TransiEnt.Basics.Interfaces.Thermal.FluidPortOut_simple waterPortOut_prod[n_prodOut] if useFluidPorts annotation (Placement(transformation(extent={{-110,-70},{-90,-50}}), iconTransformation(extent={{-110,-50},{-90,-30}})));
 
   // Consumer Side connectors
 
-  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn waterPortIn_grid[n_gridIn](each final Medium=medium) if useFluidPorts annotation (Placement(transformation(extent={{92,-54},{112,-34}}), iconTransformation(extent={{90,-50},{110,-30}})));
-  TransiEnt.Basics.Interfaces.Thermal.FluidPortOut waterPortOut_grid[n_gridOut](each final Medium=medium) if useFluidPorts annotation (Placement(transformation(extent={{90,50},{110,70}}), iconTransformation(extent={{90,30},{110,50}})));
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn_simple waterPortIn_grid[n_gridIn] if useFluidPorts annotation (Placement(transformation(extent={{92,-54},{112,-34}}), iconTransformation(extent={{90,-50},{110,-30}})));
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortOut_simple waterPortOut_grid[n_gridOut] if useFluidPorts annotation (Placement(transformation(extent={{90,50},{110,70}}), iconTransformation(extent={{90,30},{110,50}})));
 
   Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPortAmbient "Heat port connecting control volumes with ambient temperature to model energy losses (connect ambient temperature)"
                                                                                                     annotation (Placement(transformation(extent={{-12,88},{12,112}}), iconTransformation(extent={{-10,75},{10,95}})));
@@ -377,8 +367,8 @@ equation
   connect(realExpression2.y, Q_flow_unload_total) annotation (Line(points={{89,-72},{110,-72}}, color={0,0,127}));
   connect(realExpression4.y, Q_flow_load_total) annotation (Line(points={{89,-94},{112,-94}},                       color={0,0,127}));
 
-  // ======== Statistics =====
-  connect(modelStatistics.costsCollector, collectStorageCosts.costsCollector);
+
+
 
      annotation (Documentation(info="<html>
 <p><b><span style=\"color: #008000;\">Purpose of model</span></b> </p>
