@@ -1,10 +1,10 @@
-﻿within TransiEnt.Consumer.Systems.FridgePoolControl.Pool;
+within TransiEnt.Consumer.Systems.FridgePoolControl.Pool;
 model ExplicitFridgePool
 
 
 
 //________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 2.0.3                             //
+// Component of the TransiEnt Library, version: 3.0.0                             //
 //                                                                                //
 // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
 // Copyright 2021, Hamburg University of Technology.                              //
@@ -27,7 +27,6 @@ model ExplicitFridgePool
 
 
 
-
   // Parameters:
 
   parameter TransiEnt.Basics.Types.Poolsize N=TransiEnt.Basics.Types.N20;
@@ -36,7 +35,7 @@ model ExplicitFridgePool
   parameter Boolean isExternalControl = false;
   parameter SI.Period samplePeriodPoolControl=3600 "Communication intervall between pool controller and heatpumpsystem unit";
 
-  final parameter Real[N,nPar] A=Modelica_LinearSystems2.Internal.Streams.readMatrixInternal(
+  final parameter Real[N,nPar] A=Modelica.Utilities.Streams.readRealMatrix(
       Components.Base.getFileName(N),
       "A",
       N,

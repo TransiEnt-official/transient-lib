@@ -1,94 +1,129 @@
 ﻿within TransiEnt.Producer.Heat.Gas2Heat.SimpleGasBoiler.Check;
 model TestGasBoiler_L1
-  //________________________________________________________________________________//
-  // Component of the TransiEnt Library, version: 2.0.3                             //
-  //                                                                                //
-  // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
-  // Copyright 2021, Hamburg University of Technology.                              //
-  //________________________________________________________________________________//
-  //                                                                                //
-  // TransiEnt.EE, ResiliEntEE, IntegraNet and IntegraNet II are research projects  //
-  // supported by the German Federal Ministry of Economics and Energy               //
-  // (FKZ 03ET4003, 03ET4048, 0324027 and 03EI1008).                                //
-  // The TransiEnt Library research team consists of the following project partners://
-  // Institute of Engineering Thermodynamics (Hamburg University of Technology),    //
-  // Institute of Energy Systems (Hamburg University of Technology),                //
-  // Institute of Electrical Power and Energy Technology                            //
-  // (Hamburg University of Technology)                                             //
-  // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-  // Gas- und WÃ¤rme-Institut Essen						  //
-  // and                                                                            //
-  // XRG Simulation GmbH (Hamburg, Germany).                                        //
-  //________________________________________________________________________________//
+
+
+
+//________________________________________________________________________________//
+// Component of the TransiEnt Library, version: 3.0.0                             //
+//                                                                                //
+// Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
+// Copyright 2021, Hamburg University of Technology.                              //
+//________________________________________________________________________________//
+//                                                                                //
+// TransiEnt.EE, ResiliEntEE, IntegraNet and IntegraNet II are research projects  //
+// supported by the German Federal Ministry of Economics and Energy               //
+// (FKZ 03ET4003, 03ET4048, 0324027 and 03EI1008).                                //
+// The TransiEnt Library research team consists of the following project partners://
+// Institute of Engineering Thermodynamics (Hamburg University of Technology),    //
+// Institute of Energy Systems (Hamburg University of Technology),                //
+// Institute of Electrical Power and Energy Technology                            //
+// (Hamburg University of Technology)                                             //
+// Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
+// Gas- und WÃ¤rme-Institut Essen						  //
+// and                                                                            //
+// XRG Simulation GmbH (Hamburg, Germany).                                        //
+//________________________________________________________________________________//
+
+
+
   extends Basics.Icons.Checkmodel;
   inner SimCenter simCenter annotation (Placement(transformation(extent={{-90,80},{-70,100}})));
-  SimpleBoiler gasBoiler(useGasPort=true) annotation (Placement(transformation(extent={{-42,-10},{-22,10}})));
+  ClaRa.Components.BoundaryConditions.BoundaryVLE_pTxi sink(
+    medium=simCenter.fluid1,
+    p_const=17e5,
+    T_const=130 + 273.15) annotation (Placement(transformation(
+        extent={{-10,-10},{10,10}},
+        rotation=180,
+        origin={-22,1})));
+  ClaRa.Components.BoundaryConditions.BoundaryVLE_Txim_flow source(
+    variable_m_flow=false,
+    m_flow_const=100,
+    T_const=60 + 273) annotation (Placement(transformation(
+        extent={{-10,-10},{10,10}},
+        rotation=0,
+        origin={-90,0})));
+  SimpleBoiler gasBoiler(useGasPort=true) annotation (Placement(transformation(extent={{-66,-10},{-46,10}})));
   Modelica.Blocks.Sources.Ramp ramp(
     startTime=3600,
     duration=900,
     height=-40e6,
-    offset=-50e6) annotation (Placement(transformation(extent={{-68,34},{-48,54}})));
-  Components.Boundaries.Gas.BoundaryRealGas_pTxi gasSource annotation (Placement(transformation(extent={{-52,-60},{-32,-40}})));
-  SimpleBoiler gasBoiler1(useGasPort=false) annotation (Placement(transformation(extent={{66,-10},{86,10}})));
-  TwoFuelBoiler twoFuelBoiler annotation (Placement(transformation(extent={{124,-72},{144,-52}})));
+    offset=-50e6) annotation (Placement(transformation(extent={{-92,34},{-72,54}})));
+  Components.Boundaries.Gas.BoundaryRealGas_pTxi gasSource annotation (Placement(transformation(extent={{-76,-60},{-56,-40}})));
+  inner ModelStatistics modelStatistics annotation (Placement(transformation(extent={{-70,80},{-50,100}})));
+  ClaRa.Components.BoundaryConditions.BoundaryVLE_pTxi sink1(
+    medium=simCenter.fluid1,
+    p_const=17e5,
+    T_const=130 + 273.15) annotation (Placement(transformation(
+        extent={{-10,-10},{10,10}},
+        rotation=180,
+        origin={86,1})));
+  ClaRa.Components.BoundaryConditions.BoundaryVLE_Txim_flow source1(
+    variable_m_flow=false,
+    m_flow_const=100,
+    T_const=60 + 273) annotation (Placement(transformation(
+        extent={{-10,-10},{10,10}},
+        rotation=0,
+        origin={18,0})));
+  SimpleBoiler gasBoiler1(useGasPort=false) annotation (Placement(transformation(extent={{42,-10},{62,10}})));
+  ClaRa.Components.BoundaryConditions.BoundaryVLE_pTxi sink2(
+    medium=simCenter.fluid1,
+    p_const=17e5,
+    T_const=130 + 273.15) annotation (Placement(transformation(
+        extent={{-10,-10},{10,10}},
+        rotation=180,
+        origin={144,-61})));
+  ClaRa.Components.BoundaryConditions.BoundaryVLE_Txim_flow source2(
+    variable_m_flow=false,
+    m_flow_const=100,
+    T_const=60 + 273) annotation (Placement(transformation(
+        extent={{-10,-10},{10,10}},
+        rotation=0,
+        origin={76,-62})));
+  TwoFuelBoiler twoFuelBoiler annotation (Placement(transformation(extent={{100,-72},{120,-52}})));
   SimpleBoiler gasBoiler2(
     useFluidPorts=false,
     useHeatPort=false,
     useGasPort=false,
-    change_sign=false) annotation (Placement(transformation(extent={{14,-70},{34,-50}})));
-  Modelica.Blocks.Sources.RealExpression realExpression1(y=100) annotation (Placement(transformation(extent={{-100,-7},{-80,13}})));
-  Modelica.Blocks.Sources.RealExpression realExpression2(y=60*4186) annotation (Placement(transformation(extent={{-98,-24},{-80,-6}})));
-  Components.Boundaries.FluidFlow.FluidSource           fluidSource annotation (Placement(transformation(extent={{-72,-10},{-52,10}})));
-  Components.Boundaries.FluidFlow.FluidSink           fluidSink(h=130*4200)
-                                                                annotation (Placement(transformation(extent={{2,-10},{-18,10}})));
-  Modelica.Blocks.Sources.RealExpression realExpression(y=17e5) annotation (Placement(transformation(extent={{18,-6},{8,6}})));
-  Modelica.Blocks.Sources.RealExpression realExpression3(y=100) annotation (Placement(transformation(extent={{20,2},{30,13}})));
-  Modelica.Blocks.Sources.RealExpression realExpression4(y=60*4186) annotation (Placement(transformation(extent={{20,-14},{30,-4}})));
-  Components.Boundaries.FluidFlow.FluidSource           fluidSource1
-                                                                    annotation (Placement(transformation(extent={{36,-10},{56,10}})));
-  Modelica.Blocks.Sources.RealExpression realExpression5(y=17e5)
-                                                                annotation (Placement(transformation(extent={{130,-6},{120,6}})));
-  Components.Boundaries.FluidFlow.FluidSink           fluidSink1(h=130*4200)
-                                                                annotation (Placement(transformation(extent={{114,-10},{94,10}})));
-  Modelica.Blocks.Sources.RealExpression realExpression6(y=100) annotation (Placement(transformation(extent={{76,-60},{86,-49}})));
-  Modelica.Blocks.Sources.RealExpression realExpression7(y=60*4186) annotation (Placement(transformation(extent={{76,-76},{86,-66}})));
-  Components.Boundaries.FluidFlow.FluidSource           fluidSource2
-                                                                    annotation (Placement(transformation(extent={{92,-72},{112,-52}})));
-  Components.Boundaries.FluidFlow.FluidSink           fluidSink2(h=130*4200)
-                                                                annotation (Placement(transformation(extent={{170,-72},{150,-52}})));
-  Modelica.Blocks.Sources.RealExpression realExpression8(y=17e5)
-                                                                annotation (Placement(transformation(extent={{182,-68},{172,-56}})));
+    change_sign=false) annotation (Placement(transformation(extent={{-10,-70},{10,-50}})));
 equation
   connect(ramp.y, gasBoiler.Q_flow_set) annotation (Line(
-      points={{-47,44},{-32,44},{-32,10}},
+      points={{-71,44},{-56,44},{-56,10}},
       color={0,0,127},
       smooth=Smooth.None));
   connect(gasSource.gasPort, gasBoiler.gasIn) annotation (Line(
-      points={{-32,-50},{-32,-10},{-31.8,-10}},
+      points={{-56,-50},{-56,-10},{-55.8,-10}},
       color={255,255,0},
       thickness=0.75));
-  connect(ramp.y, gasBoiler1.Q_flow_set) annotation (Line(points={{-47,44},{76,44},{76,10}}, color={0,0,127}));
-  connect(ramp.y, twoFuelBoiler.Q_flow_set_B1) annotation (Line(points={{-47,44},{128.2,44},{128.2,-52.2}}, color={0,0,127}));
-  connect(ramp.y, twoFuelBoiler.Q_flow_set_B2) annotation (Line(points={{-47,44},{140,44},{140,-52.2}}, color={0,0,127}));
-  connect(ramp.y, gasBoiler2.Q_flow_set) annotation (Line(points={{-47,44},{24,44},{24,-50}},
-                                                                                            color={0,0,127}));
-  connect(realExpression1.y,fluidSource. m_flow_in) annotation (Line(points={{-79,3},{-70,3}},                     color={0,0,127}));
-  connect(realExpression.y,fluidSink. p_in) annotation (Line(points={{7.5,0},{0,0}},  color={0,0,127}));
-  connect(fluidSource.port_a, gasBoiler.inlet) annotation (Line(points={{-52,0},{-41.8,0}}, color={0,0,0}));
-  connect(realExpression2.y, fluidSource.h_in) annotation (Line(points={{-79.1,-15},{-74,-15},{-74,-2},{-70,-2}}, color={0,0,127}));
-  connect(fluidSink.port_a, gasBoiler.outlet) annotation (Line(points={{-18,0},{-22,0}}, color={0,0,0}));
-  connect(realExpression3.y, fluidSource1.m_flow_in) annotation (Line(points={{30.5,7.5},{30.5,3},{38,3}}, color={0,0,127}));
-  connect(realExpression4.y, fluidSource1.h_in) annotation (Line(points={{30.5,-9},{34,-9},{34,-2},{38,-2}}, color={0,0,127}));
-  connect(fluidSource1.port_a, gasBoiler1.inlet) annotation (Line(points={{56,0},{66.2,0}}, color={0,0,0}));
-  connect(realExpression5.y, fluidSink1.p_in) annotation (Line(points={{119.5,0},{112,0}}, color={0,0,127}));
-  connect(fluidSink1.port_a, gasBoiler1.outlet) annotation (Line(points={{94,0},{86,0}}, color={0,0,0}));
-  connect(realExpression6.y, fluidSource2.m_flow_in) annotation (Line(points={{86.5,-54.5},{86,-54.5},{86,-54},{90,-54},{90,-59},{94,-59}}, color={0,0,127}));
-  connect(realExpression7.y, fluidSource2.h_in) annotation (Line(points={{86.5,-71},{90,-71},{90,-64},{94,-64}}, color={0,0,127}));
-  connect(fluidSource2.port_a, twoFuelBoiler.inlet) annotation (Line(points={{112,-62},{124.2,-62}}, color={0,0,0}));
-  connect(realExpression8.y, fluidSink2.p_in) annotation (Line(points={{171.5,-62},{168,-62}}, color={0,0,127}));
-  connect(fluidSink2.port_a, twoFuelBoiler.outlet) annotation (Line(points={{150,-62},{144,-62}}, color={0,0,0}));
+  connect(gasBoiler.outlet, sink.steam_a) annotation (Line(
+      points={{-46,0},{-32,0},{-32,1}},
+      color={175,0,0},
+      thickness=0.5));
+  connect(gasBoiler.inlet, source.steam_a) annotation (Line(
+      points={{-65.8,0},{-80,0}},
+      color={175,0,0},
+      thickness=0.5));
+  connect(gasBoiler1.outlet, sink1.steam_a) annotation (Line(
+      points={{62,0},{76,0},{76,1}},
+      color={175,0,0},
+      thickness=0.5));
+  connect(gasBoiler1.inlet, source1.steam_a) annotation (Line(
+      points={{42.2,0},{28,0}},
+      color={175,0,0},
+      thickness=0.5));
+  connect(ramp.y, gasBoiler1.Q_flow_set) annotation (Line(points={{-71,44},{52,44},{52,10}}, color={0,0,127}));
+  connect(twoFuelBoiler.outlet, sink2.steam_a) annotation (Line(
+      points={{120,-62},{134,-62},{134,-61}},
+      color={175,0,0},
+      thickness=0.5));
+  connect(twoFuelBoiler.inlet, source2.steam_a) annotation (Line(
+      points={{100.2,-62},{86,-62}},
+      color={175,0,0},
+      thickness=0.5));
+  connect(ramp.y, twoFuelBoiler.Q_flow_set_B1) annotation (Line(points={{-71,44},{104.2,44},{104.2,-52.2}}, color={0,0,127}));
+  connect(ramp.y, twoFuelBoiler.Q_flow_set_B2) annotation (Line(points={{-71,44},{116,44},{116,-52.2}}, color={0,0,127}));
+  connect(ramp.y, gasBoiler2.Q_flow_set) annotation (Line(points={{-71,44},{0,44},{0,-50}}, color={0,0,127}));
   annotation (
-    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{180,100}})),
+    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{160,100}})),
     Documentation(info="<html>
 <h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
 <p>Test environment for GasBoiler_L1</p>
@@ -111,5 +146,5 @@ equation
 <h4><span style=\"color: #008000\">10. Version History</span></h4>
 </html>"),
     experiment(StopTime=7200),
-    Icon(coordinateSystem(extent={{-100,-100},{180,100}})));
+    Icon(coordinateSystem(extent={{-100,-100},{160,100}})));
 end TestGasBoiler_L1;

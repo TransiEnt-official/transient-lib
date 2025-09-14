@@ -4,7 +4,7 @@ model TestGridConstructor_noGasGrid
 
 
 //________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 2.0.3                             //
+// Component of the TransiEnt Library, version: 3.0.0                             //
 //                                                                                //
 // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
 // Copyright 2021, Hamburg University of Technology.                              //
@@ -23,7 +23,6 @@ model TestGridConstructor_noGasGrid
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
-
 
 
 
@@ -79,7 +78,7 @@ model TestGridConstructor_noGasGrid
     SolarHeatingParameters_1={TransiEnt.SystemGeneration.GridConstructor.DataRecords.SolarHeatingParameters(),TransiEnt.SystemGeneration.GridConstructor.DataRecords.SolarHeatingParameters(),TransiEnt.SystemGeneration.GridConstructor.DataRecords.SolarHeatingParameters(),TransiEnt.SystemGeneration.GridConstructor.DataRecords.SolarHeatingParameters(),TransiEnt.SystemGeneration.GridConstructor.DataRecords.SolarHeatingParameters(SpaceHeating=false, area=4),TransiEnt.SystemGeneration.GridConstructor.DataRecords.SolarHeatingParameters(),TransiEnt.SystemGeneration.GridConstructor.DataRecords.SolarHeatingParameters(),TransiEnt.SystemGeneration.GridConstructor.DataRecords.SolarHeatingParameters(),TransiEnt.SystemGeneration.GridConstructor.DataRecords.SolarHeatingParameters(),TransiEnt.SystemGeneration.GridConstructor.DataRecords.SolarHeatingParameters(),TransiEnt.SystemGeneration.GridConstructor.DataRecords.SolarHeatingParameters(),
         TransiEnt.SystemGeneration.GridConstructor.DataRecords.SolarHeatingParameters(),TransiEnt.SystemGeneration.GridConstructor.DataRecords.SolarHeatingParameters(),TransiEnt.SystemGeneration.GridConstructor.DataRecords.SolarHeatingParameters(),TransiEnt.SystemGeneration.GridConstructor.DataRecords.SolarHeatingParameters(),TransiEnt.SystemGeneration.GridConstructor.DataRecords.SolarHeatingParameters(),TransiEnt.SystemGeneration.GridConstructor.DataRecords.SolarHeatingParameters(),TransiEnt.SystemGeneration.GridConstructor.DataRecords.SolarHeatingParameters(),TransiEnt.SystemGeneration.GridConstructor.DataRecords.SolarHeatingParameters(),TransiEnt.SystemGeneration.GridConstructor.DataRecords.SolarHeatingParameters(),TransiEnt.SystemGeneration.GridConstructor.DataRecords.SolarHeatingParameters(),TransiEnt.SystemGeneration.GridConstructor.DataRecords.SolarHeatingParameters(),TransiEnt.SystemGeneration.GridConstructor.DataRecords.SolarHeatingParameters(),
         TransiEnt.SystemGeneration.GridConstructor.DataRecords.SolarHeatingParameters(),TransiEnt.SystemGeneration.GridConstructor.DataRecords.SolarHeatingParameters(),TransiEnt.SystemGeneration.GridConstructor.DataRecords.SolarHeatingParameters(),TransiEnt.SystemGeneration.GridConstructor.DataRecords.SolarHeatingParameters(),TransiEnt.SystemGeneration.GridConstructor.DataRecords.SolarHeatingParameters(),TransiEnt.SystemGeneration.GridConstructor.DataRecords.SolarHeatingParameters(),TransiEnt.SystemGeneration.GridConstructor.DataRecords.SolarHeatingParameters()},
-    second_Consumer={true,false,false,false,true,false,false,false},
+    second_Consumer={true,false,false,false,true},
     redeclare model Systems_Consumer_1 = TransiEnt.SystemGeneration.GridConstructor.IndependentTechnologies,
     redeclare model Systems_Consumer_2 = TransiEnt.SystemGeneration.GridConstructor.IndependentTechnologies) annotation (Placement(transformation(extent={{-30,16},{14,52}})));
 public

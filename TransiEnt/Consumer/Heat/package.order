@@ -6,8 +6,10 @@ ConstantHeatConsumer
 TableBasedHeatConsumer
 IdealHeatingNetworkConsumer
 FirstOrderHeatingNetworkConsumer
+ThermalHeatConsumer
 ThermalHeatConsumer_L3
 DomesticHotWater
+TappingCycles
 Consumer
 Consumer_SLP
 ConsumerHeatCharacteristic

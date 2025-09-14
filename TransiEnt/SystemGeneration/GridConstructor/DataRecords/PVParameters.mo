@@ -4,7 +4,7 @@ record PVParameters
 
 
 //________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 2.0.3                             //
+// Component of the TransiEnt Library, version: 3.0.0                             //
 //                                                                                //
 // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
 // Copyright 2021, Hamburg University of Technology.                              //
@@ -27,15 +27,14 @@ record PVParameters
 
 
 
-
  // _____________________________________________
  //
  //            Parameter
  // _____________________________________________
    parameter Modelica.Units.SI.Power P_inst=5000 "Combined installed power";
-   parameter Real Tilt=0 "Inclination of surface of PV modules";
+   parameter Modelica.Units.NonSI.Angle_deg Tilt=0 "Inclination of surface of PV modules";
    parameter String PVModuleCharacteristics="Sanyo_HIT_200_BA3" "Characteristics of PV Module" annotation(choices(choice="Sanyo_HIT_200_BA3"));
-   parameter Real Azimuth=0 "Gyration of PV surface; Orientation: +90=West, -90=East, 0=South";
+   parameter Modelica.Units.NonSI.Angle_deg Azimuth=0 "Gyration of PV surface; Orientation: +90=West, -90=East, 0=South";
    parameter SI.Energy E_max_battery=0 "Maximum capacity of the battery";
    parameter SI.Energy E_min_battery=0 "Maximum capacity of the battery";
    parameter SI.Power P_battery=2000 "Charging/discharging power of the battery";

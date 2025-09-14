@@ -1,7 +1,13 @@
 Superstructure
-ControlBus
 Controller
 GasGrid
 HeatingGridSystems
 LocalHeatSupply
 Records
+ControlBus
+OutputBus
+InputBus
+MasterBusControl
+MasterBus
+RegionalController
+BusVariableDeclaration

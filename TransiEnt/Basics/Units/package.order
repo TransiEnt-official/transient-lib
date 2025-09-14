@@ -9,6 +9,8 @@ SpecificCapacitance
 SpecificInductance
 SpecificReactance
 SpecificResistance
+SpecificConductance
 Time_year
 PowerRate
 Frequency2
+AirChangeRate

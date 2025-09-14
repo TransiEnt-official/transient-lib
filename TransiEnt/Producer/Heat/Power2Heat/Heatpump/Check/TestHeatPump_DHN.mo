@@ -2,7 +2,7 @@
 model TestHeatPump_DHN "Test model for the heat pump for the DHN simulations"
 
 //________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 2.0.3                             //
+// Component of the TransiEnt Library, version: 3.0.0                             //
 //                                                                                //
 // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
 // Copyright 2021, Hamburg University of Technology.                              //
@@ -17,11 +17,10 @@ model TestHeatPump_DHN "Test model for the heat pump for the DHN simulations"
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen                                                  //
+// Gas- und WÃ¤rme-Institut Essen						  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
-
   // _____________________________________________
   //
   //          Import and Class Hierachy
@@ -48,6 +47,9 @@ model TestHeatPump_DHN "Test model for the heat pump for the DHN simulations"
     usePowerPort=false,
     T_source(displayUnit="degC") = 293.15,
     T_set=333.15) annotation (Placement(transformation(extent={{-62,4},{-42,24}})));
+  TransiEnt.Components.Heat.Grid.IdealizedExpansionVessel idealizedExpansionVessel annotation (Placement(transformation(extent={{-40,38},{-20,58}})));
+  TransiEnt.Components.Heat.PumpVLE_L1_simple pumpVLE_L1_simple(presetVariableType="m_flow", m_flow_fixed=0.03682)
+                                                                                                                  annotation (Placement(transformation(extent={{-14,8},{6,28}})));
   Modelica.Blocks.Sources.RealExpression realExpression2(y=heatpump.inlet.m_flow*(4179*60 - inStream(heatpump.inlet.h_outflow)))
                                                              annotation (Placement(transformation(extent={{-92,-2},{-72,18}})));
   TransiEnt.Consumer.Heat.ConstantHeatConsumer constantHeatConsumer(Q_flow_const=5000) annotation (Placement(transformation(extent={{58,4},{38,24}})));
@@ -60,13 +62,6 @@ model TestHeatPump_DHN "Test model for the heat pump for the DHN simulations"
     useInput=true)                                       annotation (Placement(transformation(extent={{20,-144},{48,-124}})));
   Modelica.Blocks.Sources.RealExpression realExpression5(y=5000)
                                                              annotation (Placement(transformation(extent={{80,-144},{60,-124}})));
-  Components.Heat.SimplePump_mflow simplePump_mflow annotation (Placement(transformation(extent={{-18,10},{2,30}})));
-  Modelica.Blocks.Sources.RealExpression realExpression7(y=0.03682)
-                                                             annotation (Placement(transformation(extent={{-92,31},{-72,51}})));
-  Components.Boundaries.FluidFlow.FluidSink           sink1
-                                                           annotation (Placement(transformation(extent={{48,42},{28,62}})));
-  Modelica.Blocks.Sources.RealExpression realExpression8(y=0.1)
-                                                             annotation (Placement(transformation(extent={{16,64},{36,84}})));
 equation
 
   // _____________________________________________
@@ -79,6 +74,22 @@ equation
                                                                                                   color={0,0,127}));
   connect(realExpression1.y, heatpump1.dp) annotation (Line(points={{-63,-64},{-38,-64},{-38,-74},{-36,-74},{-36,-126}},
                                                                                                                    color={0,0,127}));
+  connect(pumpVLE_L1_simple.fluidPortIn, heatpump.outlet) annotation (Line(
+      points={{-14,18},{-27.9,18},{-27.9,17},{-41.8,17}},
+      color={175,0,0},
+      thickness=0.5));
+  connect(pumpVLE_L1_simple.fluidPortOut, constantHeatConsumer.fluidPortIn) annotation (Line(
+      points={{6,18},{32,18},{32,10},{38,10}},
+      color={175,0,0},
+      thickness=0.5));
+  connect(constantHeatConsumer.fluidPortOut, heatpump.inlet) annotation (Line(
+      points={{38,6},{38,0},{-36,0},{-36,10.2},{-42,10.2}},
+      color={175,0,0},
+      thickness=0.5));
+  connect(idealizedExpansionVessel.waterPort, constantHeatConsumer.fluidPortIn) annotation (Line(
+      points={{-30,38},{-6,38},{-6,36},{18,36},{18,18},{32,18},{32,10},{38,10}},
+      color={175,0,0},
+      thickness=0.5));
   connect(realExpression4.y, sink.p_in) annotation (Line(points={{-9,-60},{12,-60},{12,-82},{0,-82}},      color={0,0,127}));
   connect(heatpump1.outlet, consumer_HeatFlow.inlet) annotation (Line(points={{-26.2,-130},{20,-130}},color={0,0,0}));
   connect(consumer_HeatFlow.outlet, heatpump1.inlet) annotation (Line(points={{20,-138},{-18,-138},{-18,-142.2},{-26,-142.2}},
@@ -90,12 +101,6 @@ equation
       color={175,0,0},
       pattern=LinePattern.Dash));
   connect(realExpression5.y, consumer_HeatFlow.Q_flow_demand) annotation (Line(points={{59,-134},{48,-134}}, color={0,0,127}));
-  connect(heatpump.outlet, simplePump_mflow.inlet) annotation (Line(points={{-41.8,17},{-26,17},{-26,20},{-18.2,20}}, color={0,0,0}));
-  connect(simplePump_mflow.outlet, constantHeatConsumer.fluidPortIn) annotation (Line(points={{2.2,20},{38,20},{38,10}}, color={0,0,0}));
-  connect(heatpump.inlet, constantHeatConsumer.fluidPortOut) annotation (Line(points={{-42,10.2},{-26,10.2},{-26,6},{38,6}}, color={0,0,0}));
-  connect(realExpression7.y, simplePump_mflow.m_flow) annotation (Line(points={{-71,41},{-64,41},{-64,40},{-54,40},{-54,26},{-17.4,26}}, color={0,0,127}));
-  connect(realExpression8.y, sink1.p_in) annotation (Line(points={{37,74},{58,74},{58,52},{46,52}}, color={0,0,127}));
-  connect(sink1.port_a, constantHeatConsumer.fluidPortIn) annotation (Line(points={{28,52},{14,52},{14,20},{38,20},{38,10}}, color={0,0,0}));
   annotation (
     Icon(                                                                                                                                                                                  coordinateSystem(initialScale = 0.1, extent={{-160,-200},{140,100}})),
                                                                                                                                                                                                         experiment(StopTime=86400, __Dymola_Algorithm="Dassl"),

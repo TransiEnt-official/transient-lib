@@ -19,3 +19,4 @@ TestSwitchRamp
 TestTimers
 TestHysteresis_inputVariable
 TestSwitchAtTimeOfDay
+Check_OnOff

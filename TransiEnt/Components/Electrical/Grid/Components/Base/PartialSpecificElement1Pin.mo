@@ -5,7 +5,7 @@ partial model PartialSpecificElement1Pin "Partial modell for one pin Inductor, C
 
 
 //________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 2.0.3                             //
+// Component of the TransiEnt Library, version: 3.0.0                             //
 //                                                                                //
 // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
 // Copyright 2021, Hamburg University of Technology.                              //
@@ -24,7 +24,6 @@ partial model PartialSpecificElement1Pin "Partial modell for one pin Inductor, C
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
-
 
 
 
@@ -51,7 +50,7 @@ partial model PartialSpecificElement1Pin "Partial modell for one pin Inductor, C
   //                  Interfaces
   // _____________________________________________
 
-  TransiEnt.Basics.Interfaces.Electrical.ApparentPowerPort epp_p annotation (Placement(transformation(extent={{-10,90},{10,110}})));
+  TransiEnt.Basics.Interfaces.Electrical.ApparentPowerPort epp_p(P(start=0), Q(start=0)) annotation (Placement(transformation(extent={{-10,90},{10,110}})));
 
   // _____________________________________________
   //

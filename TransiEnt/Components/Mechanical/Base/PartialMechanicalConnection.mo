@@ -5,7 +5,7 @@ partial model PartialMechanicalConnection "Abstract mechanical connection model 
 
 
 //________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 2.0.3                             //
+// Component of the TransiEnt Library, version: 3.0.0                             //
 //                                                                                //
 // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
 // Copyright 2021, Hamburg University of Technology.                              //
@@ -24,7 +24,6 @@ partial model PartialMechanicalConnection "Abstract mechanical connection model 
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
-
 
 
 
@@ -50,8 +49,8 @@ partial model PartialMechanicalConnection "Abstract mechanical connection model 
   TransiEnt.Basics.Interfaces.General.MechanicalPowerPort mpp_a "Left flange of shaft" annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=0), iconTransformation(extent={{-110,-10},{-90,10}})));
   TransiEnt.Basics.Interfaces.General.MechanicalPowerPort mpp_b "Right flange of shaft" annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0), iconTransformation(extent={{90,-10},{110,10}})));
 
-  SI.AngularVelocity omega(stateSelect=stateSelect);
-  SI.Angle phi(stateSelect=stateSelect) "Absolute rotation angle of component"
+  SI.AngularVelocity omega(stateSelect=stateSelect, fixed=false);
+  SI.Angle phi(stateSelect=stateSelect, start=0, fixed=true) "Absolute rotation angle of component"
     annotation (Dialog(group="Initialization", showStartAttribute=true));
   SI.KineticEnergy E_kin;
 

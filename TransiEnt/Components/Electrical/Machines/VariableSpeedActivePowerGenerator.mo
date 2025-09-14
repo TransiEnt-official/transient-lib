@@ -5,7 +5,7 @@ model VariableSpeedActivePowerGenerator "ActicePowerPort: Static machine model w
 
 
 //________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 2.0.3                             //
+// Component of the TransiEnt Library, version: 3.0.0                             //
 //                                                                                //
 // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
 // Copyright 2021, Hamburg University of Technology.                              //
@@ -24,7 +24,6 @@ model VariableSpeedActivePowerGenerator "ActicePowerPort: Static machine model w
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
-
 
 
 
@@ -50,7 +49,7 @@ model VariableSpeedActivePowerGenerator "ActicePowerPort: Static machine model w
   //                   Interfaces
   // _____________________________________________
 
-  Modelica.Blocks.Interfaces.RealInput tau_set(final quantity= "Torque", final unit="Nm", displayUnit="Nm") "Generator Torque setpoint" annotation (Placement(transformation(
+  Modelica.Blocks.Interfaces.RealInput tau_set(final quantity= "Torque", final unit="N.m", displayUnit="N.m") "Generator Torque setpoint" annotation (Placement(transformation(
         extent={{-20,-20},{20,20}},
         rotation=270,
         origin={80,104}),
@@ -65,7 +64,8 @@ model VariableSpeedActivePowerGenerator "ActicePowerPort: Static machine model w
   // _____________________________________________
 
   Modelica.Mechanics.Rotational.Sources.Torque torque annotation (Placement(transformation(extent={{-16,-10},{-36,10}})));
-  replaceable TransiEnt.Components.Boundaries.Electrical.ActivePower.Power terminal(change_sign=true) constrainedby TransiEnt.Components.Boundaries.Electrical.Base.PartialModelPowerBoundary "Choice of power boundary model. The power boundary model must match the power port." annotation (
+  replaceable TransiEnt.Components.Boundaries.Electrical.ActivePower.Power terminal(change_sign=true) constrainedby
+    TransiEnt.Components.Boundaries.Electrical.Base.PartialModelPowerBoundary                                                                                                                 "Choice of power boundary model. The power boundary model must match the power port." annotation (
     Dialog(group="Replaceable Components"),
     choices(
       choice(redeclare TransiEnt.Components.Boundaries.Electrical.ActivePower.Power terminal(change_sign=true) "P-Boundary for ActivePowerPort"),

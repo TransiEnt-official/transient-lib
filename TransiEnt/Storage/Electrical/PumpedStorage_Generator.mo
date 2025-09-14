@@ -4,7 +4,7 @@ model PumpedStorage_Generator "Model of a pumped storage"
 
 
 //________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 2.0.3                             //
+// Component of the TransiEnt Library, version: 3.0.0                             //
 //                                                                                //
 // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
 // Copyright 2021, Hamburg University of Technology.                              //
@@ -27,7 +27,6 @@ model PumpedStorage_Generator "Model of a pumped storage"
 
 
 
-
   // _____________________________________________
   //
   //          Imports and Class Hierarchy
@@ -35,10 +34,13 @@ model PumpedStorage_Generator "Model of a pumped storage"
 
   extends TransiEnt.Storage.Electrical.Base.GenericElectricStorage_Generator(
     StorageModelParams=TransiEnt.Storage.Electrical.Specifications.PumpedStorage(T_plant=10),
-    redeclare model StationaryLossModel = TransiEnt.Storage.Base.NoStationaryLoss,
-    replaceable model CostModel = TransiEnt.Components.Statistics.ConfigurationData.StorageCostSpecs.PumpStorage,
+    redeclare model StationaryLossModel =
+        TransiEnt.Storage.Base.NoStationaryLoss,
+    replaceable model CostModel =
+        TransiEnt.Components.Statistics.ConfigurationData.StorageCostSpecs.PumpStorage,
     storageModel(use_PowerRateLimiter=use_PowerRateLimiter, use_plantDynamic=true),
-    prescribedPower(change_sign=false));
+    prescribedPower(change_sign=false, phi_is(fixed=false)),
+    constantInertia(J=J, phi(fixed=true)));
     //collectCosts(redeclare model StorageCostModel = CostVariables),
   extends TransiEnt.Basics.Icons.Hydroturbine;
   // _____________________________________________

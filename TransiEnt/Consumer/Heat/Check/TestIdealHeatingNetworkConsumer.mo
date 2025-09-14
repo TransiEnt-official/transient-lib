@@ -1,39 +1,62 @@
 ﻿within TransiEnt.Consumer.Heat.Check;
 model TestIdealHeatingNetworkConsumer
 
+
+
 //________________________________________________________________________________//
-  // Component of the TransiEnt Library, version: 2.0.3                             //
-  //                                                                                //
-  // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
-  // Copyright 2021, Hamburg University of Technology.                              //
-  //________________________________________________________________________________//
-  //                                                                                //
-  // TransiEnt.EE, ResiliEntEE, IntegraNet and IntegraNet II are research projects  //
-  // supported by the German Federal Ministry of Economics and Energy               //
-  // (FKZ 03ET4003, 03ET4048, 0324027 and 03EI1008).                                //
-  // The TransiEnt Library research team consists of the following project partners://
-  // Institute of Engineering Thermodynamics (Hamburg University of Technology),    //
-  // Institute of Energy Systems (Hamburg University of Technology),                //
-  // Institute of Electrical Power and Energy Technology                            //
-  // (Hamburg University of Technology)                                             //
-  // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-  // Gas- und WÃ¤rme-Institut Essen						  //
-  // and                                                                            //
-  // XRG Simulation GmbH (Hamburg, Germany).                                        //
-  //________________________________________________________________________________//
+// Component of the TransiEnt Library, version: 3.0.0                             //
+//                                                                                //
+// Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
+// Copyright 2021, Hamburg University of Technology.                              //
+//________________________________________________________________________________//
+//                                                                                //
+// TransiEnt.EE, ResiliEntEE, IntegraNet and IntegraNet II are research projects  //
+// supported by the German Federal Ministry of Economics and Energy               //
+// (FKZ 03ET4003, 03ET4048, 0324027 and 03EI1008).                                //
+// The TransiEnt Library research team consists of the following project partners://
+// Institute of Engineering Thermodynamics (Hamburg University of Technology),    //
+// Institute of Energy Systems (Hamburg University of Technology),                //
+// Institute of Electrical Power and Energy Technology                            //
+// (Hamburg University of Technology)                                             //
+// Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
+// Gas- und WÃ¤rme-Institut Essen						  //
+// and                                                                            //
+// XRG Simulation GmbH (Hamburg, Germany).                                        //
+//________________________________________________________________________________//
+
+
+
   extends TransiEnt.Basics.Icons.Checkmodel;
+  inner TransiEnt.ModelStatistics modelStatistics annotation (Placement(transformation(extent={{-160,80},{-140,100}})));
   inner TransiEnt.SimCenter simCenter annotation (Placement(transformation(extent={{-130,80},{-110,100}})));
 
   IdealHeatingNetworkConsumer ConsumerStation(T_return_const=50 + 273.15) annotation (Placement(transformation(extent={{12,-10},{-8,10}})));
   Modelica.Blocks.Sources.Constant Q_th_demand(k=250e6) annotation (Placement(transformation(extent={{36,18},{16,38}})));
-  Modelica.Blocks.Sources.Step     h_feed(
-    height=20*4200,
-    offset=100*4200,
-    startTime=100)                                      annotation (Placement(transformation(extent={{-110,2},{-90,22}})));
-  TransiEnt.Components.Boundaries.FluidFlow.FluidSource fluidSource annotation (Placement(transformation(extent={{-68,14},{-48,34}})));
-  TransiEnt.Components.Boundaries.FluidFlow.FluidSink fluidSink annotation (Placement(transformation(extent={{-74,-34},{-54,-14}})));
-  Modelica.Blocks.Sources.RealExpression realExpression(y=1000000) annotation (Placement(transformation(extent={{-120,-34},{-100,-14}})));
-  Modelica.Blocks.Sources.RealExpression realExpression1(y=0.1) annotation (Placement(transformation(extent={{-92,20},{-80,34}})));
+  ClaRa.Components.BoundaryConditions.BoundaryVLE_phxi districtHeatingReturn(
+    m_flow_nom=100,
+    p_const=1000000,
+    Delta_p=100000,
+    variable_p=false,
+    h_const=400e3) annotation (Placement(transformation(
+        extent={{13,-11},{-13,11}},
+        rotation=180,
+        origin={-47,-6})));
+  ClaRa.Components.BoundaryConditions.BoundaryVLE_Txim_flow districtHeatingSupply(
+    m_flow_const=0.1,
+    m_flow_nom=0,
+    p_nom=1000,
+    variable_m_flow=false,
+    variable_T=true)
+                   annotation (Placement(transformation(extent={{-62,16},{-30,42}})));
+  Modelica.Blocks.Sources.Step     T_feed(
+    height=20,
+    offset=373.15,
+    startTime=100)                                      annotation (Placement(transformation(extent={{-106,20},{-86,40}})));
+equation
+  connect(Q_th_demand.y, ConsumerStation.Q_flow_demand) annotation (Line(points={{15,28},{2.4,28},{2.4,9.4}},
+                                                                                                    color={0,0,127}));
+  connect(districtHeatingSupply.T, T_feed.y) annotation (Line(points={{-65.2,29},{-72,29},{-72,30},{-85,30}}, color={0,0,127}));
+public
 function plotResult
 
   constant String resultFileName = "TestIdealHeatingNetworkConsumer.mat";
@@ -53,14 +76,16 @@ createPlot(id=1, position={809, 0, 791, 406}, y={"districtHeatingReturn.steam_a.
 
 end plotResult;
 equation
-  connect(Q_th_demand.y, ConsumerStation.Q_flow_demand) annotation (Line(points={{15,28},{2.4,28},{2.4,9.4}},
-                                                                                                    color={0,0,127}));
-  connect(realExpression.y, fluidSink.p_in) annotation (Line(points={{-99,-24},{-72,-24}}, color={0,0,127}));
-  connect(realExpression1.y, fluidSource.m_flow_in) annotation (Line(points={{-79.4,27},{-66,27}}, color={0,0,127}));
-  connect(fluidSink.port_a, ConsumerStation.fluidPortOut) annotation (Line(points={{-54,-24},{-14,-24},{-14,-8},{-8,-8}}, color={0,0,0}));
-  connect(h_feed.y, fluidSource.h_in) annotation (Line(points={{-89,12},{-74,12},{-74,22},{-66,22}}, color={0,0,127}));
-  connect(fluidSource.port_a, ConsumerStation.fluidPortIn) annotation (Line(points={{-48,24},{-14,24},{-14,-4},{-8,-4}}, color={0,0,0}));
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-160,-100},{100,100}})),
+  connect(ConsumerStation.fluidPortOut, districtHeatingReturn.steam_a) annotation (Line(
+      points={{-8,-8},{-12,-8},{-12,-6},{-34,-6}},
+      color={175,0,0},
+      thickness=0.5));
+  connect(ConsumerStation.fluidPortIn, districtHeatingSupply.steam_a) annotation (Line(
+      points={{-8,-4},{-12,-4},{-12,-2},{-12,29},{-30,29}},
+      color={175,0,0},
+      thickness=0.5));
+  annotation (Diagram(graphics,
+                      coordinateSystem(preserveAspectRatio=false, extent={{-160,-100},{100,100}})),
     experiment(StopTime=200),
     __Dymola_experimentSetupOutput(equidistant=false),
     Icon(graphics,

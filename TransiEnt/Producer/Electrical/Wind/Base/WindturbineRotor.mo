@@ -4,7 +4,7 @@ model WindturbineRotor
 
 
 //________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 2.0.3                             //
+// Component of the TransiEnt Library, version: 3.0.0                             //
 //                                                                                //
 // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
 // Copyright 2021, Hamburg University of Technology.                              //
@@ -23,7 +23,6 @@ model WindturbineRotor
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
-
 
 
 
@@ -51,7 +50,7 @@ model WindturbineRotor
   parameter SI.Velocity v_fullLoad=12 "nominal wind speed";
   parameter Modelica.Units.SI.Length D=(8*P_el_n/(Modelica.Constants.pi*rho*v_fullLoad^3*cp_opt))^0.5 "Rotor diameter";
 
-  parameter Real beta_start = 0 "Setpoint for pitch angle";
+  parameter SI.Angle beta_start(displayUnit = "deg") = 0 "Setpoint for pitch angle";
 
   parameter Modelica.Units.SI.Power P_el_n=3.5e6 "Rated (maximum) power";
 

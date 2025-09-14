@@ -1,10 +1,8 @@
 ﻿within TransiEnt.SystemGeneration.Superstructure.Components.Controller;
 model FailureController_internal
 
-
-
 //________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 2.0.3                             //
+// Component of the TransiEnt Library, version: 3.0.0                             //
 //                                                                                //
 // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
 // Copyright 2021, Hamburg University of Technology.                              //
@@ -23,21 +21,17 @@ model FailureController_internal
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
-
-
-
-
   extends TransiEnt.Basics.Icons.Controller;
   // _____________________________________________
   //
   //        Constants and Hidden Parameters
   // _____________________________________________
   parameter Integer quantity=1;
-  parameter SI.Time failure1_table[:,:]=[0,1];
-  parameter SI.Time failure2_table[:,:]=[0,1];
-  parameter SI.Time failure3_table[:,:]=[0,1];
-  parameter SI.Time failure4_table[:,:]=[0,1];
-  parameter SI.Time failure5_table[:,:]=[0,1];
+  parameter Modelica.Units.SI.Time failure1_table[:,:]=[0,1];
+  parameter Modelica.Units.SI.Time failure2_table[:,:]=[0,1];
+  parameter Modelica.Units.SI.Time failure3_table[:,:]=[0,1];
+  parameter Modelica.Units.SI.Time failure4_table[:,:]=[0,1];
+  parameter Modelica.Units.SI.Time failure5_table[:,:]=[0,1];
   // _____________________________________________
   //
   //                  Interfaces

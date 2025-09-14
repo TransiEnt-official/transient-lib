@@ -39,3 +39,4 @@ EnthalpyFlowRateIn
 EnthalpyFlowRateOut
 MechanicalPowerIn
 MechanicalPowerOut
+ControlBus

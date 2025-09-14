@@ -2,4 +2,4 @@ GenericHeatFlowDataTable
 HeatDemand
 HeatGeneration
 HeatingCurves
-heatingCurveConstant
+Table_TappingCycle

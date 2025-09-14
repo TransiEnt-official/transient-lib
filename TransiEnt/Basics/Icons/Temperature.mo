@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Icons;
+within TransiEnt.Basics.Icons;
 model Temperature
 
 
@@ -6,7 +6,7 @@ model Temperature
 
 
 //________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 2.0.3                             //
+// Component of the TransiEnt Library, version: 3.0.0                             //
 //                                                                                //
 // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
 // Copyright 2021, Hamburg University of Technology.                              //
@@ -29,15 +29,10 @@ model Temperature
 
 
 
-
 extends TransiEnt.Basics.Icons.Model;
 
 
   annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
-        Text(
-          extent={{-46,-173},{254,-213}},
-          lineColor={0,134,134},
-          textString="%name"),
         Ellipse(
           extent={{-36,-100},{36,-32}},
           fillColor={238,46,47},

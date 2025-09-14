@@ -1,10 +1,8 @@
 ﻿within TransiEnt.SystemGeneration.Superstructure.Components.LocalHeatSupply;
 model LocalHeatingDemand_HeatPumpAndSolar_simple
 
-
-
 //________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 2.0.3                             //
+// Component of the TransiEnt Library, version: 3.0.0                             //
 //                                                                                //
 // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
 // Copyright 2021, Hamburg University of Technology.                              //
@@ -23,11 +21,6 @@ model LocalHeatingDemand_HeatPumpAndSolar_simple
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
-
-
-
-
-
   // _____________________________________________
   //
   //          Imports and Class Hierarchy
@@ -40,8 +33,8 @@ model LocalHeatingDemand_HeatPumpAndSolar_simple
   //              Visible Parameters
   // _____________________________________________
 
-  parameter SI.HeatFlowRate Q_annual_solarthermal;
-  parameter SI.Heat Q_max_storage;
+  parameter Modelica.Units.SI.HeatFlowRate Q_annual_solarthermal;
+  parameter Modelica.Units.SI.Heat Q_max_storage;
 
   // _____________________________________________
   //
@@ -67,7 +60,7 @@ model LocalHeatingDemand_HeatPumpAndSolar_simple
   // _____________________________________________
 
   Modelica.Units.SI.Temperature T_surrounding=if whichHeatPump == 1 then 273.15 + 9 else T_region;
-  outer SI.HeatFlowRate Q_flow_solarthermal_pu;
+  outer Modelica.Units.SI.HeatFlowRate Q_flow_solarthermal_pu;
 
 equation
 

@@ -1,5 +1,5 @@
 HeatPumpElectricCharlineTest
-TestHeatpump
+CheckHeatpump
 TestHeatpumpWithControl_OnOff
 TestHeatpumpWithControl_HeatingSystem
 TestHeatpumpWithControl_bivalent_fluidports_sine

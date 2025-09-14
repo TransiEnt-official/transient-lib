@@ -5,7 +5,7 @@ model GenericDataTable "Parameterized version of MSL's CombiTimeTable. See Examp
 
 
 //________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 2.0.3                             //
+// Component of the TransiEnt Library, version: 3.0.0                             //
 //                                                                                //
 // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
 // Copyright 2021, Hamburg University of Technology.                              //
@@ -24,7 +24,6 @@ model GenericDataTable "Parameterized version of MSL's CombiTimeTable. See Examp
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
-
 
 
 
@@ -110,7 +109,7 @@ model GenericDataTable "Parameterized version of MSL's CombiTimeTable. See Examp
 
    Modelica.Blocks.Sources.CombiTimeTable MSL_combiTimeTable(
     tableOnFile=true,
-    fileName=genericFileName,
+    fileName=Modelica.Utilities.Files.loadResource(genericFileName),
     smoothness=smoothness,
     extrapolation=extrapolation,
     columns=columns,
@@ -118,7 +117,8 @@ model GenericDataTable "Parameterized version of MSL's CombiTimeTable. See Examp
     startTime=startTime,
     tableName=tableName,
     shiftTime=shiftTime,
-    timeEvents=timeEvents)
+    timeEvents=timeEvents,
+    verboseRead=false)
     annotation (Placement(transformation(extent={{-90,-52},{14,52}})));
   Modelica.Blocks.Math.Gain sign_changer[MSL_combiTimeTable.nout](each k=if change_of_sign then -1*constantfactor else constantfactor)
     annotation (Placement(transformation(extent={{40,-10},{60,10}})));

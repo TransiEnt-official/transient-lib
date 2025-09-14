@@ -1,11 +1,11 @@
-﻿within TransiEnt.Producer.Heat.SolarThermal.Base;
+within TransiEnt.Producer.Heat.SolarThermal.Base;
 model HeatFlow_SolarThermal "Heat flow boundary with h_in and Q_flow_collector as input to be used in SolarCollector"
 
 
 
 
 //________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 2.0.3                             //
+// Component of the TransiEnt Library, version: 3.0.0                             //
 //                                                                                //
 // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
 // Copyright 2021, Hamburg University of Technology.                              //
@@ -24,7 +24,6 @@ model HeatFlow_SolarThermal "Heat flow boundary with h_in and Q_flow_collector a
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
-
 
 
 
@@ -84,7 +83,7 @@ equation
 
   waterPortIn.m_flow + waterPortOut.m_flow = 0;
 
-  waterPortIn.h_outflow = inStream(waterPortIn.h_outflow);
+  waterPortIn.h_outflow = inStream(waterPortOut.h_outflow);
   waterPortOut.h_outflow=Q_flow_collector/waterPortIn.m_flow+inStream(waterPortIn.h_outflow);
 
   waterPortIn.xi_outflow = inStream(waterPortOut.xi_outflow);

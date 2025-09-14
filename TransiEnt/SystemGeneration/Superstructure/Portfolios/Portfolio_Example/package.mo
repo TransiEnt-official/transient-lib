@@ -1,10 +1,8 @@
 ﻿within TransiEnt.SystemGeneration.Superstructure.Portfolios;
 package Portfolio_Example
 
-
-
 //________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 2.0.3                             //
+// Component of the TransiEnt Library, version: 3.0.0                             //
 //                                                                                //
 // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
 // Copyright 2021, Hamburg University of Technology.                              //
@@ -23,13 +21,9 @@ package Portfolio_Example
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
-
-
-
   extends Base;
 
   extends TransiEnt.Basics.Icons.ExamplesPackage;
-
 
   redeclare package extends Records "These Records contains parameters that are different for each region or for different instances in a single region"
     extends TransiEnt.Basics.Icons.DataPackage;
@@ -91,10 +85,10 @@ package Portfolio_Example
       //              Visible Parameters
       // _____________________________________________
 
-      parameter SI.Volume Volume=500000;
+      parameter Modelica.Units.SI.Volume Volume=500000;
 
-      parameter SI.Pressure p_gas_const=120e5;
-      parameter SI.Mass m_gas_start=1e5;
+      parameter Modelica.Units.SI.Pressure p_gas_const=120e5;
+      parameter Modelica.Units.SI.Mass m_gas_start=1e5;
 
       parameter Real m_flow_nom=417.573;
 
@@ -188,8 +182,8 @@ package Portfolio_Example
       parameter Real HeatPumpSole_COP_n=4 "Coefficient of performance at nominal conditions A2/W35 according to EN14511";
       parameter Real HeatPumpAndSolar_COP_n=4 "Coefficient of performance at nominal conditions A2/W35 according to EN14511";
       parameter Real HeatPump_COP_n=4 "Coefficient of performance at nominal conditions A2/W35 according to EN14511";
-      parameter SI.Efficiency gasboiler_eta=0.7;
-      parameter SI.Efficiency electricBoiler_eta=0.99;
+      parameter Modelica.Units.SI.Efficiency gasboiler_eta=0.7;
+      parameter Modelica.Units.SI.Efficiency electricBoiler_eta=0.99;
 
       annotation (Documentation(info="<html>
 <h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
@@ -287,22 +281,22 @@ package Portfolio_Example
       //              Visible Parameters
       // _____________________________________________
 
-      parameter SI.Volume WasteHeatUsage_V_storage=244969.27e12*0.22923*48/(4.18*(105 - 20))/959;
-      parameter SI.MassFlowRate MethanationPlant_m_flow_n_Hydrogen=244969.27e12*0.927995/(141.79e6 - 219972) "Nominal mass flow rate of hydrogen at the inlet";
+      parameter Modelica.Units.SI.Volume WasteHeatUsage_V_storage=244969.27e12*0.22923*48/(4.18*(105 - 20))/959;
+      parameter Modelica.Units.SI.MassFlowRate MethanationPlant_m_flow_n_Hydrogen=244969.27e12*0.927995/(141.79e6 - 219972) "Nominal mass flow rate of hydrogen at the inlet";
 
-      parameter SI.ActivePower P_el_n=1e9;
+      parameter Modelica.Units.SI.ActivePower P_el_n=1e9;
       parameter Real eta_n=0.851;
-      parameter SI.Energy max_storage=3e12;
+      parameter Modelica.Units.SI.Energy max_storage=3e12;
       parameter Real P_el_min_rel=0;
       parameter Integer complexityLevelMethanation=2;
-      parameter SI.Pressure p_Start=38e5;
+      parameter Modelica.Units.SI.Pressure p_Start=38e5;
 
-      parameter SI.Pressure p_minLow_constantDemand=30;
-      parameter SI.Pressure p_minLow=38;
-      parameter SI.Pressure p_minHigh=45;
-      parameter SI.Pressure p_maxLow=180;
-      parameter SI.Pressure p_maxHigh=185;
-      parameter SI.MassFlowRate m_flow_internaldemand_constant=0;
+      parameter Modelica.Units.SI.Pressure p_minLow_constantDemand=30;
+      parameter Modelica.Units.SI.Pressure p_minLow=38;
+      parameter Modelica.Units.SI.Pressure p_minHigh=45;
+      parameter Modelica.Units.SI.Pressure p_maxLow=180;
+      parameter Modelica.Units.SI.Pressure p_maxHigh=185;
+      parameter Modelica.Units.SI.MassFlowRate m_flow_internaldemand_constant=0;
 
       annotation (Documentation(info="<html>
 <h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
@@ -687,7 +681,6 @@ powerToGasRecord: parametrization records for PtGplants in region [nPowerToGasPl
   redeclare type PowerPlantType = enumeration(
     Gasturbine_with_Gasport_constantEff   "Gasturbine_with_Gasport and constant efficiency",
     CCP_with_Gasport_constantEff   "CCP_with_Gasport and constant efficiency") "Choose power plant type";
-
   redeclare model extends PowerPlantSystem(redeclare package Config = Portfolio_Example)
 
     // _____________________________________________
@@ -705,7 +698,7 @@ powerToGasRecord: parametrization records for PtGplants in region [nPowerToGasPl
     parameter TILMedia.VLEFluidTypes.BaseVLEFluid mediumGas=simCenter.gasModel1;
     parameter TILMedia.VLEFluidTypes.BaseVLEFluid medium_CO2=simCenter.gasModel1;
     parameter Boolean useHydrogenFromPtGInPowerPlants;
-    parameter SI.MassFlowRate m_flow_small=0 "small leackage mass flow for numerical stability";
+    parameter Modelica.Units.SI.MassFlowRate m_flow_small=0 "small leackage mass flow for numerical stability";
     parameter Boolean CCSInPowerPlants=true;
     parameter Real CO2StorageNeeded=true;
     parameter Boolean isSlack=false "true for Slack bus";
@@ -952,7 +945,6 @@ powerToGasRecord: parametrization records for PtGplants in region [nPowerToGasPl
     leadAcidBattery "Model of a lead acid battery",
     lithiumIonBattery "Model of a ltihium ion battery",
     battery "Typical characteristic of battery storage") "Choose electrical storage type";
-
   redeclare model extends ElectricalStorageSystem(redeclare package Config = Portfolio_Example)
      // _____________________________________________
     //
@@ -1139,7 +1131,6 @@ powerToGasRecord: parametrization records for PtGplants in region [nPowerToGasPl
                             "FeedInStation_Methanation_with_CavernCompression_seperateHydrogenPort",
     FeedInStation_Methanation_woStorage
                             "FeedInStation_Methanation_woStorage") "Choose power to gas type";
-
   redeclare model extends PowerToGasSystem(redeclare package Config = Portfolio_Example)
 
     // _____________________________________________
@@ -1162,7 +1153,7 @@ powerToGasRecord: parametrization records for PtGplants in region [nPowerToGasPl
     parameter Boolean CO2NeededForPowerToGas;
     parameter Real T_supply_max_districtHeating;
     outer parameter Modelica.Units.SI.MassFraction xi_const_noZeroMassFlow[max(simCenter.gasModel1.nc - 1, 1)];
-    parameter SI.MassFlowRate m_flow_small=0 "small leackage mass flow for numerical stability";
+    parameter Modelica.Units.SI.MassFlowRate m_flow_small=0 "small leackage mass flow for numerical stability";
 
     parameter Records.PowerToGasRecord powerToGasRecord=Records.PowerToGasRecord() annotation (Placement(transformation(extent={{-100,-140},{-80,-120}})));
     parameter PowerToGasType powerToGasType=PowerToGasType.FeedInStation_Methanation_CvnCmp;
@@ -1297,7 +1288,7 @@ powerToGasRecord: parametrization records for PtGplants in region [nPowerToGasPl
           extent={{8,8},{-8,-8}},
           rotation=90,
           origin={82,32})));
-    TransiEnt.SystemGeneration.Superstructure.Components.HeatingGridSystems.WasteHeatUsage_HeatPort wasteHeatUsage_2_1(V_storage=powerToGasRecord.WasteHeatUsage_V_storage) if usageOfWasteHeatOfPtG == 2 annotation (Placement(transformation(extent={{-2,-90},{-22,-70}})));
+    Superstructure.Components.HeatingGridSystems.WasteHeatUsage_HeatPort wasteHeatUsage_2_1(V_storage=powerToGasRecord.WasteHeatUsage_V_storage) if usageOfWasteHeatOfPtG == 2 annotation (Placement(transformation(extent={{-2,-90},{-22,-70}})));
 
     Modelica.Blocks.Sources.RealExpression expresseion_wasteHeatPowerOut(y=wasteHeatUsage_2_1.electricPowerOut) if usageOfWasteHeatOfPtG == 2 annotation (Placement(transformation(
           extent={{-5,-5},{5,5}},
@@ -1968,7 +1959,6 @@ powerToGasRecord: parametrization records for PtGplants in region [nPowerToGasPl
     GasStorage_varXi_L1   "L1: Model of a simple gas storage volume for variable composition",
     GasStorage_constXi_L2   "L2: Model of a simple gas storage volume for constant composition",
     GasStorage_varXi_L2   "L2: Model of a simple gas storage volume for variable composition") "Choose gas storage";
-
   redeclare model extends GasStorageSystem(redeclare package Config = Portfolio_Example)
 
     // _____________________________________________
@@ -2102,7 +2092,7 @@ powerToGasRecord: parametrization records for PtGplants in region [nPowerToGasPl
         extent={{-6,3},{-6,3}},
         horizontalAlignment=TextAlignment.Right));
     connect(junction1.gasPort[1], gasPortIn) annotation (Line(
-        points={{80.3,0},{90,0},{90,-8},{100,-8}},
+        points={{80.15,0},{90,0},{90,-8},{100,-8}},
         color={255,255,0},
         thickness=1.5));
     connect(gasStorageType1.gasPortIn, valveDesiredMassFlow_GasStorage.gasPortOut) annotation (Line(
@@ -2164,7 +2154,7 @@ powerToGasRecord: parametrization records for PtGplants in region [nPowerToGasPl
         color={255,255,0},
         thickness=1.5));
     connect(massFlowSensor.gasPortIn, junction1.gasPort[2]) annotation (Line(
-        points={{80,20},{80,0},{79.7,0}},
+        points={{80,20},{80,0},{79.85,0}},
         color={255,255,0},
         thickness=1.5));
     connect(massFlowSensor.m_flow, m_flow_storage) annotation (Line(points={{90,41},{90,50},{110,50}}, color={0,0,127}));
@@ -2284,19 +2274,19 @@ powerToGasRecord: parametrization records for PtGplants in region [nPowerToGasPl
     Modelica.Blocks.Sources.RealExpression Zero annotation (Placement(transformation(extent={{52,70},{72,90}})));
 
     Components.LocalHeatSupply.LocalHeatingDemand_Gasboiler_ConstantEfficiency localHeatingDemand_Gasboiler(eta_gasboiler=localDemandRecord.gasboiler_eta, tableBasedGasBurningConsumer_VariableGasComposition(medium=medium)) if Fraction[1] + Fraction[2] > 0 annotation (Placement(transformation(extent={{-6,118},{14,138}})));
-    TransiEnt.SystemGeneration.Superstructure.Components.LocalHeatSupply.LocalHeatingDemand_GasboilerAndSolar_ConstantEfficiency localHeatingDemand_GasboilerAndSolar(
+    Superstructure.Components.LocalHeatSupply.LocalHeatingDemand_GasboilerAndSolar_ConstantEfficiency localHeatingDemand_GasboilerAndSolar(
       eta_gasboiler=localDemandRecord.gasboiler_eta,
       Q_annual_solarthermal=Q_demand_annual*Fraction[4]*0.2,
       Q_max_storage=Q_demand_annual*Fraction[4]*0.2/365*2,
       tableBasedGasBurningConsumer_VariableGasComposition(medium=medium)) if Fraction[2] > 0 annotation (Placement(transformation(extent={{-6,90},{14,110}})));
-    TransiEnt.SystemGeneration.Superstructure.Components.LocalHeatSupply.LocalHeatingDemand_HeatPump_simple localHeatingDemand_HeatPump(
+    Superstructure.Components.LocalHeatSupply.LocalHeatingDemand_HeatPump_simple localHeatingDemand_HeatPump(
       whichHeatPump=2,
       heatPumpElectricCharlineHeatPort_L1_1(
         COP_n=localDemandRecord.HeatPump_COP_n,
         redeclare TransiEnt.Basics.Interfaces.Electrical.ComplexPowerPort epp,
         redeclare TransiEnt.Components.Boundaries.Electrical.ComplexPower.PQBoundary powerBoundary(useInputConnectorQ=false, cosphi_boundary=0.99) "Power Boundary for ComplexPowerPort"),
       redeclare TransiEnt.Basics.Interfaces.Electrical.ComplexPowerPort epp) if Fraction[3] > 0 annotation (Placement(transformation(extent={{-6,62},{14,82}})));
-    TransiEnt.SystemGeneration.Superstructure.Components.LocalHeatSupply.LocalHeatingDemand_HeatPumpAndSolar_simple localHeatingDemand_HeatPumpAndSolar(
+    Superstructure.Components.LocalHeatSupply.LocalHeatingDemand_HeatPumpAndSolar_simple localHeatingDemand_HeatPumpAndSolar(
       redeclare TransiEnt.Basics.Interfaces.Electrical.ComplexPowerPort epp,
       heatPumpElectricCharlineHeatPort_L1_1(
         COP_n=localDemandRecord.HeatPumpAndSolar_COP_n,
@@ -2305,11 +2295,11 @@ powerToGasRecord: parametrization records for PtGplants in region [nPowerToGasPl
       whichHeatPump=2,
       Q_annual_solarthermal=Q_demand_annual*Fraction[4]*0.2,
       Q_max_storage=Q_demand_annual*Fraction[4]*0.2/365*2) if Fraction[4] > 0 annotation (Placement(transformation(extent={{-6,34},{14,54}})));
-    TransiEnt.SystemGeneration.Superstructure.Components.LocalHeatSupply.LocalHeatingDemand_HeatPump_simple localHeatingDemand_HeatPumpSole(redeclare TransiEnt.Basics.Interfaces.Electrical.ComplexPowerPort epp, heatPumpElectricCharlineHeatPort_L1_1(
+    Superstructure.Components.LocalHeatSupply.LocalHeatingDemand_HeatPump_simple localHeatingDemand_HeatPumpSole(redeclare TransiEnt.Basics.Interfaces.Electrical.ComplexPowerPort epp, heatPumpElectricCharlineHeatPort_L1_1(
         redeclare TransiEnt.Basics.Interfaces.Electrical.ComplexPowerPort epp,
         redeclare TransiEnt.Components.Boundaries.Electrical.ComplexPower.PQBoundary powerBoundary(useInputConnectorQ=false, cosphi_boundary=0.99) "Power Boundary for ComplexPowerPort",
         COP_n=localDemandRecord.HeatPumpSole_COP_n)) if Fraction[5] > 0 annotation (Placement(transformation(extent={{-6,6},{14,26}})));
-    TransiEnt.SystemGeneration.Superstructure.Components.LocalHeatSupply.LocalHeatingDemand_HeatPumpAndSolar_simple localHeatingDemand_HeatPumpAndSolarSole(
+    Superstructure.Components.LocalHeatSupply.LocalHeatingDemand_HeatPumpAndSolar_simple localHeatingDemand_HeatPumpAndSolarSole(
       redeclare TransiEnt.Basics.Interfaces.Electrical.ComplexPowerPort epp,
       heatPumpElectricCharlineHeatPort_L1_1(
         redeclare TransiEnt.Basics.Interfaces.Electrical.ComplexPowerPort epp,
@@ -2317,13 +2307,13 @@ powerToGasRecord: parametrization records for PtGplants in region [nPowerToGasPl
         COP_n=localDemandRecord.HeatPumpAndSolarSole_COP_n),
       Q_annual_solarthermal=Q_demand_annual*Fraction[6]*0.2,
       Q_max_storage=Q_demand_annual*Fraction[6]*0.2/365*2) if Fraction[6] > 0 annotation (Placement(transformation(extent={{-6,-24},{14,-4}})));
-    TransiEnt.SystemGeneration.Superstructure.Components.LocalHeatSupply.LocalHeatingDemand_GasHeatPump_simple localHeatingDemand_GasHeatPump(whichHeatPump=2, heatPumpGasCharlineHeatPort_L1(mediumGas=medium)) if Fraction[7] > 0 annotation (Placement(transformation(extent={{-6,-56},{14,-36}})));
-    TransiEnt.SystemGeneration.Superstructure.Components.LocalHeatSupply.LocalHeatingDemand_GasHeatPumpAndSolar_simple localHeatingDemand_GasHeatPumpAndSolar(
+    Superstructure.Components.LocalHeatSupply.LocalHeatingDemand_GasHeatPump_simple localHeatingDemand_GasHeatPump(whichHeatPump=2, heatPumpGasCharlineHeatPort_L1(mediumGas=medium)) if Fraction[7] > 0 annotation (Placement(transformation(extent={{-6,-56},{14,-36}})));
+    Superstructure.Components.LocalHeatSupply.LocalHeatingDemand_GasHeatPumpAndSolar_simple localHeatingDemand_GasHeatPumpAndSolar(
       Q_annual_solarthermal=Q_demand_annual*Fraction[8]*0.2,
       Q_max_storage=Q_demand_annual*Fraction[8]*0.2/365*2,
       whichHeatPump=2,
       heatPumpGasCharlineHeatPort_L1(mediumGas=medium)) if Fraction[8] > 0 annotation (Placement(transformation(extent={{-6,-86},{14,-66}})));
-    TransiEnt.SystemGeneration.Superstructure.Components.LocalHeatSupply.LocalHeatingDemand_ElectricalHeater localHeatingDemand_ElectircalHeater(redeclare TransiEnt.Basics.Interfaces.Electrical.ComplexPowerPort epp, electricBoiler(
+    Superstructure.Components.LocalHeatSupply.LocalHeatingDemand_ElectricalHeater localHeatingDemand_ElectircalHeater(redeclare TransiEnt.Basics.Interfaces.Electrical.ComplexPowerPort epp, electricBoiler(
         redeclare TransiEnt.Basics.Interfaces.Electrical.ComplexPowerPort epp,
         redeclare TransiEnt.Components.Boundaries.Electrical.ComplexPower.PQBoundary powerBoundary(useInputConnectorQ=false, cosphi_boundary=0.99) "Power Boundary for ComplexPowerPort",
         eta=localDemandRecord.electricBoiler_eta)) if Fraction[9] > 0 annotation (Placement(transformation(extent={{-6,-116},{14,-96}})));
@@ -2546,7 +2536,7 @@ powerToGasRecord: parametrization records for PtGplants in region [nPowerToGasPl
     //        Constants and  Hidden Parameters
     // _____________________________________________
 
-    final parameter String input_table_path=TransiEnt.SystemGeneration.Superstructure.Types.SUPERSTRUCTURE_TABLES annotation (
+    final parameter String input_table_path=Superstructure.Types.SUPERSTRUCTURE_TABLES                            annotation (
       Evaluate=true,
       HideResult=true,
       Dialog(enable=not use_absolute_path, group="Data location"));
@@ -2799,7 +2789,7 @@ powerToGasRecord: parametrization records for PtGplants in region [nPowerToGasPl
     //              Visible Parameters
     // _____________________________________________
 
-    parameter SI.Mass m_start_CO2_storage=cO2SystemRecord.m_start_CO2_storage;
+    parameter Modelica.Units.SI.Mass m_start_CO2_storage=cO2SystemRecord.m_start_CO2_storage;
     final parameter Integer idx_CO2=Modelica.Math.BooleanVectors.firstTrueIndex(Modelica.Utilities.Strings.isEqual(fill("Carbon_Dioxide", medium.nc), TransiEnt.Basics.Functions.GasProperties.shortenCompName(medium.vleFluidNames)));
     parameter Records.CO2SystemRecord cO2SystemRecord=Records.CO2SystemRecord() annotation (Placement(transformation(extent={{-100,-100},{-80,-80}})));
 
@@ -3020,12 +3010,11 @@ powerToGasRecord: parametrization records for PtGplants in region [nPowerToGasPl
 
     TransiEnt.Components.Boundaries.Gas.BoundaryRealGas_Txim_flow boundary_Txim_flow annotation (Placement(transformation(extent={{60,-100},{80,-80}})));
     TransiEnt.Components.Boundaries.Heat.Heatflow_L1 heatflow_L1_1(
+      Medium=medium_water,
       Q_flow_const=0,
       use_Q_flow_in=false) annotation (Placement(transformation(extent={{-8,-60},{12,-40}})));
     Modelica.Blocks.Sources.RealExpression realExpression_zero annotation (Placement(transformation(extent={{60,64},{80,84}})));
 
-  Basics.Adapters.FluidPortAdapter fluidPortAdapter annotation (Placement(transformation(extent={{-16,-80},{-24,-72}})));
-  Basics.Adapters.FluidPortAdapter fluidPortAdapter1 annotation (Placement(transformation(extent={{16,-80},{24,-72}})));
   equation
     // _____________________________________________
     //
@@ -3043,19 +3032,17 @@ powerToGasRecord: parametrization records for PtGplants in region [nPowerToGasPl
         points={{80,-90},{100,-90}},
         color={255,255,0},
         thickness=1.5));
+    connect(heatflow_L1_1.fluidPortIn, WaterPortIn_ExternalHeatSource) annotation (Line(
+        points={{-4,-60},{-4,-92},{-40,-92},{-40,-102}},
+        color={175,0,0},
+        thickness=0.5));
+    connect(heatflow_L1_1.fluidPortOut, WaterPortOut_ExternalHeatSource) annotation (Line(
+        points={{8,-60},{8,-92},{40,-92},{40,-102}},
+        color={175,0,0},
+        thickness=0.5));
   connect(P_ElectricalHeater_max, realExpression_zero.y) annotation (Line(points={{114,90},{90,90},{90,74},{81,74}}, color={0,0,127}));
   connect(P_el_CHP, realExpression_zero.y) annotation (Line(points={{114,60},{90,60},{90,74},{81,74}}, color={0,0,127}));
   connect(m_flow_gas, realExpression_zero.y) annotation (Line(points={{114,30},{90,30},{90,74},{81,74}}, color={0,0,127}));
-  connect(fluidPortAdapter.fluidPortOut, WaterPortIn_ExternalHeatSource) annotation (Line(
-      points={{-24,-76},{-40,-76},{-40,-102}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(fluidPortAdapter.fluidPortIn, heatflow_L1_1.fluidPortIn) annotation (Line(points={{-16,-76},{-4,-76},{-4,-60}}, color={0,0,0}));
-  connect(fluidPortAdapter1.fluidPortOut, WaterPortOut_ExternalHeatSource) annotation (Line(
-      points={{24,-76},{40,-76},{40,-102}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(fluidPortAdapter1.fluidPortIn, heatflow_L1_1.fluidPortOut) annotation (Line(points={{16,-76},{8,-76},{8,-60}}, color={0,0,0}));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=false)),
       Diagram(coordinateSystem(preserveAspectRatio=false)),

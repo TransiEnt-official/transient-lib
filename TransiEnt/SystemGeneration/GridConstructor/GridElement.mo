@@ -4,7 +4,7 @@ model GridElement
 
 
 //________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 2.0.3                             //
+// Component of the TransiEnt Library, version: 3.0.0                             //
 //                                                                                //
 // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
 // Copyright 2021, Hamburg University of Technology.                              //
@@ -23,7 +23,6 @@ model GridElement
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
-
 
 
 
@@ -70,7 +69,7 @@ protected
   Demand_Consumer_1 Demand_1 annotation (Placement(transformation(
         extent={{-14.5,-11.5},{14.5,11.5}},
         rotation=0,
-        origin={-25.5,179.5})));
+        origin={-23.5,179.5})));
   Demand_Consumer_2 Demand_2 if second_Consumer annotation (Placement(transformation(
         extent={{13,-12},{-13,12}},
         rotation=180,
@@ -276,12 +275,6 @@ equation
   connect(T_ground.port, house_pipe_Consumer_1.heat_return);
   connect(T_ground.port, house_pipe_Consumer_2.heat_supply);
   connect(T_ground.port, house_pipe_Consumer_2.heat_return);
-  connect(Demand_1.demand.electricPowerDemand, Systems_1.el_Demand) annotation (Line(points={{-25.5,167.54},{-25.5,158},{-33.92,158},{-33.92,149.04}}, color={0,0,127}));
-  connect(Demand_1.demand.heatingPowerDemand, Systems_1.q_Demand) annotation (Line(points={{-25.5,167.54},{-25.5,158},{-24,158},{-24,149.28}}, color={0,0,127}));
-  connect(Demand_1.demand.hotWaterPowerDemand, Systems_1.q_Demand_water) annotation (Line(points={{-25.5,167.54},{-25.5,158},{-14.4,158},{-14.4,149.28}}, color={0,0,127}));
-  connect(Demand_2.demand.electricPowerDemand, Systems_2.el_Demand) annotation (Line(points={{-23,-167.52},{-23,-158},{-14.08,-158},{-14.08,-151.12}}, color={0,0,127}));
-  connect(Demand_2.demand.heatingPowerDemand, Systems_2.q_Demand) annotation (Line(points={{-23,-167.52},{-23,-159.76},{-24,-159.76},{-24,-151.34}}, color={0,0,127}));
-  connect(Demand_2.demand.hotWaterPowerDemand, Systems_2.q_Demand_water) annotation (Line(points={{-23,-167.52},{-23,-158},{-33.6,-158},{-33.6,-151.34}}, color={0,0,127}));
   connect(T_ground.T, simCenter.T_ground_var);
 
   connect(epp_p, cable.epp_p) annotation (Line(
@@ -292,6 +285,14 @@ equation
       points={{-94,-59.8},{14,-59.8},{14,-60},{120,-60}},
       color={0,127,0},
       thickness=0.5));
+  connect(Demand_1.demand, Systems_1.demand) annotation (Line(
+      points={{-23.5,167.54},{-23.5,158.77},{-23.84,158.77},{-23.84,149.28}},
+      color={102,44,145},
+      pattern=LinePattern.Dash));
+  connect(Demand_2.demand, Systems_2.demand) annotation (Line(
+      points={{-23,-167.52},{-23,-162},{-24.16,-162},{-24.16,-151.34}},
+      color={102,44,145},
+      pattern=LinePattern.Dash));
   annotation (
     Placement(transformation(extent={{-112,18},{-86,26}})),
     Icon(coordinateSystem(extent={{-180,-200},{120,200}}), graphics={

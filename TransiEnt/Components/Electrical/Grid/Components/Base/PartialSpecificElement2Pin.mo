@@ -5,7 +5,7 @@ partial model PartialSpecificElement2Pin "Partial modell for two pin Inductor, C
 
 
 //________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 2.0.3                             //
+// Component of the TransiEnt Library, version: 3.0.0                             //
 //                                                                                //
 // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
 // Copyright 2021, Hamburg University of Technology.                              //
@@ -28,7 +28,6 @@ partial model PartialSpecificElement2Pin "Partial modell for two pin Inductor, C
 
 
 
-
   // _____________________________________________
   //
   //          Imports and Class Hierarchy
@@ -45,14 +44,17 @@ partial model PartialSpecificElement2Pin "Partial modell for two pin Inductor, C
   // _____________________________________________
 
   parameter SI.Length l(min = 0) = 1 "length of element";
+  parameter String PhaseConvention = "3-Phase" "If the model is composed for one or three phase grids" annotation (choices(choice = "1-Phase", choice = "3-Phase"));
+
+
 
   // _____________________________________________
   //
   //                  Interfaces
   // _____________________________________________
 
-  TransiEnt.Basics.Interfaces.Electrical.ApparentPowerPort epp_p annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
-  TransiEnt.Basics.Interfaces.Electrical.ApparentPowerPort epp_n annotation (Placement(transformation(extent={{90,-10},{110,10}})));
+  TransiEnt.Basics.Interfaces.Electrical.ApparentPowerPort epp_p(P(start=0), Q(start=0)) annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
+  TransiEnt.Basics.Interfaces.Electrical.ApparentPowerPort epp_n(P(start=0), Q(start=0)) annotation (Placement(transformation(extent={{90,-10},{110,10}})));
 
   // _____________________________________________
   //
@@ -76,7 +78,7 @@ protected
   SI.ComplexPower S_lost;
   SI.ComplexVoltage U_drop;
   SI.ComplexImpedance Z;
-  SI.ActivePower P(stateSelect=StateSelect.prefer);
+  SI.ActivePower P(stateSelect=StateSelect.default);
 
   // _____________________________________________
   //
@@ -91,12 +93,23 @@ equation
   U.re = epp_p.v;
   U.im = 0;
 
+  if Modelica.Utilities.Strings.isEqual(PhaseConvention, "1-Phase") then
     I = Modelica.ComplexMath.conj(S / U);
     U_drop = I * Z;
     S_lost = U_drop * Modelica.ComplexMath.conj(I);
-    epp_n.v =Modelica.ComplexMath.abs(U - U_drop);
+    epp_n.v = Modelica.ComplexMath.abs(U - U_drop);
     epp_n.P = -Modelica.ComplexMath.real(S - S_lost);
     epp_n.Q = -Modelica.ComplexMath.imag(S - S_lost);
+
+  elseif Modelica.Utilities.Strings.isEqual(PhaseConvention, "3-Phase") then
+    I = Modelica.ComplexMath.conj(S / (sqrt(3)* U));
+    U_drop = I * Z;
+    S_lost = 3 * U_drop * Modelica.ComplexMath.conj(I);
+    epp_n.v = Modelica.ComplexMath.abs(U - U_drop);
+    epp_n.P = -Modelica.ComplexMath.real(S - S_lost);
+    epp_n.Q = -Modelica.ComplexMath.imag(S - S_lost);
+
+  end if;
 
   // _____________________________________________
   //

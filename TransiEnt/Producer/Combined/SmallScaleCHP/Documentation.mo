@@ -1,10 +1,10 @@
-﻿within TransiEnt.Producer.Combined.SmallScaleCHP;
+within TransiEnt.Producer.Combined.SmallScaleCHP;
 model Documentation "Documentation of a Combined Heat and Power Unit"
 
 
 
 //________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 2.0.3                             //
+// Component of the TransiEnt Library, version: 3.0.0                             //
 //                                                                                //
 // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
 // Copyright 2021, Hamburg University of Technology.                              //
@@ -26,8 +26,7 @@ model Documentation "Documentation of a Combined Heat and Power Unit"
 
 
 
-
-extends ModelicaReference.Icons.Information;
+extends Modelica.Icons.Information;
   annotation (Documentation(info="<html>
 <h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
 <p>Model of a (block) Combined Heat and Power (CHP) plant based on an internal combustion engine.</p>

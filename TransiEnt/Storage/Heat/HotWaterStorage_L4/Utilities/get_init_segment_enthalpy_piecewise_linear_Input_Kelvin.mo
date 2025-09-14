@@ -4,7 +4,7 @@ function get_init_segment_enthalpy_piecewise_linear_Input_Kelvin "[nLayer, T1, T
 
 
 //________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 2.0.3                             //
+// Component of the TransiEnt Library, version: 3.0.0                             //
 //                                                                                //
 // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
 // Copyright 2021, Hamburg University of Technology.                              //
@@ -23,7 +23,6 @@ function get_init_segment_enthalpy_piecewise_linear_Input_Kelvin "[nLayer, T1, T
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
-
 
 
 

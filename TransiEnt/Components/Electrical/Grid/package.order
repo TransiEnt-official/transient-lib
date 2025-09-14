@@ -9,7 +9,9 @@ Line_RL
 PiModel
 PiModelQS
 PiModelComplex
+PiModelComplexEfficient3ph
 PiModelComplex_advanced
 IdealCoupling
 ElectricBusbarComplex
 IdealPhaseShifter
+Node

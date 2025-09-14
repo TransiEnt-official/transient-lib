@@ -1,10 +1,10 @@
-﻿within TransiEnt.Consumer.Systems.HeatpumpSystems.Base;
+within TransiEnt.Consumer.Systems.HeatpumpSystems.Base;
 model HeatpumpSystemPool
 
 
 
 //________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 2.0.3                             //
+// Component of the TransiEnt Library, version: 3.0.0                             //
 //                                                                                //
 // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
 // Copyright 2021, Hamburg University of Technology.                              //
@@ -27,7 +27,6 @@ model HeatpumpSystemPool
 
 
 
-
   // _____________________________________________
   //
   //          Imports and Class Hierarchy
@@ -43,7 +42,7 @@ model HeatpumpSystemPool
 
   parameter TransiEnt.Basics.Types.Poolsize N=20;
 
-  final parameter Real[N,TransiEnt.Producer.Heat.Power2Heat.Heatpump.Base.nPar - 1] A=Modelica_LinearSystems2.Internal.Streams.readMatrixInternal(
+  final parameter Real[N,TransiEnt.Producer.Heat.Power2Heat.Heatpump.Base.nPar - 1] A=Modelica.Utilities.Streams.readRealMatrix(
       getFileName(N),
       "A",
       N,

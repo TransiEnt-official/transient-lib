@@ -1,11 +1,8 @@
 ﻿within TransiEnt.SystemGeneration.Superstructure.Components.HeatingGridSystems;
 partial model PartialWasteHeatUsage
 
-
-
-
 //________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 2.0.3                             //
+// Component of the TransiEnt Library, version: 3.0.0                             //
 //                                                                                //
 // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
 // Copyright 2021, Hamburg University of Technology.                              //
@@ -24,11 +21,6 @@ partial model PartialWasteHeatUsage
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
-
-
-
-
-
   // _____________________________________________
   //
   //          Imports and Class Hierarchy
@@ -64,6 +56,7 @@ partial model PartialWasteHeatUsage
   //           Instances of other Classes
   // _____________________________________________
 
+    ClaRa.Components.Sensors.SensorVLE_L1_T sensorVLE_L1_T_Storage_Producer_Out_lim annotation (Placement(transformation(extent={{62,-54},{42,-34}})));
   ClaRa.Components.Sensors.SensorVLE_L1_T sensorVLE_L1_T_Storage_Producer_In annotation (Placement(transformation(extent={{136,38},{116,58}})));
   Modelica.Thermal.HeatTransfer.Sources.FixedTemperature prescribedTemperature(T(displayUnit="K") = 303) annotation (Placement(transformation(
         extent={{-7,-7},{7,7}},
@@ -78,7 +71,7 @@ partial model PartialWasteHeatUsage
     useVariableToutlimit=false) annotation (Placement(transformation(
         extent={{-5,-5},{5,5}},
         rotation=180,
-        origin={59,-25})));
+        origin={49,-25})));
   ClaRa.Components.Sensors.SensorVLE_L1_T sensorVLE_L1_T_Storage_Producer_Out annotation (Placement(transformation(extent={{76,-6},{56,14}})));
   ClaRa.Components.VolumesValvesFittings.Fittings.JoinVLE_L2_Y joinVLE_L2_Y(
     redeclare model PressureLossIn1 = ClaRa.Components.VolumesValvesFittings.Fittings.Fundamentals.NoFriction,
@@ -118,15 +111,15 @@ partial model PartialWasteHeatUsage
 
   Modelica.Units.SI.HeatFlowRate Q_flow_in;
 
-  TransiEnt.Basics.Adapters.FluidPortAdapter fluidPortAdapter annotation (Placement(transformation(extent={{58,16},{66,24}})));
-  TransiEnt.Basics.Adapters.FluidPortAdapter fluidPortAdapter1 annotation (Placement(transformation(extent={{10,18},{2,26}})));
-  TransiEnt.Basics.Adapters.FluidPortAdapter fluidPortAdapter2 annotation (Placement(transformation(extent={{14,-38},{6,-30}})));
-  TransiEnt.Basics.Adapters.FluidPortAdapter fluidPortAdapter3 annotation (Placement(transformation(extent={{68,-24},{76,-16}})));
 equation
 
   Q_flow_in = fluidPortIn.m_flow*(fluidPortIn.h_outflow - fluidPortOut.h_outflow);
   connect(fluidPortIn, sensorVLE_L1_T_Storage_Producer_In.port) annotation (Line(
       points={{102,20},{100,20},{100,38},{126,38}},
+      color={175,0,0},
+      thickness=0.5));
+  connect(heatFlow_externalMassFlowControl.fluidPortIn, fluidPortOut) annotation (Line(
+      points={{52,-20},{100,-20}},
       color={175,0,0},
       thickness=0.5));
   connect(threeWayValveVLE_L2_1.outlet2, joinVLE_L2_Y.inlet2) annotation (Line(
@@ -141,35 +134,36 @@ equation
       points={{100,-20},{84,-20},{84,-6},{66,-6}},
       color={175,0,0},
       thickness=0.5));
+  connect(threeWayValveVLE_L2_1.outlet1, hotWaterStorage1.waterPortIn_grid[1]) annotation (Line(
+      points={{-2,-34},{-2,-32},{12,-32},{12,-4}},
+      color={0,131,169},
+      pattern=LinePattern.Solid,
+      thickness=0.5));
+  connect(hotWaterStorage1.waterPortOut_grid[1], joinVLE_L2_Y.inlet1) annotation (Line(
+      points={{12,4},{12,22},{-2,22}},
+      color={175,0,0},
+      thickness=0.5));
   connect(PIDValve2.u_s, realExpression1.y) annotation (Line(points={{-35.6,-56},{-47,-56}}, color={0,0,127}));
   connect(joinVLE_L2_Y.outlet, tempBeforeConsumer1.port) annotation (Line(
       points={{-22,22},{-24,22},{-24,32}},
       color={0,131,169},
       pattern=LinePattern.Solid,
       thickness=0.5));
+  connect(hotWaterStorage1.waterPortOut_prod[1], heatFlow_externalMassFlowControl.fluidPortOut) annotation (Line(
+      points={{32,-4},{40,-4},{40,-20},{46,-20}},
+      color={175,0,0},
+      thickness=0.5));
+  connect(sensorVLE_L1_T_Storage_Producer_Out_lim.port, hotWaterStorage1.waterPortOut_prod[1]) annotation (Line(
+      points={{52,-54},{32,-54},{32,-4}},
+      color={0,131,169},
+      pattern=LinePattern.Solid,
+      thickness=0.5));
+  connect(hotWaterStorage1.waterPortIn_prod[1], fluidPortIn) annotation (Line(
+      points={{32,4},{38,4},{38,20},{102,20}},
+      color={175,0,0},
+      thickness=0.5));
   connect(fluidPortIn, idealizedExpansionVessel.waterPort) annotation (Line(
       points={{102,20},{100,20},{100,52}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(fluidPortAdapter.fluidPortOut, fluidPortIn) annotation (Line(
-      points={{66,20},{102,20}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(fluidPortAdapter.fluidPortIn, hotWaterStorage1.waterPortIn_prod[1]) annotation (Line(points={{58,20},{42,20},{42,4},{32,4}}, color={0,0,0}));
-  connect(heatFlow_externalMassFlowControl.fluidPortOut, hotWaterStorage1.waterPortOut_prod[1]) annotation (Line(points={{56,-20},{38,-20},{38,-4},{32,-4}}, color={0,0,0}));
-  connect(fluidPortAdapter1.fluidPortOut, joinVLE_L2_Y.inlet1) annotation (Line(
-      points={{2,22},{-2,22}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(fluidPortAdapter1.fluidPortIn, hotWaterStorage1.waterPortOut_grid[1]) annotation (Line(points={{10,22},{12,22},{12,4}}, color={0,0,0}));
-  connect(fluidPortAdapter2.fluidPortOut, threeWayValveVLE_L2_1.outlet1) annotation (Line(
-      points={{6,-34},{-2,-34}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(fluidPortAdapter2.fluidPortIn, hotWaterStorage1.waterPortIn_grid[1]) annotation (Line(points={{14,-34},{20,-34},{20,-20},{10,-20},{10,-4},{12,-4}}, color={0,0,0}));
-  connect(fluidPortAdapter3.fluidPortIn, heatFlow_externalMassFlowControl.fluidPortIn) annotation (Line(points={{68,-20},{62,-20}}, color={0,0,0}));
-  connect(fluidPortAdapter3.fluidPortOut, fluidPortOut) annotation (Line(
-      points={{76,-20},{100,-20}},
       color={175,0,0},
       thickness=0.5));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(preserveAspectRatio=false)),

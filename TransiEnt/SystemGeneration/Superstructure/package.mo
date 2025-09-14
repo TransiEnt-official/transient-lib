@@ -1,10 +1,8 @@
 ﻿within TransiEnt.SystemGeneration;
 package Superstructure
 
-
-
 //________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 2.0.3                             //
+// Component of the TransiEnt Library, version: 3.0.0                             //
 //                                                                                //
 // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
 // Copyright 2021, Hamburg University of Technology.                              //
@@ -23,10 +21,6 @@ package Superstructure
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
-
-
-
-
 extends TransiEnt.Basics.Icons.Package;
 
 annotation (Icon(graphics={
@@ -110,5 +104,5 @@ annotation (Icon(graphics={
           extent={{45,16},{51,10}},
           lineColor={0,0,0},
           fillColor={95,95,95},
-          fillPattern=FillPattern.Sphere)}));
+          fillPattern=FillPattern.Sphere)}), conversion(noneFromVersion=""));
 end Superstructure;

@@ -1,5 +1,5 @@
 within TransiEnt.Basics.Interfaces.General;
-connector TemperatureOut=Modelica.Blocks.Interfaces.RealOutput(final quantity="Temperature", final unit="K", displayUnit="degC")
+connector TemperatureOut=Modelica.Blocks.Interfaces.RealOutput(final quantity="Temperature", final unit="K", displayUnit="K")
   "Temperature output in Kelvin"
   annotation (Documentation(info="<html>
 <h4><span style=\"color: #008000\">1. Purpose of model</span></h4>

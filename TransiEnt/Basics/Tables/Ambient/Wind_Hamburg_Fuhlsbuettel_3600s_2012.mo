@@ -4,7 +4,7 @@ model Wind_Hamburg_Fuhlsbuettel_3600s_2012 "Hamburg-Fuhlsbuettel 2012, 1 h resol
 
 
 //________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 2.0.3                             //
+// Component of the TransiEnt Library, version: 3.0.0                             //
 //                                                                                //
 // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
 // Copyright 2021, Hamburg University of Technology.                              //
@@ -23,7 +23,6 @@ model Wind_Hamburg_Fuhlsbuettel_3600s_2012 "Hamburg-Fuhlsbuettel 2012, 1 h resol
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
-
 
 
 

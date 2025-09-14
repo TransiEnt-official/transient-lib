@@ -1,10 +1,10 @@
-﻿within TransiEnt.Components.Boundaries.Electrical;
+within TransiEnt.Components.Boundaries.Electrical;
 package ComplexPower
 
 
 
 //________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 2.0.3                             //
+// Component of the TransiEnt Library, version: 3.0.0                             //
 //                                                                                //
 // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
 // Copyright 2021, Hamburg University of Technology.                              //
@@ -27,7 +27,6 @@ package ComplexPower
 
 
 
-
     extends TransiEnt.Basics.Icons.Package;
 
 
@@ -38,5 +37,7 @@ annotation (Icon(graphics={
         lineColor={95,95,95},
         extent={{-38.4,-54},{25.6,6}},
         fillColor={28,108,200},
-        fillPattern=FillPattern.Solid)}));
+        fillPattern=FillPattern.Solid)}), Documentation(info="<html>
+<p>New models were developed and are integrated into the TransiEnt Libaray with the model name ending <code>_new</code>.</p>
+</html>"));
 end ComplexPower;

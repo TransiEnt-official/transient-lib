@@ -1,11 +1,11 @@
-﻿within TransiEnt.Consumer.Heat.Check;
+within TransiEnt.Consumer.Heat.Check;
 model TestThermalHeatConsumer_L3
 
 
 
 
 //________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 2.0.3                             //
+// Component of the TransiEnt Library, version: 3.0.0                             //
 //                                                                                //
 // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
 // Copyright 2021, Hamburg University of Technology.                              //
@@ -27,7 +27,6 @@ model TestThermalHeatConsumer_L3
 
 
 
-
   extends TransiEnt.Basics.Icons.Checkmodel;
   TransiEnt.Components.Heat.PumpVLE_L1_simple pumpVLE_L1_simple(
     presetVariableType="dp",
@@ -40,7 +39,7 @@ model TestThermalHeatConsumer_L3
     p_drop=0,
     useGasPort=false,
     redeclare TransiEnt.Components.Boundaries.Heat.Heatflow_L1 heatFlowBoundary(p_drop=0)) annotation (Placement(transformation(extent={{-10,28},{10,48}})));
-  ClaRa.Basics.ControlVolumes.FluidVolumes.VolumeVLE_2 volumeVLE_2_1(
+  ClaRa.Basics.ControlVolumes.FluidVolumes.VolumeVLE_L2 volumeVLE_2_1(
     m_flow_nom=0.04,
     h_nom=4200*60,
     initOption=0,
