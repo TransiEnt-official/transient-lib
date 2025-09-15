@@ -55,8 +55,6 @@ model TestBoiler_HoldTemperature_static_L1
     holdTemperature=true,
     Q_flow_n=5e5)
               annotation (Placement(transformation(extent={{-18,-18},{18,18}})));
-  inner TransiEnt.ModelStatistics modelStatistics
-    annotation (Placement(transformation(extent={{-90,80},{-70,100}})));
   Modelica.Blocks.Sources.Ramp ramp(
     startTime=100,
     height=0.8*Boiler.Q_flow_n/Boiler.cp_water/(90 - 50),

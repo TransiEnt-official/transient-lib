@@ -155,7 +155,7 @@ public
   replaceable model heatFlowBoundaryModel = TransiEnt.Components.Boundaries.Heat.Heatflow_L1 annotation (__Dymola_choicesAllMatching=true, Dialog(group="Replaceable Components"));
   Modelica.Blocks.Math.Add add if CalculatePHeater annotation (Placement(transformation(extent={{60,34},{74,48}})));
 
-  Modelica.Blocks.Sources.RealExpression T_out(y=outlet.h_outflow/4186) if useFluidPorts
+  Modelica.Blocks.Sources.RealExpression T_out(y=outlet.h_outflow/4186) if not T_External
                                                                         annotation (Placement(transformation(extent={{-70,48},{-90,68}})));
 equation
   // _____________________________________________
@@ -198,6 +198,7 @@ equation
       color={0,135,135},
       thickness=0.5));
   if not CalculatePHeater and useFluidPorts then
+     connect(heatPump.outlet, outlet) annotation (Line(points={{44.42,-2},{84,-2},{84,16},{96,16}}, color={0,0,0}));
   end if;
 
   if not T_External then
@@ -215,7 +216,7 @@ equation
       pattern=LinePattern.Dash));
   connect(heatPump.inlet, inlet) annotation (Line(points={{44,-15.6},{58,-15.6},{58,-16},{70,-16},{70,-72},{98,-72}}, color={0,0,0}));
   connect(electricBoiler.fluidPortOut, outlet) annotation (Line(points={{34.32,-62},{62,-62},{62,-58},{96,-58},{96,16}}, color={0,0,0}));
-  connect(heatPump.outlet, outlet) annotation (Line(points={{44.42,-2},{84,-2},{84,16},{96,16}}, color={0,0,0}));
+
   connect(electricBoiler.fluidPortIn, heatPump.outlet) annotation (Line(points={{1.36,-62},{-8,-62},{-8,-64},{-12,-64},{-12,-32},{54,-32},{54,-2},{44.42,-2}}, color={0,0,0}));
 
   annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(preserveAspectRatio=false)),

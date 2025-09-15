@@ -27,7 +27,6 @@ model TestCHP_balancingControlOffer "Example how the CHP model provides informat
 
 
   extends TransiEnt.Basics.Icons.Checkmodel;
-  inner TransiEnt.ModelStatistics modelStatistics annotation (Placement(transformation(extent={{-100,79},{-80,99}})));
   inner TransiEnt.SimCenter simCenter annotation (Placement(transformation(extent={{-70,79},{-50,99}})));
   Modelica.Blocks.Sources.RealExpression P_set(y=if time < 5e4 then -Plant.pQDiagram[1].P_min else -Plant.pQDiagram[1].P_max)
                                                         annotation (Placement(
@@ -43,7 +42,6 @@ model TestCHP_balancingControlOffer "Example how the CHP model provides informat
     eta_th_const=0.696296,
     p_nom=20e5,
     m_flow_nom=750,
-    redeclare model ProducerCosts = TransiEnt.Components.Statistics.ConfigurationData.PowerProducerCostSpecs.HardCoal,
     PQCharacteristics=Base.Characteristics.PQ_Characteristics_WT(),
     P_el_n=200e6,
     Q_flow_n_CHP=290e6,
@@ -63,19 +61,6 @@ model TestCHP_balancingControlOffer "Example how the CHP model provides informat
         extent={{-11,-9.5},{11,9.5}},
         rotation=0,
         origin={-19,47.5})));
-  ClaRa.Components.BoundaryConditions.BoundaryVLE_Txim_flow source(T_const(displayUnit="degC") = 338.15, m_flow_const=1000) annotation (Placement(transformation(
-        extent={{-7,-9},{7,9}},
-        rotation=180,
-        origin={35,-10})));
-  ClaRa.Visualisation.Quadruple quadruple annotation (Placement(transformation(extent={{46,1},{82,22}})));
-  ClaRa.Components.BoundaryConditions.BoundaryVLE_pTxi sink(
-    m_flow_nom=577.967,
-    Delta_p=0,
-    p_const(displayUnit="bar") = 1600000,
-    T_const(displayUnit="degC")) annotation (Placement(transformation(
-        extent={{-7,-8},{7,8}},
-        rotation=180,
-        origin={31,34})));
   Components.Visualization.PQDiagram_Display PQDiagram(PQCharacteristics=Base.Characteristics.PQ_Characteristics_WT()) annotation (Placement(transformation(extent={{66,-34},{96,-6}})));
   Components.Visualization.InfoBoxLargeCHP infoBoxLargeCHP annotation (Placement(transformation(extent={{26,-51},{44,-29}})));
   Modelica.Blocks.Sources.Constant
@@ -84,6 +69,12 @@ model TestCHP_balancingControlOffer "Example how the CHP model provides informat
         extent={{-11,-9.5},{11,9.5}},
         rotation=0,
         origin={-71,7.5})));
+  Components.Boundaries.FluidFlow.FluidSink           fluidSink annotation (Placement(transformation(extent={{62,-2},{42,18}})));
+  Components.Boundaries.FluidFlow.FluidSource           fluidSource annotation (Placement(transformation(extent={{62,24},{42,44}})));
+  Modelica.Blocks.Sources.RealExpression realExpression2(y=16e5) annotation (Placement(transformation(extent={{86,-2},{66,18}})));
+  Modelica.Blocks.Sources.RealExpression realExpression1(y=1000) annotation (Placement(transformation(extent={{92,34},{72,54}})));
+  Modelica.Blocks.Sources.RealExpression realExpression3(y=65*4200)
+                                                                 annotation (Placement(transformation(extent={{92,22},{72,42}})));
 equation
   connect(Plant.epp,Grid. epp) annotation (Line(
       points={{8.85,6.6},{10,6.6},{10,56},{20,56}},
@@ -92,16 +83,6 @@ equation
   connect(Plant.P_set,P_set. y) annotation (Line(points={{-27.03,16.8667},{-27.03,31.5},{-60.9,31.5}},
                                                                                            color={0,0,127}));
   connect(Q_flow_set.y, Plant.Q_flow_set) annotation (Line(points={{-6.9,47.5},{-4,47.5},{-4,16.8667},{-4.49,16.8667}},   color={0,0,127}));
-  connect(Plant.outlet, sink.steam_a) annotation (Line(
-      points={{10.46,-4.76667},{14,-4.76667},{14,34},{24,34}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(source.steam_a, Plant.inlet) annotation (Line(
-      points={{28,-10},{22,-10},{22,-9.9},{10.46,-9.9}},
-      color={0,131,169},
-      thickness=0.5));
-  connect(source.eye, quadruple.eye) annotation (Line(points={{28,-2.8},{28,-2.8},{28,-10},{28,11.5},{46,11.5}},
-                                                                                                             color={190,190,190}));
   connect(Plant.eye, PQDiagram.eyeIn) annotation (Line(points={{12.3,-20.1667},{20,-20.1667},{20,-20},{61.8,-20}}, color={28,108,200}));
   connect(Plant.eye, infoBoxLargeCHP.eye) annotation (Line(points={{12.3,-20.1667},{20,-20.1667},{20,-38},{24,-38},{24,-38.2},{26.9,-38.2}}, color={28,108,200}));
 public
@@ -127,6 +108,11 @@ createPlot(id=2, position={746, 0, 728, 311}, y={"Plant.controlPowerModel.P_sec_
 end plotResult;
 equation
   connect(P_el_SB_set.y, Plant.P_SB_set) annotation (Line(points={{-58.9,7.5},{-42,7.5},{-42,20},{-33.47,20},{-33.47,12.65}}, color={0,0,127}));
+  connect(realExpression2.y, fluidSink.p_in) annotation (Line(points={{65,8},{60,8}}, color={0,0,127}));
+  connect(realExpression1.y, fluidSource.m_flow_in) annotation (Line(points={{71,44},{66,44},{66,37},{60,37}}, color={0,0,127}));
+  connect(realExpression3.y, fluidSource.h_in) annotation (Line(points={{71,32},{60,32}}, color={0,0,127}));
+  connect(fluidSink.port_a, Plant.outlet) annotation (Line(points={{42,8},{18,8},{18,-4.76667},{10.46,-4.76667}}, color={0,0,0}));
+  connect(fluidSource.port_a, Plant.inlet) annotation (Line(points={{42,34},{24,34},{24,-9.9},{10.46,-9.9}}, color={0,0,0}));
   annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}})),
     experiment(StopTime=86400),
     __Dymola_experimentSetupOutput(equidistant=false),

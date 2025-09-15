@@ -20,7 +20,7 @@ partial model PartialHeatConsumer "Partial model of a heat sink"
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -35,54 +35,39 @@ partial model PartialHeatConsumer "Partial model of a heat sink"
 
   import TransiEnt;
   extends TransiEnt.Basics.Icons.Consumer;
-  outer TransiEnt.ModelStatistics modelStatistics;
+
   // _____________________________________________
   //
   //                 Outer Models
   // _____________________________________________
 
-  outer TransiEnt.SimCenter simCenter;
+ // outer TransiEnt.SimCenter simCenter;
 
   // _____________________________________________
   //
   //             Visible Parameters
   // _____________________________________________
 
-  parameter TILMedia.VLEFluidTypes.BaseVLEFluid medium=simCenter.fluid1;
-
+    Modelica.Units.SI.SpecificHeatCapacity cf=4200 "Specific heat capacity of the fluid carrier";
   // _____________________________________________
   //
   //           Instances of other Classes
   // _____________________________________________
 
-  TransiEnt.Basics.Interfaces.Thermal.FluidPortOut fluidPortOut(Medium=medium) annotation (Placement(transformation(extent={{-108,-30},{-88,-10}}), iconTransformation(extent={{90,-90},{110,-70}})));
-  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn fluidPortIn(Medium=medium) annotation (Placement(transformation(extent={{-108,10},{-88,30}}), iconTransformation(extent={{90,-50},{110,-30}})));
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortOut_simple fluidPortOut annotation (Placement(transformation(extent={{-108,-30},{-88,-10}}), iconTransformation(extent={{90,-90},{110,-70}})));
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn_simple fluidPortIn annotation (Placement(transformation(extent={{-108,10},{-88,30}}), iconTransformation(extent={{90,-50},{110,-30}})));
 
-  TransiEnt.Components.Sensors.TemperatureSensor T_in annotation (Placement(transformation(
-        extent={{10,-10},{-10,10}},
-        rotation=180,
-        origin={-68,52})));
-  TransiEnt.Components.Sensors.TemperatureSensor T_out annotation (Placement(transformation(
-        extent={{10,-10},{-10,10}},
-        rotation=180,
-        origin={-70,-50})));
-  TransiEnt.Components.Statistics.Collectors.LocalCollectors.CollectHeatingPower collectHeatingPower(typeOfResource=TransiEnt.Basics.Types.TypeOfResource.Consumer) annotation (Placement(transformation(extent={{-100,80},{-80,100}})));
+public
+  Modelica.Blocks.Sources.RealExpression T_in(y=inStream(fluidPortIn.h_outflow)/cf) annotation (Placement(transformation(extent={{-52,16},{-72,36}})));
+public
+  Modelica.Blocks.Sources.RealExpression T_out(y=fluidPortOut.h_outflow/cf) annotation (Placement(transformation(extent={{-50,-34},{-70,-14}})));
 equation
 
   // _____________________________________________
   //
   //           Characteristic equations
   // _____________________________________________
-collectHeatingPower.heatFlowCollector.Q_flow=fluidPortIn.m_flow*(inStream(fluidPortIn.h_outflow)-fluidPortOut.h_outflow);
-connect(modelStatistics.heatFlowCollector[TransiEnt.Basics.Types.TypeOfResource.Consumer],collectHeatingPower.heatFlowCollector);
-  connect(T_in.port, fluidPortIn) annotation (Line(
-      points={{-68,62},{-80,62},{-80,20},{-98,20}},
-      color={0,0,0},
-      smooth=Smooth.None));
-  connect(T_out.port, fluidPortOut) annotation (Line(
-      points={{-70,-40},{-80,-40},{-80,-20},{-98,-20}},
-      color={0,0,0},
-      smooth=Smooth.None));
+
   annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
                                graphics), Icon(coordinateSystem(
           preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics),

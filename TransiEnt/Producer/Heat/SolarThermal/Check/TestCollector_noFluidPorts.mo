@@ -56,8 +56,6 @@ model TestCollector_noFluidPorts
     calculateCost=true,
     integrateCDE=true)
     annotation (Placement(transformation(extent={{-84,78},{-64,98}})));
-  inner TransiEnt.ModelStatistics modelStatistics
-    annotation (Placement(transformation(extent={{-54,78},{-34,98}})));
   TransiEnt.Producer.Heat.SolarThermal.SolarCollector_L1_constProp solarCollector(
     Q_flow_n=2e3,
     area=2.33,

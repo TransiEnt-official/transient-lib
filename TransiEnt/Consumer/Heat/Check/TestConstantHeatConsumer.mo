@@ -40,10 +40,6 @@ model TestConstantHeatConsumer
   //           Instances of other Classes
   // _____________________________________________
 
-  inner TransiEnt.SimCenter simCenter(
-    useHomotopy=false,
-    redeclare replaceable TILMedia.VLEFluidTypes.TILMedia_Water fluid1,
-    useClaRaDelay=true) annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
   ConstantHeatConsumer constantHeatConsumer(Q_flow_const=1000)
     annotation (Placement(transformation(extent={{-60,-28},{6,34}})));
 

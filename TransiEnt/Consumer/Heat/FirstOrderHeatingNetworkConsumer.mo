@@ -49,7 +49,6 @@ model FirstOrderHeatingNetworkConsumer "Heating network consumer, mass flow cont
   parameter Real m_flow_init=750 "Initial or guess value of output (= state)";
   parameter Boolean use_T_return_const = true;
   parameter SI.Density rho=1000 "Density of the fluid";
-  parameter SI.SpecificHeatCapacity cf=4186 "Specific heat capacity of the fluid";
 
   // _____________________________________________
   //
@@ -98,8 +97,6 @@ public
   //SI.SpecificHeatCapacity cp_in = TILMedia.Internals.VLEFluidConfigurations.FullyMixtureCompatible.VLEFluidFunctions.liquidSpecificHeatCapacity_phxi(medium, fluidPortIn.p, inStream(fluidPortIn.h_outflow), inStream(fluidPortIn.xi_outflow));
   //SI.Density rho = TILMedia.Internals.VLEFluidConfigurations.FullyMixtureCompatible.VLEFluidFunctions.liquidDensity_phxi(medium, fluidPortIn.p, inStream(fluidPortIn.h_outflow), inStream(fluidPortIn.xi_outflow));
   SI.HeatFlowRate Q_consumer_is = fluidPortIn.m_flow * inStream(fluidPortIn.h_outflow) + fluidPortOut.m_flow * fluidPortOut.h_outflow;
-  SI.Temperature T_in "Inflowing temperature into the consumer";
-
   Modelica.Blocks.Nonlinear.Limiter m_flow_lim_set(uMax=m_flow_large, uMin=m_flow_small) annotation (Placement(transformation(extent={{42,-27},{22,-7}})));
 
   Modelica.Blocks.Continuous.FirstOrder m_flow(
@@ -121,7 +118,6 @@ equation
   // _____________________________________________
 
   Q_flow_demand = m_flow_target*(inStream(fluidPortIn.h_outflow) - fluidPortOut.h_outflow);
-  T_in=inStream(fluidPortIn.h_outflow)/cf;
 
   if use_T_return_const then
     T_return_internal = T_return_const;

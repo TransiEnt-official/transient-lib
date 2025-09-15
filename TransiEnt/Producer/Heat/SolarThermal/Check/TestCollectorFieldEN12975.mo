@@ -82,7 +82,6 @@ public
     n_serial=5,
     n_parallel=7) annotation (Placement(transformation(extent={{-12,-35},{54,-9}})));
 
-  inner ModelStatistics modelStatistics annotation (Placement(transformation(extent={{-86,58},{-66,78}})));
   Modelica.Blocks.Sources.RealExpression realExpression(y=20 + 273.15)                  annotation (Placement(transformation(extent={{-92,-32},{-72,-12}})));
 equation
   // _____________________________________________

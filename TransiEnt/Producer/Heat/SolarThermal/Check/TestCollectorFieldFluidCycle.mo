@@ -137,7 +137,6 @@ model TestCollectorFieldFluidCycle "Tester for a solar collector field using a f
 
   ClaRa.Components.TurboMachines.Pumps.PumpVLE_L1_simple pumpVLE_L1_simple annotation (Placement(transformation(extent={{-26,8},{-6,28}})));
 
-  inner ModelStatistics modelStatistics annotation (Placement(transformation(extent={{-90,60},{-70,80}})));
   Components.Sensors.TemperatureSensor temperatureSensor annotation (Placement(transformation(extent={{110,24},{130,44}})));
 equation
   // _____________________________________________

@@ -24,6 +24,7 @@ package Base
   extends TransiEnt.Basics.Icons.BasesPackage;
 
   replaceable partial type PowerPlantType = enumeration(:);
+
   replaceable partial model PowerPlantSystem
 
     // _____________________________________________
@@ -154,9 +155,11 @@ package Base
 </html>"));
 
   end PowerPlantSystem;
+
   extends TransiEnt.Basics.Icons.Package;
 
   replaceable partial type ElectricalStorageType = enumeration(:);
+
   replaceable partial model ElectricalStorageSystem
 
     // _____________________________________________
@@ -261,7 +264,9 @@ package Base
 <p>Model adjusted by Jon Babst (babst@xrg-simulation.de), 06.09.2021</p>
 </html>"));
   end ElectricalStorageSystem;
+
   replaceable partial type PowerToGasType = enumeration(:);
+
   replaceable partial model PowerToGasSystem
 
     // _____________________________________________
@@ -389,7 +394,9 @@ package Base
 <p>Model adjusted by Jon Babst (babst@xrg-simulation.de), 06.09.2021</p>
 </html>"));
   end PowerToGasSystem;
+
   replaceable partial type GasStorageType = enumeration(:);
+
   replaceable partial model GasStorageSystem
 
     // _____________________________________________
@@ -823,8 +830,8 @@ package Base
     //                  Interfaces
     // _____________________________________________
 
-    TransiEnt.Basics.Interfaces.Thermal.FluidPortIn WaterPortIn_ExternalHeatSource(Medium=medium_water) if useExternalHeatSource annotation (Placement(transformation(extent={{-50,-112},{-30,-92}})));
-    TransiEnt.Basics.Interfaces.Thermal.FluidPortOut WaterPortOut_ExternalHeatSource(Medium=medium_water) if useExternalHeatSource annotation (Placement(transformation(extent={{30,-112},{50,-92}})));
+    TransiEnt.Basics.Interfaces.Thermal.FluidPortIn_simple WaterPortIn_ExternalHeatSource if useExternalHeatSource annotation (Placement(transformation(extent={{-50,-112},{-30,-92}})));
+    TransiEnt.Basics.Interfaces.Thermal.FluidPortOut_simple WaterPortOut_ExternalHeatSource if useExternalHeatSource annotation (Placement(transformation(extent={{30,-112},{50,-92}})));
     TransiEnt.Basics.Interfaces.Electrical.ComplexPowerPort epp "Choice of power port" annotation (Placement(transformation(extent={{90,-60},{110,-40}}), iconTransformation(extent={{80,-68},{110,-40}})));
     TransiEnt.Basics.Interfaces.Gas.RealGasPortIn gasPortIn(Medium=simCenter.gasModel1) annotation (Placement(transformation(extent={{90,-100},{110,-80}})));
     Modelica.Blocks.Interfaces.RealOutput P_ElectricalHeater_max annotation (Placement(transformation(extent={{100,76},{128,104}})));
@@ -899,6 +906,7 @@ package Base
 <p>Model adjusted by Jon Babst (babst@xrg-simulation.de), 06.09.2021</p>
 </html>"));
   end HeatingGrid;
+
 annotation (Icon(graphics={
         Ellipse(
           extent={{-30,-18},{30,42}},

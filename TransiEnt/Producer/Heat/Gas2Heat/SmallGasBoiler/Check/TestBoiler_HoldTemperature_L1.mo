@@ -58,8 +58,6 @@ model TestBoiler_HoldTemperature_L1
     stages=2,
     dimension=3)
               annotation (Placement(transformation(extent={{-18,-18},{18,18}})));
-  inner TransiEnt.ModelStatistics modelStatistics
-    annotation (Placement(transformation(extent={{-90,80},{-70,100}})));
   Modelica.Blocks.Sources.Ramp ramp(
     startTime=100,
     height=0.8*Boiler.Q_flow_n/Boiler.cp_water/(90 - 50),

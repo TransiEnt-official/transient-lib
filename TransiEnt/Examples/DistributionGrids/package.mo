@@ -19,7 +19,9 @@ package DistributionGrids
 // Gas- und WÃ¤rme-Institut Essen						  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
-//________________________________________________________________________________//  extends TransiEnt.Basics.Icons.Package;
+//________________________________________________________________________________//  
+
+extends TransiEnt.Basics.Icons.Package;
 
   annotation (Icon(graphics={
         Ellipse(

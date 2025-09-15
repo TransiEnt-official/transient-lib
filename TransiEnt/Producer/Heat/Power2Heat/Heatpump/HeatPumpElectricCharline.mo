@@ -84,8 +84,6 @@ protected
 
 public
   SI.Power P_el;
-  Modelica.Blocks.Sources.RealExpression PrescribedHeatFlow1(y=T_out.y) if useFluidPorts
-                                                                      annotation (Placement(transformation(extent={{28,54},{48,74}})));
   Modelica.Blocks.Sources.RealExpression T_in(y=inStream(waterPortIn.h_outflow)/cf) if useFluidPorts
                                                                                     annotation (Placement(transformation(extent={{-8,-44},{12,-24}})));
   Modelica.Blocks.Sources.RealExpression T_out(y=waterPortOut.h_outflow/cf) if useFluidPorts
@@ -129,7 +127,6 @@ equation
   end if;
 
   connect(realExpression.y, powerBoundary.P_el_set) annotation (Line(points={{95,-24},{96,-24},{96,-34}},    color={0,0,127}));
-  connect(PrescribedHeatFlow1.y, sum1.u[1]) annotation (Line(points={{49,64},{58,64},{58,55.5},{68,55.5}}, color={0,0,127}));
 annotation (Documentation(info="<html>
 <h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
 <p>Base class for simple heat pump models that produce a given heat flow via fluid ports and use a charline.</p>

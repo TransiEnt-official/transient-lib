@@ -20,7 +20,7 @@ model SimpleHeatFlow
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -30,7 +30,7 @@ model SimpleHeatFlow
   extends TransiEnt.Components.Gas.Engines.HeatFlow.BasicHeatFlow;
 
   Modelica.Blocks.Sources.RealExpression HeatFlow(y=Q_flow_out) annotation (Placement(transformation(extent={{22,-16},{42,4}})));
-  Boundaries.Heat.Heatflow_L1 heatflow_L1_1(change_sign=true) annotation (Placement(transformation(
+  Boundaries.Heat.Heatflow_L2 heatflow_L1_1(change_sign=true) annotation (Placement(transformation(
         extent={{-19,-19},{19,19}},
         rotation=90,
         origin={101,7})));

@@ -129,7 +129,6 @@ model TestCollectorFluidCycle_constProp "Tester for a solar collector using a fl
 
   ClaRa.Components.TurboMachines.Pumps.PumpVLE_L1_simple pumpVLE_L1_simple annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
 
-  inner ModelStatistics modelStatistics annotation (Placement(transformation(extent={{-90,100},{-70,120}})));
 equation
 
    // _____________________________________________

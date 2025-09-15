@@ -38,14 +38,6 @@ model TestSmallScaleCHP_simple
         origin={-90,60})));
   TransiEnt.Producer.Combined.SmallScaleCHP.SmallScaleCHP_simple.SmallScaleCHP_simple smallScaleCHP_simple(useGasPort=true) annotation (Placement(transformation(extent={{-50,30},{10,90}})));
   Modelica.Blocks.Math.Gain gain(k=-1) annotation (Placement(transformation(extent={{-74,56},{-66,64}})));
-  TransiEnt.Components.Boundaries.FluidFlow.BoundaryVLE_Txim_flow boundaryVLE_Txim_flow(variable_m_flow=false, boundaryConditions(m_flow_const=-1)) annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
-        rotation=180,
-        origin={50,60})));
-  TransiEnt.Components.Boundaries.FluidFlow.BoundaryVLE_pTxi boundaryVLE_pTxi(boundaryConditions(p_const(displayUnit="bar") = 100000)) annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
-        rotation=180,
-        origin={50,82})));
   Components.Boundaries.Gas.BoundaryRealGas_pTxi boundary_pTxi annotation (Placement(transformation(extent={{88,38},{68,58}})));
   Components.Boundaries.Electrical.ActivePower.Frequency ElectricGrid annotation (Placement(transformation(extent={{40,10},{60,30}})));
   Modelica.Blocks.Sources.Sine sine1(
@@ -81,6 +73,12 @@ model TestSmallScaleCHP_simple
   Components.Boundaries.Gas.BoundaryRealGas_pTxi boundary_pTxi2 annotation (Placement(transformation(extent={{90,-176},{70,-156}})));
   Modelica.Blocks.Math.Gain gain4(k=-1) annotation (Placement(transformation(extent={{-70,-170},{-62,-162}})));
 
+  Components.Boundaries.FluidFlow.FluidSource           fluidSource annotation (Placement(transformation(extent={{44,54},{24,74}})));
+  Components.Boundaries.FluidFlow.FluidSink           fluidSink annotation (Placement(transformation(extent={{42,76},{22,96}})));
+  Modelica.Blocks.Sources.RealExpression realExpression2(y=1e5)  annotation (Placement(transformation(extent={{68,76},{48,96}})));
+  Modelica.Blocks.Sources.RealExpression realExpression1(y=1)    annotation (Placement(transformation(extent={{64,60},{48,74}})));
+  Modelica.Blocks.Sources.RealExpression realExpression3(y=20*4200)
+                                                                 annotation (Placement(transformation(extent={{64,50},{48,64}})));
 equation
 
   connect(gain.y, smallScaleCHP_simple.Q_flow_set) annotation (Line(points={{-65.6,60},{-50,60}}, color={0,0,127}));
@@ -89,14 +87,6 @@ equation
       points={{10,48},{68,48}},
       color={255,255,0},
       thickness=1.5));
-  connect(boundaryVLE_Txim_flow.fluidPortOut, smallScaleCHP_simple.waterPortIn) annotation (Line(
-      points={{40,60},{26,60},{26,54},{10,54}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(smallScaleCHP_simple.waterPortOut, boundaryVLE_pTxi.fluidPortIn) annotation (Line(
-      points={{10,72},{26,72},{26,82},{40,82}},
-      color={175,0,0},
-      thickness=0.5));
   connect(ElectricGrid.epp, smallScaleCHP_simple.epp) annotation (Line(
       points={{40,20},{26,20},{26,36.6},{9.4,36.6}},
       color={0,135,135},
@@ -122,6 +112,11 @@ equation
       thickness=1.5));
   connect(sine2.y, gain4.u) annotation (Line(points={{-77,-166},{-70.8,-166}}, color={0,0,127}));
   connect(gain4.y, smallScaleCHP_simple2.Q_flow_set) annotation (Line(points={{-61.6,-166},{-48,-166},{-48,-168}}, color={0,0,127}));
+  connect(realExpression2.y, fluidSink.p_in) annotation (Line(points={{47,86},{40,86}}, color={0,0,127}));
+  connect(realExpression1.y, fluidSource.m_flow_in) annotation (Line(points={{47.2,67},{42,67}}, color={0,0,127}));
+  connect(realExpression3.y, fluidSource.h_in) annotation (Line(points={{47.2,57},{44,57},{44,62},{42,62}}, color={0,0,127}));
+  connect(fluidSink.port_a, smallScaleCHP_simple.waterPortOut) annotation (Line(points={{22,86},{22,88},{16,88},{16,72},{10,72}}, color={0,0,0}));
+  connect(fluidSource.port_a, smallScaleCHP_simple.waterPortIn) annotation (Line(points={{24,64},{24,54},{10,54}}, color={0,0,0}));
   annotation (
     Icon(graphics, coordinateSystem(preserveAspectRatio=false, extent={{-100,-220},{100,100}})),
     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-220},{100,100}})),

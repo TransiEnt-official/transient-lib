@@ -57,63 +57,58 @@ model WasteHeatUsage_HeatPort
   TransiEnt.Components.Sensors.TemperatureSensor tempAfterConsumer1(unitOption=1) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
-        origin={-74,-34})));
+        origin={-82,-34})));
   TransiEnt.Components.Heat.HEX_ideal hEX_ideal(Delta_p=0) annotation (Placement(transformation(
         extent={{-10,10},{10,-10}},
         rotation=-90,
-        origin={-56,0})));
+        origin={-68,0})));
   TransiEnt.Components.Heat.PumpVLE_L1_simple pumpVLE_L1_simple(
     presetVariableType="m_flow",
     m_flowInput=true,
-    m_flow_fixed=2) annotation (Placement(transformation(extent={{-44,16},{-56,28}})));
+    m_flow_fixed=2) annotation (Placement(transformation(extent={{-56,14},{-68,26}})));
   Modelica.Blocks.Sources.RealExpression realExpression4(y=max(0, (-port_a.Q_flow - fixedHeatFlow.Q_flow)/(4.182e3*80))) annotation (Placement(transformation(extent={{-100,38},{-80,58}})));
   Modelica.Thermal.HeatTransfer.Sources.FixedHeatFlow fixedHeatFlow(Q_flow=-1e-4) annotation (Placement(transformation(extent={{-116,-30},{-96,-10}})));
   TransiEnt.Producer.Heat.Power2Heat.ElectricBoiler.ElectricBoiler electricBoiler(
     Q_flow_n=1e99,
     usePowerPort=true,
     redeclare TransiEnt.Basics.Interfaces.Electrical.ComplexPowerPort epp,
-    redeclare TransiEnt.Components.Boundaries.Electrical.ComplexPower.PQBoundary powerBoundary(useInputConnectorQ=false, cosphi_boundary=0.99) "Power Boundary for ComplexPowerPort") annotation (Placement(transformation(extent={{-26,14},{-42,30}})));
+    redeclare TransiEnt.Components.Boundaries.Electrical.ComplexPower.PQBoundary powerBoundary(useInputConnectorQ=false, cosphi_boundary=0.99) "Power Boundary for ComplexPowerPort") annotation (Placement(transformation(extent={{-32,14},{-48,30}})));
   Modelica.Blocks.Sources.RealExpression realExpression2(y=if tempBeforeConsumer1.T < 373.15 and electricBoiler.fluidPortIn.m_flow >= 1e-5 then -electricBoiler.fluidPortIn.m_flow*4.1863e3*(373.15 - tempBeforeConsumer1.T) else 0) annotation (Placement(transformation(extent={{-100,54},{-80,74}})));
   TransiEnt.Components.Sensors.ElectricPowerComplex electricPowerComplex annotation (Placement(transformation(
         extent={{-10,10},{10,-10}},
         rotation=90,
         origin={0,72})));
 
+  Basics.Adapters.FluidPortAdapter fluidPortAdapter5 annotation (Placement(transformation(extent={{-29,21},{-25,24}})));
 equation
   // _____________________________________________
   //
   //               Connect Statements
   // _____________________________________________
 
+public
+  Basics.Adapters.FluidPortAdapter fluidPortAdapter4 annotation (Placement(transformation(extent={{-51,19},{-55,22}})));
+equation
   connect(threeWayValveVLE_L2_1.inlet, tempAfterConsumer1.port) annotation (Line(
-      points={{-22,-34},{-64,-34}},
+      points={{-22,-34},{-72,-34}},
       color={0,131,169},
       pattern=LinePattern.Solid,
       thickness=0.5));
   connect(hEX_ideal.waterPortOut, threeWayValveVLE_L2_1.inlet) annotation (Line(
-      points={{-56,-10},{-56,-34},{-22,-34}},
+      points={{-68,-10},{-68,-34},{-22,-34}},
       color={175,0,0},
       thickness=0.5));
   connect(pumpVLE_L1_simple.fluidPortOut, hEX_ideal.waterPortIn) annotation (Line(
-      points={{-56,22},{-56,10}},
+      points={{-68,20},{-68,10}},
       color={175,0,0},
       thickness=0.5));
-  connect(hEX_ideal.heatport, port_a) annotation (Line(points={{-65.8,0},{-102,0}}, color={191,0,0}));
-  connect(realExpression4.y, pumpVLE_L1_simple.m_flow_in) annotation (Line(points={{-79,48},{-45.2,48},{-45.2,28.6}}, color={0,0,127}));
-  connect(fixedHeatFlow.port, hEX_ideal.heatport) annotation (Line(points={{-96,-20},{-90,-20},{-90,0},{-65.8,0}}, color={191,0,0}));
-  connect(joinVLE_L2_Y.outlet, electricBoiler.fluidPortIn) annotation (Line(
-      points={{-22,22},{-25.68,22}},
-      color={0,131,169},
-      pattern=LinePattern.Solid,
-      thickness=0.5));
-  connect(pumpVLE_L1_simple.fluidPortIn, electricBoiler.fluidPortOut) annotation (Line(
-      points={{-44,22},{-42.16,22}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(realExpression2.y, electricBoiler.Q_flow_set) annotation (Line(points={{-79,64},{-25.68,64},{-25.68,22.8}},
+  connect(hEX_ideal.heatport, port_a) annotation (Line(points={{-77.8,0},{-102,0}}, color={191,0,0}));
+  connect(realExpression4.y, pumpVLE_L1_simple.m_flow_in) annotation (Line(points={{-79,48},{-57.2,48},{-57.2,26.6}}, color={0,0,127}));
+  connect(fixedHeatFlow.port, hEX_ideal.heatport) annotation (Line(points={{-96,-20},{-90,-20},{-90,0},{-77.8,0}}, color={191,0,0}));
+  connect(realExpression2.y, electricBoiler.Q_flow_set) annotation (Line(points={{-79,64},{-31.68,64},{-31.68,22.8}},
                                                                                                               color={0,0,127}));
   connect(electricBoiler.epp, electricPowerComplex.epp_IN) annotation (Line(
-      points={{-34,13.84},{-34,2},{-6.10623e-16,2},{-6.10623e-16,62.8}},
+      points={{-40,13.84},{-40,2},{-6.10623e-16,2},{-6.10623e-16,62.8}},
       color={28,108,200},
       thickness=0.5));
   connect(electricPowerComplex.epp_OUT, epp) annotation (Line(
@@ -124,6 +119,16 @@ equation
       points={{8.6,63.8},{40,63.8},{40,110}},
       color={0,135,135},
       pattern=LinePattern.Dash));
+  connect(fluidPortAdapter4.fluidPortOut, pumpVLE_L1_simple.fluidPortIn) annotation (Line(
+      points={{-55,20.5},{-55,20},{-56,20}},
+      color={175,0,0},
+      thickness=0.5));
+  connect(fluidPortAdapter4.fluidPortIn, electricBoiler.fluidPortOut) annotation (Line(points={{-51,20.5},{-48.16,20.5},{-48.16,22}}, color={0,0,0}));
+  connect(fluidPortAdapter5.fluidPortIn, electricBoiler.fluidPortIn) annotation (Line(points={{-29,22.5},{-31.68,22.5},{-31.68,22}}, color={0,0,0}));
+  connect(fluidPortAdapter5.fluidPortOut, joinVLE_L2_Y.outlet) annotation (Line(
+      points={{-25,22.5},{-23.5,22.5},{-23.5,22},{-22,22}},
+      color={175,0,0},
+      thickness=0.5));
   annotation (Documentation(info="<html>
 <h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
 <p>Model is used in superstructure to model the storage and usage of excess heat from PtG. </p>

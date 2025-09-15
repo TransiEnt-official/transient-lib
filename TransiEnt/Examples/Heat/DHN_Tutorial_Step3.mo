@@ -46,13 +46,7 @@ model DHN_Tutorial_Step3
         origin={153,-17})));
   TransiEnt.Storage.Heat.HotWaterStorage_constProp_L4.HotWaterStorage_constProp_L4 hotWaterStorage_constProp_L4_1(V=35)
                                                                                                                        annotation (Placement(transformation(extent={{64,-28},{84,-8}})));
-  TransiEnt.Basics.Adapters.FluidPortAdapter fluidPortAdapter annotation (Placement(transformation(extent={{120,-35},{110,-25}})));
-  TransiEnt.Basics.Adapters.FluidPortAdapter fluidPortAdapter1 annotation (Placement(transformation(extent={{102,-19},{92,-9}})));
-  inner TransiEnt.SimCenter simCenter annotation (Placement(transformation(extent={{124,76},{144,96}})));
   Modelica.Blocks.Sources.RealExpression realExpression1(y=0.5e5)                                                                             annotation (Placement(transformation(extent={{-60,-64},{-40,-44}})));
-  TransiEnt.Basics.Adapters.FluidPortAdapter fluidPortAdapter2 annotation (Placement(transformation(extent={{44,-19},{54,-9}})));
-  TransiEnt.Basics.Adapters.FluidPortAdapter fluidPortAdapter3
-                                                              annotation (Placement(transformation(extent={{44,-33},{54,-23}})));
   TransiEnt.Components.Heat.SimplePump_mflow simplePump2 annotation (Placement(transformation(extent={{22,-12},{38,4}})));
   Modelica.Blocks.Sources.RealExpression realExpression4(y=18)                                                                                annotation (Placement(transformation(extent={{2,2},{16,17}})));
   TransiEnt.Components.Heat.SimplePump_dp pump_Dp annotation (Placement(transformation(extent={{110,-18},{120,-8}})));
@@ -68,33 +62,17 @@ equation
   connect(realExpression7.y,PID. u_m) annotation (Line(points={{-39,32},{-18,32},{-18,40}},       color={0,0,127}));
   connect(realExpression3.y,heatpump1. T_set_variable) annotation (Line(points={{-39,14},{-8,14},{-8,0}},          color={0,0,127}));
   connect(realExpression9.y,heatpump1. Q_flow_set) annotation (Line(points={{-39,-10},{-12,-10}},                                    color={0,0,127}));
-  connect(fluidPortAdapter.fluidPortOut, hotWaterStorage_constProp_L4_1.waterPortIn_grid[1]) annotation (Line(
-      points={{110,-30},{92,-30},{92,-22},{84,-22}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(fluidPortAdapter1.fluidPortOut, hotWaterStorage_constProp_L4_1.waterPortOut_grid[1]) annotation (Line(
-      points={{92,-14},{84,-14}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(fluidPortAdapter2.fluidPortOut, hotWaterStorage_constProp_L4_1.waterPortIn_prod[1]) annotation (Line(
-      points={{54,-14},{64,-14}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(fluidPortAdapter3.fluidPortOut, hotWaterStorage_constProp_L4_1.waterPortOut_prod[1]) annotation (Line(
-      points={{54,-28},{64,-28},{64,-22}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(heatpump1.inlet, fluidPortAdapter3.fluidPortIn) annotation (Line(points={{6,-16.2},{38,-16.2},{38,-28},{44,-28}}, color={0,0,0}));
   connect(heatpump1.outlet, simplePump2.inlet) annotation (Line(points={{5.8,-4},{21.84,-4}}, color={0,0,0}));
-  connect(fluidPortAdapter2.fluidPortIn, simplePump2.outlet) annotation (Line(points={{44,-14},{38.16,-14},{38.16,-4}}, color={0,0,0}));
   connect(sink.port_a, simplePump2.outlet) annotation (Line(points={{-36,78},{44,78},{44,-4},{38.16,-4}}, color={0,0,0}));
   connect(realExpression4.y, simplePump2.m_flow) annotation (Line(points={{16.7,9.5},{18,9.5},{18,0.8},{22.48,0.8}}, color={0,0,127}));
-  connect(fluidPortAdapter.fluidPortIn, topologyA_Ports.outlet) annotation (Line(points={{120,-30},{130,-30},{130,-14},{137.2,-14}}, color={0,0,0}));
-  connect(pump_Dp.inlet, fluidPortAdapter1.fluidPortIn) annotation (Line(points={{109.9,-13},{109.9,-14},{102,-14}}, color={0,0,0}));
   connect(pump_Dp.outlet, topologyA_Ports.inlet) annotation (Line(points={{120.1,-13},{132,-13},{132,-19.8},{137.2,-19.8}}, color={0,0,0}));
   connect(PID.y, pump_Dp.delta_p) annotation (Line(points={{-7,52},{115,52},{115,-8}}, color={0,0,127}));
   connect(realExpression1.y, heatpump1.dp) annotation (Line(points={{-39,-54},{-20,-54},{-20,20},{-4,20},{-4,0}}, color={0,0,127}));
   connect(fixedHeatFlow.port, hotWaterStorage_constProp_L4_1.heatPortAmbient) annotation (Line(points={{70,24},{74,24},{74,-9.5}}, color={191,0,0}));
+  connect(simplePump2.outlet, hotWaterStorage_constProp_L4_1.waterPortIn_prod[1]) annotation (Line(points={{38.16,-4},{58,-4},{58,-14},{64,-14}}, color={0,0,0}));
+  connect(heatpump1.inlet, hotWaterStorage_constProp_L4_1.waterPortOut_prod[1]) annotation (Line(points={{6,-16.2},{58,-16.2},{58,-22},{64,-22}}, color={0,0,0}));
+  connect(hotWaterStorage_constProp_L4_1.waterPortOut_grid[1], pump_Dp.inlet) annotation (Line(points={{84,-14},{86,-14},{86,-13},{109.9,-13}}, color={0,0,0}));
+  connect(topologyA_Ports.outlet, hotWaterStorage_constProp_L4_1.waterPortIn_grid[1]) annotation (Line(points={{137.2,-14},{134,-14},{134,-24},{84,-24},{84,-22}}, color={0,0,0}));
   annotation (experiment(StopTime=172800, __Dymola_Algorithm="Dassl"),
     Diagram(coordinateSystem(extent={{-100,-100},{180,100}})),
     Icon(coordinateSystem(extent={{-100,-100},{180,100}}), graphics={

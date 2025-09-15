@@ -58,8 +58,6 @@ model TestBoiler_Qflowset_variableH2
   Gasboiler_static_L1 Boiler annotation (Placement(transformation(extent={{-18,-18},{18,18}})));
   TransiEnt.Components.Boundaries.Gas.RealGasCompositionByWtFractions_stepVariation gasCompositionByWtFractions_linearVariation(xi(
                                                                                                                                 start =  simCenter.gasModel2.xi_default),period=1000) annotation (Placement(transformation(extent={{-104,-14},{-88,2}})));
-  inner TransiEnt.ModelStatistics modelStatistics
-    annotation (Placement(transformation(extent={{-90,80},{-70,100}})));
   TransiEnt.Components.Boundaries.Gas.BoundaryIdealGas_pTxi gasSink(gasModel=simCenter.exhaustGasModel) annotation (Placement(transformation(extent={{60,-10},{40,10}})));
   TransiEnt.Components.Boundaries.Gas.BoundaryIdealGas_pTxi gasSource(gasModel=simCenter.gasModel2, variable_xi=true) annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
 equation

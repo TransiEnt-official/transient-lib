@@ -29,36 +29,24 @@ model TestSolarThermal_L0 "Tester for a solar collector using fluid boundaries"
 
 
   extends Basics.Icons.Checkmodel;
-  SolarThermal.SolarThermal_L0 solarThermal annotation (Placement(transformation(extent={{-12,-10},{8,10}})));
+  SolarThermal.SolarThermal_L0 solarThermal annotation (Placement(transformation(extent={{8,-10},{-12,10}})));
   inner SimCenter simCenter(redeclare TransiEnt.Basics.Tables.HeatGrid.HeatingCurves.HeatingCurveEONHanse heatingCurve) annotation (Placement(transformation(extent={{-90,80},{-70,100}})));
 
-  inner ModelStatistics           modelStatistics
-     annotation (Placement(transformation(extent={{-70,80},{-50,100}})));
-  ClaRa.Components.BoundaryConditions.BoundaryVLE_hxim_flow massFlowSource(
-    m_flow_const=0.1,
-    m_flow_nom=0,
-    p_nom=1000,
-    variable_m_flow=false,
-    variable_h=false,
-    h_const=400e3) annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
-  ClaRa.Components.BoundaryConditions.BoundaryVLE_phxi massFlowSink(
-    m_flow_nom=100,
-    p_const=1000000,
-    Delta_p=100000,
-    variable_p=false,
-    h_const=400e3) annotation (Placement(transformation(
-        extent={{10,10},{-10,-10}},
-        rotation=0,
-        origin={52,0})));
+  Components.Boundaries.FluidFlow.FluidSource           fluidSource annotation (Placement(transformation(extent={{-48,-10},{-28,10}})));
+  Modelica.Blocks.Sources.RealExpression realExpression3(y=400e3)
+                                                                 annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
+  Modelica.Blocks.Sources.RealExpression realExpression1(y=0.1)  annotation (Placement(transformation(extent={{-80,0},{-60,20}})));
+  Components.Boundaries.FluidFlow.FluidSink           fluidSink(h=400e3)
+                                                                annotation (Placement(transformation(extent={{42,-10},{22,10}})));
+  Modelica.Blocks.Sources.RealExpression realExpression2(y=10e5) annotation (Placement(transformation(extent={{66,-10},{46,10}})));
 equation
-  connect(solarThermal.waterPortOut, massFlowSource.steam_a) annotation (Line(
-      points={{-12,0},{-40,0}},
-      color={175,0,0},
-      smooth=Smooth.None));
-  connect(solarThermal.waterPortIn, massFlowSink.steam_a) annotation (Line(
-      points={{8,0},{42,0}},
-      color={175,0,0},
-      smooth=Smooth.None));
+  connect(realExpression3.y,fluidSource. h_in) annotation (Line(points={{-59,-10},{-52,-10},{-52,-2},{-46,-2}},
+                                                                                          color={0,0,127}));
+  connect(realExpression1.y,fluidSource. m_flow_in) annotation (Line(points={{-59,10},{-54,10},{-54,3},{-46,3}},
+                                                                                                               color={0,0,127}));
+  connect(realExpression2.y, fluidSink.p_in) annotation (Line(points={{45,0},{40,0}}, color={0,0,127}));
+  connect(solarThermal.waterPortIn, fluidSource.port_a) annotation (Line(points={{-12,0},{-28,0}}, color={0,0,0}));
+  connect(solarThermal.waterPortOut, fluidSink.port_a) annotation (Line(points={{8,0},{22,0}}, color={0,0,0}));
   annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={Text(
           extent={{-26,90},{86,70}},
           textColor={28,108,200},

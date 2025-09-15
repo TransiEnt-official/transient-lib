@@ -27,7 +27,6 @@ model TestTwoBlockCHP "Example how the two block CHP model works"
 
 
   extends TransiEnt.Basics.Icons.Checkmodel;
-  inner TransiEnt.ModelStatistics modelStatistics annotation (Placement(transformation(extent={{-100,79},{-80,99}})));
   inner TransiEnt.SimCenter simCenter annotation (Placement(transformation(extent={{-70,79},{-50,99}})));
   TransiEnt.Components.Boundaries.Electrical.ActivePower.Frequency Grid(useInputConnector=false) annotation (Placement(transformation(extent={{20,50},{32,62}})));
   TwoBlockCHP                                             Plant(Block_1(
@@ -43,14 +42,6 @@ model TestTwoBlockCHP "Example how the two block CHP model works"
       m_flow_nom=800,
       h_nom=65*4.2e3))  annotation (Placement(transformation(extent={{-60,-22},{10,22}})));
 
-  ClaRa.Components.BoundaryConditions.BoundaryVLE_pTxi sink(
-    Delta_p=0,
-    p_const(displayUnit="bar") = 1600000,
-    T_const(displayUnit="degC"),
-    m_flow_nom=1500)             annotation (Placement(transformation(
-        extent={{-7,-8},{7,8}},
-        rotation=180,
-        origin={31,34})));
   Components.Visualization.InfoBoxLargeCHP infoBoxLargeCHP annotation (Placement(transformation(extent={{26,-51},{44,-29}})));
   Modelica.Blocks.Sources.Constant m_flow_set_B1(k=-700)
                                                  annotation (Placement(transformation(extent={{-88,-48},{-68,-28}})));
@@ -92,14 +83,12 @@ model TestTwoBlockCHP "Example how the two block CHP model works"
         origin={-26,37.5})));
   Components.Visualization.PQDiagram_Display PQDiagram1(PQCharacteristics=Base.Characteristics.PQ_Characteristics_WW1()) annotation (Placement(transformation(extent={{56,-32},{86,-4}})));
   Components.Visualization.PQDiagram_Display PQDiagram2(PQCharacteristics=Base.Characteristics.PQ_Characteristics_WW2()) annotation (Placement(transformation(extent={{56,-70},{86,-42}})));
+  Components.Boundaries.FluidFlow.FluidSink           fluidSink annotation (Placement(transformation(extent={{68,12},{48,32}})));
+  Modelica.Blocks.Sources.RealExpression realExpression2(y=16e5) annotation (Placement(transformation(extent={{92,12},{72,32}})));
 equation
   connect(Plant.epp,Grid. epp) annotation (Line(
       points={{11.2174,18.15},{10,18.15},{10,56},{20,56}},
       color={0,135,135},
-      thickness=0.5));
-  connect(Plant.outlet, sink.steam_a) annotation (Line(
-      points={{11.5217,-2.475},{14,-2.475},{14,34},{24,34}},
-      color={175,0,0},
       thickness=0.5));
   connect(Plant.eye, infoBoxLargeCHP.eye) annotation (Line(points={{11.5217,-15.675},{20,-15.675},{20,-38},{24,-38},{24,-38.2},{26.9,-38.2}},color={28,108,200}));
 public
@@ -138,8 +127,9 @@ equation
   connect(Q_flow_set1.y, Plant.Q_flow_set_B1) annotation (Line(points={{-64.9,57.5},{-37.7826,57.5},{-37.7826,23.375}}, color={0,0,127}));
   connect(Plant.eye_Block2, PQDiagram2.eyeIn) annotation (Line(points={{11.5217,-22},{44,-22},{44,-56},{51.8,-56}}, color={28,108,200}));
   connect(Plant.eye_Block1, PQDiagram1.eyeIn) annotation (Line(points={{11.5217,-18.975},{51.8,-18.975},{51.8,-18}}, color={28,108,200}));
-  annotation (Diagram(graphics,
-                      coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}})),
+  connect(realExpression2.y, fluidSink.p_in) annotation (Line(points={{71,22},{66,22}}, color={0,0,127}));
+  connect(Plant.outlet, fluidSink.port_a) annotation (Line(points={{11.5217,-2.475},{42,-2.475},{42,22},{48,22}}, color={0,0,0}));
+  annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}})),
     experiment(StopTime=86400, __Dymola_Algorithm="Dassl"),
     __Dymola_experimentSetupOutput(equidistant=false),
     Icon(graphics,

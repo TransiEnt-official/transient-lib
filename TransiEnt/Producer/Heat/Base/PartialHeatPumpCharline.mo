@@ -49,7 +49,7 @@ partial model PartialHeatPumpCharline "Partial heat pump model that produces a g
 
   replaceable model ProducerCosts = TransiEnt.Components.Statistics.ConfigurationData.PowerProducerCostSpecs.Empty constrainedby TransiEnt.Components.Statistics.ConfigurationData.PowerProducerCostSpecs.PartialPowerPlantCostSpecs annotation (Dialog(group="Statistics"), __Dymola_choicesAllMatching=true);
   parameter Boolean useFluidPorts=true "True if fluid ports shall be used" annotation (Dialog(group="Technical Specifications"));
-  parameter TILMedia.VLEFluidTypes.BaseVLEFluid mediumWater=simCenter.fluid1 "Medium to be used" annotation (choicesAllMatching, Dialog(group="Fundamental Definitions"));
+  //parameter TILMedia.VLEFluidTypes.BaseVLEFluid mediumWater=simCenter.fluid1 "Medium to be used" annotation (choicesAllMatching, Dialog(group="Fundamental Definitions"));
   parameter SI.Pressure p_drop=10 annotation (Dialog(group="Fundamental Definitions"));
   parameter SI.SpecificHeatCapacity cf=4200;
 

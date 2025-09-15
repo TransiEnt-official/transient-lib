@@ -681,6 +681,7 @@ powerToGasRecord: parametrization records for PtGplants in region [nPowerToGasPl
   redeclare type PowerPlantType = enumeration(
     Gasturbine_with_Gasport_constantEff   "Gasturbine_with_Gasport and constant efficiency",
     CCP_with_Gasport_constantEff   "CCP_with_Gasport and constant efficiency") "Choose power plant type";
+
   redeclare model extends PowerPlantSystem(redeclare package Config = Portfolio_Example)
 
     // _____________________________________________
@@ -945,6 +946,7 @@ powerToGasRecord: parametrization records for PtGplants in region [nPowerToGasPl
     leadAcidBattery "Model of a lead acid battery",
     lithiumIonBattery "Model of a ltihium ion battery",
     battery "Typical characteristic of battery storage") "Choose electrical storage type";
+
   redeclare model extends ElectricalStorageSystem(redeclare package Config = Portfolio_Example)
      // _____________________________________________
     //
@@ -1131,6 +1133,7 @@ powerToGasRecord: parametrization records for PtGplants in region [nPowerToGasPl
                             "FeedInStation_Methanation_with_CavernCompression_seperateHydrogenPort",
     FeedInStation_Methanation_woStorage
                             "FeedInStation_Methanation_woStorage") "Choose power to gas type";
+
   redeclare model extends PowerToGasSystem(redeclare package Config = Portfolio_Example)
 
     // _____________________________________________
@@ -1959,6 +1962,7 @@ powerToGasRecord: parametrization records for PtGplants in region [nPowerToGasPl
     GasStorage_varXi_L1   "L1: Model of a simple gas storage volume for variable composition",
     GasStorage_constXi_L2   "L2: Model of a simple gas storage volume for constant composition",
     GasStorage_varXi_L2   "L2: Model of a simple gas storage volume for variable composition") "Choose gas storage";
+
   redeclare model extends GasStorageSystem(redeclare package Config = Portfolio_Example)
 
     // _____________________________________________
@@ -3010,7 +3014,6 @@ powerToGasRecord: parametrization records for PtGplants in region [nPowerToGasPl
 
     TransiEnt.Components.Boundaries.Gas.BoundaryRealGas_Txim_flow boundary_Txim_flow annotation (Placement(transformation(extent={{60,-100},{80,-80}})));
     TransiEnt.Components.Boundaries.Heat.Heatflow_L1 heatflow_L1_1(
-      Medium=medium_water,
       Q_flow_const=0,
       use_Q_flow_in=false) annotation (Placement(transformation(extent={{-8,-60},{12,-40}})));
     Modelica.Blocks.Sources.RealExpression realExpression_zero annotation (Placement(transformation(extent={{60,64},{80,84}})));

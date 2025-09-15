@@ -62,8 +62,6 @@ model TestBoilers_HoldTemperature_L2 "Comparison of two boilers to hold a set te
     fixedSupplyTemperature=true,
     T_init=80,
     lambda=1)     annotation (Placement(transformation(extent={{-12,-60},{24,-24}})));
-  inner TransiEnt.ModelStatistics modelStatistics
-    annotation (Placement(transformation(extent={{-110,60},{-90,80}})));
   Modelica.Blocks.Sources.Ramp ramp(
     height=750/3.6 - BoilerVarXi.Q_flow_n/BoilerVarXi.cp_water/50,
     offset=BoilerVarXi.Q_flow_n/BoilerVarXi.cp_water/50,

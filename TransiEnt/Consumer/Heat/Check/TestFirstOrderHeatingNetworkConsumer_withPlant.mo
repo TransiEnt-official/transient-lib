@@ -27,7 +27,6 @@ model TestFirstOrderHeatingNetworkConsumer_withPlant
 
 
   extends TransiEnt.Basics.Icons.Checkmodel;
-  inner TransiEnt.ModelStatistics modelStatistics annotation (Placement(transformation(extent={{-160,80},{-140,100}})));
   inner TransiEnt.SimCenter simCenter annotation (Placement(transformation(extent={{-130,80},{-110,100}})));
   Modelica.Blocks.Sources.RealExpression P_set(y=-100e6)
                                                         annotation (Placement(
@@ -47,7 +46,6 @@ model TestFirstOrderHeatingNetworkConsumer_withPlant
     Q_flow_init=250e6,
     P_el_n=Plant.PQCharacteristics.PQboundaries[1, 2],
     Q_flow_n_CHP=Plant.PQCharacteristics.PQboundaries[end, 1],
-    redeclare model ProducerCosts = TransiEnt.Components.Statistics.ConfigurationData.PowerProducerCostSpecs.HardCoal,
     m_flow_nom=1500,
     h_nom=4.2e3*90,
     T_feed_init=363.15) annotation (Placement(transformation(extent={{-112,-62},{-66,-18}})));
@@ -57,7 +55,7 @@ model TestFirstOrderHeatingNetworkConsumer_withPlant
     m_flow_init=1900,
     T_return_const=65 + 273.15,
     p_return_const=1600000)                                               annotation (Placement(transformation(extent={{48,-48},{28,-28}})));
-  Modelica.Blocks.Sources.RealExpression T_feed_is(y=Plant.T_out_sensor.T) annotation (Placement(transformation(
+  Modelica.Blocks.Sources.RealExpression T_feed_is(y=Plant.T_out.y)        annotation (Placement(transformation(
         extent={{-9,-10.5},{9,10.5}},
         rotation=0,
         origin={-127,12.5})));
@@ -82,46 +80,8 @@ model TestFirstOrderHeatingNetworkConsumer_withPlant
     offset=90 + 273.15,
     startTime=2e4,
     height=10)                                               annotation (Placement(transformation(extent={{-158,30},{-138,50}})));
-  ClaRa.Components.VolumesValvesFittings.Pipes.PipeFlowVLE_L4_Simple pipe_feed(
-    showExpertSummary=false,
-    showData=false,
-    frictionAtInlet=false,
-    frictionAtOutlet=false,
-    diameter_i=0.8,
-    z_in=0,
-    z_out=0,
-    N_tubes=1,
-    length=10e3,
-    N_cv=10,
-    Delta_x=ones(pipe_feed.N_cv)*pipe_feed.length/pipe_feed.N_cv,
-  p_start=ones(pipe_feed.N_cv)*12e5,
-    redeclare model HeatTransfer = ClaRa.Basics.ControlVolumes.Fundamentals.HeatTransport.Generic_HT.CharLine_L4 (final temperatureDifference="Outlet"),
-    h_start=ones(pipe_feed.N_cv)*4.2e3*90,
-    p_nom=ones(pipe_feed.geo.N_cv)*12e5,
-    h_nom=ones(pipe_feed.geo.N_cv)*4.2e3*90,
-    m_flow_nom=1900,
-    redeclare model PressureLoss = ClaRa.Basics.ControlVolumes.Fundamentals.PressureLoss.Generic_PL.LinearPressureLoss_L4)
-                                                                  annotation (Placement(transformation(extent={{-37,-27},{-10,-17}})));
-  ClaRa.Components.VolumesValvesFittings.Pipes.PipeFlowVLE_L4_Simple pipe_return(
-    showExpertSummary=false,
-    showData=false,
-    frictionAtInlet=false,
-    frictionAtOutlet=false,
-    diameter_i=0.8,
-    z_in=0,
-    z_out=0,
-    N_tubes=1,
-    length=10e3,
-    N_cv=10,
-    Delta_x=ones(pipe_return.N_cv)*pipe_return.length/pipe_return.N_cv,
-  p_start=ones(pipe_return.N_cv)*16e5,
-    redeclare model HeatTransfer = ClaRa.Basics.ControlVolumes.Fundamentals.HeatTransport.Generic_HT.CharLine_L4 (final temperatureDifference="Outlet"),
-    h_start=ones(pipe_return.N_cv)*4.2e3*65,
-    p_nom=ones(pipe_return.geo.N_cv)*16e5,
-    h_nom=ones(pipe_return.geo.N_cv)*4.2e3*65,
-    m_flow_nom=1900,
-    redeclare model PressureLoss = ClaRa.Basics.ControlVolumes.Fundamentals.PressureLoss.Generic_PL.LinearPressureLoss_L4)
-                                                                        annotation (Placement(transformation(extent={{-10,-73},{-37,-63}})));
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 dHN_Pipe_L4_1 annotation (Placement(transformation(extent={{-30,-48},{-10,-28}})));
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 dHN_Pipe_L4_2 annotation (Placement(transformation(extent={{-10,-70},{-30,-50}})));
 equation
   connect(Plant.epp, Grid.epp) annotation (Line(
       points={{-67.15,-33.4},{-62,-33.4},{-62,-2},{-58,-2}},
@@ -131,15 +91,6 @@ equation
                                                                                            color={0,0,127}));
   connect(Q_th_demand.y, ConsumerStation.Q_flow_demand) annotation (Line(points={{51,-10},{38.4,-10},{38.4,-28.6}},
                                                                                                     color={0,0,127}));
-  connect(pipe_return.outlet, Plant.inlet) annotation (Line(
-      points={{-37,-68},{-46,-68},{-52,-68},{-52,-49.9},{-65.54,-49.9}},
-      color={0,131,169},
-      pattern=LinePattern.Solid,
-      thickness=0.5));
-  connect(Plant.outlet, pipe_feed.inlet) annotation (Line(
-      points={{-65.54,-44.7667},{-50,-44.7667},{-50,-22},{-37,-22}},
-      color={175,0,0},
-      thickness=0.5));
 connect(Ctrl_T_feed.y, Q_flow_set.u) annotation (Line(points={{-98.8,38},{-98.8,38},{-95.2,38}}, color={0,0,127}));
 public
 function plotResult
@@ -160,17 +111,13 @@ algorithm
 
 end plotResult;
 equation
-  connect(ConsumerStation.fluidPortIn, pipe_feed.outlet) annotation (Line(
-      points={{28,-42},{10,-42},{10,-22},{-10,-22}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(ConsumerStation.fluidPortOut, pipe_return.inlet) annotation (Line(
-      points={{28,-46},{10,-46},{10,-68},{-10,-68}},
-      color={175,0,0},
-      thickness=0.5));
   connect(Q_flow_set.y, Plant.Q_flow_set) annotation (Line(points={{-81.4,38},{-76,38},{-76,40},{-74,40},{-74,18},{-80.49,18},{-80.49,-23.1333}}, color={0,0,127}));
   connect(T_feed_is.y, Ctrl_T_feed.u_m) annotation (Line(points={{-117.1,12.5},{-112,12.5},{-112,23.6}}, color={0,0,127}));
   connect(T_feed_set.y, Ctrl_T_feed.u_s) annotation (Line(points={{-137,40},{-126.4,40},{-126.4,38}}, color={0,0,127}));
+  connect(Plant.outlet, dHN_Pipe_L4_1.inlet) annotation (Line(points={{-65.54,-44.7667},{-36,-44.7667},{-36,-38},{-30,-38}}, color={0,0,0}));
+  connect(dHN_Pipe_L4_1.outlet, ConsumerStation.fluidPortIn) annotation (Line(points={{-10,-38},{24,-38},{24,-42},{28,-42}}, color={0,0,0}));
+  connect(dHN_Pipe_L4_2.outlet, Plant.inlet) annotation (Line(points={{-30,-60},{-54,-60},{-54,-49.9},{-65.54,-49.9}}, color={0,0,0}));
+  connect(dHN_Pipe_L4_2.inlet, ConsumerStation.fluidPortOut) annotation (Line(points={{-10,-60},{4,-60},{4,-46},{28,-46}}, color={0,0,0}));
   annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-160,-100},{100,100}}), graphics={Text(
           extent={{-38,88},{50,26}},
           lineColor={0,140,72},

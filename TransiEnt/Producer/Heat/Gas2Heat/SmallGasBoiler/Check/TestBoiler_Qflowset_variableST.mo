@@ -59,8 +59,6 @@ model TestBoiler_Qflowset_variableST
     fixedSupplyTemperature=false,
     Q_flow_n=2e6,
     dimension=3) annotation (Placement(transformation(extent={{-18,-18},{18,18}})));
-  inner TransiEnt.ModelStatistics modelStatistics
-    annotation (Placement(transformation(extent={{-90,80},{-70,100}})));
   Modelica.Blocks.Sources.Sine sine(
     f=1/10000,
     amplitude=0.25*Boiler.Q_flow_n/Boiler.cp_water/(90 - 50),

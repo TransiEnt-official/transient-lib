@@ -27,7 +27,6 @@ model TestContinuousCHP_startup "Example how the continuous plant model behaves 
 
 
   extends TransiEnt.Basics.Icons.Checkmodel;
-  inner TransiEnt.ModelStatistics modelStatistics annotation (Placement(transformation(extent={{-100,79},{-80,99}})));
   inner TransiEnt.SimCenter simCenter annotation (Placement(transformation(extent={{-70,79},{-50,99}})));
   Modelica.Blocks.Sources.RealExpression P_min(y=0)     annotation (Placement(
         transformation(
@@ -43,7 +42,6 @@ model TestContinuousCHP_startup "Example how the continuous plant model behaves 
     eta_th_const=0.696296,
     p_nom=20e5,
     m_flow_nom=750,
-    redeclare model ProducerCosts = TransiEnt.Components.Statistics.ConfigurationData.PowerProducerCostSpecs.HardCoal,
     PQCharacteristics=Base.Characteristics.PQ_Characteristics_WT(),
     P_el_n=200e6,
     Q_flow_n_CHP=290e6,
@@ -61,19 +59,6 @@ model TestContinuousCHP_startup "Example how the continuous plant model behaves 
         extent={{-11,-9.5},{11,9.5}},
         rotation=0,
         origin={-23,53.5})));
-  ClaRa.Components.BoundaryConditions.BoundaryVLE_Txim_flow source(T_const(displayUnit="degC") = 338.15, m_flow_const=1000) annotation (Placement(transformation(
-        extent={{-7,-9},{7,9}},
-        rotation=180,
-        origin={35,-10})));
-  ClaRa.Visualisation.Quadruple quadruple annotation (Placement(transformation(extent={{46,1},{82,22}})));
-  ClaRa.Components.BoundaryConditions.BoundaryVLE_pTxi sink(
-    m_flow_nom=577.967,
-    Delta_p=0,
-    p_const(displayUnit="bar") = 1600000,
-    T_const(displayUnit="degC")) annotation (Placement(transformation(
-        extent={{-7,-8},{7,8}},
-        rotation=180,
-        origin={31,34})));
   Components.Visualization.PQDiagram_Display PQDiagram(PQCharacteristics=Base.Characteristics.PQ_Characteristics_WT()) annotation (Placement(transformation(extent={{66,-34},{96,-6}})));
   Components.Visualization.InfoBoxLargeCHP infoBoxLargeCHP annotation (Placement(transformation(extent={{26,-51},{44,-29}})));
   Modelica.Blocks.Sources.RealExpression P_min1(y=0)    annotation (Placement(
@@ -92,7 +77,6 @@ model TestContinuousCHP_startup "Example how the continuous plant model behaves 
     eta_th_const=0.696296,
     p_nom=20e5,
     m_flow_nom=750,
-    redeclare model ProducerCosts = Components.Statistics.ConfigurationData.PowerProducerCostSpecs.HardCoal,
     PQCharacteristics=Base.Characteristics.PQ_Characteristics_WT(),
     P_el_n=200e6,
     Q_flow_n_CHP=290e6,
@@ -109,25 +93,24 @@ model TestContinuousCHP_startup "Example how the continuous plant model behaves 
         extent={{-11,-9.5},{11,9.5}},
         rotation=0,
         origin={-37,-56.5})));
-  ClaRa.Components.BoundaryConditions.BoundaryVLE_Txim_flow source1(T_const(displayUnit="degC") = 338.15, m_flow_const=1000)
-                                                                                                                            annotation (Placement(transformation(
-        extent={{-7,-9},{7,9}},
-        rotation=180,
-        origin={21,-120})));
-  ClaRa.Visualisation.Quadruple quadruple1
-                                          annotation (Placement(transformation(extent={{32,-109},{68,-88}})));
-  ClaRa.Components.BoundaryConditions.BoundaryVLE_pTxi sink1(
-    m_flow_nom=577.967,
-    Delta_p=0,
-    p_const(displayUnit="bar") = 1600000,
-    T_const(displayUnit="degC")) annotation (Placement(transformation(
-        extent={{-7,-8},{7,8}},
-        rotation=180,
-        origin={17,-76})));
   Components.Visualization.PQDiagram_Display PQDiagram1(PQCharacteristics=Base.Characteristics.PQ_Characteristics_WT())
                                                                                                                        annotation (Placement(transformation(extent={{52,-144},{82,-116}})));
   Components.Visualization.InfoBoxLargeCHP infoBoxLargeCHP1
                                                            annotation (Placement(transformation(extent={{12,-161},{30,-139}})));
+  Components.Boundaries.FluidFlow.FluidSink           fluidSink annotation (Placement(transformation(extent={{64,2},{44,22}})));
+  Components.Boundaries.FluidFlow.FluidSource           fluidSource annotation (Placement(transformation(extent={{64,28},{44,48}})));
+  Modelica.Blocks.Sources.RealExpression realExpression2(y=16e5) annotation (Placement(transformation(extent={{88,2},{68,22}})));
+  Modelica.Blocks.Sources.RealExpression realExpression1(y=1000) annotation (Placement(transformation(extent={{94,38},{74,58}})));
+  Modelica.Blocks.Sources.RealExpression realExpression3(y=65*4200)
+                                                                 annotation (Placement(transformation(extent={{94,26},{74,46}})));
+  Components.Boundaries.FluidFlow.FluidSink           fluidSink1
+                                                                annotation (Placement(transformation(extent={{38,-112},{18,-92}})));
+  Components.Boundaries.FluidFlow.FluidSource           fluidSource1
+                                                                    annotation (Placement(transformation(extent={{38,-86},{18,-66}})));
+  Modelica.Blocks.Sources.RealExpression realExpression4(y=16e5) annotation (Placement(transformation(extent={{62,-112},{42,-92}})));
+  Modelica.Blocks.Sources.RealExpression realExpression5(y=1000) annotation (Placement(transformation(extent={{68,-76},{48,-56}})));
+  Modelica.Blocks.Sources.RealExpression realExpression6(y=65*4200)
+                                                                 annotation (Placement(transformation(extent={{68,-88},{48,-68}})));
 equation
   connect(Plant.epp,Grid. epp) annotation (Line(
       points={{0.85,2.6},{10,2.6},{10,56},{20,56}},
@@ -136,16 +119,6 @@ equation
   connect(Plant.P_set,P_min. y) annotation (Line(points={{-35.03,12.8667},{-35.03,25.5},{-36.9,25.5}},
                                                                                            color={0,0,127}));
   connect(Q_flow_set.y, Plant.Q_flow_set) annotation (Line(points={{-10.9,53.5},{-4,53.5},{-4,12.8667},{-12.49,12.8667}}, color={0,0,127}));
-  connect(Plant.outlet, sink.steam_a) annotation (Line(
-      points={{2.46,-8.76667},{14,-8.76667},{14,34},{24,34}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(source.steam_a, Plant.inlet) annotation (Line(
-      points={{28,-10},{22,-10},{22,-13.9},{2.46,-13.9}},
-      color={0,131,169},
-      thickness=0.5));
-  connect(source.eye, quadruple.eye) annotation (Line(points={{28,-2.8},{28,-2.8},{28,-10},{28,11.5},{46,11.5}},
-                                                                                                             color={190,190,190}));
   connect(Plant.eye, PQDiagram.eyeIn) annotation (Line(points={{4.3,-24.1667},{20,-24.1667},{20,-20},{61.8,-20}},  color={28,108,200}));
   connect(Plant.eye, infoBoxLargeCHP.eye) annotation (Line(points={{4.3,-24.1667},{20,-24.1667},{20,-38},{24,-38},{24,-38.2},{26.9,-38.2}},  color={28,108,200}));
 public
@@ -176,19 +149,19 @@ equation
       thickness=0.5));
   connect(Plant1.P_set, P_min1.y) annotation (Line(points={{-49.03,-97.1333},{-49.03,-84.5},{-50.9,-84.5}}, color={0,0,127}));
   connect(Q_flow_set1.y, Plant1.Q_flow_set) annotation (Line(points={{-24.9,-56.5},{-18,-56.5},{-18,-97.1333},{-26.49,-97.1333}}, color={0,0,127}));
-  connect(Plant1.outlet, sink1.steam_a) annotation (Line(
-      points={{-11.54,-118.767},{0,-118.767},{0,-76},{10,-76}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(source1.steam_a, Plant1.inlet) annotation (Line(
-      points={{14,-120},{8,-120},{8,-123.9},{-11.54,-123.9}},
-      color={0,131,169},
-      thickness=0.5));
-  connect(source1.eye, quadruple1.eye) annotation (Line(points={{14,-112.8},{14,-98.5},{32,-98.5}}, color={190,190,190}));
   connect(Plant1.eye, PQDiagram1.eyeIn) annotation (Line(points={{-9.7,-134.167},{6,-134.167},{6,-130},{47.8,-130}}, color={28,108,200}));
   connect(Plant1.eye, infoBoxLargeCHP1.eye) annotation (Line(points={{-9.7,-134.167},{6,-134.167},{6,-148},{10,-148},{10,-148.2},{12.9,-148.2}}, color={28,108,200}));
-  annotation (Diagram(graphics,
-                      coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}})),
+  connect(realExpression2.y, fluidSink.p_in) annotation (Line(points={{67,12},{62,12}}, color={0,0,127}));
+  connect(realExpression1.y, fluidSource.m_flow_in) annotation (Line(points={{73,48},{68,48},{68,41},{62,41}}, color={0,0,127}));
+  connect(realExpression3.y, fluidSource.h_in) annotation (Line(points={{73,36},{62,36}}, color={0,0,127}));
+  connect(fluidSource.port_a, Plant.inlet) annotation (Line(points={{44,38},{12,38},{12,-13.9},{2.46,-13.9}}, color={0,0,0}));
+  connect(Plant.outlet, fluidSink.port_a) annotation (Line(points={{2.46,-8.76667},{38,-8.76667},{38,12},{44,12}}, color={0,0,0}));
+  connect(realExpression4.y, fluidSink1.p_in) annotation (Line(points={{41,-102},{36,-102}}, color={0,0,127}));
+  connect(realExpression5.y, fluidSource1.m_flow_in) annotation (Line(points={{47,-66},{42,-66},{42,-73},{36,-73}}, color={0,0,127}));
+  connect(realExpression6.y, fluidSource1.h_in) annotation (Line(points={{47,-78},{36,-78}}, color={0,0,127}));
+  connect(fluidSink1.port_a, Plant1.outlet) annotation (Line(points={{18,-102},{-2,-102},{-2,-118.767},{-11.54,-118.767}}, color={0,0,0}));
+  connect(Plant1.inlet, fluidSource1.port_a) annotation (Line(points={{-11.54,-123.9},{6,-123.9},{6,-76},{18,-76}}, color={0,0,0}));
+  annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}})),
     experiment(StopTime=86400),
     __Dymola_experimentSetupOutput(equidistant=false),
     Icon(graphics,

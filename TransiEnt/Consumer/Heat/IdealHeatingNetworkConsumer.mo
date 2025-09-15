@@ -46,7 +46,6 @@ model IdealHeatingNetworkConsumer "Heating network consumer, ideally hydraulic d
   parameter SI.MassFlowRate m_flow_large=2000 "Limit of mass flow rate";
   parameter SI.MassFlowRate m_flow_small=Modelica.Constants.eps;//simCenter.m_flow_small "Lower limits of input signals";
   parameter Boolean use_T_return_const = true;
-  parameter SI.SpecificHeatCapacity cf=4186 "Specific heat capacity of the fluid";
   parameter SI.Density rho=1000 "Density of the fluid";
 
   // _____________________________________________
@@ -93,7 +92,6 @@ public
   // _____________________________________________
 
   SI.MassFlowRate m_flow "Mass flow is determined by heat balance";
-  SI.Temperature T_in "Temperature flowing into the consumer";
   //SI.Density rho = TILMedia.Internals.VLEFluidConfigurations.FullyMixtureCompatible.VLEFluidFunctions.liquidDensity_phxi(medium, fluidPortIn.p, inStream(fluidPortIn.h_outflow), inStream(fluidPortIn.xi_outflow));
 
   Modelica.Blocks.Nonlinear.Limiter m_flow_set(uMax=m_flow_large, uMin=m_flow_small) annotation (Placement(transformation(extent={{6,-38},{-14,-18}})));
@@ -110,8 +108,7 @@ equation
   //           Characteristic Equations
   // _____________________________________________
 
-  Q_flow_demand = m_flow*cf*(T_in - T_return_internal);
-  T_in=inStream(fluidPortIn.h_outflow)/cf;
+  Q_flow_demand = m_flow*cf*(T_in.y - T_return_internal);
 
   if use_T_return_const then
     T_return_internal = T_return_const;
@@ -124,7 +121,7 @@ equation
 
   connect(T_return_internal, T_return_set);
 
-  connect(m_flow_unlimited.y, m_flow_set.u) annotation (Line(points={{25,-28},{16,-28},{8,-28}}, color={0,0,127}));
+  connect(T_in.y, m_flow_set.u) annotation (Line(points={{-73,26},{8,26},{8,-28}}, color={0,0,127}));
   connect(realExpression2.y,sink2. p_in) annotation (Line(points={{-75,80},{-66,80}},                       color={0,0,127}));
   connect(sink2.port_a, fluidPortIn) annotation (Line(points={{-48,80},{-30,80},{-30,20},{-98,20}}, color={0,0,0}));
   connect(fluidSource.port_a, fluidPortOut) annotation (Line(points={{-56,-31},{-82,-31},{-82,-20},{-98,-20}}, color={0,0,0}));

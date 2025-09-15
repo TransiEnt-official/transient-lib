@@ -28,20 +28,6 @@ model TestGasBoilerGasAdaptive_L1
 
   extends Basics.Icons.Checkmodel;
   inner SimCenter simCenter annotation (Placement(transformation(extent={{-90,80},{-70,100}})));
-  ClaRa.Components.BoundaryConditions.BoundaryVLE_pTxi sink(
-    medium=simCenter.fluid1,
-    p_const=17e5,
-    T_const=130 + 273.15) annotation (Placement(transformation(
-        extent={{10,-10},{-10,10}},
-        rotation=0,
-        origin={2,0})));
-  ClaRa.Components.BoundaryConditions.BoundaryVLE_Txim_flow source(
-    variable_m_flow=false,
-    m_flow_const=100,
-    T_const=60 + 273) annotation (Placement(transformation(
-        extent={{10,-10},{-10,10}},
-        rotation=180,
-        origin={-68,0})));
   SimpleBoiler gasBoilerGasAdaptive(integrateHeatFlow=false) annotation (Placement(transformation(extent={{-46,-10},{-26,10}})));
   Modelica.Blocks.Sources.Ramp ramp(
     height=-50e6,
@@ -50,8 +36,6 @@ model TestGasBoilerGasAdaptive_L1
     startTime=0.2)
     annotation (Placement(transformation(extent={{-100,16},{-80,36}})));
   Components.Boundaries.Gas.BoundaryRealGas_pTxi gasSource(variable_xi=true) annotation (Placement(transformation(extent={{-56,-60},{-36,-40}})));
-  inner ModelStatistics modelStatistics
-    annotation (Placement(transformation(extent={{-70,80},{-50,100}})));
   Modelica.Blocks.Sources.Constant
                                ramp1(k=-100e6)
     annotation (Placement(transformation(extent={{-100,48},{-80,68}})));
@@ -68,16 +52,13 @@ model TestGasBoilerGasAdaptive_L1
                                                                                     annotation (Placement(transformation(extent={{10,-10},{-10,10}},
         rotation=90,
         origin={66,35})));
+  Components.Boundaries.FluidFlow.FluidSource           fluidSource annotation (Placement(transformation(extent={{-74,-10},{-54,10}})));
+  Modelica.Blocks.Sources.RealExpression realExpression(y=100) annotation (Placement(transformation(extent={{-100,-7},{-80,13}})));
+  Modelica.Blocks.Sources.RealExpression realExpression1(y=60*4200) annotation (Placement(transformation(extent={{-100,-21},{-80,-1}})));
+  Components.Boundaries.FluidFlow.FluidSink           fluidSink annotation (Placement(transformation(extent={{4,-10},{-16,10}})));
+  Modelica.Blocks.Sources.RealExpression realExpression2(y=17e5) annotation (Placement(transformation(extent={{30,-10},{10,10}})));
 equation
   connect(composition_linearVariation.xi, gasSource.xi) annotation (Line(points={{-72,-56},{-58,-56}}, color={0,0,127}));
-  connect(gasBoilerGasAdaptive.outlet, sink.steam_a) annotation (Line(
-      points={{-26,0},{-8,0}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(gasBoilerGasAdaptive.inlet, source.steam_a) annotation (Line(
-      points={{-45.8,0},{-58,0}},
-      color={175,0,0},
-      thickness=0.5));
   connect(gasSource.gasPort, gasBoilerGasAdaptive.gasIn) annotation (Line(
       points={{-36,-50},{-36,-10},{-35.8,-10}},
       color={255,255,0},
@@ -90,6 +71,11 @@ equation
       thickness=1.5));
   connect(ramp3.y, gasBoilerGasAdaptive1.Q_flow_set) annotation (Line(points={{13,56},{26,56},{26,16},{56,16},{56,8}}, color={0,0,127}));
   connect(gasBoilerGasAdaptive1.heatPort, fixedTemperature1.port) annotation (Line(points={{66,6.6},{66,25}}, color={191,0,0}));
+  connect(realExpression.y,fluidSource. m_flow_in) annotation (Line(points={{-79,3},{-72,3}},     color={0,0,127}));
+  connect(realExpression1.y,fluidSource. h_in) annotation (Line(points={{-79,-11},{-72,-11},{-72,-2}},            color={0,0,127}));
+  connect(realExpression2.y,fluidSink. p_in) annotation (Line(points={{9,0},{2,0}},       color={0,0,127}));
+  connect(fluidSink.port_a, gasBoilerGasAdaptive.outlet) annotation (Line(points={{-16,0},{-26,0}}, color={0,0,0}));
+  connect(fluidSource.port_a, gasBoilerGasAdaptive.inlet) annotation (Line(points={{-54,0},{-45.8,0}}, color={0,0,0}));
   annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}})), Documentation(info="<html>
 <h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
 <p>Test environment for GasBoilerGasAdaptive_L1</p>

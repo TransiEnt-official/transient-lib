@@ -40,49 +40,28 @@ model TestTableBased
   //           Instances of other Classes
   // _____________________________________________
 
-  inner TransiEnt.SimCenter simCenter(
-    useHomotopy=false,
-    redeclare replaceable TILMedia.VLEFluidTypes.TILMedia_Water fluid1,
-    useClaRaDelay=true) annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
-  ClaRa.Components.BoundaryConditions.BoundaryVLE_hxim_flow districtHeatingSupply(
-    m_flow_const=0.1,
-    m_flow_nom=0,
-    p_nom=1000,
-    variable_m_flow=false,
-    variable_h=false,
-    h_const=400e3) annotation (Placement(transformation(extent={{94,16},{42,62}})));
-  ClaRa.Components.BoundaryConditions.BoundaryVLE_phxi districtHeatingReturn(
-    m_flow_nom=100,
-    p_const=1000000,
-    Delta_p=100000,
-    variable_p=false,
-    h_const=400e3) annotation (Placement(transformation(
-        extent={{-16,-21},{16,21}},
-        rotation=180,
-        origin={72,-41})));
   TableBasedHeatConsumer tableBasedHeatConsumer_L1(redeclare TransiEnt.Basics.Tables.HeatGrid.HeatDemand.HeatDemand_SLPGas_MFH_2012_3600s consumerDataTable, change_of_sign=true,
     integrateHeatFlow=false)
     annotation (Placement(transformation(extent={{-60,-28},{6,34}})));
 
-  inner TransiEnt.ModelStatistics modelStatistics annotation (Placement(transformation(extent={{-80,40},{-60,60}})));
+  TransiEnt.Components.Boundaries.FluidFlow.FluidSource fluidSource annotation (Placement(transformation(extent={{54,14},{34,34}})));
+  Modelica.Blocks.Sources.RealExpression realExpression(y=0.1) annotation (Placement(transformation(extent={{84,17},{64,37}})));
+  Modelica.Blocks.Sources.RealExpression realExpression1(y=400e3)   annotation (Placement(transformation(extent={{86,-3},{66,17}})));
+  TransiEnt.Components.Boundaries.FluidFlow.FluidSink fluidSink annotation (Placement(transformation(extent={{58,-32},{38,-12}})));
+  Modelica.Blocks.Sources.RealExpression realExpression2(y=10e5) annotation (Placement(transformation(extent={{90,-32},{70,-12}})));
 equation
   // _____________________________________________
   //
   //               Connect Statements
   // _____________________________________________
 
-  connect(tableBasedHeatConsumer_L1.fluidPortIn, districtHeatingSupply.steam_a)
-    annotation (Line(
-      points={{6,-9.4},{30,-9.4},{30,38},{42,38},{42,39}},
-      color={175,0,0},
-      smooth=Smooth.None));
-  connect(tableBasedHeatConsumer_L1.fluidPortOut, districtHeatingReturn.steam_a)
-    annotation (Line(
-      points={{6,-21.8},{30,-21.8},{30,-41},{56,-41}},
-      color={175,0,0},
-      smooth=Smooth.None));
+  connect(realExpression.y,fluidSource. m_flow_in) annotation (Line(points={{63,27},{52,27}},     color={0,0,127}));
+  connect(realExpression1.y,fluidSource. h_in) annotation (Line(points={{65,7},{60,7},{60,22},{52,22}},           color={0,0,127}));
+  connect(realExpression2.y,fluidSink. p_in) annotation (Line(points={{69,-22},{56,-22}}, color={0,0,127}));
+  connect(fluidSink.port_a, tableBasedHeatConsumer_L1.fluidPortOut) annotation (Line(points={{38,-22},{36,-22},{36,-21.8},{6,-21.8}}, color={0,0,0}));
+  connect(fluidSource.port_a, tableBasedHeatConsumer_L1.fluidPortIn) annotation (Line(points={{34,24},{28,24},{28,-9.4},{6,-9.4}}, color={0,0,0}));
   annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-80,-80},
-            {100,80}}),      graphics), Icon(graphics,
+            {100,80}})),                Icon(graphics,
                                              coordinateSystem(extent={{-80,-80},
             {100,80}})),
     Documentation(info="<html>

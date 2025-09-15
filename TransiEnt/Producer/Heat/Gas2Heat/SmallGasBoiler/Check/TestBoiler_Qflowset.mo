@@ -61,8 +61,6 @@ model TestBoiler_Qflowset
     condensing=true,
     Q_flow_n=1e6,
     dimension=3) annotation (Placement(transformation(extent={{-18,-18},{18,18}})));
-  inner TransiEnt.ModelStatistics modelStatistics
-    annotation (Placement(transformation(extent={{-90,80},{-70,100}})));
   TransiEnt.Components.Boundaries.Gas.BoundaryIdealGas_pTxi gasSink(gasModel=simCenter.exhaustGasModel) annotation (Placement(transformation(extent={{40,-10},{60,10}})));
   TransiEnt.Components.Boundaries.Gas.BoundaryIdealGas_pTxi gasSource(gasModel=simCenter.gasModel2, variable_xi=true) annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
 equation
