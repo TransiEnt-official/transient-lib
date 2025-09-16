@@ -43,7 +43,8 @@ model SolarCollector_L1_constProp "Solar flat plate collector model (EN 12975) w
   // _____________________________________________
 
   outer TransiEnt.SimCenter simCenter;
-  inner TransiEnt.Producer.Heat.SolarThermal.Base.IrradianceOnATiltedSurface irradiance(use_input_data=use_input_data, redeclare model Skymodel = Skymodel) annotation (Placement(transformation(extent={{-68,-60},{-36,-32}})));
+  inner TransiEnt.Producer.Heat.SolarThermal.Base.IrradianceOnATiltedSurface irradiance(use_input_data=use_input_data, redeclare model Skymodel = TransiEnt.Producer.Heat.SolarThermal.Base.Skymodel_isotropicDiffuse)
+                                                                                                                                                            annotation (Placement(transformation(extent={{-68,-60},{-36,-32}})));
 
   // _____________________________________________
   //
@@ -64,7 +65,7 @@ model SolarCollector_L1_constProp "Solar flat plate collector model (EN 12975) w
   parameter Boolean UseStationaryCalculationMethod=true "Choose if calculation uses only stationary equations or not" annotation (Dialog(tab="General", group="General"),choices(checkBox=true));
   parameter Real Soiling=0 "Average annual losses of radiation in % due to soiling" annotation (Dialog(tab="Irradiance", group="Losses"));
   parameter Boolean useFluidPorts=true "True if fluid ports shall be used" annotation (Dialog(tab="General", group="General"),choices(checkBox=true));
-
+  parameter SI.SpecificHeatCapacity cf=4200 "Specific heat capacity of the inflowing water";
   //Pressure loss
   parameter Integer n_serial(max=12) = 1 "Number of collectors in series (max. 12)" annotation (Dialog(group="Pressure drop", enable=useFluidPorts));
   parameter Real a(unit="1/(s.m)") = 0 "Linear pressure drop coefficient"  annotation (Dialog(group="Pressure drop", enable=useFluidPorts));
@@ -206,6 +207,7 @@ public
         extent={{-11,-11},{11,11}},
         rotation=90,
         origin={-51,81})));
+  Modelica.Blocks.Sources.RealExpression T_in_fluidPorts(y=inStream(waterPortIn.h_outflow)/cf) if useFluidPorts annotation (Placement(transformation(extent={{-86,56},{-66,76}})));
 protected
   TransiEnt.Components.Statistics.Functions.GetFuelSpecificCO2Emissions fuelSpecificCO2Emissions(typeOfPrimaryEnergyCarrier=TransiEnt.Basics.Types.TypeOfPrimaryEnergyCarrier.Solar);
 
@@ -269,9 +271,9 @@ end if;
       color={175,0,0},
       thickness=0.5));
   connect(massFlowSensorVLE.m_flow, m_flow_int) annotation (Line(points={{-29,12},{-24,12},{-24,51},{-93,51}}, color={0,0,127}));
-  connect(T_inflow, T_in_int) annotation (Line(points={{-75,91},{-75,81},{-51,81}},  color={0,0,127}));
-  connect(T_in, T_in_int) annotation (Line(points={{-51,91},{-51,94},{-51,94},{-51,81}},
-                                                                        color={0,0,127}));
+  if useFluidPorts then
+  connect(T_in_fluidPorts.y, T_in) annotation (Line(points={{-65,66},{-51,66},{-51,91}}, color={0,0,127}));
+  end if;
   annotation (Dialog(tab="Irradiance", group="Solartime"),
                                                  Placement(transformation(extent={{-10,16},{10,36}},  rotation=0)),
                choicesAllMatching, Dialog(group="Environment"),

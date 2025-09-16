@@ -19,7 +19,7 @@ model IrradianceOnATiltedSurface "Combines the calculation of incidence angle of
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -42,14 +42,14 @@ model IrradianceOnATiltedSurface "Combines the calculation of incidence angle of
   //
   //              Visible Parameters
   // _____________________________________________
-  parameter Boolean use_input_data=false "choose if input data is given by inputs - if not, simCenter data is used";
+  parameter Boolean use_input_data=true "choose if input data is given by inputs - if not, simCenter data is used";
 
   // _____________________________________________
   //
   //                  Interfaces
   // _____________________________________________
-  TransiEnt.Basics.Interfaces.Ambient.IrradianceIn irradiance_direct_measured_input=irradiance_direct_measured annotation (Placement(transformation(extent={{-140,20},{-100,60}})));
-  TransiEnt.Basics.Interfaces.Ambient.IrradianceIn irradiance_diffuse_horizontal_input=irradiance_diffuse_horizontal annotation (Placement(transformation(extent={{-140,-60},{-100,-20}})));
+  TransiEnt.Basics.Interfaces.Ambient.IrradianceIn irradiance_direct_measured_input annotation (Placement(transformation(extent={{-140,20},{-100,60}})));
+  TransiEnt.Basics.Interfaces.Ambient.IrradianceIn irradiance_diffuse_horizontal_input annotation (Placement(transformation(extent={{-140,-60},{-100,-20}})));
 
   // _____________________________________________
   //
@@ -68,7 +68,7 @@ model IrradianceOnATiltedSurface "Combines the calculation of incidence angle of
   //
   //           Instances of other Classes
   // _____________________________________________
-  replaceable model Skymodel=SkymodelBase constrainedby SkymodelBase annotation(choicesAllMatching=true);
+  replaceable model Skymodel=TransiEnt.Producer.Heat.SolarThermal.Base.Skymodel_isotropicDiffuse constrainedby SkymodelBase annotation(choicesAllMatching=true);
   Skymodel skymodel annotation (Placement(transformation(extent={{-22,2},{-2,22}})));
 
 equation
@@ -76,6 +76,9 @@ equation
   //
   //           Characteristic Equations
   // _____________________________________________
+
+  irradiance_direct_measured_input=irradiance_direct_measured;
+  irradiance_diffuse_horizontal_input=irradiance_diffuse_horizontal;
 
   if (not use_input_data) then
     irradiance_direct_measured=simCenter.i_direct;

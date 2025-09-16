@@ -106,7 +106,7 @@ public
   Modelica.Units.SI.Velocity v_Con(start=0.5) "flow velocity in the pipe";
   Modelica.Units.SI.DynamicViscosity eta_Con "dynamic viscosity of the water";
   Modelica.Units.SI.CoefficientOfHeatTransfer alpha_Con(start=100) "coefficient of heat transfer from water to the pipe with a turbulent tube flow";
-  Modelica.Units.SI.ThermalConductivity k_pipe_gen(start=100, fixed=true);
+  Modelica.Units.SI.ThermalConductivity k_pipe_gen(start=100);
   Modelica.Units.SI.ThermalConductivity k_pipe_con(start=100);
 
   Modelica.Units.SI.MassFlowRate m_flow_con(start=0.05);

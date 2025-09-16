@@ -258,7 +258,7 @@ if used_Ports_Int == 0 then Utilities.get_Ports_noSolar(
  // not replaceable models
 
  // Volumes
-  Base.Fluid_Volume[nSeg] Tank_Volume(
+  Base.Fluid_Volume Tank_Volume[nSeg](
     final nPorts=PortCountVector,
     final V_const=Geometry.volume_Seg,
     each final medium=medium,
@@ -354,7 +354,7 @@ if used_Ports_Int == 0 then Utilities.get_Ports_noSolar(
   parameter SI.Pressure p_nom=1e5 "Nominal pressure of fluid in tank";
   parameter SI.SpecificEnthalpy h_nom=1e5 "Nominal specific enthalpy of fluid in tank";
 algorithm
-   storedEnergie := sum(Tank_Volume.h*Tank_Volume.m)-h_ref*sum(Tank_Volume.m);
+   storedEnergie := sum(Tank_Volume[i].h*Tank_Volume[i].m for i in 1:nSeg)-h_ref*sum(Tank_Volume[i].m for i in 1:nSeg);
    maxTemperature := max(Tank_Volume.T);
    minTemperature := min(Tank_Volume.T);
    averageTemperature := (Tank_Volume.T*Tank_Volume.m)/sum(Tank_Volume.m);
