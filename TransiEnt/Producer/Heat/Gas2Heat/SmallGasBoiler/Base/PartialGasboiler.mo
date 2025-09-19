@@ -51,10 +51,6 @@ partial model PartialGasboiler "Full modulating gasboiler, partial model with sp
   parameter SI.HeatFlowRate Q_flow_n=5e5 "Nominal heating power" annotation (Dialog(tab="General", group="Specification"));
   parameter SI.HeatFlowRate Q_flow_min=0.1*Q_flow_n "Minimum heat duty for min. efficiency" annotation (Dialog(tab="General", group="Specification"));
   parameter SI.Temperature T_supply_max(displayUnit="K")=273.15+120 "Maximum supply temperature" annotation (Dialog(tab="General", group="Specification"));
-  parameter SI.TemperatureDifference dT_max_DH=
-    if simCenter.heatingCurve.T_supply_const == 0
-    then 41
-    else simCenter.heatingCurve.T_supply_const - simCenter.heatingCurve.T_return_const "Maximum heat carrier temperature spread" annotation (Dialog(tab="General", group="Specification"));
   parameter SI.MassFlowRate m_flow_min= 0.15 "Mass flow rate to switch off. Non-zero mass flow leads to higher numerical stability" annotation (Dialog(tab="General", group="Specification"));
   parameter SI.Pressure Delta_p_nom=2000 "Nominal pressure loss" annotation (Dialog(tab="General", group="Specification"));
   final parameter SI.SpecificHeatCapacity cp_water=TILMedia.Internals.VLEFluidConfigurations.FullyMixtureCompatible.VLEFluidFunctions.specificIsobaricHeatCapacity_pTxi(WaterMedium, 6*1e5, 273.15+60, {1});
@@ -98,6 +94,7 @@ partial model PartialGasboiler "Full modulating gasboiler, partial model with sp
   SI.MassFlowRate m_flow_HC = waterPortIn.m_flow "Actual heat carrier mass flow rate";
    SI.MassFraction xi_fuel[FuelMedium.nc] "[CH4, C2H6, C3H8, C4H10, N2, CO2, H2] Fuel gas mass fractions";
    SI.MassFraction xi_exhaust[ExhaustMedium.nc] "[H2O, CO2, CO, H2, O2, NO, NO2, SO2, N2] Exhaust gas mass fractions";
+  SI.TemperatureDifference dT_max_DH "Maximum heat carrier temperature spread" annotation (Dialog(tab="General", group="Specification"));
 
   // _____________________________________________
   //
@@ -156,6 +153,7 @@ public
   Modelica.Blocks.Sources.RealExpression t_return(y=T_return) annotation (Placement(transformation(extent={{-98,36},{-78,56}})));
   Modelica.Blocks.Sources.RealExpression t_max(y=T_supply_set_internal) annotation (Placement(transformation(extent={{-98,50},{-78,70}})));
 
+  TransiEnt.Basics.Tables.HeatGrid.HeatingCurves.HeatingCurveEONHanse heatingCurve annotation (Placement(transformation(extent={{-104,-32},{-84,-12}})));
 equation
   //Assertions
   assert(gasPortIn.m_flow >= 0, "Your boiler is a gas source.",
@@ -203,6 +201,9 @@ equation
   else
     switch = pre(switch);
   end if;
+
+
+    dT_max_DH=heatingCurve.T_supply_const - heatingCurve.T_return_const;
 
   //Statistics
 

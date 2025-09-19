@@ -128,27 +128,20 @@ model SectorCouplingPtX "Coupled electric, district heating and gas grids for Ha
 
   TransiEnt.Grid.Heat.HeatGridControl.Controllers.DHG_FeedForward_Controller dHNControl annotation (Placement(transformation(extent={{-242,-222},{-204,-198}})));
   TransiEnt.Grid.Heat.HeatGridTopology.GridConfigurations.DHG_Topology_HH_1port_4sites_MassFlowSink DistrictHeatingGrid annotation (Placement(transformation(extent={{5,-185},{99,-111}})));
-  Modelica.Blocks.Sources.RealExpression T_return3(y=supplyandReturnTemperature.T_set[2]) annotation (Placement(transformation(
-        extent={{-6,-5},{6,5}},
+  Modelica.Blocks.Sources.RealExpression T_return3(y=4200*supplyandReturnTemperature.T_set[2])
+                                                                                          annotation (Placement(transformation(
+        extent={{6,-5},{-6,5}},
         rotation=180,
-        origin={51,-202})));
-  Modelica.Blocks.Sources.RealExpression T_return2(y=supplyandReturnTemperature.T_set[2]) annotation (Placement(transformation(
+        origin={-33,-198})));
+  Modelica.Blocks.Sources.RealExpression T_return2(y=4200*supplyandReturnTemperature.T_set[2])
+                                                                                          annotation (Placement(transformation(
         extent={{-5,-6},{5,6}},
         rotation=90,
-        origin={151,-193})));
-  TransiEnt.Components.Boundaries.FluidFlow.BoundaryVLE_Txim_flow massflow_Tm_flow1(variable_m_flow=true, variable_T=true) annotation (Placement(transformation(
-        extent={{-4,-3},{4,3}},
-        rotation=180,
-        origin={32,-206})));
-  TransiEnt.Components.Boundaries.FluidFlow.BoundaryVLE_Txim_flow massflow_Tm_flow2(variable_m_flow=true, variable_T=true) annotation (Placement(transformation(
-        extent={{-4,-3},{4,3}},
-        rotation=90,
-        origin={147,-178})));
+        origin={143,-193})));
   TransiEnt.Producer.Combined.LargeScaleCHP.ContinuousCHP Tiefstack_HardCoal(
     Q_flow_n_CHP(displayUnit="W") = 285e6,
     P_el_n(displayUnit="W") = 206000000,
     typeOfPrimaryEnergyCarrier=TransiEnt.Basics.Types.TypeOfPrimaryEnergyCarrier.BlackCoal,
-    redeclare model ProducerCosts = TransiEnt.Components.Statistics.ConfigurationData.PowerProducerCostSpecs.HardCoal,
     P_grad_max_star=0.06/60,
     PQCharacteristics=TransiEnt.Producer.Combined.LargeScaleCHP.Base.Characteristics.PQ_Characteristics_WT(),
     Q_flow_init=100e6,
@@ -157,14 +150,13 @@ model SectorCouplingPtX "Coupled electric, district heating and gas grids for Ha
 
   TransiEnt.Grid.Heat.HeatGridControl.HeatFlowDivision heatSchedulerEast(HeatFlowCL=TransiEnt.Grid.Heat.HeatGridControl.Base.DHGHeatFlowDivisionCharacteristicLines.SampleHeatFlowCharacteristicLines4Units()) annotation (Placement(transformation(extent={{-168,-208},{-148,-188}})));
   Modelica.Blocks.Sources.RealExpression m_flow_return1(y=-1*dHNControl.m_flow_i[3]) annotation (Placement(transformation(
-        extent={{-5,-5},{5,5}},
+        extent={{5,-5},{-5,5}},
         rotation=180,
-        origin={49,-209})));
+        origin={-33,-204})));
   Modelica.Blocks.Sources.RealExpression m_flow_return2(y=-1*dHNControl.m_flow_i[1]) annotation (Placement(transformation(
         extent={{-5,-5},{5,5}},
         rotation=90,
-        origin={144,-193})));
-  TransiEnt.Components.Visualization.InfoBoxLargeCHP infoBoxLargeCHP2 annotation (Placement(transformation(extent={{25,-230},{43,-210}})));
+        origin={154,-195})));
   TransiEnt.Components.Visualization.InfoBoxLargeCHP infoBoxLargeCHP3 annotation (Placement(transformation(extent={{135,-198},{117,-178}})));
   Modelica.Blocks.Sources.RealExpression Q_flow_set_WT(y=-1*heatSchedulerEast.Q_flow_i[2]) annotation (Placement(transformation(
         extent={{-9,-5},{9,5}},
@@ -191,15 +183,12 @@ model SectorCouplingPtX "Coupled electric, district heating and gas grids for Ha
         extent={{-9,-5},{9,5}},
         rotation=0,
         origin={82,-197})));
-  TransiEnt.Components.Boundaries.FluidFlow.BoundaryVLE_Txim_flow massflow_Tm_flow4(variable_m_flow=true, variable_T=true) annotation (Placement(transformation(
-        extent={{-4,-3},{4,3}},
-        rotation=180,
-        origin={110,-212})));
   Modelica.Blocks.Sources.RealExpression m_flow_return5(y=-1*dHNControl.m_flow_i[4]) annotation (Placement(transformation(
         extent={{-5,-5},{5,5}},
         rotation=180,
         origin={127,-215})));
-  Modelica.Blocks.Sources.RealExpression T_return1(y=supplyandReturnTemperature.T_set[2]) annotation (Placement(transformation(
+  Modelica.Blocks.Sources.RealExpression T_return1(y=4200*supplyandReturnTemperature.T_set[2])
+                                                                                          annotation (Placement(transformation(
         extent={{-6,-5},{6,5}},
         rotation=180,
         origin={127,-206})));
@@ -210,27 +199,14 @@ model SectorCouplingPtX "Coupled electric, district heating and gas grids for Ha
     P_el_init=UC.P_init[UC.schedule.GUDTS],
     PQCharacteristics=TransiEnt.Producer.Combined.LargeScaleCHP.Base.Characteristics.PQ_Characteristics_CCPGeneric(),
     Q_flow_n_CHP=180e6) "Combined cycle plant Tiefstack" annotation (Placement(transformation(extent={{199,-162},{224,-135}})));
-  ClaRa.Components.BoundaryConditions.BoundaryVLE_hxim_flow massflow_Tm_flow5(m_flow_const=1000, h_const=4.2e3*60) annotation (Placement(transformation(
-        extent={{-4,-3},{4,3}},
-        rotation=90,
-        origin={234,-162})));
   Modelica.Blocks.Sources.RealExpression Q_flow_set_WT1(y=0) annotation (Placement(transformation(
         extent={{7.5,-6},{-7.5,6}},
         rotation=0,
         origin={226.5,-132})));
-  TransiEnt.Components.Boundaries.FluidFlow.BoundaryVLE_pTxi massflow_Tm_flow6(variable_p=true) annotation (Placement(transformation(
-        extent={{-4,-3},{4,3}},
-        rotation=180,
-        origin={240,-152})));
-  Modelica.Blocks.Sources.RealExpression p_set_WT2(y=12e5) annotation (Placement(transformation(
-        extent={{7.5,-6},{-7.5,6}},
-        rotation=0,
-        origin={266.5,-154})));
   TransiEnt.Producer.Heat.Gas2Heat.SimpleGasBoiler.SimpleBoiler spiVo_Wedel(
     typeOfPrimaryEnergyCarrier=TransiEnt.Basics.Types.TypeOfPrimaryEnergyCarrierHeat.NaturalGas,
     Q_flow_n=250000000,
     useGasPort=false) annotation (Placement(transformation(extent={{-18,-158},{2,-138}})));
-  TransiEnt.Components.Visualization.InfoBoxLargeCHP infoBoxLargeCHP4 annotation (Placement(transformation(extent={{4,-178},{22,-158}})));
 
   TransiEnt.Producer.Heat.Gas2Heat.SimpleGasBoiler.TwoFuelBoiler twoFuelBoiler(redeclare TransiEnt.Producer.Heat.Gas2Heat.SimpleGasBoiler.SimpleBoiler boiler2(typeOfPrimaryEnergyCarrier=TransiEnt.Basics.Types.TypeOfPrimaryEnergyCarrierHeat.NaturalGas, Q_flow_n=160e6 + 160e6), redeclare TransiEnt.Producer.Heat.Gas2Heat.SimpleGasBoiler.SimpleBoiler boiler1(
       Q_flow_n=100e6,
@@ -246,7 +222,6 @@ model SectorCouplingPtX "Coupled electric, district heating and gas grids for Ha
     PQCharacteristics=TransiEnt.Producer.Combined.LargeScaleCHP.Base.Characteristics.PQ_Characteristics_WWGuD(),
     sigma=0.95,
     P_el_n=470e6,
-    redeclare model ProducerCosts = TransiEnt.Components.Statistics.ConfigurationData.PowerProducerCostSpecs.GasCCGT,
     typeOfPrimaryEnergyCarrier=TransiEnt.Basics.Types.TypeOfPrimaryEnergyCarrier.NaturalGas,
     P_grad_max_star=0.08/60,
     P_el_init=UC.P_init[UC.schedule.WW1]) annotation (Placement(transformation(extent={{-85,-158},{-65,-138}})));
@@ -256,7 +231,8 @@ model SectorCouplingPtX "Coupled electric, district heating and gas grids for Ha
         rotation=270,
         origin={-71,-111})));
   TransiEnt.Components.Visualization.InfoBoxLargeCHP infoBoxLargeCHP1 annotation (Placement(transformation(extent={{-38,-192},{-20,-172}})));
-  Modelica.Blocks.Sources.RealExpression T_return5(y=supplyandReturnTemperature.T_set[2]) annotation (Placement(transformation(
+  Modelica.Blocks.Sources.RealExpression T_return5(y=4200*supplyandReturnTemperature.T_set[2])
+                                                                                          annotation (Placement(transformation(
         extent={{-5,-6},{5,6}},
         rotation=90,
         origin={-53,-177})));
@@ -264,10 +240,6 @@ model SectorCouplingPtX "Coupled electric, district heating and gas grids for Ha
         extent={{-5,-5},{5,5}},
         rotation=90,
         origin={-64,-177})));
-  TransiEnt.Components.Boundaries.FluidFlow.BoundaryVLE_Txim_flow massflow_Tm_flow3(variable_m_flow=true, variable_T=true) annotation (Placement(transformation(
-        extent={{-4,-3},{4,3}},
-        rotation=90,
-        origin={-60,-162})));
   TransiEnt.Grid.Heat.HeatGridControl.Limit_Q_flow_set spiVoWedel(Q_flow_set_max=HKW_Wedel.Q_flow_n_CHP) annotation (Placement(transformation(extent={{-16,-126},{4,-118}})));
   Modelica.Blocks.Sources.RealExpression Q_flow_set_Spivo_Wedel(y=-max(dHNControl.Q_flow_i[2] - HKW_Wedel.Q_flow_n_CHP, 0)) annotation (Placement(transformation(
         extent={{-9,-5},{9,5}},
@@ -719,6 +691,40 @@ public
         extent={{-10,10},{10,-10}},
         rotation=180,
         origin={184,-516})));
+  TransiEnt.Basics.Adapters.FluidPortAdapter fluidPortAdapter annotation (Placement(transformation(extent={{10,-151},{16,-145}})));
+  TransiEnt.Basics.Adapters.FluidPortAdapter fluidPortAdapter1 annotation (Placement(transformation(extent={{30,-204},{36,-198}})));
+  TransiEnt.Basics.Adapters.FluidPortAdapter fluidPortAdapter2 annotation (Placement(transformation(
+        extent={{-3,-3},{3,3}},
+        rotation=90,
+        origin={65,-205})));
+  TransiEnt.Basics.Adapters.FluidPortAdapter fluidPortAdapter3 annotation (Placement(transformation(
+        extent={{-3,-3},{3,3}},
+        rotation=180,
+        origin={81,-157})));
+  Modelica.Blocks.Sources.RealExpression realExpression7(y=12e5) annotation (Placement(transformation(extent={{306,-182},{292,-168}})));
+  TransiEnt.Components.Boundaries.FluidFlow.FluidSink fluidSink2(h=400e3)
+                                                                annotation (Placement(transformation(extent={{288,-182},{274,-168}})));
+  TransiEnt.Components.Boundaries.FluidFlow.FluidSource fluidSource2
+                                                                    annotation (Placement(transformation(extent={{286,-196},{274,-184}})));
+  Modelica.Blocks.Sources.RealExpression realExpression8(y=0.1)  annotation (Placement(transformation(extent={{304,-193},{292,-183}})));
+  Modelica.Blocks.Sources.RealExpression realExpression9(y=4200*60)
+                                                                 annotation (Placement(transformation(extent={{304,-204},{290,-192}})));
+  TransiEnt.Components.Boundaries.FluidFlow.FluidSource fluidSource1
+                                                                    annotation (Placement(transformation(extent={{6,-6},{-6,6}},
+        rotation=270,
+        origin={146,-176})));
+  TransiEnt.Components.Boundaries.FluidFlow.FluidSource fluidSource3
+                                                                    annotation (Placement(transformation(extent={{4,-4},{-4,4}},
+        rotation=0,
+        origin={110,-214})));
+  TransiEnt.Components.Boundaries.FluidFlow.FluidSource fluidSource4
+                                                                    annotation (Placement(transformation(extent={{-4,-4},{4,4}},
+        rotation=0,
+        origin={-18,-204})));
+  TransiEnt.Components.Boundaries.FluidFlow.FluidSource fluidSource5
+                                                                    annotation (Placement(transformation(extent={{-4,-4},{4,4}},
+        rotation=90,
+        origin={-56,-164})));
 protected
   TransiEnt.Grid.Gas.Controller.MaxH2MassFlow_phi maxH2MassFlow_Lev(phi_H2max=phi_H2max) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
@@ -764,21 +770,6 @@ equation
       points={{-217.3,-182},{-216,-182},{-216,-192},{-222,-192},{-222,-194},{-221.733,-194},{-221.733,-196.8}},
       color={95,95,95},
       pattern=LinePattern.Dash));
-  connect(HW_HafenCity.outlet, DistrictHeatingGrid.fluidPortCenter) annotation (Line(
-      points={{20,-201},{20,-196},{56,-196},{56,-164},{56,-153.1},{49.9,-153.1}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(HW_HafenCity.inlet, massflow_Tm_flow1.fluidPortOut) annotation (Line(
-      points={{-1.78,-201},{28,-201},{28,-206}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(T_return2.y, massflow_Tm_flow2.T) annotation (Line(points={{151,-187.5},{149,-187.5},{149,-182.8},{147,-182.8}}, color={0,0,127}));
-  connect(massflow_Tm_flow2.fluidPortOut, Tiefstack_HardCoal.inlet) annotation (Line(
-      points={{147,-174},{147,-166.08},{147.74,-166.08},{147.74,-161.85}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(m_flow_return2.y, massflow_Tm_flow2.m_flow) annotation (Line(points={{144,-187.5},{144,-186},{145,-186},{145.86,-186},{145.86,-182.8},{145.2,-182.8}}, color={0,0,127}));
-  connect(HW_HafenCity.eye, infoBoxLargeCHP2.eye) annotation (Line(points={{21.1,-210.9},{24,-210.9},{24,-218.364},{25.9,-218.364}}, color={28,108,200}));
 
   connect(Tiefstack_HardCoal.eye, infoBoxLargeCHP3.eye) annotation (Line(points={{146.7,-167.917},{137.5,-167.917},{137.5,-186.364},{134.1,-186.364}}, color={28,108,200}));
 
@@ -886,12 +877,6 @@ equation
       thickness=0.5));
   connect(Q_flow_set_WW1.y, HKW_Wedel.Q_flow_set) annotation (Line(points={{-71,-120.9},{-71,-140.333},{-71.3,-140.333}}, color={0,0,127}));
   connect(HKW_Wedel.eye, infoBoxLargeCHP1.eye) annotation (Line(points={{-64,-157.167},{-42,-157.167},{-42,-180.364},{-37.1,-180.364}}, color={28,108,200}));
-  connect(T_return5.y, massflow_Tm_flow3.T) annotation (Line(points={{-53,-171.5},{-57,-171.5},{-57,-166.8},{-60,-166.8}}, color={0,0,127}));
-  connect(m_flow_return3.y, massflow_Tm_flow3.m_flow) annotation (Line(points={{-64,-171.5},{-64,-169.75},{-61.8,-169.75},{-61.8,-166.8}}, color={0,0,127}));
-  connect(massflow_Tm_flow3.fluidPortOut, HKW_Wedel.inlet) annotation (Line(
-      points={{-60,-158},{-60,-155.08},{-64.8,-155.08},{-64.8,-152.5}},
-      color={175,0,0},
-      thickness=0.5));
   connect(P_set_CHP_West.y, HKW_Wedel.P_set) annotation (Line(points={{-89,-124},{-86,-124},{-86,-126},{-81.1,-126},{-81.1,-140.333}}, color={0,0,127}));
   connect(HKW_Wedel.epp, Demand.epp) annotation (Line(
       points={{-65.5,-145},{-44,-145},{-44,52},{231.4,52}},
@@ -905,14 +890,6 @@ equation
 
   connect(spiVoWedel.Q_flow_set_total, Q_flow_set_Spivo_Wedel.y) annotation (Line(points={{-6,-117.92},{-6,-114.9}}, color={0,0,127}));
 
-  connect(T_return3.y, massflow_Tm_flow1.T) annotation (Line(points={{44.4,-202},{40,-202},{40,-206},{36.8,-206}}, color={0,0,127}));
-  connect(m_flow_return1.y, massflow_Tm_flow1.m_flow) annotation (Line(points={{43.5,-209},{40,-209},{40,-207.8},{36.8,-207.8}}, color={0,0,127}));
-  connect(massflow_Tm_flow4.T, T_return1.y) annotation (Line(points={{114.8,-212},{118,-212},{118,-206},{120.4,-206}}, color={0,0,127}));
-  connect(massflow_Tm_flow4.m_flow, m_flow_return5.y) annotation (Line(points={{114.8,-213.8},{118,-213.8},{118,-215},{121.5,-215}}, color={0,0,127}));
-  connect(PtH.fluidPortIn, HKW_Wedel.outlet) annotation (Line(
-      points={{-42.4,-148},{-64.8,-148},{-64.8,-150.167}},
-      color={175,0,0},
-      thickness=0.5));
   connect(P_set_Pth.y, ptH_limiter.P_RE_curtail) annotation (Line(points={{-173,-168},{-167,-168}}, color={0,0,127}));
   connect(PtH.Q_flow_set, Q_flow_set_PtH.y) annotation (Line(points={{-42.4,-147},{-42.4,-133.5},{-31,-133.5},{-31,-130.9}},
                                                                                                                          color={0,0,127}));
@@ -930,10 +907,6 @@ equation
   connect(P_residual_pred.y, H_lpa.P_load_pred) annotation (Line(points={{-241,108},{-228,108},{-228,98}}, color={0,0,127}));
   connect(P_residual_is.y, H_lpa.P_load_is) annotation (Line(points={{-247,86},{-240,86}}, color={0,0,127}));
 
-  connect(GUDTS.inlet, massflow_Tm_flow5.steam_a) annotation (Line(
-      points={{224.25,-154.575},{234,-154.575},{234,-158}},
-      color={175,0,0},
-      thickness=0.5));
   connect(Q_flow_set_WT1.y, GUDTS.Q_flow_set) annotation (Line(points={{218.25,-132},{216.125,-132},{216.125,-138.15}}, color={0,0,127}));
   connect(GUDTS.epp, Demand.epp) annotation (Line(
       points={{223.375,-144.45},{232,-144.45},{232,-144},{240,-144},{240,-90},{-44,-90},{-44,52},{231.4,52}},
@@ -947,40 +920,10 @@ equation
       color={162,29,33},
       pattern=LinePattern.Dash));
   connect(HeatFlowEastPlusWUWSPS.y, heatSchedulerEast.Q_flow_total) annotation (Line(points={{-183.75,-189.5},{-183.75,-195.75},{-170,-195.75},{-170,-198}}, color={0,0,127}));
-  connect(massflow_Tm_flow6.p, p_set_WT2.y) annotation (Line(points={{244,-153.8},{252,-153.8},{252,-154},{258.25,-154}}, color={0,0,127}));
-  connect(GUDTS.outlet, massflow_Tm_flow6.fluidPortIn) annotation (Line(
-      points={{224.25,-151.425},{231.125,-151.425},{231.125,-152},{236,-152}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(spiVo_Wedel.outlet, DistrictHeatingGrid.fluidPortWest) annotation (Line(
-      points={{2,-148},{22.9,-148},{22.9,-147.9}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(spiVo_Wedel.inlet, PtH.fluidPortOut) annotation (Line(
-      points={{-17.8,-148},{-21.8,-148},{-21.8,-148}},
-      color={175,0,0},
-      thickness=0.5));
   connect(spiVo_Wedel.Q_flow_set, spiVoWedel.Q_flow_set) annotation (Line(points={{-8,-138},{-8,-138},{-8,-126.08},{-6,-126.08}}, color={0,0,127}));
-  connect(spiVo_Wedel.eye, infoBoxLargeCHP4.eye) annotation (Line(points={{3,-157},{4,-157},{4,-166.364},{4.9,-166.364}}, color={28,108,200}));
   connect(Q_set_Spivo_Tiefstack.y, twoFuelBoiler.Q_flow_set_B2) annotation (Line(points={{108,-136.9},{108,-136.9},{108,-150.14},{109.2,-150.14}}, color={0,0,127}));
   connect(Q_set_MVB.y, twoFuelBoiler.Q_flow_set_B1) annotation (Line(points={{122,-136.9},{120,-136.9},{120,-150.14},{118.64,-150.14}}, color={0,0,127}));
-  connect(Tiefstack_HardCoal.outlet, twoFuelBoiler.inlet) annotation (Line(
-      points={{147.74,-158.817},{134,-158.817},{134,-157},{121.84,-157}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(DistrictHeatingGrid.fluidPortEast, twoFuelBoiler.outlet) annotation (Line(
-      points={{56.7,-154.9},{82,-154.9},{82,-157},{106,-157}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(massflow_Tm_flow4.fluidPortOut, wuWSpaldingStr.inlet) annotation (Line(
-      points={{106,-212},{104,-212},{104,-214},{101.8,-214}},
-      color={175,0,0},
-      thickness=0.5));
   connect(Q_set_WUWSPS.y, wuWSpaldingStr.Q_flow_set) annotation (Line(points={{91.9,-197},{92,-197},{92,-204}}, color={0,0,127}));
-  connect(DistrictHeatingGrid.fluidPortWUWSPS, wuWSpaldingStr.outlet) annotation (Line(
-      points={{52.7,-151.3},{68,-151.3},{68,-214},{82,-214}},
-      color={175,0,0},
-      thickness=0.5));
   connect(GUDTS.eye, infoBoxLargeCHP5.eye) annotation (Line(points={{225.25,-160.875},{224,-160.875},{224,-184.364},{224.1,-184.364}}, color={28,108,200}));
 
   connect(JunctionHHMitte.gasPort2, HW_HafenCity.gasIn) annotation (Line(
@@ -1147,9 +1090,9 @@ equation
       points={{-116,-601},{-116,-536.6},{-111.5,-536.6}},
       color={0,0,127},
       pattern=LinePattern.Dash));
-  connect(replicator.y[1], gainTor.u) annotation (Line(points={{-209,-438.667},{-200,-438.667},{-200,-438},{-162,-438},{-162,-424}}, color={0,0,127}));
+  connect(replicator.y[1], gainTor.u) annotation (Line(points={{-209,-438.333},{-200,-438.333},{-200,-438},{-162,-438},{-162,-424}}, color={0,0,127}));
   connect(replicator.y[2], gainLev.u) annotation (Line(points={{-209,-438},{-89,-438},{-89,-483}}, color={0,0,127}));
-  connect(replicator.y[3], gainRei.u) annotation (Line(points={{-209,-437.333},{-204,-437.333},{-204,-676},{186,-676},{186,-668}}, color={0,0,127}));
+  connect(replicator.y[3], gainRei.u) annotation (Line(points={{-209,-437.667},{-204,-437.667},{-204,-676},{186,-676},{186,-668}}, color={0,0,127}));
   connect(HHMitte.fluidPortIn, JunctionHHMitte.gasPort3) annotation (Line(
       points={{70,-463},{80,-463}},
       color={255,255,0},
@@ -1163,6 +1106,46 @@ equation
       color={0,135,135},
       thickness=0.5));
   //General annotation
+  connect(HKW_Wedel.outlet, PtH.fluidPortIn) annotation (Line(points={{-64.8,-150.167},{-64.8,-148},{-42.4,-148}}, color={0,0,0}));
+  connect(PtH.fluidPortOut, spiVo_Wedel.inlet) annotation (Line(points={{-21.8,-148},{-17.8,-148}}, color={0,0,0}));
+  connect(spiVo_Wedel.outlet, fluidPortAdapter.fluidPortIn) annotation (Line(points={{2,-148},{10,-148}}, color={0,0,0}));
+  connect(fluidPortAdapter.fluidPortOut, DistrictHeatingGrid.fluidPortWest) annotation (Line(
+      points={{16,-148},{19.45,-148},{19.45,-147.9},{22.9,-147.9}},
+      color={175,0,0},
+      thickness=0.5));
+  connect(HW_HafenCity.outlet, fluidPortAdapter1.fluidPortIn) annotation (Line(points={{20,-201},{30,-201}}, color={0,0,0}));
+  connect(fluidPortAdapter1.fluidPortOut, DistrictHeatingGrid.fluidPortCenter) annotation (Line(
+      points={{36,-201},{49.9,-201},{49.9,-153.1}},
+      color={175,0,0},
+      thickness=0.5));
+  connect(fluidPortAdapter2.fluidPortIn, wuWSpaldingStr.outlet) annotation (Line(points={{65,-208},{66,-208},{66,-214},{82,-214}}, color={0,0,0}));
+  connect(fluidPortAdapter2.fluidPortOut, DistrictHeatingGrid.fluidPortWUWSPS) annotation (Line(
+      points={{65,-202},{64,-202},{64,-162},{52.7,-162},{52.7,-151.3}},
+      color={175,0,0},
+      thickness=0.5));
+  connect(DistrictHeatingGrid.fluidPortEast, fluidPortAdapter3.fluidPortOut) annotation (Line(
+      points={{56.7,-154.9},{78,-154.9},{78,-157}},
+      color={175,0,0},
+      thickness=0.5));
+  connect(fluidPortAdapter3.fluidPortIn, twoFuelBoiler.outlet) annotation (Line(points={{84,-157},{106,-157}}, color={0,0,0}));
+  connect(Tiefstack_HardCoal.outlet, twoFuelBoiler.inlet) annotation (Line(points={{147.74,-158.817},{147.74,-157},{121.84,-157}}, color={0,0,0}));
+  connect(realExpression7.y, fluidSink2.p_in) annotation (Line(points={{291.3,-175},{286.6,-175}}, color={0,0,127}));
+  connect(realExpression8.y, fluidSource2.m_flow_in) annotation (Line(points={{291.4,-188},{288.1,-188},{288.1,-188.2},{284.8,-188.2}}, color={0,0,127}));
+  connect(realExpression9.y, fluidSource2.h_in) annotation (Line(points={{289.3,-198},{284.8,-198},{284.8,-191.2}}, color={0,0,127}));
+  connect(fluidSink2.port_a, GUDTS.outlet) annotation (Line(points={{274,-175},{260.125,-175},{260.125,-151.425},{224.25,-151.425}}, color={0,0,0}));
+  connect(fluidSource2.port_a, GUDTS.inlet) annotation (Line(points={{274,-190},{254,-190},{254,-154.575},{224.25,-154.575}}, color={0,0,0}));
+  connect(T_return2.y, fluidSource1.h_in) annotation (Line(points={{143,-187.5},{143,-184.15},{144.8,-184.15},{144.8,-180.8}}, color={0,0,127}));
+  connect(m_flow_return2.y, fluidSource1.m_flow_in) annotation (Line(points={{154,-189.5},{147.8,-189.5},{147.8,-180.8}}, color={0,0,127}));
+  connect(fluidSource1.port_a, Tiefstack_HardCoal.inlet) annotation (Line(points={{146,-170},{142,-170},{142,-161.85},{147.74,-161.85}}, color={0,0,0}));
+  connect(fluidSource3.port_a, wuWSpaldingStr.inlet) annotation (Line(points={{106,-214},{101.8,-214}}, color={0,0,0}));
+  connect(m_flow_return5.y, fluidSource3.m_flow_in) annotation (Line(points={{121.5,-215},{117.75,-215},{117.75,-212.8},{113.2,-212.8}}, color={0,0,127}));
+  connect(T_return1.y, fluidSource3.h_in) annotation (Line(points={{120.4,-206},{120.4,-214},{113.2,-214},{113.2,-214.8}}, color={0,0,127}));
+  connect(fluidSource4.port_a, HW_HafenCity.inlet) annotation (Line(points={{-14,-204},{-14,-201},{-1.78,-201}}, color={0,0,0}));
+  connect(T_return3.y, fluidSource4.h_in) annotation (Line(points={{-26.4,-198},{-24,-198},{-24,-204.8},{-21.2,-204.8}}, color={0,0,127}));
+  connect(m_flow_return1.y, fluidSource4.m_flow_in) annotation (Line(points={{-27.5,-204},{-24.35,-204},{-24.35,-202.8},{-21.2,-202.8}}, color={0,0,127}));
+  connect(fluidSource5.port_a, HKW_Wedel.inlet) annotation (Line(points={{-56,-160},{-56,-152.5},{-64.8,-152.5}}, color={0,0,0}));
+  connect(m_flow_return3.y, fluidSource5.m_flow_in) annotation (Line(points={{-64,-171.5},{-64,-170},{-57.2,-170},{-57.2,-167.2}}, color={0,0,127}));
+  connect(T_return5.y, fluidSource5.h_in) annotation (Line(points={{-53,-171.5},{-53,-170},{-55.2,-170},{-55.2,-167.2}}, color={0,0,127}));
   annotation (
     experiment(StopTime=86400, Interval=900),
     Diagram(coordinateSystem(
@@ -1282,10 +1265,6 @@ Offshore
           lineColor={175,175,175},
           pattern=LinePattern.Dash,
           textString="District Heating Network"),
-        Rectangle(
-          extent={{-122,-80},{252,-236}},
-          lineColor={175,175,175},
-          pattern=LinePattern.Dash),
         Text(
           extent={{-238,238},{-182,230}},
           lineColor={175,175,175},

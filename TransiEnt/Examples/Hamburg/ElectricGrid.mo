@@ -322,34 +322,33 @@ model ElectricGrid "Example of an electric grid with several generators, frequen
     PQCharacteristics=TransiEnt.Producer.Combined.LargeScaleCHP.Base.Characteristics.PQ_Characteristics_CCPGeneric(),
     Q_flow_n_CHP=180e6) "Combined cycle plant Tiefstack" annotation (Placement(transformation(extent={{61,-219},{101,-181}})));
 
-  TransiEnt.Components.Boundaries.FluidFlow.BoundaryVLE_hxim_flow massflow_Tm_flow3(boundaryConditions(m_flow_const=1000, h_const=4.2e3*60), variable_m_flow=false) annotation (Placement(transformation(
-        extent={{-4,-3},{4,3}},
-        rotation=90,
-        origin={-46,-220})));
-  TransiEnt.Components.Boundaries.FluidFlow.BoundaryVLE_phxi massflow_Tm_flow1(boundaryConditions(p_const=12e5)) annotation (Placement(transformation(
-        extent={{-4,-3},{4,3}},
-        rotation=180,
-        origin={-42,-206})));
-  TransiEnt.Components.Boundaries.FluidFlow.BoundaryVLE_hxim_flow massflow_Tm_flow2(variable_m_flow=false, boundaryConditions(m_flow_const=1000, h_const=4.2e3*60)) annotation (Placement(transformation(
-        extent={{-4,-3},{4,3}},
-        rotation=90,
-        origin={36,-218})));
-  TransiEnt.Components.Boundaries.FluidFlow.BoundaryVLE_phxi massflow_Tm_flow4(boundaryConditions(p_const=12e5)) annotation (Placement(transformation(
-        extent={{4,-3},{-4,3}},
-        rotation=180,
-        origin={38,-204})));
   Modelica.Blocks.Sources.RealExpression Q_flow_set_CHP_West(y=ThermalUnitCommitment.y[2]) annotation (Placement(transformation(extent={{-84,-184},{-64,-164}})));
   Modelica.Blocks.Sources.RealExpression Q_flow_set_CHP_East(y=ThermalUnitCommitment.y[1]) annotation (Placement(transformation(extent={{-6,-184},{14,-164}})));
   Modelica.Blocks.Sources.RealExpression P_set_WT1(y=0) annotation (Placement(transformation(extent={{74,-176},{94,-156}})));
-  TransiEnt.Components.Boundaries.FluidFlow.BoundaryVLE_hxim_flow massflow_Tm_flow5(variable_m_flow=false, boundaryConditions(m_flow_const=1000, h_const=4.2e3*60)) annotation (Placement(transformation(
-        extent={{-4,-3},{4,3}},
-        rotation=90,
-        origin={114,-212})));
-  TransiEnt.Components.Boundaries.FluidFlow.BoundaryVLE_phxi massflow_Tm_flow6(boundaryConditions(p_const=12e5)) annotation (Placement(transformation(
-        extent={{-4,-3},{4,3}},
-        rotation=180,
-        origin={118,-198})));
 
+  TransiEnt.Components.Boundaries.FluidFlow.FluidSource fluidSource annotation (Placement(transformation(extent={{-66,-240},{-54,-228}})));
+  Modelica.Blocks.Sources.RealExpression realExpression3(y=4200*60)
+                                                                 annotation (Placement(transformation(extent={{-96,-242},{-82,-230}})));
+  Modelica.Blocks.Sources.RealExpression realExpression1(y=0.1)  annotation (Placement(transformation(extent={{-96,-234},{-84,-224}})));
+  TransiEnt.Components.Boundaries.FluidFlow.FluidSink fluidSink(h=400e3)
+                                                                annotation (Placement(transformation(extent={{-30,-236},{-44,-222}})));
+  Modelica.Blocks.Sources.RealExpression realExpression2(y=12e5) annotation (Placement(transformation(extent={{-12,-236},{-26,-222}})));
+  TransiEnt.Components.Boundaries.FluidFlow.FluidSink fluidSink1(h=400e3)
+                                                                annotation (Placement(transformation(extent={{50,-230},{36,-216}})));
+  Modelica.Blocks.Sources.RealExpression realExpression4(y=12e5) annotation (Placement(transformation(extent={{68,-230},{54,-216}})));
+  TransiEnt.Components.Boundaries.FluidFlow.FluidSource fluidSource1
+                                                                    annotation (Placement(transformation(extent={{8,-240},{20,-228}})));
+  Modelica.Blocks.Sources.RealExpression realExpression5(y=0.1)  annotation (Placement(transformation(extent={{-8,-237},{4,-227}})));
+  Modelica.Blocks.Sources.RealExpression realExpression6(y=4200*60)
+                                                                 annotation (Placement(transformation(extent={{-20,-244},{-6,-232}})));
+  Modelica.Blocks.Sources.RealExpression realExpression7(y=12e5) annotation (Placement(transformation(extent={{162,-208},{148,-194}})));
+  TransiEnt.Components.Boundaries.FluidFlow.FluidSink fluidSink2(h=400e3)
+                                                                annotation (Placement(transformation(extent={{144,-208},{130,-194}})));
+  TransiEnt.Components.Boundaries.FluidFlow.FluidSource fluidSource2
+                                                                    annotation (Placement(transformation(extent={{142,-232},{130,-220}})));
+  Modelica.Blocks.Sources.RealExpression realExpression8(y=0.1)  annotation (Placement(transformation(extent={{160,-229},{148,-219}})));
+  Modelica.Blocks.Sources.RealExpression realExpression9(y=4200*60)
+                                                                 annotation (Placement(transformation(extent={{162,-240},{148,-228}})));
 equation
   // _____________________________________________
   //
@@ -466,22 +465,6 @@ equation
   connect(P_residual_pred.y, H_lpa.P_load_pred) annotation (Line(points={{-245,8},{-232,8},{-232,-2}}, color={0,0,127}));
   connect(P_residual_is.y, H_lpa.P_load_is) annotation (Line(points={{-251,-14},{-244,-14}}, color={0,0,127}));
   connect(P_Load.y1, Demand.P_el_set) annotation (Line(points={{259,2},{247,2},{247,-13.96}}, color={0,0,127}));
-  connect(WW1.outlet, massflow_Tm_flow1.fluidPortIn) annotation (Line(
-      points={{-54.6,-210.117},{-50,-210.117},{-50,-206},{-46,-206}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(massflow_Tm_flow3.fluidPortOut, WW1.inlet) annotation (Line(
-      points={{-46,-216},{-48,-216},{-48,-214.55},{-54.6,-214.55}},
-      color={0,131,169},
-      thickness=0.5));
-  connect(WT.inlet, massflow_Tm_flow2.fluidPortOut) annotation (Line(
-      points={{23.4,-212.55},{36,-212.55},{36,-214}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(WT.outlet, massflow_Tm_flow4.fluidPortIn) annotation (Line(
-      points={{23.4,-208.117},{30,-208.117},{30,-204},{42,-204}},
-      color={175,0,0},
-      thickness=0.5));
   connect(WW1.epp, Demand.epp) annotation (Line(
       points={{-56,-200.3},{-50,-200.3},{-50,-36},{227.4,-36}},
       color={0,135,135},
@@ -503,14 +486,23 @@ equation
   connect(Q_flow_set_CHP_East.y, WT.Q_flow_set) annotation (Line(points={{15,-174},{16,-174},{16,-182},{10.4,-182},{10.4,-189.433}}, color={0,0,127}));
   connect(P_set_WT.y, GUDTS.P_set) annotation (Line(points={{65,-166},{68.8,-166},{68.8,-185.433}}, color={0,0,127}));
   connect(P_set_WT1.y, GUDTS.Q_flow_set) annotation (Line(points={{95,-166},{96,-166},{96,-176},{88.4,-176},{88.4,-185.433}}, color={0,0,127}));
-  connect(GUDTS.inlet, massflow_Tm_flow5.fluidPortOut) annotation (Line(
-      points={{101.4,-208.55},{110,-208.55},{110,-208},{114,-208}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(GUDTS.outlet, massflow_Tm_flow6.fluidPortIn) annotation (Line(
-      points={{101.4,-204.117},{108,-204.117},{108,-198},{114,-198}},
-      color={175,0,0},
-      thickness=0.5));
+  connect(realExpression3.y,fluidSource. h_in) annotation (Line(points={{-81.3,-236},{-81.3,-235.2},{-64.8,-235.2}},
+                                                                                          color={0,0,127}));
+  connect(realExpression1.y,fluidSource. m_flow_in) annotation (Line(points={{-83.4,-229},{-74,-229},{-74,-232.2},{-64.8,-232.2}},
+                                                                                                               color={0,0,127}));
+  connect(fluidSource.port_a, WW1.inlet) annotation (Line(points={{-54,-234},{-46,-234},{-46,-214.55},{-54.6,-214.55}}, color={0,0,0}));
+  connect(realExpression2.y, fluidSink.p_in) annotation (Line(points={{-26.7,-229},{-31.4,-229}}, color={0,0,127}));
+  connect(fluidSink.port_a, WW1.outlet) annotation (Line(points={{-44,-229},{-44,-210.117},{-54.6,-210.117}}, color={0,0,0}));
+  connect(fluidSink1.port_a, WT.outlet) annotation (Line(points={{36,-223},{30,-223},{30,-208.117},{23.4,-208.117}}, color={0,0,0}));
+  connect(realExpression4.y, fluidSink1.p_in) annotation (Line(points={{53.3,-223},{48.6,-223}}, color={0,0,127}));
+  connect(fluidSource1.port_a, WT.inlet) annotation (Line(points={{20,-234},{34,-234},{34,-212.55},{23.4,-212.55}}, color={0,0,0}));
+  connect(realExpression5.y, fluidSource1.m_flow_in) annotation (Line(points={{4.6,-232},{6,-232},{6,-232.2},{9.2,-232.2}}, color={0,0,127}));
+  connect(realExpression6.y, fluidSource1.h_in) annotation (Line(points={{-5.3,-238},{-5.3,-235.2},{9.2,-235.2}}, color={0,0,127}));
+  connect(realExpression7.y, fluidSink2.p_in) annotation (Line(points={{147.3,-201},{142.6,-201}}, color={0,0,127}));
+  connect(realExpression8.y, fluidSource2.m_flow_in) annotation (Line(points={{147.4,-224},{144.1,-224},{144.1,-224.2},{140.8,-224.2}}, color={0,0,127}));
+  connect(realExpression9.y, fluidSource2.h_in) annotation (Line(points={{147.3,-234},{140.8,-234},{140.8,-227.2}}, color={0,0,127}));
+  connect(fluidSink2.port_a, GUDTS.outlet) annotation (Line(points={{130,-201},{108,-201},{108,-204.117},{101.4,-204.117}}, color={0,0,0}));
+  connect(fluidSource2.port_a, GUDTS.inlet) annotation (Line(points={{130,-226},{110,-226},{110,-208.55},{101.4,-208.55}}, color={0,0,0}));
   annotation (
     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-300,-240},{300,160}}), graphics={
         Rectangle(

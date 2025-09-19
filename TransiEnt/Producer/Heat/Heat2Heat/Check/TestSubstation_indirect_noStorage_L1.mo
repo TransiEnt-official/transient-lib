@@ -1,33 +1,25 @@
 ﻿within TransiEnt.Producer.Heat.Heat2Heat.Check;
 model TestSubstation_indirect_noStorage_L1
-
-
-
-
-//________________________________________________________________________________//
-// Component of the TransiEnt Library, version: 3.0.0                             //
-//                                                                                //
-// Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
-// Copyright 2021, Hamburg University of Technology.                              //
-//________________________________________________________________________________//
-//                                                                                //
-// TransiEnt.EE, ResiliEntEE, IntegraNet and IntegraNet II are research projects  //
-// supported by the German Federal Ministry of Economics and Energy               //
-// (FKZ 03ET4003, 03ET4048, 0324027 and 03EI1008).                                //
-// The TransiEnt Library research team consists of the following project partners://
-// Institute of Engineering Thermodynamics (Hamburg University of Technology),    //
-// Institute of Energy Systems (Hamburg University of Technology),                //
-// Institute of Electrical Power and Energy Technology                            //
-// (Hamburg University of Technology)                                             //
-// Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
-// and                                                                            //
-// XRG Simulation GmbH (Hamburg, Germany).                                        //
-//________________________________________________________________________________//
-
-
-
-
+  //________________________________________________________________________________//
+  // Component of the TransiEnt Library, version: 3.0.0                             //
+  //                                                                                //
+  // Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
+  // Copyright 2021, Hamburg University of Technology.                              //
+  //________________________________________________________________________________//
+  //                                                                                //
+  // TransiEnt.EE, ResiliEntEE, IntegraNet and IntegraNet II are research projects  //
+  // supported by the German Federal Ministry of Economics and Energy               //
+  // (FKZ 03ET4003, 03ET4048, 0324027 and 03EI1008).                                //
+  // The TransiEnt Library research team consists of the following project partners://
+  // Institute of Engineering Thermodynamics (Hamburg University of Technology),    //
+  // Institute of Energy Systems (Hamburg University of Technology),                //
+  // Institute of Electrical Power and Energy Technology                            //
+  // (Hamburg University of Technology)                                             //
+  // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
+  // Gas- und WÃ¤rme-Institut Essen						  //
+  // and                                                                            //
+  // XRG Simulation GmbH (Hamburg, Germany).                                        //
+  //________________________________________________________________________________//
   extends TransiEnt.Basics.Icons.Checkmodel;
   inner SimCenter simCenter annotation (Placement(transformation(extent={{-90,80},{-70,100}})));
   ClaRa.Components.BoundaryConditions.BoundaryVLE_pTxi sink(
@@ -42,7 +34,6 @@ model TestSubstation_indirect_noStorage_L1
     duration=900,
     height=-2e3,
     offset=10e3) annotation (Placement(transformation(extent={{-66,30},{-40,56}})));
-  inner TransiEnt.ModelStatistics modelStatistics annotation (Placement(transformation(extent={{-62,80},{-42,100}})));
   TransiEnt.Producer.Heat.Heat2Heat.Substation_indirect_noStorage_L1 substation_indirect_noStorage_L1_1 annotation (Placement(transformation(extent={{-20,16},{8,36}})));
   ClaRa.Components.BoundaryConditions.BoundaryVLE_pTxi sink1(
     medium=simCenter.fluid1,

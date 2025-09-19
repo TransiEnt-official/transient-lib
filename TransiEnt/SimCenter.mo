@@ -131,7 +131,7 @@ model SimCenter "SimCenter for global parameters, ambient conditions and collect
   replaceable parameter TILMedia.VLEFluidTypes.TILMedia_SplineWater fluid1
    constrainedby TILMedia.VLEFluidTypes.BaseVLEFluid(final ID=1) "Medium name of working fluid in district heating grid" annotation(choicesAllMatching, Dialog(tab="District Heating Grid"));
  // replaceable Basics.Tables.HeatGrid.HeatingCurves.ConstantSupplyTemperature heatingCurve constrainedby Basics.Tables.HeatGrid.HeatingCurves.PartialHeatingCurve "Heating curve defining supply and return water temperatures" annotation (Dialog(tab="District Heating Grid"), choicesAllMatching);
-  TransiEnt.Basics.Tables.HeatGrid.heatingCurveConstant heatingCurve;
+  //TransiEnt.Basics.Tables.HeatGrid.heatingCurveConstant heatingCurve;
   replaceable parameter TILMedia.VLEFluidTypes.TILMedia_SplineWater refrigerantFluid1
    constrainedby TILMedia.VLEFluidTypes.BaseVLEFluid(final ID=1) "Medium name of working fluid for refrigerant based cycles, e.g. heat pumps"
                                                                                               annotation(choicesAllMatching, Dialog(tab="District Heating Grid"));

@@ -1,4 +1,4 @@
-within TransiEnt.Consumer.Heat;
+﻿within TransiEnt.Consumer.Heat;
 model HeatConsumerSubstation
 
 //________________________________________________________________________________//
@@ -114,7 +114,7 @@ model HeatConsumerSubstation
  //Statistics
   Components.Statistics.Collectors.LocalCollectors.CollectHeatingPower collectHeatingPower(typeOfResource=TransiEnt.Basics.Types.TypeOfResource.Consumer)
                                                                                                                                                          annotation (Placement(transformation(extent={{80,80},{100,100}})));
-  Modelica.Blocks.Sources.RealExpression T_amb(y=simCenter.Variable_Ground_Temperature.value) annotation (Placement(transformation(extent={{-98,-76},{-84,-60}})));
+  TransiEnt.Basics.Tables.Ambient.UndergroundTemperature_Duesseldorf_1m_3600s_TMY undergroundTemperature_Duesseldorf_1m_3600s_TMY annotation (Placement(transformation(extent={{-102,-78},{-82,-58}})));
 equation
  //Demand Statistics
   collectHeatingPower.heatFlowCollector.Q_flow=Q_demand;
@@ -209,8 +209,7 @@ equation
   connect(modelStatistics.heatFlowCollector[TransiEnt.Basics.Types.TypeOfResource.Consumer],collectHeatingPower.heatFlowCollector);
   connect(Q_demand_DHW.y[1], substation.Q_demand_DHW) annotation (Line(points={{21,84},{34.5714,84},{34.5714,44.8}}, color={0,0,127}));
   connect(Q_demand_DHW.y[1], add.u1) annotation (Line(points={{21,84},{38,84},{38,61.6},{74.8,61.6}}, color={0,0,127}));
-  connect(T_amb.y, T_ground.T) annotation (Line(points={{-83.3,-68},{-83.3,-67.5},{-66.2,-67.5}},
-                                                                                              color={0,0,127}));
+  connect(undergroundTemperature_Duesseldorf_1m_3600s_TMY.y1, T_ground.T) annotation (Line(points={{-81,-68},{-73.6,-68},{-73.6,-67.5},{-66.2,-67.5}}, color={0,0,127}));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false)),
                                             Diagram(coordinateSystem(preserveAspectRatio=false)),
     Documentation(info="<html>

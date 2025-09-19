@@ -89,11 +89,7 @@ model PumpVLE_L1_simple "A pump for VLE mixtures with a volume flow rate dependi
   //                  Interfaces
   // _____________________________________________
 
-  ClaRa.Basics.Interfaces.Connected2SimCenter connected2SimCenter(
-    powerIn=0,
-    powerOut_elMech=0,
-    powerOut_th=0,
-    powerAux=P_drive) if contributeToCycleSummary;
+ 
   extends ClaRa.Basics.Icons.ComplexityLevel(complexity="L1");
   TransiEnt.Basics.Interfaces.General.PressureDifferenceIn dp_in
  if use_Delta_p_input "Prescribed pressure increase"
@@ -147,25 +143,7 @@ protected
 
 protected
   SI.Power    P_el "Electrical power";
-  model Outline
-    extends TransiEnt.Basics.Icons.Record;
-    input SI.VolumeFlowRate V_flow "Volume flow rate";
-    input SI.Power P_hyd "Hydraulic power";
-    input SI.Power P_shaft "Shaft power";
-    input SI.Power P_el "Electric power";
-    input SI.Work W_el "Electric work";
-    input Real Pi "Pressure ratio";
-    input SI.PressureDifference Delta_p "Pressure difference";
-    input SI.Efficiency eta "Isentropic efficiency";
-  end Outline;
 
-  model Summary
-    extends TransiEnt.Basics.Icons.Record;
-    Outline outline;
-    TransiEnt.Basics.Records.FlangeRealGas fluidPortIn;
-    TransiEnt.Basics.Records.FlangeRealGas fluidPortOut;
-    TransiEnt.Basics.Records.Costs costs;
-  end Summary;
 
 equation
   // _____________________________________________

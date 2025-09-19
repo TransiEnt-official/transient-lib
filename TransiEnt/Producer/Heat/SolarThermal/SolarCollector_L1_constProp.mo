@@ -221,6 +221,8 @@ if not useFluidPorts then
   Q_flow_out=-Q_flow_collector;
 end if;
 
+connect(T_inflow,T_in_int);
+
   if UseStationaryCalculationMethod==false then
     der_T=der(T_m);
   else

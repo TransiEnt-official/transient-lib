@@ -114,6 +114,10 @@ createPlot(id=6, position={743, 457, 758, 428}, y={"dHN_Topology_HH_SimpleGrid_3
 
 end plotResult;
 
+  TransiEnt.Basics.Adapters.FluidPortAdapter fluidPortAdapter annotation (Placement(transformation(extent={{-234,-33},{-224,-23}})));
+  TransiEnt.Basics.Adapters.FluidPortAdapter fluidPortAdapter1 annotation (Placement(transformation(extent={{-262,-173},{-252,-163}})));
+  TransiEnt.Basics.Adapters.FluidPortAdapter fluidPortAdapter2 annotation (Placement(transformation(extent={{248,-23},{238,-13}})));
+  TransiEnt.Basics.Adapters.FluidPortAdapter fluidPortAdapter3 annotation (Placement(transformation(extent={{248,-36},{238,-26}})));
 equation
 
   // _____________________________________________
@@ -131,11 +135,6 @@ equation
       color={0,135,135},
       thickness=0.5,
       smooth=Smooth.None));
-  connect(dHN_Topology_HH_SimpleGrid_2ports.fluidPortEast,HKW_Tiefstack. outlet) annotation (Line(
-      points={{38.2085,-3.22432},{134.75,-3.22432},{134.75,-23.3667},{271.32,-23.3667}},
-      color={175,0,0},
-      thickness=0.5,
-      smooth=Smooth.None));
   connect(simpleHeatDispatcher.Q_flow_WT,HKW_Tiefstack. Q_flow_set) annotation (Line(points={{-274.9,215.12},{293.42,215.12},{293.42,10.0667}},
                                                                                                                                               color={0,0,127}));
   connect(HKW_Tiefstack.P_set,simpleHeatDispatcher. P_el_WT) annotation (Line(points={{326.74,10.0667},{326.74,221.32},{-274.9,221.32}},
@@ -143,14 +142,6 @@ equation
   connect(HKW_Wedel1.epp,constantFrequency_L1_3. epp) annotation (Line(
       points={{-271.7,-6.7},{-232,-6.7},{-232,126},{-10,126}},
       color={0,135,135},
-      thickness=0.5));
-  connect(HKW_Wedel2.outlet,HKW_Wedel1. inlet) annotation (Line(
-      points={{-283.32,-157.883},{-248,-157.883},{-248,-37.45},{-269.32,-37.45}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(HKW_Wedel1.outlet,dHN_Topology_HH_SimpleGrid_2ports. fluidPortWest) annotation (Line(
-      points={{-269.32,-27.8833},{-220,-27.8833},{-220,-8},{-120,-8},{-120,13.7054},{-53.4766,13.7054}},
-      color={175,0,0},
       thickness=0.5));
   connect(P_set.y,HKW_Wedel1. P_set) annotation (Line(points={{-333,42},{-324.74,42},{-324.74,12.4333}},             color={0,0,127}));
   connect(P_set.y,HKW_Wedel2. P_set) annotation (Line(points={{-333,42},{-328,42},{-328,64},{-364,64},{-364,-96},{-336,-96},{-336,-108},{-338.74,-108},{-338.74,-117.567}},
@@ -164,16 +155,28 @@ equation
                                                                                                                                              color={28,108,200}));
   connect(HKW_Wedel2.eye,infoBoxLargeCHP2. eye) annotation (Line(points={{-280.6,-186.583},{-244,-186.583},{-244,-60},{-228,-60},{-228,-43.9273},{-213,-43.9273}},
                                                                                                                                              color={28,108,200}));
-  connect(dHN_Topology_HH_SimpleGrid_2ports.fluidPortWestReturn, HKW_Wedel2.inlet) annotation (Line(
-      points={{-52.9404,7.59189},{-144,7.59189},{-144,-94},{-283.32,-94},{-283.32,-167.45}},
+  connect(HKW_Wedel1.outlet, fluidPortAdapter.fluidPortIn) annotation (Line(points={{-269.32,-27.8833},{-251.66,-27.8833},{-251.66,-28},{-234,-28}}, color={0,0,0}));
+  connect(fluidPortAdapter.fluidPortOut, dHN_Topology_HH_SimpleGrid_2ports.fluidPortWest) annotation (Line(
+      points={{-224,-28},{-206,-28},{-206,14},{-94,14},{-94,13.7054},{-53.4766,13.7054}},
       color={175,0,0},
       thickness=0.5));
-  connect(dHN_Topology_HH_SimpleGrid_2ports.fluidPortEastReturn, HKW_Tiefstack.inlet) annotation (Line(
-      points={{38.2085,-10.2784},{58,-10.2784},{124,-10.2784},{124,-31.3},{271.32,-31.3}},
+  connect(HKW_Wedel2.outlet, HKW_Wedel1.inlet) annotation (Line(points={{-283.32,-157.883},{-256,-157.883},{-256,-37.45},{-269.32,-37.45}}, color={0,0,0}));
+  connect(fluidPortAdapter1.fluidPortIn, HKW_Wedel2.inlet) annotation (Line(points={{-262,-168},{-272.66,-168},{-272.66,-167.45},{-283.32,-167.45}}, color={0,0,0}));
+  connect(fluidPortAdapter1.fluidPortOut, dHN_Topology_HH_SimpleGrid_2ports.fluidPortWestReturn) annotation (Line(
+      points={{-252,-168},{-224,-168},{-224,-167},{-72,-167},{-72,7.59189},{-52.9404,7.59189}},
       color={175,0,0},
       thickness=0.5));
-  annotation (Diagram(graphics,
-                      coordinateSystem(preserveAspectRatio=false, extent={{-360,-260},{360,260}})),
+  connect(fluidPortAdapter2.fluidPortIn, HKW_Tiefstack.outlet) annotation (Line(points={{248,-18},{256,-18},{256,-23.3667},{271.32,-23.3667}}, color={0,0,0}));
+  connect(dHN_Topology_HH_SimpleGrid_2ports.fluidPortEast, fluidPortAdapter2.fluidPortOut) annotation (Line(
+      points={{38.2085,-3.22432},{238,-3.22432},{238,-18}},
+      color={175,0,0},
+      thickness=0.5));
+  connect(fluidPortAdapter3.fluidPortIn, HKW_Tiefstack.inlet) annotation (Line(points={{248,-31},{259.66,-31},{259.66,-31.3},{271.32,-31.3}}, color={0,0,0}));
+  connect(dHN_Topology_HH_SimpleGrid_2ports.fluidPortEastReturn, fluidPortAdapter3.fluidPortOut) annotation (Line(
+      points={{38.2085,-10.2784},{139.104,-10.2784},{139.104,-31},{238,-31}},
+      color={175,0,0},
+      thickness=0.5));
+  annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-360,-260},{360,260}})),
                                           Icon(graphics,
                                                coordinateSystem(extent={{-360,-260},{360,260}})),
     experiment(StopTime=604800, __Dymola_Algorithm="Esdirk23a"),

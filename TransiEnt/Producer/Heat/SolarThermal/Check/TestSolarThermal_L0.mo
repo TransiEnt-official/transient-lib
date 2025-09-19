@@ -30,7 +30,7 @@ model TestSolarThermal_L0 "Tester for a solar collector using fluid boundaries"
 
   extends Basics.Icons.Checkmodel;
   SolarThermal.SolarThermal_L0 solarThermal annotation (Placement(transformation(extent={{8,-10},{-12,10}})));
-  inner SimCenter simCenter(redeclare TransiEnt.Basics.Tables.HeatGrid.HeatingCurves.HeatingCurveEONHanse heatingCurve) annotation (Placement(transformation(extent={{-90,80},{-70,100}})));
+  inner SimCenter simCenter annotation (Placement(transformation(extent={{-90,80},{-70,100}})));
 
   Components.Boundaries.FluidFlow.FluidSource           fluidSource annotation (Placement(transformation(extent={{-48,-10},{-28,10}})));
   Modelica.Blocks.Sources.RealExpression realExpression3(y=400e3)

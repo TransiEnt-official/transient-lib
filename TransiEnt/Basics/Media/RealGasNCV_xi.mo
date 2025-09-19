@@ -52,11 +52,11 @@ equation
   // _____________________________________________
 
   //If NCVIn has a value except 0 (no variable NCV calculation) set NCV = NCVin
-  if NCVIn <> 0.0 then
+  if NCVIn < 0.0 or NCVIn > 0.0 then
     NCV= NCVIn;
   else
     //Search for component in NCVComponentValues and add it to total NCV = sum(xi_i * NCV_i) and from (MJ/kg) to (J/kg) NCV
-    NCV=sum(xi*NCV_vec);
+    NCV=sum(xi[i]*NCV_vec[i] for i in 1:realGasType.nc);
   end if;
 
   annotation (Documentation(info="<html>
