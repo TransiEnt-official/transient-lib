@@ -30,7 +30,6 @@ model TestHeatConsumerNode "a model to test the Heat Consumer with node and dist
     redeclare model DHN_Pipe_Manufacturer = TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.Base.DHN_Pipes.DN_IsoPlus)
                                                                     annotation (Placement(transformation(extent={{-62,76},{-42,96}})));
   inner Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature T_ground annotation (Placement(transformation(extent={{-32,34},{-16,50}})));
-  Modelica.Blocks.Sources.RealExpression T_amb(y=simCenter.Variable_Ground_Temperature.value) annotation (Placement(transformation(extent={{-68,32},{-48,52}})));
 
 
 
@@ -53,9 +52,9 @@ model TestHeatConsumerNode "a model to test the Heat Consumer with node and dist
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={70,10})));
+  TransiEnt.Basics.Tables.Ambient.UndergroundTemperature_Duesseldorf_1m_3600s_TMY undergroundTemperature_Duesseldorf_1m_3600s_TMY annotation (Placement(transformation(extent={{-80,32},{-60,52}})));
 equation
 
-  connect(T_amb.y, T_ground.T) annotation (Line(points={{-47,42},{-33.6,42}}, color={0,0,127}));
   connect(Grid_Supply_In.steam_a, doublePipePair_L2.waterPortIn_supply) annotation (Line(
       points={{-70,2},{-12,2},{-12,-8},{4,-8}},
       color={0,131,169},
@@ -84,6 +83,7 @@ equation
       points={{76.1,35.9},{76.1,10.1},{74.925,10.1}},
       color={175,0,0},
       thickness=0.5));
+  connect(undergroundTemperature_Duesseldorf_1m_3600s_TMY.y1, T_ground.T) annotation (Line(points={{-59,42},{-33.6,42}}, color={0,0,127}));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(preserveAspectRatio=false), graphics={
                                                                                                    Text(
           extent={{14,-54},{88,-92}},

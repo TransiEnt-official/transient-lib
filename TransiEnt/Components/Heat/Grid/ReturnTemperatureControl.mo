@@ -96,6 +96,8 @@ protected
         rotation=90,
         origin={32,-40})));
 
+public
+  TransiEnt.Basics.Tables.HeatGrid.HeatingCurves.ConstantSupplyTemperature constantSupplyTemperature annotation (Placement(transformation(extent={{-4,-86},{16,-66}})));
 equation
 
   // _____________________________________________
@@ -103,7 +105,7 @@ equation
   //           Characteristic Equations
   // _____________________________________________
    if use_heatingCurve then
-     PID.u_s = simCenter.heatingCurve.T_return;
+    PID.u_s =constantSupplyTemperature.T_supply;
    else
      PID.u_s = T_target;
    end if;

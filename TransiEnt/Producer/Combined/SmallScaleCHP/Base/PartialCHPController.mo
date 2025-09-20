@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Combined.SmallScaleCHP.Base;
+within TransiEnt.Producer.Combined.SmallScaleCHP.Base;
 partial model PartialCHPController "Partial CHP controller model"
 
 
@@ -20,7 +20,7 @@ partial model PartialCHPController "Partial CHP controller model"
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -77,6 +77,7 @@ protected
 public
   Modelica.Blocks.Logical.Timer timer annotation (Placement(transformation(extent={{54,-20},{34,0}})));
 
+  TransiEnt.Basics.Tables.HeatGrid.HeatingCurves.ConstantSupplyTemperature constantSupplyTemperature annotation (Placement(transformation(extent={{-76,-80},{-56,-60}})));
 initial algorithm
   // _____________________________________________
   //
@@ -96,7 +97,7 @@ equation
 
 //Use self defined supply temperatures or take them from heating curve
   if (useGridTemperatures) then
-    T_supply_target = simCenter.heatingCurve.T_supply;
+    T_supply_target = constantSupplyTemperature.T_supply;
   else
     T_supply_target = T_supply_const;
   end if;

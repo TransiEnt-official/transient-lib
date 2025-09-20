@@ -1,4 +1,4 @@
-within TransiEnt.Examples.DistributionGrids.MediumVoltageGrids;
+﻿within TransiEnt.Examples.DistributionGrids.MediumVoltageGrids;
 model MV_urban_2_no_switch "Urban medium voltage distribution grid scenario with variable technology penetration scenario."
 
 //________________________________________________________________________________//
@@ -56,7 +56,7 @@ model MV_urban_2_no_switch "Urban medium voltage distribution grid scenario with
 
   // ---- TransiEnt Models (SimCenter and ModelStatistics) ------------------------------------
 
-  inner TransiEnt.SimCenter simCenter(redeclare model Ground_Temperature = TransiEnt.Basics.Tables.Ambient.UndergroundTemperature_Duesseldorf_1m_3600s_TMY (use_absolute_path=true, absolute_path="modelica://TransiEnt/Tables/ambient/UndergroundTemperature_Duesseldorf_1m_2017.txt"), electricityPrice(use_absolute_path=true, absolute_path="modelica://TransiEnt/Tables/electricity/ElectricityPrices_DayAhead_EPEX_Spot_2011.txt")) annotation (Placement(transformation(extent={{-90.0,80.0},{-70.0,100.0}})));
+  inner TransiEnt.SimCenter simCenter                                                                                                                                                                                                         annotation (Placement(transformation(extent={{-90.0,80.0},{-70.0,100.0}})));
   inner TransiEnt.ModelStatistics modelStatistics annotation (Placement(transformation(extent={{-60.0,80.0},{-40.0,100.0}})));
 
   // ---- Knoten rechter Zweig ----------------------------------------------------------------

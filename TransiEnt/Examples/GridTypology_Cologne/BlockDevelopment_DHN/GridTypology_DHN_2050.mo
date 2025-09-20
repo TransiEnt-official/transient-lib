@@ -1,4 +1,4 @@
-﻿within TransiEnt.Examples.GridTypology_Cologne.BlockDevelopment_DHN;
+within TransiEnt.Examples.GridTypology_Cologne.BlockDevelopment_DHN;
 model GridTypology_DHN_2050
 
 
@@ -30,7 +30,6 @@ model GridTypology_DHN_2050
     redeclare TransiEnt.Components.Boundaries.Ambient.AmbientConditions_Cologne_TRY ambientConditions,
     p_nom={600000,1000000},
     variable_T_ground=true,
-    redeclare model Ground_Temperature = TransiEnt.Basics.Tables.Ambient.UndergroundTemperature_Duesseldorf_1m_3600s_TMY,
     calc_initial_dstrb=false,
     T_supply=323.15,
     T_return=303.15,

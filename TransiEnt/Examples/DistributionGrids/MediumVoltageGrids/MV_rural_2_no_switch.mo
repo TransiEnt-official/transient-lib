@@ -1,4 +1,4 @@
-within TransiEnt.Examples.DistributionGrids.MediumVoltageGrids;
+﻿within TransiEnt.Examples.DistributionGrids.MediumVoltageGrids;
 model MV_rural_2_no_switch "Rural medium voltage distribution grid scenario with variable technology penetration scenario."
 
 //________________________________________________________________________________//
@@ -57,7 +57,7 @@ model MV_rural_2_no_switch "Rural medium voltage distribution grid scenario with
 
   // ---- TransiEnt Models (SimCenter and ModelStatistics) ------------------------------------
 
-  inner TransiEnt.SimCenter simCenter(redeclare model Ground_Temperature = TransiEnt.Basics.Tables.Ambient.UndergroundTemperature_Duesseldorf_1m_3600s_TMY (use_absolute_path=true, absolute_path="modelica://TransiEnt/Tables/ambient/UndergroundTemperature_Duesseldorf_1m_2017.txt"), electricityPrice(use_absolute_path=true, absolute_path="modelica://TransiEnt/Tables/electricity/ElectricityPrices_DayAhead_EPEX_Spot_2011.txt")) annotation (Placement(transformation(extent={{-90.0,80.0},{-70.0,100.0}})));
+  inner TransiEnt.SimCenter simCenter                                                                                                                                                                                                         annotation (Placement(transformation(extent={{-90.0,80.0},{-70.0,100.0}})));
   inner TransiEnt.ModelStatistics modelStatistics annotation (Placement(transformation(extent={{-60.0,80.0},{-40.0,100.0}})));
 
   // ---- Nodes -------------------------------------------------------------------------------
@@ -488,19 +488,19 @@ equation
       color={28,108,200},
       thickness=0.5));
   connect(table_LoadProfile_G3_A.P, LoadProfile_G3_A.P_el_set) annotation (Line(
-      points={{54.88,-264.2},{8.8,-264.2},{8.8,-210.6}},
+      points={{54.88,-264.2},{8.8,-264.2},{8.8,-213.2}},
       color={0,135,135},
       pattern=LinePattern.Dash));
   connect(table_LoadProfile_G3_A.Q, LoadProfile_G3_A.Q_el_set) annotation (Line(
-      points={{54.88,-245.8},{-24.8,-245.8},{-24.8,-210.6}},
+      points={{54.88,-245.8},{-24.8,-245.8},{-24.8,-213.2}},
       color={0,135,135},
       pattern=LinePattern.Dash));
   connect(table_LoadProfile_L2_M.Q, LoadProfile_L2_M.Q_el_set) annotation (Line(
-      points={{-765.12,492.2},{-844.8,492.2},{-844.8,527.4}},
+      points={{-765.12,492.2},{-844.8,492.2},{-844.8,524.8}},
       color={0,135,135},
       pattern=LinePattern.Dash));
   connect(table_LoadProfile_L2_M.P, LoadProfile_L2_M.P_el_set) annotation (Line(
-      points={{-765.12,473.8},{-811.2,473.8},{-811.2,527.4}},
+      points={{-765.12,473.8},{-811.2,473.8},{-811.2,524.8}},
       color={0,135,135},
       pattern=LinePattern.Dash));
   connect(node_11.epp, windturbine_4000kW.epp) annotation (Line(

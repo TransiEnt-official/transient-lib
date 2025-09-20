@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Visualization.Check;
+within TransiEnt.Components.Visualization.Check;
 model TestStatisticsVisualizationTable
 
 
@@ -48,7 +48,6 @@ model TestStatisticsVisualizationTable
     eta_th_const=0.696296,
     p_nom=20e5,
     m_flow_nom=750,
-    redeclare model ProducerCosts = TransiEnt.Components.Statistics.ConfigurationData.PowerProducerCostSpecs.HardCoal,
     P_el_init=0,
     Q_flow_init=0,
     Q_flow_SG_init=0,
@@ -63,21 +62,22 @@ model TestStatisticsVisualizationTable
         extent={{-11,-9.5},{11,9.5}},
         rotation=0,
         origin={-19,47.5})));
-  ClaRa.Components.BoundaryConditions.BoundaryVLE_Txim_flow source(T_const(displayUnit="degC") = 338.15, m_flow_const=1000) annotation (Placement(transformation(
-        extent={{-7,-9},{7,9}},
-        rotation=180,
-        origin={35,-10})));
-  ClaRa.Visualisation.Quadruple quadruple annotation (Placement(transformation(extent={{46,1},{82,22}})));
-  ClaRa.Components.BoundaryConditions.BoundaryVLE_pTxi sink(
-    m_flow_nom=577.967,
-    Delta_p=0,
-    p_const(displayUnit="bar") = 1600000,
-    T_const(displayUnit="degC")) annotation (Placement(transformation(
-        extent={{-7,-8},{7,8}},
-        rotation=180,
-        origin={31,34})));
-  PQDiagram_Display PQDiagram(PQCharacteristics=TransiEnt.Producer.Combined.LargeScaleCHP.Base.Characteristics.PQ_Characteristics_WT()) annotation (Placement(transformation(extent={{66,-34},{96,-6}})));
+  PQDiagram_Display PQDiagram(PQCharacteristics=TransiEnt.Producer.Combined.LargeScaleCHP.Base.Characteristics.PQ_Characteristics_WT()) annotation (Placement(transformation(extent={{66,-40},{96,-12}})));
   InfoBoxLargeCHP                          infoBoxLargeCHP annotation (Placement(transformation(extent={{26,-51},{44,-29}})));
+  Boundaries.FluidFlow.FluidSource fluidSource annotation (Placement(transformation(extent={{42,-18},{22,2}})));
+  Boundaries.FluidFlow.FluidSink fluidSink annotation (Placement(transformation(extent={{52,16},{32,36}})));
+  Modelica.Blocks.Sources.RealExpression Pressure(y=16e5) annotation (Placement(transformation(
+        extent={{11,-9.5},{-11,9.5}},
+        rotation=0,
+        origin={73,25.5})));
+  Modelica.Blocks.Sources.RealExpression MassFlow(y=1000) annotation (Placement(transformation(
+        extent={{11,-9.5},{-11,9.5}},
+        rotation=0,
+        origin={71,3.5})));
+  Modelica.Blocks.Sources.RealExpression Temperature(y=65) annotation (Placement(transformation(
+        extent={{11,-9.5},{-11,9.5}},
+        rotation=0,
+        origin={69,-4.5})));
 equation
 
   connect(Plant.epp,Grid. epp) annotation (Line(
@@ -87,18 +87,13 @@ equation
   connect(Plant.P_set,P_min. y) annotation (Line(points={{-20.59,16.8667},{-20.59,25.5},{-36.9,25.5}},
                                                                                            color={0,0,127}));
   connect(Q_flow_set.y,Plant. Q_flow_set) annotation (Line(points={{-6.9,47.5},{-4,47.5},{-4,16.8667},{-1.97,16.8667}},   color={0,0,127}));
-  connect(Plant.outlet,sink. steam_a) annotation (Line(
-      points={{10.38,-4.76667},{14,-4.76667},{14,34},{24,34}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(source.steam_a,Plant. inlet) annotation (Line(
-      points={{28,-10},{22,-10},{22,-9.9},{10.38,-9.9}},
-      color={0,131,169},
-      thickness=0.5));
-  connect(source.eye,quadruple. eye) annotation (Line(points={{28,-2.8},{28,-2.8},{28,-10},{28,11.5},{46,11.5}},
-                                                                                                             color={190,190,190}));
-  connect(Plant.eye,PQDiagram. eyeIn) annotation (Line(points={{11.9,-20.1667},{20,-20.1667},{20,-20},{61.8,-20}}, color={28,108,200}));
+  connect(Plant.eye,PQDiagram. eyeIn) annotation (Line(points={{11.9,-20.1667},{20,-20.1667},{20,-26},{61.8,-26}}, color={28,108,200}));
   connect(Plant.eye,infoBoxLargeCHP. eye) annotation (Line(points={{11.9,-20.1667},{20,-20.1667},{20,-38},{24,-38},{24,-38.2},{26.9,-38.2}}, color={28,108,200}));
+  connect(Pressure.y, fluidSink.p_in) annotation (Line(points={{60.9,25.5},{50,25.5},{50,26}}, color={0,0,127}));
+  connect(fluidSink.port_a, Plant.outlet) annotation (Line(points={{32,26},{20,26},{20,10},{10.38,10},{10.38,-4.76667}}, color={0,0,0}));
+  connect(fluidSource.port_a, Plant.inlet) annotation (Line(points={{22,-8},{12,-8},{12,-9.9},{10.38,-9.9}}, color={0,0,0}));
+  connect(MassFlow.y, fluidSource.m_flow_in) annotation (Line(points={{58.9,3.5},{48,3.5},{48,4},{40,4},{40,-5}}, color={0,0,127}));
+  connect(Temperature.y, fluidSource.h_in) annotation (Line(points={{56.9,-4.5},{50,-4.5},{50,-10},{40,-10}}, color={0,0,127}));
   annotation (experiment(StopTime=3.1536e+007, Interval=900),  __Dymola_experimentSetupOutput,
     Documentation(info="<html>
 <p><b><span style=\"font-family: MS Shell Dlg 2; color: #008000;\">1. Purpose of model</span></b></p>

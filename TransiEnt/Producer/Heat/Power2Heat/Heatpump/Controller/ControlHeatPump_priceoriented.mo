@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.Power2Heat.Heatpump.Controller;
+within TransiEnt.Producer.Heat.Power2Heat.Heatpump.Controller;
 model ControlHeatpump_priceoriented "Operation preferably at low energy prices, if bivalent mode selected, heater will switch on additionally to heatpump"
 
 
@@ -20,7 +20,7 @@ model ControlHeatpump_priceoriented "Operation preferably at low energy prices, 
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -119,8 +119,6 @@ model ControlHeatpump_priceoriented "Operation preferably at low energy prices, 
   Modelica.Blocks.Sources.RealExpression uLow1(y=uLow_Heater) if CalculatePHeater annotation (Placement(transformation(extent={{-66,-100},{-50,-84}})));
   Modelica.Blocks.Logical.Not Not1 if CalculatePHeater
     annotation (Placement(transformation(extent={{-16,-88},{-6,-78}})));
-  Modelica.Blocks.Sources.RealExpression electricityPrice(y=simCenter.electricityPrice.y1)
-    annotation (Placement(transformation(extent={{-58,74},{-44,92}})));
   Modelica.Blocks.Logical.LessThreshold lessThreshold(threshold=Price_Threshold) annotation (Placement(transformation(extent={{-32,76},{-18,90}})));
   Modelica.Blocks.Sources.RealExpression uHigh2(y=uHigh_HP)
     annotation (Placement(transformation(extent={{-68,34},{-52,50}})));
@@ -148,18 +146,20 @@ model ControlHeatpump_priceoriented "Operation preferably at low energy prices, 
 protected
   Modelica.Blocks.Math.Add P_total;
 
+public
+  Basics.Tables.ElectricGrid.ElectricityPrices.SpotPriceElectricity_Phelix_3600s_2012 electricityPrice annotation (Placement(transformation(extent={{-56,78},{-44,90}})));
 equation
   // ___________________________________________________________________________
   //
   //            Characteristic equations
   // ___________________________________________________________________________
 
-  P_highprize = if simCenter.electricityPrice.y1 >= Price_Threshold then P_total.y else 0;
-  P_lowprize = if simCenter.electricityPrice.y1 < Price_Threshold then P_total.y else 0;
-  der(t_highprize) = if simCenter.electricityPrice.y1 >= Price_Threshold then 1 else 0;
-  der(t_lowprize) = if simCenter.electricityPrice.y1 < Price_Threshold then 1 else 0;
-  der(t_HP_highprize) = if simCenter.electricityPrice.y1 >= Price_Threshold and P_total.y > 0 then 1 else 0;
-  der(t_HP_lowprize) = if simCenter.electricityPrice.y1 < Price_Threshold and P_total.y > 0 then 1 else 0;
+  P_highprize = if electricityPrice.y1 >= Price_Threshold then P_total.y else 0;
+  P_lowprize = if electricityPrice.y1 < Price_Threshold then P_total.y else 0;
+  der(t_highprize) = if electricityPrice.y1 >= Price_Threshold then 1 else 0;
+  der(t_lowprize) = if electricityPrice.y1 < Price_Threshold then 1 else 0;
+  der(t_HP_highprize) = if electricityPrice.y1 >= Price_Threshold and P_total.y > 0 then 1 else 0;
+  der(t_HP_lowprize) = if electricityPrice.y1 < Price_Threshold and P_total.y > 0 then 1 else 0;
 
   uSet_HP = if control_SoC then SoCSet_HP else T_set;
   uHigh_HP = if control_SoC then SoCHigh_HP else THigh_HP;
@@ -194,7 +194,6 @@ equation
   connect(uLow1.y, hysteresis_heater.uLow) annotation (Line(points={{-49.2,-92},{-44,-92},{-44,-88.6},{-38.7,-88.6}}, color={0,0,127}));
   connect(hysteresis_heater.y, Not1.u) annotation (Line(points={{-23.3,-83},{-17,-83}},                   color={255,0,255}));
   connect(Not1.y, switch2.u2) annotation (Line(points={{-5.5,-83},{-5.5,-81},{64.6,-81}}, color={255,0,255}));
-  connect(electricityPrice.y, lessThreshold.u) annotation (Line(points={{-43.3,83},{-43.3,83},{-33.4,83}}, color={0,0,127}));
   connect(uHigh2.y, hysteresis_upperStoragePart.uHigh) annotation (Line(points={{-51.2,42},{-46,42},{-46,40.6},{-38.42,40.6}}, color={0,0,127}));
   connect(uLow2.y, hysteresis_upperStoragePart.uLow) annotation (Line(points={{-49.1,24},{-46,24},{-46,29.4},{-38.7,29.4}}, color={0,0,127}));
   connect(hysteresis_upperStoragePart.y, Not2.u) annotation (Line(points={{-23.3,35},{-22,35},{-22,31},{-19,31}},
@@ -234,6 +233,7 @@ equation
   connect(gain1.y, switch1.u1) annotation (Line(points={{66.7,-41},{74.4,-41},{74.4,9.6}}, color={0,0,127}));
   connect(SoC, PID.u_m) annotation (Line(points={{-102,-20},{-86,-20},{-86,-60},{36,-60},{36,-56},{37,-56},{37,-57}}, color={0,0,127}));
   connect(T, PID.u_m) annotation (Line(points={{-102,20},{-86,20},{-86,-60},{36,-60},{36,-58},{37,-58},{37,-57}}, color={0,0,127}));
+  connect(electricityPrice.y1, lessThreshold.u) annotation (Line(points={{-43.4,84},{-40,83},{-33.4,83}}, color={0,0,127}));
   annotation (Diagram(coordinateSystem(extent={{-100,-100},{100,100}}), graphics={
         Rectangle(
           extent={{-70,-68},{-2,-100}},

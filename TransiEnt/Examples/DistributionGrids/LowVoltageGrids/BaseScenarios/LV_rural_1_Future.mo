@@ -1,4 +1,4 @@
-within TransiEnt.Examples.DistributionGrids.LowVoltageGrids.BaseScenarios;
+﻿within TransiEnt.Examples.DistributionGrids.LowVoltageGrids.BaseScenarios;
 model LV_rural_1_Future "Small rural low voltage distribution grid model with future technology penetration"
 
 //________________________________________________________________________________//
@@ -52,7 +52,7 @@ model LV_rural_1_Future "Small rural low voltage distribution grid model with fu
 
   // ---- TransiEnt Models (SimCenter and ModelStatistics) ------------------------------------
 
-  inner TransiEnt.SimCenter simCenter(redeclare model Ground_Temperature = TransiEnt.Basics.Tables.Ambient.UndergroundTemperature_Duesseldorf_1m_3600s_TMY (use_absolute_path=true, absolute_path="modelica://TransiEnt/Tables/ambient/UndergroundTemperature_Duesseldorf_1m_2017.txt"), electricityPrice(use_absolute_path=true, absolute_path="modelica://TransiEnt/Tables/electricity/ElectricityPrices_DayAhead_EPEX_Spot_2011.txt")) annotation (Placement(transformation(extent={{-90.0,80.0},{-70.0,100.0}})));
+  inner TransiEnt.SimCenter simCenter                                                                                                                                                                                                         annotation (Placement(transformation(extent={{-90.0,80.0},{-70.0,100.0}})));
   inner TransiEnt.ModelStatistics modelStatistics annotation (Placement(transformation(extent={{-60.0,80.0},{-40.0,100.0}})));
 
   // ---- Nodes -------------------------------------------------------------------------------
@@ -1004,33 +1004,33 @@ model LV_rural_1_Future "Small rural low voltage distribution grid model with fu
   TransiEnt.Components.Sensors.SmartMeter GridMeter annotation (Placement(transformation(extent={{120,140},{140,160}})));
 equation
   // ---- Connect Interfaces ------------------------------------------------------------------
-  connect(controlBus.household_1, household_1.controlBus) annotation();
-  connect(controlBus.household_2, household_2.controlBus) annotation();
-  connect(controlBus.household_3, household_3.controlBus) annotation();
-  connect(controlBus.household_4, household_4.controlBus) annotation();
-  connect(controlBus.household_5, household_5.controlBus) annotation();
-  connect(controlBus.household_6, household_6.controlBus) annotation();
-  connect(controlBus.household_7, household_7.controlBus) annotation();
-  connect(controlBus.household_8, household_8.controlBus) annotation();
-  connect(controlBus.household_9, household_9.controlBus) annotation();
-  connect(controlBus.household_10, household_10.controlBus) annotation();
-  connect(controlBus.household_11, household_11.controlBus) annotation();
-  connect(controlBus.household_12, household_12.controlBus) annotation();
-  connect(controlBus.household_13, household_13.controlBus) annotation();
-  connect(controlBus.node_1, node_1.controlBus) annotation();
-  connect(controlBus.node_2, node_2.controlBus) annotation();
-  connect(controlBus.node_3, node_3.controlBus) annotation();
-  connect(controlBus.node_4, node_4.controlBus) annotation();
-  connect(controlBus.node_5, node_5.controlBus) annotation();
-  connect(controlBus.node_6, node_6.controlBus) annotation();
-  connect(controlBus.node_7, node_7.controlBus) annotation();
-  connect(controlBus.node_8, node_8.controlBus) annotation();
-  connect(controlBus.node_9, node_9.controlBus) annotation();
-  connect(controlBus.node_10, node_10.controlBus) annotation();
-  connect(controlBus.node_11, node_11.controlBus) annotation();
-  connect(controlBus.node_12, node_12.controlBus) annotation();
-  connect(controlBus.node_13, node_13.controlBus) annotation();
-  connect(controlBus.node_14, node_14.controlBus) annotation();
+  connect(controlBus.household_1, household_1.controlBus) annotation ();
+  connect(controlBus.household_2, household_2.controlBus) annotation ();
+  connect(controlBus.household_3, household_3.controlBus) annotation ();
+  connect(controlBus.household_4, household_4.controlBus) annotation ();
+  connect(controlBus.household_5, household_5.controlBus) annotation ();
+  connect(controlBus.household_6, household_6.controlBus) annotation ();
+  connect(controlBus.household_7, household_7.controlBus) annotation ();
+  connect(controlBus.household_8, household_8.controlBus) annotation ();
+  connect(controlBus.household_9, household_9.controlBus) annotation ();
+  connect(controlBus.household_10, household_10.controlBus) annotation ();
+  connect(controlBus.household_11, household_11.controlBus) annotation ();
+  connect(controlBus.household_12, household_12.controlBus) annotation ();
+  connect(controlBus.household_13, household_13.controlBus) annotation ();
+  connect(controlBus.node_1, node_1.controlBus) annotation ();
+  connect(controlBus.node_2, node_2.controlBus) annotation ();
+  connect(controlBus.node_3, node_3.controlBus) annotation ();
+  connect(controlBus.node_4, node_4.controlBus) annotation ();
+  connect(controlBus.node_5, node_5.controlBus) annotation ();
+  connect(controlBus.node_6, node_6.controlBus) annotation ();
+  connect(controlBus.node_7, node_7.controlBus) annotation ();
+  connect(controlBus.node_8, node_8.controlBus) annotation ();
+  connect(controlBus.node_9, node_9.controlBus) annotation ();
+  connect(controlBus.node_10, node_10.controlBus) annotation ();
+  connect(controlBus.node_11, node_11.controlBus) annotation ();
+  connect(controlBus.node_12, node_12.controlBus) annotation ();
+  connect(controlBus.node_13, node_13.controlBus) annotation ();
+  connect(controlBus.node_14, node_14.controlBus) annotation ();
 
   // ---- Connect lines -----------------------------------------------------------------------
 
@@ -1096,7 +1096,7 @@ equation
       points={{139.2,150},{139.2,90},{14,90},{14,72},{20.7,72},{20.7,80.27}},
       color={28,108,200},
       thickness=0.5));
-  connect(GridMeter.controlBus, controlBus.GridMeter) annotation();
+  connect(GridMeter.controlBus, controlBus.GridMeter) annotation ();
   annotation (
     experiment(StopTime=86400, __Dymola_Algorithm="Dassl"),
     Diagram(coordinateSystem(extent={{-100.0,-100.0},{100.0,100.0}}), graphics={Rectangle(

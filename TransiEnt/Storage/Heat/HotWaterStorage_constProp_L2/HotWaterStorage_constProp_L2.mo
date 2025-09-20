@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Heat.HotWaterStorage_constProp_L2;
+within TransiEnt.Storage.Heat.HotWaterStorage_constProp_L2;
 model HotWaterStorage_constProp_L2 "Very simple heat storage"
 
 
@@ -161,7 +161,7 @@ public
   TransiEnt.Basics.Blocks.Sources.TemperatureExpression T_return_gen(y=if noEvent(fpGridIn.m_flow > fpGenIn.m_flow) then temperatureGridIn.T else (fpGridIn.m_flow*temperatureGridIn.T + T_stor*(fpGenIn.m_flow - fpGridIn.m_flow))/fpGenIn.m_flow)
                                                                                                                                                                                                      if useFluidPorts annotation (Placement(transformation(extent={{-48,22},{-28,42}})));
   TransiEnt.Basics.Interfaces.Thermal.HeatFlowRateOut Q_flow_gen "Generated heat flow";
-  TransiEnt.Basics.Blocks.Sources.TemperatureExpression T_supply_grid(y=if noEvent(fpGridIn.m_flow < fpGenIn.m_flow) then min(temperatureGenIn.T, simCenter.heatingCurve.T_supply) else min((fpGenIn.m_flow*temperatureGenIn.T + (fpGridIn.m_flow - fpGenIn.m_flow)*T_stor)/fpGridIn.m_flow, simCenter.heatingCurve.T_supply))
+  TransiEnt.Basics.Blocks.Sources.TemperatureExpression T_supply_grid(y=if noEvent(fpGridIn.m_flow < fpGenIn.m_flow) then min(temperatureGenIn.T, heatingCurve.T_supply) else min((fpGenIn.m_flow*temperatureGenIn.T + (fpGridIn.m_flow - fpGenIn.m_flow)*T_stor)/fpGridIn.m_flow, heatingCurve.T_supply))
                                                                                                                                                                                                      if useFluidPorts annotation (Placement(transformation(extent={{-54,-36},{-28,-14}})));
   TransiEnt.Basics.Interfaces.Thermal.HeatFlowRateOut Q_flow_con "Consumed heat flow";
   TransiEnt.Basics.Interfaces.Thermal.HeatFlowRateIn Q_flow_store if not useFluidPorts "Heat flow into the storage" annotation (HideResult=true, Placement(transformation(extent={{-108,-14},{-80,14}}), iconTransformation(extent={{-108,-14},{-80,14}})));
@@ -173,6 +173,7 @@ public
   Modelica.Blocks.Math.Gain gain(k=-1) if useFluidPorts annotation (Placement(transformation(extent={{6,0},{-10,16}})));
 
 
+  TransiEnt.Basics.Tables.HeatGrid.HeatingCurves.ConstantSupplyTemperature heatingCurve annotation (Placement(transformation(extent={{-96,22},{-76,42}})));
 equation
   // _____________________________________________
   //

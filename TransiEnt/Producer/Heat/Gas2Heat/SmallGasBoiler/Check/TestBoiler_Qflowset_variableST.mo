@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.Gas2Heat.SmallGasBoiler.Check;
+within TransiEnt.Producer.Heat.Gas2Heat.SmallGasBoiler.Check;
 model TestBoiler_Qflowset_variableST
 
 
@@ -30,8 +30,7 @@ model TestBoiler_Qflowset_variableST
 
   inner TransiEnt.SimCenter simCenter(
     redeclare TransiEnt.Basics.Media.Gases.Gas_VDIWA_NG7_H2_var gasModel2,
-    redeclare TransiEnt.Basics.Media.Gases.VLE_VDIWA_NG7_H2_var gasModel1,
-    redeclare TransiEnt.Basics.Tables.HeatGrid.HeatingCurves.HeatingCurveEONHanse heatingCurve)
+    redeclare TransiEnt.Basics.Media.Gases.VLE_VDIWA_NG7_H2_var gasModel1)
     annotation (Placement(transformation(extent={{-110,80},{-90,100}})));
 
   ClaRa.Components.BoundaryConditions.BoundaryVLE_Txim_flow boundaryVLE_In(

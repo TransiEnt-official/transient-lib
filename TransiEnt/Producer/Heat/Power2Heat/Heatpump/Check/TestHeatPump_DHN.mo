@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.Power2Heat.Heatpump.Check;
+within TransiEnt.Producer.Heat.Power2Heat.Heatpump.Check;
 model TestHeatPump_DHN "Test model for the heat pump for the DHN simulations"
 
 //________________________________________________________________________________//
@@ -45,14 +45,11 @@ model TestHeatPump_DHN "Test model for the heat pump for the DHN simulations"
   inner TransiEnt.SimCenter simCenter annotation (Placement(transformation(extent={{100,68},{120,88}})));
   TransiEnt.Producer.Heat.Power2Heat.Heatpump.Heatpump heatpump(
     usePowerPort=false,
+    useFluidPorts=true,
     T_source(displayUnit="degC") = 293.15,
     T_set=333.15) annotation (Placement(transformation(extent={{-62,4},{-42,24}})));
-  TransiEnt.Components.Heat.Grid.IdealizedExpansionVessel idealizedExpansionVessel annotation (Placement(transformation(extent={{-40,38},{-20,58}})));
-  TransiEnt.Components.Heat.PumpVLE_L1_simple pumpVLE_L1_simple(presetVariableType="m_flow", m_flow_fixed=0.03682)
-                                                                                                                  annotation (Placement(transformation(extent={{-14,8},{6,28}})));
   Modelica.Blocks.Sources.RealExpression realExpression2(y=heatpump.inlet.m_flow*(4179*60 - inStream(heatpump.inlet.h_outflow)))
                                                              annotation (Placement(transformation(extent={{-92,-2},{-72,18}})));
-  TransiEnt.Consumer.Heat.ConstantHeatConsumer constantHeatConsumer(Q_flow_const=5000) annotation (Placement(transformation(extent={{58,4},{38,24}})));
   TransiEnt.Components.Boundaries.FluidFlow.FluidSink sink annotation (Placement(transformation(extent={{2,-92},{-18,-72}})));
   Modelica.Blocks.Sources.RealExpression realExpression4(y=0.1)
                                                              annotation (Placement(transformation(extent={{-30,-70},{-10,-50}})));
@@ -62,6 +59,16 @@ model TestHeatPump_DHN "Test model for the heat pump for the DHN simulations"
     useInput=true)                                       annotation (Placement(transformation(extent={{20,-144},{48,-124}})));
   Modelica.Blocks.Sources.RealExpression realExpression5(y=5000)
                                                              annotation (Placement(transformation(extent={{80,-144},{60,-124}})));
+  Components.Boundaries.FluidFlow.FluidSink           sink1
+                                                           annotation (Placement(transformation(extent={{48,30},{28,50}})));
+  Modelica.Blocks.Sources.RealExpression realExpression7(y=0.1)
+                                                             annotation (Placement(transformation(extent={{80,30},{60,50}})));
+  Consumer.Heat.Consumer_SLP           consumer_HeatFlow1(
+    gain_k=1,
+    cp=4179,
+    useInput=true)                                       annotation (Placement(transformation(extent={{50,-6},{78,14}})));
+  Modelica.Blocks.Sources.RealExpression realExpression8(y=5000)
+                                                             annotation (Placement(transformation(extent={{110,-6},{90,14}})));
 equation
 
   // _____________________________________________
@@ -74,22 +81,6 @@ equation
                                                                                                   color={0,0,127}));
   connect(realExpression1.y, heatpump1.dp) annotation (Line(points={{-63,-64},{-38,-64},{-38,-74},{-36,-74},{-36,-126}},
                                                                                                                    color={0,0,127}));
-  connect(pumpVLE_L1_simple.fluidPortIn, heatpump.outlet) annotation (Line(
-      points={{-14,18},{-27.9,18},{-27.9,17},{-41.8,17}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(pumpVLE_L1_simple.fluidPortOut, constantHeatConsumer.fluidPortIn) annotation (Line(
-      points={{6,18},{32,18},{32,10},{38,10}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(constantHeatConsumer.fluidPortOut, heatpump.inlet) annotation (Line(
-      points={{38,6},{38,0},{-36,0},{-36,10.2},{-42,10.2}},
-      color={175,0,0},
-      thickness=0.5));
-  connect(idealizedExpansionVessel.waterPort, constantHeatConsumer.fluidPortIn) annotation (Line(
-      points={{-30,38},{-6,38},{-6,36},{18,36},{18,18},{32,18},{32,10},{38,10}},
-      color={175,0,0},
-      thickness=0.5));
   connect(realExpression4.y, sink.p_in) annotation (Line(points={{-9,-60},{12,-60},{12,-82},{0,-82}},      color={0,0,127}));
   connect(heatpump1.outlet, consumer_HeatFlow.inlet) annotation (Line(points={{-26.2,-130},{20,-130}},color={0,0,0}));
   connect(consumer_HeatFlow.outlet, heatpump1.inlet) annotation (Line(points={{20,-138},{-18,-138},{-18,-142.2},{-26,-142.2}},
@@ -101,6 +92,11 @@ equation
       color={175,0,0},
       pattern=LinePattern.Dash));
   connect(realExpression5.y, consumer_HeatFlow.Q_flow_demand) annotation (Line(points={{59,-134},{48,-134}}, color={0,0,127}));
+  connect(realExpression7.y, sink1.p_in) annotation (Line(points={{59,40},{46,40}}, color={0,0,127}));
+  connect(sink1.port_a, consumer_HeatFlow1.inlet) annotation (Line(points={{28,40},{24,40},{24,8},{50,8}}, color={0,0,0}));
+  connect(realExpression8.y, consumer_HeatFlow1.Q_flow_demand) annotation (Line(points={{89,4},{78,4}}, color={0,0,127}));
+  connect(heatpump.outlet, consumer_HeatFlow1.inlet) annotation (Line(points={{-41.8,17},{14,17},{14,8},{50,8}}, color={0,0,0}));
+  connect(heatpump.inlet, consumer_HeatFlow1.outlet) annotation (Line(points={{-42,10.2},{12,10.2},{12,0},{50,0}}, color={0,0,0}));
   annotation (
     Icon(                                                                                                                                                                                  coordinateSystem(initialScale = 0.1, extent={{-160,-200},{140,100}})),
                                                                                                                                                                                                         experiment(StopTime=86400, __Dymola_Algorithm="Dassl"),

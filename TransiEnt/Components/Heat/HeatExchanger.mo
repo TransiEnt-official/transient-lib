@@ -100,7 +100,7 @@ equation
   inlet.m_flow = m_flow;
   //Calculation of the heat flow
   heatPort.Q_flow = -Q_flow;
-  Q_flow = Q_flow_nom * (abs(heatPort.T - T_out) / delta_T_nom) ^ n;
+  Q_flow = Q_flow_nom * (max((T_out-heatPort.T),0.00001) / delta_T_nom) ^ n;
   //Calculation of the inlet and the outlet temperature
   T_in=inStream(inlet.h_outflow)/cp + 273.15;
   T_out = h / cp + 273.15;

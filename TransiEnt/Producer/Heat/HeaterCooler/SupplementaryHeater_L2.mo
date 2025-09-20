@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.HeaterCooler;
+within TransiEnt.Producer.Heat.HeaterCooler;
 model SupplementaryHeater_L2 "Model of a boiler that holds temperature in a grid"
 
 
@@ -83,6 +83,7 @@ model SupplementaryHeater_L2 "Model of a boiler that holds temperature in a grid
   TransiEnt.Basics.Interfaces.Thermal.FluidPortOut waterPortOut(Medium=medium) annotation (Placement(transformation(extent={{90,-10},{110,10}}), iconTransformation(extent={{-110,-10},{-90,10}})));
   TransiEnt.Basics.Interfaces.Gas.RealGasPortIn gasPortIn(Medium=fuelMedium) annotation (Placement(transformation(extent={{-10,88},{10,108}})));
 
+  TransiEnt.Basics.Tables.HeatGrid.HeatingCurves.ConstantSupplyTemperature constantSupplyTemperature annotation (Placement(transformation(extent={{-70,-50},{-50,-30}})));
 equation
   assert(gasPortIn.m_flow >= 0, "Your boiler is a gas source.");
 
@@ -92,11 +93,11 @@ equation
   // _____________________________________________
 
   //switch on when inlet temperature is dT_allowed below heatingCurve.T_supply
-  if pre(switch) == false and (simCenter.heatingCurve.T_supply -
+  if pre(switch) == false and (constantSupplyTemperature.T_supply -
       temperatureIn.T_celsius) > dT_allowed then
     switch = true;
   //switch off as soon as supply temperature is reached
-  elseif pre(switch) == true and (simCenter.heatingCurve.T_supply -
+  elseif pre(switch) == true and (constantSupplyTemperature.T_supply -
       temperatureIn.T_celsius) < 0 then
     switch = false;
   else
@@ -104,7 +105,7 @@ equation
   end if;
 
   if switch then
-    boilerHeat.Q_flow =waterPortIn.m_flow*4200*(simCenter.heatingCurve.T_supply - temperatureIn.T_celsius);
+    boilerHeat.Q_flow =waterPortIn.m_flow*4200*(constantSupplyTemperature.T_supply - temperatureIn.T_celsius);
   else
     boilerHeat.Q_flow = 0;
   end if;

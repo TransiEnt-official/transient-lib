@@ -56,7 +56,6 @@ model Test_Engine_idealGas
         origin={60,-84})));
   inner SimCenter           simCenter(
     redeclare TransiEnt.Basics.Media.Gases.Gas_VDIWA_NG7_H2_var gasModel2,
-    redeclare TransiEnt.Basics.Tables.HeatGrid.HeatingCurves.HeatingCurveEONHanse heatingCurve,
     ambientConditions(redeclare TransiEnt.Basics.Tables.Ambient.Temperature_Hamburg_Fuhlsbuettel_3600s_2012 temperature))
     annotation (Placement(transformation(extent={{-90,80},{-70,100}})));
   Modelica.Blocks.Sources.Sine sine(

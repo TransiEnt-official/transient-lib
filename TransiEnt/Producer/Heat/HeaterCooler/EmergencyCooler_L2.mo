@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.HeaterCooler;
+within TransiEnt.Producer.Heat.HeaterCooler;
 model EmergencyCooler_L2 "Emergency cooler, e.g. if return temperature to an aperature is too high."
 
 
@@ -131,10 +131,11 @@ ClaRa.Components.HeatExchangers.IdealShell_L2 returnHeatExchanger1(
   //           Characteristic Equations
   // _____________________________________________
 
+  TransiEnt.Basics.Tables.HeatGrid.HeatingCurves.ConstantSupplyTemperature constantSupplyTemperature annotation (Placement(transformation(extent={{-84,-14},{-64,6}})));
 equation
   //Hysteresis
   switch=  temperatureReturnIn.T_celsius > T_max or pre(switch) and temperatureReturnIn.T_celsius >= T_off;
-  switch_stor = T_stor_in > T_stor_max or pre(switch_stor) and T_stor_in >= simCenter.heatingCurve.T_supply;
+  switch_stor = T_stor_in > T_stor_max or pre(switch_stor) and T_stor_in >= constantSupplyTemperature.T_supply;
 
   if switch_stor then
     //We don't want any Q_flow

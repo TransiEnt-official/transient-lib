@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Combined.SmallScaleCHP.SmallScaleCHP_simple.Control;
+within TransiEnt.Producer.Combined.SmallScaleCHP.SmallScaleCHP_simple.Control;
 model ControlBoilerCHP_modulatingBoiler_PriceLed "Simple controller for a price driven CHP system with modulating boiler based on SoC or temperature of a heat storage"
 
 
@@ -105,10 +105,10 @@ model ControlBoilerCHP_modulatingBoiler_PriceLed "Simple controller for a price 
         rotation=180,
         origin={71,-51})));
   Modelica.Blocks.Sources.RealExpression realExpression(y=0) annotation (Placement(transformation(extent={{34,-30},{48,-14}})));
-  Modelica.Blocks.Sources.RealExpression electricityPrice(y=simCenter.electricityPrice.y1) annotation (Placement(transformation(extent={{-74,82},{-54,104}})));
   Modelica.Blocks.Logical.GreaterThreshold hysteresis(threshold=Price_Threshold) annotation (Placement(transformation(extent={{-16,78},{0,94}})));
   Modelica.Blocks.Logical.And and2 annotation (Placement(transformation(extent={{16,54},{28,42}})));
 
+  Basics.Tables.ElectricGrid.ElectricityPrices.SpotPriceElectricity_Phelix_3600s_2012 spotPriceElectricity_Phelix_3600s_2012 annotation (Placement(transformation(extent={{-50,76},{-30,96}})));
 equation
 
   uHigh_CHP = if control_SoC then SoCHigh_CHP else THigh_CHP;
@@ -140,8 +140,8 @@ equation
   connect(Not.y, and2.u1) annotation (Line(points={{0.6,48},{14.8,48}}, color={255,0,255}));
   connect(and2.y, onOffRelais.u) annotation (Line(points={{28.6,48},{37.76,48}}, color={255,0,255}));
   connect(hysteresis.y, and2.u2) annotation (Line(points={{0.8,86},{8,86},{8,52.8},{14.8,52.8}}, color={255,0,255}));
-  connect(electricityPrice.y, hysteresis.u) annotation (Line(points={{-53,93},{-22,93},{-22,86},{-17.6,86}}, color={0,0,127}));
   connect(Not1.y, switch3.u2) annotation (Line(points={{2.6,0},{30,0},{30,-51},{60.2,-51}}, color={255,0,255}));
+  connect(spotPriceElectricity_Phelix_3600s_2012.y1, hysteresis.u) annotation (Line(points={{-29,86},{-17.6,86}}, color={0,0,127}));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(preserveAspectRatio=false)),
     Documentation(info="<html>
 <p><b><span style=\"color: #008000;\">1. Purpose of model</span></b></p>

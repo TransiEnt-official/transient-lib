@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Combined.SmallScaleCHP.Controller;
+within TransiEnt.Producer.Combined.SmallScaleCHP.Controller;
 model ControllerHeatLed "Controller that gets target temperatures from simCenter and has an input for storage Temperature"
 
 
@@ -20,7 +20,7 @@ model ControllerHeatLed "Controller that gets target temperatures from simCenter
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -144,9 +144,9 @@ equation
     switch = pre(switch);
   end if;
 
-  T_return_target = simCenter.heatingCurve.T_return;
+  T_return_target = constantSupplyTemperature.T_return;
   if useGridTemperatures then
-    PID.u_s=simCenter.heatingCurve.T_return;
+    PID.u_s=constantSupplyTemperature.T_return;
   else
     PID.u_s = T_stor_target;
   end if;

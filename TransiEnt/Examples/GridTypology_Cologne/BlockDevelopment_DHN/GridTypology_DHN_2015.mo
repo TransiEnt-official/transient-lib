@@ -29,11 +29,11 @@ model GridTypology_DHN_2015
   inner SimCenter simCenter(
     redeclare TransiEnt.Components.Boundaries.Ambient.AmbientConditions_Cologne_TRY ambientConditions,
     p_nom={600000,1000000},
-    redeclare model Ground_Temperature = TransiEnt.Basics.Tables.Ambient.UndergroundTemperature_Duesseldorf_1m_3600s_TMY,
     calc_initial_dstrb=false,
     T_supply=363.15,
     T_return=343.15,
-    K(displayUnit="mm") = 2e-5) annotation (Placement(transformation(extent={{-438,290},{-404,320}})));
+    K(displayUnit="mm") = 2e-05)
+                                annotation (Placement(transformation(extent={{-438,290},{-404,320}})));
   ClaRa.Components.BoundaryConditions.BoundaryVLE_pTxi Grid_Return_Out(p_const(displayUnit="bar") = simCenter.p_nom[1], T_const(displayUnit="degC") = 363.15) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,

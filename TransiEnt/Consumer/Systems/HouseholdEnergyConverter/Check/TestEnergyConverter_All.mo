@@ -31,7 +31,6 @@ model TestEnergyConverter_All
   extends TransiEnt.Basics.Icons.Checkmodel;
 
   inner TransiEnt.SimCenter simCenter(
-    redeclare Basics.Tables.HeatGrid.HeatingCurves.HeatingCurveEnergieverbundWilhelmsburgMitte heatingCurve,
     useHomotopy=true,
     redeclare TransiEnt.Components.Boundaries.Ambient.AmbientConditions ambientConditions(
       redeclare TransiEnt.Basics.Tables.Ambient.GHI_Hamburg_3600s_2012_TMY globalSolarRadiation,
