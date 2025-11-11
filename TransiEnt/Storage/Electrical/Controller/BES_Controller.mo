@@ -51,8 +51,8 @@ model BES_Controller
     annotation (Placement(transformation(extent={{-120,-24},{-80,16}}),
         iconTransformation(extent={{-120,-24},{-80,16}})));
 
-  TransiEnt.Basics.Interfaces.Electrical.ElectricPowerOut P_BES_out
-    "Set-point battery power output" annotation (Placement(transformation(
+  TransiEnt.Basics.Interfaces.Electrical.ElectricPowerOut P_BES_out "Set-point battery power output"
+                                     annotation (Placement(transformation(
           extent={{100,-20},{140,20}}),iconTransformation(extent={{100,-20},{140,20}})));
 
   // ----------------------------------------------------------------------------------------
@@ -147,6 +147,7 @@ model BES_Controller
   //   Equation part
   // ----------------------------------------------------------------------------------------
 
+  TransiEnt.Basics.Interfaces.Electrical.ElectricPowerOut P_BES_internal "Set-point battery power output" annotation (Placement(transformation(extent={{100,-70},{140,-30}}), iconTransformation(extent={{98,-78},{138,-38}})));
 equation
 
   // connect internal interfaces (conditional connection)
@@ -211,6 +212,7 @@ equation
   connect(Switch_Limit_P.y, variableLimiter.limit1) annotation (Line(points={{11,-2},{48,-2},{48,0},{74,0},{74,3.2},{83.2,3.2}}, color={0,0,127}));
   connect(Switch_Limit_P.u1, P_BES) annotation (Line(points={{-12,6},{-60,6},{-60,-4},{-100,-4}}, color={0,0,127}));
   connect(Switch_Limit_P.u3, UpperBatteryPowerLimitSwitch.y) annotation (Line(points={{-12,-10},{-27,-10}}, color={0,0,127}));
+  connect(breakAlgebraicLoop.y, P_BES_internal) annotation (Line(points={{62.8,80},{66,80},{66,32},{78,32},{78,0},{80,0},{80,-50},{120,-50}}, color={0,0,127}));
   annotation (Documentation(info="<html>
 <p>Logic of this controller</p>
 <ul>

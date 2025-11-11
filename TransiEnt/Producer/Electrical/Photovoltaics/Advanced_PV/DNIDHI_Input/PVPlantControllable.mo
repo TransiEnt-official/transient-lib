@@ -484,6 +484,11 @@ equation
   connect(Q_out_standard.y, pQBoundary.Q_el_set) annotation (Line(points={{109,-50},{64,-50},{64,-11}}, color={0,0,127}));
   connect(P_out_standard.y, pQBoundary.P_el_set) annotation (Line(points={{109,-30},{76,-30},{76,-11}}, color={0,0,127}));
   connect(gain.y, pQBoundary.P_el_set) annotation (Line(points={{47,-60},{76,-60},{76,-11}}, color={0,0,127}));
+  connect(P_out_limit.y, controlBus.P_output_request) annotation (Line(points={{-71,-60},{-64,-60},{-64,-72},{-58,-72},{-58,-94},{-26,-94},{-26,-100},{0,-100}}, color={0,0,127}), Text(
+      string="%second",
+      index=1,
+      extent={{6,3},{6,3}},
+      horizontalAlignment=TextAlignment.Left));
   annotation (
     Diagram(          coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}}), graphics={

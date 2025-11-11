@@ -29,10 +29,10 @@ package Types "containing type definitions"
   extends TransiEnt.Basics.Icons.Package;
 
   // Constant Strings defined as environtment variables in startup script (loadTransiEnt.mos)
-  constant String WORKINGDIR = "workingdir";
-  constant String PUBLIC_DATA = "public-data";
-  constant String PRIVATE_DATA = "private-data";
-  constant String STARTUP_SCRIPT = "startupscript";
+  constant String WORKINGDIR = "WORKINGDIR";
+  constant String PUBLIC_DATA = "PUBLIC_DATA";
+  constant String PRIVATE_DATA = "PRIVATE_DATA";
+  constant String STARTUP_SCRIPT = "STARTUPSCRIPT";
 
 
 

@@ -369,13 +369,13 @@ model Heating "Building Heating System"
     if controlType == ControlType.External_P
     annotation (Placement(transformation(extent={{-72,-64},{-52,-44}})));
   Modelica.Blocks.Sources.RealExpression SOC_dyn(y=(T_mean - roomHeating.T_bt_min)
-        /(T_HP_sup_max - roomHeating.T_bt_min))
-                                        if busActive
-    "Dynamic SOC according to minimal buffer tank temperature needed"
+        /(T_HP_sup_max - roomHeating.T_bt_min)) if busActive "Dynamic SOC according to minimal buffer tank temperature needed"
     annotation (Placement(transformation(extent={{-160,-204},{-140,-184}})));
   TappingCycles                                tappingCycles(profile=
         tappingProfilePath) if useTappingCycles
     annotation (Placement(transformation(extent={{106,-44},{126,-24}})));
+  Modelica.Blocks.Sources.RealExpression Q_request(y=PID_Storage.addFF.y) if busActive "Q request also in situations where limit is applied." annotation (Placement(transformation(extent={{-160,-220},{-140,-200}})));
+  Modelica.Blocks.Sources.RealExpression COP(y=heatpump.COP.y) if busActive "Coefficient of Performance" annotation (Placement(transformation(extent={{-160,-234},{-140,-214}})));
 initial equation
 
   // switch on heating system at certain ambient temperature
@@ -613,6 +613,16 @@ equation
           -34},{-84,-54},{-73,-54}}, color={255,0,255}));
   connect(P_el_max.y, controlBus.P_max) annotation (Line(points={{-139,-122},{-126,
           -122},{-126,-110},{-110,-110}}, color={0,0,127}), Text(
+      string="%second",
+      index=1,
+      extent={{6,3},{6,3}},
+      horizontalAlignment=TextAlignment.Left));
+  connect(Q_request.y, controlBus.Q_request) annotation (Line(points={{-139,-210},{-110,-210},{-110,-110}}, color={0,0,127}), Text(
+      string="%second",
+      index=1,
+      extent={{6,3},{6,3}},
+      horizontalAlignment=TextAlignment.Left));
+  connect(COP.y, controlBus.COP) annotation (Line(points={{-139,-224},{-110,-224},{-110,-110}}, color={0,0,127}), Text(
       string="%second",
       index=1,
       extent={{6,3},{6,3}},

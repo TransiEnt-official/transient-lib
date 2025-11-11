@@ -16,7 +16,7 @@ model Prosumer
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -171,6 +171,9 @@ model Prosumer
   parameter String data_weatherYear="" "year of weather data in yyyy"
     annotation (Dialog(group="Data"));
 
+  parameter String drivingProfileFolder="1" "Folder of bev driving profiles"
+    annotation (Dialog(group="Data"));
+
   // --- Measuring --------------------------------------------------------------------------
 
   parameter Boolean manualConfiguration=false
@@ -317,7 +320,7 @@ model Prosumer
     powerScaleQ=loadProfileScaleQ,
     fileName=data_local + "LoadProfiles/" + loadProfileName + ".txt") annotation (Placement(transformation(extent={{-94,-46},{-74,-26}})));
 
-  TransiEnt.Basics.Tables.DrivingProfiles.GenericDrivingProfileDataTableResource table_Vehicle_V2[num_BEVs](fileName={data_local + "/VehicleData/BEV_Profile_" + String(bev_data[i].id) + ".txt" for i in 1:num_BEVs}) if num_BEVs > 0;
+  TransiEnt.Basics.Tables.DrivingProfiles.GenericDrivingProfileDataTableResource table_Vehicle_V2[num_BEVs](fileName={data_local + "/VehicleData" + drivingProfileFolder + "/BEV_Profile_" + String(bev_data[i].id) + ".txt" for i in 1:num_BEVs}) if num_BEVs > 0;
 
   // ----------------------------------------------------------------------------------------
   //   Variables
@@ -360,6 +363,9 @@ equation
     if (batteryControlType == ControlType.Limit_P) then
       connect(controlBus.BES.P_limit, BES_Controller.P_BES) annotation();
       connect(controlBus.BES.SignalActive, BES_Controller.Signal_P_external) annotation();
+      connect(controlBus.BES.P_request, BES_Controller.P_BES_internal) annotation();
+      connect(controlBus.BES.SOC, batterySimple.SOC) annotation();
+
     end if;
 
     if (batteryControlType == ControlType.External_P) then

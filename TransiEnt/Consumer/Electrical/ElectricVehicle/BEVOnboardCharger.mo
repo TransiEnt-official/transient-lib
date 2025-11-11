@@ -236,6 +236,11 @@ equation
           {28,19},{28,50},{21,50}},                                                                                       color={0,127,127}));
   connect(P_loss_.y, pq_charger.P_el_set) annotation (Line(points={{81,60},{86,
           60},{86,19},{76,19}},                                                                      color={0,0,127}));
+  connect(P_limit_.y, controlBus.P_request) annotation (Line(points={{-59,-56},{-56,-56},{-56,-72},{-2,-72},{-2,-76},{0,-76},{0,-100}}, color={0,0,127}), Text(
+      string="%second",
+      index=1,
+      extent={{6,3},{6,3}},
+      horizontalAlignment=TextAlignment.Left));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false), graphics={
         Ellipse(
           extent={{-100,102},{100,-98}},
