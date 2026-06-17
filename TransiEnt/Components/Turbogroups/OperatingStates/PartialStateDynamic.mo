@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Turbogroups.OperatingStates;
+within TransiEnt.Components.Turbogroups.OperatingStates;
 partial model PartialStateDynamic "State graph model with state-depentend maximum values and gradients"
 
 

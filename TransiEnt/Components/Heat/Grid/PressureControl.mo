@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat.Grid;
+within TransiEnt.Components.Heat.Grid;
 model PressureControl "ClaRa pump regulated by pressure in heat grid"
   extends TransiEnt.Basics.Icons.Model;
 

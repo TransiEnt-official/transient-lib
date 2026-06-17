@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Combined.LargeScaleCHP;
+within TransiEnt.Producer.Combined.LargeScaleCHP;
 model CHP "Recommended model for large scale, combined heat and power plants with second order dynamics, three operating states and optional control power"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer.Base.Physics;
+within TransiEnt.Producer.Gas.Electrolyzer.Base.Physics;
 package MassFlow "Contains mass flow base class and specific model implementations"
 
 

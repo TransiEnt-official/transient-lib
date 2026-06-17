@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Heat.HotWaterStorage_L4.Utilities;
+within TransiEnt.Storage.Heat.HotWaterStorage_L4.Utilities;
 function partial_get_init_segment_enthalpy "Defines the initial specific enthalpy for each segment"
 
 

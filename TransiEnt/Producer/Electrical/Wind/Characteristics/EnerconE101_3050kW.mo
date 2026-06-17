@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Wind.Characteristics;
+within TransiEnt.Producer.Electrical.Wind.Characteristics;
 record EnerconE101_3050kW "Enercon model E101 3050kW"
 
 

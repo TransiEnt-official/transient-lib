@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Gas.Combustion.Controller;
+within TransiEnt.Components.Gas.Combustion.Controller;
 model ControllerAirForBurner "Controller to control the mass flow of the air source for the burner"
 
 

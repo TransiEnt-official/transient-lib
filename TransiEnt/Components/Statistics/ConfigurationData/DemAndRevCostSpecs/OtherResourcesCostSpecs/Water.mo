@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Statistics.ConfigurationData.DemAndRevCostSpecs.OtherResourcesCostSpecs;
+within TransiEnt.Components.Statistics.ConfigurationData.DemAndRevCostSpecs.OtherResourcesCostSpecs;
 record Water "Cost record for water in Hamburg"
 
 

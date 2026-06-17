@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Base;
+within TransiEnt.Producer.Electrical.Base;
 model IdealInverterPlant "Ideal plant model for inverter coupled plants (i.e. no reaction to grid frequency)"
 
 

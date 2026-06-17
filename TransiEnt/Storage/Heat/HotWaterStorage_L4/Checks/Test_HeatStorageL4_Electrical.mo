@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Heat.HotWaterStorage_L4.Checks;
+within TransiEnt.Storage.Heat.HotWaterStorage_L4.Checks;
 model Test_HeatStorageL4_Electrical "Test of one dimensional heat storage model with electrical heating"
 
 

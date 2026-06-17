@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components;
+within TransiEnt.Components;
 package Heat "Heat grid specific components"
 
 

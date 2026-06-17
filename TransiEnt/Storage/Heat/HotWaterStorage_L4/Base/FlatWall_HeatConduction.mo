@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Heat.HotWaterStorage_L4.Base;
+within TransiEnt.Storage.Heat.HotWaterStorage_L4.Base;
 model FlatWall_HeatConduction "Flat wall heat conduction ( one material for insulation)"
 
 

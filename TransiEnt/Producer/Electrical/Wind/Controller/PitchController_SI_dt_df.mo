@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Wind.Controller;
+within TransiEnt.Producer.Electrical.Wind.Controller;
 model PitchController_SI_dt_df "Pitch Controller for WTG with df/dt synthetic inertia control"
 
 

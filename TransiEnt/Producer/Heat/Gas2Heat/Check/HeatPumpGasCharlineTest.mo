@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.Gas2Heat.Check;
+within TransiEnt.Producer.Heat.Gas2Heat.Check;
 model HeatPumpGasCharlineTest
 
 

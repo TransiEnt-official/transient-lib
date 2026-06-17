@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Statistics.ConfigurationData.DemAndRevCostSpecs.GasAndFuelCostSpecs;
+within TransiEnt.Components.Statistics.ConfigurationData.DemAndRevCostSpecs.GasAndFuelCostSpecs;
 partial record PartialCostGasAndFuel "Cost record for gas and fuel"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Blocks;
+within TransiEnt.Basics.Blocks;
 block DeadZoneLinear "Provide a region of zero output"
 
 

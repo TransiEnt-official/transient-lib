@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Turbogroups;
+within TransiEnt.Components.Turbogroups;
 model Gasturbine "Model of a gasturbine with three states (halt / startup / running), pyhsical constraints (Pmin,Pmax,Pgradmax) and first order dynamics"
 
 

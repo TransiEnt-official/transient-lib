@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Gas.VolumesValvesFittings.Valves;
+within TransiEnt.Components.Gas.VolumesValvesFittings.Valves;
 model ValveDesiredMassFlow_PT1 "Simple valve with prescribed mass flow rate"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Statistics.ConfigurationData.DemAndRevCostSpecs.ElectricityCostSpecs;
+within TransiEnt.Components.Statistics.ConfigurationData.DemAndRevCostSpecs.ElectricityCostSpecs;
 partial record PartialCostElectricity "Cost record for electricity"
 
 

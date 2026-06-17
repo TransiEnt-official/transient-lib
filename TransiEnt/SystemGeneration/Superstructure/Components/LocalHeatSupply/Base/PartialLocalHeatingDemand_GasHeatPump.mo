@@ -1,4 +1,4 @@
-﻿within TransiEnt.SystemGeneration.Superstructure.Components.LocalHeatSupply.Base;
+within TransiEnt.SystemGeneration.Superstructure.Components.LocalHeatSupply.Base;
 partial model PartialLocalHeatingDemand_GasHeatPump
 
 //________________________________________________________________________________//

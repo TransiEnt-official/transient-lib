@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.Power2Heat.ElectricBoiler.Controller;
+within TransiEnt.Producer.Heat.Power2Heat.ElectricBoiler.Controller;
 model PtH_limiter "Dispatcher for Power to Heat units"
 
 

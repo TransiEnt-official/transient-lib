@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Systems.HouseholdEnergyConverter.Systems.Control_elHeater.Base;
+within TransiEnt.Consumer.Systems.HouseholdEnergyConverter.Systems.Control_elHeater.Base;
 partial model Controller_elHeater
 
 

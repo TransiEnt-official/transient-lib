@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Sensors;
+within TransiEnt.Components.Sensors;
 partial model PartialFrequency "Partial model for sensotrs measuring electric grid frequency"
 
 

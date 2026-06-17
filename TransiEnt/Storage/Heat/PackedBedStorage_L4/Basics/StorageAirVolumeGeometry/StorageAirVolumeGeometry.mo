@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Heat.PackedBedStorage_L4.Basics.StorageAirVolumeGeometry;
+within TransiEnt.Storage.Heat.PackedBedStorage_L4.Basics.StorageAirVolumeGeometry;
 partial model StorageAirVolumeGeometry "All shapes || Base class"
 
 

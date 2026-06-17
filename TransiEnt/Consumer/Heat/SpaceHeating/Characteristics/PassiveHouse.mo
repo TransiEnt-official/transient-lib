@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Heat.SpaceHeating.Characteristics;
+within TransiEnt.Consumer.Heat.SpaceHeating.Characteristics;
 record PassiveHouse "Passive House characteristics according to EnEV 2007"
 
 

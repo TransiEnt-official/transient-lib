@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Gas;
+within TransiEnt.Components.Gas;
 package Compressor "Contains real gas models for compressors"
 
 

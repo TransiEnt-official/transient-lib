@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Electrical.Base.Check;
+within TransiEnt.Storage.Electrical.Base.Check;
 model TestGenericElectricStorageHyst
 
 

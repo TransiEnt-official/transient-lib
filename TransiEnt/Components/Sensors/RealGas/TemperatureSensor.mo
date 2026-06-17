@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Sensors.RealGas;
+within TransiEnt.Components.Sensors.RealGas;
 model TemperatureSensor "Ideal one port pressure sensor"
 
 

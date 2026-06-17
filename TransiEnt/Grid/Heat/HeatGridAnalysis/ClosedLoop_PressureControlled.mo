@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Heat.HeatGridAnalysis;
+within TransiEnt.Grid.Heat.HeatGridAnalysis;
 model ClosedLoop_PressureControlled "\"Closed loop district heating model with pressure controlled pumps and valves, constant massflow and variable heat flows\""
 
 

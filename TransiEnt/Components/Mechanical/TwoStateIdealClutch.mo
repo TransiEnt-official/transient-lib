@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Mechanical;
+within TransiEnt.Components.Mechanical;
 model TwoStateIdealClutch "1D-rotational clutch"
 
 

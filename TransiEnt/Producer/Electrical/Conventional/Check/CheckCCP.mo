@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Conventional.Check;
+within TransiEnt.Producer.Electrical.Conventional.Check;
 model CheckCCP "Model for testing combined cycle gas plant models"
   import TransiEnt;
 

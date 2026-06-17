@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Adapters.Check;
+within TransiEnt.Basics.Adapters.Check;
 model TestFluidPortAdapter "Test model for fluid port adapter"
 
 //________________________________________________________________________________//

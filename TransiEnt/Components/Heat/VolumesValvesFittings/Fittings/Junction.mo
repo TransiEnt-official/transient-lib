@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat.VolumesValvesFittings.Fittings;
+within TransiEnt.Components.Heat.VolumesValvesFittings.Fittings;
 model Junction "Simple model of a junction with no pressure loss, static mass balance and dynamic energy balance"
 
 //________________________________________________________________________________//

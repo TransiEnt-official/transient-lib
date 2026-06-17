@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Controllers;
+within TransiEnt.Producer.Electrical.Controllers;
 function DroopSelector "This function can be used to conveniently select a droop either by specifying a distinct value or by selecting a typical value depending on the plant type"
 
 

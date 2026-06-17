@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Statistics.Collectors.LocalCollectors;
+within TransiEnt.Components.Statistics.Collectors.LocalCollectors;
 model CollectCosts_HydrogenStorageStartGas "Cost collector for a the start gas of a hydrogen storage"
 
 

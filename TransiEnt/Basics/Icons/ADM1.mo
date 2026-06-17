@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Icons;
+within TransiEnt.Basics.Icons;
 model ADM1 "Icon for ADM1 model"
 
 

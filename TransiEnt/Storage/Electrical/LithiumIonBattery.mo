@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Electrical;
+within TransiEnt.Storage.Electrical;
 model LithiumIonBattery "Model of a ltihium ion battery"
 
 

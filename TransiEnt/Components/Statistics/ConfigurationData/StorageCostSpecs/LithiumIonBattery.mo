@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Statistics.ConfigurationData.StorageCostSpecs;
+within TransiEnt.Components.Statistics.ConfigurationData.StorageCostSpecs;
 model LithiumIonBattery "Lithium ion battery cost (including inverter)"
 
 

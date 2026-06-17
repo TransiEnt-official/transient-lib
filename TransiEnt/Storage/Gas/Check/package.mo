@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Gas;
+within TransiEnt.Storage.Gas;
 package Check "Check of gas storage models"
 
 

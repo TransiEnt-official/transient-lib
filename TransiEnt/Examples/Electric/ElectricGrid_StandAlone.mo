@@ -1,4 +1,4 @@
-﻿within TransiEnt.Examples.Electric;
+within TransiEnt.Examples.Electric;
 model ElectricGrid_StandAlone
 
 

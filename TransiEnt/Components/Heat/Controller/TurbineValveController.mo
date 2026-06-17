@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat.Controller;
+within TransiEnt.Components.Heat.Controller;
 model TurbineValveController "Turbine valve control depending on plant control strategy (see VDI/VDE 3508, p. 22 for more details)"
 
 

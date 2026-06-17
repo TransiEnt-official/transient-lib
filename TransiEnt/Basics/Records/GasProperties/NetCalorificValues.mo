@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Records.GasProperties;
+within TransiEnt.Basics.Records.GasProperties;
 record NetCalorificValues "Record containing the net calorific values for different molecules in J per kg for 25 °C"
 
 

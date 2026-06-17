@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.Gas;
+within TransiEnt.Components.Boundaries.Gas;
 model BoundaryRealGas_hxV_flow_stp "A real gas boundary defining enthalpy, molar composition and volume flow at STP (1.013 bar, 273.15 K)"
 
 

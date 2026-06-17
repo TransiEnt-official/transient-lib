@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.Machines;
+within TransiEnt.Components.Electrical.Machines;
 model InductionMotorComplex_L3E "Model of Induction Motor for ComplexPowerPort"
 
 

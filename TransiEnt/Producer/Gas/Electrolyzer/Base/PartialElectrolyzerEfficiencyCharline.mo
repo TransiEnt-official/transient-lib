@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer.Base;
+within TransiEnt.Producer.Gas.Electrolyzer.Base;
 partial model PartialElectrolyzerEfficiencyCharline "Partial class for electrolyzer efficiency charlines"
 
 

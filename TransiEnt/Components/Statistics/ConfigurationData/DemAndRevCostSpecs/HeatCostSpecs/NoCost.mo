@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Statistics.ConfigurationData.DemAndRevCostSpecs.HeatCostSpecs;
+within TransiEnt.Components.Statistics.ConfigurationData.DemAndRevCostSpecs.HeatCostSpecs;
 record NoCost "Cost record for free heat"
 
 

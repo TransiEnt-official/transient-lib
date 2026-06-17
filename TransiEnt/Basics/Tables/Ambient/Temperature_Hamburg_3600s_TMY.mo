@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.Ambient;
+within TransiEnt.Basics.Tables.Ambient;
 model Temperature_Hamburg_3600s_TMY "Hamburg TMY, 1 h resolution, Source: IWEC"
 
 

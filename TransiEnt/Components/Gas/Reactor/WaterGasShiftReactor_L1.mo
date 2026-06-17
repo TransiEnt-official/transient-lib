@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Gas.Reactor;
+within TransiEnt.Components.Gas.Reactor;
 model WaterGasShiftReactor_L1 "Performs ideal water gas shift reaction with given conversion"
 
 

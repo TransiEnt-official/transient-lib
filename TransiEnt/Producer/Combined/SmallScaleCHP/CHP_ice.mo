@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Combined.SmallScaleCHP;
+within TransiEnt.Producer.Combined.SmallScaleCHP;
 model CHP_ice "Model of a small CHP with configureable internal combustion engine"
 
 

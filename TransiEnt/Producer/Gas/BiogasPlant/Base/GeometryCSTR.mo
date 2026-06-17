@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.BiogasPlant.Base;
+within TransiEnt.Producer.Gas.BiogasPlant.Base;
 model GeometryCSTR "Geometry of CSTR"
 
 

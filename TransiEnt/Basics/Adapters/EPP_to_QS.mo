@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Adapters;
+within TransiEnt.Basics.Adapters;
 model EPP_to_QS "Adapter to MSL Quasistationary interface"
 
 

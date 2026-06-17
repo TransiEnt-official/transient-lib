@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.ElectricGrid.PowerData;
+within TransiEnt.Basics.Tables.ElectricGrid.PowerData;
 model ElectricityDemand_Berlin_900s_2012 "Electricity demand data in Berlin. Time resolution: 15 Minutes. Source: Stromnetz Berlin GmbH"
 
 

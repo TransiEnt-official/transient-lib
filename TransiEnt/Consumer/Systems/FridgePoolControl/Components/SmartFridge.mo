@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Systems.FridgePoolControl.Components;
+within TransiEnt.Consumer.Systems.FridgePoolControl.Components;
 model SmartFridge
 
 

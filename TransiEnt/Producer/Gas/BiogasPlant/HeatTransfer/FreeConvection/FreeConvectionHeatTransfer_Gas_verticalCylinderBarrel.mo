@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.BiogasPlant.HeatTransfer.FreeConvection;
+within TransiEnt.Producer.Gas.BiogasPlant.HeatTransfer.FreeConvection;
 model FreeConvectionHeatTransfer_Gas_verticalCylinderBarrel "Heat transfer due to natural convection for a vertical cylinder barrel"
 
 

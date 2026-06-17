@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.Grid.Characteristics;
+within TransiEnt.Components.Electrical.Grid.Characteristics;
 record HV_L5 "HV_L5 220 kV average transmission line, Northern Germany"
 
 

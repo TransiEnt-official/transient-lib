@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Others.Check;
+within TransiEnt.Producer.Electrical.Others.Check;
 model TestPumpedStoragePlant_Gradients
 
 
@@ -33,8 +33,7 @@ model TestPumpedStoragePlant_Gradients
     constant String resultFileName = "TestPumpedStoragePlant_Gradients.mat";
 
     output String resultFile;
-  protected
-              Boolean ok;
+  protected   Boolean ok;
 
   algorithm
     clearlog();

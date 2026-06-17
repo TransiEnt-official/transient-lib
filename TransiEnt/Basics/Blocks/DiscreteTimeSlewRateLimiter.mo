@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Blocks;
+within TransiEnt.Basics.Blocks;
 block DiscreteTimeSlewRateLimiter "Limits the signal with upper and lower boundary using a discrete block with given sample time"
 
 

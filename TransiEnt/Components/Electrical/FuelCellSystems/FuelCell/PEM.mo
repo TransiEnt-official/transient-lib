@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.FuelCellSystems.FuelCell;
+within TransiEnt.Components.Electrical.FuelCellSystems.FuelCell;
 model PEM "Model of PEM-Cell stack"
 
 

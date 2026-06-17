@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Electrical.Specifications;
+within TransiEnt.Storage.Electrical.Specifications;
 record CAES "Typical parameters of compressed air energy storage"
 
 

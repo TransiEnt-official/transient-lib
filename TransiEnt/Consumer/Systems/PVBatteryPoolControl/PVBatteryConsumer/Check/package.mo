@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Systems.PVBatteryPoolControl.PVBatteryConsumer;
+within TransiEnt.Consumer.Systems.PVBatteryPoolControl.PVBatteryConsumer;
 package Check
 
 

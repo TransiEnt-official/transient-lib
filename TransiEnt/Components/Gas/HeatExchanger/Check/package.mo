@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Gas.HeatExchanger;
+within TransiEnt.Components.Gas.HeatExchanger;
 package Check
 
 

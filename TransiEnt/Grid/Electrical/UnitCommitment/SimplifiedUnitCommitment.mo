@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Electrical.UnitCommitment;
+within TransiEnt.Grid.Electrical.UnitCommitment;
 model SimplifiedUnitCommitment "Very simple unit commitment model"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Systems.PVBatteryPoolControl.Base;
+within TransiEnt.Consumer.Systems.PVBatteryPoolControl.Base;
 record PoolParameter "Enthlt die wichtigsten Simulations-Parameter"
 
 

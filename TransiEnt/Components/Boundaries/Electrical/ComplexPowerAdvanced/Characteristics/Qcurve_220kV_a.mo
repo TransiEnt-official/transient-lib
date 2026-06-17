@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.Electrical.ComplexPowerAdvanced.Characteristics;
+within TransiEnt.Components.Boundaries.Electrical.ComplexPowerAdvanced.Characteristics;
 model Qcurve_220kV_a "Q(v)-curve for 220 kV Version a"
 
 

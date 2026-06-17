@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer.Base.Physics.Voltage.ConductivityModels;
+within TransiEnt.Producer.Gas.Electrolyzer.Base.Physics.Voltage.ConductivityModels;
 partial model PartialPEMConductivity "Partial model for calculation of PEM conductivity"
 
 

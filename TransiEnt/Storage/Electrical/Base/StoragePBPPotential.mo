@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Electrical.Base;
+within TransiEnt.Storage.Electrical.Base;
 model StoragePBPPotential "Calculates primary balancing power potential using a zero order hold"
 
 

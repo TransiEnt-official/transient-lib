@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Gas.Reactor;
+within TransiEnt.Components.Gas.Reactor;
 model Prereformer_L1 "Ideally transforms ethane, propane and butane with water into carbon monoxide and methane"
 
 

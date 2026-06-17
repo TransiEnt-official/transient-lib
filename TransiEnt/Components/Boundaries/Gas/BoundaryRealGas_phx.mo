@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.Gas;
+within TransiEnt.Components.Boundaries.Gas;
 model BoundaryRealGas_phx "A real gas boundary defining pressure, enthalpy, molar composition"
 
 

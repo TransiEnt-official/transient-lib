@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Photovoltaics.Check;
+within TransiEnt.Producer.Electrical.Photovoltaics.Check;
 model Check_PhotovoltaicPlant
 
 

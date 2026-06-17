@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.ElectricGrid.PowerData;
+within TransiEnt.Basics.Tables.ElectricGrid.PowerData;
 model ElectricityGeneration_HHMitte_3600s_2012 "Hourly electricity generation data in Hamburg-Mitte. Source: Energie Portal Hamburg"
 
 

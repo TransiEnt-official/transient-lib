@@ -1,4 +1,4 @@
-﻿within TransiEnt.SystemGeneration.Superstructure.Components.LocalHeatSupply;
+within TransiEnt.SystemGeneration.Superstructure.Components.LocalHeatSupply;
 package Base
 
 //________________________________________________________________________________//

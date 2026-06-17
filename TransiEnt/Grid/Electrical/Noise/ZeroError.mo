@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Electrical.Noise;
+within TransiEnt.Grid.Electrical.Noise;
 block ZeroError "No error of prediction"
 
 

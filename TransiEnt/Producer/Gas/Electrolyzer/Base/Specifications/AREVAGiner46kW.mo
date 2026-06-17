@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer.Base.Specifications;
+within TransiEnt.Producer.Gas.Electrolyzer.Base.Specifications;
 record AREVAGiner46kW "Areva Energy Storage Giner Electrolyzer system specific parameters"
 
 

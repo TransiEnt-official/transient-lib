@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.Gas2Heat.SmallGasBoiler.Utilities;
+within TransiEnt.Producer.Heat.Gas2Heat.SmallGasBoiler.Utilities;
 block BoilerHeatDynamics "Block to implement a boiler's dynamics by signal means from a set value"
 
 

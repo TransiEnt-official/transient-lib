@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Combined.LargeScaleCHP.Base.Check;
+within TransiEnt.Producer.Combined.LargeScaleCHP.Base.Check;
 model TestCHPStates_electricityled "Example how the continuous plant model behaves when ramping up"
 
 

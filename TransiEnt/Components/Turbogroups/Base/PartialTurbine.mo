@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Turbogroups.Base;
+within TransiEnt.Components.Turbogroups.Base;
 partial model PartialTurbine "Abstract model of a turbine defining nothing but the interfaces"
 
 

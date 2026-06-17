@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.Electrical.ComplexPowerAdvanced.Characteristics;
+within TransiEnt.Components.Boundaries.Electrical.ComplexPowerAdvanced.Characteristics;
 model Qcurve_genericDeadband "Generic Q(v)-curve with deadband for all voltage levels"
 
 

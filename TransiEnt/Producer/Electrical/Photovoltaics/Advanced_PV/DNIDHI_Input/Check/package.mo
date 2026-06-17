@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Photovoltaics.Advanced_PV.DNIDHI_Input;
+within TransiEnt.Producer.Electrical.Photovoltaics.Advanced_PV.DNIDHI_Input;
 package Check
 
 

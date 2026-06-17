@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.Power2Heat.Heatpump.Controller;
+within TransiEnt.Producer.Heat.Power2Heat.Heatpump.Controller;
 package Base
 
   extends TransiEnt.Basics.Icons.BasesPackage;

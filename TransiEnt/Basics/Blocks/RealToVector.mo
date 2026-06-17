@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Blocks;
+within TransiEnt.Basics.Blocks;
 block RealToVector "Takes single input signal and puts it in a specific location in a vector (all other elements are zero)"
 
 

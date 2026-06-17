@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Electrical.SecondaryControl.Activation;
+within TransiEnt.Grid.Electrical.SecondaryControl.Activation;
 model ScheduleActivation "Activation of Secondary Control set by the external scheduler"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.Power2Heat.ElectricBoiler.Check;
+within TransiEnt.Producer.Heat.Power2Heat.ElectricBoiler.Check;
 model TestPtH_limiter "\"Test model for the component: PtH_limiter\""
   import TransiEnt;
 

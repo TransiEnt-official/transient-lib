@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Heat.ThermalHeatConsumer_L3.Base.ConstructionData;
+within TransiEnt.Consumer.Heat.ThermalHeatConsumer_L3.Base.ConstructionData;
 record Passive_Ext "Exterior Wall of example passive house building"
 
 

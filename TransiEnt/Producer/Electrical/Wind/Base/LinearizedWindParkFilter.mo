@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Wind.Base;
+within TransiEnt.Producer.Electrical.Wind.Base;
 model LinearizedWindParkFilter
 
 

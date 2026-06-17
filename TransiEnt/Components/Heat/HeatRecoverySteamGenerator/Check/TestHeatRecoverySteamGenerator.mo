@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat.HeatRecoverySteamGenerator.Check;
+within TransiEnt.Components.Heat.HeatRecoverySteamGenerator.Check;
 model TestHeatRecoverySteamGenerator
 
 

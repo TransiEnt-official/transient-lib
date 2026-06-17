@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.Grid.Base;
+within TransiEnt.Components.Electrical.Grid.Base;
 function getHVCableData "function to get high voltage cable data"
 
 

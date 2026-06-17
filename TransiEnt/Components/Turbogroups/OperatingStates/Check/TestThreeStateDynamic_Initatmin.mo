@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Turbogroups.OperatingStates.Check;
+within TransiEnt.Components.Turbogroups.OperatingStates.Check;
 model TestThreeStateDynamic_Initatmin "Model for testing three state dynamic with an initial minimum"
 
 

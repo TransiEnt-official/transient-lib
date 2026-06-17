@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Blocks;
+within TransiEnt.Basics.Blocks;
 model DelayedReplicator "Model for transforming an input value to a vector of n outputs with different delays"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat.ThermalInsulation;
+within TransiEnt.Components.Heat.ThermalInsulation;
 model ThermalInsulation_dynamic_3ways_2layer "Thermal Insulation - dynamic - 3 ways - 2 layer"
 
 

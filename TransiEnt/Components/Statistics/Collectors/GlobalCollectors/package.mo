@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Statistics.Collectors;
+within TransiEnt.Components.Statistics.Collectors;
 package GlobalCollectors
 
 

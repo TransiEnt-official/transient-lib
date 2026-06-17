@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.Grid.Characteristics;
+within TransiEnt.Components.Electrical.Grid.Characteristics;
 record LV_K15 "K15 BA 4x16 H07RN-F_NS"
 
 

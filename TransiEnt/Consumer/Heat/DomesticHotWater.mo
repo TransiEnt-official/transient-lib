@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Heat;
+within TransiEnt.Consumer.Heat;
 model DomesticHotWater "Modell to pass a domestic hot water heat demand profile and convert it to a electrical demand if NightStorageHeating is used. Mostly used in Systems of GridConstrucor"
 
 

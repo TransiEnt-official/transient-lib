@@ -1,4 +1,4 @@
-﻿within TransiEnt.SystemGeneration.Superstructure.Components.Records;
+within TransiEnt.SystemGeneration.Superstructure.Components.Records;
 record Summary "A summary of relevant values"
 
 //________________________________________________________________________________//

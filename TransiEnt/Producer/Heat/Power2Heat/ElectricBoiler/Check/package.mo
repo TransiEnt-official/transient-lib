@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.Power2Heat.ElectricBoiler;
+within TransiEnt.Producer.Heat.Power2Heat.ElectricBoiler;
 package Check
 
 

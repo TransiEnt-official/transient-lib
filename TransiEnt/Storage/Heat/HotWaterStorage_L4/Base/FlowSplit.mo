@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Heat.HotWaterStorage_L4.Base;
+within TransiEnt.Storage.Heat.HotWaterStorage_L4.Base;
 model FlowSplit "Splits single input flow according to a vector with size n to n weighted output streams"
 
 

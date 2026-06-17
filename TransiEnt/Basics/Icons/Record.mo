@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Icons;
+within TransiEnt.Basics.Icons;
 partial record Record "Icon for records"
 
 

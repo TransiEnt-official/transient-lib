@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Systems.HouseholdEnergyConverter.Systems.Base;
+within TransiEnt.Consumer.Systems.HouseholdEnergyConverter.Systems.Base;
 partial model Systems
 
 

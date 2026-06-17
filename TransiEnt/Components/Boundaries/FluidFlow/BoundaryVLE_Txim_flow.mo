@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.FluidFlow;
+within TransiEnt.Components.Boundaries.FluidFlow;
 model BoundaryVLE_Txim_flow "A boundary defining temperature, mass composition and mass flow"
 
 

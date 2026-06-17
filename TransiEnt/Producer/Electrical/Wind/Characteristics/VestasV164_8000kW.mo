@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Wind.Characteristics;
+within TransiEnt.Producer.Electrical.Wind.Characteristics;
 record VestasV164_8000kW "Vestas model V164 8MW"
 
 

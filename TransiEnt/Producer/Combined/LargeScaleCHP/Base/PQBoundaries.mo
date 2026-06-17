@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Combined.LargeScaleCHP.Base;
+within TransiEnt.Producer.Combined.LargeScaleCHP.Base;
 model PQBoundaries
 
 

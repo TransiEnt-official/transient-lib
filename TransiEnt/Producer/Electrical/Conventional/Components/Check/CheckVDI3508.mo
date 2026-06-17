@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Conventional.Components.Check;
+within TransiEnt.Producer.Electrical.Conventional.Components.Check;
 model CheckVDI3508 "Example of the component PowerPlant_PoutGrad_L1"
 
 

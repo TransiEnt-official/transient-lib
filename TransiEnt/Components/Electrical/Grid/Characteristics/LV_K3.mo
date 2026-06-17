@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.Grid.Characteristics;
+within TransiEnt.Components.Electrical.Grid.Characteristics;
 record LV_K3 "K3 150 M8"
 
 

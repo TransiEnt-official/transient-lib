@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer.Systems.Check;
+within TransiEnt.Producer.Gas.Electrolyzer.Systems.Check;
 model Test_FeedInStation_woStorage "Model for testing a feed in station without a storage"
 
 

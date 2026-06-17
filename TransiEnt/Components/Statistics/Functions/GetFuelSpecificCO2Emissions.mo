@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Statistics.Functions;
+within TransiEnt.Components.Statistics.Functions;
 model GetFuelSpecificCO2Emissions "Reference values for CO2 emissions according to FfE ,2010)"
 
 

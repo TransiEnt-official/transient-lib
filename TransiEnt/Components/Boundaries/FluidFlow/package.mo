@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries;
+within TransiEnt.Components.Boundaries;
 package FluidFlow "Boundaries for fluid flow, extended from ClaraLib"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.BiogasPlant.HeatTransfer.ForcedConvection;
+within TransiEnt.Producer.Gas.BiogasPlant.HeatTransfer.ForcedConvection;
 model HeatTransferInsideReactor "Model calculating the heat transfered between fluid and vessel walls"
 
 

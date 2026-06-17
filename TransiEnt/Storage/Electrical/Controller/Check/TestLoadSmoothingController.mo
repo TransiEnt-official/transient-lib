@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Electrical.Controller.Check;
+within TransiEnt.Storage.Electrical.Controller.Check;
 model TestLoadSmoothingController "Example to evaluate self discharge time"
 
 

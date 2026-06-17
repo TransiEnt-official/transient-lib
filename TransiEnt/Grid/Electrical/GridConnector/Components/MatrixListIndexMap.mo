@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Electrical.GridConnector.Components;
+within TransiEnt.Grid.Electrical.GridConnector.Components;
 function MatrixListIndexMap "Mapping of connection lines between nodes defined by matrix into a loopable connection list"
 
 

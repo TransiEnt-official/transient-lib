@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Mechanical;
+within TransiEnt.Components.Mechanical;
 model ConstantInertia "1D-rotational component with inertia"
 
 

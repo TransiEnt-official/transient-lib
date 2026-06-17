@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Blocks;
+within TransiEnt.Basics.Blocks;
 block LimPID "P, PI, PD, and PID controller with limited output, anti-windup compensation and delayed, smooth activation (if wanted)"
 
 

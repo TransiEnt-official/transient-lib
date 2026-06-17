@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.Gas2Heat.SimpleGasBoiler.Check;
+within TransiEnt.Producer.Heat.Gas2Heat.SimpleGasBoiler.Check;
 model TestGasBoiler_L1
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Gas.Reactor.Controller;
+within TransiEnt.Components.Gas.Reactor.Controller;
 model ControllerH2OForReformer_StoCbeforeSMR "Controller to control the water mass flow rate for the prereformer and steam methane reformer for given steam to carbon ratio in front of SMR"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Combined.LargeScaleCHP.Base;
+within TransiEnt.Producer.Combined.LargeScaleCHP.Base;
 package Characteristics "Characterstics of large scale CHP plants (PQ-Boundaries and Heat input table)"
 
 

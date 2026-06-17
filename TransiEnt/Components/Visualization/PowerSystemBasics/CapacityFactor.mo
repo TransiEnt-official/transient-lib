@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Visualization.PowerSystemBasics;
+within TransiEnt.Components.Visualization.PowerSystemBasics;
 model CapacityFactor
 
 

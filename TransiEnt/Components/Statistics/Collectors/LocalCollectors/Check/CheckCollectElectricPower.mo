@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Statistics.Collectors.LocalCollectors.Check;
+within TransiEnt.Components.Statistics.Collectors.LocalCollectors.Check;
 model CheckCollectElectricPower
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Combined.LargeScaleCHP;
+within TransiEnt.Producer.Combined.LargeScaleCHP;
 model H2CofiringCHP "Continuous combined cycle CHP plant with hydrogen cofiring (e.g. from power-2-gas technologies)"
 
 

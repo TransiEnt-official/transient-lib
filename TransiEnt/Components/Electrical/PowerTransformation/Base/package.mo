@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.PowerTransformation;
+within TransiEnt.Components.Electrical.PowerTransformation;
 package Base "Interfaces, Baseclasses"
 
 

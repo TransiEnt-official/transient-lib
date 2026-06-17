@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.Grid.Characteristics;
+within TransiEnt.Components.Electrical.Grid.Characteristics;
 record PiModelParams
 
 

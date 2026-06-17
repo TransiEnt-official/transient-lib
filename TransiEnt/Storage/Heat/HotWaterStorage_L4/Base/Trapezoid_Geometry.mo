@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Heat.HotWaterStorage_L4.Base;
+within TransiEnt.Storage.Heat.HotWaterStorage_L4.Base;
 model Trapezoid_Geometry "Geometry with vertical trapezoid crosssection extending the partial_Geometry"
 
 

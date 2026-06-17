@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Wind;
+within TransiEnt.Producer.Electrical.Wind;
 model Windpark "Takes a single wind turbine model (replacable) and applies a linear low pass filter to model wind park smoothing effects"
 
 

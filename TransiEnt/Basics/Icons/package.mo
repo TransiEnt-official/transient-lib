@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics;
+within TransiEnt.Basics;
 package Icons "Package containing models that are used only to provide re-usable logos"
 
 

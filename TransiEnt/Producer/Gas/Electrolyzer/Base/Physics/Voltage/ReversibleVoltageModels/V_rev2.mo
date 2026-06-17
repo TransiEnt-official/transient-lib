@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer.Base.Physics.Voltage.ReversibleVoltageModels;
+within TransiEnt.Producer.Gas.Electrolyzer.Base.Physics.Voltage.ReversibleVoltageModels;
 model V_rev2
   "PEM reversible cell voltage as modeled by Garcia-Valverde et al, 2011"
 

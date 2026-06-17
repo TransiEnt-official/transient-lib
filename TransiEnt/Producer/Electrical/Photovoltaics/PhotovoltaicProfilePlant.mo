@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Photovoltaics;
+within TransiEnt.Producer.Electrical.Photovoltaics;
 model PhotovoltaicProfilePlant "Ideal continuous photovoltaic plant that produces exactly what the connected profile prescribes and adds to global statistics"
   import TransiEnt;
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Electrical.Base;
+within TransiEnt.Storage.Electrical.Base;
 partial model PartialElectricStorage "Most abstract model of an electric storage unit"
 
 

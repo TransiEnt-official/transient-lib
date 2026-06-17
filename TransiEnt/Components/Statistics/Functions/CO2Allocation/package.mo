@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Statistics.Functions;
+within TransiEnt.Components.Statistics.Functions;
 package CO2Allocation
 
 

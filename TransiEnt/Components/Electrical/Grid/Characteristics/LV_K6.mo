@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.Grid.Characteristics;
+within TransiEnt.Components.Electrical.Grid.Characteristics;
 record LV_K6 "K6 120 Al"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.Machines.Base.CharLineInductionMachine;
+within TransiEnt.Components.Electrical.Machines.Base.CharLineInductionMachine;
 record CharLineInductionMachine_ClaRa "induction machine characteristic line from the ClaRa-Library"
 
 

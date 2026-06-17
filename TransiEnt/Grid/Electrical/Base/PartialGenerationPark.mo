@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Electrical.Base;
+within TransiEnt.Grid.Electrical.Base;
 partial record PartialGenerationPark "Empty partial generation park"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.Gas2Heat.SmallGasBoiler;
+within TransiEnt.Producer.Heat.Gas2Heat.SmallGasBoiler;
 model Gasboiler_dynamic_L1 "Full modulating or staged gasboiler, signal based dynamic model with splitted ideal combustion and ideal heat-transfer"
 
 

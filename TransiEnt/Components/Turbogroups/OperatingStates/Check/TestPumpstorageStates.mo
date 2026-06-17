@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Turbogroups.OperatingStates.Check;
+within TransiEnt.Components.Turbogroups.OperatingStates.Check;
 model TestPumpstorageStates "Model for testing pump storage states"
 
 

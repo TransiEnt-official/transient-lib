@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Conventional.Check;
+within TransiEnt.Producer.Electrical.Conventional.Check;
 model CheckGasturbine_SecondaryControl "Model for testing gas turbines"
 
 

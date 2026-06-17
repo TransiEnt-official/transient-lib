@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Functions.GasProperties;
+within TransiEnt.Basics.Functions.GasProperties;
 function getIdealGasGCVVector "Function to get gross calorific value vactor for ideal gases"
 
 

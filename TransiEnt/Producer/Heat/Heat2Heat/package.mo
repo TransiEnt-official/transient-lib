@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat;
+within TransiEnt.Producer.Heat;
 package Heat2Heat
 
 

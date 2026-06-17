@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Adapters.Gas;
+within TransiEnt.Basics.Adapters.Gas;
 model RealSG4_to_RealNG7 "Adapter that switches from real SG4 to real NG7 fluid models"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Electrical.SecondaryControl.Check;
+within TransiEnt.Grid.Electrical.SecondaryControl.Check;
 model TestScheduleActivation
 
 

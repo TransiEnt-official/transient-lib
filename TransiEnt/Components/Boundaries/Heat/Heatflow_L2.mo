@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.Heat;
+within TransiEnt.Components.Boundaries.Heat;
 model Heatflow_L2 "Heat flow boundary with prescribed power and given volume (L2)"
 
 

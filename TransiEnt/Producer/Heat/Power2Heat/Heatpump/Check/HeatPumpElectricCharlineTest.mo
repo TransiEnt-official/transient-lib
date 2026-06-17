@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.Power2Heat.Heatpump.Check;
+within TransiEnt.Producer.Heat.Power2Heat.Heatpump.Check;
 model HeatPumpElectricCharlineTest
 
 

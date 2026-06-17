@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Functions;
+within TransiEnt.Basics.Functions;
 function standardDeviation "function calculates the standard deviation"
 
 

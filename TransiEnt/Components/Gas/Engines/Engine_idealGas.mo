@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Gas.Engines;
+within TransiEnt.Components.Gas.Engines;
 model Engine_idealGas "Motorblock for ideal gas combustion and choosable mechanical and thermal behavior"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Systems.PVBatteryPoolControl;
+within TransiEnt.Consumer.Systems.PVBatteryPoolControl;
 package Controller
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat;
+within TransiEnt.Components.Heat;
 model Pump "Pump model. Extends from ClaRa Pump_L2_shaftQuadratic"
 
 

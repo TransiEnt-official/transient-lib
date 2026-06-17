@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.SteamMethaneReformerSystem.Check;
+within TransiEnt.Producer.Gas.SteamMethaneReformerSystem.Check;
 model TestSMRSystem_noH2Loop_wContr
 
 

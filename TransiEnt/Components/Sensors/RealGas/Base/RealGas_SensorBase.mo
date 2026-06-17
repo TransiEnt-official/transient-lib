@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Sensors.RealGas.Base;
+within TransiEnt.Components.Sensors.RealGas.Base;
 model RealGas_SensorBase "Base class for gas sensors"
 
 

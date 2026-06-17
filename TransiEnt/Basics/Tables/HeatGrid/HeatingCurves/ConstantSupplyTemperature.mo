@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.HeatGrid.HeatingCurves;
+within TransiEnt.Basics.Tables.HeatGrid.HeatingCurves;
 model ConstantSupplyTemperature "Constant values for supply and return Water temperatures"
 
 

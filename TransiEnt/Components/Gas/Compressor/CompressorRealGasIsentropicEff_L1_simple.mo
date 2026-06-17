@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Gas.Compressor;
+within TransiEnt.Components.Gas.Compressor;
 model CompressorRealGasIsentropicEff_L1_simple "Simple compressor or fan for a one phase VLE fluid"
 
 

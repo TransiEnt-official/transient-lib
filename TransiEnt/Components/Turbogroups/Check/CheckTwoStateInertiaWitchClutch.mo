@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Turbogroups.Check;
+within TransiEnt.Components.Turbogroups.Check;
 model CheckTwoStateInertiaWitchClutch
 
 

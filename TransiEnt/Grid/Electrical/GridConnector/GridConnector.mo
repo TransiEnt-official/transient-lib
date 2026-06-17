@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Electrical.GridConnector;
+within TransiEnt.Grid.Electrical.GridConnector;
 model GridConnector "Model of a transmission grid in which node interconnections are defined by a matrix"
 
 

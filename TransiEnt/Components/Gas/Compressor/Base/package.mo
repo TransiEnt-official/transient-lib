@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Gas.Compressor;
+within TransiEnt.Components.Gas.Compressor;
 package Base
 
 

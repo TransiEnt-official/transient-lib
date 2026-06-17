@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.BiogasPlant.HeatTransfer.FreeConvection;
+within TransiEnt.Producer.Gas.BiogasPlant.HeatTransfer.FreeConvection;
 function NusseltFreeConvection_horizontalSurface "Function for calculating the nusselt number of a horizontal surface"
 
 

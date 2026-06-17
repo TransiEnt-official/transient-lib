@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Heat.HeatGridTopology;
+within TransiEnt.Grid.Heat.HeatGridTopology;
 model TopologyA_Ports "A district heating network topology for large buildings"
 
 //________________________________________________________________________________//

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Sensors.RealGas;
+within TransiEnt.Components.Sensors.RealGas;
 model vleDensitySensor "Two port density sensor for VLE fluids"
 
 

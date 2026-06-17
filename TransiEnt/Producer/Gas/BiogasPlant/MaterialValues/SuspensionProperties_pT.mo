@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.BiogasPlant.MaterialValues;
+within TransiEnt.Producer.Gas.BiogasPlant.MaterialValues;
 model SuspensionProperties_pT "Model calculating material properties of anaerobic sludge"
 
 

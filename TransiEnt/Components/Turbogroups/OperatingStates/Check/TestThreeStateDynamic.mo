@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Turbogroups.OperatingStates.Check;
+within TransiEnt.Components.Turbogroups.OperatingStates.Check;
 model TestThreeStateDynamic "Model for testing the three state dynamic"
 
 

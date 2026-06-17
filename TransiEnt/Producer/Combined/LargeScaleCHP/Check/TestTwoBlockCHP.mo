@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Combined.LargeScaleCHP.Check;
+within TransiEnt.Producer.Combined.LargeScaleCHP.Check;
 model TestTwoBlockCHP "Example how the two block CHP model works"
 
 

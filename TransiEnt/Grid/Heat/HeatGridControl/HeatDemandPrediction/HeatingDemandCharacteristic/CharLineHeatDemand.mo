@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Heat.HeatGridControl.HeatDemandPrediction.HeatingDemandCharacteristic;
+within TransiEnt.Grid.Heat.HeatGridControl.HeatDemandPrediction.HeatingDemandCharacteristic;
 record CharLineHeatDemand "record for heat demand"
 
 

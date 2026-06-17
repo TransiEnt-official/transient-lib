@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Gas;
+within TransiEnt.Grid.Gas;
 model StatCycleGasGridHamburg
 
 

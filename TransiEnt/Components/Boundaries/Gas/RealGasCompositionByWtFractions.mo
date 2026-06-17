@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.Gas;
+within TransiEnt.Components.Boundaries.Gas;
 model RealGasCompositionByWtFractions "Boundary for real gas composition by mass fractions for variable number of elements"
 
 

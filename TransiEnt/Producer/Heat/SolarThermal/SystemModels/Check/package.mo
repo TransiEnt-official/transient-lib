@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.SolarThermal.SystemModels;
+within TransiEnt.Producer.Heat.SolarThermal.SystemModels;
 package Check
 
 

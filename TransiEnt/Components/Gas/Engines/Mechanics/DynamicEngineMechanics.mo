@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Gas.Engines.Mechanics;
+within TransiEnt.Components.Gas.Engines.Mechanics;
 model DynamicEngineMechanics
 
 

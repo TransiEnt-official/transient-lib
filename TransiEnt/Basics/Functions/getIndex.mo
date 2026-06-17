@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Functions;
+within TransiEnt.Basics.Functions;
 function getIndex
   "Return the Index of a matrix based upon a parameter "
 

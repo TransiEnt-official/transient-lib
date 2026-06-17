@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.Combined.CombinedTables;
+within TransiEnt.Basics.Tables.Combined.CombinedTables;
 model Demand_Table_combined "Table with combined load profile data for consumer: y[1]=electricity demand, y[2]=heat demand for heating, y[3] = heat demand for hot water"
 
 

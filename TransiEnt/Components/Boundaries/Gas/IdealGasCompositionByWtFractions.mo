@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.Gas;
+within TransiEnt.Components.Boundaries.Gas;
 model IdealGasCompositionByWtFractions "Boundary for ideal gas composition by mass fractions for variable number of elements"
 
 

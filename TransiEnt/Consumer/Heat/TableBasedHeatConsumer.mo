@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Heat;
+within TransiEnt.Consumer.Heat;
 model TableBasedHeatConsumer "Table based heat consumer without mass flow influence"
 
 

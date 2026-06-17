@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Wind.Characteristics;
+within TransiEnt.Producer.Electrical.Wind.Characteristics;
 package RoughnessCharacteristics
   extends TransiEnt.Basics.Icons.Package;
 

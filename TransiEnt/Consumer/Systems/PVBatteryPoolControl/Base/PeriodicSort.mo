@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Systems.PVBatteryPoolControl.Base;
+within TransiEnt.Consumer.Systems.PVBatteryPoolControl.Base;
 model PeriodicSort "Sorts the values in input vector by value periodically (e.g. sort PBP offer by value every week before auction)"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Heat.PackedBedStorage_L4;
+within TransiEnt.Storage.Heat.PackedBedStorage_L4;
 model PackedBedStorage_L4 "Model for thermal energy storage in packed beds with gaseous heat transfer fluid"
 
 

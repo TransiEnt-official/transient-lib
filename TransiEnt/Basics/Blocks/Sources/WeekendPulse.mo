@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Blocks.Sources;
+within TransiEnt.Basics.Blocks.Sources;
 model WeekendPulse "model for producing a pulse every weekend"
 
 

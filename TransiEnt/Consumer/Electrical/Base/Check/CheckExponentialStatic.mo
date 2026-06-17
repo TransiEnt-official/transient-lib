@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Electrical.Base.Check;
+within TransiEnt.Consumer.Electrical.Base.Check;
 model CheckExponentialStatic
 
 

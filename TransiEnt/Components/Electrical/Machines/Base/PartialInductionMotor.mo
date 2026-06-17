@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.Machines.Base;
+within TransiEnt.Components.Electrical.Machines.Base;
 partial model PartialInductionMotor "Partial Model for the induction machines"
 
 

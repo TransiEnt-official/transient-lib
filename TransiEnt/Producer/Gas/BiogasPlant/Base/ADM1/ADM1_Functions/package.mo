@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.BiogasPlant.Base.ADM1;
+within TransiEnt.Producer.Gas.BiogasPlant.Base.ADM1;
 package ADM1_Functions
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Conventional;
+within TransiEnt.Producer.Electrical.Conventional;
 model CCP_with_Gasport
 
 

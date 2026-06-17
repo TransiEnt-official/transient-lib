@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.Gas;
+within TransiEnt.Components.Boundaries.Gas;
 model RealGasCompositionByWtFractions_stepVariation "Periodic discrete variation of mass fraction of first component in real gas mixture"
 
 

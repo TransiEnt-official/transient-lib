@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Systems.HouseholdEnergyConverter.Systems;
+within TransiEnt.Consumer.Systems.HouseholdEnergyConverter.Systems;
 model PV_HeatPump "PV + Heatpump with thermal storage"
 
 

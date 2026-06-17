@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Adapters;
+within TransiEnt.Basics.Adapters;
 model FluidPortAdapter "An adapter to connect the two kind of fluid ports of the TransiEnt to each other"
 //________________________________________________________________________________//
 // Component of the TransiEnt Library, version: 3.0.0                             //

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Adapters.Check;
+within TransiEnt.Basics.Adapters.Check;
 model Test_QS_to_EPP_with_PiModel "Model for testing an adapter from quasi stationary to epp pin"
 
 

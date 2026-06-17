@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.Statistical;
+within TransiEnt.Components.Boundaries.Statistical;
 model GwpEmissions "Source component for gwp emissions "
 
 

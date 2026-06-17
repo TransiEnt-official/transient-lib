@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Combined.SmallScaleCHP.Specifications;
+within TransiEnt.Producer.Combined.SmallScaleCHP.Specifications;
 record CHP_10MW "CHP 10 MW"
 
 

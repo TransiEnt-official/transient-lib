@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Controllers;
+within TransiEnt.Producer.Electrical.Controllers;
 package Base
 
 

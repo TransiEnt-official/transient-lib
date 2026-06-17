@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Systems.FridgePoolControl.Components.Controller.Check;
+within TransiEnt.Consumer.Systems.FridgePoolControl.Components.Controller.Check;
 model TestENTSOEThermostat
   import TransiEnt;
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Examples.Gas;
+within TransiEnt.Examples.Gas;
 model GasGrid_SubSystem "Very simple gas grid featuring the main components"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Wind;
+within TransiEnt.Producer.Electrical.Wind;
 model Windturbine_SI_dfdt "Pitch controlled WTG with df/dt Synthetic Inertia"
   import TransiEnt;
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.HeatGrid;
+within TransiEnt.Basics.Tables.HeatGrid;
 package HeatGeneration "package containing heat generation data"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat.VolumesValvesFittings.Pipes;
+within TransiEnt.Components.Heat.VolumesValvesFittings.Pipes;
 package Check
 
 

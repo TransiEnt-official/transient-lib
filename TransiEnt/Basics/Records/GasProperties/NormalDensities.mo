@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Records.GasProperties;
+within TransiEnt.Basics.Records.GasProperties;
 record NormalDensities "Record containing densities at STP (T=273.15 K, p=1.01325 bar) for components of natural gas in kg/m3"
 
 

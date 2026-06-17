@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Wind.Base.Check;
+within TransiEnt.Producer.Electrical.Wind.Base.Check;
 model TestWindturbineRotor
 
 

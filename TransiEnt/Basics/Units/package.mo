@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics;
+within TransiEnt.Basics;
 package Units "Library specific unit package"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Electrical.Base;
+within TransiEnt.Storage.Electrical.Base;
 model BatteryPowerLimit "Typically the maximum power limits of storages (both while loading and unloading) depends on the SOC"
 
 

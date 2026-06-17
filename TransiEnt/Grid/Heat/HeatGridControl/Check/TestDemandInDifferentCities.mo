@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Heat.HeatGridControl.Check;
+within TransiEnt.Grid.Heat.HeatGridControl.Check;
 model TestDemandInDifferentCities "Test to check resulting heating demand profiles in different cities"
 
 

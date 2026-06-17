@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Wind;
+within TransiEnt.Producer.Electrical.Wind;
 model PowerProfileWindPlant "Ideal continuous wind plant model based on a power production input (e.g. if wind production data is available from tso), adds to statistics"
 
 

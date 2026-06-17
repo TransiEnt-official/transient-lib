@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Icons;
+within TransiEnt.Basics.Icons;
 partial model RecordModel "Icon for models containing only parameters (similar to records but they can use outer models)"
 
 

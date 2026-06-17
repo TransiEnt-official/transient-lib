@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Heat.PackedBedStorage_L4;
+within TransiEnt.Storage.Heat.PackedBedStorage_L4;
 package Basics
 
 

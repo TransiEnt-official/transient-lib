@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Base;
+within TransiEnt.Producer.Electrical.Base;
 partial model PartialDispatchablePowerPlant "Abstract model of an electric power plant with a power setpoint input connector"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Blocks;
+within TransiEnt.Basics.Blocks;
 block VariableSlewRateLimiter "Limits the signal with upper and lower boundary based on ClaRa VariableGradientLimiter"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Electrical.SecondaryControl;
+within TransiEnt.Grid.Electrical.SecondaryControl;
 model SecondaryBalancingController "Secondary balancing control model as proposed by ENTSO-E operational handbook"
 
 

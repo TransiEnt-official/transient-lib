@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.Electrical.ApparentPower;
+within TransiEnt.Components.Boundaries.Electrical.ApparentPower;
 model ApparentPower "L2 Active and reactive power by parameter or inputs"
 
 

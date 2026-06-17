@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Electrical.Noise.Base;
+within TransiEnt.Grid.Electrical.Noise.Base;
 partial model PartialStochasticGridErrorModel "Base model for prediction errors based on stochastic distributions"
 
 

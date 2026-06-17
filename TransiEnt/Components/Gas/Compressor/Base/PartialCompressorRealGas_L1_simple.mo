@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Gas.Compressor.Base;
+within TransiEnt.Components.Gas.Compressor.Base;
 partial model PartialCompressorRealGas_L1_simple "Partial compressor model for real gases with constant efficiency"
 
 

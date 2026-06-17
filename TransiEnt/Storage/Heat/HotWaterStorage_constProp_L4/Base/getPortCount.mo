@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Heat.HotWaterStorage_constProp_L4.Base;
+within TransiEnt.Storage.Heat.HotWaterStorage_constProp_L4.Base;
 function getPortCount "Returns vector with number of ports per control volume depending on location of fluid connectors"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Electrical.Noise.Base;
+within TransiEnt.Grid.Electrical.Noise.Base;
 partial block PartialGridError "Partial block for grid error modeling"
 
 

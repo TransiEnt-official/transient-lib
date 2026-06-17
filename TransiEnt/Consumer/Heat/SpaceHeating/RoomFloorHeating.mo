@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Heat.SpaceHeating;
+within TransiEnt.Consumer.Heat.SpaceHeating;
 model RoomFloorHeating "Room model with floor heating system"
 
 

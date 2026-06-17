@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Electrical.Base;
+within TransiEnt.Consumer.Electrical.Base;
 model ExponentialStatic
 
 

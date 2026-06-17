@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.SolarThermal.Check;
+within TransiEnt.Producer.Heat.SolarThermal.Check;
 model TestCollectorEN12975 "Tester for a solar collector using the ambient tables and fluid sinks and sources"
   //import TransiEnt;
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Functions.GasProperties;
+within TransiEnt.Basics.Functions.GasProperties;
 function getIdealGasNCV_xi "Adaptive function for net calorific value calculation for ideal gases, input xi"
 
 

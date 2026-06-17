@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Media.Gases;
+within TransiEnt.Basics.Media.Gases;
 record Gas_MoistAir "var {O2,N2,H2O} VDIWA"
 
 

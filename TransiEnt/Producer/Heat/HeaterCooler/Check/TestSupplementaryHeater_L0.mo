@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.HeaterCooler.Check;
+within TransiEnt.Producer.Heat.HeaterCooler.Check;
 model TestSupplementaryHeater_L0
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Gas;
+within TransiEnt.Storage.Gas;
 model UndergroundGasStorageIdealHTInPipes_L2 "Model of a simple gas storage volume with ideal heat transfer in the pipes"
 
 

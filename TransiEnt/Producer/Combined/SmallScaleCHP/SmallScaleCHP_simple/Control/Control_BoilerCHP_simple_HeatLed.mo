@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Combined.SmallScaleCHP.SmallScaleCHP_simple.Control;
+within TransiEnt.Producer.Combined.SmallScaleCHP.SmallScaleCHP_simple.Control;
 model Control_BoilerCHP_simple_HeatLed "Simple 2-point-controller for a heat led CHP system based on SoC or temperature of a heat storage"
 
 

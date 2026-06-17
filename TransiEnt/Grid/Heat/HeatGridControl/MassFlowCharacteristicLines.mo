@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Heat.HeatGridControl;
+within TransiEnt.Grid.Heat.HeatGridControl;
 model MassFlowCharacteristicLines "Model for the specification of the heating water massflow at each feed-in point as a funcion of the total amount of heating water massflow"
 
 

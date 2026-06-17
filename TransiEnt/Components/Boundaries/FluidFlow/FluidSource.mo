@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.FluidFlow;
+within TransiEnt.Components.Boundaries.FluidFlow;
 model FluidSource "Mass flow boundary for new connector"
 
 //________________________________________________________________________________//

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Functions.GasProperties;
+within TransiEnt.Basics.Functions.GasProperties;
 function shortenCompName "shortens the component names in TILMedia Records"
 
 

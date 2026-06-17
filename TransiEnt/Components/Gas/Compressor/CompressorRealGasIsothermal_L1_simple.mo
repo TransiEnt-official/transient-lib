@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Gas.Compressor;
+within TransiEnt.Components.Gas.Compressor;
 model CompressorRealGasIsothermal_L1_simple "Simple isothermal compressor or fan for a one phase VLE fluid"
 
 

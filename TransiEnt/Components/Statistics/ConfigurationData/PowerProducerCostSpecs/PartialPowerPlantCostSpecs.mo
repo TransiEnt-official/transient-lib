@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Statistics.ConfigurationData.PowerProducerCostSpecs;
+within TransiEnt.Components.Statistics.ConfigurationData.PowerProducerCostSpecs;
 partial model PartialPowerPlantCostSpecs "Partial power plant cost specification record"
 
 

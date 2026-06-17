@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Visualization.Check;
+within TransiEnt.Components.Visualization.Check;
 model Test_PQDiagram_Display
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Statistics.ConfigurationData.PowerProducerCostSpecs;
+within TransiEnt.Components.Statistics.ConfigurationData.PowerProducerCostSpecs;
 model GasCCGT "Gas combined cycle plant"
 
 

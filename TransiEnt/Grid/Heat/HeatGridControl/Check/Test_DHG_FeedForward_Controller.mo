@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Heat.HeatGridControl.Check;
+within TransiEnt.Grid.Heat.HeatGridControl.Check;
 model Test_DHG_FeedForward_Controller "Testing of DHNControl and DHNPowerScheluder with power plants"
 
 

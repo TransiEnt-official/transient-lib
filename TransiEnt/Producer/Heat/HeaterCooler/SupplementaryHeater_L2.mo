@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.HeaterCooler;
+within TransiEnt.Producer.Heat.HeaterCooler;
 model SupplementaryHeater_L2 "Model of a boiler that holds temperature in a grid"
 
 

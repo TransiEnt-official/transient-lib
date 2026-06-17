@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Photovoltaics.QuasiStationary.Check;
+within TransiEnt.Producer.Electrical.Photovoltaics.QuasiStationary.Check;
 model TestConstantEfficiencyPVModule
 
 

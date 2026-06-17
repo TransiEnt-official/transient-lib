@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.FuelCellSystems.SteamReformer;
+within TransiEnt.Components.Electrical.FuelCellSystems.SteamReformer;
 package Controller
 
 

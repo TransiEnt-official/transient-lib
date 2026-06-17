@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Systems.HeatpumpSystems.Base;
+within TransiEnt.Consumer.Systems.HeatpumpSystems.Base;
 model DHWHeatpumpSystemDSM "Model for domestic hot water production for demand side management scenarios"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Conventional.Components.Check;
+within TransiEnt.Producer.Electrical.Conventional.Components.Check;
 model CheckNonlinearThreeStatePlant_PrimaryControl "Example of the component NonlinearThreeStatePlant in primary control operation"
 
 

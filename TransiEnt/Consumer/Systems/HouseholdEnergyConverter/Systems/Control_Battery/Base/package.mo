@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Systems.HouseholdEnergyConverter.Systems.Control_Battery;
+within TransiEnt.Consumer.Systems.HouseholdEnergyConverter.Systems.Control_Battery;
 package Base
 
 

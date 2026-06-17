@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.Machines;
+within TransiEnt.Components.Electrical.Machines;
 package Check
 
 

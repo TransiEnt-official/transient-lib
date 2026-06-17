@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Heat;
+within TransiEnt.Consumer.Heat;
 model Consumer_LowTemperatureDHN "Simple model of a thermal consumer for a low temperature DHN including a heat pump and simple fluid ports"
 
 //________________________________________________________________________________//

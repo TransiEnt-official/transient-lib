@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Turbogroups.OperatingStates;
+within TransiEnt.Components.Turbogroups.OperatingStates;
 model PumpstorageStates "Limits input signal by value and gradient depending on active state out of three possible operating states (halt, startup, operating)"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Electrical;
+within TransiEnt.Grid.Electrical;
 package Noise "Load and RE production forecasting errors and typical grid imbalances"
 
 

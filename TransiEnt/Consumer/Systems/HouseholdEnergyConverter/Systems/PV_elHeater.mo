@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Systems.HouseholdEnergyConverter.Systems;
+within TransiEnt.Consumer.Systems.HouseholdEnergyConverter.Systems;
 model PV_elHeater "PV, gas boiler and electrical heater"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer.Controller;
+within TransiEnt.Producer.Gas.Electrolyzer.Controller;
 model TotalFeedInController "Controller to control the electrolyzer system for feeding into a natural gas grid"
 
 

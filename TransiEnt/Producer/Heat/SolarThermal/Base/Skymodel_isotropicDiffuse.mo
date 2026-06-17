@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.SolarThermal.Base;
+within TransiEnt.Producer.Heat.SolarThermal.Base;
 model Skymodel_isotropicDiffuse "Isotropic calculation of the irradiance on a tilted surface"
 
 

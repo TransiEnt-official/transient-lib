@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Electrical;
+within TransiEnt.Storage.Electrical;
 package Specifications "Examplary parameter sets for typical electric energy sotrages"
 
 

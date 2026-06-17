@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Statistics.Collectors.LocalCollectors;
+within TransiEnt.Components.Statistics.Collectors.LocalCollectors;
 partial model PartialCollectCosts "Partial cost collector"
 
 

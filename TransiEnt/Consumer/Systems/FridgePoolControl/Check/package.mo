@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Systems.FridgePoolControl;
+within TransiEnt.Consumer.Systems.FridgePoolControl;
 package Check
 
 

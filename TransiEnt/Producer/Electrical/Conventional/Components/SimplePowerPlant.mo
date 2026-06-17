@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Conventional.Components;
+within TransiEnt.Producer.Electrical.Conventional.Components;
 model SimplePowerPlant "No transient behaviuor, no operating states, constant efficiency (with optional primary balancing controller)"
 
 

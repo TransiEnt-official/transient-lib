@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Blocks.Check;
+within TransiEnt.Basics.Blocks.Check;
 model TestSplineLim "Model for testing the SplineLim model"
 
 

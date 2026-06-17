@@ -1,4 +1,4 @@
-﻿within TransiEnt.Examples.Hamburg;
+within TransiEnt.Examples.Hamburg;
 model SectorCouplingPtH "Example of an electric generation park coupled with a district heating grid and a power-to-heat unit"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer;
+within TransiEnt.Producer;
 package Gas "Gas producer"
 
 

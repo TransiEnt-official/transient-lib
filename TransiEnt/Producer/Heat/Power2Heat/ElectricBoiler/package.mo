@@ -1,5 +1,5 @@
-﻿within TransiEnt.Producer.Heat.Power2Heat;
-package ElectricBoiler 
+within TransiEnt.Producer.Heat.Power2Heat;
+package ElectricBoiler  
 
 
 

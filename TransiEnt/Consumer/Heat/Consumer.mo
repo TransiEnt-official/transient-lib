@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Heat;
+within TransiEnt.Consumer.Heat;
 model Consumer "Simple model of a thermal consumer with simple fluid ports"
 
 //________________________________________________________________________________//

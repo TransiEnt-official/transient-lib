@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Records.GasProperties;
+within TransiEnt.Basics.Records.GasProperties;
 record GrossCalorificValues "Record containing the gross calorific values for different molecules in J per kg for 25 °C"
 
 

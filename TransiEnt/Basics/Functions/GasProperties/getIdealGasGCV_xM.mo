@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Functions.GasProperties;
+within TransiEnt.Basics.Functions.GasProperties;
 function getIdealGasGCV_xM "Adaptive function for gross calorific value calculation from molar GCVs, input x and M"
   // LA: has to be adapted according to the realGas function, but adaptions in models where the function is used are also necessary!
 

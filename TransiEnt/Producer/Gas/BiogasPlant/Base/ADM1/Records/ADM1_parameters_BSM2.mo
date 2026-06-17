@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.BiogasPlant.Base.ADM1.Records;
+within TransiEnt.Producer.Gas.BiogasPlant.Base.ADM1.Records;
 record ADM1_parameters_BSM2 "Record with the bsm2 parameters"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics;
+within TransiEnt.Basics;
 package Records "General Records e.g. used for summary of important variables"
 
 

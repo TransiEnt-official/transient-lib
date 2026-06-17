@@ -1,4 +1,4 @@
-﻿within TransiEnt.SystemGeneration.GridConstructor.Check;
+within TransiEnt.SystemGeneration.GridConstructor.Check;
 model TestGridConstructor_noGasGrid
 
 

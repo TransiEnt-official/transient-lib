@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Systems.HouseholdEnergyConverter.Check;
+within TransiEnt.Consumer.Systems.HouseholdEnergyConverter.Check;
 model TestEnergyConverter_All
 
 

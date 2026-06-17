@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Systems.PVBatteryPoolControl.Base;
+within TransiEnt.Consumer.Systems.PVBatteryPoolControl.Base;
 expandable connector PoolControlBus "Empty control bus that is adapted to the signals connected to it"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Sensors;
+within TransiEnt.Components.Sensors;
 package IdealGas "Containing sensors for gases with IdealGasPorts as interfaces"
 
 

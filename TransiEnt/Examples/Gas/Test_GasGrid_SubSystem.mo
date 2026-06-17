@@ -1,4 +1,4 @@
-﻿within TransiEnt.Examples.Gas;
+within TransiEnt.Examples.Gas;
 model Test_GasGrid_SubSystem
 
 

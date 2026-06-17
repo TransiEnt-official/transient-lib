@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Heat.PackedBedStorage_L4.Basics.EffectiveThermalConductivity;
+within TransiEnt.Storage.Heat.PackedBedStorage_L4.Basics.EffectiveThermalConductivity;
 model ZehnerBauerSchluender "Zehner/Bauer/Schluender Correlation"
 
 

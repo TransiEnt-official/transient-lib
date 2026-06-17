@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Electrical.GridConnector;
+within TransiEnt.Grid.Electrical.GridConnector;
 package Check
 
 

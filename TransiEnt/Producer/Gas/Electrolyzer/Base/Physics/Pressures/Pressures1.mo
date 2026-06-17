@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer.Base.Physics.Pressures;
+within TransiEnt.Producer.Gas.Electrolyzer.Base.Physics.Pressures;
 model Pressures1
   "PEMElectrolyzer partial pressures as modeled by Espinosa, 2018"
   //The following must all be calculated in the Pressure model or else provided externally (p_cat operating pressure).

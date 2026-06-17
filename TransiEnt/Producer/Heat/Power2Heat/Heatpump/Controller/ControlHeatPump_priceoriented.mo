@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.Power2Heat.Heatpump.Controller;
+within TransiEnt.Producer.Heat.Power2Heat.Heatpump.Controller;
 model ControlHeatpump_priceoriented "Operation preferably at low energy prices, if bivalent mode selected, heater will switch on additionally to heatpump"
 
 

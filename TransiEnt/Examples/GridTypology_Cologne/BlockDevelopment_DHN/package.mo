@@ -1,4 +1,4 @@
-﻿within TransiEnt.Examples.GridTypology_Cologne;
+within TransiEnt.Examples.GridTypology_Cologne;
 package BlockDevelopment_DHN
 
 

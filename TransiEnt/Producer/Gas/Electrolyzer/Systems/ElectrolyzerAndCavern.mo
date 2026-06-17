@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer.Systems;
+within TransiEnt.Producer.Gas.Electrolyzer.Systems;
 model ElectrolyzerAndCavern "Simple model of an electrolyzer plant and a hydrogen cavern (use with: TransiEnt.Producer.Combined.LargeScaleCHP.H2CofiringCHP)"
 
 

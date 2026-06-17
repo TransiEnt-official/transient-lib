@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.MethanatorSystem.EquilibriumModel;
+within TransiEnt.Producer.Gas.MethanatorSystem.EquilibriumModel;
 model MethanationThreeStages "three staged methanation reactor with intermediate cooling"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Statistics.ConfigurationData.GeneralCostSpecs;
+within TransiEnt.Components.Statistics.ConfigurationData.GeneralCostSpecs;
 model FillingStation "Cost model for hydrogen trailer filling station"
 
 

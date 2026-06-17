@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat.VolumesValvesFittings.Pipes;
+within TransiEnt.Components.Heat.VolumesValvesFittings.Pipes;
 model Pipe "Pipe model. Extends form Clara TubeBundle_L1_TML component"
 
 

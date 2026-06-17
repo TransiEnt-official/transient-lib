@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.FuelCellSystems.SteamReformer.Controller;
+within TransiEnt.Components.Electrical.FuelCellSystems.SteamReformer.Controller;
 model OC_SC_Controller
 
 

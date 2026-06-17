@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.Base;
+within TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.Base;
 model HT_Single_Buried_L2 "Heat Transfer Calculation with spatialDistribution() for a single buried pipe"
 
 

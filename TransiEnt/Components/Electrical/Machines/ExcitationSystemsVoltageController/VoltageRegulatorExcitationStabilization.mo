@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.Machines.ExcitationSystemsVoltageController;
+within TransiEnt.Components.Electrical.Machines.ExcitationSystemsVoltageController;
 model VoltageRegulatorExcitationStabilization "Simple Voltage Controller with PT1-dynamics of excitation and stabilization by feedback"
 
 

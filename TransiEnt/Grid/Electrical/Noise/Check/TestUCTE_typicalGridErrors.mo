@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Electrical.Noise.Check;
+within TransiEnt.Grid.Electrical.Noise.Check;
 model TestUCTE_typicalGridErrors "Example of the component PowerPlant_PoutGrad_L1"
 
 

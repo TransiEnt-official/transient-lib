@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Systems.HouseholdEnergyConverter;
+within TransiEnt.Consumer.Systems.HouseholdEnergyConverter;
 model EnergyConverter "Replaceable systems for household technologies based on the energy hub principle."
 
 

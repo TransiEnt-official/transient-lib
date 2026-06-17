@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer.Controller;
+within TransiEnt.Producer.Gas.Electrolyzer.Controller;
 model FeedInStorageTWVController "Controller to control the three way valve after the electrolyzer to grid and storage"
 
 

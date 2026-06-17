@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Gas.Engines.Check;
+within TransiEnt.Components.Gas.Engines.Check;
 model Test_Engine_idealGas
 
 

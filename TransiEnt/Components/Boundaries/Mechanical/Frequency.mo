@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.Mechanical;
+within TransiEnt.Components.Boundaries.Mechanical;
 model Frequency "Fixed mechanical frequency boundary"
 
 

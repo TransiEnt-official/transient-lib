@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.Grid.Components;
+within TransiEnt.Components.Electrical.Grid.Components;
 package Base
 
 

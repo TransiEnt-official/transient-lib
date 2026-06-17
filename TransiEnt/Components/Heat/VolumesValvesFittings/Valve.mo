@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat.VolumesValvesFittings;
+within TransiEnt.Components.Heat.VolumesValvesFittings;
 model Valve "Valve model. Extends from ClaRa ValveVLE_L1"
 
 

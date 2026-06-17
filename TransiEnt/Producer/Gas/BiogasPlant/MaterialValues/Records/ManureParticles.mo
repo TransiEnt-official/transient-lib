@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.BiogasPlant.MaterialValues.Records;
+within TransiEnt.Producer.Gas.BiogasPlant.MaterialValues.Records;
 record ManureParticles "Record for suspended particles in manure"
 
 

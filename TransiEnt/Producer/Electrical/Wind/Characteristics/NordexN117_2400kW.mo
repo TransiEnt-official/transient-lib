@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Wind.Characteristics;
+within TransiEnt.Producer.Electrical.Wind.Characteristics;
 record NordexN117_2400kW "Nordex model N117 2400kW"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Gas.Check;
+within TransiEnt.Grid.Gas.Check;
 model TestGasGridHamburg "High pressure gas grid of Hamburg with constant gross calorific value at consumption side"
 
 

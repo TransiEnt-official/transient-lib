@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat;
+within TransiEnt.Components.Heat;
 package ElectricAirHeater
 
 

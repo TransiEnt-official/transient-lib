@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.Power2Heat.Heatpump.Controller;
+within TransiEnt.Producer.Heat.Power2Heat.Heatpump.Controller;
 model ControlHeatpump_PVoriented "Operation preferably when excess PV energy available, if bivalent mode selected, heater will switch on additionally to heatpump"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Gas.Compressor.Check;
+within TransiEnt.Components.Gas.Compressor.Check;
 model TestCompressors "Model for testing compressors"
 
 

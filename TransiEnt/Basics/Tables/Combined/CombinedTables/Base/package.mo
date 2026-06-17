@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.Combined.CombinedTables;
+within TransiEnt.Basics.Tables.Combined.CombinedTables;
 package Base
 
 

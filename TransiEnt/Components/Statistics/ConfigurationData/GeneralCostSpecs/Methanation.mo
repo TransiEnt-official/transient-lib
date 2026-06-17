@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Statistics.ConfigurationData.GeneralCostSpecs;
+within TransiEnt.Components.Statistics.ConfigurationData.GeneralCostSpecs;
 model Methanation "Methanation 2020"
 
 

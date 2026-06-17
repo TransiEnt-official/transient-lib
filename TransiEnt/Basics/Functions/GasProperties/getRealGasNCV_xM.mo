@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Functions.GasProperties;
+within TransiEnt.Basics.Functions.GasProperties;
 function getRealGasNCV_xM "Adaptive function for net calorific value calculation for real gases from molar NCVs, input x and M"
 
 

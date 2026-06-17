@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Heat;
+within TransiEnt.Grid.Heat;
 package HeatGridAnalysis
 
 

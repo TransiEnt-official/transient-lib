@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.PowerTransformation.Check;
+within TransiEnt.Components.Electrical.PowerTransformation.Check;
 model GridN5AreaFirstVoltageCollapse "Example model for voltage collapse for testing OLTC"
 
 

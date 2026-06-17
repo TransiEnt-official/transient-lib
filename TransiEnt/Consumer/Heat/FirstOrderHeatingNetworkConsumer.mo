@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Heat;
+within TransiEnt.Consumer.Heat;
 model FirstOrderHeatingNetworkConsumer "Heating network consumer, mass flow control dynamic approximated by first order system"
 
 

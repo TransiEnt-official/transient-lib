@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Heat;
+within TransiEnt.Consumer.Heat;
 model Consumer_SLP "Simple model of a thermal consumer with a table-based heat flow (standard load profile) and simple fluid ports"
 
 //________________________________________________________________________________//

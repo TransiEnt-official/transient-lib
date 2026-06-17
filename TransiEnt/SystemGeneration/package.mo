@@ -1,4 +1,4 @@
-﻿within TransiEnt;
+within TransiEnt;
 package SystemGeneration
 
 

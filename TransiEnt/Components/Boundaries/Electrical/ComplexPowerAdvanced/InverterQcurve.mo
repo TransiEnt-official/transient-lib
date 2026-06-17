@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.Electrical.ComplexPowerAdvanced;
+within TransiEnt.Components.Boundaries.Electrical.ComplexPowerAdvanced;
 model InverterQcurve "Steady-sate inverter model with Q(v)-curve"
 
 

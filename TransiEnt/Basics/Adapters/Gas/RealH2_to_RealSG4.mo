@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Adapters.Gas;
+within TransiEnt.Basics.Adapters.Gas;
 model RealH2_to_RealSG4 "Adapter that switches from real H2 to real SG4 fluid models"
 
 

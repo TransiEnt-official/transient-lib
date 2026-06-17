@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.Ambient;
+within TransiEnt.Basics.Tables.Ambient;
 model GHI_Hamburg_3600s_2012_TMY "Hamburg's global horizontal, 1 h resolution, Source: IWEC"
 
 

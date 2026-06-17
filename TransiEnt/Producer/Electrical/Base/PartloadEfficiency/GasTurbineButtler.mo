@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Base.PartloadEfficiency;
+within TransiEnt.Producer.Electrical.Base.PartloadEfficiency;
 record GasTurbineButtler "Gas turbine part load efficiency by Buttler et al. 2015"
 
 

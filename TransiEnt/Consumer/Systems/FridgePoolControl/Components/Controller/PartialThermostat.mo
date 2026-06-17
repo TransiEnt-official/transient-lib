@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Systems.FridgePoolControl.Components.Controller;
+within TransiEnt.Consumer.Systems.FridgePoolControl.Components.Controller;
 partial model PartialThermostat "Blueprint for thermostat models"
 
 

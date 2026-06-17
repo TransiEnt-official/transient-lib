@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.Heat;
+within TransiEnt.Components.Boundaries.Heat;
 model Heatflow_L1_idContrQFlow_temp "Heat flow boundary with ideal heat flow rate control to get a given outlet temperature"
 
 

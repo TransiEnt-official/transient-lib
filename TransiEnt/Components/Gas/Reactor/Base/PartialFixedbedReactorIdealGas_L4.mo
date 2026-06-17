@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Gas.Reactor.Base;
+within TransiEnt.Components.Gas.Reactor.Base;
 partial model PartialFixedbedReactorIdealGas_L4 "Discretized model of a fixed-bed reactor using ideal gas models"
 
 

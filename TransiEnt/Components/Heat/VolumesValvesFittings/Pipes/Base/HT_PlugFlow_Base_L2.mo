@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.Base;
+within TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.Base;
 partial model HT_PlugFlow_Base_L2 "Base class for PlugFlow Heat Transfer Models"
 
 

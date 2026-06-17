@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.Gas2Heat;
+within TransiEnt.Producer.Heat.Gas2Heat;
 model HeatPumpGasCharline "Gas heat pump model that produces a given heat flow via fluid ports with a charline"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid;
+within TransiEnt.Grid;
 package Electrical "electric power distribution systems"
 
 

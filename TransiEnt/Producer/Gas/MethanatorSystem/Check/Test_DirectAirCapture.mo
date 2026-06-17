@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.MethanatorSystem.Check;
+within TransiEnt.Producer.Gas.MethanatorSystem.Check;
 model Test_DirectAirCapture
 
 

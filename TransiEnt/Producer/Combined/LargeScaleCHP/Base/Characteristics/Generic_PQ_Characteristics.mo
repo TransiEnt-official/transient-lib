@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Combined.LargeScaleCHP.Base.Characteristics;
+within TransiEnt.Producer.Combined.LargeScaleCHP.Base.Characteristics;
 record Generic_PQ_Characteristics "record for generic PQ characteristics (empty)"
 
 

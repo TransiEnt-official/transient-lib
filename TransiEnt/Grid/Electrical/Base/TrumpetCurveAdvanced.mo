@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Electrical.Base;
+within TransiEnt.Grid.Electrical.Base;
 block TrumpetCurveAdvanced
 
 

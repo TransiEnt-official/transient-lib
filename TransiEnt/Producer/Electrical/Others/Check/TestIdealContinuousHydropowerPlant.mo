@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Others.Check;
+within TransiEnt.Producer.Electrical.Others.Check;
 model TestIdealContinuousHydropowerPlant
 
 

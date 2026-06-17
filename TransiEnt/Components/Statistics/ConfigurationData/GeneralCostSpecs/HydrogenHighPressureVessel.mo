@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Statistics.ConfigurationData.GeneralCostSpecs;
+within TransiEnt.Components.Statistics.ConfigurationData.GeneralCostSpecs;
 model HydrogenHighPressureVessel "Hydrogen high pressure vessels (40...8000 m3 stp, >200 bar)"
 
 

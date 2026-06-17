@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Blocks;
+within TransiEnt.Basics.Blocks;
 model UserDefinedFunctionMISO "MISO User defined function"
 
 

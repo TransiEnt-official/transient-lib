@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Gas.Check;
+within TransiEnt.Storage.Gas.Check;
 model TestUndergroundGasStorageIdealHTInPipes_L2
 
 

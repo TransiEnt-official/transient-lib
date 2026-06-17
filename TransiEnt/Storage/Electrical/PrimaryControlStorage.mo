@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Electrical;
+within TransiEnt.Storage.Electrical;
 model PrimaryControlStorage "Battery model participating on primary control"
 
 

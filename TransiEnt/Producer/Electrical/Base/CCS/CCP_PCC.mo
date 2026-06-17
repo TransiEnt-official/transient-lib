@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Base.CCS;
+within TransiEnt.Producer.Electrical.Base.CCS;
 record CCP_PCC "CCGT-power plant with PCC"
 
 

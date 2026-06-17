@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Records.GasProperties;
+within TransiEnt.Basics.Records.GasProperties;
 record StoichiometricCoefficientsCombustion "Record containing the elementary composition of different molecules"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Heat.HotWaterStorage_L4;
+within TransiEnt.Storage.Heat.HotWaterStorage_L4;
 model HotWaterStorage_L4 "Temperature and Heat flow rate based model of a stratified thermal storage with finite volume discretisation (1=top, n=bottom)"
 
 

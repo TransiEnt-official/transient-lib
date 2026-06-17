@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Systems.PVBatteryPoolControl.Base.Check;
+within TransiEnt.Consumer.Systems.PVBatteryPoolControl.Base.Check;
 model CheckPoolControlBusSumUp
 
 

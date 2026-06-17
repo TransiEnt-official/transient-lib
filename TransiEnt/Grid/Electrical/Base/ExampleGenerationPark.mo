@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Electrical.Base;
+within TransiEnt.Grid.Electrical.Base;
 record ExampleGenerationPark "Generation park defining one unit for each type of power plant in the Transient Library"
 
 

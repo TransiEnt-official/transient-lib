@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.BiogasPlant;
+within TransiEnt.Producer.Gas.BiogasPlant;
 model StirredTankReactor "Model of a stirred tank reactor"
 
 

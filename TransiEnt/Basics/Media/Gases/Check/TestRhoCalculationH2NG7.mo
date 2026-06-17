@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Media.Gases.Check;
+within TransiEnt.Basics.Media.Gases.Check;
 model TestRhoCalculationH2NG7
 
 

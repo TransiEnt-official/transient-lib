@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.Grid.Check;
+within TransiEnt.Components.Electrical.Grid.Check;
 model TestPiModel "Model for testing PiModel"
 
 

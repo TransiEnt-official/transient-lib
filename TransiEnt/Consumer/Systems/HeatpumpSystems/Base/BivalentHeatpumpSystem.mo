@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Systems.HeatpumpSystems.Base;
+within TransiEnt.Consumer.Systems.HeatpumpSystems.Base;
 model BivalentHeatpumpSystem "Model of a bivalent heat pump system"
 
 

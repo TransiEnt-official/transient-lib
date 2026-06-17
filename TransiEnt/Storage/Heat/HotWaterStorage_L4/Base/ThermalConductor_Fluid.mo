@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Heat.HotWaterStorage_L4.Base;
+within TransiEnt.Storage.Heat.HotWaterStorage_L4.Base;
 model ThermalConductor_Fluid "Thermal Conduction between two fluid layers (based on ThermalConductor from MSL)"
 
 

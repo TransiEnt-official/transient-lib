@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Heat.HotWaterStorage_L4.Base;
+within TransiEnt.Storage.Heat.HotWaterStorage_L4.Base;
 partial model Partial_Geometry "Partial model of storage geometry"
 
 

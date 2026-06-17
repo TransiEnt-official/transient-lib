@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Electrical.Base;
+within TransiEnt.Storage.Electrical.Base;
 model BatterySystemEfficiency "Typical characteristic line of battery system efficiency (including inverter efficiency)"
 
 

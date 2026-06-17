@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Electrical.SecondaryControl;
+within TransiEnt.Grid.Electrical.SecondaryControl;
 package Check
 
 

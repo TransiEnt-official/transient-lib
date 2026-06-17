@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Photovoltaics.Advanced_PV.Check;
+within TransiEnt.Producer.Electrical.Photovoltaics.Advanced_PV.Check;
 model Test_Advanced_PV_WeatherHamburg
 
 

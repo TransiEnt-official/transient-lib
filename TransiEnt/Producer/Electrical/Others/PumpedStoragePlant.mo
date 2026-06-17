@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Others;
+within TransiEnt.Producer.Electrical.Others;
 model PumpedStoragePlant "Pumped storage plant model without consideration of capacity limits but with six operating states"
 
 

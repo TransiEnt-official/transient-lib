@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Gas.Combustion.Check;
+within TransiEnt.Components.Gas.Combustion.Check;
 model TestBurner_L1 "Model for testing the Burner_L1 model"
 
 

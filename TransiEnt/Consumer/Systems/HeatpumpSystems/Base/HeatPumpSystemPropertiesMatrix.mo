@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Systems.HeatpumpSystems.Base;
+within TransiEnt.Consumer.Systems.HeatpumpSystems.Base;
 record HeatPumpSystemPropertiesMatrix "Heatpump System properties defined by a real matrix A for automatic pool simulations"
 
 

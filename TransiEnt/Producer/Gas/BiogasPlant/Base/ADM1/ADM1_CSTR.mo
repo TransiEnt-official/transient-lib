@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.BiogasPlant.Base.ADM1;
+within TransiEnt.Producer.Gas.BiogasPlant.Base.ADM1;
 model ADM1_CSTR "Modelling anaerobic digestion model number 1 equations"
 
 

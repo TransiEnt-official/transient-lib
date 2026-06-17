@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer;
+within TransiEnt.Producer;
 package Combined "systems that generate thermal and electrical power"
 
 

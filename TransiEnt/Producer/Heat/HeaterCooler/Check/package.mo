@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.HeaterCooler;
+within TransiEnt.Producer.Heat.HeaterCooler;
 package Check
 
 

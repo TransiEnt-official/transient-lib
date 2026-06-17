@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage;
+within TransiEnt.Storage;
 package Electrical "Non physical model for all kings of storages"
 
 

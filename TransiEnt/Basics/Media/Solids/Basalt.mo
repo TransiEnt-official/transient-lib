@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Media.Solids;
+within TransiEnt.Basics.Media.Solids;
 model Basalt "Basalt | data from Nahhas(2019) | temperature dependent cp and lambda"
 
 

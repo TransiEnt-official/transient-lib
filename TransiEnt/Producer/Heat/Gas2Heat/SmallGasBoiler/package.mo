@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.Gas2Heat;
+within TransiEnt.Producer.Heat.Gas2Heat;
 package SmallGasBoiler "package containing small-scale gas boiler models"
 
 

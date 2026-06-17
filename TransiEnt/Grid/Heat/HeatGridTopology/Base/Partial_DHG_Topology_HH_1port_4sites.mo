@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Heat.HeatGridTopology.Base;
+within TransiEnt.Grid.Heat.HeatGridTopology.Base;
 model Partial_DHG_Topology_HH_1port_4sites
 
 

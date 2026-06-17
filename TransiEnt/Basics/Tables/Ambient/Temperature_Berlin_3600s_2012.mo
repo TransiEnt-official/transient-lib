@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.Ambient;
+within TransiEnt.Basics.Tables.Ambient;
 model Temperature_Berlin_3600s_2012 "Berlin 2012, 1 h  resolution. Source: WebWerdis"
 
 

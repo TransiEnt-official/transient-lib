@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Combined.SmallScaleCHP.Base;
+within TransiEnt.Producer.Combined.SmallScaleCHP.Base;
 record BaseCHPSpecification "Record used for specification of a CHP"
 
 

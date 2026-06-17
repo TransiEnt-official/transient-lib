@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Gas.GasCleaning.Check;
+within TransiEnt.Components.Gas.GasCleaning.Check;
 model TestDryer_L1
 
 

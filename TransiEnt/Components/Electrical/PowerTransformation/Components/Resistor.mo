@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.PowerTransformation.Components;
+within TransiEnt.Components.Electrical.PowerTransformation.Components;
 model Resistor "Modell for a specific Resistor. Resistance will be calculated from length and specific resistance"
 
 

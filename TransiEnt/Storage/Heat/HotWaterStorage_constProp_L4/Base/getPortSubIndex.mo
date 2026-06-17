@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Heat.HotWaterStorage_constProp_L4.Base;
+within TransiEnt.Storage.Heat.HotWaterStorage_constProp_L4.Base;
 function getPortSubIndex "Returns index of control volumes fluid port for input fluid connectors"
 
 

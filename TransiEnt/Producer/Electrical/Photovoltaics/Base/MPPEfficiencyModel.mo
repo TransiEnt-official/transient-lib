@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Photovoltaics.Base;
+within TransiEnt.Producer.Electrical.Photovoltaics.Base;
 block MPPEfficiencyModel "This efficiency model is taken from [4] Beyer, H.G., Heilscher, G., Bofinger, S. (2004): A robust model for the MPP performance 
       of different types of PV-modules applied for the performance check of grid connected 
       systems. In: Proc. Eurosun 2004, Freiburg "

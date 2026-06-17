@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.Ambient.Base;
+within TransiEnt.Components.Boundaries.Ambient.Base;
 partial model PartialTemperature "Model for creating an output for partial temperature"
 
 

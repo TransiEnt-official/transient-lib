@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Base;
+within TransiEnt.Storage.Base;
 partial model PartialStationaryLoss "Abstract block to calculate stationary loss energy rate in storage models"
 
 

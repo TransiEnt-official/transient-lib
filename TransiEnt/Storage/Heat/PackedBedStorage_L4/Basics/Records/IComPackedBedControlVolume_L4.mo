@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Heat.PackedBedStorage_L4.Basics.Records;
+within TransiEnt.Storage.Heat.PackedBedStorage_L4.Basics.Records;
 record IComPackedBedControlVolume_L4
 
 

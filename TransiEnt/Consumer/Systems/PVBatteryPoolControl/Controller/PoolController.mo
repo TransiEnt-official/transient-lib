@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Systems.PVBatteryPoolControl.Controller;
+within TransiEnt.Consumer.Systems.PVBatteryPoolControl.Controller;
 model PoolController "Collects power potentials and distributes set power shares"
 
 

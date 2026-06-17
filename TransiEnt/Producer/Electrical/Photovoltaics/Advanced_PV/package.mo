@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Photovoltaics;
+within TransiEnt.Producer.Electrical.Photovoltaics;
 package Advanced_PV
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Systems.HouseholdEnergyConverter.Systems;
+within TransiEnt.Consumer.Systems.HouseholdEnergyConverter.Systems;
 model CHP_Boiler_Storage "CHP unit, thermal storage and gas boiler"
 
 

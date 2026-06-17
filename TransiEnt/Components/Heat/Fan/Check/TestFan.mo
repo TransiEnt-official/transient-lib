@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat.Fan.Check;
+within TransiEnt.Components.Heat.Fan.Check;
 model TestFan
 
 

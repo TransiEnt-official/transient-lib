@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical;
+within TransiEnt.Components.Electrical;
 package Machines "Eletric Machines (asynchronous and synchronous generators and motors)"
 
 

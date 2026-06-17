@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Mechanical;
+within TransiEnt.Components.Mechanical;
 model TwoStateInertiaWithIdealClutch "1D-rotational component with inertia. Sends zero inertia to statistics if shut down signal is true"
 
 

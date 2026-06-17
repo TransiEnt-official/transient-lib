@@ -1,4 +1,4 @@
-﻿within TransiEnt.SystemGeneration.Superstructure.Components.GasGrid;
+within TransiEnt.SystemGeneration.Superstructure.Components.GasGrid;
 model GasGrid_JunctionWithConstantPressureSource "Model of a gas grid with a constant pressure indefinite gas source connected to a mixing volume with a pipeline"
 
 //________________________________________________________________________________//

@@ -1,4 +1,4 @@
-﻿within TransiEnt.SystemGeneration.GridConstructor.Base;
+within TransiEnt.SystemGeneration.GridConstructor.Base;
 partial model PartialGridCell
 
 

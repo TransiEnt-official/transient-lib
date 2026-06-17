@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat.Fan;
+within TransiEnt.Components.Heat.Fan;
 model Fan_L1 "Simple L1 model for fan"
 
 

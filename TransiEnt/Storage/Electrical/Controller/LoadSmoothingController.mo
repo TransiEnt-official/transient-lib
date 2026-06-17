@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Electrical.Controller;
+within TransiEnt.Storage.Electrical.Controller;
 model LoadSmoothingController "Input is a (residual-)load signal and output is the set point power for a storage model that does everything to smooth the load "
 
 

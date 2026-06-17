@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Heat.HeatGridControl.HeatDemandPrediction;
+within TransiEnt.Grid.Heat.HeatGridControl.HeatDemandPrediction;
 model HeatingGenerationCharline "Characteristic line of the heating load in function of the ambient temperature"
 
 

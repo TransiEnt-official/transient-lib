@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Media.Gases;
+within TransiEnt.Basics.Media.Gases;
 package Check "Test media properties"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Icons;
+within TransiEnt.Basics.Icons;
 partial class PtG "Icon for power to gas plant including electrolyser and compressor"
 
 

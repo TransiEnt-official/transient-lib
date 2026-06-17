@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Interfaces.Thermal;
+within TransiEnt.Basics.Interfaces.Thermal;
 connector FluidPortOut_simple "Outlet for hydraulic grid simulations"
 //________________________________________________________________________________//
 // Component of the TransiEnt Library, version: 3.0.0                             //

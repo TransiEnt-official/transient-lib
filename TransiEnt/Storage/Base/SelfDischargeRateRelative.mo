@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Base;
+within TransiEnt.Storage.Base;
 model SelfDischargeRateRelative "Stationary Loss approximated by self discharge rate relative to current stored Energy e.g. 50%/h"
 
 

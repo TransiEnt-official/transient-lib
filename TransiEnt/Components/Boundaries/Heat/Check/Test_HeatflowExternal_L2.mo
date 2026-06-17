@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.Heat.Check;
+within TransiEnt.Components.Boundaries.Heat.Check;
 model Test_HeatflowExternal_L2 "Model for testing Heatflow_External_L2"
 
 

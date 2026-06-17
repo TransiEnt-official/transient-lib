@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Icons;
+within TransiEnt.Basics.Icons;
 partial model RealToRealAdapter "Icon for real to real adapters"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Conventional.Check;
+within TransiEnt.Producer.Electrical.Conventional.Check;
 model CheckBlackCoal
 
 

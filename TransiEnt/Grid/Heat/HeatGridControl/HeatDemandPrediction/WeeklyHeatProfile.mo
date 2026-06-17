@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Heat.HeatGridControl.HeatDemandPrediction;
+within TransiEnt.Grid.Heat.HeatGridControl.HeatDemandPrediction;
 model WeeklyHeatProfile "Normalized typical daily load profile is applied to input heat demand"
 
 

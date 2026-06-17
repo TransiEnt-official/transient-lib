@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Gas.HeatExchanger.Check;
+within TransiEnt.Components.Gas.HeatExchanger.Check;
 model CheckHEXOneRealGasOuterTIdeal_L1
 
 

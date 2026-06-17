@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Gas.GasCleaning;
+within TransiEnt.Components.Gas.GasCleaning;
 model PressureSwingAdsorptionReactor_L1 "Pressure swing adsorption reactor with constant efficiency of hydrogen separation"
 
 

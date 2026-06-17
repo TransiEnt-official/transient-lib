@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Functions.GasProperties.Check;
+within TransiEnt.Basics.Functions.GasProperties.Check;
 model TestGCVCalculation "Tester for adaptive gross calorific value calculation"
 
 

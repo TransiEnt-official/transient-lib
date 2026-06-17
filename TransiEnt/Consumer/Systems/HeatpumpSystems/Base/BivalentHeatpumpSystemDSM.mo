@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Systems.HeatpumpSystems.Base;
+within TransiEnt.Consumer.Systems.HeatpumpSystems.Base;
 model BivalentHeatpumpSystemDSM "Model of a bivalent heat pump system for demand side management scenarios"
 
 

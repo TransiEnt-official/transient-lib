@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Statistics.Collectors.LocalCollectors;
+within TransiEnt.Components.Statistics.Collectors.LocalCollectors;
 model StorageCost "Generatl storage cost model (can be used by all kinds of storages)"
 
 

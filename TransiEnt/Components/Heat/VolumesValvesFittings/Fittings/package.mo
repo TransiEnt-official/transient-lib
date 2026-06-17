@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat.VolumesValvesFittings;
+within TransiEnt.Components.Heat.VolumesValvesFittings;
 package Fittings
 
 

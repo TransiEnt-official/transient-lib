@@ -1,4 +1,4 @@
-﻿within TransiEnt.SystemGeneration.GridConstructor.DataRecords;
+within TransiEnt.SystemGeneration.GridConstructor.DataRecords;
 record CablePipeParameters "Record containing the (default) values of cable and pipe parameters"
 
 

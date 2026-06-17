@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Heat.PackedBedStorage_L4.Basics.HeatTransfer;
+within TransiEnt.Storage.Heat.PackedBedStorage_L4.Basics.HeatTransfer;
 package PackedBedToAir
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Functions.GasProperties;
+within TransiEnt.Basics.Functions.GasProperties;
 function getRealGasNCVmVector "Function to get molar net calorific value vactor for real gases"
 
 

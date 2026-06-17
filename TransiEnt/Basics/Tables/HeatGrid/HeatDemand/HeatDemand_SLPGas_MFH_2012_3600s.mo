@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.HeatGrid.HeatDemand;
+within TransiEnt.Basics.Tables.HeatGrid.HeatDemand;
 model HeatDemand_SLPGas_MFH_2012_3600s "SLP Gas for heating and hot-Water energy demand for multi-family houses scaled to 1 J"
 
 

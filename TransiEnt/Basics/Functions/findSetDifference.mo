@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Functions;
+within TransiEnt.Basics.Functions;
 function findSetDifference "Creates a vector which only contains the elements of vector which do not exist in subset"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.Base;
+within TransiEnt.Producer.Heat.Base;
 partial model XtH_L1_idContrMFlow_temp_base "Base class for heat producers with a pump with ideal mass flow control to get a given outlet temperature"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Systems.FridgePoolControl.Components.Base;
+within TransiEnt.Consumer.Systems.FridgePoolControl.Components.Base;
 model CoolingUnit2ports "Simple cooling unit model with two ports for fridge and freezer heat flow"
 
 

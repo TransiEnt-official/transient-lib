@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Blocks;
+within TransiEnt.Basics.Blocks;
 block SmoothLimPID "P, PI, PD, and PID controller with smoothed limited output, anti-windup compensation and setpoint weighting"
 
 

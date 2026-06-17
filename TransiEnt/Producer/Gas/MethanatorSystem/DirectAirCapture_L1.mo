@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.MethanatorSystem;
+within TransiEnt.Producer.Gas.MethanatorSystem;
 model DirectAirCapture_L1
 
 

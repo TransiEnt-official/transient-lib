@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer.Base.Physics.Temperature;
+within TransiEnt.Producer.Gas.Electrolyzer.Base.Physics.Temperature;
 partial model PartialTemperature
   "partial model for PEM electrolyzer Temperature model"
 

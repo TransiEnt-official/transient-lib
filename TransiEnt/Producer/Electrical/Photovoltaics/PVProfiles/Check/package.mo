@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Photovoltaics.PVProfiles;
+within TransiEnt.Producer.Electrical.Photovoltaics.PVProfiles;
 package Check
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Base.PartloadEfficiency;
+within TransiEnt.Producer.Electrical.Base.PartloadEfficiency;
 record CCGTButtler "CCGT part load efficiency after Buttler et al. 2015"
 
 

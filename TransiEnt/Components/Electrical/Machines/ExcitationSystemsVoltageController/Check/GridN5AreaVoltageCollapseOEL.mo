@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.Machines.ExcitationSystemsVoltageController.Check;
+within TransiEnt.Components.Electrical.Machines.ExcitationSystemsVoltageController.Check;
 model GridN5AreaVoltageCollapseOEL "Test of Excitation Systems with Over Excitation System"
 
 

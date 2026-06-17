@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Base.PartloadEfficiency;
+within TransiEnt.Producer.Electrical.Base.PartloadEfficiency;
 record PartloadEfficiencyCharacteristic "Partial model for records containing part load efficiency table data."
 
 

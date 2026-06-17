@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Electrical.Specifications;
+within TransiEnt.Storage.Electrical.Specifications;
 package DetailedFlywheel "Contains records for flywheel configurations for detailed (L2) flywheel model"
 
 

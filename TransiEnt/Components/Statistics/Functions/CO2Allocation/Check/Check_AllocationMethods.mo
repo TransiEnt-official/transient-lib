@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Statistics.Functions.CO2Allocation.Check;
+within TransiEnt.Components.Statistics.Functions.CO2Allocation.Check;
 model Check_AllocationMethods "Tester for allocation method functions"
 
 

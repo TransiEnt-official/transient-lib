@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat;
+within TransiEnt.Components.Heat;
 model SteamVolumeWithValve_L0 "A steam volume unit following VDI3508"
 
 

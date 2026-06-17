@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Sensors;
+within TransiEnt.Components.Sensors;
 model EmptyFrequency "Does nothing, returns zero"
 
 

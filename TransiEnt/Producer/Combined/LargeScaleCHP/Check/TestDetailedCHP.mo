@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Combined.LargeScaleCHP.Check;
+within TransiEnt.Producer.Combined.LargeScaleCHP.Check;
 model TestDetailedCHP "Tester for DetailedCHP model"
   extends TransiEnt.Basics.Icons.Checkmodel;
 

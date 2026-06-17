@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.Check;
+within TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.Check;
 model TestDoublePipePair_L2
 
 

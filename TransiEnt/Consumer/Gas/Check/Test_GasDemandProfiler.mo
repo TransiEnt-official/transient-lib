@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Gas.Check;
+within TransiEnt.Consumer.Gas.Check;
 model Test_GasDemandProfiler
 
 

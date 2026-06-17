@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components;
+within TransiEnt.Components;
 package Statistics "Package for statistics related models, like costs and emissions"
 
 

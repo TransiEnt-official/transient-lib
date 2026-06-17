@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.Machines.Base;
+within TransiEnt.Components.Electrical.Machines.Base;
 partial model PartialActivePowerGenerator "Most abstract base class for all electric machine models based on active power and frequency"
 
 

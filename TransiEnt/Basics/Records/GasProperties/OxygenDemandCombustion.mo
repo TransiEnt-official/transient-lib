@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Records.GasProperties;
+within TransiEnt.Basics.Records.GasProperties;
 record OxygenDemandCombustion "Record containing the Oxygen demand for elementary C, H, O, N, S in mol/mol"
 
 

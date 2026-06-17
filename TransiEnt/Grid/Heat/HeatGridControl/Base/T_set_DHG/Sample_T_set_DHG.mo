@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Heat.HeatGridControl.Base.T_set_DHG;
+within TransiEnt.Grid.Heat.HeatGridControl.Base.T_set_DHG;
 record Sample_T_set_DHG "record for sample temperature characteristic line"
 
 

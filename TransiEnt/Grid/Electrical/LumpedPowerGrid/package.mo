@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Electrical;
+within TransiEnt.Grid.Electrical;
 package LumpedPowerGrid "Lumped synchronous power grid model containing generators with primary and secondary control, frequency dependen demand and grid error modeling"
 
 

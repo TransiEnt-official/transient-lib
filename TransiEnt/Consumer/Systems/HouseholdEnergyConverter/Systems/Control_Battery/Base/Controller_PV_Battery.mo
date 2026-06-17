@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Systems.HouseholdEnergyConverter.Systems.Control_Battery.Base;
+within TransiEnt.Consumer.Systems.HouseholdEnergyConverter.Systems.Control_Battery.Base;
 partial model Controller_PV_Battery
 
 

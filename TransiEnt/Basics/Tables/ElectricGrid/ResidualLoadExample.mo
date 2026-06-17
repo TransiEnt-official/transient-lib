@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.ElectricGrid;
+within TransiEnt.Basics.Tables.ElectricGrid;
 model ResidualLoadExample "Residual load of volatile renewable powers (measured 2015) with fixed powers for Hamburg 2050"
 
 

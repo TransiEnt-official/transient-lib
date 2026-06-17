@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Gas.Reactor;
+within TransiEnt.Components.Gas.Reactor;
 package Controller
 
 

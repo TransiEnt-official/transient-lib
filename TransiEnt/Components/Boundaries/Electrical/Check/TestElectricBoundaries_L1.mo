@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.Electrical.Check;
+within TransiEnt.Components.Boundaries.Electrical.Check;
 model TestElectricBoundaries_L1 "Minimal example for electric boundaries with interface L1"
 
 

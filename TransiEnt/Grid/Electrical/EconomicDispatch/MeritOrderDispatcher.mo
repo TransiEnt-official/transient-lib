@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Electrical.EconomicDispatch;
+within TransiEnt.Grid.Electrical.EconomicDispatch;
 model MeritOrderDispatcher "Forward-looking control, min, max and gradient constraints"
 
 

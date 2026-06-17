@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.FluidFlow.Check;
+within TransiEnt.Components.Boundaries.FluidFlow.Check;
 model TestBoundaryVLE_pTxi "Model for testing BoundaryVLE_pTxi"
 
 

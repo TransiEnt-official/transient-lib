@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.Power2Heat.ElectricBoiler.Check;
+within TransiEnt.Producer.Heat.Power2Heat.ElectricBoiler.Check;
 model TestElectricBoiler_L1
   import TransiEnt;
 

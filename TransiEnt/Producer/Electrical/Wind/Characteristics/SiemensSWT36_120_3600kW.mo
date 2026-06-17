@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Wind.Characteristics;
+within TransiEnt.Producer.Electrical.Wind.Characteristics;
 record SiemensSWT36_120_3600kW "Siemens model SWT120 3600MW"
 
 

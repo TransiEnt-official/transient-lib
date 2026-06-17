@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Electrical.Check;
+within TransiEnt.Storage.Electrical.Check;
 model TestFlywheelEfficiency "Example that keeps a flywheel's input and output at full power to check maximum efficiency"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Photovoltaics.Advanced_PV.Characteristics;
+within TransiEnt.Producer.Electrical.Photovoltaics.Advanced_PV.Characteristics;
 record PVModule_Characteristics_Sanyo_HIT_200_BA3
 
 

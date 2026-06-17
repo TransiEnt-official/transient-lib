@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.SolarThermal;
+within TransiEnt.Producer.Heat.SolarThermal;
 model SolarCollector_L1_constProp "Solar flat plate collector model (EN 12975) with effective heat capacity for transient behavior, constant properties"
 
 

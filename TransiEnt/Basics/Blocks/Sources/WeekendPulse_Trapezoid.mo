@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Blocks.Sources;
+within TransiEnt.Basics.Blocks.Sources;
 model WeekendPulse_Trapezoid "model for producing a trapezoid weekend pulse"
 
 

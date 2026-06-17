@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.Gas2Heat.SimpleGasBoiler;
+within TransiEnt.Producer.Heat.Gas2Heat.SimpleGasBoiler;
 model TwoFuelBoiler "Abstract model for boilers using two different fuel types"
 
 

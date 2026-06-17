@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Heat.HotWaterStorage_L4;
+within TransiEnt.Storage.Heat.HotWaterStorage_L4;
 package Base "Package contains basic models for modeling the one dimensional hot water storage"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Gas.Controller;
+within TransiEnt.Grid.Gas.Controller;
 model MaxH2MassFlow_phi "Model for calculation of maximum admissible mass flow rate of hydrogen from specified volumetric percentage at STP"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage;
+within TransiEnt.Storage;
 package Base "Contains basic storage calculation models that can be used in all kinds of energy storage models"
 
 

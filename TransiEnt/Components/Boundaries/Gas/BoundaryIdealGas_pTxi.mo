@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.Gas;
+within TransiEnt.Components.Boundaries.Gas;
 model BoundaryIdealGas_pTxi "Gas boundary for ideal gases with p, T, xi as inputs"
 
 

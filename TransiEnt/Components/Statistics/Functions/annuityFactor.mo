@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Statistics.Functions;
+within TransiEnt.Components.Statistics.Functions;
 function annuityFactor "Calculates annuity factor based on interest rate and observation period"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.Electrical;
+within TransiEnt.Components.Boundaries.Electrical;
 package ActivePower
 
 

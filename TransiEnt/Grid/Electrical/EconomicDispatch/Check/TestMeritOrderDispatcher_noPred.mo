@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Electrical.EconomicDispatch.Check;
+within TransiEnt.Grid.Electrical.EconomicDispatch.Check;
 model TestMeritOrderDispatcher_noPred
 
 

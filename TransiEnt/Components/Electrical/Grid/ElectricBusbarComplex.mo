@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.Grid;
+within TransiEnt.Components.Electrical.Grid;
 model ElectricBusbarComplex "Bus model which makes the automatic creation of grids easier"
 
 

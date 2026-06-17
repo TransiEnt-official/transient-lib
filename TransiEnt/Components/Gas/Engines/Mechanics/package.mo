@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Gas.Engines;
+within TransiEnt.Components.Gas.Engines;
 package Mechanics
 
 

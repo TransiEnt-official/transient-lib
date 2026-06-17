@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Heat.HeatGridControl.Base.DHGMassFlowCharacteristicLines;
+within TransiEnt.Grid.Heat.HeatGridControl.Base.DHGMassFlowCharacteristicLines;
 record GenericMassFlowCharacteristicLines "record for mass flow characteristic line"
 
 

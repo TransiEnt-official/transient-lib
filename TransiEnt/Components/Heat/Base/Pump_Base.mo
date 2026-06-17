@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat.Base;
+within TransiEnt.Components.Heat.Base;
 partial model Pump_Base "Base class for pumps"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat.VolumesValvesFittings.Pipes;
+within TransiEnt.Components.Heat.VolumesValvesFittings.Pipes;
 model ControlVolumeL4_HeatLoss "Discretized control volume of a district heating network pipe using simple fluid ports"
 
 //________________________________________________________________________________//

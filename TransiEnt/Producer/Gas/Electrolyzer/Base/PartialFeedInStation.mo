@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer.Base;
+within TransiEnt.Producer.Gas.Electrolyzer.Base;
 partial model PartialFeedInStation
 
 

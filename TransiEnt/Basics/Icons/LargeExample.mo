@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Icons;
+within TransiEnt.Basics.Icons;
 partial model LargeExample "Icon for runnable examples with a large number of components"
 
 

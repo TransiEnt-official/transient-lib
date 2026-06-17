@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Base.ControlPower;
+within TransiEnt.Producer.Electrical.Base.ControlPower;
 partial block PartialBalancingPowerPotential
 
 

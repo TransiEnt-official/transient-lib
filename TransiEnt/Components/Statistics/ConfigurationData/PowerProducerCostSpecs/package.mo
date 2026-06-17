@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Statistics.ConfigurationData;
+within TransiEnt.Components.Statistics.ConfigurationData;
 package PowerProducerCostSpecs "Cost specs for all kinds of power producers (electric power plants, gas boilers etc.)"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Electrical.Noise.Check;
+within TransiEnt.Grid.Electrical.Noise.Check;
 model TestTwoGridsWithErrors
   import TransiEnt;
 

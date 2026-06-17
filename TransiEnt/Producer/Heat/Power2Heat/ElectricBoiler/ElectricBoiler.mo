@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.Power2Heat.ElectricBoiler;
+within TransiEnt.Producer.Heat.Power2Heat.ElectricBoiler;
 model ElectricBoiler "Electric Boiler with constant efficiency, spatial resolution can be chosen to be 0d or 1d"
 
 

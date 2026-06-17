@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Blocks.Check;
+within TransiEnt.Basics.Blocks.Check;
 model TestVariousSlewRateLimiter "Model for testing the VariousSlewRateLimiter model"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Electrical.Characteristics;
+within TransiEnt.Consumer.Electrical.Characteristics;
 record Trade "Trade consumer typical behaviour from [1]"
 
 

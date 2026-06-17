@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Statistics.Functions;
+within TransiEnt.Components.Statistics.Functions;
 function annuity "Calculates annuity based on Investment cost, interest rate, period"
 
 

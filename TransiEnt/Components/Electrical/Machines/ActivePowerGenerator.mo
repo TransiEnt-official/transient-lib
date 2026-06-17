@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.Machines;
+within TransiEnt.Components.Electrical.Machines;
 model ActivePowerGenerator "ActicePowerPort: Static machine model with constant effiency"
 
 

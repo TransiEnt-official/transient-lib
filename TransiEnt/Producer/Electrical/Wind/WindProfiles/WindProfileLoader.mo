@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Wind.WindProfiles;
+within TransiEnt.Producer.Electrical.Wind.WindProfiles;
 model WindProfileLoader "Loads wind profiles from csv files for 2011-2015, scaled by installed power.
   
   Data for 2011-2014 is scaled by total installed power at end of the year.

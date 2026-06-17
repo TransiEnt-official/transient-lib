@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.Machines.ExcitationSystemsVoltageController;
+within TransiEnt.Components.Electrical.Machines.ExcitationSystemsVoltageController;
 model ACExciter "Simple Voltage Controller with PT1-dynamics with AC Exciter"
 
 

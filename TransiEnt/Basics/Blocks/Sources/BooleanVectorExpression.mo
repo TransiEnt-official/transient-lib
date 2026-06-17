@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Blocks.Sources;
+within TransiEnt.Basics.Blocks.Sources;
 block BooleanVectorExpression "model for boolean vector expressions"
 
 

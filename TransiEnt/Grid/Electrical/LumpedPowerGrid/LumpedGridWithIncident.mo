@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Electrical.LumpedPowerGrid;
+within TransiEnt.Grid.Electrical.LumpedPowerGrid;
 model LumpedGridWithIncident
   import TransiEnt;
 

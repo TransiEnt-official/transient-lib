@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer.Base;
+within TransiEnt.Producer.Gas.Electrolyzer.Base;
 model ElectrolyzerDynamics1stOrder "1st order electrolyzer dynamics"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Statistics.Functions;
+within TransiEnt.Components.Statistics.Functions;
 function repCostResVal "Calculates the cost of replacements and the residual value based on investment cost, interest rate, price change rate, observation period and life time; price changes are neglected"
 
 

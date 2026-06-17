@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.Heat2Heat;
+within TransiEnt.Producer.Heat.Heat2Heat;
 model Indirect_HEX_const_T_out_L1 "Constant T_return Heat Exchanger Model"
 
 

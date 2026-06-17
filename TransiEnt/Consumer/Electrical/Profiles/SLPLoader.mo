@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Electrical.Profiles;
+within TransiEnt.Consumer.Electrical.Profiles;
 model SLPLoader "Loads standard load profiles from csv files"
 
 

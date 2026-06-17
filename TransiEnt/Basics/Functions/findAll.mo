@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Functions;
+within TransiEnt.Basics.Functions;
 function findAll "Finds all occurences of e in a given vector v and returns the positions"
 
 

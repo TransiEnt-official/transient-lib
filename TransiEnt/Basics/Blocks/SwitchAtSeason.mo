@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Blocks;
+within TransiEnt.Basics.Blocks;
 block SwitchAtSeason "Swith boolean signal to true between two distinct days of the year"
 
 

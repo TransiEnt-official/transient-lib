@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Blocks;
+within TransiEnt.Basics.Blocks;
 block IntegratorReset "Output the integral of the input signal, boolean input allows reset of integral value"
 
 

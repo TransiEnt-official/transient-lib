@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Heat.PackedBedStorage_L4.Basics.EffectiveThermalConductivity;
+within TransiEnt.Storage.Heat.PackedBedStorage_L4.Basics.EffectiveThermalConductivity;
 partial model ThermalConductivityBasePackedBed "Partial thermal conductivity model for packed beds"
 
 

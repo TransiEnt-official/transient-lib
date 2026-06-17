@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Wind.Check;
+within TransiEnt.Producer.Electrical.Wind.Check;
 model Test_WTG_SI_df_dt "Validation of WTG with df/dt SI control"
   import TransiEnt;
 

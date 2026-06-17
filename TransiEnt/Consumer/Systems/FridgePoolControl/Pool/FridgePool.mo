@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Systems.FridgePoolControl.Pool;
+within TransiEnt.Consumer.Systems.FridgePoolControl.Pool;
 model FridgePool
 
 

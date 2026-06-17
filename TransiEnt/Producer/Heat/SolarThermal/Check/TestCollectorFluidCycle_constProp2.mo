@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.SolarThermal.Check;
+within TransiEnt.Producer.Heat.SolarThermal.Check;
 model TestCollectorFluidCycle_constProp2 "Tester for a solar collector using a fluid cycle"
   import TransiEnt;
 

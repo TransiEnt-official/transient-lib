@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Electrical.LumpedPowerGrid.Check;
+within TransiEnt.Grid.Electrical.LumpedPowerGrid.Check;
 model TestTwoSubgridStatistics "Example of the component PowerPlant_PoutGrad_L1"
   import TransiEnt;
 

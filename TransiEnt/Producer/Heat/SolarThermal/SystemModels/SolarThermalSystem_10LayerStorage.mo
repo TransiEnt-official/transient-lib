@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.SolarThermal.SystemModels;
+within TransiEnt.Producer.Heat.SolarThermal.SystemModels;
 model SolarThermalSystem_10LayerStorage "Energy based combination of solar collector, controller, boiler and thermal storage with three layers"
 
 

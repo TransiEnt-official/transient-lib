@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.BiogasPlant.Base.ADM1.ADM1_Functions;
+within TransiEnt.Producer.Gas.BiogasPlant.Base.ADM1.ADM1_Functions;
 function ADM1_Inhibition_BSM2
   "A Function calculating the inhibition Coefficients using constants from Rosén, C., & Jeppsson, U. (2006). Aspects on ADM1 Implementation within the BSM2 Framework."
 

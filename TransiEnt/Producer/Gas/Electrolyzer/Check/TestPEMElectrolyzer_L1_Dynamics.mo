@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer.Check;
+within TransiEnt.Producer.Gas.Electrolyzer.Check;
 model TestPEMElectrolyzer_L1_Dynamics "Tester for a PEM electrolyzer"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat.VolumesValvesFittings;
+within TransiEnt.Components.Heat.VolumesValvesFittings;
 model SimpleValve "Simple valve model for calculating a mass flow rate out of a given pressure difference, linear pressure loss, simple fluid ports"
 
 //________________________________________________________________________________//

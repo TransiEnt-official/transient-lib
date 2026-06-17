@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat.ElectricAirHeater.Check;
+within TransiEnt.Components.Heat.ElectricAirHeater.Check;
 model TestElectricAirHeater
 
 

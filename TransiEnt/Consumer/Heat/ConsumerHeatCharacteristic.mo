@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Heat;
+within TransiEnt.Consumer.Heat;
 model ConsumerHeatCharacteristic "Simple model of a thermal consumer with a heat characteristic between heat exchanger and building capacity with simple fluid ports"
 
 //________________________________________________________________________________//

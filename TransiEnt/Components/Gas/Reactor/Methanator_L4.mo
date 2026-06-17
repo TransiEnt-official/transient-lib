@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Gas.Reactor;
+within TransiEnt.Components.Gas.Reactor;
 model Methanator_L4 "Discretized pseudohomogeneous PFR model of a fixed-bed methanator"
 
 

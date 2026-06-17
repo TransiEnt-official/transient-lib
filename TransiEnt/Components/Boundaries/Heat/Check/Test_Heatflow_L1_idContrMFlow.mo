@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.Heat.Check;
+within TransiEnt.Components.Boundaries.Heat.Check;
 model Test_Heatflow_L1_idContrMFlow "Model for testing Heatflow_L1_idContrMFlow_temp"
 
 

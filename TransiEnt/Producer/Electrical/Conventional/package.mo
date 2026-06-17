@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical;
+within TransiEnt.Producer.Electrical;
 package Conventional "Models of conventional power plants i.e. based on thermodynamic cycles"
 
 

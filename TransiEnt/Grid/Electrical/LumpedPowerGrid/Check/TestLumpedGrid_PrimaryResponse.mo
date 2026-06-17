@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Electrical.LumpedPowerGrid.Check;
+within TransiEnt.Grid.Electrical.LumpedPowerGrid.Check;
 model TestLumpedGrid_PrimaryResponse
   import TransiEnt;
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.MethanatorSystem.EquilibriumModel.Check;
+within TransiEnt.Producer.Gas.MethanatorSystem.EquilibriumModel.Check;
 model Check_MethanatorBlock_equilibrium_L2_
 
 

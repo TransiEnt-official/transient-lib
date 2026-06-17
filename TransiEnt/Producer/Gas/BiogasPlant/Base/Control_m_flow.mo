@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.BiogasPlant.Base;
+within TransiEnt.Producer.Gas.BiogasPlant.Base;
 model Control_m_flow "Mass flow controller model"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Controllers.Check;
+within TransiEnt.Producer.Electrical.Controllers.Check;
 model TestSimpleTwoBlockCoordination "Example how to calculate the demand of primary balancing power"
 
 

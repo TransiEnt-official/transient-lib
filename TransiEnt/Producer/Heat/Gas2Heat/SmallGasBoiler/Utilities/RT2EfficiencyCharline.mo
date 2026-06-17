@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.Gas2Heat.SmallGasBoiler.Utilities;
+within TransiEnt.Producer.Heat.Gas2Heat.SmallGasBoiler.Utilities;
 model RT2EfficiencyCharline "Characteristic line for the boiler's heating efficiency in function of the heating grid return temperature"
 
 

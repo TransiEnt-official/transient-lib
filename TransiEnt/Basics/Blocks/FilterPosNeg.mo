@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Blocks;
+within TransiEnt.Basics.Blocks;
 model FilterPosNeg "Filter for only positive or negative values"
 
 

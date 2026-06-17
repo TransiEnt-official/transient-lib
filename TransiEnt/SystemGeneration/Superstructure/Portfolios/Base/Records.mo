@@ -1,4 +1,4 @@
-﻿within TransiEnt.SystemGeneration.Superstructure.Portfolios.Base;
+within TransiEnt.SystemGeneration.Superstructure.Portfolios.Base;
 partial package Records "These Records contains parameters that are different for each region or for different instances in a single region"
 
 //________________________________________________________________________________//

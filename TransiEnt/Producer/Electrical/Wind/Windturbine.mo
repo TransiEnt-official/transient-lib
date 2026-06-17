@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Wind;
+within TransiEnt.Producer.Electrical.Wind;
 model Windturbine "Pitch controlled wind turbine model based on cp-lambda characteristic"
 
 
@@ -120,8 +120,7 @@ public
     J=J) annotation (choicesAllMatching=true, Placement(transformation(extent={{-14,-21},{10,8}})));
  replaceable
  TransiEnt.Components.Electrical.Machines.ExcitationSystemsVoltageController.DummyExcitationSystem Exciter constrainedby
-    TransiEnt.Components.Electrical.Machines.ExcitationSystemsVoltageController.PartialExcitationSystem
-                                                                                                              annotation (choicesAllMatching=true,Dialog(group="Replaceable Components"),Placement(transformation(
+    TransiEnt.Components.Electrical.Machines.ExcitationSystemsVoltageController.PartialExcitationSystem       annotation (choicesAllMatching=true,Dialog(group="Replaceable Components"),Placement(transformation(
         extent={{-10,-10.5},{10,10.5}},
         rotation=-90,
         origin={62.5,18})));

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Systems.PVBatteryPoolControl.Base;
+within TransiEnt.Consumer.Systems.PVBatteryPoolControl.Base;
 package Check "Check models for base components"
 
 

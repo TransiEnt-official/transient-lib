@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Heat.HotWaterStorage_L4.Utilities;
+within TransiEnt.Storage.Heat.HotWaterStorage_L4.Utilities;
 function get_init_segment_enthalpy_piecewise_linear "[nLayer, T1, T2, T3, T4, T1_layer, T2_layer, T3_layer, T4_layer] calculates initial values through linear interpolation between the four measured temperatures in the tank"
 
 

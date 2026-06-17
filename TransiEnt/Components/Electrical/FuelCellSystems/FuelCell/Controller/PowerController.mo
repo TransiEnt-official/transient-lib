@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.FuelCellSystems.FuelCell.Controller;
+within TransiEnt.Components.Electrical.FuelCellSystems.FuelCell.Controller;
 model PowerController "Controller for power output in Fuel Cell applications"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.Gas2Heat.SmallGasBoiler.Utilities;
+within TransiEnt.Producer.Heat.Gas2Heat.SmallGasBoiler.Utilities;
 block FirstOrder_variableDamping "First order transfer function block (= 1 pole) with variable damping"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Adapters.Gas;
+within TransiEnt.Basics.Adapters.Gas;
 model RealH2_to_RealNG "Adapter that connects real H2 gas with real NG gas (works only in one direction)"
 
 

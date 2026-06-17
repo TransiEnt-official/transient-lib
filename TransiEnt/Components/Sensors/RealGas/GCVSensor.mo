@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Sensors.RealGas;
+within TransiEnt.Components.Sensors.RealGas;
 model GCVSensor "Sensor calculating the gross calorific value of real gas mixtures at 25 C"
 
 

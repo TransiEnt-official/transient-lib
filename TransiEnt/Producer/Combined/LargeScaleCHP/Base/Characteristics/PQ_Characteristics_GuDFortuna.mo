@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Combined.LargeScaleCHP.Base.Characteristics;
+within TransiEnt.Producer.Combined.LargeScaleCHP.Base.Characteristics;
 record PQ_Characteristics_GuDFortuna "Combined cycle unit based on 'GuD Fortuna', Source: Estimation made with stationary simulations of a power plant simulation program"
 
 

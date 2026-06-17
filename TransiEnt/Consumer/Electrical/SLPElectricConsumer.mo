@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Electrical;
+within TransiEnt.Consumer.Electrical;
 model SLPElectricConsumer "Standard load profile based electric consumer model"
 
 

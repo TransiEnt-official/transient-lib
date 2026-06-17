@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.Power2Heat.Heatpump.Controller;
+within TransiEnt.Producer.Heat.Power2Heat.Heatpump.Controller;
 model ControlHeatpump_heatdriven_BVTemp "Heat-driven operation with optional startup ramp, if bivalent mode selected, heater will switch on instead of heatpump below T_bivalent"
 
 

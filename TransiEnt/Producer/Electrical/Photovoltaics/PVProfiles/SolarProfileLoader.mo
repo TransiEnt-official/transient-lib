@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Photovoltaics.PVProfiles;
+within TransiEnt.Producer.Electrical.Photovoltaics.PVProfiles;
 model SolarProfileLoader "Loads PV profiles from csv files for 2011, 2012, 2014 and 2015
  'Meassured Data' refers to wind power generation meassured by the TSOs"
 

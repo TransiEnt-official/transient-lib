@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Heat;
+within TransiEnt.Consumer.Heat;
 model HeatCharacteristic "Calculates house return temperature based on outdoor temperature"
 
 //________________________________________________________________________________//

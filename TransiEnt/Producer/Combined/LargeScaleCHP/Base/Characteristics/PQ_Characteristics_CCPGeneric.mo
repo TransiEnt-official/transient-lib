@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Combined.LargeScaleCHP.Base.Characteristics;
+within TransiEnt.Producer.Combined.LargeScaleCHP.Base.Characteristics;
 record PQ_Characteristics_CCPGeneric "Scaleable combined cycle plant based on 'GuD Wedel', Source: Ebsilon Professional Model"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Wind.Controller.Check;
+within TransiEnt.Producer.Electrical.Wind.Controller.Check;
 model TestPitchController
 
 

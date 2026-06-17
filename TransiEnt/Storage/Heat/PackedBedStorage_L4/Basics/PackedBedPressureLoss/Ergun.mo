@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Heat.PackedBedStorage_L4.Basics.PackedBedPressureLoss;
+within TransiEnt.Storage.Heat.PackedBedStorage_L4.Basics.PackedBedPressureLoss;
 model Ergun "Empirical Correlation according to Ergun"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Examples;
+within TransiEnt.Examples;
 package Hamburg "Example of an energy system model based on the city of Hamburg"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Media.Gases;
+within TransiEnt.Basics.Media.Gases;
 record VLE_VDIWA_H2_SRK "{H2} VDIWA SRK"
 
 

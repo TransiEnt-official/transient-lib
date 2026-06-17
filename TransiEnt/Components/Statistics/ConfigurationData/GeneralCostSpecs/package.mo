@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Statistics.ConfigurationData;
+within TransiEnt.Components.Statistics.ConfigurationData;
 package GeneralCostSpecs
 
 

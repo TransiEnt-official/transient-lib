@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.SteamMethaneReformerSystem;
+within TransiEnt.Producer.Gas.SteamMethaneReformerSystem;
 package Check
 
 

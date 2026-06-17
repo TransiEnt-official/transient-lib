@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Gas;
+within TransiEnt.Consumer.Gas;
 model GasConsumer_HFlow_NCV "Gas sink dependent on net calorific value"
 
 

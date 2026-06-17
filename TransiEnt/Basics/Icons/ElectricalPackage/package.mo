@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Icons;
+within TransiEnt.Basics.Icons;
 partial package ElectricalPackage "Icon for packages containing interfaces"
 
 

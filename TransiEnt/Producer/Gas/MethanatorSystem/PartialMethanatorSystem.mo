@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.MethanatorSystem;
+within TransiEnt.Producer.Gas.MethanatorSystem;
 partial model PartialMethanatorSystem
 
 

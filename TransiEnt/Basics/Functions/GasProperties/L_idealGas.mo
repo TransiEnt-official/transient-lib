@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Functions.GasProperties;
+within TransiEnt.Basics.Functions.GasProperties;
 function L_idealGas "Calculates mass of air required for combustion with a given lamba"
 
 

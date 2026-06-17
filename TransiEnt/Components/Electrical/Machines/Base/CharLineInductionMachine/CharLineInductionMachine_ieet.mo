@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.Machines.Base.CharLineInductionMachine;
+within TransiEnt.Components.Electrical.Machines.Base.CharLineInductionMachine;
 record CharLineInductionMachine_ieet "induction machine in the Insitut of Electrical Power and Energy Technology"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Interfaces.General;
+within TransiEnt.Basics.Interfaces.General;
 connector GwpEmissionCollector "Collector for gwp emissions (in metric mass of CO2 equivalents)"
 
 

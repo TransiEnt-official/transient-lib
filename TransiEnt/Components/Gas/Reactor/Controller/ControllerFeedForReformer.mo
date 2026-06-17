@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Gas.Reactor.Controller;
+within TransiEnt.Components.Gas.Reactor.Controller;
 model ControllerFeedForReformer "Controller to control the feed mass flow rate for the steam methane reformer"
 
 

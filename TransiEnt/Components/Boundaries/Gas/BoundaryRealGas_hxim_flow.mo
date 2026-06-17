@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.Gas;
+within TransiEnt.Components.Boundaries.Gas;
 model BoundaryRealGas_hxim_flow "A real gas boundary defining enthalpy, mass composition and mass flow"
 
 

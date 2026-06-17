@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.Gas.Check;
+within TransiEnt.Components.Boundaries.Gas.Check;
 model CheckStepVariationModels "Model for testing step variation models"
 
 

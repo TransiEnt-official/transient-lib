@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat.Grid;
+within TransiEnt.Components.Heat.Grid;
 model IdealizedExpansionVessel "Expansion vessel with constant pressure and variable temperature"
 
 

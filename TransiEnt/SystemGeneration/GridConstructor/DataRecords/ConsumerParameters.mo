@@ -1,4 +1,4 @@
-﻿within TransiEnt.SystemGeneration.GridConstructor.DataRecords;
+within TransiEnt.SystemGeneration.GridConstructor.DataRecords;
 record ConsumerParameters "Record with (default) scaling factors to scale the demands of the consumers within the GridConstructor"
 
 

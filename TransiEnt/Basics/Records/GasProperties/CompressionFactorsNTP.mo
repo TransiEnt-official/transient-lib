@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Records.GasProperties;
+within TransiEnt.Basics.Records.GasProperties;
 record CompressionFactorsNTP "Record containing the compression factors Z of gas components for normal temperature and pressure"
 
 

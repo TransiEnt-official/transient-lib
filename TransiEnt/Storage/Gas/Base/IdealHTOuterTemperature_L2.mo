@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Gas.Base;
+within TransiEnt.Storage.Gas.Base;
 model IdealHTOuterTemperature_L2 "Heat transfer model for an ideal heat transfer"
 
 

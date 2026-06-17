@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Others;
+within TransiEnt.Producer.Electrical.Others;
 model IdealContinuousHydropowerPlant "Ideal transient behaviour, no states, no heat offer, no controller basically just the icon.."
 
 

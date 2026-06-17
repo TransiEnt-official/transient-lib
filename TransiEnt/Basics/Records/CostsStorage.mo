@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Records;
+within TransiEnt.Basics.Records;
 model CostsStorage "Model for generating a summary for a cost storage"
 
 

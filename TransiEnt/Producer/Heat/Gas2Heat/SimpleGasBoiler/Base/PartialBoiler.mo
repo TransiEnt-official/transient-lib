@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.Gas2Heat.SimpleGasBoiler.Base;
+within TransiEnt.Producer.Heat.Gas2Heat.SimpleGasBoiler.Base;
 partial model PartialBoiler "Partial boiler model with setpoints, fluid ports and icon"
 
 

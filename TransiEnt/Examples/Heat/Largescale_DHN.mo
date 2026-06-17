@@ -1,4 +1,4 @@
-﻿within TransiEnt.Examples.Heat;
+within TransiEnt.Examples.Heat;
 model Largescale_DHN
 
 

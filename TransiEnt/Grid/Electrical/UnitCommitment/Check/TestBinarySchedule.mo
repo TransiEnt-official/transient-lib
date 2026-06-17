@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Electrical.UnitCommitment.Check;
+within TransiEnt.Grid.Electrical.UnitCommitment.Check;
 model TestBinarySchedule
 
 

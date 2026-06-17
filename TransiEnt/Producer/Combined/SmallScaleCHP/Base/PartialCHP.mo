@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Combined.SmallScaleCHP.Base;
+within TransiEnt.Producer.Combined.SmallScaleCHP.Base;
 partial model PartialCHP "Model consisting of replaceable engine and generator and control interface"
 
 

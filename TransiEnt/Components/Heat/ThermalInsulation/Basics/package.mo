@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat.ThermalInsulation;
+within TransiEnt.Components.Heat.ThermalInsulation;
 package Basics
 
 

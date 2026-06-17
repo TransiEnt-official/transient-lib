@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Functions.GasProperties.Check;
+within TransiEnt.Basics.Functions.GasProperties.Check;
 model TestConvertMoleToMassFraction "Tester for convertMoleToMassFraction"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.PowerTransformation;
+within TransiEnt.Components.Electrical.PowerTransformation;
 model IdealTriac "Basic model of a PowerTransformer with constant loss in percent"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Functions.GasProperties;
+within TransiEnt.Basics.Functions.GasProperties;
 function getIdealGasNCV_xM "Adaptive function for net calorific value calculation from molar NCVs, input x and M"
 
 

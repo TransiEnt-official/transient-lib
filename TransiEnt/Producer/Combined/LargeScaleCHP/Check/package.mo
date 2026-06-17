@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Combined.LargeScaleCHP;
+within TransiEnt.Producer.Combined.LargeScaleCHP;
 package Check
 
 

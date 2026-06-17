@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Electrical.EconomicDispatch;
+within TransiEnt.Grid.Electrical.EconomicDispatch;
 model LoadPredictionAdaption "Adaption of power point setpoints in case of load prediction errors according to Albrecht1997"
 
 

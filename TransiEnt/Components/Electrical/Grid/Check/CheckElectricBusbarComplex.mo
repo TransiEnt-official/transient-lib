@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.Grid.Check;
+within TransiEnt.Components.Electrical.Grid.Check;
 model CheckElectricBusbarComplex "Example model for voltage collapse for testing OLTC and Busbar"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.Ambient;
+within TransiEnt.Components.Boundaries.Ambient;
 package Base
 
 

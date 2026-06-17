@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Gas;
+within TransiEnt.Consumer.Gas;
 model GasConsumerPipe_mFlow "Sink defining xi, h, m_flow with a pipe representing the distance to a consumer within this district"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer;
+within TransiEnt.Consumer;
 package Electrical "Electrical consumer models"
 
 

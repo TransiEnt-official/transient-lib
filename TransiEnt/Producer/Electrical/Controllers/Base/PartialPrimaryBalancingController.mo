@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Controllers.Base;
+within TransiEnt.Producer.Electrical.Controllers.Base;
 partial model PartialPrimaryBalancingController "Base primary balancing power (used for replaceable class option)"
 
 

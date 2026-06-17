@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.Check;
+within TransiEnt.Basics.Tables.Check;
 model TestAmbientTables "Model for testing ambient tables"
 
 

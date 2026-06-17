@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Wind.Check;
+within TransiEnt.Producer.Electrical.Wind.Check;
 model TestPowerCurveWindPlant_scaling
 
 

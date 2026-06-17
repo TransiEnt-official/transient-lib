@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.FuelCellSystems.Base;
+within TransiEnt.Components.Electrical.FuelCellSystems.Base;
 model FuelCellSystemEfficiency "Tool to calculate the thermal and electric effiency of fuel cell system including steam reformer"
 
 

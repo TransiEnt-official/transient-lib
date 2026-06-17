@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Statistics.Check;
+within TransiEnt.Components.Statistics.Check;
 model TestPowerPlantStatistics "Example of statistics of electric power plants"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.Machines;
+within TransiEnt.Components.Electrical.Machines;
 model InductionMotorSimple "Induction Motor Model with improved coupling and simple equations"
 
 

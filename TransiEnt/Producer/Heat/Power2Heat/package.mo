@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat;
+within TransiEnt.Producer.Heat;
 package Power2Heat "Power to heat Technologies as HeatPumps and Electronic Boilers"
 
 

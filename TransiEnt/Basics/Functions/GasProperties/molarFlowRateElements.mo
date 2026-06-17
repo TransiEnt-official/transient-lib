@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Functions.GasProperties;
+within TransiEnt.Basics.Functions.GasProperties;
 function molarFlowRateElements "calculates molar flow rate of elements from TILMedia Definition"
 
 

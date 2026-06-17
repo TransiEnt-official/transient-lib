@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Wind.Characteristics.VariableSpeed;
+within TransiEnt.Producer.Electrical.Wind.Characteristics.VariableSpeed;
 record WindSpeedOperationRanges "Wind speeds defining operation range"
 
 

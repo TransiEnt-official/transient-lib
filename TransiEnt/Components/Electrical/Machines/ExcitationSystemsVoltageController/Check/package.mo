@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.Machines.ExcitationSystemsVoltageController;
+within TransiEnt.Components.Electrical.Machines.ExcitationSystemsVoltageController;
 package Check
 
 

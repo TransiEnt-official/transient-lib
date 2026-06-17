@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Gas;
+within TransiEnt.Storage.Gas;
 model GasStorageVesselHeatTransfer_L2 "Gas storage vessel including heat transfer to the environment"
 
 

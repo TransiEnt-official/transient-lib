@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Base.PartloadEfficiency;
+within TransiEnt.Producer.Electrical.Base.PartloadEfficiency;
 record Gasturbine "Typical gasturbine partload efficiency"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Sensors;
+within TransiEnt.Components.Sensors;
 model FrequencyStandardDeviation "Computes the standard deviation of frequency deviations"
 
 

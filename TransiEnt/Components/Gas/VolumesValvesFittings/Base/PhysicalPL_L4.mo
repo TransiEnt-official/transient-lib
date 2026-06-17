@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Gas.VolumesValvesFittings.Base;
+within TransiEnt.Components.Gas.VolumesValvesFittings.Base;
 model PhysicalPL_L4 "Physical pressure loss model"
 
 

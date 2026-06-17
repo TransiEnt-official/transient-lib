@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.Power2Heat.Heatpump.Base;
+within TransiEnt.Producer.Heat.Power2Heat.Heatpump.Base;
 partial model PartialHeatPumpSystemModel "Partial model of a controlled heat pump model useable for large pool simulations in demand side management scenarios"
 
 

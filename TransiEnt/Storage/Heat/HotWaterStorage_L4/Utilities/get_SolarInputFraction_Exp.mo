@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Heat.HotWaterStorage_L4.Utilities;
+within TransiEnt.Storage.Heat.HotWaterStorage_L4.Utilities;
 function get_SolarInputFraction_Exp "returns vector with fraction of total inflow for each solar input layer. sum of fractions is 1."
 
 

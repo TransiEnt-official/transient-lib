@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Systems.HeatpumpSystems;
+within TransiEnt.Consumer.Systems.HeatpumpSystems;
 function simulateUnits "Function that allows to simulate N uncoordinated heat pump systems in series using parameter values from a N x 24 mat file"
 
 
@@ -39,10 +39,8 @@ function simulateUnits "Function that allows to simulate N uncoordinated heat pu
 
      constant Real tend=31622400;
      constant Real dt=900;
-protected
-          String simulationCall;
-public
-                 output Boolean
+protected String simulationCall;
+public           output Boolean
           success;
 
 algorithm

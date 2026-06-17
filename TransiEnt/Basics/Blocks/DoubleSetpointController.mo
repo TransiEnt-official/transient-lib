@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Blocks;
+within TransiEnt.Basics.Blocks;
 model DoubleSetpointController "Similar to On/Off Controller this block switches between three states with a hysteresis defined by a bandwidth"
 
 

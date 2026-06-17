@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.SolarThermal.Base;
+within TransiEnt.Producer.Heat.SolarThermal.Base;
 model ExtraTerrestrialIrradiance "Calculates the extraterrestrial irradiance of the sun"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Photovoltaics.QuasiStationary;
+within TransiEnt.Producer.Electrical.Photovoltaics.QuasiStationary;
 model PhotovoltaicModuleQS "PV Module for quasi stationary boundaries with constant efficiency"
 
 

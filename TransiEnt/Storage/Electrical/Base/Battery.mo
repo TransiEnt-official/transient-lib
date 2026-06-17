@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Electrical.Base;
+within TransiEnt.Storage.Electrical.Base;
 model Battery "Typical characteristic of battery storage"
 
 

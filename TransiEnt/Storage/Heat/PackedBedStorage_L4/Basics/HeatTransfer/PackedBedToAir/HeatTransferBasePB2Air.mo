@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Heat.PackedBedStorage_L4.Basics.HeatTransfer.PackedBedToAir;
+within TransiEnt.Storage.Heat.PackedBedStorage_L4.Basics.HeatTransfer.PackedBedToAir;
 partial model HeatTransferBasePB2Air "Partial heat transfer model for packed Bed 2 Air heat transfer"
 
 

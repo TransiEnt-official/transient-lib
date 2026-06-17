@@ -1,4 +1,4 @@
-﻿within TransiEnt.SystemGeneration.Superstructure.Portfolios.Portfolio_Example;
+within TransiEnt.SystemGeneration.Superstructure.Portfolios.Portfolio_Example;
 model Superstructures_PortfolioMask "Mask for array of superstructures using this portfolio's technology definitions"
 
 //________________________________________________________________________________//

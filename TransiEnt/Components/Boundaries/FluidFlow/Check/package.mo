@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.FluidFlow;
+within TransiEnt.Components.Boundaries.FluidFlow;
 package Check
 
 

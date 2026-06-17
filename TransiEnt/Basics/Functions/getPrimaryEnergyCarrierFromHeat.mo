@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Functions;
+within TransiEnt.Basics.Functions;
 function getPrimaryEnergyCarrierFromHeat "Maps the enum 'primaryEnergyCarrierHeat' to 'primaryEnergyCarrier'"
 
 

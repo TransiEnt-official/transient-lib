@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Statistics.ConfigurationData.StorageCostSpecs;
+within TransiEnt.Components.Statistics.ConfigurationData.StorageCostSpecs;
 model PumpStorage "Pumped storage cost specification record"
 
 

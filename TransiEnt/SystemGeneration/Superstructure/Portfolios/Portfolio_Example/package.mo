@@ -1,4 +1,4 @@
-﻿within TransiEnt.SystemGeneration.Superstructure.Portfolios;
+within TransiEnt.SystemGeneration.Superstructure.Portfolios;
 package Portfolio_Example
 
 //________________________________________________________________________________//
@@ -681,13 +681,14 @@ powerToGasRecord: parametrization records for PtGplants in region [nPowerToGasPl
   redeclare type PowerPlantType = enumeration(
     Gasturbine_with_Gasport_constantEff   "Gasturbine_with_Gasport and constant efficiency",
     CCP_with_Gasport_constantEff   "CCP_with_Gasport and constant efficiency") "Choose power plant type";
-  redeclare model extends PowerPlantSystem(redeclare package Config = Portfolio_Example)
+  redeclare model extends PowerPlantSystem(redeclare package Config = Portfolio_Example
 
     // _____________________________________________
     //
     //          Imports and Class Hierarchy
     // _____________________________________________
 
+                                                                                       )
     extends TransiEnt.Basics.Icons.Model;
 
     // _____________________________________________
@@ -945,13 +946,14 @@ powerToGasRecord: parametrization records for PtGplants in region [nPowerToGasPl
     leadAcidBattery "Model of a lead acid battery",
     lithiumIonBattery "Model of a ltihium ion battery",
     battery "Typical characteristic of battery storage") "Choose electrical storage type";
-  redeclare model extends ElectricalStorageSystem(redeclare package Config = Portfolio_Example)
+  redeclare model extends ElectricalStorageSystem(redeclare package Config = Portfolio_Example
      // _____________________________________________
     //
     //              Visible Parameters
     // _____________________________________________
 
     // Interface parameters
+                                                                                              )
     parameter ElectricalStorageType electricalStorageType=ElectricalStorageType(1);
 
     parameter Records.ElectricalStorageRecord electricalStorageRecord=Records.ElectricalStorageRecord() annotation (Placement(transformation(extent={{-100,-100},{-80,-80}})));
@@ -1131,13 +1133,14 @@ powerToGasRecord: parametrization records for PtGplants in region [nPowerToGasPl
                             "FeedInStation_Methanation_with_CavernCompression_seperateHydrogenPort",
     FeedInStation_Methanation_woStorage
                             "FeedInStation_Methanation_woStorage") "Choose power to gas type";
-  redeclare model extends PowerToGasSystem(redeclare package Config = Portfolio_Example)
+  redeclare model extends PowerToGasSystem(redeclare package Config = Portfolio_Example
 
     // _____________________________________________
     //
     //        Constants and  Hidden Parameters
     // _____________________________________________
 
+                                                                                       )
     final parameter Boolean typeIsMethanation=not (powerToGasType == PowerToGasType(1) or powerToGasType == PowerToGasType(2) or powerToGasType == PowerToGasType(3)) "Choosen type is a mathanator";
     final parameter Boolean typeIsWOStorage=(powerToGasType == PowerToGasType(1) or powerToGasType == PowerToGasType(6)) "Choosen type does not include a storage";
 
@@ -1959,13 +1962,14 @@ powerToGasRecord: parametrization records for PtGplants in region [nPowerToGasPl
     GasStorage_varXi_L1   "L1: Model of a simple gas storage volume for variable composition",
     GasStorage_constXi_L2   "L2: Model of a simple gas storage volume for constant composition",
     GasStorage_varXi_L2   "L2: Model of a simple gas storage volume for variable composition") "Choose gas storage";
-  redeclare model extends GasStorageSystem(redeclare package Config = Portfolio_Example)
+  redeclare model extends GasStorageSystem(redeclare package Config = Portfolio_Example
 
     // _____________________________________________
     //
     //              Visible Parameters
     // _____________________________________________
 
+                                                                                       )
     parameter TILMedia.VLEFluidTypes.BaseVLEFluid medium=simCenter.gasModel1 "Medium in the gas storage" annotation (Dialog(group="Fundamental Definitions"), choicesAllMatching);
     parameter Modelica.Units.SI.Pressure p_gasGrid_desired=simCenter.p_amb_const + simCenter.p_eff_2 "desired gas grid pressure in region";
     parameter GasStorageType gasStorageType=GasStorageType.GasStorage_constXi_L1;
@@ -2199,13 +2203,14 @@ powerToGasRecord: parametrization records for PtGplants in region [nPowerToGasPl
 </html>"));
   end GasStorageSystem;
 
-  redeclare model extends LocalDemand(redeclare package Config = Portfolio_Example)
+  redeclare model extends LocalDemand(redeclare package Config = Portfolio_Example
 
     // _____________________________________________
     //
     //        Constants and  Hidden Parameters
     // _____________________________________________
 
+                                                                                  )
     final inner parameter Real LocalGasDemandMaterialUse_real=if LocalGasDemandMaterialUse then 1 else 0;
     final parameter Integer NeededGasPortsForJunction=integer(2 + LocalGasDemandMaterialUse_real + Fraction[1]/max(1, Fraction[1]) + Fraction[2]/max(1, Fraction[2]) + Fraction[7]/max(1, Fraction[7]) + Fraction[8]/max(1, Fraction[8]));
 
@@ -2529,13 +2534,14 @@ powerToGasRecord: parametrization records for PtGplants in region [nPowerToGasPl
 </html>"));
   end LocalDemand;
 
-  redeclare model extends LocalRenewableProduction(redeclare package Config = Portfolio_Example)
+  redeclare model extends LocalRenewableProduction(redeclare package Config = Portfolio_Example
 
     // _____________________________________________
     //
     //        Constants and  Hidden Parameters
     // _____________________________________________
 
+                                                                                               )
     final parameter String input_table_path=Superstructure.Types.SUPERSTRUCTURE_TABLES                            annotation (
       Evaluate=true,
       HideResult=true,
@@ -2782,13 +2788,14 @@ powerToGasRecord: parametrization records for PtGplants in region [nPowerToGasPl
 </html>"));
   end LocalRenewableProduction;
 
-  redeclare model extends CO2System(redeclare package Config = Portfolio_Example)
+  redeclare model extends CO2System(redeclare package Config = Portfolio_Example
 
     // _____________________________________________
     //
     //              Visible Parameters
     // _____________________________________________
 
+                                                                                )
     parameter Modelica.Units.SI.Mass m_start_CO2_storage=cO2SystemRecord.m_start_CO2_storage;
     final parameter Integer idx_CO2=Modelica.Math.BooleanVectors.firstTrueIndex(Modelica.Utilities.Strings.isEqual(fill("Carbon_Dioxide", medium.nc), TransiEnt.Basics.Functions.GasProperties.shortenCompName(medium.vleFluidNames)));
     parameter Records.CO2SystemRecord cO2SystemRecord=Records.CO2SystemRecord() annotation (Placement(transformation(extent={{-100,-100},{-80,-80}})));

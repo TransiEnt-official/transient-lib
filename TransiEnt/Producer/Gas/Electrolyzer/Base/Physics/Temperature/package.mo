@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer.Base.Physics;
+within TransiEnt.Producer.Gas.Electrolyzer.Base.Physics;
 package Temperature "Contains Temperature base class and specific model implementations"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Functions.GasProperties;
+within TransiEnt.Basics.Functions.GasProperties;
 function getRealGasGCVVector "Adaptive function to get gross calorific value vactor for real gases, input xi"
 
 

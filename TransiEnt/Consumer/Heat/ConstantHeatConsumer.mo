@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Heat;
+within TransiEnt.Consumer.Heat;
 model ConstantHeatConsumer "A consumer model with a constant heat demand"
 
 

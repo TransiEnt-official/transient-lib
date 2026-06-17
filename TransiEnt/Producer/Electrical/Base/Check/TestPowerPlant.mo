@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Base.Check;
+within TransiEnt.Producer.Electrical.Base.Check;
 model TestPowerPlant "Model for testing power plants"
 
 

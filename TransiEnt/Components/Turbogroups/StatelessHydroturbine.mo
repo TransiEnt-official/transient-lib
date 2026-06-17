@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Turbogroups;
+within TransiEnt.Components.Turbogroups;
 model StatelessHydroturbine "Model of a hydro turbine with six states (halt / starup / running in pump / turbine mode), pyhsical constraints (Pmin,Pmax,Pgradmax) and first order dynamics"
 
 

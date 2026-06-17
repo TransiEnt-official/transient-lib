@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Photovoltaics.PVProfiles.Check;
+within TransiEnt.Producer.Electrical.Photovoltaics.PVProfiles.Check;
 model Check_SolarProfileLoader "Model for testing the SolarProfileLoader model"
 
 

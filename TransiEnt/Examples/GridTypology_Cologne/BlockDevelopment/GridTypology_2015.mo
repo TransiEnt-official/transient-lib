@@ -1,4 +1,4 @@
-﻿within TransiEnt.Examples.GridTypology_Cologne.BlockDevelopment;
+within TransiEnt.Examples.GridTypology_Cologne.BlockDevelopment;
 model GridTypology_2015
 
 

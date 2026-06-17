@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Functions;
+within TransiEnt.Basics.Functions;
 function hist "Smooth Cubic function to that can be used to implement two point control without state events"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Records;
+within TransiEnt.Basics.Records;
 model FlangeIdealGas "Model for generating summaries for a flange ideal gas"
 
 

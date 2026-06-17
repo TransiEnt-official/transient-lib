@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Heat.PackedBedStorage_L4.Basics.StorageAirVolumeGeometry;
+within TransiEnt.Storage.Heat.PackedBedStorage_L4.Basics.StorageAirVolumeGeometry;
 model BlockShapedUnit "block"
 
 

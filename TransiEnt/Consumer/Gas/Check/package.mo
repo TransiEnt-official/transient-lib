@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Gas;
+within TransiEnt.Consumer.Gas;
 package Check
 
 

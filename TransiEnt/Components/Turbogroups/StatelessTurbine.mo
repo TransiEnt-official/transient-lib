@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Turbogroups;
+within TransiEnt.Components.Turbogroups;
 model StatelessTurbine "Generic model of a turbine without distinct states (no state events)"
 
 

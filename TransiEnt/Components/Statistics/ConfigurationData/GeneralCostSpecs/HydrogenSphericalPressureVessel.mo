@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Statistics.ConfigurationData.GeneralCostSpecs;
+within TransiEnt.Components.Statistics.ConfigurationData.GeneralCostSpecs;
 model HydrogenSphericalPressureVessel "Hydrogen spherical pressure vessels (2500...55000m3 geo, 6-20 bar)"
 
 

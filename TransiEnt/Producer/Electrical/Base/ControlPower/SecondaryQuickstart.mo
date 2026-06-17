@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Base.ControlPower;
+within TransiEnt.Producer.Electrical.Base.ControlPower;
 block SecondaryQuickstart "Quickstart capable plant in secondary balancing operation"
 
 

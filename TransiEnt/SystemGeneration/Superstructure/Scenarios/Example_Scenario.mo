@@ -1,4 +1,4 @@
-﻿within TransiEnt.SystemGeneration.Superstructure.Scenarios;
+within TransiEnt.SystemGeneration.Superstructure.Scenarios;
 model Example_Scenario "Example use-case of superstructures"
 
 //________________________________________________________________________________//

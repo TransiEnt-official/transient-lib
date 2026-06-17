@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.Ambient;
+within TransiEnt.Components.Boundaries.Ambient;
 model AmbientConditions_Hamburg_TMY "Time varying ambient condition parameters for Hamburg (TMY)"
 
 

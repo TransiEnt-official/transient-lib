@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Heat.HeatGridControl.HeatDemandPrediction;
+within TransiEnt.Grid.Heat.HeatGridControl.HeatDemandPrediction;
 package HeatingDemandCharacteristic
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Photovoltaics.Advanced_PV;
+within TransiEnt.Producer.Electrical.Photovoltaics.Advanced_PV;
 package Check "In this sub package the PV models are being simulated to generate power output data to validate against SAM"
 
 

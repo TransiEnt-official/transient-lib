@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Functions;
+within TransiEnt.Basics.Functions;
 function calc_true_booleans "Calculates the amount of true booleans in a array with size n"
 
 

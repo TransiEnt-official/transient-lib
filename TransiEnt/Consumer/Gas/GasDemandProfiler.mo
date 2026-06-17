@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Gas;
+within TransiEnt.Consumer.Gas;
 model GasDemandProfiler "Gas demand profile (H_flow or m_flow) composed of heat gas demand and base gas demand"
 
 

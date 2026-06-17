@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components;
+within TransiEnt.Components;
 package Gas "Gas grid specific components"
 
 

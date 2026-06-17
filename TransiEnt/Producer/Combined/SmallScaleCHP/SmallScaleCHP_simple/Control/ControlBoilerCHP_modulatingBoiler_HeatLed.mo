@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Combined.SmallScaleCHP.SmallScaleCHP_simple.Control;
+within TransiEnt.Producer.Combined.SmallScaleCHP.SmallScaleCHP_simple.Control;
 model ControlBoilerCHP_modulatingBoiler_HeatLed "Simple controller for a heat led CHP system with modulating boiler based on SoC or temperature of a heat storage"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Gas.Reactor.Check;
+within TransiEnt.Components.Gas.Reactor.Check;
 model TestControllerH2AndH2OForReformer
 
 

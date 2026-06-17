@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Heat;
+within TransiEnt.Consumer.Heat;
 partial model PartialHeatConsumer "Partial model of a heat sink"
 
 

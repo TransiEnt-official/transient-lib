@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Gas;
+within TransiEnt.Storage.Gas;
 model GasStorage_constXi_L2 "L2: Model of a simple gas storage volume for constant composition"
 
 

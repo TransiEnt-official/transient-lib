@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Blocks;
+within TransiEnt.Basics.Blocks;
 block BooleanToReal "Convert Boolean to Real signal (no event)"
 
 

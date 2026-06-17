@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.Grid;
+within TransiEnt.Components.Electrical.Grid;
 model PiModel "pi-Modell of a cable"
 
 

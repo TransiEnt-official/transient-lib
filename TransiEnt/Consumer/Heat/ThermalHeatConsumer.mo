@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Heat;
+within TransiEnt.Consumer.Heat;
 model ThermalHeatConsumer "Thermal Heat Consumer based on a room with capacity and heat losses"
 
 

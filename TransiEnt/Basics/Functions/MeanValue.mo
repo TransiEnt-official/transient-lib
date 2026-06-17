@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Functions;
+within TransiEnt.Basics.Functions;
 function MeanValue "Function calculates the mean value of an vector"
 
 

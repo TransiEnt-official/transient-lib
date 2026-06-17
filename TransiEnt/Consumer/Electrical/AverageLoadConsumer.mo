@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Electrical;
+within TransiEnt.Consumer.Electrical;
 model AverageLoadConsumer "Constant current for active power and constant impedance for reactive power"
 
 

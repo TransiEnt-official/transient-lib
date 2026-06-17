@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Heat.HeatGridControl.Controllers;
+within TransiEnt.Grid.Heat.HeatGridControl.Controllers;
 model SimpleDHNDispatcher
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.Ambient.Check;
+within TransiEnt.Components.Boundaries.Ambient.Check;
 model TestAmbientConditions
 
 

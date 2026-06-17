@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.Machines;
+within TransiEnt.Components.Electrical.Machines;
 model LinearSynchronousMachine "ApparentPowerPort: Linear generator model with constant efficiency"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Visualization;
+within TransiEnt.Components.Visualization;
 model StatisticsVisualizationTable
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Base;
+within TransiEnt.Storage.Base;
 model GenericStorage "Highly adaptable but non-physical model for all kinds of energy storages (recommended for storage without losses)"
 
 

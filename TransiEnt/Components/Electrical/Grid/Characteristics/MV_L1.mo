@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.Grid.Characteristics;
+within TransiEnt.Components.Electrical.Grid.Characteristics;
 record MV_L1 "MV_L1 30 kV overheand line, 95/12 Al/St"
 
 

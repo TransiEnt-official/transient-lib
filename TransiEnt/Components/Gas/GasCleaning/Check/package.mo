@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Gas.GasCleaning;
+within TransiEnt.Components.Gas.GasCleaning;
 package Check
 
 

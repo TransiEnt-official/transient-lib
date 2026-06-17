@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Base;
+within TransiEnt.Storage.Base;
 model GenericStorageHyst "Highly adaptable but non-physical model for all kinds of energy storages with hysteresis if storage is full (recommended for storage with losses)"
 
 

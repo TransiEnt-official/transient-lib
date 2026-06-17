@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.ElectricGrid.ElectricityPrices;
+within TransiEnt.Basics.Tables.ElectricGrid.ElectricityPrices;
 model SpotPriceElectricity_Phelix_3600s_2012 "Spotprice electricity - Day ahead market - Germany 2012"
 
 

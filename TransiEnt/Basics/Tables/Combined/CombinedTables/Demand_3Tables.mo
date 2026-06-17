@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.Combined.CombinedTables;
+within TransiEnt.Basics.Tables.Combined.CombinedTables;
 model Demand_3Tables "Three seperate tables for load profile data: electricity demand, heat demand for heating, heat demand for hot water"
 
 

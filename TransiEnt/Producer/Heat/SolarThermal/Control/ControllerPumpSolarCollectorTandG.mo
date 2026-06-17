@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.SolarThermal.Control;
+within TransiEnt.Producer.Heat.SolarThermal.Control;
 model ControllerPumpSolarCollectorTandG "Model for controlling the pump drive supplying of the collector field"
 
 

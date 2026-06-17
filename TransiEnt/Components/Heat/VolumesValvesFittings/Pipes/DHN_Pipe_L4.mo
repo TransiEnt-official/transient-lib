@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat.VolumesValvesFittings.Pipes;
+within TransiEnt.Components.Heat.VolumesValvesFittings.Pipes;
 model DHN_Pipe_L4 "Model of a DHN pipe for efficient largescale simulations"
 
 //________________________________________________________________________________//

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage;
+within TransiEnt.Storage;
 package Gas "Gas storage components"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries;
+within TransiEnt.Components.Boundaries;
 package Statistical "Boundaries for sources or sinks of results going to the model statistics block"
 
 

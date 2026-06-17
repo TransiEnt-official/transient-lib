@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Electrical;
+within TransiEnt.Consumer.Electrical;
 package Profiles "Package containing profiles for consumers e.g. standard load profiles"
 
 

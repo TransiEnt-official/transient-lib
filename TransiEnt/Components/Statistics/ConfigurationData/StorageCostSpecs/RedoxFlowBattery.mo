@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Statistics.ConfigurationData.StorageCostSpecs;
+within TransiEnt.Components.Statistics.ConfigurationData.StorageCostSpecs;
 model RedoxFlowBattery "Vanadium Redox Flow battery"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Electrical;
+within TransiEnt.Consumer.Electrical;
 model TableBasedElectricConsumer "Demand based on table data"
   import TransiEnt;
 

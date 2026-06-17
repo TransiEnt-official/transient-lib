@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Media;
+within TransiEnt.Basics.Media;
 model IdealGasGCV_xi_Block "Model for net calorific value calculation for ideal gases, input xi"
 
 

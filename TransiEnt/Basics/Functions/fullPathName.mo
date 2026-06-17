@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Functions;
+within TransiEnt.Basics.Functions;
 function fullPathName "Get full path name of file or directory name (with logging to console)"
 
 

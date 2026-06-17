@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat.ThermalInsulation.Check;
+within TransiEnt.Components.Heat.ThermalInsulation.Check;
 model TestThermalInsulation
 
 

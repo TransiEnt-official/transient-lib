@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.SolarThermal;
+within TransiEnt.Producer.Heat.SolarThermal;
 model SolarCollectorField_L1 "Solar collector field model with up to 12 collector in series and chooeable number in parallel"
 
 

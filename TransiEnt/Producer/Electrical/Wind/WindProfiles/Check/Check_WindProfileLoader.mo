@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Wind.WindProfiles.Check;
+within TransiEnt.Producer.Electrical.Wind.WindProfiles.Check;
 model Check_WindProfileLoader
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Heat.SpaceHeating.Check;
+within TransiEnt.Consumer.Heat.SpaceHeating.Check;
 model TestRoomFloorHeating
 
 

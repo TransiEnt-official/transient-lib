@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.Grid.Check;
+within TransiEnt.Components.Electrical.Grid.Check;
 model TestLine_RL "Model for testing Line_RL"
 
 

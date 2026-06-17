@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Interfaces.Thermal;
+within TransiEnt.Basics.Interfaces.Thermal;
 connector FluidPort "Basic fluid port in TransiEnt library consisting of massflow, pressure, enthalpy and composition"
 
 

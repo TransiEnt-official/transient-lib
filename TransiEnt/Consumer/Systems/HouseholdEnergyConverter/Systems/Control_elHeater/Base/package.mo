@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Systems.HouseholdEnergyConverter.Systems.Control_elHeater;
+within TransiEnt.Consumer.Systems.HouseholdEnergyConverter.Systems.Control_elHeater;
 package Base
 
 

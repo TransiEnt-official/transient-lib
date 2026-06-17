@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Electrical.SecondaryControl.Check;
+within TransiEnt.Grid.Electrical.SecondaryControl.Check;
 model TestAGC_compareActivation "Compares three variants of secondary balancing control activation"
 
 

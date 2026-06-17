@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.BiogasPlant.Check;
+within TransiEnt.Producer.Gas.BiogasPlant.Check;
 model Check_StirredTankReactor "Model for testing the stirred tank reactor"
 
 

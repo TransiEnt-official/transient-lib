@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat.HeatRecoverySteamGenerator;
+within TransiEnt.Components.Heat.HeatRecoverySteamGenerator;
 model HeatRecoverySteamGenerator_L1 "Model for heat recovery steam generator (L4 on gas side and L1 on water-steam side)"
 
 

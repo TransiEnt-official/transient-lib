@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Electrical.Check;
+within TransiEnt.Storage.Electrical.Check;
 model TestPumpedStorage
 
 

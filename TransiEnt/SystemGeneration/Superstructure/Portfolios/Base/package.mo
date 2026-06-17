@@ -1,4 +1,4 @@
-﻿within TransiEnt.SystemGeneration.Superstructure.Portfolios;
+within TransiEnt.SystemGeneration.Superstructure.Portfolios;
 package Base
 
 //________________________________________________________________________________//

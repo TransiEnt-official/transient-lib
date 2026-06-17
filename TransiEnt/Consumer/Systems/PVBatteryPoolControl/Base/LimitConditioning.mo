@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Systems.PVBatteryPoolControl.Base;
+within TransiEnt.Consumer.Systems.PVBatteryPoolControl.Base;
 model LimitConditioning "Limits setpoint to loading (P_set_base>0) if battery conditioning is active"
 
 

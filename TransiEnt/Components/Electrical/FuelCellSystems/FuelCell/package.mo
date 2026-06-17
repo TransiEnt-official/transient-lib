@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.FuelCellSystems;
+within TransiEnt.Components.Electrical.FuelCellSystems;
 package FuelCell
 
 

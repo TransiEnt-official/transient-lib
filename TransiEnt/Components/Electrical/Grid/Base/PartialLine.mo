@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.Grid.Base;
+within TransiEnt.Components.Electrical.Grid.Base;
 partial model PartialLine "Transmission Line model "
 
 

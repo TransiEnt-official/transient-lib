@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Heat.HeatGridControl;
+within TransiEnt.Grid.Heat.HeatGridControl;
 model HeatFlowDivision "Model for the specification of the heat output  of each unit located at a single feed-in point"
 
 

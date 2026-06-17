@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Statistics.Collectors.LocalCollectors;
+within TransiEnt.Components.Statistics.Collectors.LocalCollectors;
 model CollectHeatingPower "collect heating power and energy, choose type of resource"
 
 

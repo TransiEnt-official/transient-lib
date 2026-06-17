@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.SolarThermal.Base;
+within TransiEnt.Producer.Heat.SolarThermal.Base;
 model GHI_Splitter
 
 

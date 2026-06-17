@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer.Base.Physics.MassFlow;
+within TransiEnt.Producer.Gas.Electrolyzer.Base.Physics.MassFlow;
 model MassFlow0thOrderDynamics "PEMElectrolyzer mass flow as modeled by Espinosa, 2018"
   //The following must all be calculated in the Mass Flow model, or provided externally
   //m_flow_H2, n_flow_H2O, n_flow_H2, n_flow_O2

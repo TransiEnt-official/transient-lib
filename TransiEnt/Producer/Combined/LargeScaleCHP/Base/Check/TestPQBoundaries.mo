@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Combined.LargeScaleCHP.Base.Check;
+within TransiEnt.Producer.Combined.LargeScaleCHP.Base.Check;
 model TestPQBoundaries
 
 

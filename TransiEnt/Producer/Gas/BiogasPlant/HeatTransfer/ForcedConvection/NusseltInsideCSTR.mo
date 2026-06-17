@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.BiogasPlant.HeatTransfer.ForcedConvection;
+within TransiEnt.Producer.Gas.BiogasPlant.HeatTransfer.ForcedConvection;
 function NusseltInsideCSTR "Model for calculating the nusselt number of a continous stirred tank reactor"
 
 

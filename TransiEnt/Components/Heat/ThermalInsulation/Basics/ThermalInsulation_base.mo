@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat.ThermalInsulation.Basics;
+within TransiEnt.Components.Heat.ThermalInsulation.Basics;
 partial model ThermalInsulation_base "Partial Model for thermal Insulation"
 
 

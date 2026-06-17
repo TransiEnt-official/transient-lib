@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer.Base.Physics.MassFlow;
+within TransiEnt.Producer.Gas.Electrolyzer.Base.Physics.MassFlow;
 partial model PartialMassFlow
   "partial model for PEM electrolyzer mass flow model"
 

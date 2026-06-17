@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Statistics.PowerMarketModeling.MeritOrderModeling;
+within TransiEnt.Components.Statistics.PowerMarketModeling.MeritOrderModeling;
 model MeritOrderModel_f_RE_Conventionals_Demand "Simplified electricity spot market with inputs: renewable energy generation and demand"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.Gas2Heat.SmallGasBoiler.Base;
+within TransiEnt.Producer.Heat.Gas2Heat.SmallGasBoiler.Base;
 partial model PartialGasboiler "Full modulating gasboiler, partial model with splitted combustion and heat-transfer"
 
 

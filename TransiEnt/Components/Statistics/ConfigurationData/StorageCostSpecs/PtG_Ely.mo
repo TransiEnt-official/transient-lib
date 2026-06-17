@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Statistics.ConfigurationData.StorageCostSpecs;
+within TransiEnt.Components.Statistics.ConfigurationData.StorageCostSpecs;
 model PtG_Ely "Power to gas electrolyzer cost specification record"
 
 

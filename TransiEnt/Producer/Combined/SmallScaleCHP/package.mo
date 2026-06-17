@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Combined;
+within TransiEnt.Producer.Combined;
 package SmallScaleCHP "Package for small-scale CHP plants"
 
 

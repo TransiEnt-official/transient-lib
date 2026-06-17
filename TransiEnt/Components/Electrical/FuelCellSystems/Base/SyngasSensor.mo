@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.FuelCellSystems.Base;
+within TransiEnt.Components.Electrical.FuelCellSystems.Base;
 model SyngasSensor "Sensor measuring fuel cell performance (including a simple gas burner model for burning of remainding H2 in flue gas)"
 
 

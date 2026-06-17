@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Records.GasProperties;
+within TransiEnt.Basics.Records.GasProperties;
 record MolarMasses "Record containing the molar masses for components of natural gas in kg/mol"
 
 

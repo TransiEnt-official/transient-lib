@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Gas.VolumesValvesFittings.Base;
+within TransiEnt.Components.Gas.VolumesValvesFittings.Base;
 record IComVLE_L3_OnePort_extended "Extended ICom with inflow/outflow at ports"
 
 

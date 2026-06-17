@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Electrical.EconomicDispatch;
+within TransiEnt.Grid.Electrical.EconomicDispatch;
 package Check
 
 

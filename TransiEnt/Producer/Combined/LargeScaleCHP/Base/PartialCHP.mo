@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Combined.LargeScaleCHP.Base;
+within TransiEnt.Producer.Combined.LargeScaleCHP.Base;
 partial model PartialCHP "Partial model of a large scale CHP plant with characteristics specified by PQ boundaries and PQ-Heat input table"
 
 

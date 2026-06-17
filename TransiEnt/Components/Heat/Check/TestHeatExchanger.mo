@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat.Check;
+within TransiEnt.Components.Heat.Check;
 model TestHeatExchanger "Test model for the heat exchanger"
 
 //________________________________________________________________________________//

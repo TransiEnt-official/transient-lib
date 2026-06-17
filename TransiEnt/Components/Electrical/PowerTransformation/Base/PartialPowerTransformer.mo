@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.PowerTransformation.Base;
+within TransiEnt.Components.Electrical.PowerTransformation.Base;
 partial model PartialPowerTransformer "Base class for power transformer models"
 
 

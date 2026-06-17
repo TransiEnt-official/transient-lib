@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Turbogroups;
+within TransiEnt.Components.Turbogroups;
 package OperatingStates "Blocks to model operating states of turbo groups (e.g. halt, operating, startup)"
 
 
@@ -45,7 +45,7 @@ package OperatingStates "Blocks to model operating states of turbo groups (e.g. 
 // (Hamburg University of Technology)                                             //
 // and is supported by                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
-//________________________________________________________________________________//  
+//________________________________________________________________________________//
   extends Basics.Icons.Package;
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.BiogasPlant.Base.ADM1.Records;
+within TransiEnt.Producer.Gas.BiogasPlant.Base.ADM1.Records;
 partial record ADM1_parameters "Partial record for the parameters of the adm1 model"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Electrical;
+within TransiEnt.Storage.Electrical;
 model LoadSmoothingElectricStorage "Storage model including a replaceable storage unit and a replaceable control unit"
 
 

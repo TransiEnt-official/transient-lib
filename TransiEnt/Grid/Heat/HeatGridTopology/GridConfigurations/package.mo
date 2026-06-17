@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Heat.HeatGridTopology;
+within TransiEnt.Grid.Heat.HeatGridTopology;
 package GridConfigurations
 
 

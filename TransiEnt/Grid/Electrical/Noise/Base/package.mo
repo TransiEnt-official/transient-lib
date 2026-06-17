@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Electrical.Noise;
+within TransiEnt.Grid.Electrical.Noise;
 package Base
 
 

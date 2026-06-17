@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Icons;
+within TransiEnt.Basics.Icons;
 model PackedBedThermalStorage "Icon for packed-bed thermal storage model"
 
 

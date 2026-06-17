@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Statistics.ConfigurationData.PowerProducerCostSpecs;
+within TransiEnt.Components.Statistics.ConfigurationData.PowerProducerCostSpecs;
 model RunOffHydro "Run-off hydro plant"
 
 

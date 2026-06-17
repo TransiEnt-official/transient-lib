@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Icons;
+within TransiEnt.Basics.Icons;
 model ThermalStorageBasic "Icon for thermal storage model"
 
 

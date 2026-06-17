@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat.HeatRecoverySteamGenerator;
+within TransiEnt.Components.Heat.HeatRecoverySteamGenerator;
 package Basics
 
 

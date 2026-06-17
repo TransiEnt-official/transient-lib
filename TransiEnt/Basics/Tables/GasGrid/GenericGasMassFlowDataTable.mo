@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.GasGrid;
+within TransiEnt.Basics.Tables.GasGrid;
 model GenericGasMassFlowDataTable "Model for generating a gas mass flow output from a data table"
 
 

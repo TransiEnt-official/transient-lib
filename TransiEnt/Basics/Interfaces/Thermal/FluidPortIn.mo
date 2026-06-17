@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Interfaces.Thermal;
+within TransiEnt.Basics.Interfaces.Thermal;
 connector FluidPortIn "Basic fluid port inlet in TransiEnt library"
 
 

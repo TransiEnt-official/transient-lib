@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.Heat.Base;
+within TransiEnt.Components.Boundaries.Heat.Base;
 partial model PartialHeatBoundary
 
 
