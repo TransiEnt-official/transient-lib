@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="320" viewBox="0 0 480 320">
+  <!-- Interface diagram of HeatPump_PartialLoad.HeatPumpPartialLoad -->
+  <!-- Port positions follow the icon: signal inputs left, signal output right, fluid ports bottom -->
+  <defs>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#1F77B4"/>
+    </marker>
+    <marker id="arrow-gray" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#7F7F7F"/>
+    </marker>
+  </defs>
+
+  <!-- System boundary -->
+  <rect x="150" y="50" width="180" height="160"
+        fill="#F9F9F9" stroke="#333" stroke-width="1.5" stroke-dasharray="6,3" rx="4"/>
+  <!-- Model name -->
+  <text x="240" y="126" text-anchor="middle" font-family="Arial" font-size="12"
+        font-weight="bold">HeatPumpPartialLoad</text>
+  <text x="240" y="142" text-anchor="middle" font-family="Arial" font-size="9"
+        fill="#555">[COP correlation, L1]</text>
+
+  <!-- heatFlowSet: signal input, left top -->
+  <line x1="40" y1="90" x2="146" y2="90" stroke="#7F7F7F" stroke-width="2"
+        marker-end="url(#arrow-gray)"/>
+  <text x="93" y="82" text-anchor="middle" font-family="Times New Roman, serif" font-size="14"
+        fill="#7F7F7F"><tspan font-style="italic">Q&#x307;</tspan><tspan font-size="10" dy="4">set</tspan></text>
+  <text x="93" y="104" text-anchor="middle" font-family="Arial" font-size="9"
+        fill="#7F7F7F">heatFlowSet</text>
+
+  <!-- sourceTemperature: signal input, left bottom -->
+  <line x1="40" y1="170" x2="146" y2="170" stroke="#7F7F7F" stroke-width="2"
+        marker-end="url(#arrow-gray)"/>
+  <text x="93" y="162" text-anchor="middle" font-family="Times New Roman, serif" font-size="14"
+        fill="#7F7F7F"><tspan font-style="italic">T</tspan><tspan font-size="10" dy="4">source,in</tspan></text>
+  <text x="93" y="184" text-anchor="middle" font-family="Arial" font-size="9"
+        fill="#7F7F7F">sourceTemperature</text>
+
+  <!-- electricConsumption: signal output, right -->
+  <line x1="330" y1="130" x2="436" y2="130" stroke="#7F7F7F" stroke-width="2"
+        marker-end="url(#arrow-gray)"/>
+  <text x="383" y="122" text-anchor="middle" font-family="Times New Roman, serif" font-size="14"
+        fill="#7F7F7F"><tspan font-style="italic">P</tspan><tspan font-size="10" dy="4">el</tspan></text>
+  <text x="383" y="144" text-anchor="middle" font-family="Arial" font-size="9"
+        fill="#7F7F7F">electricConsumption</text>
+
+  <!-- portA: heat sink fluid inlet, bottom left (pointing into the system) -->
+  <line x1="195" y1="280" x2="195" y2="214" stroke="#1F77B4" stroke-width="2"
+        marker-end="url(#arrow-blue)"/>
+  <text x="187" y="250" text-anchor="end" font-family="Times New Roman, serif" font-size="14"
+        fill="#1F77B4"><tspan font-style="italic">&#x1E41;</tspan><tspan font-size="10" dy="4">A</tspan><tspan dy="-4">, </tspan><tspan font-style="italic">h</tspan><tspan font-size="10" dy="4">in</tspan></text>
+  <text x="187" y="268" text-anchor="end" font-family="Arial" font-size="9"
+        fill="#1F77B4">portA</text>
+
+  <!-- portB: heat sink fluid outlet, bottom right (pointing out of the system) -->
+  <line x1="285" y1="210" x2="285" y2="276" stroke="#1F77B4" stroke-width="2"
+        marker-end="url(#arrow-blue)"/>
+  <text x="293" y="250" text-anchor="start" font-family="Times New Roman, serif" font-size="14"
+        fill="#1F77B4"><tspan font-style="italic">&#x1E41;</tspan><tspan font-size="10" dy="4">B</tspan><tspan dy="-4">, </tspan><tspan font-style="italic">h</tspan><tspan font-size="10" dy="4">out</tspan></text>
+  <text x="293" y="268" text-anchor="start" font-family="Arial" font-size="9"
+        fill="#1F77B4">portB</text>
+
+  <!-- Legend -->
+  <line x1="20" y1="305" x2="45" y2="305" stroke="#1F77B4" stroke-width="2" marker-end="url(#arrow-blue)"/>
+  <text x="50" y="309" font-family="Arial" font-size="9" fill="#1F77B4">Fluid</text>
+  <line x1="100" y1="305" x2="125" y2="305" stroke="#7F7F7F" stroke-width="2" marker-end="url(#arrow-gray)"/>
+  <text x="130" y="309" font-family="Arial" font-size="9" fill="#7F7F7F">Signal</text>
+</svg>
