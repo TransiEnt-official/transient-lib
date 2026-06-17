@@ -56,37 +56,37 @@ equation
 <h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
 <table cellspacing=\"0\" cellpadding=\"4\">
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-tr-symbol-R.png\" alt=\"R_r\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-tr-symbol-R.png\" alt=\"R_r\"/></td>
   <td valign=\"middle\"><code>R</code></td>
   <td valign=\"middle\">radial thermal resistance [K/W]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-lambda.png\" alt=\"\\lambda\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-lambda.png\" alt=\"\\lambda\"/></td>
   <td valign=\"middle\"><code>lambda</code></td>
   <td valign=\"middle\">thermal conductivity of the aquifer/aquitard [W/(m&middot;K)]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-tr-symbol-r_outer.png\" alt=\"r_\\mathrm{outer}\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-tr-symbol-r_outer.png\" alt=\"r_\\mathrm{outer}\"/></td>
   <td valign=\"middle\"><code>r</code></td>
   <td valign=\"middle\">outer edge radius of control volume [m]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-tr-symbol-r_r.png\" alt=\"r_r\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-tr-symbol-r_r.png\" alt=\"r_r\"/></td>
   <td valign=\"middle\"><code>r_r</code></td>
   <td valign=\"middle\">centre radius of control volume [m]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-z.png\" alt=\"z\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-z.png\" alt=\"z\"/></td>
   <td valign=\"middle\"><code>z</code></td>
   <td valign=\"middle\">height of control volume [m]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-Qdot.png\" alt=\"\\dot{Q}\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-Qdot.png\" alt=\"\\dot{Q}\"/></td>
   <td valign=\"middle\"><code>Q_flow</code></td>
   <td valign=\"middle\">heat flow rate [W] (inherited from Element1D)</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-tr-symbol-dT.png\" alt=\"\\Delta T\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-tr-symbol-dT.png\" alt=\"\\Delta T\"/></td>
   <td valign=\"middle\"><code>dT</code></td>
   <td valign=\"middle\">temperature difference across resistor [K] (inherited from Element1D)</td>
 </tr>
@@ -94,10 +94,10 @@ equation
 
 <h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
 <p>Radial thermal resistance for cylindrical geometry:</p>
-<p><img src=\"modelica://ATES/../Resources/Images/equations/equation-trrad-R.png\"
+<p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-trrad-R.png\"
      alt=\"R = (ln(r_outer) - ln(r_r)) / (lambda * 2*pi*z)\"/></p>
 <p>Heat transport (inherited from Element1D):</p>
-<p><img src=\"modelica://ATES/../Resources/Images/equations/equation-tr-dT.png\"
+<p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-tr-dT.png\"
      alt=\"dT = R * Q_flow\"/></p>
 
 <h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>

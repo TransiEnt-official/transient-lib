@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="280">
+  <defs>
+    <marker id="arrow-red" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#D62728"/>
+    </marker>
+    <marker id="arrow-gray" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#7F7F7F"/>
+    </marker>
+  </defs>
+  <!-- System boundary -->
+  <rect x="150" y="80" width="180" height="120"
+        fill="#F9F9F9" stroke="#333" stroke-width="1.5" stroke-dasharray="6,3" rx="4"/>
+  <text x="240" y="138" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold">ThermalResistor</text>
+  <text x="240" y="153" text-anchor="middle" font-family="Arial" font-size="9" font-weight="bold">Radial_withDispersion</text>
+
+  <!-- port_a – heat inlet (left) -->
+  <line x1="50" y1="140" x2="150" y2="140" stroke="#D62728" stroke-width="2" marker-end="url(#arrow-red)"/>
+  <text x="88" y="132" text-anchor="middle" font-family="Arial" font-size="11" fill="#D62728" font-style="italic">Q̇</text>
+  <text x="50" y="165" text-anchor="middle" font-family="Arial" font-size="8" fill="#D62728">port_a</text>
+
+  <!-- port_b – heat outlet (right) -->
+  <line x1="330" y1="140" x2="430" y2="140" stroke="#D62728" stroke-width="2" marker-end="url(#arrow-red)"/>
+  <text x="380" y="132" text-anchor="middle" font-family="Arial" font-size="11" fill="#D62728" font-style="italic">Q̇</text>
+  <text x="380" y="165" text-anchor="middle" font-family="Arial" font-size="8" fill="#D62728">port_b</text>
+
+  <!-- q_r – Darcy velocity signal input (left, upper) -->
+  <line x1="50" y1="100" x2="150" y2="100" stroke="#7F7F7F" stroke-width="1.5" marker-end="url(#arrow-gray)"/>
+  <text x="88" y="93" text-anchor="middle" font-family="Arial" font-size="11" fill="#7F7F7F" font-style="italic">q</text>
+  <text x="94" y="93" font-family="Arial" font-size="8" fill="#7F7F7F">r</text>
+  <text x="88" y="115" text-anchor="middle" font-family="Arial" font-size="8" fill="#7F7F7F">q_r</text>
+</svg>

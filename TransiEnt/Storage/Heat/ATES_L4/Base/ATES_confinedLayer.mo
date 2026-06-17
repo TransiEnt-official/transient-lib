@@ -274,34 +274,34 @@ equation
 <p>- No capillary effects or multi-phase flow.</p>
 
 <h4><span style=\"color: #008000\">4. Interfaces</span></h4>
-<p><img src=\"modelica://ATES/../Resources/Images/ATES_confinedLayer_interfaces.svg\"
+<p><img src=\"modelica://TransiEnt/Resources/Images/ATES_confinedLayer_interfaces.svg\"
      alt=\"Interface diagram: fluidPortIn (fluid inlet, top)\"/></p>
 <p>fluidPortIn: fluid inlet/outlet connection to external network (Fluid, bidirectional via well)</p>
 
 <h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
 <table cellspacing=\"0\" cellpadding=\"4\">
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-Nr.png\" alt=\"N_r\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-Nr.png\" alt=\"N_r\"/></td>
   <td valign=\"middle\"><code>N_r</code></td>
   <td valign=\"middle\">number of radial control volumes [-]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-Nz.png\" alt=\"N_z\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-Nz.png\" alt=\"N_z\"/></td>
   <td valign=\"middle\"><code>N_z</code></td>
   <td valign=\"middle\">number of vertical aquifer control volumes [-]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-mdot.png\" alt=\"\\dot{m}\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-mdot.png\" alt=\"\\dot{m}\"/></td>
   <td valign=\"middle\"><code>fluidPortIn.m_flow</code></td>
   <td valign=\"middle\">injection/extraction mass flow rate [kg/s]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-T.png\" alt=\"T\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-T.png\" alt=\"T\"/></td>
   <td valign=\"middle\"><code>T_Boundary</code></td>
   <td valign=\"middle\">far-field boundary temperature [K]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-p.png\" alt=\"p\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-p.png\" alt=\"p\"/></td>
   <td valign=\"middle\"><code>p_Boundary</code></td>
   <td valign=\"middle\">reference pressure at aquifer top [Pa]</td>
 </tr>

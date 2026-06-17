@@ -82,7 +82,7 @@ equation
 <p>- Constant thermal properties of the confining layer solid.</p>
 
 <h4><span style=\"color: #008000\">4. Interfaces</span></h4>
-<p><img src=\"modelica://ATES/../Resources/Images/ImpermeableLayer_interfaces.svg\"
+<p><img src=\"modelica://TransiEnt/Resources/Images/ImpermeableLayer_interfaces.svg\"
      alt=\"Interface diagram: port_east (heat in, left), port_west (heat out, right), port_up (heat in, top), port_down (heat out, bottom)\"/></p>
 <p>port_east: radial inner heat port (Heat, inlet)</p>
 <p>port_west: radial outer heat port (Heat, outlet)</p>
@@ -92,32 +92,32 @@ equation
 <h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
 <table cellspacing=\"0\" cellpadding=\"4\">
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-T.png\" alt=\"T\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-T.png\" alt=\"T\"/></td>
   <td valign=\"middle\"><code>T_start</code></td>
   <td valign=\"middle\">initial temperature of control volume [K]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-Aq.png\" alt=\"A_q\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-Aq.png\" alt=\"A_q\"/></td>
   <td valign=\"middle\"><code>A_q</code></td>
   <td valign=\"middle\">cross-sectional area of control volume [m&sup2;]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-z.png\" alt=\"z\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-z.png\" alt=\"z\"/></td>
   <td valign=\"middle\"><code>z_c</code></td>
   <td valign=\"middle\">height of control volume [m]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-r.png\" alt=\"r\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-r.png\" alt=\"r\"/></td>
   <td valign=\"middle\"><code>r</code></td>
   <td valign=\"middle\">outer edge radius of control volume [m]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-tr-symbol-r_r.png\" alt=\"r_r\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-tr-symbol-r_r.png\" alt=\"r_r\"/></td>
   <td valign=\"middle\"><code>r_d</code></td>
   <td valign=\"middle\">centre radius of control volume [m]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-Qdot.png\" alt=\"\\dot{Q}\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-Qdot.png\" alt=\"\\dot{Q}\"/></td>
   <td valign=\"middle\"><code>port_east.Q_flow etc.</code></td>
   <td valign=\"middle\">heat flow rate at each port [W]</td>
 </tr>

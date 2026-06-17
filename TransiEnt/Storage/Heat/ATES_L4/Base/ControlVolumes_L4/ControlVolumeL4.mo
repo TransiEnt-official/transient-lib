@@ -341,7 +341,7 @@ equation
 <p>- Density differences at radial cell interfaces are interpolated linearly between adjacent cells.</p>
 <p>- Buoyancy switched on/off via Setting record boolean. </p>
 <h4><span style=\"color: #008000\">4. Interfaces</span></h4>
-<p><img src=\"modelica://ATES/../Resources/Images/ControlVolumeL4_interfaces.svg\" alt=\"Interface diagram: fluid ports on all four boundaries, internal heat port array, signal outputs q_long and q_trans\"/></p>
+<p><img src=\"modelica://TransiEnt/Resources/Images/ControlVolumeL4_interfaces.svg\" alt=\"Interface diagram: fluid ports on all four boundaries, internal heat port array, signal outputs q_long and q_trans\"/></p>
 <p>fluidPortEast[N_z]: fluid inlet at inner radial boundary (Fluid, inlet)</p>
 <p>fluidPortWest[N_z]: fluid outlet at outer radial boundary (Fluid, outlet)</p>
 <p>fluidPortUp[N_r]: fluid outlet at top boundary (Fluid, outlet)</p>
@@ -351,98 +351,98 @@ equation
 <p>q_trans[N_r, N_z+1]: vertical Darcy velocity output for dispersion calculation (Signal, outlet) </p>
 <h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
 <table cellspacing=\"0\" cellpadding=\"4\" border=\"0\"><tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-cv-symbol-T.png\" alt=\"T_{i,j}\"/></p></td>
+<td valign=\"middle\"><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-cv-symbol-T.png\" alt=\"T_{i,j}\"/></p></td>
 <td valign=\"middle\"><pre>T[N_r, N_z]</pre></td>
 <td valign=\"middle\"><p>cell temperature [K]</p></td>
 </tr>
 <tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-cv-symbol-p.png\" alt=\"p_{i,j}\"/></p></td>
+<td valign=\"middle\"><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-cv-symbol-p.png\" alt=\"p_{i,j}\"/></p></td>
 <td valign=\"middle\"><pre>p[N_r, N_z]</pre></td>
 <td valign=\"middle\"><p>cell pressure [Pa]</p></td>
 </tr>
 <tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-cv-symbol-U.png\" alt=\"U_{i,j}\"/></p></td>
+<td valign=\"middle\"><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-cv-symbol-U.png\" alt=\"U_{i,j}\"/></p></td>
 <td valign=\"middle\"><pre>U[N_r, N_z]</pre></td>
 <td valign=\"middle\"><p>internal energy of cell [J]</p></td>
 </tr>
 <tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-cv-symbol-Hdot.png\" alt=\"\\dot{H}_{i,j}\"/></p></td>
+<td valign=\"middle\"><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-cv-symbol-Hdot.png\" alt=\"\\dot{H}_{i,j}\"/></p></td>
 <td valign=\"middle\"><pre>H_flow[N_r+1, N_z]</pre></td>
 <td valign=\"middle\"><p>enthalpy flow at radial interfaces [W]</p></td>
 </tr>
 <tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-cv-symbol-mdot.png\" alt=\"\\dot{m}_{i,j}\"/></p></td>
+<td valign=\"middle\"><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-cv-symbol-mdot.png\" alt=\"\\dot{m}_{i,j}\"/></p></td>
 <td valign=\"middle\"><pre>m_flow[N_r+1, N_z]</pre></td>
 <td valign=\"middle\"><p>radial mass flow rate at interfaces [kg/s]</p></td>
 </tr>
 <tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-cv-symbol-Qdot.png\" alt=\"\\dot{Q}_{i,j}\"/></p></td>
+<td valign=\"middle\"><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-cv-symbol-Qdot.png\" alt=\"\\dot{Q}_{i,j}\"/></p></td>
 <td valign=\"middle\"><pre>port[i,j].Q_flow</pre></td>
 <td valign=\"middle\"><p>heat flow from thermal resistors [W]</p></td>
 </tr>
 <tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-cv-symbol-qlong.png\" alt=\"q_\\mathrm{long}\"/></p></td>
+<td valign=\"middle\"><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-cv-symbol-qlong.png\" alt=\"q_\\mathrm{long}\"/></p></td>
 <td valign=\"middle\"><pre>q_long[N_r, N_z]</pre></td>
 <td valign=\"middle\"><p>radial Darcy velocity at cell centre (for dispersion) [m/s]</p></td>
 </tr>
 <tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-cv-symbol-qtrans.png\" alt=\"q_\\mathrm{trans}\"/></p></td>
+<td valign=\"middle\"><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-cv-symbol-qtrans.png\" alt=\"q_\\mathrm{trans}\"/></p></td>
 <td valign=\"middle\"><pre>q_trans[N_r, N_z+1]</pre></td>
 <td valign=\"middle\"><p>vertical Darcy velocity at horizontal cell interface (for dispersion) [m/s]</p></td>
 </tr>
 <tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-sym-n.png\" alt=\"n\"/></p></td>
+<td valign=\"middle\"><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-n.png\" alt=\"n\"/></p></td>
 <td valign=\"middle\"><pre>n</pre></td>
 <td valign=\"middle\"><p>porosity of aquifer [-]</p></td>
 </tr>
 <tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-sym-rho_s.png\" alt=\"\\rho_s\"/></p></td>
+<td valign=\"middle\"><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-rho_s.png\" alt=\"\\rho_s\"/></p></td>
 <td valign=\"middle\"><pre>rho_s</pre></td>
 <td valign=\"middle\"><p>density of aquifer solid [kg/m&sup3;]</p></td>
 </tr>
 <tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-sym-cps.png\" alt=\"c_{p,s}\"/></p></td>
+<td valign=\"middle\"><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-cps.png\" alt=\"c_{p,s}\"/></p></td>
 <td valign=\"middle\"><pre>Cp_s</pre></td>
 <td valign=\"middle\"><p>specific heat capacity of aquifer solid [J/(kg&middot;K)]</p></td>
 </tr>
 <tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-sym-V.png\" alt=\"V\"/></p></td>
+<td valign=\"middle\"><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-V.png\" alt=\"V\"/></p></td>
 <td valign=\"middle\"><pre>geo.V[i,j]</pre></td>
 <td valign=\"middle\"><p>cell volume [m&sup3;]</p></td>
 </tr>
 <tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-cv-symbol-rho_l.png\" alt=\"\\rho_l\"/></p></td>
+<td valign=\"middle\"><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-cv-symbol-rho_l.png\" alt=\"\\rho_l\"/></p></td>
 <td valign=\"middle\"><pre>rho_l</pre></td>
 <td valign=\"middle\"><p>fluid density taken from TILMedia [kg/m&sup3;]</p></td>
 </tr>
 <tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-cv-symbol-cp_l.png\" alt=\"c_{p,l}\"/></p></td>
+<td valign=\"middle\"><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-cv-symbol-cp_l.png\" alt=\"c_{p,l}\"/></p></td>
 <td valign=\"middle\"><pre>Cp_l</pre></td>
 <td valign=\"middle\"><p>specific heat capacity of fluid taken from TILMedia [J/(kg&middot;K)]</p></td>
 </tr>
 <tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-cv-symbol-Hdot_buoy.png\" alt=\"\\dot{H}_{\\mathrm{buoy}}\"/></p></td>
+<td valign=\"middle\"><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-cv-symbol-Hdot_buoy.png\" alt=\"\\dot{H}_{\\mathrm{buoy}}\"/></p></td>
 <td valign=\"middle\"><pre>H_flow_buoyancy[N_r, N_z+1]</pre></td>
 <td valign=\"middle\"><p>buoyancy-driven enthalpy flow rate [W]</p></td>
 </tr>
 <tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-cv-symbol-mdot_buoy.png\" alt=\"\\dot{m}_{\\mathrm{buoy}}\"/></p></td>
+<td valign=\"middle\"><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-cv-symbol-mdot_buoy.png\" alt=\"\\dot{m}_{\\mathrm{buoy}}\"/></p></td>
 <td valign=\"middle\"><pre>m_flow_buoyancy[N_r, N_z+1]</pre></td>
 <td valign=\"middle\"><p>buoyancy-driven mass flow rate [kg/s]</p></td>
 </tr>
 <tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-sym-dp.png\" alt=\"\\Delta p\"/></p></td>
+<td valign=\"middle\"><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-dp.png\" alt=\"\\Delta p\"/></p></td>
 <td valign=\"middle\"><pre>delta_p_darcy[N_r+1, N_z]</pre></td>
 <td valign=\"middle\"><p>Darcy pressure loss at each radial cell interface [Pa]</p></td>
 </tr>
 </table>
 <h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
 <p>Energy balance for each aquifer cell (i,j):</p>
-<p><img src=\"modelica://ATES/../Resources/Images/equations/equation-cv-energy.png\" alt=\"(n*cp*rho_l + (1-n)*rho_s*cp_s)*V*dT/dt = sum H_flow + sum H_buoy + Q_dot\"/></p>
+<p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-cv-energy.png\" alt=\"(n*cp*rho_l + (1-n)*rho_s*cp_s)*V*dT/dt = sum H_flow + sum H_buoy + Q_dot\"/></p>
 <p>Mass continuity for each aquifer cell:</p>
-<p><img src=\"modelica://ATES/../Resources/Images/equations/equation-cv-mass.png\" alt=\"V * d_rho/dt = sum m_flow + sum m_flow_buoy\"/></p>
+<p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-cv-mass.png\" alt=\"V * d_rho/dt = sum m_flow + sum m_flow_buoy\"/></p>
 <p>Static pressure balance (Darcy pressure loss calculated in DarcyFlow_horizontal):</p>
-<p><img src=\"modelica://ATES/../Resources/Images/equations/equation-cv-pressure.png\" alt=\"0 = p_{i-1,j} - p_{i,j} - Delta_p_Darcy_{i,j}\"/> </p>
+<p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-cv-pressure.png\" alt=\"0 = p_{i-1,j} - p_{i,j} - Delta_p_Darcy_{i,j}\"/> </p>
 <h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
 <p>Requires an enclosing model to declare inner Modelica.SimCenter (for fluid type) and inner variables delta_p_darcy, rho_FM, f_eta, delta_p_v, rho_FM_v, f_eta_v (accessed via inner/outer from DarcyFlow sub-models). Thermal resistors are connected externally via port[N_r, N_z]. </p>
 <h4><span style=\"color: #008000\">8. Validation</span></h4>

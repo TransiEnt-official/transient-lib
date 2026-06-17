@@ -91,64 +91,54 @@ algorithm
 
 annotation(Documentation(info="<html>
 <h4><span style=\"color: #008000\">1. Purpose of function</span></h4>
-<p>Pure function that computes the number of radial control volumes (N_r_actual) from physical aquifer parameters and desired characteristic grid spacing. This function is designed for compile-time evaluation and enables dynamic sizing of geometry arrays in the Geometry model. It implements the same bisection algorithm as GridGenerator (steps 0-1b) but returns only the number of control volumes, not the full discretization.</p>
-
+<p>Pure function that computes the number of radial control volumes (N_r_actual) from physical aquifer parameters and desired characteristic grid spacing. This function is designed for compile-time evaluation and enables dynamic sizing of geometry arrays in the Geometry model. It implements the same bisection algorithm as GridGenerator (steps 0-1b) but returns only the number of control volumes, not the full discretization. </p>
 <h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
 <p>Purely mathematical component. Implements steps 0 and 1 of the GridGenerator algorithm:</p>
 <ul>
 <li>Step 0: Computation of thermal radius R_th from injected volume and heat capacities (characteristic length scale)</li>
 <li>Step 1a: Heuristic initial estimate of number of cells</li>
-<li>Step 1b: Bisection refinement to match first cell width to target dx_min</li>
+<li>Step 1b: Bisection refinement to match first cell width to target dx_min </li>
 </ul>
-
 <h4><span style=\"color: #008000\">3. Limits of validity</span></h4>
 <p>- N_r is clamped to [5, 500]. If computed N_r exceeds 500, result is 500 (undersampling).</p>
 <p>- Function assumes positive volumetric heat capacities and aquifer dimensions.</p>
 <p>- Thermal radius R_th must be positive for meaningful result.</p>
-<p>- Bisection convergence tolerance is 1% of dx_min; result may differ slightly from exact match.</p>
-
+<p>- Bisection convergence tolerance is 1&percnt; of dx_min; result may differ slightly from exact match. </p>
 <h4><span style=\"color: #008000\">4. Interfaces</span></h4>
 <h4>Inputs:</h4>
-<p>c_f — volumetric heat capacity of fluid [J/(m³·K)]</p>
-<p>c_a — effective volumetric heat capacity of aquifer [J/(m³·K)]</p>
-<p>H_a — thickness of aquifer [m]</p>
-<p>H_c — thickness of aquitard (upper and lower) [m] (for reference, not used in this function)</p>
-<p>V_inj — injected thermal energy storage volume [m³]</p>
-<p>r_0 — radius of well screen [m] (for reference, not used in this function)</p>
-<p>domain_factor — multiplicative factor for R_th to determine domain extent [-] (default 3.0)</p>
-<p>dx_min — target width of first radial cell [m]</p>
-
+<p>c_f &mdash; volumetric heat capacity of fluid [J/(m&sup3;&middot;K)]</p>
+<p>c_a &mdash; effective volumetric heat capacity of aquifer [J/(m&sup3;&middot;K)]</p>
+<p>H_a &mdash; thickness of aquifer [m]</p>
+<p>H_c &mdash; thickness of aquitard (upper and lower) [m] (for reference, not used in this function)</p>
+<p>V_inj &mdash; injected thermal energy storage volume [m&sup3;]</p>
+<p>r_0 &mdash; radius of well screen [m] (for reference, not used in this function)</p>
+<p>domain_factor &mdash; multiplicative factor for R_th to determine domain extent [-] (default 3.0)</p>
+<p>dx_min &mdash; target width of first radial cell [m] </p>
 <h4>Output:</h4>
-<p>N_r_actual — computed number of radial control volumes (fixed after initialization), range [5, 500]</p>
-
+<p>N_r_actual &mdash; computed number of radial control volumes (fixed after initialization), range [5, 500] </p>
 <h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
 <p>See GridGenerator documentation for full nomenclature. Key quantities:</p>
 <p>R_th = thermal radius [m]</p>
 <p>R_domain = domain radius [m]</p>
 <p>N_r_actual = number of radial control volumes [-]</p>
-<p>dx_min = target first cell width [m]</p>
-
+<p>dx_min = target first cell width [m] </p>
 <h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
 <p>Same as GridGenerator steps 0-1b:</p>
 <p>Thermal radius: R_th = sqrt( (c_f / c_a) * (V_inj / (pi * H_a)) )</p>
 <p>Domain radius: R_domain = domain_factor * R_th</p>
 <p>Initial estimate: N_r_temp = ceil(R_domain / dx_min)</p>
-<p>Final: N_r_actual from bisection to match first logistic cell width to dx_min</p>
-
+<p>Final: N_r_actual from bisection to match first logistic cell width to dx_min </p>
 <h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
 <p>Run this function once up front to size the optimized grid. Because N_r is a structural parameter (it sets array dimensions), it cannot be computed inside the model at runtime; instead the value returned here is entered manually into the Setting record:</p>
 <p>1. Choose dx_min and the physical parameters (V_inj, H_a, H_c, domain_factor, ...).</p>
 <p>2. Evaluate N_r = GridGenerator_SizeOnly(c_f, c_a, H_a, H_c, V_inj, r_0, domain_factor, dx_min).</p>
 <p>3. Enter the resulting N_r into Setting.N_r (with optimized_grid = true).</p>
 <p>The Dymola script Resources/../AutoConfigureN_r.mos automates steps 1-2 (it prints the computed N_r) and then translates and simulates Val_homogenLayer with the new N_r.</p>
-<p>For the full discretization and cell width generation, the GridGenerator function then uses this N_r (passed as input) and reproduces the same first cell width by identical logistic logic.</p>
-
+<p>For the full discretization and cell width generation, the GridGenerator function then uses this N_r (passed as input) and reproduces the same first cell width by identical logistic logic. </p>
 <h4><span style=\"color: #008000\">8. Validation</span></h4>
-<p>Tested implicitly through comparison with GridGenerator: both functions must return identical N_r for same inputs.</p>
-
+<p>Tested implicitly through comparison with GridGenerator: both functions must return identical N_r for same inputs. </p>
 <h4><span style=\"color: #008000\">9. References</span></h4>
-<p>Gillner, M., Jin, Y., Speerforck, A. (2025): A Validated System Model for High-Temperature Aquifer Thermal Energy Storage (HT-ATES) considering Buoyancy Flow. Manuscript.</p>
-
+<p>no remarks</p>
 <h4><span style=\"color: #008000\">10. Version History</span></h4>
 <p>Function created by Markus Gillner (markus.gillner@tuhh.de), May 2026</p>
 <p>Function revised by Markus Gillner (markus.gillner@tuhh.de), June 2026</p>

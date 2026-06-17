@@ -64,69 +64,69 @@ equation
 <p>- No thermal mass inside the resistor (instantaneous conduction).</p>
 <p>- Dispersion term assumes a linear relationship between Darcy velocity and dispersivity. </p>
 <h4><span style=\"color: #008000\">4. Interfaces</span></h4>
-<p><img src=\"modelica://ATES/../Resources/Images/ThermalResistorRadial_withDispersion_interfaces.svg\" alt=\"Interface diagram: port_a (heat in, left), port_b (heat out, right), q_r (Darcy velocity signal, left)\"/></p>
+<p><img src=\"modelica://TransiEnt/Resources/Images/ThermalResistorRadial_withDispersion_interfaces.svg\" alt=\"Interface diagram: port_a (heat in, left), port_b (heat out, right), q_r (Darcy velocity signal, left)\"/></p>
 <p>port_a: inner heat port &mdash; heat inlet (Heat, inherited from Element1D)</p>
 <p>port_b: outer heat port &mdash; heat outlet (Heat, inherited from Element1D)</p>
 <p>q_r: radial Darcy velocity input for dispersion calculation (Signal) </p>
 <h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
 <table cellspacing=\"0\" cellpadding=\"4\" border=\"0\"><tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-tr-symbol-R.png\" alt=\"R_r\"/></p></td>
+<td valign=\"middle\"><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-tr-symbol-R.png\" alt=\"R_r\"/></p></td>
 <td valign=\"middle\"><pre>R</pre></td>
 <td valign=\"middle\"><p>radial thermal resistance [K/W]</p></td>
 </tr>
 <tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-tr-symbol-lambda_eff.png\" alt=\"\\lambda_\\mathrm{eff}\"/></p></td>
+<td valign=\"middle\"><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-tr-symbol-lambda_eff.png\" alt=\"\\lambda_\\mathrm{eff}\"/></p></td>
 <td valign=\"middle\"><pre>lambda_overall</pre></td>
 <td valign=\"middle\"><p>effective thermal conductivity incl. dispersion [W/(m&middot;K)]</p></td>
 </tr>
 <tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-tr-symbol-lambda_disp.png\" alt=\"\\lambda_\\mathrm{disp}\"/></p></td>
+<td valign=\"middle\"><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-tr-symbol-lambda_disp.png\" alt=\"\\lambda_\\mathrm{disp}\"/></p></td>
 <td valign=\"middle\"><pre>lambda_disp</pre></td>
 <td valign=\"middle\"><p>dispersion contribution to thermal conductivity [W/(m&middot;K)]</p></td>
 </tr>
 <tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-tr-symbol-qr.png\" alt=\"q_r\"/></p></td>
+<td valign=\"middle\"><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-tr-symbol-qr.png\" alt=\"q_r\"/></p></td>
 <td valign=\"middle\"><pre>q_r</pre></td>
 <td valign=\"middle\"><p>radial Darcy velocity [m/s]</p></td>
 </tr>
 <tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-tr-symbol-r_outer.png\" alt=\"r_\\mathrm{outer}\"/></p></td>
+<td valign=\"middle\"><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-tr-symbol-r_outer.png\" alt=\"r_\\mathrm{outer}\"/></p></td>
 <td valign=\"middle\"><pre>r</pre></td>
 <td valign=\"middle\"><p>outer edge radius of control volume [m]</p></td>
 </tr>
 <tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-tr-symbol-r_r.png\" alt=\"r_r\"/></p></td>
+<td valign=\"middle\"><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-tr-symbol-r_r.png\" alt=\"r_r\"/></p></td>
 <td valign=\"middle\"><pre>r_r</pre></td>
 <td valign=\"middle\"><p>centre radius of control volume [m]</p></td>
 </tr>
 <tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-tr-symbol-dL.png\" alt=\"d_L\"/></p></td>
+<td valign=\"middle\"><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-tr-symbol-dL.png\" alt=\"d_L\"/></p></td>
 <td valign=\"middle\"><pre>disp_length</pre></td>
 <td valign=\"middle\"><p>dispersivity length [m]</p></td>
 </tr>
 <tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-tr-symbol-Cf.png\" alt=\"C_f\"/></p></td>
+<td valign=\"middle\"><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-tr-symbol-Cf.png\" alt=\"C_f\"/></p></td>
 <td valign=\"middle\"><pre>C_f</pre></td>
 <td valign=\"middle\"><p>volumetric heat capacity of fluid [J/(m&sup3;&middot;K)]</p></td>
 </tr>
 <tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-sym-Qdot.png\" alt=\"\\dot{Q}\"/></p></td>
+<td valign=\"middle\"><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-Qdot.png\" alt=\"\\dot{Q}\"/></p></td>
 <td valign=\"middle\"><pre>Q_flow</pre></td>
 <td valign=\"middle\"><p>heat flow rate [W] (inherited from Element1D)</p></td>
 </tr>
 <tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-tr-symbol-dT.png\" alt=\"\\Delta T\"/></p></td>
+<td valign=\"middle\"><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-tr-symbol-dT.png\" alt=\"\\Delta T\"/></p></td>
 <td valign=\"middle\"><pre>dT</pre></td>
 <td valign=\"middle\"><p>temperature difference across resistor [K] (inherited from Element1D)</p></td>
 </tr>
 </table>
 <p><br><h4><span style=\"color: #008000\">6. Governing Equations</span></h4></p>
 <p>Effective thermal conductivity with optional dispersion:</p>
-<p><img src=\"modelica://ATES/../Resources/Images/equations/equation-tr-lambda_disp.png\" alt=\"lambda_disp = d_L * |q_r| * C_f\"/></p>
+<p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-tr-lambda_disp.png\" alt=\"lambda_disp = d_L * |q_r| * C_f\"/></p>
 <p>Radial thermal resistance for cylindrical geometry:</p>
-<p><img src=\"modelica://ATES/../Resources/Images/equations/equation-tr-R.png\" alt=\"R_r = (ln(r_outer) - ln(r_r)) / (lambda_eff * 2*pi*z)\"/></p>
+<p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-tr-R.png\" alt=\"R_r = (ln(r_outer) - ln(r_r)) / (lambda_eff * 2*pi*z)\"/></p>
 <p>Heat transport (inherited from Element1D):</p>
-<p><img src=\"modelica://ATES/../Resources/Images/equations/equation-tr-dT.png\" alt=\"dT = R * Q_flow\"/> </p>
+<p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-tr-dT.png\" alt=\"dT = R * Q_flow\"/> </p>
 <h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
 <p>Connect q_r to the q_long output of the corresponding ControlVolumeL4 cell. Set <code>dispersion = false</code> (default) to use pure conduction. </p>
 <h4><span style=\"color: #008000\">8. Validation</span></h4>

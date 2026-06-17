@@ -68,132 +68,132 @@ record Subsurface_Basic "basic subsurface parameters with default values"
 <h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
 <table cellspacing=\"0\" cellpadding=\"4\">
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-rho.png\" alt=\"\\rho_l\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-rho.png\" alt=\"\\rho_l\"/></td>
   <td valign=\"middle\"><code>rho_l</code></td>
   <td valign=\"middle\">fluid density [kg/m&sup3;]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-eta.png\" alt=\"\\eta\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-eta.png\" alt=\"\\eta\"/></td>
   <td valign=\"middle\"><code>eta</code></td>
   <td valign=\"middle\">dynamic viscosity of fluid [Pa&middot;s]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-cp.png\" alt=\"c_p\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-cp.png\" alt=\"c_p\"/></td>
   <td valign=\"middle\"><code>Cp_l</code></td>
   <td valign=\"middle\">specific heat capacity of fluid [J/(kg&middot;K)]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-lambda.png\" alt=\"\\lambda_l\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-lambda.png\" alt=\"\\lambda_l\"/></td>
   <td valign=\"middle\"><code>lambda_l</code></td>
   <td valign=\"middle\">thermal conductivity of fluid [W/(m&middot;K)]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-rho_s.png\" alt=\"\\rho_s\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-rho_s.png\" alt=\"\\rho_s\"/></td>
   <td valign=\"middle\"><code>rho_s</code></td>
   <td valign=\"middle\">density of aquifer solid matrix [kg/m&sup3;]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-cps.png\" alt=\"c_{p,s}\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-cps.png\" alt=\"c_{p,s}\"/></td>
   <td valign=\"middle\"><code>Cp_s</code></td>
   <td valign=\"middle\">specific heat capacity of aquifer solid [J/(kg&middot;K)]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-lambda.png\" alt=\"\\lambda_s\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-lambda.png\" alt=\"\\lambda_s\"/></td>
   <td valign=\"middle\"><code>lambda_s</code></td>
   <td valign=\"middle\">thermal conductivity of aquifer solid [W/(m&middot;K)]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-n.png\" alt=\"n\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-n.png\" alt=\"n\"/></td>
   <td valign=\"middle\"><code>n</code></td>
   <td valign=\"middle\">porosity of the aquifer [-]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-k.png\" alt=\"k\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-k.png\" alt=\"k\"/></td>
   <td valign=\"middle\"><code>k</code></td>
   <td valign=\"middle\">radial permeability of aquifer [m&sup2;]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-dv-symbol-kv.png\" alt=\"k_v\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-dv-symbol-kv.png\" alt=\"k_v\"/></td>
   <td valign=\"middle\"><code>k_v</code></td>
   <td valign=\"middle\">vertical permeability of aquifer [m&sup2;]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-Tinit.png\" alt=\"T_\\mathrm{init}\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-Tinit.png\" alt=\"T_\\mathrm{init}\"/></td>
   <td valign=\"middle\"><code>T_initial</code></td>
   <td valign=\"middle\">initial temperature of aquifer [K]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-pinit.png\" alt=\"p_\\mathrm{init}\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-pinit.png\" alt=\"p_\\mathrm{init}\"/></td>
   <td valign=\"middle\"><code>p_initial</code></td>
   <td valign=\"middle\">initial pressure of aquifer [Pa]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-Cw.png\" alt=\"C_w\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-Cw.png\" alt=\"C_w\"/></td>
   <td valign=\"middle\"><code>C_w</code></td>
   <td valign=\"middle\">volumetric heat capacity of fluid [J/(m&sup3;&middot;K)]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-Ca.png\" alt=\"C_a\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-Ca.png\" alt=\"C_a\"/></td>
   <td valign=\"middle\"><code>C_a</code></td>
   <td valign=\"middle\">volumetric heat capacity of aquifer matrix [J/(m&sup3;&middot;K)]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-n_c.png\" alt=\"n_c\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-n_c.png\" alt=\"n_c\"/></td>
   <td valign=\"middle\"><code>n_c</code></td>
   <td valign=\"middle\">porosity of confining layers [-]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-rho_sc.png\" alt=\"\\rho_{sc}\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-rho_sc.png\" alt=\"\\rho_{sc}\"/></td>
   <td valign=\"middle\"><code>rho_sc</code></td>
   <td valign=\"middle\">density of solid in confining layers [kg/m&sup3;]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-cp_sc.png\" alt=\"c_{p,sc}\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-cp_sc.png\" alt=\"c_{p,sc}\"/></td>
   <td valign=\"middle\"><code>Cp_sc</code></td>
   <td valign=\"middle\">specific heat capacity of solid in confining layers [J/(kg&middot;K)]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-lambda_sc.png\" alt=\"\\lambda_{sc}\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-lambda_sc.png\" alt=\"\\lambda_{sc}\"/></td>
   <td valign=\"middle\"><code>lambda_sc</code></td>
   <td valign=\"middle\">thermal conductivity of solid in confining layers [W/(m&middot;K)]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-rho_aq.png\" alt=\"\\rho_\\mathrm{aq}\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-rho_aq.png\" alt=\"\\rho_\\mathrm{aq}\"/></td>
   <td valign=\"middle\"><code>rho</code></td>
   <td valign=\"middle\">effective density of aquifer (porosity-weighted) [kg/m&sup3;]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-rho_c.png\" alt=\"\\rho_c\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-rho_c.png\" alt=\"\\rho_c\"/></td>
   <td valign=\"middle\"><code>rho_c</code></td>
   <td valign=\"middle\">effective density of aquitard (porosity-weighted) [kg/m&sup3;]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-cp_aq.png\" alt=\"c_{p,\\mathrm{aq}}\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-cp_aq.png\" alt=\"c_{p,\\mathrm{aq}}\"/></td>
   <td valign=\"middle\"><code>Cp</code></td>
   <td valign=\"middle\">effective specific heat capacity of aquifer (porosity-weighted) [J/(kg&middot;K)]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-cp_c.png\" alt=\"c_{p,c}\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-cp_c.png\" alt=\"c_{p,c}\"/></td>
   <td valign=\"middle\"><code>Cp_c</code></td>
   <td valign=\"middle\">effective specific heat capacity of aquitard (porosity-weighted) [J/(kg&middot;K)]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-lambda_aq.png\" alt=\"\\lambda_\\mathrm{aq}\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-lambda_aq.png\" alt=\"\\lambda_\\mathrm{aq}\"/></td>
   <td valign=\"middle\"><code>lambda_a</code></td>
   <td valign=\"middle\">effective thermal conductivity of aquifer (porosity-weighted) [W/(m&middot;K)]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-lambda_c.png\" alt=\"\\lambda_c\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-lambda_c.png\" alt=\"\\lambda_c\"/></td>
   <td valign=\"middle\"><code>lambda_c</code></td>
   <td valign=\"middle\">effective thermal conductivity of aquitard (porosity-weighted) [W/(m&middot;K)]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-dh.png\" alt=\"d_h\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-dh.png\" alt=\"d_h\"/></td>
   <td valign=\"middle\"><code>d_h</code></td>
   <td valign=\"middle\">horizontal dispersion coefficient [m]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-dv.png\" alt=\"d_v\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-dv.png\" alt=\"d_v\"/></td>
   <td valign=\"middle\"><code>d_v</code></td>
   <td valign=\"middle\">vertical dispersion coefficient [m]</td>
 </tr>

@@ -81,47 +81,47 @@ equation
 <h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
 <table cellspacing=\"0\" cellpadding=\"4\">
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-mdot.png\" alt=\"\\dot{m}\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-mdot.png\" alt=\"\\dot{m}\"/></td>
   <td valign=\"middle\"><code>m_flow_buoyancy[N_r, N_z+1]</code></td>
   <td valign=\"middle\">vertical mass flow rate at each interface [kg/s]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-dv-symbol-vD.png\" alt=\"v_D\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-dv-symbol-vD.png\" alt=\"v_D\"/></td>
   <td valign=\"middle\"><code>v_darcy[N_r, N_z+1]</code></td>
   <td valign=\"middle\">vertical Darcy velocity at each interface [m/s]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-dp.png\" alt=\"\\Delta p\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-dp.png\" alt=\"\\Delta p\"/></td>
   <td valign=\"middle\"><code>delta_p_v</code></td>
   <td valign=\"middle\">vertical pressure difference [Pa]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-dv-symbol-kv.png\" alt=\"k_v\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-dv-symbol-kv.png\" alt=\"k_v\"/></td>
   <td valign=\"middle\"><code>k</code></td>
   <td valign=\"middle\">vertical permeability [m&sup2;]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-eta.png\" alt=\"\\eta\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-eta.png\" alt=\"\\eta\"/></td>
   <td valign=\"middle\"><code>f_eta_v</code></td>
   <td valign=\"middle\">dynamic viscosity [Pa&middot;s]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-rho.png\" alt=\"\\rho\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-rho.png\" alt=\"\\rho\"/></td>
   <td valign=\"middle\"><code>rho_FM_v</code></td>
   <td valign=\"middle\">fluid density at interface [kg/m&sup3;]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-g.png\" alt=\"g\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-g.png\" alt=\"g\"/></td>
   <td valign=\"middle\"><code>g_n</code></td>
   <td valign=\"middle\">gravitational acceleration = 9.81 m/s&sup2;</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-z.png\" alt=\"z\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-z.png\" alt=\"z\"/></td>
   <td valign=\"middle\"><code>z_diff[N_z+1]</code></td>
   <td valign=\"middle\">distance between temperature nodes of adjacent control volumes [m]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-Aq.png\" alt=\"A_q\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-Aq.png\" alt=\"A_q\"/></td>
   <td valign=\"middle\"><code>A_q[N_r]</code></td>
   <td valign=\"middle\">cross-sectional area of control volume [m&sup2;]</td>
 </tr>
@@ -129,10 +129,10 @@ equation
 
 <h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
 <p>Vertical Darcy momentum equation with gravitational body force:</p>
-<p><img src=\"modelica://ATES/../Resources/Images/equations/equation-dv-darcy.png\"
+<p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-dv-darcy.png\"
      alt=\"-Delta_p/z = -(eta/k)*v_Darcy - rho*g\"/></p>
 <p>Buoyancy mass flow rate from Darcy velocity and cross-sectional area:</p>
-<p><img src=\"modelica://ATES/../Resources/Images/equations/equation-dv-velocity.png\"
+<p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-dv-velocity.png\"
      alt=\"m_flow_buoy = v_D * A_q * rho\"/></p>
 
 <h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>

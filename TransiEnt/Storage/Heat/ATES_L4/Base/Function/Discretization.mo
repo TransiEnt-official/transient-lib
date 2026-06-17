@@ -180,42 +180,42 @@ algorithm
 <h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
 <table cellspacing=\"0\" cellpadding=\"4\">
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-r.png\" alt=\"r\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-r.png\" alt=\"r\"/></td>
   <td valign=\"middle\"><code>r</code></td>
   <td valign=\"middle\">outer edge radius of control volume [m]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-z.png\" alt=\"z\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-z.png\" alt=\"z\"/></td>
   <td valign=\"middle\"><code>z_A</code></td>
   <td valign=\"middle\">height of aquifer control volume [m]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-dh-symbol-As.png\" alt=\"A_s\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-dh-symbol-As.png\" alt=\"A_s\"/></td>
   <td valign=\"middle\"><code>A_s</code></td>
   <td valign=\"middle\">outer lateral surface area [m&sup2;]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-Aq.png\" alt=\"A_q\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-Aq.png\" alt=\"A_q\"/></td>
   <td valign=\"middle\"><code>A_q</code></td>
   <td valign=\"middle\">cross-sectional annular area [m&sup2;]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-V.png\" alt=\"V\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-V.png\" alt=\"V\"/></td>
   <td valign=\"middle\"><code>V</code></td>
   <td valign=\"middle\">control volume [m&sup3;]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-Nr.png\" alt=\"N_r\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-Nr.png\" alt=\"N_r\"/></td>
   <td valign=\"middle\"><code>N_r = sum(R_GS_H)</code></td>
   <td valign=\"middle\">total number of radial control volumes [-]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-Nz.png\" alt=\"N_z\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-Nz.png\" alt=\"N_z\"/></td>
   <td valign=\"middle\"><code>N_z = sum(H_GS_VA)</code></td>
   <td valign=\"middle\">total number of vertical aquifer control volumes [-]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-r0.png\" alt=\"r_0\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-r0.png\" alt=\"r_0\"/></td>
   <td valign=\"middle\"><code>r_0</code></td>
   <td valign=\"middle\">well screen radius [m]</td>
 </tr>

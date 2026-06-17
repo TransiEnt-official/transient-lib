@@ -55,42 +55,42 @@ record Setting "record with parameters for operation, design and discretization 
 <p>(no elements) </p>
 <h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
 <table cellspacing=\"0\" cellpadding=\"4\" border=\"0\"><tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-set-symbol-optimized_grid.png\" alt=\"f_\\mathrm{opt,grid}\"/></p></td>
+<td valign=\"middle\"><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-set-symbol-optimized_grid.png\" alt=\"f_\\mathrm{opt,grid}\"/></p></td>
 <td valign=\"middle\"><pre>optimized_grid</pre></td>
 <td valign=\"middle\"><p>flag: use automatically optimized grid (true) or manual grid sections (false) [-]</p></td>
 </tr>
 <tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-set-symbol-dx_min.png\" alt=\"\\Delta x_\\mathrm{min}\"/></p></td>
+<td valign=\"middle\"><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-set-symbol-dx_min.png\" alt=\"\\Delta x_\\mathrm{min}\"/></p></td>
 <td valign=\"middle\"><pre>dx_min</pre></td>
 <td valign=\"middle\"><p>target width of the first (innermost) radial control volume, optimized grid [m]</p></td>
 </tr>
 <tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-set-symbol-V_inj.png\" alt=\"V_\\mathrm{inj}\"/></p></td>
+<td valign=\"middle\"><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-set-symbol-V_inj.png\" alt=\"V_\\mathrm{inj}\"/></p></td>
 <td valign=\"middle\"><pre>V_inj</pre></td>
 <td valign=\"middle\"><p>injected storage volume (sizes the thermal radius), optimized grid [m&sup3;]</p></td>
 </tr>
 <tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-set-symbol-H_a.png\" alt=\"H_\\mathrm{a}\"/></p></td>
+<td valign=\"middle\"><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-set-symbol-H_a.png\" alt=\"H_\\mathrm{a}\"/></p></td>
 <td valign=\"middle\"><pre>H_a</pre></td>
 <td valign=\"middle\"><p>modelled aquifer thickness, optimized grid [m]</p></td>
 </tr>
 <tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-set-symbol-H_c.png\" alt=\"H_\\mathrm{c}\"/></p></td>
+<td valign=\"middle\"><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-set-symbol-H_c.png\" alt=\"H_\\mathrm{c}\"/></p></td>
 <td valign=\"middle\"><pre>H_c</pre></td>
 <td valign=\"middle\"><p>modelled aquitard (confining layer) thickness, optimized grid [m]</p></td>
 </tr>
 <tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-set-symbol-domain_factor.png\" alt=\"f_\\mathrm{domain}\"/></p></td>
+<td valign=\"middle\"><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-set-symbol-domain_factor.png\" alt=\"f_\\mathrm{domain}\"/></p></td>
 <td valign=\"middle\"><pre>domain_factor</pre></td>
 <td valign=\"middle\"><p>radial domain extent as multiple of the thermal radius, optimized grid [-]</p></td>
 </tr>
 <tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-sym-Nr.png\" alt=\"N_r\"/></p></td>
+<td valign=\"middle\"><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-Nr.png\" alt=\"N_r\"/></p></td>
 <td valign=\"middle\"><pre>N_r</pre></td>
 <td valign=\"middle\"><p>number of radial control volumes, optimized grid (pre-computed by GridGenerator_SizeOnly) [-]</p></td>
 </tr>
 <tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-sym-Nz.png\" alt=\"N_z\"/></p></td>
+<td valign=\"middle\"><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-Nz.png\" alt=\"N_z\"/></p></td>
 <td valign=\"middle\"><pre>N_z</pre></td>
 <td valign=\"middle\"><p>number of vertical aquifer control volumes, optimized grid [-]</p></td>
 </tr>
@@ -100,72 +100,72 @@ record Setting "record with parameters for operation, design and discretization 
 <td valign=\"middle\"><p>number of vertical aquitard control volumes (per confining layer), optimized grid [-]</p></td>
 </tr>
 <tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-set-symbol-NoGS_H.png\" alt=\"N_\\mathrm{GS,H}\"/></p></td>
+<td valign=\"middle\"><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-set-symbol-NoGS_H.png\" alt=\"N_\\mathrm{GS,H}\"/></p></td>
 <td valign=\"middle\"><pre>NoGS_H</pre></td>
 <td valign=\"middle\"><p>number of horizontal (radial) grid sections [-]</p></td>
 </tr>
 <tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-set-symbol-R_GS_H.png\" alt=\"R_\\mathrm{GS,H}\"/></p></td>
+<td valign=\"middle\"><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-set-symbol-R_GS_H.png\" alt=\"R_\\mathrm{GS,H}\"/></p></td>
 <td valign=\"middle\"><pre>R_GS_H[NoGS_H]</pre></td>
 <td valign=\"middle\"><p>number of control volumes per radial grid section [-]</p></td>
 </tr>
 <tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-set-symbol-dx_GS.png\" alt=\"\\Delta x_\\mathrm{GS}\"/></p></td>
+<td valign=\"middle\"><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-set-symbol-dx_GS.png\" alt=\"\\Delta x_\\mathrm{GS}\"/></p></td>
 <td valign=\"middle\"><pre>dx_GS[NoGS_H]</pre></td>
 <td valign=\"middle\"><p>thickness of control volumes per radial grid section [m]</p></td>
 </tr>
 <tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-sym-Nr.png\" alt=\"N_r\"/></p></td>
+<td valign=\"middle\"><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-Nr.png\" alt=\"N_r\"/></p></td>
 <td valign=\"middle\"><pre>sum(R_GS_H)</pre></td>
 <td valign=\"middle\"><p>total number of radial control volumes [-]</p></td>
 </tr>
 <tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-set-symbol-NoGS_VA.png\" alt=\"N_\\mathrm{GS,VA}\"/></p></td>
+<td valign=\"middle\"><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-set-symbol-NoGS_VA.png\" alt=\"N_\\mathrm{GS,VA}\"/></p></td>
 <td valign=\"middle\"><pre>NoGS_VA</pre></td>
 <td valign=\"middle\"><p>number of vertical grid sections in the aquifer [-]</p></td>
 </tr>
 <tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-set-symbol-H_GS_VA.png\" alt=\"H_\\mathrm{GS,VA}\"/></p></td>
+<td valign=\"middle\"><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-set-symbol-H_GS_VA.png\" alt=\"H_\\mathrm{GS,VA}\"/></p></td>
 <td valign=\"middle\"><pre>H_GS_VA[NoGS_VA]</pre></td>
 <td valign=\"middle\"><p>number of control volumes per vertical aquifer grid section [-]</p></td>
 </tr>
 <tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-set-symbol-dz_GS_A.png\" alt=\"\\Delta z_\\mathrm{GS,A}\"/></p></td>
+<td valign=\"middle\"><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-set-symbol-dz_GS_A.png\" alt=\"\\Delta z_\\mathrm{GS,A}\"/></p></td>
 <td valign=\"middle\"><pre>dz_GS_A[NoGS_VA]</pre></td>
 <td valign=\"middle\"><p>height of control volumes per vertical aquifer grid section [m]</p></td>
 </tr>
 <tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-sym-Nz.png\" alt=\"N_z\"/></p></td>
+<td valign=\"middle\"><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-Nz.png\" alt=\"N_z\"/></p></td>
 <td valign=\"middle\"><pre>sum(H_GS_VA)</pre></td>
 <td valign=\"middle\"><p>total number of vertical aquifer control volumes [-]</p></td>
 </tr>
 <tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-set-symbol-NoGS_VC.png\" alt=\"N_\\mathrm{GS,VC}\"/></p></td>
+<td valign=\"middle\"><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-set-symbol-NoGS_VC.png\" alt=\"N_\\mathrm{GS,VC}\"/></p></td>
 <td valign=\"middle\"><pre>NoGS_VC</pre></td>
 <td valign=\"middle\"><p>number of vertical grid sections in the aquitard [-]</p></td>
 </tr>
 <tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-set-symbol-H_GS_VC.png\" alt=\"H_\\mathrm{GS,VC}\"/></p></td>
+<td valign=\"middle\"><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-set-symbol-H_GS_VC.png\" alt=\"H_\\mathrm{GS,VC}\"/></p></td>
 <td valign=\"middle\"><pre>H_GS_VC[NoGS_VC]</pre></td>
 <td valign=\"middle\"><p>number of control volumes per vertical aquitard grid section [-]</p></td>
 </tr>
 <tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-set-symbol-dz_GS_C.png\" alt=\"\\Delta z_\\mathrm{GS,C}\"/></p></td>
+<td valign=\"middle\"><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-set-symbol-dz_GS_C.png\" alt=\"\\Delta z_\\mathrm{GS,C}\"/></p></td>
 <td valign=\"middle\"><pre>dz_GS_C[NoGS_VC]</pre></td>
 <td valign=\"middle\"><p>height of control volumes per vertical aquitard grid section [m]</p></td>
 </tr>
 <tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-sym-r0.png\" alt=\"r_0\"/></p></td>
+<td valign=\"middle\"><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-r0.png\" alt=\"r_0\"/></p></td>
 <td valign=\"middle\"><pre>r_0</pre></td>
 <td valign=\"middle\"><p>well screen radius [m]</p></td>
 </tr>
 <tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-set-symbol-buoyancy.png\" alt=\"f_\\mathrm{buoy}\"/></p></td>
+<td valign=\"middle\"><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-set-symbol-buoyancy.png\" alt=\"f_\\mathrm{buoy}\"/></p></td>
 <td valign=\"middle\"><pre>buoyancy</pre></td>
 <td valign=\"middle\"><p>flag: activate buoyancy-driven vertical flow [-]</p></td>
 </tr>
 <tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-set-symbol-dispersion.png\" alt=\"f_\\mathrm{disp}\"/></p></td>
+<td valign=\"middle\"><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-set-symbol-dispersion.png\" alt=\"f_\\mathrm{disp}\"/></p></td>
 <td valign=\"middle\"><pre>dispersion</pre></td>
 <td valign=\"middle\"><p>flag: activate hydrodynamic dispersion in effective thermal conductivity [-]</p></td>
 </tr>

@@ -174,7 +174,7 @@ equation
 <p>- Outer radial boundary requires pressure and temperature boundary conditions from the enclosing model.</p>
 
 <h4><span style=\"color: #008000\">4. Interfaces</span></h4>
-<p><img src=\"modelica://ATES/../Resources/Images/AquiferL4_interfaces.svg\"
+<p><img src=\"modelica://TransiEnt/Resources/Images/AquiferL4_interfaces.svg\"
      alt=\"Interface diagram: fluidPortEast/West/Up/Down (blue) and port_east/west/up/down (red)\"/></p>
 <p>fluidPortEast[N_z]: fluid inlet at inner radial boundary (Fluid, inlet)</p>
 <p>fluidPortWest[N_z]: fluid outlet at outer radial boundary (Fluid, outlet)</p>
@@ -188,27 +188,27 @@ equation
 <h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
 <table cellspacing=\"0\" cellpadding=\"4\">
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-Nr.png\" alt=\"N_r\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-Nr.png\" alt=\"N_r\"/></td>
   <td valign=\"middle\"><code>N_r</code></td>
   <td valign=\"middle\">number of radial control volumes [-]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-Nz.png\" alt=\"N_z\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-Nz.png\" alt=\"N_z\"/></td>
   <td valign=\"middle\"><code>N_z</code></td>
   <td valign=\"middle\">number of vertical aquifer control volumes [-]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-T.png\" alt=\"T\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-T.png\" alt=\"T\"/></td>
   <td valign=\"middle\"><code>T_start</code></td>
   <td valign=\"middle\">initial temperature [K]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-mdot.png\" alt=\"\\dot{m}\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-mdot.png\" alt=\"\\dot{m}\"/></td>
   <td valign=\"middle\"><code>fluidPortEast[j].m_flow</code></td>
   <td valign=\"middle\">inlet mass flow rate [kg/s]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-Qdot.png\" alt=\"\\dot{Q}\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-Qdot.png\" alt=\"\\dot{Q}\"/></td>
   <td valign=\"middle\"><code>port_east[j].Q_flow</code></td>
   <td valign=\"middle\">boundary heat flow rate [W]</td>
 </tr>

@@ -128,12 +128,12 @@ equation
 <p>(no elements &mdash; standalone check model) </p>
 <h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
 <table cellspacing=\"0\" cellpadding=\"4\" border=\"0\"><tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-sym-mdot.png\" alt=\"\\dot{m}\"/></p></td>
+<td valign=\"middle\"><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-mdot.png\" alt=\"\\dot{m}\"/></p></td>
 <td valign=\"middle\"><pre>combiTimeTable.y[1]</pre></td>
 <td valign=\"middle\"><p>prescribed mass flow rate [kg/s]</p></td>
 </tr>
 <tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-sym-T.png\" alt=\"T\"/></p></td>
+<td valign=\"middle\"><p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-T.png\" alt=\"T\"/></p></td>
 <td valign=\"middle\"><pre>combiTimeTable.y[2]</pre></td>
 <td valign=\"middle\"><p>prescribed injection temperature [K]</p></td>
 </tr>

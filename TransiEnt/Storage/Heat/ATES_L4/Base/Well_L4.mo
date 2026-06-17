@@ -139,7 +139,7 @@ equation
 <p>- Cylindrical well geometry with constant radius r_0.</p>
 
 <h4><span style=\"color: #008000\">4. Interfaces</span></h4>
-<p><img src=\"modelica://ATES/../Resources/Images/Well_L4_interfaces.svg\"
+<p><img src=\"modelica://TransiEnt/Resources/Images/Well_L4_interfaces.svg\"
      alt=\"Interface diagram: fluidPortIn at top, fluidPortOut_radial[N_z] on the right, port_a[N_z] on the left\"/></p>
 <p>fluidPortIn: fluid inlet/outlet to the surface network — top of well (Fluid, bidirectional)</p>
 <p>fluidPortOut_radial[N_z]: radial fluid ports to aquifer control volumes, one per vertical cell (Fluid, outlet)</p>
@@ -148,67 +148,67 @@ equation
 <h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
 <table cellspacing=\"0\" cellpadding=\"4\">
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-T.png\" alt=\"T\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-T.png\" alt=\"T\"/></td>
   <td valign=\"middle\"><code>T[N_z]</code></td>
   <td valign=\"middle\">cell temperature [K]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-p.png\" alt=\"p\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-p.png\" alt=\"p\"/></td>
   <td valign=\"middle\"><code>p[N_z]</code></td>
   <td valign=\"middle\">cell pressure [Pa]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-well-symbol-h.png\" alt=\"h\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-well-symbol-h.png\" alt=\"h\"/></td>
   <td valign=\"middle\"><code>h[N_z]</code></td>
   <td valign=\"middle\">specific enthalpy of cell fluid [J/kg]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-well-symbol-Hdot_v.png\" alt=\"\\dot{H}_v\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-well-symbol-Hdot_v.png\" alt=\"\\dot{H}_v\"/></td>
   <td valign=\"middle\"><code>H_flow_v[N_z]</code></td>
   <td valign=\"middle\">vertical enthalpy flow rate at top of each cell [W]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-well-symbol-Hdot_r.png\" alt=\"\\dot{H}_r\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-well-symbol-Hdot_r.png\" alt=\"\\dot{H}_r\"/></td>
   <td valign=\"middle\"><code>H_flow_r[N_z]</code></td>
   <td valign=\"middle\">radial enthalpy flow rate from aquifer into cell [W]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-well-symbol-mdot_v.png\" alt=\"\\dot{m}_v\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-well-symbol-mdot_v.png\" alt=\"\\dot{m}_v\"/></td>
   <td valign=\"middle\"><code>m_flow_v[N_z]</code></td>
   <td valign=\"middle\">vertical mass flow rate at top of each cell [kg/s]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-well-symbol-mdot_r.png\" alt=\"\\dot{m}_r\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-well-symbol-mdot_r.png\" alt=\"\\dot{m}_r\"/></td>
   <td valign=\"middle\"><code>m_flow_r[N_z]</code></td>
   <td valign=\"middle\">radial mass flow rate from/to aquifer per cell [kg/s]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-Qdot.png\" alt=\"\\dot{Q}\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-Qdot.png\" alt=\"\\dot{Q}\"/></td>
   <td valign=\"middle\"><code>port_a[j].Q_flow</code></td>
   <td valign=\"middle\">heat flow from surrounding medium into cell [W]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-V.png\" alt=\"V\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-V.png\" alt=\"V\"/></td>
   <td valign=\"middle\"><code>V_cell[N_z]</code></td>
   <td valign=\"middle\">volume of each well cell [m&sup3;]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-rho.png\" alt=\"\\rho\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-rho.png\" alt=\"\\rho\"/></td>
   <td valign=\"middle\"><code>bulk[j].d</code></td>
   <td valign=\"middle\">fluid density [kg/m&sup3;]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-cp.png\" alt=\"c_p\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-cp.png\" alt=\"c_p\"/></td>
   <td valign=\"middle\"><code>bulk[j].cp</code></td>
   <td valign=\"middle\">specific heat capacity of fluid [J/(kg&middot;K)]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-r0.png\" alt=\"r_0\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-r0.png\" alt=\"r_0\"/></td>
   <td valign=\"middle\"><code>r_0</code></td>
   <td valign=\"middle\">well bore radius [m]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-z.png\" alt=\"z\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-z.png\" alt=\"z\"/></td>
   <td valign=\"middle\"><code>H_cell[N_z]</code></td>
   <td valign=\"middle\">height of each well cell [m]</td>
 </tr>
@@ -216,13 +216,13 @@ equation
 
 <h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
 <p>Energy balance for each well cell j (j = 2 ... N_z; cell j = 1 has no lower vertical neighbour):</p>
-<p><img src=\"modelica://ATES/../Resources/Images/equations/equation-well-energy.png\"
+<p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-well-energy.png\"
      alt=\"V_j*rho*cp*dT_j/dt = -H_flow_v[j-1] + H_flow_v[j] + H_flow_r[j] + Q_dot_j\"/></p>
 <p>Mass continuity for each well cell:</p>
-<p><img src=\"modelica://ATES/../Resources/Images/equations/equation-well-mass.png\"
+<p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-well-mass.png\"
      alt=\"m_flow_v[j] - m_flow_v[j-1] + m_flow_r[j] = 0\"/></p>
 <p>Volume-proportional radial mass flow distribution:</p>
-<p><img src=\"modelica://ATES/../Resources/Images/equations/equation-well-distribution.png\"
+<p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-well-distribution.png\"
      alt=\"m_flow_r[j] = -(V_j / V_well) * m_flow_v[N_z]\"/></p>
 
 <h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>

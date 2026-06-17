@@ -36,42 +36,42 @@ record Molz1983 "Parameter values are taken from Molz et al 1983 and Buscheck et
 <h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
 <table cellspacing=\"0\" cellpadding=\"4\">
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-lambda.png\" alt=\"\\lambda_l\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-lambda.png\" alt=\"\\lambda_l\"/></td>
   <td valign=\"middle\"><code>lambda_l</code></td>
   <td valign=\"middle\">fluid thermal conductivity = 0.61 W/(m&middot;K)</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-rho_s.png\" alt=\"\\rho_s\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-rho_s.png\" alt=\"\\rho_s\"/></td>
   <td valign=\"middle\"><code>rho_s</code></td>
   <td valign=\"middle\">solid density = 2600 kg/m&sup3;</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-cps.png\" alt=\"c_{p,s}\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-cps.png\" alt=\"c_{p,s}\"/></td>
   <td valign=\"middle\"><code>Cp_s</code></td>
   <td valign=\"middle\">specific heat capacity of solid = 696.15 J/(kg&middot;K)</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-lambda.png\" alt=\"\\lambda_s\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-lambda.png\" alt=\"\\lambda_s\"/></td>
   <td valign=\"middle\"><code>lambda_s</code></td>
   <td valign=\"middle\">solid thermal conductivity = 2.85 W/(m&middot;K)</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-n.png\" alt=\"n\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-n.png\" alt=\"n\"/></td>
   <td valign=\"middle\"><code>n</code></td>
   <td valign=\"middle\">aquifer porosity = 0.25 [-]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-dv-symbol-kv.png\" alt=\"k_v\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-dv-symbol-kv.png\" alt=\"k_v\"/></td>
   <td valign=\"middle\"><code>k_v</code></td>
   <td valign=\"middle\">vertical permeability = 9&times;10<sup>-12</sup> m&sup2;</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-k.png\" alt=\"k\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-k.png\" alt=\"k\"/></td>
   <td valign=\"middle\"><code>k</code></td>
   <td valign=\"middle\">radial permeability = 6.3&times;10<sup>-11</sup> m&sup2;</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-Tinit.png\" alt=\"T_\\mathrm{init}\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-Tinit.png\" alt=\"T_\\mathrm{init}\"/></td>
   <td valign=\"middle\"><code>T_initial</code></td>
   <td valign=\"middle\">initial aquifer temperature = 293.15 K (20&deg;C)</td>
 </tr>

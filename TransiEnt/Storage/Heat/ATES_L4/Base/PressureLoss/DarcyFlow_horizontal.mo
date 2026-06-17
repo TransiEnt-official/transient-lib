@@ -75,47 +75,47 @@ equation
 <h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
 <table cellspacing=\"0\" cellpadding=\"4\">
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-mdot.png\" alt=\"\\dot{m}\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-mdot.png\" alt=\"\\dot{m}\"/></td>
   <td valign=\"middle\"><code>m_flow[N_r+1, N_z]</code></td>
   <td valign=\"middle\">radial mass flow rate at each interface [kg/s]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-dv-symbol-vD.png\" alt=\"v_D\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-dv-symbol-vD.png\" alt=\"v_D\"/></td>
   <td valign=\"middle\"><code>v_darcy[N_r+1, N_z]</code></td>
   <td valign=\"middle\">radial Darcy velocity at each interface [m/s]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-dp.png\" alt=\"\\Delta p\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-dp.png\" alt=\"\\Delta p\"/></td>
   <td valign=\"middle\"><code>delta_p_darcy</code></td>
   <td valign=\"middle\">pressure difference driving radial flow [Pa]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-k.png\" alt=\"k\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-k.png\" alt=\"k\"/></td>
   <td valign=\"middle\"><code>k</code></td>
   <td valign=\"middle\">radial permeability of aquifer [m&sup2;]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-eta.png\" alt=\"\\eta\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-eta.png\" alt=\"\\eta\"/></td>
   <td valign=\"middle\"><code>f_eta</code></td>
   <td valign=\"middle\">dynamic viscosity of fluid [Pa&middot;s]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-rho.png\" alt=\"\\rho\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-rho.png\" alt=\"\\rho\"/></td>
   <td valign=\"middle\"><code>rho_FM</code></td>
   <td valign=\"middle\">fluid density at interface [kg/m&sup3;]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-z.png\" alt=\"z\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-z.png\" alt=\"z\"/></td>
   <td valign=\"middle\"><code>z_A[N_r, N_z]</code></td>
   <td valign=\"middle\">height of control volume [m]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-tr-symbol-r_r.png\" alt=\"r_r\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-tr-symbol-r_r.png\" alt=\"r_r\"/></td>
   <td valign=\"middle\"><code>r_r[N_r, N_z]</code></td>
   <td valign=\"middle\">centre radius of control volume [m]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-dh-symbol-As.png\" alt=\"A_s\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-dh-symbol-As.png\" alt=\"A_s\"/></td>
   <td valign=\"middle\"><code>A_s[N_r, N_z]</code></td>
   <td valign=\"middle\">outer lateral surface area of control volume [m&sup2;]</td>
 </tr>
@@ -123,10 +123,10 @@ equation
 
 <h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
 <p>Radial Darcy mass flow at inner cell interfaces (i = 1 ... N_r) and outer boundary (i = N_r+1):</p>
-<p><img src=\"modelica://ATES/../Resources/Images/equations/equation-dh-darcy.png\"
+<p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-dh-darcy.png\"
      alt=\"m_flow = 2*pi*z*rho*k*Delta_p / (eta*(ln(r_outer)-ln(r_r)))\"/></p>
 <p>Darcy velocity from mass flow rate and interface area:</p>
-<p><img src=\"modelica://ATES/../Resources/Images/equations/equation-dh-velocity.png\"
+<p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-dh-velocity.png\"
      alt=\"m_flow = v_D * A_s * rho\"/></p>
 
 <h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>

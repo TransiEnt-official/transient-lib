@@ -111,17 +111,17 @@ algorithm
   <h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
   <table cellspacing=\"0\" cellpadding=\"4\">
   <tr>
-    <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-T.png\" alt=\"T\"/></td>
+    <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-T.png\" alt=\"T\"/></td>
     <td valign=\"middle\"><code>T</code></td>
     <td valign=\"middle\">temperature of water [K]</td>
   </tr>
   <tr>
-    <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-rho.png\" alt=\"\\rho\"/></td>
+    <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-rho.png\" alt=\"\\rho\"/></td>
     <td valign=\"middle\"><code>rho</code></td>
     <td valign=\"middle\">density of water [kg/m&sup3;]</td>
   </tr>
   <tr>
-    <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-eta.png\" alt=\"\\eta\"/></td>
+    <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-eta.png\" alt=\"\\eta\"/></td>
     <td valign=\"middle\"><code>eta</code></td>
     <td valign=\"middle\">dynamic viscosity of water [Pa&middot;s] (output)</td>
   </tr>

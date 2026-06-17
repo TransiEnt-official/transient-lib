@@ -64,7 +64,7 @@ annotation(Documentation(info="<html>
 <h4><span style=\"color: #008000\">8. Validation</span></h4>
 <p>Tested implicitly through validation of GridGenerator and GridGenerator_SizeOnly. </p>
 <h4><span style=\"color: #008000\">9. References</span></h4>
-<p>Gillner, M., Jin, Y., Speerforck, A. (2025): A Validated System Model for High-Temperature Aquifer Thermal Energy Storage (HT-ATES) considering Buoyancy Flow. </p>
+<p>no references</p>
 <h4><span style=\"color: #008000\">10. Version History</span></h4>
 <p>Function created by Markus Gillner (markus.gillner@tuhh.de), May 2026</p>
 <p>Function revised by Markus Gillner (markus.gillner@tuhh.de), June 2026</p>

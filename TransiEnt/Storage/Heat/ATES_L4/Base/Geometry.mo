@@ -123,32 +123,32 @@ equation
 <h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
 <table cellspacing=\"0\" cellpadding=\"4\">
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-Nr.png\" alt=\"N_r\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-Nr.png\" alt=\"N_r\"/></td>
   <td valign=\"middle\"><code>N_r</code></td>
   <td valign=\"middle\">total number of radial control volumes [-]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-Nz.png\" alt=\"N_z\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-Nz.png\" alt=\"N_z\"/></td>
   <td valign=\"middle\"><code>N_z</code></td>
   <td valign=\"middle\">total number of vertical aquifer control volumes [-]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-r.png\" alt=\"r\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-r.png\" alt=\"r\"/></td>
   <td valign=\"middle\"><code>r[N_r]</code></td>
   <td valign=\"middle\">outer edge radius of radial control volumes [m]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-dh-symbol-As.png\" alt=\"A_s\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-dh-symbol-As.png\" alt=\"A_s\"/></td>
   <td valign=\"middle\"><code>A_s[N_r, N_z]</code></td>
   <td valign=\"middle\">outer lateral surface area of aquifer control volumes [m&sup2;]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-Aq.png\" alt=\"A_q\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-Aq.png\" alt=\"A_q\"/></td>
   <td valign=\"middle\"><code>A_q[N_r]</code></td>
   <td valign=\"middle\">cross-sectional annular area [m&sup2;]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-V.png\" alt=\"V\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-V.png\" alt=\"V\"/></td>
   <td valign=\"middle\"><code>V[N_r, N_z]</code></td>
   <td valign=\"middle\">volume of aquifer control volumes [m&sup3;]</td>
 </tr>

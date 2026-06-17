@@ -55,32 +55,32 @@ equation
 <h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
 <table cellspacing=\"0\" cellpadding=\"4\">
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-tv-symbol-R.png\" alt=\"R_v\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-tv-symbol-R.png\" alt=\"R_v\"/></td>
   <td valign=\"middle\"><code>R</code></td>
   <td valign=\"middle\">vertical thermal resistance [K/W]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-lambda.png\" alt=\"\\lambda\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-lambda.png\" alt=\"\\lambda\"/></td>
   <td valign=\"middle\"><code>lambda</code></td>
   <td valign=\"middle\">thermal conductivity of the aquifer/aquitard [W/(m&middot;K)]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-tv-symbol-As.png\" alt=\"A_s\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-tv-symbol-As.png\" alt=\"A_s\"/></td>
   <td valign=\"middle\"><code>A</code></td>
   <td valign=\"middle\">cross-sectional area of control volume [m&sup2;]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-tv-symbol-z.png\" alt=\"z_\\mathrm{cv}\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-tv-symbol-z.png\" alt=\"z_\\mathrm{cv}\"/></td>
   <td valign=\"middle\"><code>z</code></td>
   <td valign=\"middle\">height of control volume [m]</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-Qdot.png\" alt=\"\\dot{Q}\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-sym-Qdot.png\" alt=\"\\dot{Q}\"/></td>
   <td valign=\"middle\"><code>Q_flow</code></td>
   <td valign=\"middle\">heat flow rate [W] (inherited from Element1D)</td>
 </tr>
 <tr>
-  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-tr-symbol-dT.png\" alt=\"\\Delta T\"/></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://TransiEnt/Resources/Images/equations/equation-tr-symbol-dT.png\" alt=\"\\Delta T\"/></td>
   <td valign=\"middle\"><code>dT</code></td>
   <td valign=\"middle\">temperature difference across resistor [K] (inherited from Element1D)</td>
 </tr>
@@ -88,10 +88,10 @@ equation
 
 <h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
 <p>Vertical thermal resistance (half-cell formulation):</p>
-<p><img src=\"modelica://ATES/../Resources/Images/equations/equation-trvert-R.png\"
+<p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-trvert-R.png\"
      alt=\"R = 0.5*z / (lambda * A)\"/></p>
 <p>Heat transport (inherited from Element1D):</p>
-<p><img src=\"modelica://ATES/../Resources/Images/equations/equation-tv-dT.png\"
+<p><img src=\"modelica://TransiEnt/Resources/Images/equations/equation-tv-dT.png\"
      alt=\"dT = R * Q_flow\"/></p>
 
 <h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>

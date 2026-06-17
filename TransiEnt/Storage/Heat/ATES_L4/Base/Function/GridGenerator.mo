@@ -187,11 +187,13 @@ algorithm
 <p>Larger N_r (finer grids) result in longer computation times; smaller N_r reduces computational cost but may reduce accuracy near the thermal plume center.</p>
 <p>Output arrays have variable sizes: R_GS_H and dx_GS have length N_r; H_GS_VA and dz_GS_A have length N_z; H_GS_VC and dz_GS_C have length N_z_c. Arrays can be passed directly to Discretization without slicing.</p>
 <p>Typical call pattern in Geometry.mo:</p>
-<p>initial equation</p><p>&nbsp;&nbsp;(R_GS_H_opt, dx_GS_opt, H_GS_VA_opt, dz_GS_A_opt, H_GS_VC_opt, dz_GS_C_opt) =</p><p>&nbsp;&nbsp;&nbsp;&nbsp;Base.Functions.GridGenerator(C_w, C, setting.H_a, setting.H_c, setting.V_inj, setting.r_0, setting.domain_factor, setting.N_r, setting.N_z, setting.N_z_c); </p>
+<p>initial equation</p>
+<p>&nbsp;&nbsp;(R_GS_H_opt, dx_GS_opt, H_GS_VA_opt, dz_GS_A_opt, H_GS_VC_opt, dz_GS_C_opt) =</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Base.Functions.GridGenerator(C_w, C, setting.H_a, setting.H_c, setting.V_inj, setting.r_0, setting.domain_factor, setting.N_r, setting.N_z, setting.N_z_c); </p>
 <h4><span style=\"color: #008000\">8. Validation</span></h4>
 <p>no validation </p>
-<h4><span style=\"color: #008000\">9. References</span></h4>
-<p>Gillner, M., Jin, Y., Speerforck, A. (2025): A Validated System Model for High-Temperature Aquifer Thermal Energy Storage (HT-ATES) considering Buoyancy Flow. Manuscript. </p>
+<p><b><span style=\"color: #008000;\">9. References</span></b> </p>
+<p>no remarks</p>
 <h4><span style=\"color: #008000\">10. Version History</span></h4>
 <p>Model created by Markus Gillner (markus.gillner@tuhh.de) on 19.05.2026</p>
 <p>Model revised by Markus Gillner (markus.gillner@tuhh.de), June 2026</p>
