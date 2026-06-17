@@ -1,5 +1,5 @@
 within TransiEnt.Storage.Heat.ATES_L4.Base.ControlVolumes_L4;
-model HeatCapacitorStone "Lumped Thermal element storing heat"
+model HeatCapacitorStone "Same model as HeatCapacitorStone but with FluidModel for density calculation of fluid"
 //Import und Hierachie
   import Modelica.Units.SI;
   //extends TransiEnt.Basics.Icons.Fluid_Volume;
@@ -11,15 +11,17 @@ model HeatCapacitorStone "Lumped Thermal element storing heat"
   parameter SI.SpecificHeatCapacity Cp_l "Specific Heat Capacity of liquid in aquitard";
   parameter SI.DimensionlessRatio n_c "porosity of aquitard";
   parameter SI.Temperature T_start "Start temperature of the confining layers";
+  parameter SI.Pressure p_initial "initial pressure of confined layer";
   parameter SI.Area A_q "Circular ring area of CV";
   parameter SI.Length z_c "Height of the volume of the confining layer";
-  parameter SI.Mass m=(n_c*rho_l + (1-n_c)*rho_sc)*(A_q*z_c) "Mass of the control volume";
-  parameter SI.HeatCapacity C=(n_c*rho_l*Cp_l + (1-n_c)*rho_sc*Cp_sc)*(A_q*z_c) "Heat capacity of element";
+  final parameter SI.Mass m=(n_c*rho_l + (1-n_c)*rho_sc)*(A_q*z_c) "Mass of the control volume";
+  final parameter SI.HeatCapacity C=(n_c*rho_l*Cp_l + (1-n_c)*rho_sc*Cp_sc)*(A_q*z_c) "Heat capacity of element";
+  final parameter TILMedia.VLEFluidTypes.BaseVLEFluid water=simCenter.fluid1 "Heat carrier";
 
   //Variablen
-  SI.Temperature T(start=T_start, displayUnit="degC", fixed = true) "Temperature of element";
+  SI.Temperature T(start=T_start, displayUnit="degC") "Temperature of element";
   SI.TemperatureSlope der_T(start=0) "Time derivative of temperature (= der(T))";
-  SI.Energy U(start=166339, fixed = true) "Inner energy of stone (start at 100bar and 40°C)";
+  SI.Energy U(start=207856) "Inner energy of stone";
 
   //Interfaces
   Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a port annotation (Placement(transformation(
@@ -27,6 +29,12 @@ model HeatCapacitorStone "Lumped Thermal element storing heat"
         extent={{-10,-10},{10,10}},
         rotation=90)));
 
+
+  inner ClaRa.SimCenter simCenter annotation (Placement(transformation(extent={{60,80},{100,100}})));
+  TILMedia.VLEFluid_pT    bulk(
+     p=p_initial,
+     T=T,
+     each vleFluidType=water) annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
   //Gleichungen
 equation
   T = port.T;
@@ -54,85 +62,98 @@ equation
           textColor={0,0,255})}),
     Documentation(info="<html>
 <h4><span style=\"color: #008000\">1. Purpose of model</span></h4>
-<p>Lumped thermal capacitor representing one control volume of a saturated confining layer (aquitard). The stored heat is that of the combined solid matrix and pore fluid, computed from a porosity-weighted volumetric heat capacity. The single heat port couples the element to the surrounding thermal resistor network. </p>
+<p>Lumped thermal capacitor representing one control volume of a saturated confining layer (aquitard). The stored heat is that of the combined solid matrix and pore fluid, computed from a porosity-weighted volumetric heat capacity. The single heat port couples the element to the surrounding thermal resistor network.</p>
+
 <h4><span style=\"color: #008000\">2. Level of detail, physical effects considered, and physical insight</span></h4>
-<p>L2: Single ideally mixed (lumped) control volume with one uniform temperature. Only thermal storage is modeled; heat transport between elements is handled externally by thermal resistors. Heat capacity is constant (no temperature dependency). </p>
+<p>L2: Single ideally mixed (lumped) control volume with one uniform temperature. Only thermal storage is modeled; heat transport between elements is handled externally by thermal resistors. Heat capacity is constant (no temperature dependency).</p>
+
 <h4><span style=\"color: #008000\">3. Limits of validity </span></h4>
 <p>- No internal temperature distribution; the whole volume is at one temperature.</p>
 <p>- Constant, porosity-weighted heat capacity (no temperature or pressure dependency).</p>
-<p>- No fluid flow (impermeable confining layer); only conductive coupling via the heat port. </p>
+<p>- No fluid flow (impermeable confining layer); only conductive coupling via the heat port.</p>
+
 <h4><span style=\"color: #008000\">4. Interfaces</span></h4>
-<p>port: heat port to the surrounding thermal resistor network (Heat) </p>
+<p>port: heat port to the surrounding thermal resistor network (Heat)</p>
+
 <h4><span style=\"color: #008000\">5. Nomenclature</span></h4>
-<table cellspacing=\"0\" cellpadding=\"4\" border=\"0\"><tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-sym-T.png\" alt=\"T\"/></p></td>
-<td valign=\"middle\"><pre>T</pre></td>
-<td valign=\"middle\"><p>temperature of the element (state) [K]</p></td>
+<table cellspacing=\"0\" cellpadding=\"4\">
+<tr>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-T.png\" alt=\"T\"/></td>
+  <td valign=\"middle\"><code>T</code></td>
+  <td valign=\"middle\">temperature of the element (state) [K]</td>
 </tr>
 <tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-sym-Qdot.png\" alt=\"\\dot{Q}\"/></p></td>
-<td valign=\"middle\"><pre>port.Q_flow</pre></td>
-<td valign=\"middle\"><p>heat flow rate into the element [W]</p></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-Qdot.png\" alt=\"\\dot{Q}\"/></td>
+  <td valign=\"middle\"><code>port.Q_flow</code></td>
+  <td valign=\"middle\">heat flow rate into the element [W]</td>
 </tr>
 <tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-cv-symbol-U.png\" alt=\"U\"/></p></td>
-<td valign=\"middle\"><pre>U</pre></td>
-<td valign=\"middle\"><p>inner energy of the element [J]</p></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-cv-symbol-U.png\" alt=\"U\"/></td>
+  <td valign=\"middle\"><code>U</code></td>
+  <td valign=\"middle\">inner energy of the element [J]</td>
 </tr>
 <tr>
-<td valign=\"middle\"><p>  <img src=\"modelica://ATES/Resources/Images/equations/equation-kCsKjK4A.png\" alt=\"C\"/></p></td>
-<td valign=\"middle\"><pre>C</pre></td>
-<td valign=\"middle\"><p>heat capacity of the element [J/K]</p></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-hcs-symbol-C.png\" alt=\"C\"/></td>
+  <td valign=\"middle\"><code>C</code></td>
+  <td valign=\"middle\">heat capacity of the element [J/K]</td>
 </tr>
 <tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-sym-n_c.png\" alt=\"n_c\"/></p></td>
-<td valign=\"middle\"><pre>n_c</pre></td>
-<td valign=\"middle\"><p>porosity of the confining layer [-]</p></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-n_c.png\" alt=\"n_c\"/></td>
+  <td valign=\"middle\"><code>n_c</code></td>
+  <td valign=\"middle\">porosity of the confining layer [-]</td>
 </tr>
 <tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-sym-rho.png\" alt=\"\\rho_l\"/></p></td>
-<td valign=\"middle\"><pre>rho_l</pre></td>
-<td valign=\"middle\"><p>density of the pore fluid [kg/m&sup3;]</p></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-rho.png\" alt=\"\\rho_l\"/></td>
+  <td valign=\"middle\"><code>rho_l</code></td>
+  <td valign=\"middle\">density of the pore fluid [kg/m&sup3;]</td>
 </tr>
 <tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-sym-rho_sc.png\" alt=\"\\rho_{sc}\"/></p></td>
-<td valign=\"middle\"><pre>rho_sc</pre></td>
-<td valign=\"middle\"><p>density of the solid in the confining layer [kg/m&sup3;]</p></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-rho_sc.png\" alt=\"\\rho_{sc}\"/></td>
+  <td valign=\"middle\"><code>rho_sc</code></td>
+  <td valign=\"middle\">density of the solid in the confining layer [kg/m&sup3;]</td>
 </tr>
 <tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-sym-cp.png\" alt=\"c_{p,l}\"/></p></td>
-<td valign=\"middle\"><pre>Cp_l</pre></td>
-<td valign=\"middle\"><p>specific heat capacity of the pore fluid [J/(kg&middot;K)]</p></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-cp.png\" alt=\"c_{p,l}\"/></td>
+  <td valign=\"middle\"><code>Cp_l</code></td>
+  <td valign=\"middle\">specific heat capacity of the pore fluid [J/(kg&middot;K)]</td>
 </tr>
 <tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-sym-cp_sc.png\" alt=\"c_{p,sc}\"/></p></td>
-<td valign=\"middle\"><pre>Cp_sc</pre></td>
-<td valign=\"middle\"><p>specific heat capacity of the solid in the confining layer [J/(kg&middot;K)]</p></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-cp_sc.png\" alt=\"c_{p,sc}\"/></td>
+  <td valign=\"middle\"><code>Cp_sc</code></td>
+  <td valign=\"middle\">specific heat capacity of the solid in the confining layer [J/(kg&middot;K)]</td>
 </tr>
 <tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-sym-Aq.png\" alt=\"A_q\"/></p></td>
-<td valign=\"middle\"><pre>A_q</pre></td>
-<td valign=\"middle\"><p>cross-sectional (annular) area of the control volume [m&sup2;]</p></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-Aq.png\" alt=\"A_q\"/></td>
+  <td valign=\"middle\"><code>A_q</code></td>
+  <td valign=\"middle\">cross-sectional (annular) area of the control volume [m&sup2;]</td>
 </tr>
 <tr>
-<td valign=\"middle\"><p><img src=\"modelica://ATES/../Resources/Images/equations/equation-sym-z.png\" alt=\"z_c\"/></p></td>
-<td valign=\"middle\"><pre>z_c</pre></td>
-<td valign=\"middle\"><p>height of the control volume [m]</p></td>
+  <td width=\"60\" valign=\"middle\"><img height=\"32\" src=\"modelica://ATES/../Resources/Images/equations/equation-sym-z.png\" alt=\"z_c\"/></td>
+  <td valign=\"middle\"><code>z_c</code></td>
+  <td valign=\"middle\">height of the control volume [m]</td>
 </tr>
 </table>
+
 <h4><span style=\"color: #008000\">6. Governing Equations</span></h4>
 <p>Porosity-weighted heat capacity of the saturated control volume:</p>
-<p><img src=\"modelica://ATES/Resources/Images/equations/equation-SOMIhbJT.png\" alt=\"C = (n_c*rho_l*Cp_l + (1-n_c)*rho_sc*Cp_sc) * A_q * z_c\"/></p>
+<p><img src=\"modelica://ATES/../Resources/Images/equations/equation-hcs-C.png\"
+     alt=\"C = (n_c*rho_l*Cp_l + (1-n_c)*rho_sc*Cp_sc) * A_q * z_c\"/></p>
 <p>Energy balance (lumped capacitor):</p>
-<p><img src=\"modelica://ATES/Resources/Images/equations/equation-PK5gKiSY.png\" alt=\"C * dT/dt = port.Q_flow\"/></p>
+<p><img src=\"modelica://ATES/../Resources/Images/equations/equation-hcs-energy.png\"
+     alt=\"C * dT/dt = port.Q_flow\"/></p>
 <p>Inner energy of the element:</p>
-<p><img src=\"modelica://ATES/Resources/Images/equations/equation-CWpxRdz6.png\" alt=\"dU/dt = C * dT/dt\"/></p>
+<p><img src=\"modelica://ATES/../Resources/Images/equations/equation-hcs-U.png\"
+     alt=\"dU/dt = C * dT/dt\"/></p>
+
 <h4><span style=\"color: #008000\">7. Remarks for Usage</span></h4>
-<p>Instantiated as an array inside ImpermeableLayer to provide thermal storage for the upper and lower aquitard. The variant HeatCapacitorStone_WithFluidModel adds a fluid property model and is the one actually used by ImpermeableLayer; use this simpler variant where constant fluid properties are sufficient. Material properties are taken from the Subsurface_Basic (Parameters) record. </p>
+<p>Instantiated as an array inside ImpermeableLayer to provide thermal storage for the upper and lower aquitard. The variant HeatCapacitorStone_WithFluidModel adds a fluid property model and is the one actually used by ImpermeableLayer; use this simpler variant where constant fluid properties are sufficient. Material properties are taken from the Subsurface_Basic (Parameters) record.</p>
+
 <h4><span style=\"color: #008000\">8. Validation</span></h4>
-<p>Tested in check model &quot;ATES.Validierung.Buoyancy.Val_homogenLayer&quot; </p>
+<p>Tested in check model &quot;ATES.Validierung.Buoyancy.Val_homogenLayer&quot;</p>
+
 <h4><span style=\"color: #008000\">9. References</span></h4>
-<p>(no remarks) </p>
+<p>(no remarks)</p>
+
 <h4><span style=\"color: #008000\">10. Version History</span></h4>
 <p>Model created by Markus Gillner (markus.gillner@tuhh.de), May 2026</p>
 <p>Model revised by Markus Gillner (markus.gillner@tuhh.de), June 2026</p>

@@ -12,10 +12,14 @@ model ImpermeableLayer "impermeable confined layer only heat transport possible"
   parameter SI.Pressure p_initial=Parameters.p_initial "initial pressure of confined layer";
 
   Records.Subsurface_Basic         Parameters annotation (Placement(transformation(extent={{76,-86},{96,-66}})));
-  Interfaces.HeatPort_a port_east annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
-  Interfaces.HeatPort_a port_up annotation (Placement(transformation(extent={{-10,90},{10,110}})));
-  Interfaces.HeatPort_b port_west annotation (Placement(transformation(extent={{90,-10},{110,10}})));
-  Interfaces.HeatPort_b port_down annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
+  Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a
+                        port_east annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
+  Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a
+                        port_up annotation (Placement(transformation(extent={{-10,90},{10,110}})));
+  Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_b
+                        port_west annotation (Placement(transformation(extent={{90,-10},{110,10}})));
+  Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_b
+                        port_down annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
   ThermalResistors.ThermalResistorRadial thermalResistorRadial_east(
     lambda=Parameters.lambda_c, r=r, r_r=r_d, z=z_c) annotation (Placement(transformation(extent={{-70,-10},{-50,10}})));
   ThermalResistors.ThermalResistorRadial thermalResistorRadial_west(
@@ -28,7 +32,7 @@ model ImpermeableLayer "impermeable confined layer only heat transport possible"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={0,60})));
-  ControlVolumesL4.HeatCapacitorStone_WithFluidModel heatCapacitorStone(
+  ControlVolumes_L4.HeatCapacitorStone heatCapacitorStone(
     rho_sc=Parameters.rho_sc,
     rho_l=Parameters.rho_l,
     Cp_sc=Parameters.Cp_sc,
@@ -37,7 +41,7 @@ model ImpermeableLayer "impermeable confined layer only heat transport possible"
     T_start=T_start,
     A_q=A_q,
     z_c=z_c,
-    p_initial=p_initial) annotation (Placement(transformation(extent={{-10,0},{10,20}})));
+    p_initial=p_initial)             annotation (Placement(transformation(extent={{-10,0},{10,20}})));
 equation
   connect(thermalResistorVertical_down.port_b, heatCapacitorStone.port) annotation (Line(points={{0,-50},{0,0}}, color={191,0,0}));
   connect(thermalResistorRadial_east.port_b, heatCapacitorStone.port) annotation (Line(points={{-50,0},{0,0}}, color={191,0,0}));

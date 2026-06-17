@@ -49,9 +49,9 @@ initial equation
 
   if setting.optimized_grid then
      (R_GS_H_opt, dx_GS_opt, H_GS_VA_opt, dz_GS_A_opt, H_GS_VC_opt, dz_GS_C_opt) =
-      Base.Functions.GridGenerator(C_w, C, setting.H_a, setting.H_c, setting.V_inj, setting.r_0, setting.domain_factor, setting.N_r, setting.N_z, setting.N_z_c);
+      TransiEnt.Storage.Heat.ATES_L4.Base.Function.GridGenerator(C_w, C, setting.H_a, setting.H_c, setting.V_inj, setting.r_0, setting.domain_factor, setting.N_r, setting.N_z, setting.N_z_c);
 
-     (r,r_r,r_r_c,z_A,z_Cu,z_Cd,A_s,A_q,V,A_s_Cu,V_Cu,A_s_Cd,V_Cd)=Base.Functions.Discretization(
+     (r,r_r,r_r_c,z_A,z_Cu,z_Cd,A_s,A_q,V,A_s_Cu,V_Cu,A_s_Cd,V_Cd)=TransiEnt.Storage.Heat.ATES_L4.Base.Function.Discretization(
       R_GS_H_opt,
       dx_GS_opt,
       setting.r_0,
@@ -70,7 +70,7 @@ initial equation
     dz_GS_C_opt = setting.dz_GS_C;
 
 
-    (r,r_r,r_r_c,z_A,z_Cu,z_Cd,A_s,A_q,V,A_s_Cu,V_Cu,A_s_Cd,V_Cd)=Base.Functions.Discretization(
+    (r,r_r,r_r_c,z_A,z_Cu,z_Cd,A_s,A_q,V,A_s_Cu,V_Cu,A_s_Cd,V_Cd)=TransiEnt.Storage.Heat.ATES_L4.Base.Function.Discretization(
       R_GS_H_opt,
       dx_GS_opt,
       setting.r_0,

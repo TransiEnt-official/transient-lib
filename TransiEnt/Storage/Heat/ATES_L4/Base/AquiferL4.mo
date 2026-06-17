@@ -18,7 +18,7 @@ model AquiferL4 "matrix of control volumes and thermal resistors"
   parameter Boolean dispersion = setting.dispersion "whether dispersion is considered or not";
 
 
-  Base.ControlVolumesL4.ControlVolumesL4_2D.ControlVolumeL4    controlVolumeL4(Parameters(
+  ControlVolumes_L4.ControlVolumeL4                            controlVolumeL4(Parameters(
       rho_l=Parameters.rho_l,
       rho_s=Parameters.rho_s,
       rho_sc=Parameters.rho_sc,
@@ -60,30 +60,38 @@ model AquiferL4 "matrix of control volumes and thermal resistors"
       optimized_grid=setting.optimized_grid,
       buoyancy = setting.buoyancy,
       dispersion = setting.dispersion)) annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
-  Interfaces.FluidPortOut fluidPortWest[N_z](each Medium = water) annotation (Placement(transformation(extent={{90,-30},{110,-10}})));
-  Interfaces.FluidPortOut fluidPortUp[N_r](each Medium=water) annotation (Placement(transformation(extent={{10,90},{30,110}})));
-  Interfaces.FluidPortIn fluidPortEast[N_z](each Medium = water) annotation (Placement(transformation(extent={{-112,-30},{-92,-10}})));
-  Interfaces.FluidPortIn fluidPortDown[N_r](each Medium=water) annotation (Placement(transformation(extent={{10,-110},{30,-90}})));
-  Interfaces.HeatPort_b port_down[N_r] annotation (Placement(transformation(extent={{-30,-110},{-10,-90}})));
-  Interfaces.HeatPort_b port_west[N_z] annotation (Placement(transformation(extent={{90,10},{110,30}})));
-  Interfaces.HeatPort_a port_east[N_z] annotation (Placement(transformation(extent={{-110,10},{-90,30}})));
-  Interfaces.HeatPort_a port_up[N_r] annotation (Placement(transformation(extent={{-30,90},{-10,110}})));
-  Base.ThermalResistors.Dispersion.ThermalResistorRadial_withDispersion
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortOut
+                          fluidPortWest[N_z](each Medium = water) annotation (Placement(transformation(extent={{90,-30},{110,-10}})));
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortOut
+                          fluidPortUp[N_r](each Medium = water) annotation (Placement(transformation(extent={{10,90},{30,110}})));
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn
+                         fluidPortEast[N_z](each Medium = water)  annotation (Placement(transformation(extent={{-112,-30},{-92,-10}})));
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn
+                         fluidPortDown[N_r](each Medium = water) annotation (Placement(transformation(extent={{10,-110},{30,-90}})));
+  Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_b
+                        port_down[N_r] annotation (Placement(transformation(extent={{-30,-110},{-10,-90}})));
+  Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_b
+                        port_west[N_z] annotation (Placement(transformation(extent={{90,10},{110,30}})));
+  Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a
+                        port_east[N_z] annotation (Placement(transformation(extent={{-110,10},{-90,30}})));
+  Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a
+                        port_up[N_r] annotation (Placement(transformation(extent={{-30,90},{-10,110}})));
+  ThermalResistors.ThermalResistorRadial_withDispersion
                                               thermalResistorRadial_withDispersion
                                                                         [N_r,N_z](
     each lambda=Parameters.lambda_a,r=r,r_r=r_r,z=z, each dispersion = dispersion, each disp_length = Parameters.d_h, each n = Parameters.n, each C_f = Parameters.C_w, each C_s = Parameters.C_a) annotation (Placement(transformation(extent={{-70,10},{-50,30}})));
-  Base.ThermalResistors.Dispersion.ThermalResistorRadial_withDispersion
+  ThermalResistors.ThermalResistorRadial_withDispersion
                                               thermalResistorRadial_withDispersion1
                                                                         [N_r,N_z](
     each lambda=Parameters.lambda_a,r=r,r_r=r_r,z=z, each dispersion = dispersion,  each disp_length = Parameters.d_h, each n = Parameters.n, each C_f = Parameters.C_w, each C_s = Parameters.C_a) annotation (Placement(transformation(extent={{50,10},{70,30}})));
-  Base.ThermalResistors.Dispersion.ThermalResistorVertical_withDispersion
+  ThermalResistors.ThermalResistorVertical_withDispersion
                                                 thermalResistorVertical_withDispersion
                                                                             [N_r,N_z](
     each lambda=Parameters.lambda_a, A=A, z=z, each dispersion = dispersion,  each disp_length = Parameters.d_v, each n = Parameters.n, each C_f = Parameters.C_w, each C_s = Parameters.C_a) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-20,-60})));
-  Base.ThermalResistors.Dispersion.ThermalResistorVertical_withDispersion
+  ThermalResistors.ThermalResistorVertical_withDispersion
                                                 thermalResistorVertical_withDispersion1
                                                                           [N_r,N_z](
     each lambda=Parameters.lambda_a, A=A, z=z, each dispersion = dispersion,  each disp_length = Parameters.d_v, each n = Parameters.n, each C_f = Parameters.C_w, each C_s = Parameters.C_a) annotation (Placement(transformation(

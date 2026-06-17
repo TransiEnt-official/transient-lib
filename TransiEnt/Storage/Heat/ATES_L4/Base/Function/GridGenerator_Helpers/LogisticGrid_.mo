@@ -1,5 +1,5 @@
 within TransiEnt.Storage.Heat.ATES_L4.Base.Function.GridGenerator_Helpers;
-model LogisticGrid_ "Pure function: compute normalized logistic cell widths for given N_r.
+function LogisticGrid_ "Pure function: compute normalized logistic cell widths for given N_r.
      Logistic function: f(r) = b + A / (1 + exp(-k * (r_norm - 1)))
      where r_norm = (i-1) / N_r for i in 1..N_r+1.
      Output: normalized cell widths (dimensionless, sum = 1.0).

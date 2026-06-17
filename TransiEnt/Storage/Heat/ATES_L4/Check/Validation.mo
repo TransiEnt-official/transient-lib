@@ -15,7 +15,7 @@ model Validation  "Validation of buoyancy flow with a homogenous layer according
   SI.EnthalpyFlowRate H_flow_out;
   //Real HRF "Heat Recovery Factor";
 
-  ATESL4.ATES_2DFlow.ATES_confinedLayer             aquiferspeicher(
+  Base.ATES_confinedLayer                           aquiferspeicher(
     Parameters(
       rho_l=Parameters.rho_l,
       rho_s=Parameters.rho_s,
@@ -149,5 +149,9 @@ equation
 <p>Buscheck, T. A., Doughty, C., &amp; Tsang, C. F. (1983). Prediction and analysis of a field experiment on a multilayered aquifer thermal energy storage system with strong buoyancy flow. <i>Water Resources Research</i>, <i>19</i>(5), 1307-1315.</p>
 <h4><span style=\"color: #008000\">10. Version History</span></h4>
 <p>Model created by Markus Gillner (markus.gillner@tuhh.de), May 2026</p>
-</html>"));
+</html>"),
+    Diagram(graphics={Text(
+          extent={{-96,92},{8,88}},
+          textColor={28,108,200},
+          textString="Check aquiferspeicher.well.T[end]")}));
 end Validation;

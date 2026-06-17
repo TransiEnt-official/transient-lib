@@ -23,7 +23,7 @@ protected
   final parameter SI.Length z_diff[N_z+1] = cat(1, {0.5*geo.z_A[1,1]}, {0.5*(geo.z_A[1,j]+geo.z_A[1,j+1]) for j in 1:N_z-1}, {0.5*geo.z_A[1,N_z]}) "Shifted vector z_A of grid sections in z-direction to the central of each CV";
 
 public
-  AquiferL4.AquiferL4_2DFlow.AquiferL4            aquiferspeicher(
+  AquiferL4                                       aquiferspeicher(
     Parameters(
       rho_l=Parameters.rho_l,
       rho_s=Parameters.rho_s,
@@ -78,7 +78,7 @@ public
         origin={50,20})));
   ClaRa.Components.BoundaryConditions.BoundaryVLE_pTxi boundaryVLE_pTxi_west[N_z](
     each variable_p=true,                                                              each p_const(displayUnit="bar") = Parameters.p_initial,  each T_const(displayUnit="degC")=T_Boundary) annotation (Placement(transformation(extent={{60,-30},{40,-10}})));
-  Base.Geometry     geo(
+  Base.Geometry  geo(
     C_w=Parameters.C_w,
     C=Parameters.C,
     setting(
@@ -114,7 +114,7 @@ public
         origin={86,54})));
 
   Modelica.Blocks.Sources.Constant hydraulicPressureGradient[N_z](k={(p_Boundary - Parameters.rho_l*g_n*sum(z_diff[1:j])*f_buoyancy) for j in 1:N_z})    annotation (Placement(transformation(extent={{94,-28},{74,-8}})));
-  Base.ConfinedLayer.ImpermeableLayer     stoneUp[N_r,N_z_c](
+  ImpermeableLayer stoneUp[N_r,N_z_c](
     each final Parameters(
       rho_l=Parameters.rho_l,
       rho_s=Parameters.rho_s,
@@ -140,7 +140,7 @@ public
     r_d=geo.r_r_c,
     z_c=geo.z_Cu,
     A_q=A_q_new) annotation (Placement(transformation(extent={{-10,36},{10,58}})));
-  Base.ConfinedLayer.ImpermeableLayer     stoneDown[N_r,N_z_c](
+  ImpermeableLayer stoneDown[N_r,N_z_c](
     each final Parameters(
       rho_l=Parameters.rho_l,
       rho_s=Parameters.rho_s,
@@ -166,8 +166,10 @@ public
     r_d=geo.r_r_c,
     z_c=geo.z_Cd,
     A_q=A_q_new) annotation (Placement(transformation(extent={{-10,-60},{10,-40}})));
-  Interfaces.FixedHeatFlow fixedHeatFlow_east_upper[N_z_c](each Q_flow=0) annotation (Placement(transformation(extent={{-40,38},{-20,58}})));
-  Interfaces.FixedHeatFlow fixedHeatFlow_east_lower[N_z_c](each Q_flow=0) annotation (Placement(transformation(extent={{-40,-58},{-20,-38}})));
+  Modelica.Thermal.HeatTransfer.Sources.FixedHeatFlow
+                           fixedHeatFlow_east_upper[N_z_c](each Q_flow=0) annotation (Placement(transformation(extent={{-40,38},{-20,58}})));
+  Modelica.Thermal.HeatTransfer.Sources.FixedHeatFlow
+                           fixedHeatFlow_east_lower[N_z_c](each Q_flow=0) annotation (Placement(transformation(extent={{-40,-58},{-20,-38}})));
   Modelica.Thermal.HeatTransfer.Sources.FixedTemperature fixedTemperature_west_upper[N_z_c](each T=T_Boundary) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=180,
@@ -184,15 +186,15 @@ public
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={0,74})));
-  Base.Records.Subsurface_Basic         Parameters annotation (Placement(transformation(extent={{-70,-90},{-50,-70}})));
-  Base.Well.Well_L4 well(
+  Base.Records.Subsurface_Basic  Parameters annotation (Placement(transformation(extent={{-70,-90},{-50,-70}})));
+  Well_L4 well(
   N_z = N_z,
   p_initial = Parameters.p_initial,
   T_initial = Parameters.T_initial,
   r_0 = setting.r_0,
   H_cell = H_cell,
   No_inactive_well_volumes = 0) annotation (Placement(transformation(extent={{-100,-10},{-80,10}})));
-  Interfaces.FluidPortIn fluidPortIn(Medium = water) annotation (Placement(transformation(extent={{-10,90},{10,110}})));
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn fluidPortIn(Medium=water) annotation (Placement(transformation(extent={{-10,90},{10,110}})));
   Base.Records.Setting setting annotation (Placement(transformation(extent={{-44,-92},{-24,-72}})));
 equation
 

@@ -49,34 +49,39 @@ public
 
  //instances of other classes
  //Fluid Models
-  FluidModels.VLEFluid_ph fluidEast[N_z](
+  TILMedia.VLEFluid_ph    fluidEast[N_z](
     p=fluidPortEast.p,
     h=noEvent(actualStream(fluidPortEast.h_outflow)),
     each vleFluidType=water) annotation (Placement(transformation(extent={{-90,-12},{-70,8}})));
-  FluidModels.VLEFluid_ph fluidWest[N_z](
+  TILMedia.VLEFluid_ph    fluidWest[N_z](
     p=fluidPortWest.p,
     h=noEvent({(if m_flow[N_r+1,j]<0+eps then inStream(fluidPortWest[j].h_outflow) else fluidPortWest[j].h_outflow) for j in 1:N_z}),
     each vleFluidType=water) annotation (Placement(transformation(extent={{72,-12},{92,8}})));
-  FluidModels.VLEFluid_pT bulk[N_r,N_z](
+  TILMedia.VLEFluid_pT    bulk[N_r,N_z](
      p=p,
      T=T,
      each vleFluidType=water) annotation (Placement(transformation(extent={{-10,-12},{10,8}})));
-  FluidModels.VLEFluid_ph fluidUp[N_r](
+  TILMedia.VLEFluid_ph    fluidUp[N_r](
     p=fluidPortUp.p,
     h=noEvent({(if m_flow_buoyancy[j, N_z + 1] < 0 + eps then inStream(fluidPortUp[j].h_outflow) else fluidPortUp[j].h_outflow) for j in 1:N_r}),
     each vleFluidType=water) annotation (Placement(transformation(extent={{-12,68},{8,88}})));
-  FluidModels.VLEFluid_ph fluidDown[N_r](
+  TILMedia.VLEFluid_ph    fluidDown[N_r](
     p=fluidPortDown.p,
     h=noEvent(actualStream(fluidPortDown.h_outflow)),
     each vleFluidType=water) annotation (Placement(transformation(extent={{-10,-88},{10,-68}})));
 
   //Interfaces
-  Interfaces.FluidPortIn fluidPortEast[N_z](each Medium=water) annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
-  Interfaces.FluidPortOut fluidPortWest[N_z](each Medium=water) annotation (Placement(transformation(extent={{92,-10},{112,10}})));
-  Interfaces.FluidPortIn fluidPortDown[N_r](each Medium=water, each p(start=Parameters.p_initial)) annotation (Placement(transformation(extent={{-10,-108},{10,-88}})));
-  Interfaces.FluidPortOut fluidPortUp[N_r](each Medium=water, each p(start=Parameters.p_initial)) annotation (Placement(transformation(extent={{-10,90},{10,110}})));
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn
+                         fluidPortEast[N_z](each Medium=water)  annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortOut
+                          fluidPortWest[N_z](each Medium=water)  annotation (Placement(transformation(extent={{92,-10},{112,10}})));
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn
+                         fluidPortDown[N_r](each Medium=water, each p(start=Parameters.p_initial)) annotation (Placement(transformation(extent={{-10,-108},{10,-88}})));
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortOut
+                          fluidPortUp[N_r](each Medium=water, each p(start=Parameters.p_initial)) annotation (Placement(transformation(extent={{-10,90},{10,110}})));
   inner ClaRa.SimCenter simCenter annotation (Placement(transformation(extent={{60,80},{100,100}})));
-  Interfaces.HeatPort_a port[N_r,N_z] annotation (Placement(transformation(extent={{-108,90},{-88,110}})));
+  Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a
+                        port[N_r,N_z] annotation (Placement(transformation(extent={{-108,90},{-88,110}})));
 
   PressureLoss.DarcyFlow_horizontal darcyFlow_horizontal(
     final k=Parameters.k,
@@ -123,8 +128,10 @@ public
     final z_A = geo.z_A,
     final rho_l = Parameters.rho_l,
     final n = Parameters.n)  annotation (Placement(transformation(extent={{18,-62},{38,-42}})));
-  Interfaces.RealOutput q_trans[N_r,N_z + 1] annotation (Placement(transformation(extent={{-96,70},{-116,90}})));
-  Interfaces.RealOutput q_long[N_r,N_z] annotation (Placement(transformation(extent={{-96,48},{-116,68}})));
+  Modelica.Blocks.Interfaces.RealOutput
+                        q_trans[N_r,N_z + 1] annotation (Placement(transformation(extent={{-96,70},{-116,90}})));
+  Modelica.Blocks.Interfaces.RealOutput
+                        q_long[N_r,N_z] annotation (Placement(transformation(extent={{-96,48},{-116,68}})));
   Records.Setting setting annotation (Placement(transformation(extent={{26,80},{46,100}})));
 initial equation
 
@@ -254,26 +261,26 @@ equation
 
  //Dynamic Viscosity
  for j in 1:N_z loop
-   f_eta[1,j]=FluidModels.DynamicViscosityWater(fluidEast[j].T, fluidEast[j].d);
+   f_eta[1,j]=TransiEnt.Storage.Heat.ATES_L4.Base.Function.DynamicViscosityWater(fluidEast[j].T, fluidEast[j].d);
  end for;
  for i in 2:N_r+1 loop
    for j in 1:N_z loop
-     f_eta[i,j]=FluidModels.DynamicViscosityWater(T[i-1,j],bulk[i-1,j].d);
+     f_eta[i,j]=TransiEnt.Storage.Heat.ATES_L4.Base.Function.DynamicViscosityWater(T[i-1,j],bulk[i-1,j].d);
    end for;
  end for;
  for j in 1:N_z loop
-   f_eta[N_r+2,j]=FluidModels.DynamicViscosityWater(T_start, fluidWest[j].d);
+   f_eta[N_r+2,j]=TransiEnt.Storage.Heat.ATES_L4.Base.Function.DynamicViscosityWater(T_start, fluidWest[j].d);
  end for;
  for i in 1:N_r loop
-   f_eta_v[i,1]=FluidModels.DynamicViscosityWater(fluidDown[i].T, fluidDown[i].d);
+   f_eta_v[i,1]=TransiEnt.Storage.Heat.ATES_L4.Base.Function.DynamicViscosityWater(fluidDown[i].T, fluidDown[i].d);
  end for;
  for i in 1:N_r loop
    for j in 2:N_z+1 loop
-     f_eta_v[i,j]=FluidModels.DynamicViscosityWater(T[i,j-1],bulk[i,j-1].d);
+     f_eta_v[i,j]=TransiEnt.Storage.Heat.ATES_L4.Base.Function.DynamicViscosityWater(T[i,j-1],bulk[i,j-1].d);
    end for;
  end for;
  for i in 1:N_r loop
-   f_eta_v[i,N_z+2]=FluidModels.DynamicViscosityWater(fluidUp[i].T, fluidUp[i].d);
+   f_eta_v[i,N_z+2]=TransiEnt.Storage.Heat.ATES_L4.Base.Function.DynamicViscosityWater(fluidUp[i].T, fluidUp[i].d);
  end for;
 
  //HeatPort

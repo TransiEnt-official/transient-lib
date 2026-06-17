@@ -1,5 +1,5 @@
 within TransiEnt.Storage.Heat.ATES_L4.Base.Function;
-model GridGenerator_SizeOnly "Compute N_r_actual from physical parameters and characteristic spacing.
+function GridGenerator_SizeOnly "Compute N_r_actual from physical parameters and characteristic spacing.
    This pure function enables compile-time sizing of geometry arrays.
    Uses same bisection logic as GridGenerator (steps 0-1b) but returns only N_r_actual.
    For discretization and cell sizing, use GridGenerator function."

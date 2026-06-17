@@ -1,5 +1,5 @@
 within TransiEnt.Storage.Heat.ATES_L4.Base.Function;
-model GridGenerator "Generate optimized grid discretization from physical parameters using characteristic grid spacing"
+function GridGenerator "Generate optimized grid discretization from physical parameters using characteristic grid spacing"
 
   // _____________________________________________
   //
