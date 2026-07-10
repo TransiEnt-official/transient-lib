@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.SolarThermal.Check;
+within TransiEnt.Producer.Heat.SolarThermal.Check;
 model TestCollectorFieldEN12975 "Tester for a solar collector field using fluid boundaries and controller"
 
 

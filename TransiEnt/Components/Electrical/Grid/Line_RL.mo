@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.Grid;
+within TransiEnt.Components.Electrical.Grid;
 model Line_RL
   "Transmission line model with consideration of resistance (R) and inductive reactance (L) per unit length"
 

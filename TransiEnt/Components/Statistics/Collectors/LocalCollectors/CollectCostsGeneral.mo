@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Statistics.Collectors.LocalCollectors;
+within TransiEnt.Components.Statistics.Collectors.LocalCollectors;
 model CollectCostsGeneral "Cost collector for general components"
 
 

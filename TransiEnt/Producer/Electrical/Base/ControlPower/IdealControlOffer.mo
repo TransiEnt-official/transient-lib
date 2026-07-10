@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Base.ControlPower;
+within TransiEnt.Producer.Electrical.Base.ControlPower;
 block IdealControlOffer "Ideal control power provision without constraints other than nominal power"
 
 

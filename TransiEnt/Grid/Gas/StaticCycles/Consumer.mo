@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Gas.StaticCycles;
+within TransiEnt.Grid.Gas.StaticCycles;
 model Consumer "Gas consumer || yellow"
 
 

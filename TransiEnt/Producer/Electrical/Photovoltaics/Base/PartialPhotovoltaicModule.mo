@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Photovoltaics.Base;
+within TransiEnt.Producer.Electrical.Photovoltaics.Base;
 partial model PartialPhotovoltaicModule "Base class for photovoltaic models"
 
 

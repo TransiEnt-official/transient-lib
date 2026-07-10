@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Electrical;
+within TransiEnt.Consumer.Electrical;
 model ExponentialElectricConsumer "Exponential frequency and voltage dependency"
 
 

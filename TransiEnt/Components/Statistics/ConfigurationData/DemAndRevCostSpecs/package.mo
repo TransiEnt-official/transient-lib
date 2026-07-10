@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Statistics.ConfigurationData;
+within TransiEnt.Components.Statistics.ConfigurationData;
 package DemAndRevCostSpecs "Demand-related and revenue cost specifications"
 
 

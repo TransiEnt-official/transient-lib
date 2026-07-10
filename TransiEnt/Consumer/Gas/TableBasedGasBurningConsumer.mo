@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Gas;
+within TransiEnt.Consumer.Gas;
 model TableBasedGasBurningConsumer "Simple model of a consumer burning natural gas for covering heat demand."
 
 

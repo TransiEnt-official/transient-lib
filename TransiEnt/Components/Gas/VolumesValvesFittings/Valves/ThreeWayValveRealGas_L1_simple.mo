@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Gas.VolumesValvesFittings.Valves;
+within TransiEnt.Components.Gas.VolumesValvesFittings.Valves;
 model ThreeWayValveRealGas_L1_simple "Three way valve for one phase vle media | no reverse flow | works for zero flow | no pressure dependency |"
 
 

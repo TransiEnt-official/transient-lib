@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Heat.ElectricWaterHeater_constProp_L4;
+within TransiEnt.Storage.Heat.ElectricWaterHeater_constProp_L4;
 model ElectricWaterHeater_constProp_L4 "Temperature and Heat flow rate based model of a stratified thermal storage with finite volume discretisation (1=top, n=bottom) no thermodynamic property computation"
 
 

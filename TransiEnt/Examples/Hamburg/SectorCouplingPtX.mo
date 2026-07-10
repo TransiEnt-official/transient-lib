@@ -1,4 +1,4 @@
-﻿within TransiEnt.Examples.Hamburg;
+within TransiEnt.Examples.Hamburg;
 model SectorCouplingPtX "Coupled electric, district heating and gas grids for Hamburg with PtX 2035"
 
 

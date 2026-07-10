@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Sensors.RealGas;
+within TransiEnt.Components.Sensors.RealGas;
 model EnthalpyFlowSensor "Two port VLE enthalpy flow sensor, enthalpy flow difference to STP conditions"
 
 

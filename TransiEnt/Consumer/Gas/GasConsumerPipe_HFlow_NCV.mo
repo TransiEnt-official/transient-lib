@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Gas;
+within TransiEnt.Consumer.Gas;
 model GasConsumerPipe_HFlow_NCV "Gas sink dependent on net calorific value control with a pipe representing the distance to a consumer within this district"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Combined.SmallScaleCHP.Specifications;
+within TransiEnt.Producer.Combined.SmallScaleCHP.Specifications;
 record Dachs_HKA_G_5_5kW "ICE 5.5 kWel"
 
 

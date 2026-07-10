@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.Machines.Base.CharLineInductionMachine;
+within TransiEnt.Components.Electrical.Machines.Base.CharLineInductionMachine;
 model CharLineInductionMachineBlock
 
 

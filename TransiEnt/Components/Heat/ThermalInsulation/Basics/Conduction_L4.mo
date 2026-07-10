@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat.ThermalInsulation.Basics;
+within TransiEnt.Components.Heat.ThermalInsulation.Basics;
 model Conduction_L4 "Thermal element for static heat conduction"
 
 

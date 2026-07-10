@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat;
+within TransiEnt.Components.Heat;
 model SteamTurbine_L0 "A steam generation unit following VDI3508"
 
 

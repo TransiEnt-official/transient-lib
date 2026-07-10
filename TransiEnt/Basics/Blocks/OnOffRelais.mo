@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Blocks;
+within TransiEnt.Basics.Blocks;
 model OnOffRelais "Three state dynamic model - operating at init"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.Machines;
+within TransiEnt.Components.Electrical.Machines;
 model VariableSpeedActivePowerGenerator "ActicePowerPort: Static machine model with torque control for the shaft speed"
 
 

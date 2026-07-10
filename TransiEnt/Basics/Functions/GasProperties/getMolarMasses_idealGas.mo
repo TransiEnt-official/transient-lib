@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Functions.GasProperties;
+within TransiEnt.Basics.Functions.GasProperties;
 function getMolarMasses_idealGas "Function to calculate the molar masses of a gas medium's components with TILMedia"
 
 

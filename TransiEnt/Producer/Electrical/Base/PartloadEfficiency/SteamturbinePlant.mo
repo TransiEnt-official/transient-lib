@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Base.PartloadEfficiency;
+within TransiEnt.Producer.Electrical.Base.PartloadEfficiency;
 record SteamturbinePlant "Typical steam turbine plant partload efficiency"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Statistics.Collectors.GlobalCollectors;
+within TransiEnt.Components.Statistics.Collectors.GlobalCollectors;
 model GwpEmissionsStatistics
 
 

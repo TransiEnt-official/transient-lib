@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Blocks;
+within TransiEnt.Basics.Blocks;
 block Hysteresis_inputVariable "Transform Real to Boolean signal with Hysteresis and variables as input values"
 
 

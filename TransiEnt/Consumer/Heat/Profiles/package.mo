@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Heat;
+within TransiEnt.Consumer.Heat;
 package Profiles "Contains profiles e.g. HotWaterProfiles or ThermalDemandProfiles"
 
 
@@ -45,7 +45,7 @@ package Profiles "Contains profiles e.g. HotWaterProfiles or ThermalDemandProfil
 // (Hamburg University of Technology)                                             //
 // and is supported by                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
-//________________________________________________________________________________//  
+//________________________________________________________________________________//
   extends TransiEnt.Basics.Icons.TableDataPackage;
 
 

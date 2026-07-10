@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Heat.PackedBedStorage_L4.Basics;
+within TransiEnt.Storage.Heat.PackedBedStorage_L4.Basics;
 model PackedBedControlVolume_L4 "An array of packed bed cells with a single energy equation for particles and fluid and heat connector at in- and outlet"
 
 

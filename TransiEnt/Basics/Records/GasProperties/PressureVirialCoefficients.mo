@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Records.GasProperties;
+within TransiEnt.Basics.Records.GasProperties;
 record PressureVirialCoefficients "Record containing the pressure virial coefficients B'0 and B'30 for 0 and 30 degC"
 
 

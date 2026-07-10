@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Others;
+within TransiEnt.Producer.Electrical.Others;
 model Biomass "Preconfigured biomass plant model"
 
 

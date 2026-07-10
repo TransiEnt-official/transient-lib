@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat.ElectricAirHeater.Basics;
+within TransiEnt.Components.Heat.ElectricAirHeater.Basics;
 model ElectricHeater_N_cv "Electric Heater Geometry"
 
 

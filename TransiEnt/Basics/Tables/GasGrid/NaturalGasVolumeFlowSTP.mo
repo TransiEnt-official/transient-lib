@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.GasGrid;
+within TransiEnt.Basics.Tables.GasGrid;
 model NaturalGasVolumeFlowSTP "Model for describing the average volume flow of natural gas"
 
 

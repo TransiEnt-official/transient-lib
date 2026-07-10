@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.Grid.Check;
+within TransiEnt.Components.Electrical.Grid.Check;
 model TestPiModelQS_SimpleGrid "Model for testing a quasi stationary PiModel in a simple grid"
 
 

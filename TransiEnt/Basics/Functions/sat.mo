@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Functions;
+within TransiEnt.Basics.Functions;
 function sat "Smooth saturation of input x between xmin and xmax without state events"
 
 

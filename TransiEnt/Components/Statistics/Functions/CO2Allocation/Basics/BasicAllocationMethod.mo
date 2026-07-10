@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Statistics.Functions.CO2Allocation.Basics;
+within TransiEnt.Components.Statistics.Functions.CO2Allocation.Basics;
 partial function BasicAllocationMethod "basic class for allocation functions for CHP plants"
 
 

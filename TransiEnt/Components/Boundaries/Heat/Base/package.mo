@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.Heat;
+within TransiEnt.Components.Boundaries.Heat;
 package Base
 
 

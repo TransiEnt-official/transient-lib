@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Heat.ThermalHeatConsumer_L3.Base;
+within TransiEnt.Consumer.Heat.ThermalHeatConsumer_L3.Base;
 model SolarRadiation
 
 

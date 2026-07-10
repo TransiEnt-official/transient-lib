@@ -1,4 +1,4 @@
-﻿within TransiEnt.SystemGeneration.Superstructure.Components.Records;
+within TransiEnt.SystemGeneration.Superstructure.Components.Records;
 record ControllerInputGeneration "Record for the construction of controller parameter inputs using known InstanceRecords"
 
 //________________________________________________________________________________//

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Heat.PackedBedStorage_L4.Basics.PackedBedGeometry;
+within TransiEnt.Storage.Heat.PackedBedStorage_L4.Basics.PackedBedGeometry;
 model PackedBedGeometry_N_cv "Base class for packed bed geometry"
 
 

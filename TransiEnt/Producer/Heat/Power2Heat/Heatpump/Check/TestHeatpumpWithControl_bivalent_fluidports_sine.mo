@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.Power2Heat.Heatpump.Check;
+within TransiEnt.Producer.Heat.Power2Heat.Heatpump.Check;
 model TestHeatpumpWithControl_bivalent_fluidports_sine "Model for testing HeatpumpWithControl with fluid ports, bivalent operation and external temperature"
   import TransiEnt;
 

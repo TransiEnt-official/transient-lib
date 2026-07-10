@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer.Check;
+within TransiEnt.Producer.Gas.Electrolyzer.Check;
 model Test_400A_Espinosa_L2 "Test functionality of new electrolyzer model structure with Espinosa physics subcomponents"
 
 

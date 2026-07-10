@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat;
+within TransiEnt.Components.Heat;
 package Fan "Model for fan or blower"
 
 

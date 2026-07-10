@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables;
+within TransiEnt.Basics.Tables;
 model GenericCombiTable2D "Parameterized version of MSL's CombiTable with 2 Dimensions"
 
 

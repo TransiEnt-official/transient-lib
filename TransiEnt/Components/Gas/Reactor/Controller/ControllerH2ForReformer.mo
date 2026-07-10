@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Gas.Reactor.Controller;
+within TransiEnt.Components.Gas.Reactor.Controller;
 model ControllerH2ForReformer "Controller to control the mass flow of hydrogen for the prereformer and steam methane reformer"
 
 

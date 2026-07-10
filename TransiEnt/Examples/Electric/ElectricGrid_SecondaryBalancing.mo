@@ -1,4 +1,4 @@
-﻿within TransiEnt.Examples.Electric;
+within TransiEnt.Examples.Electric;
 model ElectricGrid_SecondaryBalancing "Example for secondary balancing simulation of a two area grid"
 
 

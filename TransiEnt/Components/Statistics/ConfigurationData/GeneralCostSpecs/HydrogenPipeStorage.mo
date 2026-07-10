@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Statistics.ConfigurationData.GeneralCostSpecs;
+within TransiEnt.Components.Statistics.ConfigurationData.GeneralCostSpecs;
 model HydrogenPipeStorage "Hydrogen buried pipe storage (1300...6800 m3 geo, <100 bar)"
 
 

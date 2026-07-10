@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Interfaces.General;
+within TransiEnt.Basics.Interfaces.General;
 connector MomentOfInertiaCollector "Collector for the moment of inertia in electric grid"
 
 

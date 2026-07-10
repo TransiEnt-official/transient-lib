@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Electrical.UnitCommitment;
+within TransiEnt.Grid.Electrical.UnitCommitment;
 package Check "Models to check engines"
 
 

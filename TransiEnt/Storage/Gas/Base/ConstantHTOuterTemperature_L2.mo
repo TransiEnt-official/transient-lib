@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Gas.Base;
+within TransiEnt.Storage.Gas.Base;
 model ConstantHTOuterTemperature_L2 "Heat transfer model for a constant heat transfer"
 
 

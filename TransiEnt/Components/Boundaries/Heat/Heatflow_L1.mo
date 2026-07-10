@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.Heat;
+within TransiEnt.Components.Boundaries.Heat;
 model Heatflow_L1 "Ideal Heat flow boundary with constant or prescribed power and constant pressure loss"
 
 

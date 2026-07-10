@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Heat.HotWaterStorage_L2.Check;
+within TransiEnt.Storage.Heat.HotWaterStorage_L2.Check;
 model Check_HotWaterStorage_L2 "Minimal test model for stratified hot water storage L1 model"
   import TransiEnt;
 

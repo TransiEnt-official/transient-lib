@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.PowerTransformation.Components;
+within TransiEnt.Components.Electrical.PowerTransformation.Components;
 partial model PartialApparentPower2Pin "Partial modell for two pin Inductor, Capacitor and Resistor"
 
 

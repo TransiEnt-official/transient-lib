@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat.VolumesValvesFittings.Fittings;
+within TransiEnt.Components.Heat.VolumesValvesFittings.Fittings;
 model Join_L2_Y "Join model extended from the ClaRa library"
 
 

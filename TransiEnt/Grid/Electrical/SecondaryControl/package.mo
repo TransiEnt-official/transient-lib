@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Electrical;
+within TransiEnt.Grid.Electrical;
 package SecondaryControl "Secondary controllers and automatic generation control"
 
 

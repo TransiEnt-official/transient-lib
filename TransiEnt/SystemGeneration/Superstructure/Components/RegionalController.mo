@@ -1,4 +1,4 @@
-﻿within TransiEnt.SystemGeneration.Superstructure.Components;
+within TransiEnt.SystemGeneration.Superstructure.Components;
 model RegionalController "Dummy regional Model for \"local\" controling"
 //________________________________________________________________________________//
 // Component of the TransiEnt Library, version: 3.0.0                             //

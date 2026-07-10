@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Heat.HotWaterStorage_L4;
+within TransiEnt.Storage.Heat.HotWaterStorage_L4;
 package Utilities
 
 

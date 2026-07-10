@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Photovoltaics.QuasiStationary;
+within TransiEnt.Producer.Electrical.Photovoltaics.QuasiStationary;
 package Check
 
 

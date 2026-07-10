@@ -1,4 +1,4 @@
-﻿within TransiEnt.Examples.Heat;
+within TransiEnt.Examples.Heat;
 model DHN_SubSystem "A subsystem derived from DHN_StandAlone"
 
 

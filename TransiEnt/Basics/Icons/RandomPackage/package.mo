@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Icons;
+within TransiEnt.Basics.Icons;
 partial package RandomPackage "Icon for  packages using statistical methods"
 
 

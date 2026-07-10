@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.Power2Heat.Heatpump.Controller.Base;
+within TransiEnt.Producer.Heat.Power2Heat.Heatpump.Controller.Base;
 partial model Controller_PV
 
 

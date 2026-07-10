@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Heat.HotWaterStorage_L4.Utilities;
+within TransiEnt.Storage.Heat.HotWaterStorage_L4.Utilities;
 function trapezoid_Geometry_WallAreas
 
 

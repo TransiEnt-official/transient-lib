@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Gas.Engines.Base;
+within TransiEnt.Components.Gas.Engines.Base;
 partial model PartialEngine_idealGas "Base class for engines with necessary connectors"
 
 

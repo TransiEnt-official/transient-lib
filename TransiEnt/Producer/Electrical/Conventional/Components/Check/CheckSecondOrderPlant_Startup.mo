@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Conventional.Components.Check;
+within TransiEnt.Producer.Electrical.Conventional.Components.Check;
 model CheckSecondOrderPlant_Startup "Example of the component SecondOrderPlant startup process (variable efficiency)"
 
 

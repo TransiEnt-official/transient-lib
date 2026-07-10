@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Gas.Compressor.Base;
+within TransiEnt.Components.Gas.Compressor.Base;
 model GetInputsHydraulic "Get enabled inputs and parameters of disabled inputs"
 
 

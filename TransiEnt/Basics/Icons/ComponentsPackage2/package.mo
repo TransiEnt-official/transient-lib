@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Icons;
+within TransiEnt.Basics.Icons;
 partial package ComponentsPackage2 "Icon for packages containing components classes"
 
 

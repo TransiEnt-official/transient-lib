@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Base;
+within TransiEnt.Producer.Electrical.Base;
 partial model PartialNaturalGasUnit "Adds a gas interface with a mass flow defining boundary to child components"
 
 

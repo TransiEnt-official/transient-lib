@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.BiogasPlant.Check;
+within TransiEnt.Producer.Gas.BiogasPlant.Check;
 model TestADM1 "Test model for adm1"
 
 

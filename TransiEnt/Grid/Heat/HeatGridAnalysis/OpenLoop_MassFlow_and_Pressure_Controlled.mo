@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Heat.HeatGridAnalysis;
+within TransiEnt.Grid.Heat.HeatGridAnalysis;
 model OpenLoop_MassFlow_and_Pressure_Controlled
 
 

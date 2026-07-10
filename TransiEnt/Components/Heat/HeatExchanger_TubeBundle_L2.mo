@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat;
+within TransiEnt.Components.Heat;
 model HeatExchanger_TubeBundle_L2 "Simple heat exchanger model"
 
 

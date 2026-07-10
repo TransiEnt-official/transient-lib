@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.Base;
+within TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.Base;
 package DHN_Pipes "Consists of data sheets from manufacturers of district heating pipes"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Wind.Characteristics.VariableSpeed;
+within TransiEnt.Producer.Electrical.Wind.Characteristics.VariableSpeed;
 function betzCoefficient "Approximation function for betz coefficient based on six parameters (see Heier2009, page 39)"
 
 

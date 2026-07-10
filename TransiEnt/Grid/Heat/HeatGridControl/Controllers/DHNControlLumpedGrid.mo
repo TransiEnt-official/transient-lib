@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Heat.HeatGridControl.Controllers;
+within TransiEnt.Grid.Heat.HeatGridControl.Controllers;
 model DHNControlLumpedGrid "DHN Control model (provides setpoint values) for a lumped grid model (total mass flow, total heat flow rate...)"
   import TransiEnt;
 

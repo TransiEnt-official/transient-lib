@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Heat.HotWaterStorage_constProp_L4.Base;
+within TransiEnt.Storage.Heat.HotWaterStorage_constProp_L4.Base;
 model Diffusion "Second order 1D finite difference approximation of heat diffusion"
   // Model is bases on the model "Bouyancy in the "Buildings-library (https://github.com/lbl-srg/modelica-buildings.git)"
 

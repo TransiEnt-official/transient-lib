@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.BiogasPlant.MaterialValues;
+within TransiEnt.Producer.Gas.BiogasPlant.MaterialValues;
 package Materials
 
 

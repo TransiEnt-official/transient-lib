@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Gas.VolumesValvesFittings.Fittings;
+within TransiEnt.Components.Gas.VolumesValvesFittings.Fittings;
 model RealGasJunction_L2_nPorts "Volume junction for real gases with n ports"
 
 

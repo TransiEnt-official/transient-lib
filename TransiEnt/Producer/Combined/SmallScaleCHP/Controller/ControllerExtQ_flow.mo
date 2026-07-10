@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Combined.SmallScaleCHP.Controller;
+within TransiEnt.Producer.Combined.SmallScaleCHP.Controller;
 model ControllerExtQ_flow "CHP controller that sets plant to a given heat flow rate"
 
 

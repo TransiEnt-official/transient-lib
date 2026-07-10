@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.BiogasPlant.Base.ADM1;
+within TransiEnt.Producer.Gas.BiogasPlant.Base.ADM1;
 model ADM1_PetersenMatrix "Constructing the Petersen Matrix of ADM1"
 
 

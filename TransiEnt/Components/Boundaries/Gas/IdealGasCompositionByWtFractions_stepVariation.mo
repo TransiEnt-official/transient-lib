@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.Gas;
+within TransiEnt.Components.Boundaries.Gas;
 model IdealGasCompositionByWtFractions_stepVariation "Periodic step variation of mass fraction of last component in ideal gas mixture"
 
 

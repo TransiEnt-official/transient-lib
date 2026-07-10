@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.FuelCellSystems.Check;
+within TransiEnt.Components.Electrical.FuelCellSystems.Check;
 model TestFuelCellSystem_SOFC "SOFC Fuel cell system with steam reformer and electricity led control"
 
 

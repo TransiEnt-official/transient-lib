@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Base.ControlPower;
+within TransiEnt.Producer.Electrical.Base.ControlPower;
 partial model PartialBalancingPowerProvider "Abstract model of any kind of electric balancing power provider with statistics and control input"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Systems.PVBatteryPoolControl.Check;
+within TransiEnt.Consumer.Systems.PVBatteryPoolControl.Check;
 model CheckPVBatteryPool "Tester for PVBatteryPool"
 
 

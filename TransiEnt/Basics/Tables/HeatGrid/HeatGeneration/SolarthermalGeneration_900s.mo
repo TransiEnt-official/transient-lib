@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.HeatGrid.HeatGeneration;
+within TransiEnt.Basics.Tables.HeatGrid.HeatGeneration;
 model SolarthermalGeneration_900s "Example of solarthermal heat flow"
 
 

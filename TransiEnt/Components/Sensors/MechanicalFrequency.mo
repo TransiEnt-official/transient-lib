@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Sensors;
+within TransiEnt.Components.Sensors;
 model MechanicalFrequency "Frequency on mechanical power port"
 
 

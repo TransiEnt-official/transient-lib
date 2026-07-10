@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Combined.LargeScaleCHP.Base;
+within TransiEnt.Producer.Combined.LargeScaleCHP.Base;
 model HeatInputTable "Table based model which delivers the amount of heat input required by a Large Scale CHP plant to produce a given el. and th. output"
 
 

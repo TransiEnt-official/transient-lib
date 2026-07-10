@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.Ambient.Base;
+within TransiEnt.Components.Boundaries.Ambient.Base;
 model EmptySolarRadiation "Model for outputting an empty solar radiation value"
 
 

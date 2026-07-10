@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Blocks.Sources;
+within TransiEnt.Basics.Blocks.Sources;
 model PowerExpression "model for power expressions"
 
 

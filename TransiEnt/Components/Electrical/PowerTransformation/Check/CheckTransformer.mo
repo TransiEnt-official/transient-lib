@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.PowerTransformation.Check;
+within TransiEnt.Components.Electrical.PowerTransformation.Check;
 model CheckTransformer "Example how to use the power transformer model"
 
 

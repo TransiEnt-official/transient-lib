@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Systems.FridgePoolControl.Check;
+within TransiEnt.Consumer.Systems.FridgePoolControl.Check;
 model TestPoolResponse
 
 

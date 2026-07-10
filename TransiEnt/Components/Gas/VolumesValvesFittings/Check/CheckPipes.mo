@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Gas.VolumesValvesFittings.Check;
+within TransiEnt.Components.Gas.VolumesValvesFittings.Check;
 model CheckPipes
 
 

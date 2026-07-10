@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Visualization;
+within TransiEnt.Components.Visualization;
 model DHG_PressureDiagram "Pressure diagram of district heating grids (pressure as a function of grid length) "
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.ElectricGrid.PowerData;
+within TransiEnt.Basics.Tables.ElectricGrid.PowerData;
 model ElectricityDemand_HH_900s_2012 "Electricity demand data in Hamburg. Time resolution: 15 Minutes. Source: Stromnetz Hamburg GmbH"
 
 

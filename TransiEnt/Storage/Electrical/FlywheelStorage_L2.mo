@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Electrical;
+within TransiEnt.Storage.Electrical;
 model FlywheelStorage_L2 "Physical model of a flywheel storage where configurations can be chosen"
 
 

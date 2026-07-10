@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.Machines.Base;
+within TransiEnt.Components.Electrical.Machines.Base;
 partial model PartialQuasiStationaryGeneratorComplex "Abstract class for quasistationary generators for ComplexPowerPort"
 
 

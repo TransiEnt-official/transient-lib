@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Statistics.Collectors.LocalCollectors;
+within TransiEnt.Components.Statistics.Collectors.LocalCollectors;
 model CogenerationPlantCost "Cost model for conventional thermal or renewable power plants with cogeneration "
 
 

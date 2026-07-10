@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Functions;
+within TransiEnt.Basics.Functions;
 function getNumberOfOccurences "Returns number of occurences of e in a given vector v"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Heat.HotWaterStorage_constProp_L4.Check;
+within TransiEnt.Storage.Heat.HotWaterStorage_constProp_L4.Check;
 model CheckStratifiedHotWaterStorage_L4_Unloading "Validation of one dimensional hot water storage with CHP loading scenario"
 
 

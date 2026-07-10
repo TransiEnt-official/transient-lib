@@ -1,4 +1,4 @@
-﻿within TransiEnt.Examples.Electric;
+within TransiEnt.Examples.Electric;
 model ElectricGrid_SubSystem "Example for sector coupling in TransiEnt library"
 
 

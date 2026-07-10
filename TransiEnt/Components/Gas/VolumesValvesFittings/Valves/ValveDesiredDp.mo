@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Gas.VolumesValvesFittings.Valves;
+within TransiEnt.Components.Gas.VolumesValvesFittings.Valves;
 model ValveDesiredDp "Simple valve with desired pressure difference"
 
 

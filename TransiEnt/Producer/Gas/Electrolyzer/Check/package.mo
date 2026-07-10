@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer;
+within TransiEnt.Producer.Gas.Electrolyzer;
 package Check
 
 

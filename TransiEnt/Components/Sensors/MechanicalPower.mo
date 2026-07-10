@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Sensors;
+within TransiEnt.Components.Sensors;
 model MechanicalPower "Measure Frequency on ElectricPowerPort"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.SystemGeneration.GridConstructor.DataRecords;
+within TransiEnt.SystemGeneration.GridConstructor.DataRecords;
 record DHNParameters
 
 

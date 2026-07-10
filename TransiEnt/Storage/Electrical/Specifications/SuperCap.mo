@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Electrical.Specifications;
+within TransiEnt.Storage.Electrical.Specifications;
 record SuperCap "Typical parameters of super capacitor"
 
 

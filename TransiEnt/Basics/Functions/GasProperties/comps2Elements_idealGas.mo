@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Functions.GasProperties;
+within TransiEnt.Basics.Functions.GasProperties;
 function comps2Elements_idealGas "Universal function to calculate the molar flow rates of a medium's elements out the components"
 
 

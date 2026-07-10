@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Wind.Characteristics.VariableSpeed;
+within TransiEnt.Producer.Electrical.Wind.Characteristics.VariableSpeed;
 record BetzCoefficientApproximation "Six parameter approximation model for betz coefficient taken from Heier2009"
 
 

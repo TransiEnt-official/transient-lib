@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Statistics.Functions.CO2Allocation;
+within TransiEnt.Components.Statistics.Functions.CO2Allocation;
 function chp_co2_alloc_efficiency "CHP CO2 allocation by efficiency method"
   import TransiEnt;
 

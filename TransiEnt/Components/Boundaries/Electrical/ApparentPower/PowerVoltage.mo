@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.Electrical.ApparentPower;
+within TransiEnt.Components.Boundaries.Electrical.ApparentPower;
 model PowerVoltage "Sets power and voltage for ApparentPowerPort"
 
 

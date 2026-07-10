@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.Check;
+within TransiEnt.Basics.Tables.Check;
 model TestGenericDataTable "Model for testing a generic data table"
 
 

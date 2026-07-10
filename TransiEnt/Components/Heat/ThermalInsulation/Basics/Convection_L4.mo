@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat.ThermalInsulation.Basics;
+within TransiEnt.Components.Heat.ThermalInsulation.Basics;
 model Convection_L4 "Lumped thermal element for heat convection (Q_flow = Gc*dT)"
 
 

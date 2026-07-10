@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.Electrical.ApparentPower;
+within TransiEnt.Components.Boundaries.Electrical.ApparentPower;
 model FrequencyVoltage "Sets frequency and voltage without definition of flow variables"
 
 

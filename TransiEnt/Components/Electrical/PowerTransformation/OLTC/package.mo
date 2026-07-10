@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.PowerTransformation;
+within TransiEnt.Components.Electrical.PowerTransformation;
 package OLTC "Package for Tap Changer Controllers (Transformers which are changing their ratio)"
 
 

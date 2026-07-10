@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Heat.HeatGridControl.Controllers;
+within TransiEnt.Grid.Heat.HeatGridControl.Controllers;
 model DHG_FeedForward_Controller "Assigns output targets to the heat generating plants based on the total expected heat demand"
 
 

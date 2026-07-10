@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Systems.HeatpumpSystems.Base;
+within TransiEnt.Consumer.Systems.HeatpumpSystems.Base;
 partial model PartialHeatPumpSystemDSM "Partial model of a controlled heat pump"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Turbogroups;
+within TransiEnt.Components.Turbogroups;
 package Base
 
 

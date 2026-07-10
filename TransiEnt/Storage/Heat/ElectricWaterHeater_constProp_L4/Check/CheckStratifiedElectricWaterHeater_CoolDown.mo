@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Heat.ElectricWaterHeater_constProp_L4.Check;
+within TransiEnt.Storage.Heat.ElectricWaterHeater_constProp_L4.Check;
 model CheckStratifiedElectricWaterHeater_CoolDown
 
 

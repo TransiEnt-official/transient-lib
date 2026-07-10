@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat.Grid;
+within TransiEnt.Components.Heat.Grid;
 model ReturnTemperatureControl "Pump controlled for target return temperature"
 
 

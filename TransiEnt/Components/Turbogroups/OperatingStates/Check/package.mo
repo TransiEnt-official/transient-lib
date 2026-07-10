@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Turbogroups.OperatingStates;
+within TransiEnt.Components.Turbogroups.OperatingStates;
 package Check
 
 

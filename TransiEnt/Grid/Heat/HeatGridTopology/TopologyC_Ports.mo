@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Heat.HeatGridTopology;
+within TransiEnt.Grid.Heat.HeatGridTopology;
 model TopologyC_Ports "A DHN topology for block buildings"
 
 //________________________________________________________________________________//

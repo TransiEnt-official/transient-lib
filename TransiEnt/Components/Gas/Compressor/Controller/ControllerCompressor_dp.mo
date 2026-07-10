@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Gas.Compressor.Controller;
+within TransiEnt.Components.Gas.Compressor.Controller;
 model ControllerCompressor_dp "Controller to control the pressure difference of a compressor"
 
 

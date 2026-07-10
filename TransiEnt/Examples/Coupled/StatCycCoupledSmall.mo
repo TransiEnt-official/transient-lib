@@ -1,4 +1,4 @@
-﻿within TransiEnt.Examples.Coupled;
+within TransiEnt.Examples.Coupled;
 model StatCycCoupledSmall
 
 

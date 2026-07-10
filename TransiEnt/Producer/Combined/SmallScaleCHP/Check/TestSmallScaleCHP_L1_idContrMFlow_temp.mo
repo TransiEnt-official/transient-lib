@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Combined.SmallScaleCHP.Check;
+within TransiEnt.Producer.Combined.SmallScaleCHP.Check;
 model TestSmallScaleCHP_L1_idContrMFlow_temp
 
 

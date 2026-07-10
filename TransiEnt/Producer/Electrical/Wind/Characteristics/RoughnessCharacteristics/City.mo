@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Wind.Characteristics.RoughnessCharacteristics;
+within TransiEnt.Producer.Electrical.Wind.Characteristics.RoughnessCharacteristics;
 record City
 
 

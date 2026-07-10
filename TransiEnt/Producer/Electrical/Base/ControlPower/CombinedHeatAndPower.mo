@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Base.ControlPower;
+within TransiEnt.Producer.Electrical.Base.ControlPower;
 block CombinedHeatAndPower "Control Power Estimation for Combined heat and power plants (extraction back pressure turbine)"
 
 

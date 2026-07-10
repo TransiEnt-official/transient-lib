@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.SolarThermal;
+within TransiEnt.Producer.Heat.SolarThermal;
 model SolarThermal_L0 "Table-based solar thermal module with collecting statistics"
 
 

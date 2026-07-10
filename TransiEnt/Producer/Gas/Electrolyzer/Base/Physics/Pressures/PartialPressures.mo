@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer.Base.Physics.Pressures;
+within TransiEnt.Producer.Gas.Electrolyzer.Base.Physics.Pressures;
 partial model PartialPressures
   "partial model for PEM electrolyzer pressures"
 

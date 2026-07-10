@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Wind.Controller;
+within TransiEnt.Producer.Electrical.Wind.Controller;
 model TorqueController_SI_df_dt "Torque controller for WTG with df/dt Synthetic Inertia"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Gas.StaticCycles.Base;
+within TransiEnt.Grid.Gas.StaticCycles.Base;
 connector Real_base
 
 

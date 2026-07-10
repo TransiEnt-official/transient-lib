@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.PowerTransformation.Components;
+within TransiEnt.Components.Electrical.PowerTransformation.Components;
 model Reactance "Modell for a specific Reactance. Reactance will be calculated from length and specific reactance"
 
 

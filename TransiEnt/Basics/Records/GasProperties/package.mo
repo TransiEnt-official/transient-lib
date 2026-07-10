@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Records;
+within TransiEnt.Basics.Records;
 package GasProperties
 
 

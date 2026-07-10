@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.FuelCellSystems.SteamReformer;
+within TransiEnt.Components.Electrical.FuelCellSystems.SteamReformer;
 model SteamReformer_NaturalGas_to_H2 "SteamReformer with calculation of reaction kinetics depending on input gascomposition, including mass fraction balance and reaction volume (input natural gas, output H2 rich syngas)"
 
 

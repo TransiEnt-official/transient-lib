@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.FuelCellSystems.FuelCell.Check;
+within TransiEnt.Components.Electrical.FuelCellSystems.FuelCell.Check;
 model TestPEM "Example of a fuel cell in a domestic application that follows load such that power grid consumption is minimized"
 
 

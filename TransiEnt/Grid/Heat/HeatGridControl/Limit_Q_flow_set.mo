@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Heat.HeatGridControl;
+within TransiEnt.Grid.Heat.HeatGridControl;
 model Limit_Q_flow_set
 
 

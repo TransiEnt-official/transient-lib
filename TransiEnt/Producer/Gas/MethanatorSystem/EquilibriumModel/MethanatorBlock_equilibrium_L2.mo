@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.MethanatorSystem.EquilibriumModel;
+within TransiEnt.Producer.Gas.MethanatorSystem.EquilibriumModel;
 model MethanatorBlock_equilibrium_L2 "model of a methanation block"
 
 

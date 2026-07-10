@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.Power2Heat.Heatpump;
+within TransiEnt.Producer.Heat.Power2Heat.Heatpump;
 model EHP_L1_idContrMFlow_temp "Model for electric heat pumps with a pump with ideal mass flow control to get a given outlet temperature"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Conventional.Components;
+within TransiEnt.Producer.Electrical.Conventional.Components;
 model NonlinearThreeStatePlant "Slew Rate limited (=nonlinear), Minimum power limited (shuts down below minimum power), with primary and secondary balancing controller where secondary balancing power is lumped inside"
 
 

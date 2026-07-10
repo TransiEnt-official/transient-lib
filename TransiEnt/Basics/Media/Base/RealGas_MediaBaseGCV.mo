@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Media.Base;
+within TransiEnt.Basics.Media.Base;
 model RealGas_MediaBaseGCV
 
 

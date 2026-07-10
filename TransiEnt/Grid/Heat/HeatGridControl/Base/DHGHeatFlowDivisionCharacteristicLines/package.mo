@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Heat.HeatGridControl.Base;
+within TransiEnt.Grid.Heat.HeatGridControl.Base;
 package DHGHeatFlowDivisionCharacteristicLines
 
 

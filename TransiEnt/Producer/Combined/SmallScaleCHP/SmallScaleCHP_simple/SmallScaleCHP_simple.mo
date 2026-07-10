@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Combined.SmallScaleCHP.SmallScaleCHP_simple;
+within TransiEnt.Producer.Combined.SmallScaleCHP.SmallScaleCHP_simple;
 model SmallScaleCHP_simple "Small scale CHP model using a constant efficiency and fluid ports"
 
 

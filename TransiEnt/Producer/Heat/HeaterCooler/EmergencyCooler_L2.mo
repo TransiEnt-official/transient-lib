@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.HeaterCooler;
+within TransiEnt.Producer.Heat.HeaterCooler;
 model EmergencyCooler_L2 "Emergency cooler, e.g. if return temperature to an aperature is too high."
 
 

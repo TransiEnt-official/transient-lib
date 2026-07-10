@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Electrical.Base;
+within TransiEnt.Grid.Electrical.Base;
 record EmptyGenerationPark "Empty generation park can be used as template"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Blocks;
+within TransiEnt.Basics.Blocks;
 block TimerConstWhenFalse "Timer measuring the time from the time instant where the Boolean input became true and staying constant when it becomes false"
 
 

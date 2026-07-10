@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Combined.SmallScaleCHP.SmallScaleCHP_simple.Check;
+within TransiEnt.Producer.Combined.SmallScaleCHP.SmallScaleCHP_simple.Check;
 model TestSmallScaleCHP_simple_with_control
 
 

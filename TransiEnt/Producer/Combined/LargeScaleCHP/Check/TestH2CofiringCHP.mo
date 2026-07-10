@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Combined.LargeScaleCHP.Check;
+within TransiEnt.Producer.Combined.LargeScaleCHP.Check;
 model TestH2CofiringCHP "Example how the continuous plant model behaves when ramping up"
 
 

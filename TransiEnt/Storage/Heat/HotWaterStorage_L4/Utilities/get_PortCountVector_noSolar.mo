@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Heat.HotWaterStorage_L4.Utilities;
+within TransiEnt.Storage.Heat.HotWaterStorage_L4.Utilities;
 function get_PortCountVector_noSolar "generates port count vector for tank with solar, CHP and grid in and outputs"
 
 

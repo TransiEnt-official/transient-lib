@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer.Controller;
+within TransiEnt.Producer.Gas.Electrolyzer.Controller;
 model FeedInController "Controlling electrolyzer power comparing set power with maximum allowed H2 that can be fed into the grid, limited to min and max electrolyzer power"
 
 

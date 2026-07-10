@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Base.ControlPower;
+within TransiEnt.Producer.Electrical.Base.ControlPower;
 block PrimaryBalancingStorage "Primary balancing offer of quick responding electric energy storage"
 
 

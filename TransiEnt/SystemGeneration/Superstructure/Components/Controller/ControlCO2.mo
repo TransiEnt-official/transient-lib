@@ -1,4 +1,4 @@
-﻿within TransiEnt.SystemGeneration.Superstructure.Components.Controller;
+within TransiEnt.SystemGeneration.Superstructure.Components.Controller;
 model ControlCO2
 
 //________________________________________________________________________________//

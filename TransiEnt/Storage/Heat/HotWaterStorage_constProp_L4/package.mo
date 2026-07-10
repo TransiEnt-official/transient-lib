@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Heat;
+within TransiEnt.Storage.Heat;
 package HotWaterStorage_constProp_L4 "Package contains model of one dimensional heat storage with constant thermodynamic properties"
 
 

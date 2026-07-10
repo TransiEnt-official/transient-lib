@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.Ambient;
+within TransiEnt.Components.Boundaries.Ambient;
 model AmbientConditions_Cologne_TRY "Time varying ambient condition parameters for Cologne (TRY)"
 
 

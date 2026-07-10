@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.PowerTransformation;
+within TransiEnt.Components.Electrical.PowerTransformation;
 model TransformerComplex "Transformer modell for a predefined Dy with losses and stray inductance, based on ComplexPowerPort"
 
 

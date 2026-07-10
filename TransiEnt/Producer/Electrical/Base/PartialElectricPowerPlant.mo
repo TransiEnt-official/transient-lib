@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Base;
+within TransiEnt.Producer.Electrical.Base;
 partial model PartialElectricPowerPlant "Abstract model of an electric power plant with L1 on electric side"
 
 

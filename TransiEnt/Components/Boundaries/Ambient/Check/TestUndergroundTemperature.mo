@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.Ambient.Check;
+within TransiEnt.Components.Boundaries.Ambient.Check;
 model TestUndergroundTemperature "Model for testing the Model UndergroundTemperature"
 
 

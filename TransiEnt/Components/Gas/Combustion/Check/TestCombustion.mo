@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Gas.Combustion.Check;
+within TransiEnt.Components.Gas.Combustion.Check;
 model TestCombustion "Model for testing combustions"
 
 

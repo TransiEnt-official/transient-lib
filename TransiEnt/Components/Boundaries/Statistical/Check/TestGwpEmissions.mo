@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.Statistical.Check;
+within TransiEnt.Components.Boundaries.Statistical.Check;
 model TestGwpEmissions "Minimal example for electric boundaries with interface L1"
 
 

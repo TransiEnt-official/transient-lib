@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.PowerTransformation.Components;
+within TransiEnt.Components.Electrical.PowerTransformation.Components;
 model PiModelTransformerComplexComponent
 
 

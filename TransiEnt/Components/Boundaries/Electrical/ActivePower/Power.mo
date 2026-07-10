@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.Electrical.ActivePower;
+within TransiEnt.Components.Boundaries.Electrical.ActivePower;
 model Power "Active power boundary can be used for consumer of producer models connected to the electric grid"
 
 

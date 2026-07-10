@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat.ThermalInsulation;
+within TransiEnt.Components.Heat.ThermalInsulation;
 model ThermalInsulation_static_1way_1layer "Thermal Insulation - static - one way - one layer"
 
 

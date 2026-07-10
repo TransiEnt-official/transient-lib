@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Blocks.Sources;
+within TransiEnt.Basics.Blocks.Sources;
 block SawTooth "Generate saw tooth signal, with shift option and with infinite number of periods"
 
 

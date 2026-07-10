@@ -1,4 +1,4 @@
-﻿within TransiEnt;
+within TransiEnt;
 package Grid "Package with systems for electricity, heat or gas distribution"
 
 

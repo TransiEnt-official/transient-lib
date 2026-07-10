@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.SolarThermal.Base;
+within TransiEnt.Producer.Heat.SolarThermal.Base;
 model IrradianceOnATiltedSurface "Combines the calculation of incidence angle of solar irradiance and different models for calculating the solar irradiance on a tilted surface"
 
 

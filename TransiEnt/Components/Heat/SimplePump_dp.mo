@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat;
+within TransiEnt.Components.Heat;
 model SimplePump_dp "A simple model of a pump with an input for the pressure difference"
 
 //________________________________________________________________________________//

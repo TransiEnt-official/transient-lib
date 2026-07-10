@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.Electrical.ActivePower;
+within TransiEnt.Components.Boundaries.Electrical.ActivePower;
 model Frequency "Sets frequency can be used for simple electric grid model"
 
 

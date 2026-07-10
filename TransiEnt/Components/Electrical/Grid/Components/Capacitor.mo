@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.Grid.Components;
+within TransiEnt.Components.Electrical.Grid.Components;
 model Capacitor "Modell for a specific Capacitor. Capacitance will be calculated from length and specific capacitance"
 
 

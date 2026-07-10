@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Interfaces.Gas;
+within TransiEnt.Basics.Interfaces.Gas;
 connector IdealGasTempPortOut "A connector for ideal gas outlets featuring T,p,xi,m_flow"
 
 

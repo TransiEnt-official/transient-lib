@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Electrical.Noise.Base;
+within TransiEnt.Grid.Electrical.Noise.Base;
 model LumpedGridDynamicModel "Electric grid dynamic model considering self regulating effect, primary balancing provision and time constant of rotating masses"
 
 

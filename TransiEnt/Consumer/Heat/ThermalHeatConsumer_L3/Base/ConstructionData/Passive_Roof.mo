@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Heat.ThermalHeatConsumer_L3.Base.ConstructionData;
+within TransiEnt.Consumer.Heat.ThermalHeatConsumer_L3.Base.ConstructionData;
 record Passive_Roof "Roof of example passive house building"
 
 

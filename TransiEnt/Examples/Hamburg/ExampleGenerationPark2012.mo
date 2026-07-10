@@ -1,4 +1,4 @@
-﻿within TransiEnt.Examples.Hamburg;
+within TransiEnt.Examples.Hamburg;
 record ExampleGenerationPark2012 "Example Generation Park for the year of 2012 (based on german generation park in 2012)"
 
 

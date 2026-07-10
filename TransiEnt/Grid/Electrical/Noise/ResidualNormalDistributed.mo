@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Electrical.Noise;
+within TransiEnt.Grid.Electrical.Noise;
 model ResidualNormalDistributed "The typical grid error from inversion is the base. From that supplementary grid errros are modeled via normal distributions"
 
 

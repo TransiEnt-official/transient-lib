@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Electrical.EconomicDispatch;
+within TransiEnt.Grid.Electrical.EconomicDispatch;
 model DiscretizePrediction "Produces short time predictions by linear interpolation between present value (P_is) and base prediction (P_prediction)"
 
 

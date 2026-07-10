@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.Combined;
+within TransiEnt.Basics.Tables.Combined;
 model HouseholdConsumption
 
 

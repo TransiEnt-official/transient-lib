@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Heat;
+within TransiEnt.Grid.Heat;
 package HeatGridTopology "Package with drag-and-drop district heating models"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Examples.GridTypology_Cologne.BlockDevelopment_DHN;
+within TransiEnt.Examples.GridTypology_Cologne.BlockDevelopment_DHN;
 model GridTypology_DHN_2050
 
 

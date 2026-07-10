@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Electrical.SecondaryControl.Check;
+within TransiEnt.Grid.Electrical.SecondaryControl.Check;
 model TestSecondaryBalancingControllerCoordination "Example how to calculate the demand of primary balancing power"
 
 

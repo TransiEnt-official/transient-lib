@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Electrical.Specifications.DetailedFlywheel;
+within TransiEnt.Storage.Electrical.Specifications.DetailedFlywheel;
 record Rotokinetik1000
 
 

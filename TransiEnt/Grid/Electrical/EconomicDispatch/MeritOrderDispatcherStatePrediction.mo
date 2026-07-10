@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Electrical.EconomicDispatch;
+within TransiEnt.Grid.Electrical.EconomicDispatch;
 model MeritOrderDispatcherStatePrediction "Forward-looking control (for plant status z as well as load), min, max and gradient constraints"
 
 

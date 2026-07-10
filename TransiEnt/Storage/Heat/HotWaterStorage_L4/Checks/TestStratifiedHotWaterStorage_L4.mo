@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Heat.HotWaterStorage_L4.Checks;
+within TransiEnt.Storage.Heat.HotWaterStorage_L4.Checks;
 model TestStratifiedHotWaterStorage_L4
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Blocks;
+within TransiEnt.Basics.Blocks;
 block SwitchNoEvent "Switch between two Real signals without events"
 
 

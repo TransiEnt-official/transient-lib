@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Electrical.LumpedPowerGrid;
+within TransiEnt.Grid.Electrical.LumpedPowerGrid;
 model LumpedGridLocalStatistics "Model of generation and load in a lumped grid including load forecast errors (providing realistic frequency series)"
 
 

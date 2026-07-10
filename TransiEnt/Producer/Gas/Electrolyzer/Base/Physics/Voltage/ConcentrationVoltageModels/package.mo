@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer.Base.Physics.Voltage;
+within TransiEnt.Producer.Gas.Electrolyzer.Base.Physics.Voltage;
 package ConcentrationVoltageModels "contains models of PEM cell concentration overvoltage"
 
 

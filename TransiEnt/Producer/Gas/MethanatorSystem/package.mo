@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas;
+within TransiEnt.Producer.Gas;
 package MethanatorSystem
 
 

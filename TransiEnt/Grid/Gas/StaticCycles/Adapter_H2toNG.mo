@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Gas.StaticCycles;
+within TransiEnt.Grid.Gas.StaticCycles;
 model Adapter_H2toNG "AdapterH2NG || yellow | red"
 
 

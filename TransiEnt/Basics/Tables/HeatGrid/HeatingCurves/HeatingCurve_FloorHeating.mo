@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.HeatGrid.HeatingCurves;
+within TransiEnt.Basics.Tables.HeatGrid.HeatingCurves;
 model HeatingCurve_FloorHeating "Supply and return temperatures as a function of ambient temperature for floor heating purpose"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Media.Gases;
+within TransiEnt.Basics.Media.Gases;
 record VLE_VDIWA_NG7_SG_var "var{CH4,C2H6,C3H8,C4H10,N2,CO2,H2O,CO,H2} VDIWA"
 
 

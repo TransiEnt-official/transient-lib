@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Blocks.Check;
+within TransiEnt.Basics.Blocks.Check;
 model TestDelayedBooleanReplicator "Model for testing the model BooleanReplicator"
 
 

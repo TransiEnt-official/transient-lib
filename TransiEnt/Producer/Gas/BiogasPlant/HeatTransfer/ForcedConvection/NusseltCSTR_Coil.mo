@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.BiogasPlant.HeatTransfer.ForcedConvection;
+within TransiEnt.Producer.Gas.BiogasPlant.HeatTransfer.ForcedConvection;
 function NusseltCSTR_Coil
   "Function calculating Nusselt Number for Heat Transfer from coil to medium"
 

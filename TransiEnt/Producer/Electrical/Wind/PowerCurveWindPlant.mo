@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Wind;
+within TransiEnt.Producer.Electrical.Wind;
 model PowerCurveWindPlant "Wind plant model based on v-P-Power Curve. Can be scaled to model windparks "
 
 

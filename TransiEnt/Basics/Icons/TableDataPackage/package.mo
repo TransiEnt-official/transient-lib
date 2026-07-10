@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Icons;
+within TransiEnt.Basics.Icons;
 package TableDataPackage "Contains specific parameters for machines or similar kinds of data"
 
 

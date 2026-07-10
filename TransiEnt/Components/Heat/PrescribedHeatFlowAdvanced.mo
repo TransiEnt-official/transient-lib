@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat;
+within TransiEnt.Components.Heat;
 model PrescribedHeatFlowAdvanced "Prescribed heat flow boundary condition, includes exergy and variable discretization"
 
 

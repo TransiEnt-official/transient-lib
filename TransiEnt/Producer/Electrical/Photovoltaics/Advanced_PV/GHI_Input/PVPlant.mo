@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Photovoltaics.Advanced_PV.GHI_Input;
+within TransiEnt.Producer.Electrical.Photovoltaics.Advanced_PV.GHI_Input;
 model PVPlant "Simple efficiency-based PV model"
 
 

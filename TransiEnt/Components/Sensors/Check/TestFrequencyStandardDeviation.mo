@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Sensors.Check;
+within TransiEnt.Components.Sensors.Check;
 model TestFrequencyStandardDeviation
 
 

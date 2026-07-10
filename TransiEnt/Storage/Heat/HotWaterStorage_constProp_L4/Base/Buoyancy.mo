@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Heat.HotWaterStorage_constProp_L4.Base;
+within TransiEnt.Storage.Heat.HotWaterStorage_constProp_L4.Base;
 model Buoyancy "Model to add buoyancy if there is a temperature inversion in the tank"
   // Model is bases on the model "Bouyancy in the "Buildings-library (https://github.com/lbl-srg/modelica-buildings.git)"
 

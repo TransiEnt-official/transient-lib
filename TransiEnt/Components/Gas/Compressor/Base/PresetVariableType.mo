@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Gas.Compressor.Base;
+within TransiEnt.Components.Gas.Compressor.Base;
 type PresetVariableType
   extends String;
 

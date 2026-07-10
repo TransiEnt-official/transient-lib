@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.Machines;
+within TransiEnt.Components.Electrical.Machines;
 model MSLSynchronousMachine "ApparentPowerPort: Transient MSL synchronous machine model to TransiEnt interfaces"
 
 

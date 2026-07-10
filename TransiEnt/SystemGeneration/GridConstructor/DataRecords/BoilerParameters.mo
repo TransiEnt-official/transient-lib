@@ -1,4 +1,4 @@
-﻿within TransiEnt.SystemGeneration.GridConstructor.DataRecords;
+within TransiEnt.SystemGeneration.GridConstructor.DataRecords;
 record BoilerParameters "Record containing the (default) boiler parameter for usage within the GridConstructor"
 
 

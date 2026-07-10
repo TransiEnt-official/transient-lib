@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.Ambient;
+within TransiEnt.Basics.Tables.Ambient;
 model GHI_Miesbach_3600s_TRY_tilt35
   "GHI Miesbach TRY, 1 h resolution, tilt = 35"
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Blocks;
+within TransiEnt.Basics.Blocks;
 block Equal "Output y is true, if input u1 is equal input u2"
 
 

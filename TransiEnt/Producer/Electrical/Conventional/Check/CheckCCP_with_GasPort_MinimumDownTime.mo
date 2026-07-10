@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Conventional.Check;
+within TransiEnt.Producer.Electrical.Conventional.Check;
 model CheckCCP_with_GasPort_MinimumDownTime
     import TransiEnt;
 

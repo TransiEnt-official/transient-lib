@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Systems.PVBatteryPoolControl.Check;
+within TransiEnt.Consumer.Systems.PVBatteryPoolControl.Check;
 model CheckExampleProfiles "Model for testing example profiles of the electricity demand and the pv-production of a single house"
 
 

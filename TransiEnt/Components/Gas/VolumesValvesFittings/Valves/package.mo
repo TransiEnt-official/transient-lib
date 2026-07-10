@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Gas.VolumesValvesFittings;
+within TransiEnt.Components.Gas.VolumesValvesFittings;
 package Valves
 
 

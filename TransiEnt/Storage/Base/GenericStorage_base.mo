@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Base;
+within TransiEnt.Storage.Base;
 partial model GenericStorage_base "Partial class for highly adaptable but non-physical model for all kinds of energy storages"
 
 

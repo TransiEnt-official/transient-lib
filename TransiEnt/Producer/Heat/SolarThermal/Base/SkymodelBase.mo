@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.SolarThermal.Base;
+within TransiEnt.Producer.Heat.SolarThermal.Base;
 partial model SkymodelBase "Base model for modeling the influence of orientation of a surface for calculation of irradiance"
 
 

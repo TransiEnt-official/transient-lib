@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Gas;
+within TransiEnt.Components.Gas;
 package VolumesValvesFittings
   extends TransiEnt.Basics.Icons.Package;
 

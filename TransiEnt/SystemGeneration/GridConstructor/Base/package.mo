@@ -1,4 +1,4 @@
-﻿within TransiEnt.SystemGeneration.GridConstructor;
+within TransiEnt.SystemGeneration.GridConstructor;
 package Base
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Gas.VolumesValvesFittings.Base;
+within TransiEnt.Components.Gas.VolumesValvesFittings.Base;
 partial model PressureLoss_L4_extICom "VLE || PL Base Class with extended iCom"
 
 

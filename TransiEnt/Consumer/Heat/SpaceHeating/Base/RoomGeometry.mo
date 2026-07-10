@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Heat.SpaceHeating.Base;
+within TransiEnt.Consumer.Heat.SpaceHeating.Base;
 record RoomGeometry "record for room geometry"
 
 

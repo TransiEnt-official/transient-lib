@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Electrical.Base;
+within TransiEnt.Consumer.Electrical.Base;
 partial model PartialElectricConsumer_L1 "L1/2 Partial Base class for electric consumer models"
 
 

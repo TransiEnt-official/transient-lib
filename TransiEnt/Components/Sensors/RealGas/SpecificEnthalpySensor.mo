@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Sensors.RealGas;
+within TransiEnt.Components.Sensors.RealGas;
 model SpecificEnthalpySensor "Two port real gas specific enthalpy sensor"
 
 

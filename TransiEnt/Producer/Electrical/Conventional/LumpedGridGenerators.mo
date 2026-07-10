@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Conventional;
+within TransiEnt.Producer.Electrical.Conventional;
 model LumpedGridGenerators "Lumped model of a number of generators for the use in a non-detailed electric grid model (including primary and secondary control models)"
 
 

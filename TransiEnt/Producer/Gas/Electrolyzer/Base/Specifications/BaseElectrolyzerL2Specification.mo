@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer.Base.Specifications;
+within TransiEnt.Producer.Gas.Electrolyzer.Base.Specifications;
 record BaseElectrolyzerL2Specification "Record used for specification of an Electrolyzer system"
 
 

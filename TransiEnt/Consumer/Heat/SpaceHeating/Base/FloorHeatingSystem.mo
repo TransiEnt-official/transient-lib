@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Heat.SpaceHeating.Base;
+within TransiEnt.Consumer.Heat.SpaceHeating.Base;
 record FloorHeatingSystem "record for floor heating system"
 
 

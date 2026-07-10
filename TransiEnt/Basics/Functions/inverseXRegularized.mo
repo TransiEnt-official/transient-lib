@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Functions;
+within TransiEnt.Basics.Functions;
 function inverseXRegularized "Function that approximates 1/x by a twice continuously differentiable function"
 
 

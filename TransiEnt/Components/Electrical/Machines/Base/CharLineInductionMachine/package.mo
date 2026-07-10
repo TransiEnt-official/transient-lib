@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.Machines.Base;
+within TransiEnt.Components.Electrical.Machines.Base;
 package CharLineInductionMachine
 
 

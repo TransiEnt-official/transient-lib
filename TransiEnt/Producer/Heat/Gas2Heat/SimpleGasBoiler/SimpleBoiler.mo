@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.Gas2Heat.SimpleGasBoiler;
+within TransiEnt.Producer.Heat.Gas2Heat.SimpleGasBoiler;
 model SimpleBoiler "Simple gas boiler model with composition adaptive control"
 
 

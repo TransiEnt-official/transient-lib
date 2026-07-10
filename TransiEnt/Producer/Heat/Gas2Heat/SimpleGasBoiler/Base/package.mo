@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.Gas2Heat.SimpleGasBoiler;
+within TransiEnt.Producer.Heat.Gas2Heat.SimpleGasBoiler;
 package Base
 
 

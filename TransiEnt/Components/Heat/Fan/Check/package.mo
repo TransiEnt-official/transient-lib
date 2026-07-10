@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat.Fan;
+within TransiEnt.Components.Heat.Fan;
 package Check
 
 

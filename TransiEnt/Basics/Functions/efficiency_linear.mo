@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Functions;
+within TransiEnt.Basics.Functions;
 function efficiency_linear "Approximizes efficiency between two defined points linearly"
 
 

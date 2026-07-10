@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="300">
+  <defs>
+    <marker id="arrow-blue-r" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#1F77B4"/>
+    </marker>
+    <marker id="arrow-blue-l" markerWidth="8" markerHeight="8" refX="2" refY="3" orient="auto">
+      <path d="M8,0 L8,6 L0,3 z" fill="#1F77B4"/>
+    </marker>
+    <marker id="arrow-red-r" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#D62728"/>
+    </marker>
+  </defs>
+
+  <!-- System boundary -->
+  <rect x="155" y="55" width="130" height="190"
+        fill="#F9F9F9" stroke="#333" stroke-width="1.5" stroke-dasharray="6,3" rx="4"/>
+  <!-- Model name -->
+  <text x="220" y="155" text-anchor="middle" font-family="Arial" font-size="12"
+        font-weight="bold">Well_L4</text>
+  <text x="220" y="170" text-anchor="middle" font-family="Arial" font-size="9"
+        fill="#555">[N_z volumes]</text>
+
+  <!-- fluidPortIn: top, bidirectional (primary: injection → downward into well) -->
+  <line x1="220" y1="20" x2="220" y2="55" stroke="#1F77B4" stroke-width="2"
+        marker-end="url(#arrow-blue-r)"/>
+  <text x="220" y="15" text-anchor="middle" font-family="Arial" font-size="9"
+        fill="#1F77B4">fluidPortIn</text>
+
+  <!-- fluidPortOut_radial: 3 representative arrows pointing right -->
+  <line x1="285" y1="100" x2="370" y2="100" stroke="#1F77B4" stroke-width="2"
+        marker-end="url(#arrow-blue-r)"/>
+  <line x1="285" y1="150" x2="370" y2="150" stroke="#1F77B4" stroke-width="2"
+        marker-end="url(#arrow-blue-r)"/>
+  <line x1="285" y1="200" x2="370" y2="200" stroke="#1F77B4" stroke-width="2"
+        marker-end="url(#arrow-blue-r)"/>
+  <text x="327" y="92" text-anchor="middle" font-family="Arial" font-size="8"
+        fill="#1F77B4">fluidPortOut_radial[j]</text>
+  <text x="327" y="168" text-anchor="middle" font-family="Arial" font-size="8"
+        fill="#1F77B4">(N_z ports)</text>
+
+  <!-- port_a: heat ports on the left -->
+  <line x1="155" y1="100" x2="70" y2="100" stroke="#D62728" stroke-width="2"
+        marker-end="url(#arrow-red-r)"/>
+  <line x1="155" y1="150" x2="70" y2="150" stroke="#D62728" stroke-width="2"
+        marker-end="url(#arrow-red-r)"/>
+  <line x1="155" y1="200" x2="70" y2="200" stroke="#D62728" stroke-width="2"
+        marker-end="url(#arrow-red-r)"/>
+  <text x="112" y="92" text-anchor="middle" font-family="Arial" font-size="8"
+        fill="#D62728">port_a[j]</text>
+  <text x="112" y="168" text-anchor="middle" font-family="Arial" font-size="8"
+        fill="#D62728">(N_z ports)</text>
+
+  <!-- Cell boundaries visualisation inside box -->
+  <line x1="165" y1="120" x2="275" y2="120" stroke="#aaa" stroke-width="0.8" stroke-dasharray="3,2"/>
+  <line x1="165" y1="170" x2="275" y2="170" stroke="#aaa" stroke-width="0.8" stroke-dasharray="3,2"/>
+
+  <!-- Legend -->
+  <line x1="20" y1="272" x2="45" y2="272" stroke="#1F77B4" stroke-width="2" marker-end="url(#arrow-blue-r)"/>
+  <text x="50" y="276" font-family="Arial" font-size="9" fill="#1F77B4">Fluid</text>
+  <line x1="100" y1="272" x2="125" y2="272" stroke="#D62728" stroke-width="2" marker-end="url(#arrow-red-r)"/>
+  <text x="130" y="276" font-family="Arial" font-size="9" fill="#D62728">Heat</text>
+</svg>

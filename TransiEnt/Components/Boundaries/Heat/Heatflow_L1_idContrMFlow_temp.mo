@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.Heat;
+within TransiEnt.Components.Boundaries.Heat;
 model Heatflow_L1_idContrMFlow_temp "Heat flow boundary with pump with ideal mass flow control to get a given outlet temperature"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Base.ControlPower;
+within TransiEnt.Producer.Electrical.Base.ControlPower;
 block PrimarySecondaryAndSchedule "Plant in both scheduled and Primary and Secondary Control operation"
 
 

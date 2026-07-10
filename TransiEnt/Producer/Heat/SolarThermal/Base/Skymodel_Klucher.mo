@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.SolarThermal.Base;
+within TransiEnt.Producer.Heat.SolarThermal.Base;
 model Skymodel_Klucher "Klucher model - Anisotropic calculation of the irradiance on a tilted surface"
 
 

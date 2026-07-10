@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Wind;
+within TransiEnt.Producer.Electrical.Wind;
 model Windturbine_SI_DF "Pitch controlled WTG with delta F Synthetic Inertia"
 
 

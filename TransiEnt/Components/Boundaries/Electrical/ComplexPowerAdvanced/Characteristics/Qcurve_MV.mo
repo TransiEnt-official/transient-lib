@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.Electrical.ComplexPowerAdvanced.Characteristics;
+within TransiEnt.Components.Boundaries.Electrical.ComplexPowerAdvanced.Characteristics;
 model Qcurve_MV "Q(v)-curve for medium voltage grid"
 
 

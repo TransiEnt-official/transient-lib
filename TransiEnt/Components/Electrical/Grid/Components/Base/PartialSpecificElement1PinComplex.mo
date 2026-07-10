@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.Grid.Components.Base;
+within TransiEnt.Components.Electrical.Grid.Components.Base;
 partial model PartialSpecificElement1PinComplex "Partial modell for one pin Inductor, Capacitor and Resistor, based on ComplexPowerPort"
 
 

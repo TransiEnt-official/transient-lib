@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Combined.SmallScaleCHP;
+within TransiEnt.Producer.Combined.SmallScaleCHP;
 package Base "Base classes for CHP specific models"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Base;
+within TransiEnt.Storage.Base;
 model LinearStationaryLoss "Linear stationary loss (= a * E + b)"
 
 

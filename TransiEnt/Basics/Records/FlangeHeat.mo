@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Records;
+within TransiEnt.Basics.Records;
 model FlangeHeat "Model for generating a summary for a flange heat"
 
 

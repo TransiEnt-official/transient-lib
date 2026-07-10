@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.Power2Heat;
+within TransiEnt.Producer.Heat.Power2Heat;
 model Converter_Heat2Power "Model of a very simple night storage heating unit - takes in a heat demand and converts it into an electrical energy demand"
 
 

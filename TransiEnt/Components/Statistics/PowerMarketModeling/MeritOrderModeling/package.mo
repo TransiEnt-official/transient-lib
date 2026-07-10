@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Statistics.PowerMarketModeling;
+within TransiEnt.Components.Statistics.PowerMarketModeling;
 package MeritOrderModeling
 
 

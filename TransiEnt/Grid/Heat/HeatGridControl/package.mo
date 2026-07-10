@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Heat;
+within TransiEnt.Grid.Heat;
 package HeatGridControl "Components used for the determination of set values for large scale heat plants and combined heat and power plants connected to a district heating grid"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Wind.Base;
+within TransiEnt.Producer.Electrical.Wind.Base;
 model RoughnessFilter "Filter to approximate wind speed at hub height dependent on height of wind measurement."
 
 

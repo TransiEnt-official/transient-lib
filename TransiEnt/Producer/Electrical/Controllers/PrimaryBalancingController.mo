@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Controllers;
+within TransiEnt.Producer.Electrical.Controllers;
 model PrimaryBalancingController "Primary balancing controller model based on Weissbach (2009)"
 
 

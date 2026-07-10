@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Heat.Check;
+within TransiEnt.Consumer.Heat.Check;
 model TestTableBased
 
 

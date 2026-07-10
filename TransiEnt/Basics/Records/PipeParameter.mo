@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Records;
+within TransiEnt.Basics.Records;
 model PipeParameter "Model containing parameters of a pipe"
 
 

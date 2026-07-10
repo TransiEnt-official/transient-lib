@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.Gas.Check;
+within TransiEnt.Components.Boundaries.Gas.Check;
 model CheckGasflow_L1 "Model for testing the Gasflow_L1 model"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Media.Solids;
+within TransiEnt.Basics.Media.Solids;
 model Salt "Salt"
 
 

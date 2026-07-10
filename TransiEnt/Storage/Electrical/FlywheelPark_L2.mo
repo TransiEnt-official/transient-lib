@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Electrical;
+within TransiEnt.Storage.Electrical;
 model FlywheelPark_L2 "a park of flywheels, choose number of units, LA"
 
 

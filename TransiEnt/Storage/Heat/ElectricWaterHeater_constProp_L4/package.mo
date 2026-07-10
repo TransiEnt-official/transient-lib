@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Heat;
+within TransiEnt.Storage.Heat;
 package ElectricWaterHeater_constProp_L4
 
 

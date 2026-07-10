@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Electrical.Specifications.DetailedFlywheel;
+within TransiEnt.Storage.Electrical.Specifications.DetailedFlywheel;
 record Rosseta_T2
 
 

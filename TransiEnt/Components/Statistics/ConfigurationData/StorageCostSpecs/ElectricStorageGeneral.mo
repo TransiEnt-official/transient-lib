@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Statistics.ConfigurationData.StorageCostSpecs;
+within TransiEnt.Components.Statistics.ConfigurationData.StorageCostSpecs;
 model ElectricStorageGeneral "General electric storage data from Energiesystem Deutschland 2050 Fraunhofer ISE, 2013"
 
 

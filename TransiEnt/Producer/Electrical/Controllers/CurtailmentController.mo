@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Controllers;
+within TransiEnt.Producer.Electrical.Controllers;
 model CurtailmentController "Ideal curtailment controller (reduces input depending on curtailment schedule)"
 
 

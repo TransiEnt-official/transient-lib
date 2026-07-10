@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.Gas2Heat.SmallGasBoiler.Utilities;
+within TransiEnt.Producer.Heat.Gas2Heat.SmallGasBoiler.Utilities;
 model Duty2EfficiencyCharline "Characteristic line of a boiler's efficiency in function of the boiler's duty"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer.Base.Physics.Voltage;
+within TransiEnt.Producer.Gas.Electrolyzer.Base.Physics.Voltage;
 package ReversibleVoltageModels "contains models of PEM cell reversible voltage"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables;
+within TransiEnt.Basics.Tables;
 package Check
 
 

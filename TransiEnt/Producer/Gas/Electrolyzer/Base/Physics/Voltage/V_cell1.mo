@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer.Base.Physics.Voltage;
+within TransiEnt.Producer.Gas.Electrolyzer.Base.Physics.Voltage;
 model V_cell1 "PEM cell voltage as modeled by Espinosa, 2018"
   //The following must all be calculated in the Voltage model.
   // V_el_stack, V_cell, V_tn

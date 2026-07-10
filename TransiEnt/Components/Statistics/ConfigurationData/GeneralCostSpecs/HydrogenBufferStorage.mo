@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Statistics.ConfigurationData.GeneralCostSpecs;
+within TransiEnt.Components.Statistics.ConfigurationData.GeneralCostSpecs;
 model HydrogenBufferStorage "Cost model for small cylindrical hydrogen buffer storage (82m3 geo, max. 80 bar)"
 
 

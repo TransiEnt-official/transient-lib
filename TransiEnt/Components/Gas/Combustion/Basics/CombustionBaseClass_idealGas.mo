@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Gas.Combustion.Basics;
+within TransiEnt.Components.Gas.Combustion.Basics;
 partial model CombustionBaseClass_idealGas "base class for combustion models"
 
 

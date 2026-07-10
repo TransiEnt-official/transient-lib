@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.Gas2Heat;
+within TransiEnt.Producer.Heat.Gas2Heat;
 model GHP_L1_idContrMFlow_temp "Model for gas heat pumps with a pump with ideal mass flow control to get a given outlet temperature"
 
 

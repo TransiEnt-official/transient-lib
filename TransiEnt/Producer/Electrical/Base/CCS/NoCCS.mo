@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Base.CCS;
+within TransiEnt.Producer.Electrical.Base.CCS;
 record NoCCS "No efficiency losses due to CCS"
 
 

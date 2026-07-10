@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Heat.ThermalHeatConsumer_L3.Base.ConstructionData;
+within TransiEnt.Consumer.Heat.ThermalHeatConsumer_L3.Base.ConstructionData;
 record EnEV_Ext "Exterior Wall of example EnEV building"
 
 

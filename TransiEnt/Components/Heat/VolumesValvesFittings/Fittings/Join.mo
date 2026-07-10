@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat.VolumesValvesFittings.Fittings;
+within TransiEnt.Components.Heat.VolumesValvesFittings.Fittings;
 model Join "Simple model of a join with linear pressure loss, static mass balance and dynamic energy balance"
 
 //________________________________________________________________________________//

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Heat.SpaceHeating.Characteristics;
+within TransiEnt.Consumer.Heat.SpaceHeating.Characteristics;
 record HouseType100 "House type 100 characteristics according to EnEV 2007"
 
 

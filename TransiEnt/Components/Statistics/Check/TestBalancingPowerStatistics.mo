@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Statistics.Check;
+within TransiEnt.Components.Statistics.Check;
 model TestBalancingPowerStatistics "Example of the component PowerPlant_PoutGrad_L1"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat.Check;
+within TransiEnt.Components.Heat.Check;
 model TestJunctions "Test model for the junctions"
 
 //________________________________________________________________________________//

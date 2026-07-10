@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Sensors.RealGas;
+within TransiEnt.Components.Sensors.RealGas;
 model WobbeGCVSensor "Sensor calculating the Wobbe-Index and gross calorific value for for real gas mixtures"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical;
+within TransiEnt.Components.Electrical;
 package FuelCellSystems "Package containing fuel cell models for PEM and SOFC cells"
 
 

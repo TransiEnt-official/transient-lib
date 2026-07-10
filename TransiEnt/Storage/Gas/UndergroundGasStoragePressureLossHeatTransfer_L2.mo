@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Gas;
+within TransiEnt.Storage.Gas;
 model UndergroundGasStoragePressureLossHeatTransfer_L2 "Model of a simple gas storage volume for constant composition with adiabatic inlet and outlet pipes with pressure losses and heat transfer to the cavern walls"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Conventional.Components;
+within TransiEnt.Producer.Electrical.Conventional.Components;
 model VDI3508Plant_PrimaryBalancing "Transient behaviour by multiple first order systems according to VDI 3508, no states, with balancing control"
 
 

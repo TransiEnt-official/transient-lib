@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.BiogasPlant;
+within TransiEnt.Producer.Gas.BiogasPlant;
 package Check "Pakage for check models of the biogas plant"
 
 

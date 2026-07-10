@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.Ambient;
+within TransiEnt.Basics.Tables.Ambient;
 model DHI_Hamburg_3600s_2012_TMY "Hamburg's diffuse horizontal irradiation, 1 h resolution, Source: IWEC"
 
 

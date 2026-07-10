@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Electrical.SecondaryControl;
+within TransiEnt.Grid.Electrical.SecondaryControl;
 model AGC_zeroCrossing "Automatic generation control model including secondary controller and replaceable model for control unit activation"
 
 

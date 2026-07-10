@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Gas;
+within TransiEnt.Storage.Gas;
 model GasStorage_varXi_L1 "L1: Model of a simple gas storage volume for variable composition"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.HeatGrid.HeatDemand;
+within TransiEnt.Basics.Tables.HeatGrid.HeatDemand;
 model HeatDemandHH_from_heatLoadCharline_for_KWTK
 
 

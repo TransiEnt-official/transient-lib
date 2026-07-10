@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Statistics.PowerMarketModeling.MeritOrderModeling.Check;
+within TransiEnt.Components.Statistics.PowerMarketModeling.MeritOrderModeling.Check;
 model TestMeritOrderModel_f_RE_Conventionals_Demand "With real genration and demand data"
 
 

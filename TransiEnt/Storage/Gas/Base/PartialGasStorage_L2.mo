@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Gas.Base;
+within TransiEnt.Storage.Gas.Base;
 partial model PartialGasStorage_L2 "Partial model of a simple gas storage volume for real gases"
 
 

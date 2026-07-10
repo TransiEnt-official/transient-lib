@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Heat.HotWaterStorage_constProp_L4;
+within TransiEnt.Storage.Heat.HotWaterStorage_constProp_L4;
 model HotWaterStorage_constProp_L4 "Temperature and heat flow rate based model of a stratified thermal storage with finite volume discretisation (1=top, n=bottom) and constant fluid properties, electric heating rods can be added"
 
 

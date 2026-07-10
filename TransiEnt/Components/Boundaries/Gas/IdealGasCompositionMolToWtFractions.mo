@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.Gas;
+within TransiEnt.Components.Boundaries.Gas;
 model IdealGasCompositionMolToWtFractions "Boundary for ideal gas composition, input: mole fractions, output: mass fractions"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.Ambient;
+within TransiEnt.Basics.Tables.Ambient;
 model Temperature_Hamburg_Fuhlsbuettel_172800s_2012 "Hamburg 2012, 2 day avg"
 
 

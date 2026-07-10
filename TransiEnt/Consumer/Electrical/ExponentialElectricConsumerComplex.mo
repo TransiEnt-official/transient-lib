@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Electrical;
+within TransiEnt.Consumer.Electrical;
 model ExponentialElectricConsumerComplex "Exponential frequency and voltage dependency, based on ComplexPowerPort"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Heat.HotWaterStorage_constProp_L2;
+within TransiEnt.Storage.Heat.HotWaterStorage_constProp_L2;
 model HotWaterStorage_constProp_L2 "Very simple heat storage"
 
 

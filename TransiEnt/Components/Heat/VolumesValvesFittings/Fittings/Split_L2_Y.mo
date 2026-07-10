@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat.VolumesValvesFittings.Fittings;
+within TransiEnt.Components.Heat.VolumesValvesFittings.Fittings;
 model Split_L2_Y "Split model extended from the ClaRa library"
 
 

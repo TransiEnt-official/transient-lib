@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.BiogasPlant.Base;
+within TransiEnt.Producer.Gas.BiogasPlant.Base;
 model PitchedBladeImpeller "stirrer model of a pitched blade Impeller"
 
 

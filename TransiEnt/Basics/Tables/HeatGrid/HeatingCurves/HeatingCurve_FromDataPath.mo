@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.HeatGrid.HeatingCurves;
+within TransiEnt.Basics.Tables.HeatGrid.HeatingCurves;
 model HeatingCurve_FromDataPath "Variable Heating Curve depending on datapath"
 
 

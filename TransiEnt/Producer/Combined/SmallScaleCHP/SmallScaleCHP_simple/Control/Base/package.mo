@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Combined.SmallScaleCHP.SmallScaleCHP_simple.Control;
+within TransiEnt.Producer.Combined.SmallScaleCHP.SmallScaleCHP_simple.Control;
 package Base
 
 

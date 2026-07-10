@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Turbogroups;
+within TransiEnt.Components.Turbogroups;
 package Check
 
 
@@ -50,7 +50,7 @@ extends TransiEnt.Basics.Icons.CheckPackage;
 // (Hamburg University of Technology)                                             //
 // and is supported by                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
-//________________________________________________________________________________//  
+//________________________________________________________________________________//
 
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Controllers;
+within TransiEnt.Producer.Electrical.Controllers;
 model SimpleTwoBlockCoordination "Assigns load to first block until second block is needed to cover load"
 
 

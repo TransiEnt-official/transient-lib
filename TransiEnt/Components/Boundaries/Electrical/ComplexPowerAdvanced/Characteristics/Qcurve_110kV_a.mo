@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.Electrical.ComplexPowerAdvanced.Characteristics;
+within TransiEnt.Components.Boundaries.Electrical.ComplexPowerAdvanced.Characteristics;
 model Qcurve_110kV_a "Q(v)-curve for 110 kV Version a"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Systems.HeatpumpSystems;
+within TransiEnt.Consumer.Systems.HeatpumpSystems;
 model simulateUnit "Simulation of one heat pump system unit, parameterized by a vector of 24 parameters and replaceable system configurations"
 
 

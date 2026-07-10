@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Gas.Engines.Mechanics;
+within TransiEnt.Components.Gas.Engines.Mechanics;
 partial model BasicEngineMechanics "Partial model for mechanical behavior of a gas engine"
 
 

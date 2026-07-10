@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Wind.Controller;
+within TransiEnt.Producer.Electrical.Wind.Controller;
 model TorqueController_SI_deltaF "Torque controller for WTG with delta_f Synthetic Inertia"
 
 

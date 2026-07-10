@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Systems.HeatpumpSystems;
+within TransiEnt.Consumer.Systems.HeatpumpSystems;
 package Base
 
 

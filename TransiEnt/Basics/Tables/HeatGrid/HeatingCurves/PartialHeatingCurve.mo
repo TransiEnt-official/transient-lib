@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.HeatGrid.HeatingCurves;
+within TransiEnt.Basics.Tables.HeatGrid.HeatingCurves;
 partial model PartialHeatingCurve "partial model for heating curves, LA"
 
 

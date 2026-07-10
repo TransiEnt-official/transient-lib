@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.Ambient;
+within TransiEnt.Basics.Tables.Ambient;
 model DHI_Cologne_3600s_TRY "DHI Cologne TRY, 1 h resolution, Source: DWD"
 
 

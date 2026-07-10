@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.BiogasPlant.MaterialValues.Records;
+within TransiEnt.Producer.Gas.BiogasPlant.MaterialValues.Records;
 record BaseSuspendedSolids "Base record for suspended solids"
 
 

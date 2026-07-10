@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.Grid;
+within TransiEnt.Components.Electrical.Grid;
 model Line_PS "Transmission line with constant loss of active power from connection epp_1 to epp_2"
 
 

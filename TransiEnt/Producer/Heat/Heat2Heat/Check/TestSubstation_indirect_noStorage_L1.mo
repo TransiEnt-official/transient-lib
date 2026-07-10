@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.Heat2Heat.Check;
+within TransiEnt.Producer.Heat.Heat2Heat.Check;
 model TestSubstation_indirect_noStorage_L1
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Blocks;
+within TransiEnt.Basics.Blocks;
 block SwitchAtTimeOfDay "Swith boolean signal to true for a specific time of day"
 
 

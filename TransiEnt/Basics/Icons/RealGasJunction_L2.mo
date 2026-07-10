@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Icons;
+within TransiEnt.Basics.Icons;
 model RealGasJunction_L2 "Icon for real gas junction"
 
 

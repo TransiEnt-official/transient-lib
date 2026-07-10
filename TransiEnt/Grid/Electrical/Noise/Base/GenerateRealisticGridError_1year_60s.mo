@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Electrical.Noise.Base;
+within TransiEnt.Grid.Electrical.Noise.Base;
 model GenerateRealisticGridError_1year_60s
 
 

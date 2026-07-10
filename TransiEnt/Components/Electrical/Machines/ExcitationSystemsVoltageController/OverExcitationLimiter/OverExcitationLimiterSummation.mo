@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.Machines.ExcitationSystemsVoltageController.OverExcitationLimiter;
+within TransiEnt.Components.Electrical.Machines.ExcitationSystemsVoltageController.OverExcitationLimiter;
 model OverExcitationLimiterSummation "Over Excitation Limiter acting on the summation point of voltage regulator"
 
 

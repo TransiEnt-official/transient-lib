@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Sensors.RealGas;
+within TransiEnt.Components.Sensors.RealGas;
 model CO2EmissionSensor "Calculates CO2 emissions from complete combustion of medium"
 
 

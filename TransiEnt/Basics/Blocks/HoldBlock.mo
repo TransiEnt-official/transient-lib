@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Blocks;
+within TransiEnt.Basics.Blocks;
 block HoldBlock "Reads a \"continuous\" signal (w small time resolution) and transforms it to a continuous signal with a given step size (w larger time resolution)"
 
 

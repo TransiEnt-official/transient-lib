@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Electrical.GridConnector.Components;
+within TransiEnt.Grid.Electrical.GridConnector.Components;
 record TransmissionLineRecord "Define Transmission Line
   from: number of starting node (purely informational value)
   to: number of ending node (purely informational value)

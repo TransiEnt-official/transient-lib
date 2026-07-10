@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.ElectricGrid.PowerData;
+within TransiEnt.Basics.Tables.ElectricGrid.PowerData;
 model ElectricityGeneration_HHAltona_3600s_2012 "Hourly electricity generation data in Hamburg-Altona. Source: Energie Portal Hamburg"
 
 

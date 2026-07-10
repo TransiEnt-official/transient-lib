@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat;
+within TransiEnt.Producer.Heat;
 package Gas2Heat "Gas to heat technologies as gas heat pumps and gas boilers"
 
 

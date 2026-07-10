@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer;
+within TransiEnt.Producer;
 package Electrical "Strictly electric power plant models"
 
 

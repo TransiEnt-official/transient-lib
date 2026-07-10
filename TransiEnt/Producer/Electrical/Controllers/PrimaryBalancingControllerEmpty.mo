@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Controllers;
+within TransiEnt.Producer.Electrical.Controllers;
 model PrimaryBalancingControllerEmpty "Empty primary balancing controller model, returns zero"
 
 

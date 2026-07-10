@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.Power2Heat.Check;
+within TransiEnt.Producer.Heat.Power2Heat.Check;
 model TestConverter_Heat2Power
 
 

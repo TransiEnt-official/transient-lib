@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Statistics.Functions;
+within TransiEnt.Components.Statistics.Functions;
 function cogenerationEmissionAllocationFactors "Function to calculate CO2 emissions (in kg/J) allocation factors - Inputs: Fuel type, Allocation Method, Heat flow fuel"
 
 

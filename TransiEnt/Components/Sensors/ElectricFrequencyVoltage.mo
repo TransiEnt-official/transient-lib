@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Sensors;
+within TransiEnt.Components.Sensors;
 model ElectricFrequencyVoltage "Frequency and voltage on electric power port "
 
 

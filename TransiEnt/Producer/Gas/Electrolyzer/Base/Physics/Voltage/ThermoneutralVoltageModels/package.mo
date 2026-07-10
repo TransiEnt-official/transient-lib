@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer.Base.Physics.Voltage;
+within TransiEnt.Producer.Gas.Electrolyzer.Base.Physics.Voltage;
 package ThermoneutralVoltageModels "contains different implementations of thermoneutral voltage of PEM electrolyzer"
 
 

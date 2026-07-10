@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Combined.LargeScaleCHP;
+within TransiEnt.Producer.Combined.LargeScaleCHP;
 model TwoBlockCHP "Example model of plants consisting of several units"
 
 

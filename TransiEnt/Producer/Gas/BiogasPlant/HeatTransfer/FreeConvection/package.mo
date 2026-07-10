@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.BiogasPlant.HeatTransfer;
+within TransiEnt.Producer.Gas.BiogasPlant.HeatTransfer;
 package FreeConvection
 
 

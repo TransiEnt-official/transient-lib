@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Blocks.Check;
+within TransiEnt.Basics.Blocks.Check;
 model CompareSlewRateLimiters "Model for comparing SlewRateLimiters"
 
 

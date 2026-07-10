@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Photovoltaics;
+within TransiEnt.Producer.Electrical.Photovoltaics;
 model DataSheetBasedPV "Efficiency based on Temperature and Radiation"
 
 

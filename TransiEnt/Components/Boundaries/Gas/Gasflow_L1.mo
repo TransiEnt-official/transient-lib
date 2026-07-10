@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.Gas;
+within TransiEnt.Components.Boundaries.Gas;
 model Gasflow_L1 "Ideal gas flow boundary with constant or prescribed power and constant pressure loss"
 
 

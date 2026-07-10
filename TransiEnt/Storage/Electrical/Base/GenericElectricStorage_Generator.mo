@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Electrical.Base;
+within TransiEnt.Storage.Electrical.Base;
 model GenericElectricStorage_Generator "Generic storage model that can be used for most electric storage types in quasistationary power system simulations"
 
 

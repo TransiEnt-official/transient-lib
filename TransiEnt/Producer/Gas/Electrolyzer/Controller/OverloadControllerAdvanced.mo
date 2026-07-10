@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer.Controller;
+within TransiEnt.Producer.Gas.Electrolyzer.Controller;
 model OverloadControllerAdvanced "Control operation of electrolyzer with overload behaviour"
 
 

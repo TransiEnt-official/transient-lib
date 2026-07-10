@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Types;
+within TransiEnt.Basics.Types;
 type OnOffRelaisStatus
                             extends Integer;
 

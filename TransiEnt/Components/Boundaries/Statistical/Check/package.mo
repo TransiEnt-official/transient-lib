@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.Statistical;
+within TransiEnt.Components.Boundaries.Statistical;
 package Check
 
 

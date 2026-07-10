@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Gas.VolumesValvesFittings.Base;
+within TransiEnt.Components.Gas.VolumesValvesFittings.Base;
 model Linear_inclZero
 
 

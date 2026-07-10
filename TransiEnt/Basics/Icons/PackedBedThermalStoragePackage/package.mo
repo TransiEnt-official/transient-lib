@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Icons;
+within TransiEnt.Basics.Icons;
 package PackedBedThermalStoragePackage "Icon for packed bed thermal storage packages"
 
 

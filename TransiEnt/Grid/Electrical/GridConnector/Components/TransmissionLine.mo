@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Electrical.GridConnector.Components;
+within TransiEnt.Grid.Electrical.GridConnector.Components;
 model TransmissionLine "Universal Transmission Line to connect components on the 380kV level, specifically Superstructure components"
 
 

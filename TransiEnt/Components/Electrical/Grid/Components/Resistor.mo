@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.Grid.Components;
+within TransiEnt.Components.Electrical.Grid.Components;
 model Resistor "Modell for a specific Resistor. Resistance will be calculated from length and specific resistance"
 
 

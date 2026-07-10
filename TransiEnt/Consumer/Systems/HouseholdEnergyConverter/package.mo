@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Systems;
+within TransiEnt.Consumer.Systems;
 package HouseholdEnergyConverter
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.SolarThermal.SystemModels.Check;
+within TransiEnt.Producer.Heat.SolarThermal.SystemModels.Check;
 model TestSolarThermalSystem
 
 

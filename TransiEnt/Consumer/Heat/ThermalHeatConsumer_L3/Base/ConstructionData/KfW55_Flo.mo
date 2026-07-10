@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Heat.ThermalHeatConsumer_L3.Base.ConstructionData;
+within TransiEnt.Consumer.Heat.ThermalHeatConsumer_L3.Base.ConstructionData;
 record KfW55_Flo "Floor of example KfW55 building"
 
 

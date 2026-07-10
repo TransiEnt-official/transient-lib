@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Electrical.LumpedPowerGrid.Components;
+within TransiEnt.Grid.Electrical.LumpedPowerGrid.Components;
 model AGC "Automatic generation control model for just one secondary balancing provider (used in lumped grid models)"
 
 

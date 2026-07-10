@@ -1,4 +1,4 @@
-﻿within TransiEnt.SystemGeneration.Superstructure.Portfolios.Portfolio_Example;
+within TransiEnt.SystemGeneration.Superstructure.Portfolios.Portfolio_Example;
 record ExternalDataImport "Record of the external data import logic to create InstanceRecords automatically"
 
 //________________________________________________________________________________//

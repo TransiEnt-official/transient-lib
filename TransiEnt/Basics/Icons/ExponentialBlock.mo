@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Icons;
+within TransiEnt.Basics.Icons;
 block ExponentialBlock "Symbol for a linear block model"
 
 

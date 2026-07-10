@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.Grid.Base;
+within TransiEnt.Components.Electrical.Grid.Base;
 partial model PartialTwoPortAdmittanceComplex "Base Class of two port models with admittance parameters for lines and transformers"
 
 

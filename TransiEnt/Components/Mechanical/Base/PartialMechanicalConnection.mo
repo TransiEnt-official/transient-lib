@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Mechanical.Base;
+within TransiEnt.Components.Mechanical.Base;
 partial model PartialMechanicalConnection "Abstract mechanical connection model used between turbine and generator (could be an Inertia element or a clutch..)"
 
 

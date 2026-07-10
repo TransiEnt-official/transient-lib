@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics;
+within TransiEnt.Basics;
 package Types "containing type definitions"
 
 

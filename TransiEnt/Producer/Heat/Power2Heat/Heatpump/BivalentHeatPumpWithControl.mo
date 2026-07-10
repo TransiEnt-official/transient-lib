@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.Power2Heat.Heatpump;
+within TransiEnt.Producer.Heat.Power2Heat.Heatpump;
 model BivalentHeatPumpWithControl "Heatpump with selectable Controller and electric heater for bivalent operation if selected"
 
 

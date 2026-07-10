@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Interfaces.General;
+within TransiEnt.Basics.Interfaces.General;
 connector MechanicalPowerPort "1-dim. rotational flange of a shaft (filled square icon)"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Electrical.LumpedPowerGrid.Components;
+within TransiEnt.Grid.Electrical.LumpedPowerGrid.Components;
 model GlobalStatisticsAdapter "Passes through local statistics to specific connectors in global statistics"
   import TransiEnt;
 

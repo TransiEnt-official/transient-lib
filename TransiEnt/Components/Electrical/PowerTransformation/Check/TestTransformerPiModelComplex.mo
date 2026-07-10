@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.PowerTransformation.Check;
+within TransiEnt.Components.Electrical.PowerTransformation.Check;
 model TestTransformerPiModelComplex "Simple Test Model for TransformerPiModelComplex"
 
 

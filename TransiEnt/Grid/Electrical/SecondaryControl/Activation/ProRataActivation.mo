@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Electrical.SecondaryControl.Activation;
+within TransiEnt.Grid.Electrical.SecondaryControl.Activation;
 model ProRataActivation "ProRata Activation of Secondary Control"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Photovoltaics.Advanced_PV.GHI_Input.Check;
+within TransiEnt.Producer.Electrical.Photovoltaics.Advanced_PV.GHI_Input.Check;
 model Check_PVPlant
 
 

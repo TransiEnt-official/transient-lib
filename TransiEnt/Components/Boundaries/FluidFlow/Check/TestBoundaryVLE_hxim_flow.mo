@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.FluidFlow.Check;
+within TransiEnt.Components.Boundaries.FluidFlow.Check;
 model TestBoundaryVLE_hxim_flow "Model for testing BoundaryVLE_hxim_flow"
 
 

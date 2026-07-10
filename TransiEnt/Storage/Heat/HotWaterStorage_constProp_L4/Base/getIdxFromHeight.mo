@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Heat.HotWaterStorage_constProp_L4.Base;
+within TransiEnt.Storage.Heat.HotWaterStorage_constProp_L4.Base;
 function getIdxFromHeight "Returns index of closest control volume matching the given height"
 
 
@@ -30,8 +30,7 @@ function getIdxFromHeight "Returns index of closest control volume matching the 
   input SI.Length h "Total height";
   input SI.Length hq "Query height";
   output Integer iq "Index";
-protected
-          SI.Length[N] Dh=(1/(2*N):1/N:1)*h;
+protected SI.Length[N] Dh=(1/(2*N):1/N:1)*h;
 algorithm
   assert(hq<=h and hq>=0, "Port height must be between 0 and h");
   iq:=N;

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Sensors.RealGas;
+within TransiEnt.Components.Sensors.RealGas;
 model CompositionSensorDryGas "One Port VLE Composition Sensor"
 
 

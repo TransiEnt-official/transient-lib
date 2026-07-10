@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer.Controller;
+within TransiEnt.Producer.Gas.Electrolyzer.Controller;
 model FeedInStorageController "Controller model for limited hydrogen output with mass flow feedback and storage pressure"
 
 

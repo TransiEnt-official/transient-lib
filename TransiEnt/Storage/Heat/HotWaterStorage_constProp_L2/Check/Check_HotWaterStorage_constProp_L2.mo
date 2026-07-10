@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Heat.HotWaterStorage_constProp_L2.Check;
+within TransiEnt.Storage.Heat.HotWaterStorage_constProp_L2.Check;
 model Check_HotWaterStorage_constProp_L2
 
 

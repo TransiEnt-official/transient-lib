@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="440">
+  <defs>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#1F77B4"/>
+    </marker>
+    <marker id="arrow-red" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#D62728"/>
+    </marker>
+  </defs>
+  <!-- System boundary -->
+  <rect x="170" y="90" width="220" height="260"
+        fill="#F9F9F9" stroke="#333" stroke-width="1.5" stroke-dasharray="6,3" rx="4"/>
+  <text x="280" y="215" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold">AquiferL4</text>
+  <text x="280" y="232" text-anchor="middle" font-family="Arial" font-size="9" fill="#555">[N_r × N_z]</text>
+
+  <!-- fluidPortEast[N_z] – fluid inlet left -->
+  <line x1="55" y1="185" x2="170" y2="185" stroke="#1F77B4" stroke-width="2" marker-end="url(#arrow-blue)"/>
+  <text x="100" y="177" text-anchor="middle" font-family="Arial" font-size="10" fill="#1F77B4" font-style="italic">ṁ</text>
+  <text x="55" y="205" text-anchor="middle" font-family="Arial" font-size="8" fill="#1F77B4">fluidPortEast[N_z]</text>
+
+  <!-- fluidPortWest[N_z] – fluid outlet right -->
+  <line x1="390" y1="185" x2="505" y2="185" stroke="#1F77B4" stroke-width="2" marker-end="url(#arrow-blue)"/>
+  <text x="448" y="177" text-anchor="middle" font-family="Arial" font-size="10" fill="#1F77B4" font-style="italic">ṁ</text>
+  <text x="448" y="205" text-anchor="middle" font-family="Arial" font-size="8" fill="#1F77B4">fluidPortWest[N_z]</text>
+
+  <!-- fluidPortDown[N_r] – fluid inlet bottom -->
+  <line x1="310" y1="405" x2="310" y2="350" stroke="#1F77B4" stroke-width="2" marker-end="url(#arrow-blue)"/>
+  <text x="322" y="385" font-family="Arial" font-size="10" fill="#1F77B4" font-style="italic">ṁ</text>
+  <text x="310" y="422" text-anchor="middle" font-family="Arial" font-size="8" fill="#1F77B4">fluidPortDown[N_r]</text>
+
+  <!-- fluidPortUp[N_r] – fluid outlet top -->
+  <line x1="310" y1="90" x2="310" y2="30" stroke="#1F77B4" stroke-width="2" marker-end="url(#arrow-blue)"/>
+  <text x="322" y="65" font-family="Arial" font-size="10" fill="#1F77B4" font-style="italic">ṁ</text>
+  <text x="310" y="20" text-anchor="middle" font-family="Arial" font-size="8" fill="#1F77B4">fluidPortUp[N_r]</text>
+
+  <!-- port_east[N_z] – heat inlet left -->
+  <line x1="55" y1="245" x2="170" y2="245" stroke="#D62728" stroke-width="2" marker-end="url(#arrow-red)"/>
+  <text x="100" y="237" text-anchor="middle" font-family="Arial" font-size="10" fill="#D62728" font-style="italic">Q̇</text>
+  <text x="55" y="265" text-anchor="middle" font-family="Arial" font-size="8" fill="#D62728">port_east[N_z]</text>
+
+  <!-- port_west[N_z] – heat outlet right -->
+  <line x1="390" y1="245" x2="505" y2="245" stroke="#D62728" stroke-width="2" marker-end="url(#arrow-red)"/>
+  <text x="448" y="237" text-anchor="middle" font-family="Arial" font-size="10" fill="#D62728" font-style="italic">Q̇</text>
+  <text x="448" y="265" text-anchor="middle" font-family="Arial" font-size="8" fill="#D62728">port_west[N_z]</text>
+
+  <!-- port_up[N_r] – heat inlet top -->
+  <line x1="250" y1="90" x2="250" y2="30" stroke="#D62728" stroke-width="2" marker-end="url(#arrow-red)"/>
+  <text x="262" y="65" font-family="Arial" font-size="10" fill="#D62728" font-style="italic">Q̇</text>
+  <text x="250" y="20" text-anchor="middle" font-family="Arial" font-size="8" fill="#D62728">port_up[N_r]</text>
+
+  <!-- port_down[N_r] – heat outlet bottom -->
+  <line x1="250" y1="405" x2="250" y2="350" stroke="#D62728" stroke-width="2" marker-end="url(#arrow-red)"/>
+  <text x="262" y="385" font-family="Arial" font-size="10" fill="#D62728" font-style="italic">Q̇</text>
+  <text x="250" y="422" text-anchor="middle" font-family="Arial" font-size="8" fill="#D62728">port_down[N_r]</text>
+</svg>

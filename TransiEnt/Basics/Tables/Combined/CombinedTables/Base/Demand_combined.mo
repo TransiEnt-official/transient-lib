@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.Combined.CombinedTables.Base;
+within TransiEnt.Basics.Tables.Combined.CombinedTables.Base;
 partial model Demand_combined
 
 

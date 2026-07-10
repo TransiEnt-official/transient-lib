@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Gas.Reactor.Controller.Base;
+within TransiEnt.Components.Gas.Reactor.Controller.Base;
 partial model PartialControllerH2OForReformer "Controller to control the water mass flow rate for the prereformer and steam methane reformer"
 
 

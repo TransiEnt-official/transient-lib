@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Blocks.Sources;
+within TransiEnt.Basics.Blocks.Sources;
 block BooleanArrayConstant "Generate constant arrary of signals of type Boolean"
 
 

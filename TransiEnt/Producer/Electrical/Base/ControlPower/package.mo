@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Base;
+within TransiEnt.Producer.Electrical.Base;
 package ControlPower
 
 

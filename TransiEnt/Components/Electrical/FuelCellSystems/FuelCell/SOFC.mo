@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.FuelCellSystems.FuelCell;
+within TransiEnt.Components.Electrical.FuelCellSystems.FuelCell;
 model SOFC "Model of one SOFC-Cell Stack with three states (Ramp up, Normal operation, Ramp down)"
 
 

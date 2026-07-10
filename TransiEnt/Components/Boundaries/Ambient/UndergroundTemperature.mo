@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.Ambient;
+within TransiEnt.Components.Boundaries.Ambient;
 model UndergroundTemperature "Gives the underground temperature at specified depth and time as a cosinal characteristic"
 
 

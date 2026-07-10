@@ -1,4 +1,4 @@
-﻿within TransiEnt.SystemGeneration.Superstructure.Components;
+within TransiEnt.SystemGeneration.Superstructure.Components;
 package GasGrid
 
 //________________________________________________________________________________//

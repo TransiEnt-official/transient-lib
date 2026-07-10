@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Base.PartloadEfficiency;
+within TransiEnt.Producer.Electrical.Base.PartloadEfficiency;
 model PartloadEfficiency "Block that calculates the partload efficiency from a charline, the actual power output and the nominal output"
 
 

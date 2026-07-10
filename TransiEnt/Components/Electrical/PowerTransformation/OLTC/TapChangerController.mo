@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.PowerTransformation.OLTC;
+within TransiEnt.Components.Electrical.PowerTransformation.OLTC;
 model TapChangerController "Simple model for TapChanger, model with reaction starting timer"
 
 

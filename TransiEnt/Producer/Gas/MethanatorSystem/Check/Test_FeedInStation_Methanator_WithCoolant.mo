@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.MethanatorSystem.Check;
+within TransiEnt.Producer.Gas.MethanatorSystem.Check;
 model Test_FeedInStation_Methanator_WithCoolant "Model for testing the Methanator FeedInStation"
 
 

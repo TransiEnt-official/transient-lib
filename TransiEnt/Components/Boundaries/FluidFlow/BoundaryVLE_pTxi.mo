@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.FluidFlow;
+within TransiEnt.Components.Boundaries.FluidFlow;
 model BoundaryVLE_pTxi "A boundary defining pressure, temperature and mass composition"
 
 

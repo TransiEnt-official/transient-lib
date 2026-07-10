@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Combined.SmallScaleCHP.Base;
+within TransiEnt.Producer.Combined.SmallScaleCHP.Base;
 partial model PartialCHPController "Partial CHP controller model"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Combined.LargeScaleCHP.Check;
+within TransiEnt.Producer.Combined.LargeScaleCHP.Check;
 model TestCHP_balancingControlOffer "Example how the CHP model provides information about balancing power reserves"
 
 

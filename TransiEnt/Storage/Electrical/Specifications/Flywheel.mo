@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Electrical.Specifications;
+within TransiEnt.Storage.Electrical.Specifications;
 record Flywheel "Typical parameters of flywheel storage (cfk)"
 
 

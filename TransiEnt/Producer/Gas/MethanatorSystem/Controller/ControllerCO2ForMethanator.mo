@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.MethanatorSystem.Controller;
+within TransiEnt.Producer.Gas.MethanatorSystem.Controller;
 model ControllerCO2ForMethanator
 
 

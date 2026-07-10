@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Base;
+within TransiEnt.Storage.Base;
 model NoStationaryLoss "No Stationary loss or stationary loss is neglectable"
 
 

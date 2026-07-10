@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.SolarThermal.Control;
+within TransiEnt.Producer.Heat.SolarThermal.Control;
 model ControllerPumpSolarCollectorDeltaT "Pump control for solarthermal collector by delta T"
 
 

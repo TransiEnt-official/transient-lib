@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.Grid.Characteristics;
+within TransiEnt.Components.Electrical.Grid.Characteristics;
 record MV_L3 "MV_L3 20 kV Cable, 3 * 150 mm^2 Cu"
 
 

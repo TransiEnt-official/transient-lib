@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Interfaces.Gas;
+within TransiEnt.Basics.Interfaces.Gas;
 connector RealGasPort "A connector for real gas featuring h,p,xi,m_flow"
 
 

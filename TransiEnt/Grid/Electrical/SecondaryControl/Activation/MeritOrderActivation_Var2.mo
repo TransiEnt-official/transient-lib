@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Electrical.SecondaryControl.Activation;
+within TransiEnt.Grid.Electrical.SecondaryControl.Activation;
 model MeritOrderActivation_Var2 "Merit Order Activation of Secondary Control Var2"
 
 

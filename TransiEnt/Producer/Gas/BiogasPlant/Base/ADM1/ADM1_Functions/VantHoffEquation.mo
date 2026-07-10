@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.BiogasPlant.Base.ADM1.ADM1_Functions;
+within TransiEnt.Producer.Gas.BiogasPlant.Base.ADM1.ADM1_Functions;
 function VantHoffEquation "applies the van't Hoff Equation to a temperature-sensitive equilibrium constant"
 
 

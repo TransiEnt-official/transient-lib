@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.ElectricGrid;
+within TransiEnt.Basics.Tables.ElectricGrid;
 package ElectricityPrices
 
 

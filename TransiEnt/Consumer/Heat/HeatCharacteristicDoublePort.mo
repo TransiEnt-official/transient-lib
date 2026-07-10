@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Heat;
+within TransiEnt.Consumer.Heat;
 model HeatCharacteristicDoublePort "Calculates house supply and return temperature based on outdoor temperature"
 
 //________________________________________________________________________________//

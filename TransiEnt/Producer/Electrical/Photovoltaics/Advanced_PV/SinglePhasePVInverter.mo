@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Photovoltaics.Advanced_PV;
+within TransiEnt.Producer.Electrical.Photovoltaics.Advanced_PV;
 model SinglePhasePVInverter "Simple PV inverter"
 
 

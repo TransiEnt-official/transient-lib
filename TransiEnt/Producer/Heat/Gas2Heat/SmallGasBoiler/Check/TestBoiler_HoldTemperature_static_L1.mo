@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.Gas2Heat.SmallGasBoiler.Check;
+within TransiEnt.Producer.Heat.Gas2Heat.SmallGasBoiler.Check;
 model TestBoiler_HoldTemperature_static_L1
 
 

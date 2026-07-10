@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Gas.VolumesValvesFittings.Valves;
+within TransiEnt.Components.Gas.VolumesValvesFittings.Valves;
 model ValveDesiredPressureBefore "Simple valve with desired pressure before the valve"
 
 

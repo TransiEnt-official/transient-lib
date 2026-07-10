@@ -1,4 +1,4 @@
-﻿within TransiEnt;
+within TransiEnt;
 package Storage "systems converting heat or work in storable form with the ability to store it for a finite time"
 
 

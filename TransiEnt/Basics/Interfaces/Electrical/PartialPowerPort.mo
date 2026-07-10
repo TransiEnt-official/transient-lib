@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Interfaces.Electrical;
+within TransiEnt.Basics.Interfaces.Electrical;
 connector PartialPowerPort
 
 

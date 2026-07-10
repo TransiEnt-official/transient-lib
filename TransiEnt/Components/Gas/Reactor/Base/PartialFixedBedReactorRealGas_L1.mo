@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Gas.Reactor.Base;
+within TransiEnt.Components.Gas.Reactor.Base;
 partial model PartialFixedBedReactorRealGas_L1 "Partial model for L1 reactor models using real gases"
 
 

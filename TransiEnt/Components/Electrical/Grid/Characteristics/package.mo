@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.Grid;
+within TransiEnt.Components.Electrical.Grid;
 package Characteristics "Package for types"
 
 

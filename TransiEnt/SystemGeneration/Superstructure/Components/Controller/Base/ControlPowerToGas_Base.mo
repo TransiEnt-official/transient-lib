@@ -1,4 +1,4 @@
-﻿within TransiEnt.SystemGeneration.Superstructure.Components.Controller.Base;
+within TransiEnt.SystemGeneration.Superstructure.Components.Controller.Base;
 model ControlPowerToGas_Base
 
 //________________________________________________________________________________//

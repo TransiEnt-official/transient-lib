@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Functions.GasProperties;
+within TransiEnt.Basics.Functions.GasProperties;
 function convertMoleToMassFraction "Converts mole ratio/fraction to mass fraction"
 
 

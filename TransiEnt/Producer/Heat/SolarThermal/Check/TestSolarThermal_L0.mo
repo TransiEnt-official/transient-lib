@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.SolarThermal.Check;
+within TransiEnt.Producer.Heat.SolarThermal.Check;
 model TestSolarThermal_L0 "Tester for a solar collector using fluid boundaries"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.Power2Heat;
+within TransiEnt.Producer.Heat.Power2Heat;
 package Check
 
 

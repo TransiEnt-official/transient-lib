@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Combined.LargeScaleCHP;
+within TransiEnt.Producer.Combined.LargeScaleCHP;
 model ContinuousCHP "Simple large CHP model with plant limits, time constants and fuel input matrix but without distinc operating states (always running)"
 
 

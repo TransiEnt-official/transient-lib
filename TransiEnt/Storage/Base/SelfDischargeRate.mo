@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Base;
+within TransiEnt.Storage.Base;
 model SelfDischargeRate "Constant Stationary Loss approximated by self discharge rate e.g. 50%/h"
 
 

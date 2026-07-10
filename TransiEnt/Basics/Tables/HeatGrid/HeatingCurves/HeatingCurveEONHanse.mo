@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.HeatGrid.HeatingCurves;
+within TransiEnt.Basics.Tables.HeatGrid.HeatingCurves;
 model HeatingCurveEONHanse "Supply and return temperatures as function of ambient temperature in LHN of Eon Hanse"
 
 

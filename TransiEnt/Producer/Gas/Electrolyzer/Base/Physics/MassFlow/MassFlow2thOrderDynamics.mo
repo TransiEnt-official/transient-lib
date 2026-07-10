@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer.Base.Physics.MassFlow;
+within TransiEnt.Producer.Gas.Electrolyzer.Base.Physics.MassFlow;
 model MassFlow2thOrderDynamics
   "PEMElectrolyzer mass flow as modeled by Espinosa, 2018 with 2th order dynamics"
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Electrical.Check;
+within TransiEnt.Consumer.Electrical.Check;
 model CheckExponentialElectricConsumer
 
 

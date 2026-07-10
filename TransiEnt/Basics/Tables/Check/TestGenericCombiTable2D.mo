@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.Check;
+within TransiEnt.Basics.Tables.Check;
 model TestGenericCombiTable2D "Model for testing combi tables"
 
 

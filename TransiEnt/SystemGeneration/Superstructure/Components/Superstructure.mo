@@ -1,4 +1,4 @@
-﻿within TransiEnt.SystemGeneration.Superstructure.Components;
+within TransiEnt.SystemGeneration.Superstructure.Components;
 model Superstructure "Representation of a certain region in terms of consumption and production of electrical power and gas"
 
 //________________________________________________________________________________//

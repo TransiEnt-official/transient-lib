@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.Grid;
+within TransiEnt.Components.Electrical.Grid;
 model PiModelComplex_advanced "pi-Modell of a cable for ComplexPowerPort, better numerics"
 
 

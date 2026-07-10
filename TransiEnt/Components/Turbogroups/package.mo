@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components;
+within TransiEnt.Components;
 package Turbogroups "Turbogroup models including e.g. combustion and thermodynamic cycles as well as gas and steam turbines"
 
 

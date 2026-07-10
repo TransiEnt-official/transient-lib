@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Media;
+within TransiEnt.Basics.Media;
 model RealGasNCV_xi_Block "Block for net calorific value calculation for real gases, input xi"
 
 

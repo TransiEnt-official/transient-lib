@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.Electrical.Check;
+within TransiEnt.Components.Boundaries.Electrical.Check;
 model CheckInverterQcurve
 
 

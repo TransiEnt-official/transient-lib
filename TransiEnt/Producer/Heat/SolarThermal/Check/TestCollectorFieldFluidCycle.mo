@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.SolarThermal.Check;
+within TransiEnt.Producer.Heat.SolarThermal.Check;
 model TestCollectorFieldFluidCycle "Tester for a solar collector field using a fluid cycle"
 
 

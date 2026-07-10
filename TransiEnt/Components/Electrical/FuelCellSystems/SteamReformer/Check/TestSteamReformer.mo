@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.FuelCellSystems.SteamReformer.Check;
+within TransiEnt.Components.Electrical.FuelCellSystems.SteamReformer.Check;
 model TestSteamReformer "Test dynamic of steam reformer"
 
 

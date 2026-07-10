@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.HeatGrid;
+within TransiEnt.Basics.Tables.HeatGrid;
 package HeatingCurves "Tables of heating curves for heat grids, LA"
 
 

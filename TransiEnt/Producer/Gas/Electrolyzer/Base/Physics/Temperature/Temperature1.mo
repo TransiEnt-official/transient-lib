@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer.Base.Physics.Temperature;
+within TransiEnt.Producer.Gas.Electrolyzer.Base.Physics.Temperature;
 model Temperature1
   "PEMElectrolyzer thermal model as implemented by Espinosa, 2018"
     //The following must all be calculated in the Temperature model or else provided externally.

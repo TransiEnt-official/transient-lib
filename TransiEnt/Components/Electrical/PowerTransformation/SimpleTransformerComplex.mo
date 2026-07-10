@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.PowerTransformation;
+within TransiEnt.Components.Electrical.PowerTransformation;
 model SimpleTransformerComplex "Transformer modell of a predefined Dy with simple efficiency modell, based on ComplexPowerPort"
 
 

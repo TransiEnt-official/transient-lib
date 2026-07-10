@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Gas.Combustion.Check;
+within TransiEnt.Components.Gas.Combustion.Check;
 model TestControllerBurner "Model for testing a combustion with a controlled mass flow rate of the air and the fuel"
 
 

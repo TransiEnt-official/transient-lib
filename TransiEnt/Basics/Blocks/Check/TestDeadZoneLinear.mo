@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Blocks.Check;
+within TransiEnt.Basics.Blocks.Check;
 model TestDeadZoneLinear "Model for testing the DeadZoneLinear model"
 
 

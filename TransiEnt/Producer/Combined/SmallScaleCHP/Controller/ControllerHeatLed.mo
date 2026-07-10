@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Combined.SmallScaleCHP.Controller;
+within TransiEnt.Producer.Combined.SmallScaleCHP.Controller;
 model ControllerHeatLed "Controller that gets target temperatures from simCenter and has an input for storage Temperature"
 
 

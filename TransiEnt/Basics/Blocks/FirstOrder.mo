@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Blocks;
+within TransiEnt.Basics.Blocks;
 block FirstOrder "First order transfer function block (= 1 pole, allows Tau = 0 and a gain)"
 
 

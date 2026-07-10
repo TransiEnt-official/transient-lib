@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Interfaces.General;
+within TransiEnt.Basics.Interfaces.General;
 expandable connector EyeIn
 
 

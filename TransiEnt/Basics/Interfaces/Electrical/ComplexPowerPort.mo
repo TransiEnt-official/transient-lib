@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Interfaces.Electrical;
+within TransiEnt.Basics.Interfaces.Electrical;
 connector ComplexPowerPort "Single phase electric connector containing active, reactive power, frequency, voltage and voltage angle for quasistationary ac power models"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Gas.HeatExchanger;
+within TransiEnt.Components.Gas.HeatExchanger;
 model HEXOneRealGasOuterTIdeal_L1 "Ideal heat exchanger for one real gas with heat port and fixed end temperature"
 
 

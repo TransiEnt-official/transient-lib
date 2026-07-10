@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics;
+within TransiEnt.Basics;
 package Adapters "Contains adapters allowing to connect components with unequal interfaces"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Statistics.Functions;
+within TransiEnt.Components.Statistics.Functions;
 function dynamicPriceFactor "Calculates the price dynamic cash value factor based on interest rate, price change rate and observation period"
 
 

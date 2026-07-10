@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Functions;
+within TransiEnt.Basics.Functions;
 function Dispersion "Function calculates the statistical dispersion"
 
 

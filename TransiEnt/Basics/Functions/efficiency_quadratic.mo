@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Functions;
+within TransiEnt.Basics.Functions;
 function efficiency_quadratic "Approximizes efficiency between three defined points quadratically"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Electrical;
+within TransiEnt.Grid.Electrical;
 package UnitCommitment "Provides tools allowing to adapt externally optimized unit commitment schedules of power generators"
 
 

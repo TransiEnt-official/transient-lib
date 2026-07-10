@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Sensors.RealGas.Check;
+within TransiEnt.Components.Sensors.RealGas.Check;
 model TestRealGasSensors "Test model for real gas sensors"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Wind.WindProfiles;
+within TransiEnt.Producer.Electrical.Wind.WindProfiles;
 package Check
 
 

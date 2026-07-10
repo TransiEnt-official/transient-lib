@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Sensors;
+within TransiEnt.Components.Sensors;
 package RealGas "Containing sensors for VLEFluids with RealGasPorts as interfaces"
 
 

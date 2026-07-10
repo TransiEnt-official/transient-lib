@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Gas.StaticCycles.Base;
+within TransiEnt.Grid.Gas.StaticCycles.Base;
 connector FluidSignal_green "Signal-based fluid connector"
 
 

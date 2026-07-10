@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Heat.HeatGridTopology.GridConfigurations;
+within TransiEnt.Grid.Heat.HeatGridTopology.GridConfigurations;
 model DHG_Topology_HH_1port_3sites_SimpleGrid
 
 

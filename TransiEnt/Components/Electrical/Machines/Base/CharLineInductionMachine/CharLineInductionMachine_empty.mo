@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.Machines.Base.CharLineInductionMachine;
+within TransiEnt.Components.Electrical.Machines.Base.CharLineInductionMachine;
 record CharLineInductionMachine_empty "partial record class, do not use because this a partial record"
 
 

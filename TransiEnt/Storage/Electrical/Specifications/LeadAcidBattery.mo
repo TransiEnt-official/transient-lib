@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Electrical.Specifications;
+within TransiEnt.Storage.Electrical.Specifications;
 record LeadAcidBattery "Typical parameters of lead acid battery"
 
 

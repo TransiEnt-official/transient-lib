@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.Power2Heat.Heatpump.Controller;
+within TransiEnt.Producer.Heat.Power2Heat.Heatpump.Controller;
 model ControlHeatpump_heatdriven_BVheatLoad "Heat-driven operation, if bivalent mode selected, heater will switch on additionally to heatpump if heat demand cannot be met."
 
 

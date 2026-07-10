@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Interfaces.Electrical;
+within TransiEnt.Basics.Interfaces.Electrical;
 connector ActivePowerPort "General interface for electrical energy in TransiEnt library (Active power and frequency)"
 
 

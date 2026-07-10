@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Functions.GasProperties.Check;
+within TransiEnt.Basics.Functions.GasProperties.Check;
 model TestNCVCalculation "Tester for adaptive net calorific value calculation"
 
 

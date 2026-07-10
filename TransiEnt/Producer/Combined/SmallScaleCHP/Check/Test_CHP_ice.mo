@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Combined.SmallScaleCHP.Check;
+within TransiEnt.Producer.Combined.SmallScaleCHP.Check;
 model Test_CHP_ice
   import TransiEnt;
 

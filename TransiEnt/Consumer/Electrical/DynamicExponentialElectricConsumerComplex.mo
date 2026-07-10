@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Electrical;
+within TransiEnt.Consumer.Electrical;
 model DynamicExponentialElectricConsumerComplex "Electric consumer with dynamic (differential equation) behavior"
 
 

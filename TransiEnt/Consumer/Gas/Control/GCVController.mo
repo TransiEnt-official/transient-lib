@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Gas.Control;
+within TransiEnt.Consumer.Gas.Control;
 model GCVController "Gas adaptive controller with demanded enthalpy flow rate and gross calorific value as inputs and desired mass flow rate as output"
 
 

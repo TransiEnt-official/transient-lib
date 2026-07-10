@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Adapters;
+within TransiEnt.Basics.Adapters;
 package Gas
 
 

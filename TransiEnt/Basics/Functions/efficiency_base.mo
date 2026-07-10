@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Functions;
+within TransiEnt.Basics.Functions;
 partial function efficiency_base "Base function for efficiency calculation"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.Ambient;
+within TransiEnt.Components.Boundaries.Ambient;
 model AmbientConditions "Contains the time varying ambient condition parameters used in simCenter block"
 
 

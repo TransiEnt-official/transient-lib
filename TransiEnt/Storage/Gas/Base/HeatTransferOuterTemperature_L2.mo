@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Gas.Base;
+within TransiEnt.Storage.Gas.Base;
 partial model HeatTransferOuterTemperature_L2 "Base class for L2 heat transfer models with an outer temperature"
 
 

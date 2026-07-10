@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components;
+within TransiEnt.Components;
 package Mechanical "basic mechanical components, e. g. inertia, shaft, gearbox"
 
 

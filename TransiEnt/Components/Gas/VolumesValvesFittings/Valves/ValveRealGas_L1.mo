@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Gas.VolumesValvesFittings.Valves;
+within TransiEnt.Components.Gas.VolumesValvesFittings.Valves;
 model ValveRealGas_L1 "Valve for real gas models without phase change with replaceable flow models"
 
 

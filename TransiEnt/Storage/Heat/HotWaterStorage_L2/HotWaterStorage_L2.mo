@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Heat.HotWaterStorage_L2;
+within TransiEnt.Storage.Heat.HotWaterStorage_L2;
 model HotWaterStorage_L2 "Stratified hot water storage without spatial discretisation (based on analytic solution for output temperature at steady state)"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.SteamMethaneReformerSystem;
+within TransiEnt.Producer.Gas.SteamMethaneReformerSystem;
 model SMRSystem_noH2Loop "Steam methane reformer system with sufficient H2 in feed containing prereformer, SMR, WGS, dryer, PSA and heat exchangers"
 
 

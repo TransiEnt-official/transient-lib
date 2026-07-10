@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.ElectricGrid.ElectricityPrices;
+within TransiEnt.Basics.Tables.ElectricGrid.ElectricityPrices;
 model GenericElectricityPriceTable
 
 

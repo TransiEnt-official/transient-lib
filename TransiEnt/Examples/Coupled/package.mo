@@ -1,4 +1,4 @@
-﻿within TransiEnt.Examples;
+within TransiEnt.Examples;
 package Coupled
 
 

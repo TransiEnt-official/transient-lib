@@ -1,4 +1,4 @@
-﻿within TransiEnt.Examples.Hamburg;
+within TransiEnt.Examples.Hamburg;
 model ElectricGrid "Example of an electric grid with several generators, frequency control and economic dispatch models"
 
 

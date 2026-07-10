@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Adapters.Check;
+within TransiEnt.Basics.Adapters.Check;
 model TestRealGasAdapters "Model for testing the real gas adapters"
 
 

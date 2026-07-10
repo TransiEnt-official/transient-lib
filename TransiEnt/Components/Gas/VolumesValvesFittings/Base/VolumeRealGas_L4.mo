@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Gas.VolumesValvesFittings.Base;
+within TransiEnt.Components.Gas.VolumesValvesFittings.Base;
 model VolumeRealGas_L4 "A 1D tube-shaped control volume considering one-phase heat transfer in a straight pipe with static momentum balance and simple energy balance"
 
 

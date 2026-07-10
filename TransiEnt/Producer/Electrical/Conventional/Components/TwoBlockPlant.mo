@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Conventional.Components;
+within TransiEnt.Producer.Electrical.Conventional.Components;
 model TwoBlockPlant "Abstract model for power plants composed by two blocks"
 
 

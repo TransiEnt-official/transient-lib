@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Media.Gases;
+within TransiEnt.Basics.Media.Gases;
 record Gas_ExhaustGas "var{H2O,CO2,CO,H2,O2,NO,NO2,SO2,N2} VDIWA, exhaust"
 
 

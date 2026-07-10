@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Interfaces;
+within TransiEnt.Basics.Interfaces;
 package General
 
 

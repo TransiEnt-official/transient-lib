@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Combined.SmallScaleCHP.Controller;
+within TransiEnt.Producer.Combined.SmallScaleCHP.Controller;
 model ControllerExtP_el "CHP Controller that sets plant to a given electric power"
 
 

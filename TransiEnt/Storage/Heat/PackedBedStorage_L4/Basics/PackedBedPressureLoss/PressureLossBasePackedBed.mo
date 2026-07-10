@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Heat.PackedBedStorage_L4.Basics.PackedBedPressureLoss;
+within TransiEnt.Storage.Heat.PackedBedStorage_L4.Basics.PackedBedPressureLoss;
 partial model PressureLossBasePackedBed "Base model for pressure loss in packed beds"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.Machines.Check;
+within TransiEnt.Components.Electrical.Machines.Check;
 model CheckLinearSynchronousMachine
 
 

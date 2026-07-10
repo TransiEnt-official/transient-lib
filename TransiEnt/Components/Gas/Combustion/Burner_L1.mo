@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Gas.Combustion;
+within TransiEnt.Components.Gas.Combustion;
 model Burner_L1 "Simple model of a burner with vle_ng7_sg_o2 gas"
 
 

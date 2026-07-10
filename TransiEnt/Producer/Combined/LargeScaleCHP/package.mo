@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Combined;
+within TransiEnt.Producer.Combined;
 package LargeScaleCHP "Package with large scale CHP plant models and related technologies"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Wind.Characteristics.VariableSpeed;
+within TransiEnt.Producer.Electrical.Wind.Characteristics.VariableSpeed;
 record ExampleTurbineRanges "Example turbine data"
 
 

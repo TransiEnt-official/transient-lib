@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Adapters.Gas;
+within TransiEnt.Basics.Adapters.Gas;
 model Ideal_to_Real "Adapter that switches from ideal to real fluid models"
 
 

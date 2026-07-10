@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Adapters;
+within TransiEnt.Basics.Adapters;
 model QS_to_EPP
 
 

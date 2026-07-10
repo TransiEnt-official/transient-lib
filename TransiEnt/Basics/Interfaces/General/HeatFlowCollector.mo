@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Interfaces.General;
+within TransiEnt.Basics.Interfaces.General;
 connector HeatFlowCollector "Collector for active power flow diagnostics"
 
 

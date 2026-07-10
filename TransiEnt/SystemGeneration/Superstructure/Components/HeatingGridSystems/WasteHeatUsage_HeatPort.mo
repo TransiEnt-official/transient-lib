@@ -1,4 +1,4 @@
-﻿within TransiEnt.SystemGeneration.Superstructure.Components.HeatingGridSystems;
+within TransiEnt.SystemGeneration.Superstructure.Components.HeatingGridSystems;
 model WasteHeatUsage_HeatPort
 
 //________________________________________________________________________________//

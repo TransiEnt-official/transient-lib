@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Gas.Engines.HeatFlow;
+within TransiEnt.Components.Gas.Engines.HeatFlow;
 partial model BasicHeatFlow "Partial heat transfer model for gas engine"
 
 

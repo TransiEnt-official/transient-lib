@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Electrical.LumpedPowerGrid.Check;
+within TransiEnt.Grid.Electrical.LumpedPowerGrid.Check;
 model LocalPlantInteractingWithUCTE "Example how the continental europe grid interacts with a local grid"
 
 

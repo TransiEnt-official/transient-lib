@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Heat.HeatGridControl;
+within TransiEnt.Grid.Heat.HeatGridControl;
 model SupplyAndReturnTemperatureDHG "Table with supply and return temperatures according to technical connection conditions"
 
 

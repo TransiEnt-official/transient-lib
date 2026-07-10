@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Mechanical.Check;
+within TransiEnt.Components.Mechanical.Check;
 model CheckInertiaConstant
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.Power2Heat.Heatpump;
+within TransiEnt.Producer.Heat.Power2Heat.Heatpump;
 record HeatpumpSystemProperties "Heat pump system scenario"
 
 

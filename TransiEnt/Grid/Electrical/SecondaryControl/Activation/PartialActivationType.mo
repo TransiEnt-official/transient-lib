@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Electrical.SecondaryControl.Activation;
+within TransiEnt.Grid.Electrical.SecondaryControl.Activation;
 partial model PartialActivationType "Partial Model for different types of Secondary Control Activation"
 
 

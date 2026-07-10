@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Combined.SmallScaleCHP.SmallScaleCHP_simple.Control.Base;
+within TransiEnt.Producer.Combined.SmallScaleCHP.SmallScaleCHP_simple.Control.Base;
 partial model ControlBoilerCHP_Base
 
 

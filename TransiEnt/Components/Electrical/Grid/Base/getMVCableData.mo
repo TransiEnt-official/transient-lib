@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.Grid.Base;
+within TransiEnt.Components.Electrical.Grid.Base;
 function getMVCableData "function to get middle voltage cable data"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Gas.StaticCycles.Check;
+within TransiEnt.Grid.Gas.StaticCycles.Check;
 model TestStatCycFlowReversal
 
 

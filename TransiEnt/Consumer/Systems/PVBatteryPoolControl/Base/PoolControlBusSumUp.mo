@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Systems.PVBatteryPoolControl.Base;
+within TransiEnt.Consumer.Systems.PVBatteryPoolControl.Base;
 model PoolControlBusSumUp "Sums up the state information of N units control busses to one single control bus which can then be connected to a controller"
 
 

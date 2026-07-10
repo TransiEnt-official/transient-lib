@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Electrical;
+within TransiEnt.Storage.Electrical;
 model LeadAcidBattery "Model of a lead acid battery"
 
 

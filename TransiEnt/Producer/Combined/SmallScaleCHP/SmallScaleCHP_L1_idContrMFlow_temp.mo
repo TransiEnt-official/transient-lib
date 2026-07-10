@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Combined.SmallScaleCHP;
+within TransiEnt.Producer.Combined.SmallScaleCHP;
 model SmallScaleCHP_L1_idContrMFlow_temp "Model for a small scale CHP plant with a pump with ideal mass flow control to get a given outlet temperature"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Gas.Reactor.Check;
+within TransiEnt.Components.Gas.Reactor.Check;
 model TestMethanator_L4_T_var
 
 

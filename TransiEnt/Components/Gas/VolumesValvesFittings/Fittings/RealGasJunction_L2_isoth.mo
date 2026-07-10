@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Gas.VolumesValvesFittings.Fittings;
+within TransiEnt.Components.Gas.VolumesValvesFittings.Fittings;
 model RealGasJunction_L2_isoth "Isothermal volume junction for real gases"
 
 

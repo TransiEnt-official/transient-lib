@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat.VolumesValvesFittings.Pipes;
+within TransiEnt.Components.Heat.VolumesValvesFittings.Pipes;
 model PipeFlowVLE_L4_Simple "Model for simulating a pipe flow with a VLE-fluid"
 
 

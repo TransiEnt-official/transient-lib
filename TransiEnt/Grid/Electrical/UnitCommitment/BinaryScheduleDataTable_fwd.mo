@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Electrical.UnitCommitment;
+within TransiEnt.Grid.Electrical.UnitCommitment;
 model BinaryScheduleDataTable_fwd "Adds constants for easy allocation of outputs, forward-looking z output"
 
 

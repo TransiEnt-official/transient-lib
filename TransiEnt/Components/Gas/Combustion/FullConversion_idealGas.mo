@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Gas.Combustion;
+within TransiEnt.Components.Gas.Combustion;
 model FullConversion_idealGas "Full conversion, fuel type independent combustion model for emission calculation purpose"
 
 

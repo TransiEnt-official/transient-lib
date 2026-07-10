@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Photovoltaics;
+within TransiEnt.Producer.Electrical.Photovoltaics;
 model PhotovoltaicPlant "Simple efficiency-based PV model with constant efficiency and depending on global solar radiation"
 
 

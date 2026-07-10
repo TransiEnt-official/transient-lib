@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage;
+within TransiEnt.Storage;
 package Heat "stores energy in inner thermal energy (sensible, latent, de-/adsorption)"
 
 

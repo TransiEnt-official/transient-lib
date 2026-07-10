@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Sensors.IdealGas;
+within TransiEnt.Components.Sensors.IdealGas;
 package Base
 
 

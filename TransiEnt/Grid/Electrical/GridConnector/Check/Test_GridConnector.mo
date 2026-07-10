@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Electrical.GridConnector.Check;
+within TransiEnt.Grid.Electrical.GridConnector.Check;
 model Test_GridConnector
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Wind.Base;
+within TransiEnt.Producer.Electrical.Wind.Base;
 model DrydenTurbulence "Block for statistical turbulence data based on Modelica"
 
 

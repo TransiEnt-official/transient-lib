@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer.Check;
+within TransiEnt.Producer.Gas.Electrolyzer.Check;
 model ComparisonOfElectrolyzer "Model for comparing the ElectrolyzerL1 with the ElectrolyzerL2"
 
 

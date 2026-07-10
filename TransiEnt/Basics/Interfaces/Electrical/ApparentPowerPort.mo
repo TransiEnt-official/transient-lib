@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Interfaces.Electrical;
+within TransiEnt.Basics.Interfaces.Electrical;
 connector ApparentPowerPort "Single phase electric connector containing active and reactive power and frequency and voltage for quasistationary ac power models"
 
 

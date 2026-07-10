@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Wind.Controller;
+within TransiEnt.Producer.Electrical.Wind.Controller;
 model PitchController
 
 

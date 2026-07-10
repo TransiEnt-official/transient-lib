@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Electrical.Profiles;
+within TransiEnt.Consumer.Electrical.Profiles;
 model ExampleHousehold_ElectricityDemand_VDI4665_60s "Example single family house electric demand (VDI4665, RG1, 150m2, 4 person, build in 1991)"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Visualization;
+within TransiEnt.Components.Visualization;
 package PowerSystemBasics "Some displays frequency used in power system"
 
 

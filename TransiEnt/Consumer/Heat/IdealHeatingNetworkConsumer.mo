@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Heat;
+within TransiEnt.Consumer.Heat;
 model IdealHeatingNetworkConsumer "Heating network consumer, ideally hydraulic decoupled"
 
 

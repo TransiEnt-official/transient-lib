@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Electrical;
+within TransiEnt.Storage.Electrical;
 model PumpedStorage_Generator "Model of a pumped storage"
 
 

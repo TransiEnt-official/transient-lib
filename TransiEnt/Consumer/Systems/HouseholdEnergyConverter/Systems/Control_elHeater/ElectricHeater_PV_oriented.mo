@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Systems.HouseholdEnergyConverter.Systems.Control_elHeater;
+within TransiEnt.Consumer.Systems.HouseholdEnergyConverter.Systems.Control_elHeater;
 model ElectricHeater_PV_oriented "operation preferably when excess PV energy available"
 
 

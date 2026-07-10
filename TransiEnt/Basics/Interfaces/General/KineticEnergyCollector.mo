@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Interfaces.General;
+within TransiEnt.Basics.Interfaces.General;
 connector KineticEnergyCollector "Collector for kinetic energy in rotating mass of electric grid"
 
 

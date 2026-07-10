@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Statistics;
+within TransiEnt.Components.Statistics;
 package PowerMarketModeling
 
 

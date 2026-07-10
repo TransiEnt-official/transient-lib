@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Functions;
+within TransiEnt.Basics.Functions;
 function find_min "Finds the minimum (maximum) value of a vector"
 
 

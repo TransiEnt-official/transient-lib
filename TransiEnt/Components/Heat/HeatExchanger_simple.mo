@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat;
+within TransiEnt.Components.Heat;
 model HeatExchanger_simple "Simple heat exchanger model"
 
 //________________________________________________________________________________//

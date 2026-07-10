@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Functions;
+within TransiEnt.Basics.Functions;
 function bool2real "Tranforms boolean to real number for multiplication"
 
 

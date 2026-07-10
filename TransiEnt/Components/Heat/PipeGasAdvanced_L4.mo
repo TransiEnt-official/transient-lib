@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat;
+within TransiEnt.Components.Heat;
 model PipeGasAdvanced_L4 "Pipe for gaseous media with dynamic mass balance and thermal insulation"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Gas.Engines.Mechanics;
+within TransiEnt.Components.Gas.Engines.Mechanics;
 model PartloadEfficiency "Block that calculates the partload efficiency from a charline, the actual power output and the nominal output"
 
 

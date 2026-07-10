@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Systems.FridgePoolControl.Components.Base;
+within TransiEnt.Consumer.Systems.FridgePoolControl.Components.Base;
 function getFileName
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.SystemGeneration.Superstructure.Components;
+within TransiEnt.SystemGeneration.Superstructure.Components;
 expandable connector ControlBus
 
 //________________________________________________________________________________//
@@ -33,7 +33,7 @@ expandable connector ControlBus
 
 protected
   final outer
-        BusVariableDeclaration busVariableDeclaration annotation ();
+        BusVariableDeclaration busVariableDeclaration annotation();
 
-  annotation ();
+  annotation();
 end ControlBus;

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.Power2Heat.Heatpump.Check;
+within TransiEnt.Producer.Heat.Power2Heat.Heatpump.Check;
 model TestHeatpumpWithControl_OnOff "Compares L1 heat pump models (simple and with startup ramp)"
   import TransiEnt;
 

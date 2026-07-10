@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Combined.LargeScaleCHP.Base.Characteristics;
+within TransiEnt.Producer.Combined.LargeScaleCHP.Base.Characteristics;
 record PQ_Characteristics_WW2 "Black coal steam unit based on 'Wedel Block 2 (WW2)', Source: Cerbe2002"
 
 

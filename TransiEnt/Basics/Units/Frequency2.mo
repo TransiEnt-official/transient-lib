@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Units;
+within TransiEnt.Basics.Units;
 type Frequency2 "Frequency type for ComplexPowerPort"
 
 

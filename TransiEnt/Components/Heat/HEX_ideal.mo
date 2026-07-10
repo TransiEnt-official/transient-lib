@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat;
+within TransiEnt.Components.Heat;
 model HEX_ideal "Ideal static heat exchanger model"
 
 

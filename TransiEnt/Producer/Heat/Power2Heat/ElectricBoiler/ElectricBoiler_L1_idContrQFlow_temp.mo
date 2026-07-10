@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.Power2Heat.ElectricBoiler;
+within TransiEnt.Producer.Heat.Power2Heat.ElectricBoiler;
 model ElectricBoiler_L1_idContrQFlow_temp "Model for electric boilers with ideal heat flow rate control to get a given outlet temperature"
 
 

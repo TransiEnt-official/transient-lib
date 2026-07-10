@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.Base;
+within TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.Base;
 model dp_residencetime "Calculates the residence time as well as the pressure loss and delays enthalpy changes according to it"
 
 

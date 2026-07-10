@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat.VolumesValvesFittings.Fittings;
+within TransiEnt.Components.Heat.VolumesValvesFittings.Fittings;
 model Split "Simple model of a split with linear pressure loss, static mass balance and dynamic energy balance"
 
 //________________________________________________________________________________//

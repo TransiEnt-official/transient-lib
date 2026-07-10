@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Heat.SpaceHeating.Base;
+within TransiEnt.Consumer.Heat.SpaceHeating.Base;
 record ThermodynamicProperties "record for thermodynamic properties"
 
 

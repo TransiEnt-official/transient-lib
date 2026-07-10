@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.FuelCellSystems.FuelCell.Check;
+within TransiEnt.Components.Electrical.FuelCellSystems.FuelCell.Check;
 model TestSOFC "Model for testing the SOFC model"
 
 

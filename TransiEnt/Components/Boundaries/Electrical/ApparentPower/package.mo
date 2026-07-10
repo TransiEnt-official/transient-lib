@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.Electrical;
+within TransiEnt.Components.Boundaries.Electrical;
 package ApparentPower "Boundaries for apparent power connectors (active and reactive power, frequency and voltage)"
 
 

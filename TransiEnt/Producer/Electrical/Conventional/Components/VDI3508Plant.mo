@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Conventional.Components;
+within TransiEnt.Producer.Electrical.Conventional.Components;
 model VDI3508Plant "Transient behaviour according to VDI 3508, three operating states (halt, startup, operation) without primary control"
 
 

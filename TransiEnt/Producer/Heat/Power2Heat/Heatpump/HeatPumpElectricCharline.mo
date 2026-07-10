@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.Power2Heat.Heatpump;
+within TransiEnt.Producer.Heat.Power2Heat.Heatpump;
 model HeatPumpElectricCharline "Electric heat pump model that produces a given heat flow via fluid ports with a charline"
 
 

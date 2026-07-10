@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Wind.Check;
+within TransiEnt.Producer.Electrical.Wind.Check;
 model TestWindturbine_SI_DF "Validation WTG with delta f SI control"
   import TransiEnt;
 

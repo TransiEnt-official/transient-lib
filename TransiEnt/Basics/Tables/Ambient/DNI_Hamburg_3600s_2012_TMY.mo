@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.Ambient;
+within TransiEnt.Basics.Tables.Ambient;
 model DNI_Hamburg_3600s_2012_TMY "Hamburg's direct normal irradiation, 1 h resolution, Source: IWEC"
 
 

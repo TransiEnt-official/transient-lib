@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.Electrical.ComplexPowerAdvanced;
+within TransiEnt.Components.Boundaries.Electrical.ComplexPowerAdvanced;
 package Characteristics
 
 

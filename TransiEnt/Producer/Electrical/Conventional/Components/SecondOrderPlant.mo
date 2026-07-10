@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Conventional.Components;
+within TransiEnt.Producer.Electrical.Conventional.Components;
 model SecondOrderPlant "Second order transient behaviour, no states, no additional controller"
 
 

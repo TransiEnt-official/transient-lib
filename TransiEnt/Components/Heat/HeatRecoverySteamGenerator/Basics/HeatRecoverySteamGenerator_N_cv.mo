@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat.HeatRecoverySteamGenerator.Basics;
+within TransiEnt.Components.Heat.HeatRecoverySteamGenerator.Basics;
 model HeatRecoverySteamGenerator_N_cv "Geometry"
 
 

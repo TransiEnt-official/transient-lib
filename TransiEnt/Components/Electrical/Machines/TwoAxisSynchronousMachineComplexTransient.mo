@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.Machines;
+within TransiEnt.Components.Electrical.Machines;
 model TwoAxisSynchronousMachineComplexTransient "ComplexPowerPort: Transient Two-Axis SM model with excitation voltage input"
 
 

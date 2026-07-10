@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Records;
+within TransiEnt.Basics.Records;
 model IdealGasBulk "Model for generating a summary for an ideal gas bulk"
 
 

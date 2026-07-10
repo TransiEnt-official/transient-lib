@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Systems.PVBatteryPoolControl.Check;
+within TransiEnt.Consumer.Systems.PVBatteryPoolControl.Check;
 model CheckPVBatteryPoolSingleHouse "Model for testing the photovoltaic battery pool with an example profile of a single house"
 
 

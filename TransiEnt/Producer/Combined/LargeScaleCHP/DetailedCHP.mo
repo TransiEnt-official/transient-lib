@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Combined.LargeScaleCHP;
+within TransiEnt.Producer.Combined.LargeScaleCHP;
 model DetailedCHP "Example of how a detailed thermodynamic cycle model of a steam turbine combined heat and power plant can be modeled"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Systems.PVBatteryPoolControl.PVBatteryConsumer;
+within TransiEnt.Consumer.Systems.PVBatteryPoolControl.PVBatteryConsumer;
 model PVBatteryHousehold "Household with pv, household and battery management systeem"
 
 

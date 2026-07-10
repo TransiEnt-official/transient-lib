@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Sensors;
+within TransiEnt.Components.Sensors;
 model ElectricTieLinePower "Measure power on tie line and send to global statistics"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.BiogasPlant.Base.ADM1.ADM1_Functions;
+within TransiEnt.Producer.Gas.BiogasPlant.Base.ADM1.ADM1_Functions;
 function ADM1_Inhibition_manureBulkowska
   "A Function calculating the inhibition Coefficients using constants from Bułkowska, K., et al. (2015). ADM1-based modeling of anaerobic codigestion of maize silage and cattle manure–calibration of parameters and model verification (part II)"
 

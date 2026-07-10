@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.Ambient;
+within TransiEnt.Basics.Tables.Ambient;
 model Temperature_Cologne_3600s_TRY "Temperature Cologne, 1 h resolution, Source: DWD"
 
 

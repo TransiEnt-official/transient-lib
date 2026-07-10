@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer;
+within TransiEnt.Producer.Gas.Electrolyzer;
 model PEMElectrolyzer_L2 "PEMElectrolyzer_L2 Proton exchange membrane electrolyzer with selectable physics submodels"
 
 

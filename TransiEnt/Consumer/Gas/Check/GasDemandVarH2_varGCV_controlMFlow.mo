@@ -1,4 +1,4 @@
-﻿within TransiEnt.Consumer.Gas.Check;
+within TransiEnt.Consumer.Gas.Check;
 model GasDemandVarH2_varGCV_controlMFlow
 
 

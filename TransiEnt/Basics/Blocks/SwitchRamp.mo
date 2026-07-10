@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Blocks;
+within TransiEnt.Basics.Blocks;
 model SwitchRamp "Switch with ramp switching between signals"
 
 

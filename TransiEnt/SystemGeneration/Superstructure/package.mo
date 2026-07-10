@@ -1,4 +1,4 @@
-﻿within TransiEnt.SystemGeneration;
+within TransiEnt.SystemGeneration;
 package Superstructure
 
 //________________________________________________________________________________//

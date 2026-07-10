@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Heat.HeatGridControl.Base.DHGHeatFlowDivisionCharacteristicLines;
+within TransiEnt.Grid.Heat.HeatGridControl.Base.DHGHeatFlowDivisionCharacteristicLines;
 record GenericHeatFlowDivisionCharacteristicLines "record for generic heat flow division characteristic lines"
 
 

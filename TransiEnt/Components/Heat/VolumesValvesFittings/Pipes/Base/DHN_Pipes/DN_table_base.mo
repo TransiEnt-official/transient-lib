@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.Base.DHN_Pipes;
+within TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.Base.DHN_Pipes;
 model DN_table_base
 
 

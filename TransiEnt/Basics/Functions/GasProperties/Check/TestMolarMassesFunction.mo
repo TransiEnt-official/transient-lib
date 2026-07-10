@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Functions.GasProperties.Check;
+within TransiEnt.Basics.Functions.GasProperties.Check;
 model TestMolarMassesFunction "Model for testing the calculation of molar masses with a function"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.Gas2Heat.SmallGasBoiler;
+within TransiEnt.Producer.Heat.Gas2Heat.SmallGasBoiler;
 model Gasboiler_static_L1 "Full modulating gasboiler, static model with splitted ideal combustion and ideal heat-transfer"
 
 

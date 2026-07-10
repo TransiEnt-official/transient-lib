@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Heat.HeatGridTopology.Check;
+within TransiEnt.Grid.Heat.HeatGridTopology.Check;
 model Test_DHG_Topology_HH_1port_3sites_SimpleGrid
   import TransiEnt;
 

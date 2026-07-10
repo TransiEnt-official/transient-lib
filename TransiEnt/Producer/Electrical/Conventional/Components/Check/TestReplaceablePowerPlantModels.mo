@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Conventional.Components.Check;
+within TransiEnt.Producer.Electrical.Conventional.Components.Check;
 model TestReplaceablePowerPlantModels "Tester illustrating the possibility to change level of details in power plant models"
 
 

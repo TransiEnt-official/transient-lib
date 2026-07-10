@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Electrical.Controller;
+within TransiEnt.Storage.Electrical.Controller;
 package Check
 
 

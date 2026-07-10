@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Heat.Controller;
+within TransiEnt.Storage.Heat.Controller;
 model SimpleStorageController
 
 

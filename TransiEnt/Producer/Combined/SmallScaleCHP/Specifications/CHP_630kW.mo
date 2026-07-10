@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Combined.SmallScaleCHP.Specifications;
+within TransiEnt.Producer.Combined.SmallScaleCHP.Specifications;
 record CHP_630kW "ICE 630 kWel"
 
 

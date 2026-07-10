@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.HeatGrid;
+within TransiEnt.Basics.Tables.HeatGrid;
 model GenericHeatFlowDataTable "Model for generating a heat flow rate output from a data table"
 
 

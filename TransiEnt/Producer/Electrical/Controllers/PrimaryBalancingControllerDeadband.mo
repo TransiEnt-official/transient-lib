@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Electrical.Controllers;
+within TransiEnt.Producer.Electrical.Controllers;
 model PrimaryBalancingControllerDeadband "Primary balancing controller with deadband but without limit (limit must be defined by plant)"
 
 

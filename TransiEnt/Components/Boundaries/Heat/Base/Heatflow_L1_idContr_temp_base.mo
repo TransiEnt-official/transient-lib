@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.Heat.Base;
+within TransiEnt.Components.Boundaries.Heat.Base;
 partial model Heatflow_L1_idContr_temp_base "Base class for heat flow boundaries with ideal control to get a given outlet temperature"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.Ambient.Base;
+within TransiEnt.Components.Boundaries.Ambient.Base;
 partial model PartialGlobalSolarRadiation "Model for creating an output for partial global solar radiation"
 
 

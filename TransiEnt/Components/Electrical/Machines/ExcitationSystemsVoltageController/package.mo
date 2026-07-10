@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.Machines;
+within TransiEnt.Components.Electrical.Machines;
 package ExcitationSystemsVoltageController "Package for different excitation systems and voltage controller"
 
 

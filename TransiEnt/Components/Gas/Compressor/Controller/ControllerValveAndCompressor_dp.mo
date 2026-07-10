@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Gas.Compressor.Controller;
+within TransiEnt.Components.Gas.Compressor.Controller;
 model ControllerValveAndCompressor_dp "Controls the mass flow through a valve or a compressor depending on the pressure difference"
 
 

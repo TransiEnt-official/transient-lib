@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer.Base;
+within TransiEnt.Producer.Gas.Electrolyzer.Base;
 model GetInputsElectrolyzerL2 "Get enabled inputs and parameters of disabled inputs"
 
 

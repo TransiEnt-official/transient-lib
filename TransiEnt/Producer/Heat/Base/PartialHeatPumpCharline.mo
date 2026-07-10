@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Heat.Base;
+within TransiEnt.Producer.Heat.Base;
 partial model PartialHeatPumpCharline "Partial heat pump model that produces a given heat flow with a charline"
 
 

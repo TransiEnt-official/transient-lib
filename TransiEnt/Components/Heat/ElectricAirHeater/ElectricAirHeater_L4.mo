@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat.ElectricAirHeater;
+within TransiEnt.Components.Heat.ElectricAirHeater;
 model ElectricAirHeater_L4 "Model for air flown resistance heater"
 
 

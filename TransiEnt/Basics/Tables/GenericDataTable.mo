@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables;
+within TransiEnt.Basics.Tables;
 model GenericDataTable "Parameterized version of MSL's CombiTimeTable. See Examples.Basics.GenericTable_How_to for explanation"
 
 

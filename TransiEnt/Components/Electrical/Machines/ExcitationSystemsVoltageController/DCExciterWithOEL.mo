@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.Machines.ExcitationSystemsVoltageController;
+within TransiEnt.Components.Electrical.Machines.ExcitationSystemsVoltageController;
 model DCExciterWithOEL "Simple Voltage Controller with PT1-dynamics with DC Exciter and OEL"
 
 

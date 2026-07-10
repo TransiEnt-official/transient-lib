@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Electrical.Noise;
+within TransiEnt.Grid.Electrical.Noise;
 block TypicalLumpedGridError "Typical grid error (derived from frequency measurements via model inversion)"
 
 

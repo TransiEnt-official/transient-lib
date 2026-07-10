@@ -1,4 +1,4 @@
-﻿within TransiEnt.Producer.Gas.Electrolyzer.Base;
+within TransiEnt.Producer.Gas.Electrolyzer.Base;
 package Physics "Contains multiple replaceable models for each component of electrolyzer physics"
 
 

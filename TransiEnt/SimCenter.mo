@@ -1,4 +1,4 @@
-﻿within TransiEnt;
+within TransiEnt;
 model SimCenter "SimCenter for global parameters, ambient conditions and collecting statistics"
 
 

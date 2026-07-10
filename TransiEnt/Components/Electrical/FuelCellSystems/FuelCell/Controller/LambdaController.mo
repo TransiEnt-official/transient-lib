@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.FuelCellSystems.FuelCell.Controller;
+within TransiEnt.Components.Electrical.FuelCellSystems.FuelCell.Controller;
 model LambdaController "Controller for Lambda in Fuel Cell Applications"
 
 

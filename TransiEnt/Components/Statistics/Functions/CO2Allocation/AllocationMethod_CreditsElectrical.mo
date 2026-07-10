@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Statistics.Functions.CO2Allocation;
+within TransiEnt.Components.Statistics.Functions.CO2Allocation;
 function AllocationMethod_CreditsElectrical "credits electrical to thermal generation"
 
 

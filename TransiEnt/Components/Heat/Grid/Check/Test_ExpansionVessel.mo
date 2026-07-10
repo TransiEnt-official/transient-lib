@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat.Grid.Check;
+within TransiEnt.Components.Heat.Grid.Check;
 model Test_ExpansionVessel
 
 

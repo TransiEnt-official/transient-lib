@@ -1,4 +1,4 @@
-﻿within TransiEnt.Storage.Base;
+within TransiEnt.Storage.Base;
 model ThermalConductance "Thermal stationary loss parameterized in thermodynamic terms"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Basics.Tables.Ambient;
+within TransiEnt.Basics.Tables.Ambient;
 model UndergroundTemperature_Duesseldorf_1m_3600s_TMY "Duesseldorf 1m depth 2017, 1 h resolution, Source: DWD-CDC"
 
 

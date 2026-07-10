@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Sensors.RealGas;
+within TransiEnt.Components.Sensors.RealGas;
 model NCVSensor "Sensor calculating the net calorific value of real gas mixtures at 25 C"
 
 

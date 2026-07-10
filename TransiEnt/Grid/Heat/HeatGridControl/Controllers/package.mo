@@ -1,4 +1,4 @@
-﻿within TransiEnt.Grid.Heat.HeatGridControl;
+within TransiEnt.Grid.Heat.HeatGridControl;
 package Controllers
 
 

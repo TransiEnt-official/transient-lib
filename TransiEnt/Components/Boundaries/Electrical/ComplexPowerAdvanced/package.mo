@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Boundaries.Electrical;
+within TransiEnt.Components.Boundaries.Electrical;
 package ComplexPowerAdvanced "Boundaries with characteristics for the Complex Power Port"
 
 

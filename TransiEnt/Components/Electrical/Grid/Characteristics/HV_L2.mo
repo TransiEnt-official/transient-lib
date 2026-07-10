@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Electrical.Grid.Characteristics;
+within TransiEnt.Components.Electrical.Grid.Characteristics;
 record HV_L2 "HV_L2 380 kV overhead line, 4-wire-bundle Al/St 240/40"
 
 

@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat;
+within TransiEnt.Components.Heat;
 model SimplePump_mflow "A simple model of a pump with an input for the mass flow rate using simple fluid ports"
 
 //________________________________________________________________________________//
