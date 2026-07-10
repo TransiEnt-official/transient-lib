@@ -12,7 +12,7 @@ record Setting "record with parameters for operation, design and discretization 
   parameter SI.Height H_a = 20 "Height of the aquifer that is modelled" annotation(Dialog(tab="Discretization", group="Optimized grid", enable = optimized_grid));
   parameter SI.Height H_c = 10 "Height of the adjacent layers that are modelled" annotation(Dialog(tab="Discretization", group="Optimized grid", enable = optimized_grid));
   parameter Real domain_factor = 3 "Radius of the modelled aquifer domain_factor*thermal Radius" annotation(Dialog(tab="Discretization", group="Optimized grid", enable = optimized_grid));
-  parameter Integer N_r(min=5, max=500) = 31 "number of radial control volumes (computed by GridGenerator_SizeOnly and entered here)" annotation(Dialog(tab="Discretization", group="Optimized grid"));
+  parameter Integer N_r(min=5, max=500) = 31 "number of radial control volumes (computed by GridGenerator_SizeOnly and entered here)" annotation(Dialog(tab="Discretization", group="Optimized grid", enable = optimized_grid));
   parameter Integer N_z = 20 "Number of volumes in vertical direction of the aquifer" annotation(Dialog(tab="Discretization", group="Optimized grid", enable = optimized_grid));
   parameter Integer N_z_c = 5 "Number of volumes in vertical direction of the aquiclud" annotation(Dialog(tab="Discretization", group="Optimized grid", enable = optimized_grid));
 

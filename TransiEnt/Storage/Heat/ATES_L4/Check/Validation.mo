@@ -81,7 +81,7 @@ model Validation  "Validation of buoyancy flow with a homogenous layer according
 
   inner ClaRa.SimCenter simCenter annotation (Placement(transformation(extent={{60,80},{100,100}})));
   Base.Records.Setting setting(
-    optimized_grid=true,
+    optimized_grid=false,
     V_inj=66757.36,
     NoGS_H=2,
     R_GS_H={30,1},
@@ -92,7 +92,7 @@ model Validation  "Validation of buoyancy flow with a homogenous layer according
     NoGS_VC=2,
     H_GS_VC={6,1},
     dz_GS_C={1,3},
-    dispersion=false) annotation (Placement(transformation(extent={{30,-92},{50,-72}})));
+    dispersion=false) annotation (Placement(transformation(extent={{32,-90},{52,-70}})));
 equation
 
   if aquiferspeicher.well.fluidPortIn.m_flow > 0 then

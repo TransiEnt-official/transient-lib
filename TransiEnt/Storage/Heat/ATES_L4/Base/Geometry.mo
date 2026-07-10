@@ -11,9 +11,9 @@ model Geometry "With Function Discretization the necessary geometry values are c
   parameter Real C_w "volumetric heat capacity of fluid";
   parameter Real C "volumetric heat capacity of aquifer";
 
-  parameter Integer N_r = setting.N_r "number of radial control volumes";
-  parameter Integer N_z = setting.N_z "number of vertical control volumes";
-  parameter Integer N_z_c = setting.N_z_c  "number of vertical control volumes for the confining layers";
+  parameter Integer N_r = if setting.optimized_grid then setting.N_r else sum(setting.R_GS_H)  "number of radial control volumes";
+  parameter Integer N_z = if setting.optimized_grid then setting.N_z else sum(setting.H_GS_VA)  "number of vertical control volumes";
+  parameter Integer N_z_c = if setting.optimized_grid then setting.N_z_c else sum(setting.H_GS_VC)  "number of vertical control volumes for the confining layers";
 
   parameter SI.Area A_s[N_r,N_z](fixed=false) "outer surface area of control volumes";
   parameter SI.Area A_q[N_r](fixed=false) "cross-section area of control volumes";
@@ -62,22 +62,22 @@ initial equation
 
 
   else
-    R_GS_H_opt = setting.R_GS_H;
-    dx_GS_opt = setting.dx_GS;
-    H_GS_VA_opt = setting.H_GS_VA;
-    dz_GS_A_opt = setting.dz_GS_A;
-    H_GS_VC_opt = setting.H_GS_VC;
-    dz_GS_C_opt = setting.dz_GS_C;
+    R_GS_H_opt = ones(N_r);
+    dx_GS_opt = ones(N_r);
+    H_GS_VA_opt = ones(N_z);
+    dz_GS_A_opt = ones(N_z);
+    H_GS_VC_opt = ones(N_z_c);
+    dz_GS_C_opt = ones(N_z_c);
 
 
     (r,r_r,r_r_c,z_A,z_Cu,z_Cd,A_s,A_q,V,A_s_Cu,V_Cu,A_s_Cd,V_Cd)=TransiEnt.Storage.Heat.ATES_L4.Base.Function.Discretization(
-      R_GS_H_opt,
-      dx_GS_opt,
+      setting.R_GS_H,
+      setting.dx_GS,
       setting.r_0,
-      H_GS_VA_opt,
-      dz_GS_A_opt,
-      H_GS_VC_opt,
-      dz_GS_C_opt);
+      setting.H_GS_VA,
+      setting.dz_GS_A,
+      setting.H_GS_VC,
+      setting.dz_GS_C);
 
 
   end if;
