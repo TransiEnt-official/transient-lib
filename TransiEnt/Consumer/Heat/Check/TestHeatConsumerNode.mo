@@ -20,7 +20,8 @@ model TestHeatConsumerNode "a model to test the Heat Consumer with node and dist
 // Gas- und WÃ¤rme-Institut Essen						  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
-//________________________________________________________________________________//  extends TransiEnt.Basics.Icons.Checkmodel;
+//________________________________________________________________________________//
+  extends TransiEnt.Basics.Icons.Checkmodel;
   inner SimCenter            simCenter(
     p_nom={60000000000,160000000000},
     activate_consumer_pipes=1,
