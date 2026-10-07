@@ -20,7 +20,8 @@ model GenericWindspeedDataTableResource
 // Gas- und WÃ¤rme-Institut Essen						  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
-//________________________________________________________________________________//  extends TransiEnt.Basics.Icons.TableIcon;
+//________________________________________________________________________________//
+  extends TransiEnt.Basics.Icons.TableIcon;
   //________________________________________________________________________________//
   // Component of the Models_CyEntEE Library, version: 1.0.0                        //
   //                                                                                //

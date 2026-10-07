@@ -19,7 +19,8 @@ model Check_SmartMeter
 // Gas- und WÃ¤rme-Institut Essen						  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
-//________________________________________________________________________________//  extends TransiEnt.Basics.Icons.Checkmodel;
+//________________________________________________________________________________//
+  extends TransiEnt.Basics.Icons.Checkmodel;
   TransiEnt.Components.Sensors.SmartMeter SmartMeter_TAF7(configuration="TAF7") annotation (Placement(transformation(extent={{-30,-30},{-10,-10}})));
   Modelica.Blocks.Sources.Pulse pulseP(
     amplitude=1e6,

@@ -19,6 +19,7 @@ package Check
 // Gas- und WÃ¤rme-Institut Essen						  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
-//________________________________________________________________________________//  import TransiEnt;
+//________________________________________________________________________________//
+  import TransiEnt;
   extends TransiEnt.Basics.Icons.CheckPackage;
 end Check;

@@ -19,7 +19,8 @@ model Check_PiModelComplexEfficient3ph
 // Gas- und WÃ¤rme-Institut Essen						  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
-//________________________________________________________________________________//  extends TransiEnt.Basics.Icons.Checkmodel;
+//________________________________________________________________________________//
+  extends TransiEnt.Basics.Icons.Checkmodel;
 
   PiModelComplexEfficient3ph piModelComplexEfficient3ph(
     length=1,

@@ -20,7 +20,8 @@ block PID_reset_lim
 // Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
-//________________________________________________________________________________//  "MSL PID block enhanced by variable limits, dead zone and reset function"
+//________________________________________________________________________________//
+  "MSL PID block enhanced by variable limits, dead zone and reset function"
   import Modelica.Blocks.Types.Init;
   import Modelica.Blocks.Types.SimpleController;
   extends Modelica.Blocks.Interfaces.SVcontrol;
