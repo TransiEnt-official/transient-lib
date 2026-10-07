@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="620" height="480">
+  <defs>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#1F77B4"/>
+    </marker>
+    <marker id="arrow-red" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#D62728"/>
+    </marker>
+    <marker id="arrow-gray" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#7F7F7F"/>
+    </marker>
+  </defs>
+  <!-- System boundary -->
+  <rect x="190" y="100" width="240" height="280"
+        fill="#F9F9F9" stroke="#333" stroke-width="1.5" stroke-dasharray="6,3" rx="4"/>
+  <text x="310" y="232" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold">ControlVolumeL4</text>
+  <text x="310" y="250" text-anchor="middle" font-family="Arial" font-size="9" fill="#555">[N_r × N_z]</text>
+
+  <!-- fluidPortEast[N_z] – fluid inlet left -->
+  <line x1="60" y1="190" x2="190" y2="190" stroke="#1F77B4" stroke-width="2" marker-end="url(#arrow-blue)"/>
+  <text x="118" y="182" text-anchor="middle" font-family="Arial" font-size="10" fill="#1F77B4" font-style="italic">ṁ</text>
+  <text x="60" y="210" text-anchor="middle" font-family="Arial" font-size="8" fill="#1F77B4">fluidPortEast[N_z]</text>
+
+  <!-- fluidPortWest[N_z] – fluid outlet right -->
+  <line x1="430" y1="190" x2="560" y2="190" stroke="#1F77B4" stroke-width="2" marker-end="url(#arrow-blue)"/>
+  <text x="490" y="182" text-anchor="middle" font-family="Arial" font-size="10" fill="#1F77B4" font-style="italic">ṁ</text>
+  <text x="495" y="210" text-anchor="middle" font-family="Arial" font-size="8" fill="#1F77B4">fluidPortWest[N_z]</text>
+
+  <!-- fluidPortDown[N_r] – fluid inlet bottom -->
+  <line x1="350" y1="445" x2="350" y2="380" stroke="#1F77B4" stroke-width="2" marker-end="url(#arrow-blue)"/>
+  <text x="362" y="420" font-family="Arial" font-size="10" fill="#1F77B4" font-style="italic">ṁ</text>
+  <text x="350" y="462" text-anchor="middle" font-family="Arial" font-size="8" fill="#1F77B4">fluidPortDown[N_r]</text>
+
+  <!-- fluidPortUp[N_r] – fluid outlet top -->
+  <line x1="350" y1="100" x2="350" y2="40" stroke="#1F77B4" stroke-width="2" marker-end="url(#arrow-blue)"/>
+  <text x="362" y="75" font-family="Arial" font-size="10" fill="#1F77B4" font-style="italic">ṁ</text>
+  <text x="350" y="28" text-anchor="middle" font-family="Arial" font-size="8" fill="#1F77B4">fluidPortUp[N_r]</text>
+
+  <!-- port_east[N_z] – heat inlet left -->
+  <line x1="60" y1="250" x2="190" y2="250" stroke="#D62728" stroke-width="2" marker-end="url(#arrow-red)"/>
+  <text x="118" y="242" text-anchor="middle" font-family="Arial" font-size="10" fill="#D62728" font-style="italic">Q̇</text>
+  <text x="60" y="268" text-anchor="middle" font-family="Arial" font-size="8" fill="#D62728">port_east[N_z]</text>
+
+  <!-- port_west[N_z] – heat outlet right -->
+  <line x1="430" y1="250" x2="560" y2="250" stroke="#D62728" stroke-width="2" marker-end="url(#arrow-red)"/>
+  <text x="490" y="242" text-anchor="middle" font-family="Arial" font-size="10" fill="#D62728" font-style="italic">Q̇</text>
+  <text x="495" y="268" text-anchor="middle" font-family="Arial" font-size="8" fill="#D62728">port_west[N_z]</text>
+
+  <!-- port_up[N_r] – heat outlet top -->
+  <line x1="270" y1="100" x2="270" y2="40" stroke="#D62728" stroke-width="2" marker-end="url(#arrow-red)"/>
+  <text x="282" y="75" font-family="Arial" font-size="10" fill="#D62728" font-style="italic">Q̇</text>
+  <text x="270" y="28" text-anchor="middle" font-family="Arial" font-size="8" fill="#D62728">port_up[N_r]</text>
+
+  <!-- port_down[N_r] – heat inlet bottom -->
+  <line x1="270" y1="445" x2="270" y2="380" stroke="#D62728" stroke-width="2" marker-end="url(#arrow-red)"/>
+  <text x="282" y="420" font-family="Arial" font-size="10" fill="#D62728" font-style="italic">Q̇</text>
+  <text x="270" y="462" text-anchor="middle" font-family="Arial" font-size="8" fill="#D62728">port_down[N_r]</text>
+
+  <!-- q_long[N_r,N_z] – radial Darcy velocity signal output (right) -->
+  <line x1="430" y1="310" x2="560" y2="310" stroke="#7F7F7F" stroke-width="1.5" marker-end="url(#arrow-gray)"/>
+  <text x="490" y="302" text-anchor="middle" font-family="Arial" font-size="10" fill="#7F7F7F" font-style="italic">q</text>
+  <text x="500" y="302" font-family="Arial" font-size="8" fill="#7F7F7F">r</text>
+  <text x="495" y="325" text-anchor="middle" font-family="Arial" font-size="8" fill="#7F7F7F">q_long[N_r,N_z]</text>
+
+  <!-- q_trans[N_r,N_z+1] – vertical Darcy velocity signal output (bottom) -->
+  <line x1="430" y1="350" x2="560" y2="350" stroke="#7F7F7F" stroke-width="1.5" marker-end="url(#arrow-gray)"/>
+  <text x="490" y="342" text-anchor="middle" font-family="Arial" font-size="10" fill="#7F7F7F" font-style="italic">q</text>
+  <text x="500" y="342" font-family="Arial" font-size="8" fill="#7F7F7F">v</text>
+  <text x="495" y="365" text-anchor="middle" font-family="Arial" font-size="8" fill="#7F7F7F">q_trans[N_r,N_z+1]</text>
+</svg>
