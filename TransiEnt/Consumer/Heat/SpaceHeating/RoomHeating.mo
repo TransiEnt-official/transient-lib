@@ -20,7 +20,8 @@ model RoomHeating
 // Gas- und WÃ¤rme-Institut Essen						  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
-//________________________________________________________________________________//  "Room Heating model according to DIN 12831 Part 1 with simplified building envelope model"
+//________________________________________________________________________________//
+  "Room Heating model according to DIN 12831 Part 1 with simplified building envelope model"
 
   import Modelica.Blocks.Types.Init;
   import TransiEnt.Basics.Types.ControlType;

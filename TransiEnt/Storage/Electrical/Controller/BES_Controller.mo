@@ -20,7 +20,8 @@ model BES_Controller
 // Gas- und WÃ¤rme-Institut Essen						  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
-//________________________________________________________________________________//  "BES controller with different control types according to ControlTypes"
+//________________________________________________________________________________//
+  "BES controller with different control types according to ControlTypes"
   import TransiEnt.Basics.Types.ControlType;
   extends TransiEnt.Basics.Icons.Controller;
 

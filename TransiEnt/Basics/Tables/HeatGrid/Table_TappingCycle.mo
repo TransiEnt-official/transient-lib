@@ -20,7 +20,8 @@ model Table_TappingCycle
 // Gas- und WÃ¤rme-Institut Essen						  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
-//________________________________________________________________________________//  "Data input with discrete tapping events for tapping cycles"
+//________________________________________________________________________________//
+  "Data input with discrete tapping events for tapping cycles"
 
   // ----------------------------------------------------------------------------------------
   //   Parameter

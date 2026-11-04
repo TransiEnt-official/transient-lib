@@ -20,7 +20,8 @@ model Splitter
 // Gas- und WÃ¤rme-Institut Essen						  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
-//________________________________________________________________________________//  "Splits heating demand between heat pump and heater rod with some operational logic"
+//________________________________________________________________________________//
+  "Splits heating demand between heat pump and heater rod with some operational logic"
 
   // ------------------------------------------------------------------------------------------
   //   Parameter

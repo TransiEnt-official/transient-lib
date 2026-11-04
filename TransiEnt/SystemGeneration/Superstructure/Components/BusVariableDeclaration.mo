@@ -20,7 +20,8 @@ record BusVariableDeclaration
 // Gas- und WÃ¤rme-Institut Essen						  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
-//________________________________________________________________________________//  extends TransiEnt.Basics.Icons.RecordModel;
+//________________________________________________________________________________//
+  extends TransiEnt.Basics.Icons.RecordModel;
 
   parameter Integer nRegions;
   parameter Integer MaximalDifferentTypesOfPowerPlants;

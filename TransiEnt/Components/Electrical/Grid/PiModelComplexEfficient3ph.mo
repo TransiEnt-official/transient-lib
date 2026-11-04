@@ -19,7 +19,8 @@ model PiModelComplexEfficient3ph "3ph power cable model with efficient implement
 // Gas- und WÃ¤rme-Institut Essen						  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
-//________________________________________________________________________________//  extends TransiEnt.Basics.Icons.Model;
+//________________________________________________________________________________//
+  extends TransiEnt.Basics.Icons.Model;
 
   // _____________________________________________
   //
