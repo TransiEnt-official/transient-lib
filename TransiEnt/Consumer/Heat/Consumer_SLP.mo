@@ -17,7 +17,7 @@ model Consumer_SLP "Simple model of a thermal consumer with a table-based heat f
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -36,15 +36,20 @@ model Consumer_SLP "Simple model of a thermal consumer with a table-based heat f
 
  parameter SI.MassFlowRate m_flow_nom = 0.18 "Nominal mass flow rate of the water (used to limit the output of the P-Controller)";
  parameter SI.HeatFlowRate Q_flow_nom = 8e3 "Nominal heat flow rate (used in the heat exchanger)";
- parameter SI.HeatFlowRate Q_flow_Ref = 6.0563e3;
+ parameter SI.HeatFlowRate Q_flow_Ref = 6.0563e3 "Reference for peak load of the used heat profile";
  parameter Real gain_k=Q_flow_nom/Q_flow_Ref;
- parameter SI.Density rho=981;
+ parameter SI.Density rho=981 "Density of the fluid";
+ parameter Real multiplicationFactor=1 "Unused in this model, just for better interchangeability of the consumer models";
+protected
+ parameter Real a=1/3 "Parameter (mulitplication factor) for calculating the return temperature";
+ parameter Real b=23.33 "Parameter (constant) for calculating the return temperature";
  //parameters of controller
+public
  parameter Real k = 20 "Constant for proportional part of PI-controller";
- parameter Real y_max = m_flow_nom "Max. opening of valve";//10, m_flow_nom
- parameter Real y_min = 0.0001 "Min. opening of valve";
- parameter SI.SpecificHeatCapacity cp=4186;
+ parameter SI.SpecificHeatCapacity cp=4186 "Specific heat capacity of the fluid";
  parameter Boolean useInput=false;
+ parameter Real y_max = 10*m_flow_nom "Max. value for the P-Controller";//
+ parameter Real y_min = 0.0001 "Min. value for the P-Controller";
  parameter String relativepath="/heat/HeatLoad.txt";
  final parameter String path = TransiEnt.Basics.Functions.fullPathName(               Modelica.Utilities.System.getEnvironmentVariable("public-data") + relativepath);
 
@@ -113,15 +118,18 @@ model Consumer_SLP "Simple model of a thermal consumer with a table-based heat f
     k=k,
     Ti=100,
     Td=0.1,
-    yMax=10*y_max,
+    yMax=y_max,
     yMin=y_min,
     initType=Modelica.Blocks.Types.Init.InitialOutput,
     y_start=0.001,
     strict=true)                                                                                                                                                   annotation (
    Placement(transformation(extent={{14,58},{-6,78}})));
- Modelica.Blocks.Sources.RealExpression SetTemperature1(y=273.15 + 58)      annotation (
+ Modelica.Blocks.Sources.RealExpression SetTemperature1(y=(a*(heatExchanger.T_s - 273.15) + b) + 273.15)
+                                                                            annotation (
    Placement(visible = true, transformation(origin={40,68},    extent = {{10, -10}, {-10, 10}}, rotation = 0)));
 
+ Modelica.Blocks.Sources.RealExpression SetTemperature3(y=273.15 + 30)      annotation (
+   Placement(visible = true, transformation(origin={40,86},    extent = {{10, -10}, {-10, 10}}, rotation = 0)));
 equation
 
   // _____________________________________________
@@ -135,8 +143,6 @@ equation
     annotation (Line(points={{-54,15.8},{-54,10}}, color={0,0,0}));
   connect(heatExchanger.outlet, outlet)
     annotation (Line(points={{-54,-10},{-54,-40},{-100,-40}}, color={0,0,0}));
-  connect(PID1.u_s, SetTemperature1.y)
-    annotation (Line(points={{16,68},{29,68}}, color={0,0,127}));
   connect(SetTemperature2.y, PID1.u_m)
     annotation (Line(points={{13,44},{4,44},{4,56}}, color={0,0,127}));
   if useInput==false then
@@ -150,14 +156,15 @@ equation
 
   connect(PID1.y, pump.m_flow)
     annotation (Line(points={{-7,68},{-48,68},{-48,35.4}}, color={0,0,127}));
+  connect(SetTemperature3.y, PID1.u_s) annotation (Line(points={{29,86},{22,86},{22,68},{16,68}}, color={0,0,127}));
  annotation (
    Icon(coordinateSystem(extent={{-100,-100},{180,100}}),      graphics={  Ellipse(extent = {{100, -100}, {-100, 100}}, endAngle = 360), Line(origin = {-10, 10}, points = {{-70, -70}, {70, 70}, {70, 70}}), Line(origin = {10, -10}, points = {{-70, -70}, {70, 70}})}),
    Diagram(coordinateSystem(extent={{-100,-100},{180,100}})),
     experiment(StopTime=604800, __Dymola_Algorithm="Dassl"),
     Documentation(info="<html>
 <h4><span style=\"color: #008000\">Purpose of model</span></h4>
-<p>A model of a heat consumer for district heating networks. It consists of a pump, a heat exchanger and a P-controller. The P-Controller sets the mass flow rate through the pump so that the return temperature of the district heating network is kept constant. The heat is transported from the heat carrier through the heat exchanger. With a combi time table the consumed heat flow is set. A gain model is used to normalize the heat flow rate according to a given Q_flow_nom, which can be set by the user. SLP in the name stands for the standard load profile that is used for heat the heat flow rate.</p>
-<p>This consumer model is used for the simulation of district heating networks. It calculates the mass flow rate flowing through the consumer, which is important for the numerics of a district heating network simulation. Therefore, a pressure difference has to be given by the hydraulic grid. The mass flow rate is limited by a parameter (m_flow_nom) inside the P-Controller. The calculation of the mass flow rate is independent of the pressure difference at the inlet and outlet. Therefore, the user has to pick sensible pressure values inside the hydraulic grid. An example of a pressure control is given in: TransiEnt.Examples.Heat.Largescale_DHN</p>
+<p>A model of a heat consumer for district heating networks. It consists of a pump, a heat exchanger and a P-controller. The P-Controller adjusts the mass flow rate through the pump to achieve a specified return temperature of the district heating network. The return temperature of a DHN normally dependst on the supply temperature but is set constant by default. An example on how to calculate the return temperature as a function of the supply temperature is given in the real expression SetTemperature1. The heat is transported from the heat carrier through the heat exchanger. With a combi time table the consumed heat flow is set. A gain model is used to normalize the heat flow rate according to a given Q_flow_nom, which can be set by the user. SLP in the name stands for the standard load profile that is used for heat the heat flow rate.</p>
+<p>This consumer model is used for the simulation of district heating networks. It calculates the mass flow rate flowing through the consumer, which is important for the numerics of a district heating network simulation. Therefore, a pressure difference has to be given by the hydraulic grid. The mass flow rate is limited by a parameter (currently 10*m_flow_nom) inside the P-Controller. In large models setting this limit too low can produce problems with the solver that is why the parameter is 10 times the nominal mass flow by default. The calculation of the mass flow rate is independent of the pressure difference at the inlet and outlet. Therefore, the user has to pick sensible pressure values inside the hydraulic grid. An example of a pressure control is given in: TransiEnt.Examples.Heat.Largescale_DHN</p>
 <h4><span style=\"color: #008000\">Level of detail, physical effects considered, and physical insight</span></h4>
 <ul>
 <li>P-controler</li>
