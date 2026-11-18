@@ -1,4 +1,4 @@
-﻿within TransiEnt.Components.Heat.VolumesValvesFittings.Pipes;
+within TransiEnt.Components.Heat.VolumesValvesFittings.Pipes;
 model ControlVolumeL4_HeatLoss "Discretized control volume of a district heating network pipe using simple fluid ports"
 
 //________________________________________________________________________________//
@@ -17,7 +17,7 @@ model ControlVolumeL4_HeatLoss "Discretized control volume of a district heating
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -53,7 +53,7 @@ model ControlVolumeL4_HeatLoss "Discretized control volume of a district heating
   parameter SI.SpecificHeatCapacity c_pipe=1900;
   parameter SI.Length wall_thickness=0.0026;
   parameter SI.Volume V_pipe_wall=Modelica.Constants.pi*(((d+2*wall_thickness)/2)^2-(d/2)^2)*l;
-  parameter SI.Volume V_pipe_w=(V_pipe_wall*c_pipe)/cp;
+  parameter SI.Volume V_pipe_w=(V_pipe_wall*c_pipe*rho_pipe)/(cp*rho);
 
   // _____________________________________________
   //
