@@ -1,0 +1,21 @@
+// =====================================================
+// TransiEnt Library - OpenModelica Setup
+// =====================================================
+
+// 1. Define local paths
+repopath := "ADD_YOUR_PATH_TO_TRANSIENT_HERE";
+resultpath := "ADD_YOUR_PATH_FOR_RESULTS_HERE";
+
+// 2. Set environment variables
+setEnvironmentVar("repopath", repopath);
+setEnvironmentVar("workingdir", resultpath);
+setEnvironmentVar("startupscript", repopath + "/loadTransiEnt_OpenModelica.mos");
+
+setEnvironmentVar("public-data", repopath + "/TransiEnt/Tables/");
+setEnvironmentVar("private-data", repopath + "/TransiEnt/Tables/");
+setEnvironmentVar("superstructure-tables",
+    repopath + "/TransiEnt/Tables/superstructure/Tables/");
+setEnvironmentVar("superstructure-input",
+    repopath + "/TransiEnt/Tables/superstructure/RegionInformation/");
+
+
