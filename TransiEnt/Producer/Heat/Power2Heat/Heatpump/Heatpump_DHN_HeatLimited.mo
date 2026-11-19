@@ -1,0 +1,178 @@
+﻿within TransiEnt.Producer.Heat.Power2Heat.Heatpump;
+model Heatpump_DHN_HeatLimited "Simple model of a heat pump for a district heating network with simple fluid ports"
+
+//________________________________________________________________________________//
+// Component of the TransiEnt Library, version: 3.0.0                             //
+//                                                                                //
+// Licensed by Hamburg University of Technology under the 3-BSD-clause.           //
+// Copyright 2021, Hamburg University of Technology.                              //
+//________________________________________________________________________________//
+//                                                                                //
+// TransiEnt.EE, ResiliEntEE, IntegraNet and IntegraNet II are research projects  //
+// supported by the German Federal Ministry of Economics and Energy               //
+// (FKZ 03ET4003, 03ET4048, 0324027 and 03EI1008).                                //
+// The TransiEnt Library research team consists of the following project partners://
+// Institute of Engineering Thermodynamics (Hamburg University of Technology),    //
+// Institute of Energy Systems (Hamburg University of Technology),                //
+// Institute of Electrical Power and Energy Technology                            //
+// (Hamburg University of Technology)                                             //
+// Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
+// Gas- und Wärme-Institut Essen                                                  //
+// and                                                                            //
+// XRG Simulation GmbH (Hamburg, Germany).                                        //
+//________________________________________________________________________________//
+  // _____________________________________________
+  //
+  //          Import and Hierachy
+  // _____________________________________________
+
+  import         Modelica.Units.SI;
+
+  // _____________________________________________
+  //
+  //             Visible Parameters
+  // _____________________________________________
+
+  parameter SI.TemperatureDifference Delta_T_internal=5 "Internal temperature difference in the heat pump";
+  parameter SI.Temperature T_source_internal=273.15+20 "Temperature of the heat source of the heat pump";
+  parameter Real COP_n=3.5 "Nominal coefficient of performance";
+  final parameter Real eta_HP=COP_n/((273.15 + 70)/(70 - 15)) "Constant efficiency factor for the calculation of the COP";
+  parameter Real eta_hydraulic_pump=0.9 "Efficiency of the circulation pump of the heat carrier in the DHN";
+  parameter SI.Density rho=983 "Density of the fluid";
+  parameter SI.HeatFlowRate Q_flow_max_const=2e7 "Max. heat flow rate provided by the heat pump";
+  parameter SI.HeatFlowRate Q_flow_min=0.05*Q_flow_max_const "Min. heat flow rate provided by the heat pump";
+
+  // _____________________________________________
+  //
+  //             Variables
+  // _____________________________________________
+
+  SI.ActivePower P_el;
+  SI.ActivePower P_pump;
+  Real COP_Carnot;
+  Real COP;
+  SI.HeatFlowRate Q_flow;
+  SI.HeatFlowRate Q_flow_Real;
+
+  // _____________________________________________
+  //
+  //           Instances of other classes
+  // _____________________________________________
+
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn_simple inlet "Inlet for the fluid (return)" annotation (Placement(
+      visible=true,
+      transformation(
+        origin={100,-40},
+        extent={{-10,-10},{10,10}},
+        rotation=0),
+      iconTransformation(
+        origin={100,-62},
+        extent={{-10,-10},{10,10}},
+        rotation=0)));
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortOut_simple outlet "Outlet for the fluid (supply)" annotation (Placement(
+      visible=true,
+      transformation(
+        origin={100,40},
+        extent={{-10,-10},{10,10}},
+        rotation=0),
+      iconTransformation(
+        origin={98,60},
+        extent={{-10,-10},{10,10}},
+        rotation=0)));
+  Modelica.Blocks.Interfaces.RealInput Q_flow_set "Input for the heat flow rate provided by the heat pump" annotation (Placement(transformation(extent={{-100,-20},{-60,20}}), iconTransformation(extent={{-100,-20},{-60,20}})));
+  Modelica.Blocks.Interfaces.RealInput dp "Input for the pressure difference the circulation pump shall provide" annotation (Placement(transformation(
+        extent={{-20,-20},{20,20}},
+        rotation=270,
+        origin={0,100})));
+  Modelica.Blocks.Nonlinear.Limiter limiter(uMax=Q_flow_max_const, uMin=Q_flow_min)
+                                                                          annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+  Modelica.Blocks.Interfaces.RealInput T_set_variable "Temperature input for calculating the carnot COP" annotation (Placement(transformation(
+        extent={{-20,-20},{20,20}},
+        rotation=270,
+        origin={-40,100})));
+equation
+
+  // _____________________________________________
+  //
+  //           Characteristic Equations
+  // _____________________________________________
+
+  P_el=Q_flow_Real/COP;
+  //Pumping power of the circulation pump of the DHN
+  P_pump=((inlet.m_flow/rho)*dp)/eta_hydraulic_pump;
+  Q_flow=limiter.y;
+  COP=eta_HP*COP_Carnot;
+  COP_Carnot=(T_set_variable +273.15+ Delta_T_internal)/max(2*Delta_T_internal, T_set_variable +273.15+ 2*Delta_T_internal - T_source_internal);
+  0 = inlet.m_flow + outlet.m_flow;
+  outlet.h_outflow = min(inStream(inlet.h_outflow) + Q_flow/inlet.m_flow,120*4186);
+  Q_flow_Real=inlet.m_flow*(outlet.h_outflow-inStream(inlet.h_outflow));
+  inlet.p + dp = outlet.p;
+  inlet.h_outflow = inStream(outlet.h_outflow) "Reverse flow not supported";
+  connect(Q_flow_set, limiter.u) annotation (Line(points={{-80,0},{-12,0}},                color={0,0,127}));
+  annotation (                                                                                                                   Documentation(info="<html>
+<h4><span style=\"color: #008000\">Purpose of model</span></h4>
+<p>A simple model of a heat pump. A pump for the circulation of the district heating network heat carrier is included. The model calculates the electric power of the heat pump from a given heat flow rate and a coefficient of performance. The COP is calculated based on the Carnot COP and a constant efficiency factor (parameter). The Carnot COP depends on the supply temperature, that is given by an input and the temperature of the heat source. The pressure difference set by the circulation pump of the hydraulic grid is set with an input. An electric power consumed by the circulation pump is calculated. In contrast, to TransiEnt.Producer.Heat.Power2Heat.Heatpump.Heatpump_DHN here, the heat flow rate generated by the heat pump is limited. The other model limits the electric power. </p>
+<h4><span style=\"color: #008c48\">Level of detail, physical effects considered, and physical insight</span></h4>
+<ul>
+<li>variable COP dependent on the supply temperature of the DHN and the source temperature</li>
+<li>constant efficiency factor for the COP calculation from the Carnot COP</li>
+<li>the electric power and therefore, the heat flow that can be produced is limited by a parameter</li>
+<li>a static mass balance is assumed</li>
+</ul>
+<h4><span style=\"color: #008c48\">Interfaces:</span></h4>
+<p>Q_flow_set: the heat flow that needs to be provided by the heat pump</p>
+<p>T_set_variable: The temperature of the heat sink</p>
+<p>dp: The pressure difference that has to be provided by the pump inside the producer</p>
+<h4><span style=\"color: #008c48\">Governing Equations:</span></h4>
+<p>COP_Carnot=(T_set_variable +273.15+ Delta_T_internal)/(T_set_variable +273.15+ 2*Delta_T_internal - T_source_internal)</p>
+<p>COP=eta_HP*COP_Carnot</p>
+<p>P_el=Q_flow_set/COP;</p>
+<p>Mass balance: m_in+m_out=0</p>
+<h4><span style=\"color: #008c48\">Remarks for usage:</span></h4>
+<p>Reverse flow is not supported</p>
+<h4><span style=\"color: #008c48\">Version History</span></h4>
+<p>Model was created by Jan Westphal (j.westphal@tuhh.de) November 2026</p>
+</html>"), Icon(graphics={         Ellipse(
+          lineColor={0,125,125},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid,
+          extent={{-100,-100},{100,100}}),
+        Rectangle(
+          extent={{-38,40},{42,-48}},
+          lineColor={0,0,0},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid),
+        Polygon(
+          points={{-48,8},{-44,8},{-30,8},{-38,-4},{-30,-14},{-48,-14},{-38,-4},{-48,8}},
+          lineColor={0,0,0},
+          smooth=Smooth.None,
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid),
+        Rectangle(
+          extent={{-18,48},{20,32}},
+          lineColor={0,0,0},
+          fillColor={255,0,0},
+          fillPattern=FillPattern.Solid),
+        Rectangle(
+          extent={{-16,-40},{22,-56}},
+          lineColor={0,0,0},
+          fillColor={0,0,255},
+          fillPattern=FillPattern.Solid),
+        Ellipse(
+          extent={{30,10},{56,-14}},
+          lineColor={0,0,0},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid),
+        Line(
+          points={{34,-10},{42,10},{52,-10}},
+          color={0,0,0},
+          smooth=Smooth.None),
+        Line(
+          points={{-20,22},{-20,-24},{28,-24}},
+          color={0,0,0},
+          smooth=Smooth.None),
+        Line(
+          points={{-20,-22},{-16,-14},{-4,4},{-2,6},{6,12},{16,16},{24,16}},
+          color={0,0,255},
+          smooth=Smooth.None)}));
+end Heatpump_DHN_HeatLimited;

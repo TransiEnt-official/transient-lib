@@ -17,7 +17,7 @@ model DHN_Pipe_L4 "Model of a DHN pipe for efficient largescale simulations"
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -43,7 +43,7 @@ model DHN_Pipe_L4 "Model of a DHN pipe for efficient largescale simulations"
   parameter Real L=100;
   parameter Boolean MassFlowState=false;
   parameter Integer N_cv=10;
-  parameter Real u=0.3;//0.15
+  parameter Real u=0.15;//0.3
   parameter SI.MassFlowRate m_flow_start=1;
   parameter SI.Density rho_pipe=960;
   parameter SI.SpecificHeatCapacity c_pipe=1900;

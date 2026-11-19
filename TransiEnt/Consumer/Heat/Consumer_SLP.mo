@@ -36,16 +36,18 @@ model Consumer_SLP "Simple model of a thermal consumer with a table-based heat f
 
  parameter SI.MassFlowRate m_flow_nom = 0.18 "Nominal mass flow rate of the water (used to limit the output of the P-Controller)";
  parameter SI.HeatFlowRate Q_flow_nom = 8e3 "Nominal heat flow rate (used in the heat exchanger)";
- parameter SI.HeatFlowRate Q_flow_Ref = 6.0563e3 "Reference for peak load of the used heat profile";
+ parameter SI.HeatFlowRate Q_flow_Ref = 5796.75;//6.0563e3 "Reference for peak load of the used heat profile";
  parameter Real gain_k=Q_flow_nom/Q_flow_Ref;
- parameter SI.Density rho=981 "Density of the fluid";
+ parameter SI.Density rho=983 "Density of the fluid";
+ parameter SI.HeatCapacity C=1 "Unused in this model, just for better interchangeability of the consumer models";
+ parameter Real G=1 "Unused in this model, just for better interchangeability of the consumer models";
  parameter Real multiplicationFactor=1 "Unused in this model, just for better interchangeability of the consumer models";
  parameter Real a=1/3 "Parameter (mulitplication factor) for calculating the return temperature";
  parameter Real b=23.33 "Parameter (constant) for calculating the return temperature";
  //parameters of controller
 public
  parameter Real k = 20 "Constant for proportional part of PI-controller";
- parameter SI.SpecificHeatCapacity cp=4186 "Specific heat capacity of the fluid";
+ parameter SI.SpecificHeatCapacity cp=4183 "Specific heat capacity of the fluid";
  parameter Boolean useInput=false;
  parameter Real y_max = 10*m_flow_nom "Max. value for the P-Controller";//
  parameter Real y_min = 0.0001 "Min. value for the P-Controller";
@@ -120,7 +122,7 @@ public
     yMax=y_max,
     yMin=y_min,
     initType=Modelica.Blocks.Types.Init.InitialOutput,
-    y_start=0.001,
+    y_start=0.0003,
     strict=true)                                                                                                                                                   annotation (
    Placement(transformation(extent={{14,58},{-6,78}})));
  Modelica.Blocks.Sources.RealExpression SetTemperature1(y=(a*(heatExchanger.T_s - 273.15) + b) + 273.15)

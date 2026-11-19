@@ -17,7 +17,7 @@ model SimplePump_dp "A simple model of a pump with an input for the pressure dif
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -86,7 +86,7 @@ equation
   // _____________________________________________
 
 inlet.m_flow+outlet.m_flow=0;
-inlet.p-outlet.p=delta_p;
+outlet.p-inlet.p=delta_p;
 V_flow= P_hyd/(delta_p+delta_p_eps);
 inlet.m_flow=m_flow;
 m_flow=V_flow*rho;
