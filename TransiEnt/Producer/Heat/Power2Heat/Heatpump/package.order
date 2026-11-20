@@ -10,3 +10,5 @@ HeatpumpSystemProperties
 Heatpump_DHN
 HeatPump_LowTemperatureDHN
 HeatPumpPartialLoad
+Heatpump_DHN_HeatLimited
+DHN_HeatGenerationUnit

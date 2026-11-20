@@ -17,7 +17,7 @@ model Heatpump_DHN "Simple model of a heat pump for a district heating network w
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -34,7 +34,7 @@ model Heatpump_DHN "Simple model of a heat pump for a district heating network w
   // _____________________________________________
 
   //parameter SI.Temperature T_set=273.15+60;
-  parameter SI.Temperature Delta_T_internal=5;
+  parameter SI.TemperatureDifference Delta_T_internal=5;
   parameter SI.Temperature T_source_internal=273.15+20;
   parameter Real COP_n=3;
   final parameter Real eta_HP=COP_n/((273.15 + 40)/(40 - 2));
@@ -50,7 +50,6 @@ model Heatpump_DHN "Simple model of a heat pump for a district heating network w
 
   SI.ActivePower P_el;
   SI.ActivePower P_pump;
-  Real W;
   Real COP_Carnot;
   Real COP;
   Real COP_Real;
@@ -99,13 +98,12 @@ equation
   //           Characteristic Equations
   // _____________________________________________
 
-  der(W)=P_el;
   P_el=Q_flow_set/COP;
   P_pump=((inlet.m_flow/rho)*dp)/eta_hydraulic_pump;
   limiter.y*COP=Q_flow;
   COP_Real=inlet.m_flow*(inStream(inlet.h_outflow) - outlet.h_outflow)/limiter.y;
   COP=eta_HP*COP_Carnot;
-  COP_Carnot=(T_set_variable +273.15+ Delta_T_internal)/max(2*Delta_T_internal, T_set_variable +273.15+ 2*Delta_T_internal - T_source_internal);
+  COP_Carnot=(T_set_variable+ Delta_T_internal)/max(2*Delta_T_internal, T_set_variable+ 2*Delta_T_internal - T_source_internal);
   0 = inlet.m_flow + outlet.m_flow;
   outlet.h_outflow = inStream(inlet.h_outflow) + Q_flow/inlet.m_flow;
   inlet.p + dp = outlet.p;
@@ -123,7 +121,7 @@ equation
 </ul>
 <h4><span style=\"color: #008c48\">Interfaces:</span></h4>
 <p>Q_flow_set: the heat flow that needs to be provided by the heat pump</p>
-<p>T_set_variable: The temperature of the heat source</p>
+<p>T_set_variable: The temperature of the heat sink</p>
 <p>dp: The pressure difference that has to be provided by the pump inside the producer</p>
 <h4><span style=\"color: #008c48\">Governing Equations:</span></h4>
 <p>COP_Carnot=(T_set_variable +273.15+ Delta_T_internal)/(T_set_variable +273.15+ 2*Delta_T_internal - T_source_internal)</p>

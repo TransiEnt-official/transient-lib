@@ -40,7 +40,7 @@ model DHN_Tutorial_Step2
     yMin=0.0001) annotation (Placement(transformation(extent={{-28,42},{-8,62}})));
   TransiEnt.Producer.Heat.Power2Heat.Heatpump.Heatpump_DHN heatpump1(
     COP_n=3.5,                                                       P_el_max(displayUnit="MW") = 200000000, P_el_min=0.00001) annotation (Placement(transformation(extent={{-14,-20},{6,0}})));
-  Modelica.Blocks.Sources.RealExpression realExpression3(y=60)                              annotation (Placement(transformation(extent={{-60,4},{-40,24}})));
+  Modelica.Blocks.Sources.RealExpression realExpression3(y=60 + 273.15)                     annotation (Placement(transformation(extent={{-60,4},{-40,24}})));
   TransiEnt.Grid.Heat.HeatGridTopology.TopologyA_Ports topologyA_Ports annotation (Placement(transformation(
         extent={{-31,-16},{31,16}},
         rotation=90,

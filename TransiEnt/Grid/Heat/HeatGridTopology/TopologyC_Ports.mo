@@ -60,7 +60,6 @@ model TopologyC_Ports "A DHN topology for block buildings"
     d=0.04,
     m_flow_nom=0.84,
     l=22,
-    MassFlowState=true,
     N_cv=4) annotation (Placement(transformation(
         extent={{10,-10},{-10,10}},
         rotation=270,
@@ -835,7 +834,6 @@ model TopologyC_Ports "A DHN topology for block buildings"
     d=0.04,
     m_flow_nom=0.84,
     l=22,
-    MassFlowState=true,
     N_cv=4) annotation (Placement(transformation(
         extent={{10,-10},{-10,10}},
         rotation=270,
@@ -1004,7 +1002,6 @@ model TopologyC_Ports "A DHN topology for block buildings"
     d=0.04,
     m_flow_nom=0.84,
     l=22,
-    MassFlowState=true,
     N_cv=4) annotation (Placement(transformation(
         extent={{10,-10},{-10,10}},
         rotation=270,

@@ -17,7 +17,7 @@ model Consumer "Simple model of a thermal consumer with simple fluid ports"
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -45,8 +45,8 @@ model Consumer "Simple model of a thermal consumer with simple fluid ports"
  //parameters of controller
  parameter SI.Time tau_i = 1000 "Constant for integrator part of PI-controller";
  parameter Real k = 20 "Constant for proportional part of PI-controller";
- parameter Real y_max = m_flow_nom "Max. opening of valve";//10, m_flow_nom
- parameter Real y_min = 0.0001 "Min. opening of valve";
+ parameter Real y_max = m_flow_nom "Max. value for the P-Controller";//
+ parameter Real y_min = 0.0001 "Min. value for the P-Controller";
 
   // _____________________________________________
   //

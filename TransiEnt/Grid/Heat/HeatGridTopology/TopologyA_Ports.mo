@@ -336,13 +336,13 @@ model TopologyA_Ports "A district heating network topology for large buildings"
     m_flow_nom=8.36,
     l=100,
     MassFlowState=false,
-    N_cv=32) annotation (Placement(transformation(extent={{-198,-48},{-178,-28}})));
+    N_cv=20) annotation (Placement(transformation(extent={{-198,-48},{-178,-28}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe4_7(
     d=0.1,
     m_flow_nom=8.36,
     l=100,
     MassFlowState=false,
-    N_cv=32) annotation (Placement(transformation(extent={{-178,-62},{-198,-42}})));
+    N_cv=20) annotation (Placement(transformation(extent={{-178,-62},{-198,-42}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe14_15R(
     d=0.065,
     m_flow_nom=2.8,
@@ -446,7 +446,7 @@ model TopologyA_Ports "A district heating network topology for large buildings"
     m_flow_nom=25.1,
     l=50,
     MassFlowState=false,
-    N_cv=100) annotation (Placement(transformation(
+    N_cv=10)  annotation (Placement(transformation(
         extent={{10,-10},{-10,10}},
         rotation=270,
         origin={-30,16})));
@@ -455,7 +455,7 @@ model TopologyA_Ports "A district heating network topology for large buildings"
     m_flow_nom=25.1,
     l=50,
     MassFlowState=false,
-    N_cv=100) annotation (Placement(transformation(
+    N_cv=10)  annotation (Placement(transformation(
         extent={{10,-10},{-10,10}},
         rotation=90,
         origin={-50,16})));
