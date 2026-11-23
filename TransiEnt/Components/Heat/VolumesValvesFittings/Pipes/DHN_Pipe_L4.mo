@@ -36,20 +36,21 @@ model DHN_Pipe_L4 "Model of a DHN pipe for efficient largescale simulations"
   parameter SI.Length d = 0.1 "Inner diameter of the pipe";
   parameter SI.Density rho = 983 "Density of the fluid";
   parameter Real k = 1e-3 "Surface factor of the pipe";
-  parameter SI.MassFlowRate m_flow_nom = 15 "Nominal mass flow rate";
-  parameter Real delta_p_nom=150 "Nominal pressure drop over the pipe";
-  parameter SI.SpecificHeatCapacity cp = 4183 "Specific heat capacity of water";
+  parameter SI.MassFlowRate m_flow_nom = 15 "Nominal mass flow rate, only for reference purposes";
+  parameter Real delta_p_nom=150 "Nominal pressure drop over the pipe, only for reference purposes";
+  parameter SI.SpecificHeatCapacity cf=4183 "Specific heat capacity of the fluid (water)";
   parameter SI.Length l = 10 "Length of the pipe";
-  parameter Real L=100;
-  parameter Boolean MassFlowState=false;
-  parameter Integer N_cv=10;
-  parameter Real u=0.15;//0.3
-  parameter SI.MassFlowRate m_flow_start=1;
-  parameter SI.Density rho_pipe=960;
-  parameter SI.SpecificHeatCapacity c_pipe=1900;
-  parameter SI.Length wall_thickness=0.0026;
-  parameter SI.Volume V_pipe_wall=Modelica.Constants.pi*(((d+2*wall_thickness)/2)^2-(d/2)^2)*l;
-  parameter Boolean useInput=false;
+  parameter Real L=l/controlVolumeL4_HeatLoss.A "Inertance, reluctance of the mass flow rate to change";
+  parameter Boolean MassFlowState=false "Boolean parameter for switching the momentum balance";
+  parameter Integer N_cv=10 "Number of control volumes";
+  parameter Real u=0.15 "Heat loss factor of the pipe in W/(mK)";
+  parameter SI.MassFlowRate m_flow_start=1 "Start value for the mass flow rate";
+  parameter SI.Density rho_pipe=960 "Density of the fluid";
+  parameter SI.DynamicViscosity eta=4.66e-4 "Dynamic viscosity of the heat carrier";
+  parameter SI.SpecificHeatCapacity c_pipe=1900 "Specific heat capacity of the pipe";
+  parameter SI.Length wall_thickness=0.0026 "Thickness of the pipe wall";
+  final parameter SI.Volume V_pipe_wall=Modelica.Constants.pi*(((d+2*wall_thickness)/2)^2-(d/2)^2)*l "Volume of the pipe wall";
+  parameter Boolean useInput=false "Boolean parameter for using the soil temperature as an input";
 
   // _____________________________________________
   //
@@ -64,10 +65,11 @@ model DHN_Pipe_L4 "Model of a DHN pipe for efficient largescale simulations"
   //             Instances of other classes
   // _____________________________________________
 
-  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn_simple inlet annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
-  TransiEnt.Basics.Interfaces.Thermal.FluidPortOut_simple outlet annotation (Placement(transformation(extent={{90,-10},{110,10}})));
-  Modelica.Thermal.HeatTransfer.Celsius.PrescribedTemperature UndergroundTemperature[N_cv] annotation (Placement(transformation(extent={{-68,46},{-48,66}})));
-  Modelica.Blocks.Sources.RealExpression Temperature(y=10)  annotation (Placement(transformation(extent={{-102,46},{-82,66}})));
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn_simple inlet "Inlet of the heat carrier" annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortOut_simple outlet "Outlet of the heat carrier" annotation (Placement(transformation(extent={{90,-10},{110,10}})));
+  Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature UndergroundTemperature[N_cv] annotation (Placement(transformation(extent={{-68,46},{-48,66}})));
+  Modelica.Blocks.Sources.RealExpression Temperature(y=10 + 273.15)
+                                                            annotation (Placement(transformation(extent={{-102,46},{-82,66}})));
 
   TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.ControlVolumeL4_HeatLoss controlVolumeL4_HeatLoss(
     L=L,
@@ -77,15 +79,16 @@ model DHN_Pipe_L4 "Model of a DHN pipe for efficient largescale simulations"
     delta_p_nom=delta_p_nom,
     m_flow_nom=m_flow_nom,
     k=k,
-    cp=cp,
+    cp=cf,
     MassFlowState=MassFlowState,
     N_cv=N_cv,
     u=u,
     m_flow_start=m_flow_start,
+    eta=eta,
     rho_pipe=rho_pipe,
     c_pipe=c_pipe,
     wall_thickness=wall_thickness) annotation (Placement(transformation(extent={{-8,-10},{12,10}})));
-  Modelica.Blocks.Interfaces.RealInput soilTemp if useInput annotation (Placement(transformation(extent={{-120,60},{-80,100}})));
+  Modelica.Blocks.Interfaces.RealInput soilTemp(final quantity="Temperature", final unit="K", displayUnit="degC") if useInput "Input for a variable soil temperature for the calculation of the heat losses" annotation (Placement(transformation(extent={{-120,60},{-80,100}})));
 equation
 
   // _____________________________________________
@@ -110,7 +113,7 @@ equation
 
   //Calculation of the heat losses and the pressure loss over the pipe
   Q_flow_loss=sum(UndergroundTemperature[i].port.Q_flow for i in 1:N_cv);
-  delta_p_fric=inlet.p-outlet.p;//controlVolumeL4_HeatLoss.m_flow^2*controlVolumeL4_HeatLoss.delta_p_nom/controlVolumeL4_HeatLoss.m_flow_nom^2;
+  delta_p_fric=inlet.p-outlet.p; //The absolute pressure difference over the pipe is calculated. If the momentum balance is static, the absolute pressure loss equals the pressure loss due to friction
   annotation (
     Icon(coordinateSystem(preserveAspectRatio = false), graphics={  Rectangle(origin = {0, 9}, fillColor = {85, 85, 127}, fillPattern = FillPattern.Solid, extent = {{-100, 31}, {100, -49}}), Text(
           extent={{-74,132},{68,8}},

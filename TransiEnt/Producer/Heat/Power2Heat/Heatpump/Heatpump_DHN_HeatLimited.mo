@@ -33,7 +33,7 @@ model Heatpump_DHN_HeatLimited "Simple model of a heat pump for a district heati
   //             Visible Parameters
   // _____________________________________________
 
-  parameter SI.TemperatureDifference Delta_T_internal=5 "Internal temperature difference in the heat pump";
+  parameter SI.TemperatureDifference Delta_T_internal=5 "Internal temperature difference in the heat pump for the heat exchangers";
   parameter SI.Temperature T_source_internal=273.15+20 "Temperature of the heat source of the heat pump";
   parameter Real COP_n=3.5 "Nominal coefficient of performance";
   final parameter Real eta_HP=COP_n/((273.15 + 70)/(70 - 15)) "Constant efficiency factor for the calculation of the COP";
@@ -79,14 +79,14 @@ model Heatpump_DHN_HeatLimited "Simple model of a heat pump for a district heati
         origin={98,60},
         extent={{-10,-10},{10,10}},
         rotation=0)));
-  Modelica.Blocks.Interfaces.RealInput Q_flow_set "Input for the heat flow rate provided by the heat pump" annotation (Placement(transformation(extent={{-100,-20},{-60,20}}), iconTransformation(extent={{-100,-20},{-60,20}})));
-  Modelica.Blocks.Interfaces.RealInput dp "Input for the pressure difference the circulation pump shall provide" annotation (Placement(transformation(
+  Modelica.Blocks.Interfaces.RealInput Q_flow_set(final quantity= "HeatFlowRate", final unit="W", displayUnit="kW") "Input for the heat flow rate provided by the heat pump" annotation (Placement(transformation(extent={{-100,-20},{-60,20}}), iconTransformation(extent={{-100,-20},{-60,20}})));
+  Modelica.Blocks.Interfaces.RealInput dp(final quantity="PressureDifference", final unit="Pa", displayUnit="bar") "Input for the pressure difference the circulation pump shall provide" annotation (Placement(transformation(
         extent={{-20,-20},{20,20}},
         rotation=270,
         origin={0,100})));
   Modelica.Blocks.Nonlinear.Limiter limiter(uMax=Q_flow_max_const, uMin=Q_flow_min)
                                                                           annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
-  Modelica.Blocks.Interfaces.RealInput T_set_variable "Temperature input for calculating the carnot COP" annotation (Placement(transformation(
+  Modelica.Blocks.Interfaces.RealInput T_set_variable(final quantity="Temperature", final unit="K", displayUnit="degC") "Temperature input for calculating the carnot COP" annotation (Placement(transformation(
         extent={{-20,-20},{20,20}},
         rotation=270,
         origin={-40,100})));
@@ -102,7 +102,7 @@ equation
   P_pump=((inlet.m_flow/rho)*dp)/eta_hydraulic_pump;
   Q_flow=limiter.y;
   COP=eta_HP*COP_Carnot;
-  COP_Carnot=(T_set_variable +273.15+ Delta_T_internal)/max(2*Delta_T_internal, T_set_variable +273.15+ 2*Delta_T_internal - T_source_internal);
+  COP_Carnot=(T_set_variable+ Delta_T_internal)/max(2*Delta_T_internal, T_set_variable+ 2*Delta_T_internal - T_source_internal);
   0 = inlet.m_flow + outlet.m_flow;
   outlet.h_outflow = min(inStream(inlet.h_outflow) + Q_flow/inlet.m_flow,120*4186);
   Q_flow_Real=inlet.m_flow*(outlet.h_outflow-inStream(inlet.h_outflow));
@@ -124,7 +124,7 @@ equation
 <p>T_set_variable: The temperature of the heat sink</p>
 <p>dp: The pressure difference that has to be provided by the pump inside the producer</p>
 <h4><span style=\"color: #008c48\">Governing Equations:</span></h4>
-<p>COP_Carnot=(T_set_variable +273.15+ Delta_T_internal)/(T_set_variable +273.15+ 2*Delta_T_internal - T_source_internal)</p>
+<p>COP_Carnot=(T_set_variable + Delta_T_internal)/(T_set_variable + 2*Delta_T_internal - T_source_internal)</p>
 <p>COP=eta_HP*COP_Carnot</p>
 <p>P_el=Q_flow_set/COP;</p>
 <p>Mass balance: m_in+m_out=0</p>

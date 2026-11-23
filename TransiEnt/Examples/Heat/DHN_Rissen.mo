@@ -59341,8 +59341,8 @@ origin={ 493.50736450753175, -1254.7776931840926})));
   // ------------------------------------------------------------------------------------------
 
 public
-TransiEnt.Producer.Heat.Power2Heat.Heatpump.DHN_HeatGenerationUnit provider_0(
-dp=500000.0) annotation (Placement(transformation(
+TransiEnt.Producer.Heat.Power2Heat.Heatpump.DHN_HeatGenerationUnit provider_0(dp(displayUnit="Pa") = 1.2e5)
+             annotation (Placement(transformation(
 extent={{8,-8},{-8,8}},
 rotation=180,
 origin={ 9.0, 9.0})));

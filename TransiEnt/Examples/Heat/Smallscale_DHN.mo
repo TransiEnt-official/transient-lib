@@ -29,9 +29,9 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
   //
   //          Parameters
   // _____________________________________________
-  parameter Real a = -2;
-  parameter Real b = 70;
-  parameter SI.Temperature T_s_min = 60;
+  parameter Real a(unit="K/K") = -2 "Slope for the supply temperature curv";
+  parameter Real b(unit="degC") = 70 "Offset for the supply temperature curve";
+  parameter SI.Temperature T_s_min = 60 "Min. supply temperature of the district heating network";
   parameter String relativepath = "/ambient/outdoor_temp_C_dym.txt";
   final parameter String path = TransiEnt.Basics.Functions.fullPathName(Modelica.Utilities.System.getEnvironmentVariable("public-data") + relativepath);
   // _____________________________________________
@@ -143,7 +143,8 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {2, 236})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join20 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {18, 250})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe80_81R(d = 0.8, m_flow_nom = 4.6, l = 50, MassFlowState = false, N_cv = 10) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe80_81R(
+    d=0.08,                                                                             m_flow_nom = 4.6, l = 50, MassFlowState = false, N_cv = 10) annotation (
     Placement(transformation(extent = {{78, 240}, {58, 260}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe80_81(d = 0.08, m_flow_nom = 4.6, l = 50, MassFlowState = false, N_cv = 10) annotation (
     Placement(transformation(extent = {{58, 224}, {78, 244}})));
@@ -215,9 +216,11 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 0, origin = {304, 276})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split36 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 180, origin = {280, 278})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe90_93R(d = 0.65, m_flow_nom = 3.49, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe90_93R(
+    d=0.065,                                                                             m_flow_nom = 3.49, l = 25, MassFlowState = false, N_cv = 5) annotation (
     Placement(transformation(extent = {{360, 234}, {340, 254}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe90_93(d = 0.65, m_flow_nom = 3.49, l = 25, MassFlowState = false) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe90_93(
+    d=0.065,                                                                            m_flow_nom = 3.49, l = 25, MassFlowState = false) annotation (
     Placement(transformation(extent = {{340, 218}, {360, 238}})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_48(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 270, origin = {392, 142})));
@@ -1679,7 +1682,7 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-260, -48}, {-240, -28}})));
   TransiEnt.Producer.Heat.Power2Heat.Heatpump.Heatpump_DHN heatpump1(P_el_max(displayUnit = "MW") = 200000000, P_el_min = 0.00001) annotation (
     Placement(transformation(extent = {{-300, -172}, {-230, -102}})));
-  Modelica.Blocks.Sources.RealExpression realExpression3(y = T_s + 273.15) annotation (
+  Modelica.Blocks.Sources.RealExpression realExpression3(y=T_s)            annotation (
     Placement(transformation(extent = {{-300, -84}, {-280, -64}})));
   Modelica.Blocks.Sources.Step step(height = 10, offset = 60, startTime = 86400) annotation (
     Placement(transformation(extent = {{-366, -80}, {-346, -60}})));
@@ -3599,7 +3602,8 @@ equation
     experiment(StopTime = 3.156e+07, StartTime = 0, Tolerance = 0.0001, Interval = 3600),
     Documentation(info="<html>
 <h4><span style=\"color: #008000\">Purpose of model</span></h4>
-<p>An example model of a district heating network. It represents a topology of single family houses and is based on TransiEnt.Grid.Heat.HeatGridTopology.TopologyD_Ports. It is supplied by a heat pump. The consumer model uses a standard load profile as an input. The supply temperature is calculated based on the ambient temperature. The model was tested in OpenModelica and can be simulated there. A simulation takes approximately 20 minutes for a year in OpenModelica. The supply temperature used in this model is not an optimized one. Feel free to find a better one. </p><p>Look at the following variables:</p>
+<p>An example model of a district heating network. It represents a topology of single family houses and is based on TransiEnt.Grid.Heat.HeatGridTopology.TopologyD_Ports. It is supplied by a heat pump. The consumer model uses a standard load profile as an input. The supply temperature is calculated based on the ambient temperature. The model was tested in OpenModelica and can be simulated there. A simulation takes approximately 20 minutes for a year in OpenModelica. The supply temperature used in this model is not an optimized one. Feel free to find a better one. The pressure losses and the heat losses at the junctions are neglected or very small. The heat losses of the pipes are calculated considering the soil temperature and the varying supply temperature. Constant fluid properties are assumed for this simulation. </p>
+<p>Look at the following variables:</p>
 <p>T_amb.y[1]</p>
 <p>T_s</p>
 <p>pipe172_173R.controlVolumeL4_HeatLoss.T[1]</p>
