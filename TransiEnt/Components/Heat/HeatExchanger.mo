@@ -34,7 +34,7 @@ model HeatExchanger "Simple heat exchanger model based on EN442 with simple flui
   // _____________________________________________
 
   parameter SI.MassFlowRate m_flow_nom = 1 "Nominal mass flow rate of the water";
-  parameter SI.PressureDifference delta_p_nom = 0.02e3 "Pressure drop in the heat exchanger (Unused)";
+  //parameter SI.PressureDifference delta_p_nom = 0.02e3 "Pressure drop in the heat exchanger (Unused)";
   parameter SI.Volume V = 0.005 "Volume of the heat exchanger";
   parameter SI.Density rho = 983 "Density of the water";
   parameter SI.TemperatureDifference delta_T_nom = 8 "Nominal temperature difference between supply and return temperature8";
@@ -107,8 +107,8 @@ equation
   annotation (
     Icon(coordinateSystem(initialScale = 0.1), graphics={  Rectangle(origin = {-60, 0}, extent = {{-40, 100}, {160, -100}}), Rectangle(extent = {{-58, 50}, {-58, 50}}), Rectangle(extent = {{-92, 64}, {-92, 64}}), Line(origin = {-10, 10}, points = {{-90, -90}, {90, 90}}), Line(origin = {10, -10}, points = {{-90, -90}, {90, 90}})}), Documentation(info="<html>
 <h4><span style=\"color: #008000\">Purpose of model</span></h4>
-<p>A model of a heat exchanger. It consists of two fluid ports and a heat port. The model is based on the three balance equations of mass, energy and momentum. A dynamic energy balance is assumed. The mass and momentum balance are assumed to be static. No pressure losses are considered. The heat flow is calculated with an equation based on EN442.</p>
-<p>It is used for the modeling of radiators and the modeling of substations in district heating networks.</p>
+<p>A model of a heat exchanger. It consists of two fluid ports and a heat port. The model is based on the three balance equations of mass, energy and momentum. A dynamic energy balance is assumed. The mass and momentum balance are assumed to be static. No pressure losses are considered. The heat flow is calculated with an equation based on EN442. Reverse flow is not supported. </p>
+<p>It is used for the modeling of radiators and the modeling of substations in district heating networks. </p>
 <h4><span style=\"color: #008c48\">Level of detail, physical effects considered, and physical insight</span></h4>
 <p>L2 (defined in the CodingConventions)</p>
 <ul>

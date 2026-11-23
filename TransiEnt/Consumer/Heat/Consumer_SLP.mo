@@ -37,7 +37,7 @@ model Consumer_SLP "Simple model of a thermal consumer with a table-based heat f
  parameter SI.MassFlowRate m_flow_nom = 0.18 "Nominal mass flow rate of the water (used to limit the output of the P-Controller)";
  parameter SI.HeatFlowRate Q_flow_nom = 8e3 "Nominal heat flow rate (used in the heat exchanger)";
  parameter SI.HeatFlowRate Q_flow_Ref = 5796.75 "Reference for peak load of the used heat profile;";
- parameter Real gain_k=Q_flow_nom/Q_flow_Ref;
+ parameter Real gain_k=Q_flow_nom/Q_flow_Ref "Scaling factor for the used heat load proifle, Q_flow_Ref has to be adjusted according to the chosen profile";
  parameter SI.Density rho=983 "Density of the fluid";
  parameter SI.HeatCapacity C=1 "Unused in this model, just for better interchangeability of the consumer models";
  parameter Real G=1 "Unused in this model, just for better interchangeability of the consumer models";
@@ -97,7 +97,8 @@ model Consumer_SLP "Simple model of a thermal consumer with a table-based heat f
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-54,26})));
-  TransiEnt.Components.Heat.HeatExchanger_simple heatExchanger(rho=rho, cp=cp)
+  TransiEnt.Components.Heat.HeatExchanger_simple heatExchanger(
+    m_flow_nom=m_flow_nom,                                     rho=rho, cp=cp)
                                                                annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
@@ -162,8 +163,8 @@ equation
     experiment(StopTime=604800, __Dymola_Algorithm="Dassl"),
     Documentation(info="<html>
 <h4><span style=\"color: #008000\">Purpose of model</span></h4>
-<p>A model of a heat consumer for district heating networks. It consists of a pump, a heat exchanger and a P-controller. The P-Controller adjusts the mass flow rate through the pump to achieve a specified return temperature of the district heating network. The return temperature of a DHN normally dependst on the supply temperature but is set constant by default. An example on how to calculate the return temperature as a function of the supply temperature is given in the real expression SetTemperature1. The heat is transported from the heat carrier through the heat exchanger. With a combi time table the consumed heat flow is set. A gain model is used to normalize the heat flow rate according to a given Q_flow_nom, which can be set by the user. SLP in the name stands for the standard load profile that is used for heat the heat flow rate. When using this model make sure to set the parameter gain_k correctly according to your chosen standard load profile or heat demand. </p>
-<p>This consumer model is used for the simulation of district heating networks. It calculates the mass flow rate flowing through the consumer, which is important for the numerics of a district heating network simulation. Therefore, a pressure difference has to be given by the hydraulic grid. The mass flow rate is limited by a parameter (currently 10*m_flow_nom) inside the P-Controller. In large models setting this limit too low can produce problems with the solver that is why the parameter is 10 times the nominal mass flow by default. The calculation of the mass flow rate is independent of the pressure difference at the inlet and outlet. Therefore, the user has to pick sensible pressure values inside the hydraulic grid. An example of a pressure control is given in: TransiEnt.Examples.Heat.Largescale_DHN. </p>
+<p>A model of a heat consumer for district heating networks. It consists of a pump, a heat exchanger and a P-controller. The P-Controller adjusts the mass flow rate through the pump to achieve a specified return temperature of the district heating network. The return temperature of a DHN normally dependst on the supply temperature but is set constant by default. An example on how to calculate the return temperature as a function of the supply temperature is given in the real expression SetTemperature1. The heat is transported from the heat carrier through the heat exchanger. With a combi time table the consumed heat flow is set. A gain model is used to normalize the heat flow rate according to a given Q_flow_nom, which can be set by the user. SLP in the name stands for the standard load profile that is used for heat the heat flow rate. When using this model make sure to set the parameter gain_k correctly according to your chosen standard load profile or heat demand. The parameter k for the P-Controller was determined iteratively by dynamic simulation.</p>
+<p>This consumer model is used for the simulation of district heating networks. It calculates the mass flow rate flowing through the consumer, which is important for the numerics of a district heating network simulation. Therefore, a pressure difference has to be given by the hydraulic grid. The mass flow rate is limited by a parameter (currently 10*m_flow_nom) inside the P-Controller. In large models setting this limit too low can produce problems with the solver that is why the parameter is 10 times the nominal mass flow by default. The calculation of the mass flow rate is independent of the pressure difference at the inlet and outlet. Therefore, the user has to pick sensible pressure values inside the hydraulic grid. An example of a pressure control is given in: TransiEnt.Examples.Heat.Largescale_DHN and TransiEnt.Examples.Heat.Smallscale_DHN.</p>
 <h4><span style=\"color: #008000\">Level of detail, physical effects considered, and physical insight</span></h4>
 <ul>
 <li>P-controler</li>

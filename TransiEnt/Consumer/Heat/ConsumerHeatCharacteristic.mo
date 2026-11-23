@@ -17,7 +17,7 @@ model ConsumerHeatCharacteristic "Simple model of a thermal consumer with a heat
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -35,14 +35,17 @@ model ConsumerHeatCharacteristic "Simple model of a thermal consumer with a heat
 
  parameter Real G = 155.737 "Thermal Conuctivity of the thermal resistor";
  parameter SI.HeatCapacity C = 570000 "Thermal capacity of the heat capacitor";
- parameter SI.MassFlowRate m_flow_nom = 0.18 "Nominal mass flow rate of the water (used in the valve)";
+ parameter SI.MassFlowRate m_flow_nom = 0.18 "Nominal mass flow rate of the water (used in the heat exchanger)";
  parameter SI.HeatFlowRate Q_flow_nom = 8e3 "Nominal heat flow rate (used in the heat exchanger)";
+ parameter SI.TemperatureDifference delta_T_nom=8 "Nominal temperature difference used in the heat exchanger";
  parameter SI.Temperature T_room=295.15 "Set value for room temperature";
+ parameter SI.Volume V=0.01 "Volume of the heat exchanger in the consumer";
  //parameters of controller
- parameter Real k = 20 "Constant for proportional part of PI-controller";
- parameter Real y_max = m_flow_nom "Max. opening of valve";//10, m_flow_nom
+ parameter Real k = 20 "Constant for proportional part of P-controller";
+ parameter Real y_max = 10*m_flow_nom "Max. opening of valve";
  parameter Real y_min = 0.0001 "Min. opening of valve";
- parameter Real cp=4186;
+ parameter SI.SpecificHeatCapacity cp=4186 "Specific heat capacity of the fluid";
+ parameter SI.Density rho=983 "Density of the fluid";
 
   // _____________________________________________
   //
@@ -88,7 +91,8 @@ model ConsumerHeatCharacteristic "Simple model of a thermal consumer with a heat
 
  Modelica.Thermal.HeatTransfer.Components.HeatCapacitor heatCapacitor1(C = C) annotation (
    Placement(visible = true, transformation(origin={32,10},    extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  TransiEnt.Components.Heat.SimplePump_mflow pump annotation (Placement(transformation(
+  TransiEnt.Components.Heat.SimplePump_mflow pump(rho=rho)
+                                                  annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-58,26})));
@@ -101,7 +105,11 @@ model ConsumerHeatCharacteristic "Simple model of a thermal consumer with a heat
    Placement(visible = true, transformation(origin={22,64},    extent = {{10, -10}, {-10, 10}}, rotation = 0)));
  Modelica.Thermal.HeatTransfer.Celsius.TemperatureSensor temperatureSensor1 annotation (
    Placement(visible = true, transformation(origin={12,-22},   extent = {{-6, -6}, {6, 6}}, rotation = 180)));
- TransiEnt.Components.Heat.HeatExchanger heatExchanger1(V=0.01, m_flow_nom=m_flow_nom, Q_flow_nom=Q_flow_nom, n=1)                                                                                        annotation (Placement(visible=true, transformation(
+ TransiEnt.Components.Heat.HeatExchanger heatExchanger1(
+    V=V,                                                        m_flow_nom=m_flow_nom,
+    rho=rho,
+    delta_T_nom=delta_T_nom,                                                           Q_flow_nom=Q_flow_nom, n=1,
+    cp=cp)                                                                                                                                                                                                annotation (Placement(visible=true, transformation(
         origin={-58,-2},
         extent={{-10,-10},{10,10}},
         rotation=-90)));
@@ -110,7 +118,7 @@ model ConsumerHeatCharacteristic "Simple model of a thermal consumer with a heat
     k=k,
     Ti=100,
     Td=0.1,
-    yMax=10*y_max,
+    yMax=y_max,
     yMin=y_min,
     initType=Modelica.Blocks.Types.Init.InitialOutput,
     y_start=0.001,
