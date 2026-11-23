@@ -29,11 +29,13 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
   //
   //          Parameters
   // _____________________________________________
-  parameter Real a(unit="K/K") = -2 "Slope for the supply temperature curv";
-  parameter Real b(unit="degC") = 70 "Offset for the supply temperature curve";
-  parameter SI.Temperature T_s_min = 60 "Min. supply temperature of the district heating network";
+  parameter Real a(unit="degC/deg") = -2 "Slope for the supply temperature curv";
+  parameter Real b(final unit="degC") = 70 "Offset for the supply temperature curve";
+  parameter Real T_s_min(final unit="degC") = 60 "Min. supply temperature of the district heating network";
   parameter String relativepath = "/ambient/outdoor_temp_C_dym.txt";
-  final parameter String path = TransiEnt.Basics.Functions.fullPathName(Modelica.Utilities.System.getEnvironmentVariable("public-data") + relativepath);
+  parameter String relativepath2= "/ambient/soil_temp_dym.txt";
+  final parameter String pathOutdoor = TransiEnt.Basics.Functions.fullPathName(Modelica.Utilities.System.getEnvironmentVariable("public-data") + relativepath);
+  final parameter String pathSoil = TransiEnt.Basics.Functions.fullPathName(Modelica.Utilities.System.getEnvironmentVariable("public-data") + relativepath2);
   // _____________________________________________
   //
   //          Variables
@@ -47,21 +49,21 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 270, origin = {-390, 156})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_33(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 90, origin = {-400, 340})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe64_66(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe64_66(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 270, origin = {-404, 312})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe64_66R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe64_66R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {-390, 312})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe65_67R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe65_67R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-404, 186})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe65_67(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe65_67(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {-386, 186})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split11 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 180, origin = {-380, 214})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join11 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 0, origin = {-404, 214})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe65_68R(d = 0.08, m_flow_nom = 5.86, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe65_68R(d = 0.08, m_flow_nom = 5.86, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-340, 242}, {-320, 262}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe65_68(d = 0.08, m_flow_nom = 5.86, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe65_68(d = 0.08, m_flow_nom = 5.86, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-320, 228}, {-340, 248}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join13 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 0, origin = {-380, 284})));
@@ -71,13 +73,13 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 270, origin = {-278, 154})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_35(multiplicationFactor = 2*3.4, m_flow_nom = 0.28, Q_flow_nom(displayUnit = "kW") = 35000) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 90, origin = {-288, 338})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe68_70(d = 0.032, m_flow_nom = 0.28, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe68_70(d = 0.032, m_flow_nom = 0.28, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 270, origin = {-292, 310})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe68_70R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe68_70R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {-278, 310})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe69_71R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe69_71R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-292, 184})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe69_71(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe69_71(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {-274, 184})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split14 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 180, origin = {-268, 212})));
@@ -87,25 +89,25 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 270, origin = {-184, 154})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_37(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 90, origin = {-194, 338})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe72_74(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe72_74(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 270, origin = {-198, 310})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe72_74R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe72_74R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {-184, 310})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe73_75R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe73_75R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-198, 184})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe73_75(d = 0.032, m_flow_nom = 0.28, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe73_75(d = 0.032, m_flow_nom = 0.28, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {-180, 184})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split15 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 180, origin = {-174, 212})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join15 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 0, origin = {-198, 212})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe69_72R(d = 0.1, m_flow_nom = 6.28, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe69_72R(d = 0.1, m_flow_nom = 6.28, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-238, 242}, {-218, 262}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe69_72(d = 0.1, m_flow_nom = 6.28, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe69_72(d = 0.1, m_flow_nom = 6.28, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-218, 228}, {-238, 248}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe73_76R(d = 0.1, m_flow_nom = 6.69, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe73_76R(d = 0.1, m_flow_nom = 6.69, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-136, 242}, {-116, 262}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe73_76(d = 0.1, m_flow_nom = 6.69, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe73_76(d = 0.1, m_flow_nom = 6.69, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-116, 226}, {-136, 246}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join16 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 0, origin = {-266, 280})));
@@ -119,21 +121,23 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 270, origin = {-92, 152})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_39(multiplicationFactor = 2*3.4, m_flow_nom = 0.28, Q_flow_nom(displayUnit = "kW") = 35000) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 90, origin = {-102, 336})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe76_78(d = 0.032, m_flow_nom = 0.28, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe76_78(d = 0.032, m_flow_nom = 0.28, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 270, origin = {-106, 308})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe76_78R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe76_78R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {-92, 308})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe77_79R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe77_79R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-106, 182})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe77_79(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe77_79(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {-88, 182})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split18 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 180, origin = {-82, 210})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join18 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 0, origin = {-106, 210})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe77_80R(d = 0.1, m_flow_nom = 7.11, l = 50, MassFlowState = false) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe77_80R(d = 0.1, m_flow_nom = 7.11, l = 50, MassFlowState = false,
+    N_cv=10)                                                                                                                              annotation (
     Placement(transformation(extent = {{-44, 240}, {-24, 260}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe77_80(d = 0.1, m_flow_nom = 7.11, l = 50, MassFlowState = false) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe77_80(d = 0.1, m_flow_nom = 7.11, l = 50, MassFlowState = false,
+    N_cv=10)                                                                                                                             annotation (
     Placement(transformation(extent = {{-24, 226}, {-44, 246}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join19 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 0, origin = {-82, 280})));
@@ -144,21 +148,21 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join20 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {18, 250})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe80_81R(
-    d=0.08,                                                                             m_flow_nom = 4.6, l = 50, MassFlowState = false, N_cv = 10) annotation (
+    d=0.08,                                                                             m_flow_nom = 4.6, l = 50, MassFlowState = false, useInput=true, N_cv= 10) annotation (
     Placement(transformation(extent = {{78, 240}, {58, 260}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe80_81(d = 0.08, m_flow_nom = 4.6, l = 50, MassFlowState = false, N_cv = 10) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe80_81(d = 0.08, m_flow_nom = 4.6, l = 50, MassFlowState = false, useInput=true, N_cv= 10) annotation (
     Placement(transformation(extent = {{58, 224}, {78, 244}})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_42(multiplicationFactor = 2*3.4, m_flow_nom = 0.28, Q_flow_nom(displayUnit = "kW") = 35000) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 270, origin = {110, 152})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_41(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 90, origin = {100, 336})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe81_83(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe81_83(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 270, origin = {96, 308})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe81_83R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe81_83R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {110, 308})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe82_84R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe82_84R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {96, 182})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe82_84(d = 0.032, m_flow_nom = 0.28, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe82_84(d = 0.032, m_flow_nom = 0.28, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {114, 182})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split31 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 180, origin = {114, 210})));
@@ -168,21 +172,21 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 0, origin = {120, 280})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split32 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 180, origin = {96, 282})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe82_85R(d = 0.08, m_flow_nom = 4.18, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe82_85R(d = 0.08, m_flow_nom = 4.18, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{168, 242}, {148, 262}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe82_85(d = 0.08, m_flow_nom = 4.18, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe82_85(d = 0.08, m_flow_nom = 4.18, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{148, 224}, {168, 244}})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_44(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 270, origin = {200, 150})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_43(multiplicationFactor = 2*3.4, m_flow_nom = 0.28, Q_flow_nom(displayUnit = "kW") = 35000) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 90, origin = {190, 334})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe85_87(d = 0.032, m_flow_nom = 0.28, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe85_87(d = 0.032, m_flow_nom = 0.28, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 270, origin = {186, 306})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe85_87R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe85_87R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {200, 306})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe86_88R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe86_88R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {186, 178})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe86_88(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe86_88(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {204, 180})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split33 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 180, origin = {204, 208})));
@@ -192,21 +196,21 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 0, origin = {210, 278})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split34 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 180, origin = {186, 280})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe86_89R(d = 0.08, m_flow_nom = 3.77, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe86_89R(d = 0.08, m_flow_nom = 3.77, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{258, 240}, {238, 260}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe86_89(d = 0.08, m_flow_nom = 3.77, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe86_89(d = 0.08, m_flow_nom = 3.77, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{238, 224}, {258, 244}})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_46(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 270, origin = {294, 148})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_45(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 90, origin = {284, 332})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe89_91(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe89_91(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 270, origin = {280, 304})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe89_91R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe89_91R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {294, 304})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe90_92R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe90_92R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {280, 178})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe90_92(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe90_92(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {298, 178})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split35 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 180, origin = {298, 206})));
@@ -217,22 +221,23 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split36 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 180, origin = {280, 278})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe90_93R(
-    d=0.065,                                                                             m_flow_nom = 3.49, l = 25, MassFlowState = false, N_cv = 5) annotation (
+    d=0.065,                                                                             m_flow_nom = 3.49, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{360, 234}, {340, 254}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe90_93(
-    d=0.065,                                                                            m_flow_nom = 3.49, l = 25, MassFlowState = false) annotation (
+    d=0.065,                                                                            m_flow_nom = 3.49, l = 25, MassFlowState = false,
+    N_cv=5)                                                                                                                               annotation (
     Placement(transformation(extent = {{340, 218}, {360, 238}})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_48(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 270, origin = {392, 142})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_47(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 90, origin = {382, 326})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe93_95(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe93_95(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 270, origin = {378, 298})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe93_95R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe93_95R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {392, 298})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe94_96R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe94_96R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {378, 172})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe94_96(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe94_96(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {396, 172})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split37 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 180, origin = {396, 200})));
@@ -244,9 +249,9 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 180, origin = {378, 272})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_30(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 0, origin = {-460, 80})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe57_59(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe57_59(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-500, 74}, {-480, 94}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe57_59R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe57_59R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-480, 60}, {-500, 80}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split8 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {-516, 84})));
@@ -254,27 +259,27 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-516, 58})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_29(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 180, origin = {-648, 73})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe56_58R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe56_58R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-626, 75}, {-606, 94}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe56_58(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe56_58(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-606, 61}, {-626, 80}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split1 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {-590, 60})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join1 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-590, 85})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe61_64(d = 0.08, m_flow_nom = 5.58, l = 50, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe61_64(d = 0.08, m_flow_nom = 5.58, l = 50, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {-542, 212})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe61_64R(d = 0.08, m_flow_nom = 5.58, l = 50, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe61_64R(d = 0.08, m_flow_nom = 5.58, l = 50, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-560, 212})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe53_56(d = 0.08, m_flow_nom = 5.02, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe53_56(d = 0.08, m_flow_nom = 5.02, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {-540, 30})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe53_56R(d = 0.08, m_flow_nom = 5.02, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe53_56R(d = 0.08, m_flow_nom = 5.02, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-558, 30})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_28(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 0, origin = {-460, -8})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe53_55(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe53_55(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-500, -14}, {-480, 6}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe53_55R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe53_55R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-480, -28}, {-500, -8}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split2 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {-516, -4})));
@@ -282,23 +287,23 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-516, -30})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_27(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 180, origin = {-648, -13})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe52_54R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe52_54R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-626, -13}, {-606, 6}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe52_54(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe52_54(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-606, -27}, {-626, -8}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split3 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {-590, -28})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join3 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-590, -3})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe49_52(d = 0.08, m_flow_nom = 4.74, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe49_52(d = 0.08, m_flow_nom = 4.74, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {-540, -58})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe49_52R(d = 0.08, m_flow_nom = 4.74, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe49_52R(d = 0.08, m_flow_nom = 4.74, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-558, -58})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_26(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 0, origin = {-458, -98})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe49_51(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe49_51(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-498, -104}, {-478, -84}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe49_51R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe49_51R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-478, -118}, {-498, -98}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split4 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {-514, -94})));
@@ -306,23 +311,23 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-514, -120})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_25(multiplicationFactor = 2*3.4, m_flow_nom = 0.28, Q_flow_nom(displayUnit = "kW") = 35000) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 180, origin = {-646, -103})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe48_50R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe48_50R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-624, -103}, {-604, -84}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe48_50(d = 0.032, m_flow_nom = 0.28, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe48_50(d = 0.032, m_flow_nom = 0.28, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-604, -117}, {-624, -98}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split5 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {-588, -118})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join5 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-588, -93})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe45_48(d = 0.08, m_flow_nom = 4.32, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe45_48(d = 0.08, m_flow_nom = 4.32, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {-538, -148})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe45_48R(d = 0.08, m_flow_nom = 4.32, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe45_48R(d = 0.08, m_flow_nom = 4.32, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-556, -148})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_24(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 0, origin = {-458, -186})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe45_47(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe45_47(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-498, -192}, {-478, -172}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe45_47R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe45_47R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-478, -206}, {-498, -186}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split6 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {-514, -182})));
@@ -330,23 +335,23 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-514, -208})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_23(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 180, origin = {-646, -191})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe44_46R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe44_46R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-624, -191}, {-604, -172}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe44_46(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe44_46(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-604, -205}, {-624, -186}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split7 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {-588, -206})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join7 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-588, -181})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe41_44(d = 0.08, m_flow_nom = 4.04, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe41_44(d = 0.08, m_flow_nom = 4.04, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {-538, -236})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe41_44R(d = 0.08, m_flow_nom = 4.04, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe41_44R(d = 0.08, m_flow_nom = 4.04, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-556, -236})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_22(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 0, origin = {-454, -280})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe41_43(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe41_43(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-494, -286}, {-474, -266}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe41_43R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe41_43R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-474, -300}, {-494, -280}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split9 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {-510, -276})));
@@ -354,23 +359,23 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-510, -302})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_21(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 180, origin = {-642, -285})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe40_42R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe40_42R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-620, -285}, {-600, -266}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe40_42(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe40_42(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-600, -299}, {-620, -280}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split10 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {-584, -300})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join10 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-584, -275})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe37_40(d = 0.08, m_flow_nom = 3.77, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe37_40(d = 0.08, m_flow_nom = 3.77, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {-534, -330})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe37_40R(d = 0.08, m_flow_nom = 3.77, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe37_40R(d = 0.08, m_flow_nom = 3.77, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-552, -330})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_20(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 0, origin = {-454, -368})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe37_39(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe37_39(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-494, -374}, {-474, -354}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe37_39R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe37_39R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-474, -388}, {-494, -368}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split12 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {-510, -364})));
@@ -378,23 +383,23 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-510, -390})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_19(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 180, origin = {-642, -373})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe36_38R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe36_38R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-620, -373}, {-600, -354}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe36_38(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe36_38(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-600, -387}, {-620, -368}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split21 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {-584, -388})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join21 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-584, -363})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe33_36(d = 0.065, m_flow_nom = 3.49, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe33_36(d = 0.065, m_flow_nom = 3.49, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {-534, -418})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe33_36R(d = 0.065, m_flow_nom = 3.49, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe33_36R(d = 0.065, m_flow_nom = 3.49, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-552, -418})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_18(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 0, origin = {-452, -458})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe33_35(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe33_35(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-492, -464}, {-472, -444}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe33_35R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe33_35R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-472, -478}, {-492, -458}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split22 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {-508, -454})));
@@ -402,23 +407,23 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-508, -480})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_17(multiplicationFactor = 2*3.4, m_flow_nom = 0.28, Q_flow_nom(displayUnit = "kW") = 35000) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 180, origin = {-642, -463})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe32_34R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe32_34R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-618, -463}, {-598, -444}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe32_34(d = 0.032, m_flow_nom = 0.28, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe32_34(d = 0.032, m_flow_nom = 0.28, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-598, -477}, {-618, -458}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split23 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {-582, -478})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join23 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-582, -453})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe29_32(d = 0.065, m_flow_nom = 3.07, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe29_32(d = 0.065, m_flow_nom = 3.07, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {-530, -508})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe29_32R(d = 0.065, m_flow_nom = 3.07, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe29_32R(d = 0.065, m_flow_nom = 3.07, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-550, -508})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_16(multiplicationFactor = 2*3.4, m_flow_nom = 0.28, Q_flow_nom(displayUnit = "kW") = 35000) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 0, origin = {-452, -546})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe29_31(d = 0.032, m_flow_nom = 0.28, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe29_31(d = 0.032, m_flow_nom = 0.28, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-492, -552}, {-472, -532}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe29_31R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe29_31R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-472, -566}, {-492, -546}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split24 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {-508, -542})));
@@ -426,23 +431,23 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-508, -568})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_15(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 180, origin = {-640, -553})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe28_30R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe28_30R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-618, -551}, {-598, -532}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe28_30(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe28_30(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-598, -565}, {-618, -546}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split25 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {-582, -566})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join25 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-582, -541})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe25_28(d = 0.065, m_flow_nom = 2.7, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe25_28(d = 0.065, m_flow_nom = 2.7, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {-532, -596})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe25_28R(d = 0.065, m_flow_nom = 2.65, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe25_28R(d = 0.065, m_flow_nom = 2.65, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-550, -596})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_14(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 0, origin = {-452, -668})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe25_27(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe25_27(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-492, -672}, {-472, -652}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe25_27R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe25_27R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-472, -686}, {-492, -666}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split26 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {-508, -662})));
@@ -450,23 +455,23 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-508, -688})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_13(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 180, origin = {-640, -671})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe24_26R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe24_26R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-618, -671}, {-598, -652}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe24_26(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe24_26(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-598, -685}, {-618, -666}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split27 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {-582, -686})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join27 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-582, -661})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe21_24(d = 0.065, m_flow_nom = 2.37, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe21_24(d = 0.065, m_flow_nom = 2.37, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {-534, -716})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe21_24R(d = 0.065, m_flow_nom = 2.37, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe21_24R(d = 0.065, m_flow_nom = 2.37, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-552, -716})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_12(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 0, origin = {-452, -754})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe21_23(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe21_23(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-492, -760}, {-472, -740}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe21_23R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe21_23R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-472, -774}, {-492, -754}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split28 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {-508, -750})));
@@ -474,23 +479,23 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-508, -776})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_11(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 180, origin = {-640, -759})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe20_22R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe20_22R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-618, -759}, {-598, -740}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe20_22(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe20_22(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-598, -773}, {-618, -754}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split29 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {-582, -774})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join29 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-582, -749})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe17_20(d = 0.065, m_flow_nom = 2.09, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe17_20(d = 0.065, m_flow_nom = 2.09, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {-534, -804})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe17_20R(d = 0.065, m_flow_nom = 2.09, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe17_20R(d = 0.065, m_flow_nom = 2.09, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-552, -804})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_10(multiplicationFactor = 2*3.4, m_flow_nom = 0.28, Q_flow_nom(displayUnit = "kW") = 35000) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 0, origin = {-450, -844})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe17_19(d = 0.032, m_flow_nom = 0.28, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe17_19(d = 0.032, m_flow_nom = 0.28, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-490, -850}, {-470, -830}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe17_19R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe17_19R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-470, -864}, {-490, -844}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split41 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {-506, -840})));
@@ -498,23 +503,23 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-506, -866})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_9(multiplicationFactor = 2*3.4, m_flow_nom = 0.28, Q_flow_nom(displayUnit = "kW") = 35000) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 180, origin = {-638, -849})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe16_18R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe16_18R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-616, -849}, {-596, -830}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe16_18(d = 0.032, m_flow_nom = 0.28, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe16_18(d = 0.032, m_flow_nom = 0.28, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-596, -863}, {-616, -844}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split42 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {-580, -864})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join42 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-580, -839})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe13_16(d = 0.05, m_flow_nom = 1.53, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe13_16(d = 0.05, m_flow_nom = 1.53, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {-532, -894})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe13_16R(d = 0.05, m_flow_nom = 1.53, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe13_16R(d = 0.05, m_flow_nom = 1.53, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-550, -894})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_8(multiplicationFactor = 2*3.4, m_flow_nom = 0.28, Q_flow_nom(displayUnit = "kW") = 35000) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 0, origin = {-446, -938})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe13_15(d = 0.032, m_flow_nom = 0.28, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe13_15(d = 0.032, m_flow_nom = 0.28, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-486, -944}, {-466, -924}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe13_15R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe13_15R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-466, -958}, {-486, -938}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split43 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {-502, -934})));
@@ -522,23 +527,23 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-502, -960})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_7(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 180, origin = {-634, -943})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe12_14R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe12_14R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-612, -943}, {-592, -924}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe12_14(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe12_14(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-592, -957}, {-612, -938}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split44 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {-576, -958})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join44 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-576, -933})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe9_12(d = 0.05, m_flow_nom = 1.12, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe9_12(d = 0.05, m_flow_nom = 1.12, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {-528, -988})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe9_12R(d = 0.05, m_flow_nom = 1.12, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe9_12R(d = 0.05, m_flow_nom = 1.12, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-546, -988})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_6(multiplicationFactor = 2*3.4, m_flow_nom = 0.28, Q_flow_nom(displayUnit = "kW") = 35000) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 0, origin = {-446, -1026})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe9_11(d = 0.02, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe9_11(d = 0.02, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-486, -1032}, {-466, -1012}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe9_11R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe9_11R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-466, -1046}, {-486, -1026}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split45 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {-502, -1022})));
@@ -546,23 +551,23 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-502, -1048})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_5(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 180, origin = {-634, -1031})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe8_10R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe8_10R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-612, -1031}, {-592, -1012}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe8_10(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe8_10(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-592, -1045}, {-612, -1026}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split46 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {-576, -1046})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join46 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-576, -1021})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe5_8(d = 0.032, m_flow_nom = 0.7, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe5_8(d = 0.032, m_flow_nom = 0.7, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {-528, -1076})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe5_8R(d = 0.032, m_flow_nom = 0.7, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe5_8R(d = 0.032, m_flow_nom = 0.7, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-546, -1076})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_4(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 0, origin = {-444, -1116})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe5_7(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe5_7(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-484, -1122}, {-464, -1102}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe5_7R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe5_7R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-464, -1136}, {-484, -1116}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split47 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {-500, -1112})));
@@ -570,29 +575,29 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-500, -1138})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_3(multiplicationFactor = 2*3.4, m_flow_nom = 0.28, Q_flow_nom(displayUnit = "kW") = 35000) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 180, origin = {-632, -1121})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe4_6R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe4_6R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-610, -1121}, {-590, -1102}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe4_6(d = 0.032, m_flow_nom = 0.28, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe4_6(d = 0.032, m_flow_nom = 0.28, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-590, -1135}, {-610, -1116}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split48 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {-574, -1136})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join48 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-574, -1111})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe2_4(d = 0.032, m_flow_nom = 0.28, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe2_4(d = 0.032, m_flow_nom = 0.28, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {-526, -1166})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe2_4R(d = 0.032, m_flow_nom = 0.28, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe2_4R(d = 0.032, m_flow_nom = 0.28, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-544, -1166})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_2(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 0, origin = {-444, -1204})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe2_3(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe2_3(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-484, -1210}, {-464, -1190}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe2_3R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe2_3R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-464, -1224}, {-484, -1204}})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_1(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 180, origin = {-632, -1209})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe1_2R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe1_2R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-610, -1209}, {-590, -1190}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe1_2(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe1_2(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-590, -1223}, {-610, -1204}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split50 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {-574, -1224})));
@@ -600,9 +605,9 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-574, -1199})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_49(multiplicationFactor = 2*3.4, m_flow_nom = 0.28, Q_flow_nom(displayUnit = "kW") = 35000) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 0, origin = {734, 180})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe97_99(d = 0.032, m_flow_nom = 0.28, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe97_99(d = 0.032, m_flow_nom = 0.28, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{694, 174}, {714, 194}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe97_99R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe97_99R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{714, 160}, {694, 180}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split51 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {678, 184})));
@@ -610,23 +615,23 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {678, 158})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_50(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 180, origin = {546, 175})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe98_100R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe98_100R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{568, 175}, {588, 194}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe98_100(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe98_100(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{588, 161}, {568, 180}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split52 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {604, 160})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join52 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {604, 185})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe98_101(d = 0.065, m_flow_nom = 2.79, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe98_101(d = 0.065, m_flow_nom = 2.79, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {652, 130})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe98_101R(d = 0.065, m_flow_nom = 2.79, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe98_101R(d = 0.065, m_flow_nom = 2.79, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {634, 130})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_51(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 0, origin = {734, 92})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe101_103(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe101_103(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{694, 86}, {714, 106}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe101_103R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe101_103R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{714, 72}, {694, 92}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split53 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {678, 96})));
@@ -634,23 +639,23 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {678, 70})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_52(multiplicationFactor = 2*3.4, m_flow_nom = 0.28, Q_flow_nom(displayUnit = "kW") = 35000) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 180, origin = {546, 87})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe102_104R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe102_104R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{568, 87}, {588, 106}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe102_104(d = 0.032, m_flow_nom = 0.28, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe102_104(d = 0.032, m_flow_nom = 0.28, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{588, 73}, {568, 92}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split54 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {604, 72})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join54 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {604, 97})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe102_105(d = 0.065, m_flow_nom = 2.37, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe102_105(d = 0.065, m_flow_nom = 2.37, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {652, 42})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe102_105R(d = 0.065, m_flow_nom = 2.37, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe102_105R(d = 0.065, m_flow_nom = 2.37, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {634, 42})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_53(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 0, origin = {736, 2})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe105_107(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe105_107(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{696, -4}, {716, 16}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe105_107R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe105_107R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{716, -18}, {696, 2}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split55 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {680, 6})));
@@ -658,23 +663,23 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {680, -20})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_54(multiplicationFactor = 2*3.4, m_flow_nom = 0.28, Q_flow_nom(displayUnit = "kW") = 35000) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 180, origin = {548, -3})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe106_108R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe106_108R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{570, -3}, {590, 16}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe106_108(d = 0.032, m_flow_nom = 0.28, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe106_108(d = 0.032, m_flow_nom = 0.28, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{590, -17}, {570, 2}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split56 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {606, -18})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join56 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {606, 7})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe106_109(d = 0.065, m_flow_nom = 1.95, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe106_109(d = 0.065, m_flow_nom = 1.95, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {654, -48})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe106_109R(d = 0.065, m_flow_nom = 1.95, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe106_109R(d = 0.065, m_flow_nom = 1.95, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {636, -48})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_55(multiplicationFactor = 2*3.4, m_flow_nom = 0.28, Q_flow_nom(displayUnit = "kW") = 35000) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 0, origin = {736, -86})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe109_111(d = 0.032, m_flow_nom = 0.28, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe109_111(d = 0.032, m_flow_nom = 0.28, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{696, -92}, {716, -72}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe109_111R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe109_111R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{716, -106}, {696, -86}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split57 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {680, -82})));
@@ -682,23 +687,23 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {680, -108})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_56(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 180, origin = {548, -91})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe110_112R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe110_112R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{570, -91}, {590, -72}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe110_112(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe110_112(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{590, -105}, {570, -86}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split58 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {606, -106})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join58 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {606, -81})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe110_113(d = 0.05, m_flow_nom = 1.53, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe110_113(d = 0.05, m_flow_nom = 1.53, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {654, -136})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe110_113R(d = 0.05, m_flow_nom = 1.53, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe110_113R(d = 0.05, m_flow_nom = 1.53, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {636, -136})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_57(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 0, origin = {740, -180})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe113_115(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe113_115(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{700, -186}, {720, -166}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe113_115R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe113_115R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{720, -200}, {700, -180}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split59 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {684, -176})));
@@ -706,23 +711,23 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {684, -202})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_58(multiplicationFactor = 2*3.4, m_flow_nom = 0.28, Q_flow_nom(displayUnit = "kW") = 35000) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 180, origin = {552, -185})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe114_116R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe114_116R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{574, -185}, {594, -166}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe114_116(d = 0.032, m_flow_nom = 0.28, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe114_116(d = 0.032, m_flow_nom = 0.28, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{594, -199}, {574, -180}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split60 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {610, -200})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join60 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {610, -175})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe114_117(d = 0.05, m_flow_nom = 1.12, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe114_117(d = 0.05, m_flow_nom = 1.12, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {658, -230})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe114_117R(d = 0.05, m_flow_nom = 1.12, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe114_117R(d = 0.05, m_flow_nom = 1.12, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {640, -230})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_59(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 0, origin = {740, -268})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe117_119(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe117_119(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{700, -274}, {720, -254}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe117_199R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe117_199R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{720, -288}, {700, -268}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split61 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {684, -264})));
@@ -730,23 +735,23 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {684, -290})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_60(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 180, origin = {552, -273})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe118_120R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe118_120R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{574, -273}, {594, -254}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe118_120(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe118_120(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{594, -287}, {574, -268}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split62 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {610, -288})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join62 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {610, -263})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe118_121(d = 0.065, m_flow_nom = 0.84, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe118_121(d = 0.065, m_flow_nom = 0.84, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {658, -318})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe118_121R(d = 0.05, m_flow_nom = 0.84, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe118_121R(d = 0.05, m_flow_nom = 0.84, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {642, -318})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_61(multiplicationFactor = 2*3.4, m_flow_nom = 0.28, Q_flow_nom(displayUnit = "kW") = 35000) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 0, origin = {742, -358})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe121_123(d = 0.032, m_flow_nom = 0.28, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe121_123(d = 0.032, m_flow_nom = 0.28, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{702, -364}, {722, -344}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe121_123R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe121_123R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{722, -378}, {702, -358}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split63 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {686, -354})));
@@ -754,23 +759,23 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {686, -380})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_62(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 180, origin = {554, -363})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe122_124R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe122_124R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{574, -365}, {594, -346}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe122_124(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe122_124(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{594, -377}, {574, -358}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split64 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {612, -378})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join64 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {612, -353})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe122_125(d = 0.032, m_flow_nom = 0.28, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe122_125(d = 0.032, m_flow_nom = 0.28, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {660, -408})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe122_125R(d = 0.032, m_flow_nom = 0.28, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe122_125R(d = 0.032, m_flow_nom = 0.28, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {642, -408})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_63(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 0, origin = {742, -446})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe125_127(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe125_127(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{702, -452}, {722, -432}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe125_127R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe125_127R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{722, -466}, {702, -446}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split65 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {686, -442})));
@@ -778,23 +783,23 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {686, -468})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_64(multiplicationFactor = 2*3.4, m_flow_nom = 0.28, Q_flow_nom(displayUnit = "kW") = 35000) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 180, origin = {554, -451})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe126_128R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe126_128R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{576, -451}, {596, -432}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe126_128(d = 0.032, m_flow_nom = 0.28, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe126_128(d = 0.032, m_flow_nom = 0.28, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{596, -465}, {576, -446}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split66 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {612, -466})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join66 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {612, -441})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe126_129(d = 0.065, m_flow_nom = 2, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe126_129(d = 0.065, m_flow_nom = 2, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {660, -496})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe126_129R(d = 0.065, m_flow_nom = 2, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe126_129R(d = 0.065, m_flow_nom = 2, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {642, -496})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_65(multiplicationFactor = 2*3.4, m_flow_nom = 0.28, Q_flow_nom(displayUnit = "kW") = 35000) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 0, origin = {742, -566})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe129_131(d = 0.032, m_flow_nom = 0.028, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe129_131(d = 0.032, m_flow_nom = 0.028, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{702, -572}, {722, -552}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe129_131R(d = 0.032, m_flow_nom = 0.028, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe129_131R(d = 0.032, m_flow_nom = 0.028, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{722, -586}, {702, -566}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split67 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {686, -562})));
@@ -802,23 +807,23 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {686, -588})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_66(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 180, origin = {554, -571})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe130_132R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe130_132R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{576, -571}, {596, -552}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe130_132(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe130_132(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{596, -585}, {576, -566}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split68 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {612, -586})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join68 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {612, -561})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe130_133(d = 0.065, m_flow_nom = 2.79, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe130_133(d = 0.065, m_flow_nom = 2.79, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {660, -616})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe130_133R(d = 0.065, m_flow_nom = 2.79, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe130_133R(d = 0.065, m_flow_nom = 2.79, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {642, -616})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumerd_67(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 0, origin = {742, -654})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe133_135(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe133_135(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{702, -660}, {722, -640}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe133_135R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe133_135R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{722, -674}, {702, -654}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split69 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {686, -650})));
@@ -826,23 +831,23 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {686, -676})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_68(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 180, origin = {554, -659})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe134_136R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe134_136R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{576, -659}, {596, -640}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe134_136(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe134_136(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{596, -673}, {576, -654}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split70 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {612, -674})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join70 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {612, -649})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe134_137(d = 0.065, m_flow_nom = 2.51, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe134_137(d = 0.065, m_flow_nom = 2.51, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {660, -704})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe134_137R(d = 0.065, m_flow_nom = 2.51, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe134_137R(d = 0.065, m_flow_nom = 2.51, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {642, -704})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_69(multiplicationFactor = 2*3.4, m_flow_nom = 0.28, Q_flow_nom(displayUnit = "kW") = 35000) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 0, origin = {744, -744})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe137_139(d = 0.032, m_flow_nom = 0.28, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe137_139(d = 0.032, m_flow_nom = 0.28, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{704, -750}, {724, -730}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe137_139R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe137_139R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{724, -764}, {704, -744}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split71 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {688, -740})));
@@ -850,23 +855,23 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {688, -766})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_70(multiplicationFactor = 2*3.4, m_flow_nom = 0.28, Q_flow_nom(displayUnit = "kW") = 35000) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 180, origin = {556, -749})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe138_140R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe138_140R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{578, -749}, {598, -730}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe138_140(d = 0.032, m_flow_nom = 0.28, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe138_140(d = 0.032, m_flow_nom = 0.28, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{598, -763}, {578, -744}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split72 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {614, -764})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join72 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {614, -739})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe138_141(d = 0.065, m_flow_nom = 1.95, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe138_141(d = 0.065, m_flow_nom = 1.95, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {662, -794})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe18_141R(d = 0.065, m_flow_nom = 1.95, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe18_141R(d = 0.065, m_flow_nom = 1.95, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {644, -794})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_71(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 0, origin = {744, -832})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe141_143(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe141_143(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{704, -838}, {724, -818}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe141_143R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe141_143R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{724, -852}, {704, -832}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split73 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {688, -828})));
@@ -874,23 +879,23 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {688, -854})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_72(multiplicationFactor = 2*3.4, m_flow_nom = 0.28, Q_flow_nom(displayUnit = "kW") = 35000) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 180, origin = {556, -837})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe142_144R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe142_144R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{578, -837}, {598, -818}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe142_144(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe142_144(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{598, -851}, {578, -832}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split74 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {614, -852})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join74 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {614, -827})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe142_145(d = 0.05, m_flow_nom = 1.53, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe142_145(d = 0.05, m_flow_nom = 1.53, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {662, -882})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe142_145R(d = 0.05, m_flow_nom = 1.53, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe142_145R(d = 0.05, m_flow_nom = 1.53, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {644, -882})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_73(multiplicationFactor = 2*3.4, m_flow_nom = 0.28, Q_flow_nom(displayUnit = "kW") = 35000) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 0, origin = {748, -926})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe145_147(d = 0.032, m_flow_nom = 0.28, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe145_147(d = 0.032, m_flow_nom = 0.28, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{708, -932}, {728, -912}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe145_147R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe145_147R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{728, -946}, {708, -926}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split75 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {692, -922})));
@@ -898,23 +903,23 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {692, -948})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_74(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 180, origin = {560, -931})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe146_148R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe146_148R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{582, -931}, {602, -912}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe146_148(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe146_148(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{602, -945}, {582, -926}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split76 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {618, -946})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join76 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {618, -921})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe146_149(d = 0.05, m_flow_nom = 1.12, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe146_149(d = 0.05, m_flow_nom = 1.12, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {666, -976})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe146_149R(d = 0.05, m_flow_nom = 1.12, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe146_149R(d = 0.05, m_flow_nom = 1.12, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {650, -976})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_75(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 0, origin = {748, -1014})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe149_151(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe149_151(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{708, -1020}, {728, -1000}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe149_151R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe149_151R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{728, -1034}, {708, -1014}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split77 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {692, -1010})));
@@ -922,23 +927,23 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {692, -1036})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_76(multiplicationFactor = 2*3.4, m_flow_nom = 0.28, Q_flow_nom(displayUnit = "kW") = 35000) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 180, origin = {560, -1019})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe150_152R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe150_152R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{582, -1019}, {602, -1000}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe150_152(d = 0.032, m_flow_nom = 0.28, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe150_152(d = 0.032, m_flow_nom = 0.28, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{602, -1033}, {582, -1014}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split78 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {618, -1034})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join78 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {618, -1009})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe150_153(d = 0.032, m_flow_nom = 0.7, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe150_153(d = 0.032, m_flow_nom = 0.7, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {666, -1064})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe150_153R(d = 0.032, m_flow_nom = 0.7, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe150_153R(d = 0.032, m_flow_nom = 0.7, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {648, -1064})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_77(multiplicationFactor = 2*3.4, m_flow_nom = 0.28, Q_flow_nom(displayUnit = "kW") = 35000) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 0, origin = {750, -1104})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe153_155(d = 0.032, m_flow_nom = 0.28, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe153_155(d = 0.032, m_flow_nom = 0.28, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{710, -1110}, {730, -1090}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe153_155R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe153_155R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{730, -1124}, {710, -1104}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split79 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {694, -1100})));
@@ -946,53 +951,53 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {694, -1126})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_78(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 180, origin = {562, -1109})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe154_156R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe154_156R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{584, -1109}, {604, -1090}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe154_156(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe154_156(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{604, -1123}, {584, -1104}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split80 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {620, -1124})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join80 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {620, -1099})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe154_157(d = 0.032, m_flow_nom = 0.28, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe154_157(d = 0.032, m_flow_nom = 0.28, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {668, -1154})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe154_157R(d = 0.032, m_flow_nom = 0.28, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe154_157R(d = 0.032, m_flow_nom = 0.28, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {650, -1154})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_79(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 0, origin = {750, -1192})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe157_159(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe157_159(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{710, -1198}, {730, -1178}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe157_159R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe157_159R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{730, -1212}, {710, -1192}})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_80(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 180, origin = {562, -1197})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe157_158R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe157_158R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{584, -1197}, {604, -1178}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe157_158(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe157_158(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{604, -1211}, {584, -1192}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split82 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {620, -1212})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join82 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {620, -1187})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe94_97R(d = 0.065, m_flow_nom = 3.21, l = 50, MassFlowState = false, N_cv = 10) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe94_97R(d = 0.065, m_flow_nom = 3.21, l = 50, MassFlowState = false, useInput=true, N_cv= 10) annotation (
     Placement(transformation(extent = {{556, 238}, {536, 258}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe94_97(d = 0.065, m_flow_nom = 3.21, l = 50, MassFlowState = false, N_cv = 10) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe94_97(d = 0.065, m_flow_nom = 3.21, l = 50, MassFlowState = false, useInput=true, N_cv= 10) annotation (
     Placement(transformation(extent = {{536, 222}, {556, 242}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe182_199R(d = 0.032, l = 50, MassFlowState = false, N_cv = 10) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe182_199R(d = 0.032, l = 50, MassFlowState = false, useInput=true, N_cv= 10) annotation (
     Placement(transformation(extent = {{76, -428}, {56, -408}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe182_199(d = 0.032, l = 50, MassFlowState = false, N_cv = 10) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe182_199(d = 0.032, l = 50, MassFlowState = false, useInput=true, N_cv= 10) annotation (
     Placement(transformation(extent = {{56, -444}, {76, -424}})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_100(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 270, origin = {108, -516})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_99(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 90, origin = {100, -328})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe199_201(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe199_201(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 270, origin = {94, -360})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe199_201R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe199_201R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {108, -360})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe200_202R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe200_202R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {94, -486})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe200_202(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe200_202(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {112, -486})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split49 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 180, origin = {112, -458})));
@@ -1002,21 +1007,21 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 0, origin = {118, -388})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split81 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 180, origin = {94, -386})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe200_203R(d = 0.08, m_flow_nom = 4.04, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe200_203R(d = 0.08, m_flow_nom = 4.04, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{168, -426}, {148, -406}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe200_203(d = 0.08, m_flow_nom = 4.04, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe200_203(d = 0.08, m_flow_nom = 4.04, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{148, -444}, {168, -424}})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_102(multiplicationFactor = 2*3.4, m_flow_nom = 0.28, Q_flow_nom(displayUnit = "kW") = 35000) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 270, origin = {198, -518})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_101(multiplicationFactor = 2*3.4, m_flow_nom = 0.28, Q_flow_nom(displayUnit = "kW") = 35000) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 90, origin = {188, -334})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe203_205(d = 0.032, m_flow_nom = 0.28, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe203_205(d = 0.032, m_flow_nom = 0.28, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 270, origin = {184, -362})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe203_205R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe203_205R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {198, -362})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe204_206R(d = 0.02, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe204_206R(d = 0.02, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {186, -490})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe204_206(d = 0.02, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe204_206(d = 0.02, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {202, -488})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split84 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 180, origin = {202, -460})));
@@ -1026,41 +1031,41 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 0, origin = {208, -390})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split85 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 180, origin = {184, -388})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe204_207R(d = 0.065, m_flow_nom = 3.49, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe204_207R(d = 0.065, m_flow_nom = 3.49, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{258, -428}, {238, -408}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe204_207(d = 0.065, m_flow_nom = 3.49, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe204_207(d = 0.065, m_flow_nom = 3.49, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{238, -444}, {258, -424}})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_104(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 270, origin = {292, -520})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_103(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 90, origin = {282, -336})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe207_209(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe207_209(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 270, origin = {278, -364})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe207_209R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe207_209R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {292, -364})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe207_208R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe207_208R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {278, -490})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe207_208(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe207_208(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {296, -490})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split86 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 180, origin = {296, -462})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join86 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 0, origin = {278, -462})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe227_247R(d = 0.05, m_flow_nom = 1.53, l = 50, MassFlowState = false, N_cv = 10) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe227_247R(d = 0.05, m_flow_nom = 1.53, l = 50, MassFlowState = false, useInput=true, N_cv= 10) annotation (
     Placement(transformation(extent = {{92, -1284}, {72, -1264}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe227_247(d = 0.05, m_flow_nom = 1.53, l = 50, MassFlowState = false, N_cv = 10) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe227_247(d = 0.05, m_flow_nom = 1.53, l = 50, MassFlowState = false, useInput=true, N_cv= 10) annotation (
     Placement(transformation(extent = {{72, -1300}, {92, -1280}})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_125(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 270, origin = {124, -1372})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_124(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 90, origin = {114, -1188})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe247_249(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe247_249(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 270, origin = {110, -1218})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe247_249R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe247_249R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {124, -1218})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe248_250R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe248_250R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {110, -1344})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe248_250(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe248_250(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {128, -1344})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split40 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 180, origin = {128, -1314})));
@@ -1070,21 +1075,21 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 0, origin = {134, -1244})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split83 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 180, origin = {110, -1242})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe248_251R(d = 0.05, m_flow_nom = 1.26, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe248_251R(d = 0.05, m_flow_nom = 1.26, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{184, -1282}, {164, -1262}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe248_251(d = 0.05, m_flow_nom = 1.26, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe248_251(d = 0.05, m_flow_nom = 1.26, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{164, -1300}, {184, -1280}})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_127(multiplicationFactor = 2*3.4, m_flow_nom = 0.28, Q_flow_nom(displayUnit = "kW") = 35000) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 270, origin = {214, -1374})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_126(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 90, origin = {204, -1190})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe251_253(d = 0.02, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe251_253(d = 0.02, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 270, origin = {200, -1220})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe251_253R(d = 0.02, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe251_253R(d = 0.02, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {214, -1220})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe252_254R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe252_254R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {200, -1348})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe252_254(d = 0.032, m_flow_nom = 0.28, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe252_254(d = 0.032, m_flow_nom = 0.28, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {218, -1346})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split87 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 180, origin = {218, -1316})));
@@ -1094,21 +1099,21 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 0, origin = {224, -1246})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split88 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 180, origin = {200, -1244})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe252_255R(d = 0.045, m_flow_nom = 0.84, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe252_255R(d = 0.045, m_flow_nom = 0.84, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{274, -1284}, {254, -1264}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe252_255(d = 0.045, m_flow_nom = 0.84, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe252_255(d = 0.045, m_flow_nom = 0.84, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{254, -1300}, {274, -1280}})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_129(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 270, origin = {308, -1376})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_128(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 90, origin = {298, -1192})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe255_257(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe255_257(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 270, origin = {294, -1222})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe255_257R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe255_257R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {308, -1222})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe256_258R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe256_258R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {294, -1348})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe256_258(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe256_258(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {312, -1348})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split89 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 180, origin = {312, -1318})));
@@ -1118,21 +1123,21 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 0, origin = {318, -1248})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split90 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 180, origin = {294, -1246})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe256_259R(d = 0.032, m_flow_nom = 0.56, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe256_259R(d = 0.032, m_flow_nom = 0.56, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{376, -1290}, {356, -1270}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe256_259(d = 0.032, m_flow_nom = 0.56, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe256_259(d = 0.032, m_flow_nom = 0.56, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{356, -1306}, {376, -1286}})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_131(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 270, origin = {406, -1382})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_130(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 90, origin = {396, -1198})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe259_261(d = 0.02, delta_p_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe259_261(d = 0.02, delta_p_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 270, origin = {392, -1228})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe259_261R(d = 0.02, delta_p_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe259_261R(d = 0.02, delta_p_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {406, -1228})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe260_262R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe260_262R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {392, -1354})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe260_262(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe260_262(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {410, -1354})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split91 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 180, origin = {410, -1324})));
@@ -1142,21 +1147,21 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 0, origin = {416, -1254})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split92 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 180, origin = {392, -1252})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe260_263R(d = 0.032, m_flow_nom = 0.28, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe260_263R(d = 0.032, m_flow_nom = 0.28, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{472, -1292}, {452, -1272}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe260_263(d = 0.032, m_flow_nom = 0.28, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe260_263(d = 0.032, m_flow_nom = 0.28, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{452, -1310}, {472, -1290}})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_132(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 270, origin = {502, -1384})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_133(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 90, origin = {492, -1200})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe263_265(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe263_265(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 270, origin = {488, -1230})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe263_265R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe263_265R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {502, -1230})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe263_264R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe263_264R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {488, -1354})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe263_264(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe263_264(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {506, -1354})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split93 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 180, origin = {506, -1326})));
@@ -1166,33 +1171,33 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 270, origin = {-388, -516})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_98(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 90, origin = {-398, -332})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe196_198(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe196_198(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 270, origin = {-402, -360})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe196_198R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe196_198R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {-388, -360})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe196_197R(d = 0.02, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe196_197R(d = 0.02, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-402, -486})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe196_197(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe196_197(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {-384, -486})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split94 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 180, origin = {-378, -458})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join94 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 0, origin = {-402, -458})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe193_196R(d = 0.032, m_flow_nom = 0.28, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe193_196R(d = 0.032, m_flow_nom = 0.28, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-338, -428}, {-318, -408}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe193_196(d = 0.032, m_flow_nom = 0.28, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe193_196(d = 0.032, m_flow_nom = 0.28, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-318, -442}, {-338, -422}})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_96(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 270, origin = {-276, -518})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_95(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 90, origin = {-286, -334})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe192_194(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe192_194(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 270, origin = {-290, -362})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe192_194R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe192_194R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {-276, -362})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe193_195R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe193_195R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-290, -488})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe193_195(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe193_195(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {-272, -488})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split96 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 180, origin = {-266, -460})));
@@ -1202,25 +1207,25 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 270, origin = {-182, -518})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_93(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 90, origin = {-192, -334})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe188_190(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe188_190(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 270, origin = {-196, -362})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe188_190R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe188_190R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {-182, -362})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe189_191R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe189_191R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-196, -488})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe189_191(d = 0.032, m_flow_nom = 0.28, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe189_191(d = 0.032, m_flow_nom = 0.28, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {-178, -488})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split97 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 180, origin = {-172, -460})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join97 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 0, origin = {-196, -460})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe189_192R(d = 0.032, m_flow_nom = 0.56, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe189_192R(d = 0.032, m_flow_nom = 0.56, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-234, -430}, {-214, -410}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe189_192(d = 0.032, m_flow_nom = 0.56, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe189_192(d = 0.032, m_flow_nom = 0.56, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-214, -444}, {-234, -424}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe185_188R(d = 0.04, m_flow_nom = 0.98, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe185_188R(d = 0.04, m_flow_nom = 0.98, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-136, -428}, {-116, -408}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe185_188(d = 0.04, m_flow_nom = 0.98, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe185_188(d = 0.04, m_flow_nom = 0.98, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-116, -444}, {-136, -424}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join98 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 0, origin = {-264, -392})));
@@ -1234,13 +1239,13 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 270, origin = {-90, -520})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_91(multiplicationFactor = 2*3.4, m_flow_nom = 0.28, Q_flow_nom(displayUnit = "kW") = 35000) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 90, origin = {-100, -336})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe184_186(d = 0.032, m_flow_nom = 0.28, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe184_186(d = 0.032, m_flow_nom = 0.28, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 270, origin = {-104, -364})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe184_186R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe184_186R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {-90, -364})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe185_187R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe185_187R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-104, -490})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe185_187(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe185_187(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {-86, -490})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split100 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 180, origin = {-80, -462})));
@@ -1254,33 +1259,33 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 270, origin = {-374, -1366})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_123(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 90, origin = {-384, -1182})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe244_246(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe244_246(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 270, origin = {-388, -1212})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe244_246R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe244_246R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {-374, -1212})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe244_245R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe244_245R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-388, -1338})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe244_245(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe244_245(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {-370, -1338})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split95 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 180, origin = {-364, -1308})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join95 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 0, origin = {-388, -1308})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe241_244R(d = 0.032, m_flow_nom = 0.28, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe241_244R(d = 0.032, m_flow_nom = 0.28, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-354, -1278}, {-334, -1258}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe241_244(d = 0.032, m_flow_nom = 0.28, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe241_244(d = 0.032, m_flow_nom = 0.28, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-336, -1298}, {-356, -1278}})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_119(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 270, origin = {-242, -1368})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_118(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 90, origin = {-252, -1184})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe236_238(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe236_238(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 270, origin = {-256, -1214})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe236_238R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe236_238R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {-242, -1214})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe237_239R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe237_239R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-256, -1340})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe237_239(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe237_239(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {-238, -1340})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split102 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 180, origin = {-232, -1310})));
@@ -1290,25 +1295,25 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 270, origin = {-154, -1368})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_116(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 90, origin = {-164, -1184})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe232_234(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe232_234(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 270, origin = {-168, -1214})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe232_234R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe232_234R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {-154, -1214})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe233_235R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe233_235R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-168, -1340})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe233_235(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe233_235(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {-150, -1340})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split103 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 180, origin = {-144, -1310})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join103 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 0, origin = {-168, -1310})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe233_236R(d = 0.045, m_flow_nom = 0.84, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe233_236R(d = 0.045, m_flow_nom = 0.84, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-206, -1280}, {-186, -1260}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe233_236(d = 0.045, m_flow_nom = 0.84, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe233_236(d = 0.045, m_flow_nom = 0.84, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-186, -1294}, {-206, -1274}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe229_232R(d = 0.045, m_flow_nom = 1.12, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe229_232R(d = 0.045, m_flow_nom = 1.12, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-104, -1280}, {-84, -1260}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe229_232(d = 0.045, m_flow_nom = 1.12, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe229_232(d = 0.045, m_flow_nom = 1.12, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-84, -1296}, {-104, -1276}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join104 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 0, origin = {-230, -1242})));
@@ -1322,13 +1327,13 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 270, origin = {-62, -1370})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_114(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 90, origin = {-72, -1186})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe228_230(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe228_230(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 270, origin = {-76, -1216})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe228_230R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe228_230R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {-62, -1216})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe229_231R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe229_231R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-76, -1342})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe229_231(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe229_231(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {-58, -1342})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split106 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 180, origin = {-52, -1312})));
@@ -1342,21 +1347,21 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 270, origin = {-318, -1366})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_120(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 90, origin = {-328, -1182})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe240_242(d = 0.02, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe240_242(d = 0.02, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 270, origin = {-332, -1212})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe240_242R(d = 0.02, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe240_242R(d = 0.02, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {-318, -1212})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe241_243R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe241_243R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-332, -1338})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe241_243(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe241_243(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {-314, -1338})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split108 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 180, origin = {-308, -1308})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join108 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 0, origin = {-332, -1308})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe237_240R(d = 0.032, m_flow_nom = 0.56, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe237_240R(d = 0.032, m_flow_nom = 0.56, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-286, -1278}, {-266, -1258}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe237_240(d = 0.032, m_flow_nom = 0.56, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe237_240(d = 0.032, m_flow_nom = 0.56, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-266, -1300}, {-286, -1280}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join109 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 0, origin = {-306, -1240})));
@@ -1364,9 +1369,9 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 180, origin = {-332, -1242})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_81(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 0, origin = {92, 122})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe160_162(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe160_162(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{52, 116}, {72, 136}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe160_162R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe160_162R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{72, 102}, {52, 122}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split110 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {36, 126})));
@@ -1374,9 +1379,9 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {36, 100})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_82(multiplicationFactor = 2*3.4, m_flow_nom = 0.28, Q_flow_nom(displayUnit = "kW") = 35000) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 180, origin = {-96, 117})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe161_163R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe161_163R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-74, 117}, {-54, 136}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe161_163(d = 0.032, m_flow_nom = 0.28, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe161_163(d = 0.032, m_flow_nom = 0.28, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-54, 103}, {-74, 122}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split111 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {-38, 102})));
@@ -1386,15 +1391,15 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 270, origin = {8, 154})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe80_160R(d = 0.1, m_flow_nom = 11.71, l = 25, MassFlowState = false) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {-10, 154})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe161_164(d = 0.15, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe161_164(d = 0.15, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 270, origin = {10, 72})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe161_164R(d = 0.125, m_flow_nom = 12.13, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe161_164R(d = 0.125, m_flow_nom = 12.13, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {-8, 72})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_83(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 0, origin = {92, 34})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe164_166(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe164_166(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{52, 28}, {72, 48}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe164_166R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe164_166R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{72, 14}, {52, 34}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split112 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {36, 38})));
@@ -1402,23 +1407,23 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {36, 12})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_84(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 180, origin = {-96, 29})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe165_167R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe165_167R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-74, 29}, {-54, 48}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe165_167(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe165_167(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-54, 15}, {-74, 34}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split113 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {-38, 14})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join113 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-38, 39})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe165_168(d = 0.125, m_flow_nom = 12.41, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe165_168(d = 0.125, m_flow_nom = 12.41, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 270, origin = {10, -16})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe165_168R(d = 0.125, m_flow_nom = 12.41, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe165_168R(d = 0.125, m_flow_nom = 12.41, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {-8, -16})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_85(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 0, origin = {94, -56})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe168_170(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe168_170(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{54, -62}, {74, -42}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe168_170R(d = 0.02, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe168_170R(d = 0.02, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{74, -76}, {54, -56}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split114 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {38, -52})));
@@ -1426,23 +1431,23 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {38, -80})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_86(multiplicationFactor = 2*3.4, m_flow_nom = 0.28, Q_flow_nom(displayUnit = "kW") = 35000) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 180, origin = {-94, -61})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe169_171R(d = 0.02, m_flow_nom = 0.283, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe169_171R(d = 0.02, m_flow_nom = 0.283, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-72, -61}, {-52, -42}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe169_171(d = 0.02, m_flow_nom = 0.283, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe169_171(d = 0.02, m_flow_nom = 0.283, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-52, -75}, {-72, -56}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split115 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {-36, -76})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join115 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-36, -51})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe169_172(d = 0.125, m_flow_nom = 12.83, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe169_172(d = 0.125, m_flow_nom = 12.83, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 270, origin = {12, -106})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe169_172R(d = 0.125, m_flow_nom = 12.83, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe169_172R(d = 0.125, m_flow_nom = 12.83, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {-6, -106})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_87(multiplicationFactor = 2*3.4, m_flow_nom = 0.28, Q_flow_nom(displayUnit = "kW") = 35000) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 0, origin = {98, -212})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe174_176(d = 0.032, m_flow_nom = 0.28, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe174_176(d = 0.032, m_flow_nom = 0.28, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{58, -218}, {78, -198}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe174_176R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe174_176R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{78, -232}, {58, -212}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split116 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {42, -208})));
@@ -1450,23 +1455,23 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {42, -234})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_88(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 180, origin = {-90, -217})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe175_177R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe175_177R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-68, -217}, {-48, -198}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe175_177(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe175_177(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-48, -231}, {-68, -212}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split117 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {-32, -232})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join117 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-32, -207})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe175_178(d = 0.1, m_flow_nom = 11.02, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe175_178(d = 0.1, m_flow_nom = 11.02, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {16, -262})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe175_178R(d = 0.1, m_flow_nom = 11.02, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe175_178R(d = 0.1, m_flow_nom = 11.02, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-2, -262})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_89(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 0, origin = {100, -302})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe178_180(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe178_180(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{60, -308}, {80, -288}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe178_180R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe178_180R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{80, -322}, {60, -302}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split118 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {44, -298})));
@@ -1474,41 +1479,41 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {44, -324})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_90(multiplicationFactor = 2*3.4, m_flow_nom = 0.28, Q_flow_nom(displayUnit = "kW") = 35000) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 180, origin = {-88, -307})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe179_181R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe179_181R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-66, -307}, {-46, -288}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe179_181(d = 0.032, m_flow_nom = 0.28, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe179_181(d = 0.032, m_flow_nom = 0.28, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-46, -321}, {-66, -302}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split119 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {-30, -322})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join119 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-30, -297})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe179_182(d = 0.1, m_flow_nom = 10.6, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe179_182(d = 0.1, m_flow_nom = 10.6, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {18, -352})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe179_182R(d = 0.1, m_flow_nom = 10.6, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe179_182R(d = 0.1, m_flow_nom = 10.6, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {0, -352})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe183_209(d = 0.08, m_flow_nom = 4.88, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe183_209(d = 0.08, m_flow_nom = 4.88, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {20, -586})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe183_209R(d = 0.08, m_flow_nom = 4.88, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe183_209R(d = 0.08, m_flow_nom = 4.88, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {2, -586})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_105(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 0, origin = {102, -624})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe209_210(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe209_210(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{62, -630}, {82, -610}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe209_210R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe209_210R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{82, -644}, {62, -624}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split120 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {46, -620})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join120 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {46, -646})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe209_211(d = 0.08, m_flow_nom = 4.74, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe209_211(d = 0.08, m_flow_nom = 4.74, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {22, -674})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe209_211R(d = 0.08, m_flow_nom = 4.74, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe209_211R(d = 0.08, m_flow_nom = 4.74, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {4, -674})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_106(multiplicationFactor = 2*3.4, m_flow_nom = 0.28, Q_flow_nom(displayUnit = "kW") = 35000) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 0, origin = {104, -714})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe211_213(d = 0.032, m_flow_nom = 0.28, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe211_213(d = 0.032, m_flow_nom = 0.28, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{64, -720}, {84, -700}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe211_213R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe211_213R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{84, -734}, {64, -714}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split122 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {48, -710})));
@@ -1516,23 +1521,23 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {48, -736})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_107(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 180, origin = {-84, -719})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe212_214R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe212_214R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-62, -719}, {-42, -700}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe212_214(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe212_214(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-42, -733}, {-62, -714}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split123 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {-26, -734})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join123 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-26, -709})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe212_215(d = 0.08, m_flow_nom = 4.32, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe212_215(d = 0.08, m_flow_nom = 4.32, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {24, -764})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe212_215R(d = 0.08, m_flow_nom = 4.32, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe212_215R(d = 0.08, m_flow_nom = 4.32, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {6, -764})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_108(multiplicationFactor = 2*3.4, m_flow_nom = 0.28, Q_flow_nom(displayUnit = "kW") = 35000) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 0, origin = {104, -802})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe215_217(d = 0.032, m_flow_nom = 0.28, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe215_217(d = 0.032, m_flow_nom = 0.28, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{64, -808}, {84, -788}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe215_217R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe215_217R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{84, -822}, {64, -802}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split124 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {48, -798})));
@@ -1540,23 +1545,23 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {48, -824})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_109(multiplicationFactor = 2*3.4, m_flow_nom = 0.28, Q_flow_nom(displayUnit = "kW") = 35000) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 180, origin = {-84, -807})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe216_218R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe216_218R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-62, -807}, {-42, -788}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe216_218(d = 0.032, m_flow_nom = 0.28, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe216_218(d = 0.032, m_flow_nom = 0.28, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-42, -821}, {-62, -802}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split125 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {-26, -822})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join125 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-26, -797})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe216_219(d = 0.065, m_flow_nom = 3.76, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe216_219(d = 0.065, m_flow_nom = 3.76, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {24, -852})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe216_219R(d = 0.065, m_flow_nom = 3.76, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe216_219R(d = 0.065, m_flow_nom = 3.76, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {6, -852})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_110(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 0, origin = {108, -896})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe219_221(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe219_221(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{68, -902}, {88, -882}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe219_221R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe219_221R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{88, -916}, {68, -896}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split126 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {52, -892})));
@@ -1564,23 +1569,23 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {52, -918})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_111(multiplicationFactor = 2*3.4, m_flow_nom = 0.28, Q_flow_nom(displayUnit = "kW") = 35000) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 180, origin = {-80, -901})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe220_222R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe220_222R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-58, -901}, {-38, -882}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe220_222(d = 0.032, m_flow_nom = 0.28, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe220_222(d = 0.032, m_flow_nom = 0.28, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-38, -915}, {-58, -896}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split127 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {-22, -916})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join127 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-22, -891})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe220_223(d = 0.065, m_flow_nom = 3.35, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe220_223(d = 0.065, m_flow_nom = 3.35, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {26, -946})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe220_223R(d = 0.065, m_flow_nom = 3.35, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe220_223R(d = 0.065, m_flow_nom = 3.35, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {10, -946})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_112(multiplicationFactor = 2*3.4, m_flow_nom = 0.28, Q_flow_nom(displayUnit = "kW") = 35000) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 0, origin = {108, -984})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe223_225(d = 0.032, m_flow_nom = 0.28, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe223_225(d = 0.032, m_flow_nom = 0.28, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{68, -990}, {88, -970}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe223_225R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe223_225R(d = 0.032, m_flow_nom = 0.28, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{88, -1004}, {68, -984}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split128 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {52, -980})));
@@ -1588,9 +1593,9 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {52, -1006})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_113(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 180, origin = {-80, -989})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe224_226R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe224_226R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-58, -989}, {-38, -970}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe224_226(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe224_226(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-38, -1003}, {-58, -984}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split129 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {-22, -1004})));
@@ -1600,13 +1605,13 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 180, origin = {12, -156})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split130 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 0, origin = {-6, -136})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe224_227R(d = 0.065, m_flow_nom = 2.93, l = 50, MassFlowState = false, N_cv = 10) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe224_227R(d = 0.065, m_flow_nom = 2.93, l = 50, MassFlowState = false, useInput=true, N_cv= 10) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {8, -1060})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe224_227(d = 0.065, m_flow_nom = 2.93, l = 50, MassFlowState = false, N_cv = 10) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe224_227(d = 0.065, m_flow_nom = 2.93, l = 50, MassFlowState = false, useInput=true, N_cv= 10) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {28, -1060})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe172_174R(d = 0.1, m_flow_nom = 11.43, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe172_174R(d = 0.1, m_flow_nom = 11.43, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-6, -190})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe172_174(d = 0.1, m_flow_nom = 11.43, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe172_174(d = 0.1, m_flow_nom = 11.43, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {12, -190})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split131 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 180, origin = {22, -402})));
@@ -1620,21 +1625,21 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {16, -1265})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split133 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {34, -1286})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe227_228R(d = 0.045, m_flow_nom = 1.4, l = 50, MassFlowState = false, N_cv = 10) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe227_228R(d = 0.045, m_flow_nom = 1.4, l = 50, MassFlowState = false, useInput=true, N_cv= 10) annotation (
     Placement(transformation(extent = {{-22, -1282}, {-2, -1262}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe227_228(d = 0.045, m_flow_nom = 1.4, l = 50, MassFlowState = false, N_cv = 10) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe227_228(d = 0.045, m_flow_nom = 1.4, l = 50, MassFlowState = false, useInput=true, N_cv= 10) annotation (
     Placement(transformation(extent = {{-2, -1298}, {-22, -1278}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe183_184R(d = 0.05, m_flow_nom = 1.4, l = 50, MassFlowState = false, N_cv = 10) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe183_184R(d = 0.05, m_flow_nom = 1.4, l = 50, MassFlowState = false, useInput=true, N_cv= 10) annotation (
     Placement(transformation(extent = {{-52, -428}, {-32, -408}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe183_184(d = 0.05, m_flow_nom = 1.4, l = 50, MassFlowState = false, N_cv = 10) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe183_184(d = 0.05, m_flow_nom = 1.4, l = 50, MassFlowState = false, useInput=true, N_cv= 10) annotation (
     Placement(transformation(extent = {{-32, -444}, {-52, -424}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split134 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 180, origin = {278, -396})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join134 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 0, origin = {312, -396})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe266_267R(d = 0.065, m_flow_nom = 3.21, delta_p_nom = 150, l = 100, L = 3e6, MassFlowState = true, N_cv = 20) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe266_267R(d = 0.065, m_flow_nom = 3.21, delta_p_nom = 150, l = 100, L = 3e6, MassFlowState = true, useInput=true, N_cv= 20) annotation (
     Placement(transformation(extent = {{446, -454}, {426, -434}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe266_267(d = 0.065, m_flow_nom = 3.21, delta_p_nom = 150, l = 100, L = 3e6, MassFlowState = true, N_cv = 20) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe266_267(d = 0.065, m_flow_nom = 3.21, delta_p_nom = 150, l = 100, L = 3e6, MassFlowState = true, useInput=true, N_cv= 20) annotation (
     Placement(transformation(extent = {{426, -478}, {446, -458}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split135 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 0, origin = {642, -526})));
@@ -1642,9 +1647,9 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 180, origin = {658, -528})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_32(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 0, origin = {-460, 174})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe61_63(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe61_63(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-500, 168}, {-480, 188}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 simplePipe_L4_122(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 simplePipe_L4_122(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-480, 154}, {-500, 174}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split30 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {-516, 178})));
@@ -1652,42 +1657,43 @@ model Smallscale_DHN "An example DHN model for the simulation in OpenModelica"
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-516, 152})));
   TransiEnt.Consumer.Heat.Consumer_SLP consumer_31(multiplicationFactor = 3.4, m_flow_nom = 0.14, Q_flow_nom(displayUnit = "kW") = 17500) annotation (
     Placement(transformation(extent = {{-12, -10}, {12, 10}}, rotation = 180, origin = {-648, 169})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe60_62R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe60_62R(d = 0.02, m_flow_nom = 0.14, l = 30, MassFlowState = false, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-626, 169}, {-606, 188}})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe60_62(d = 0.02, m_flow_nom = 0.14, l = 30, N_cv = 6) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe60_62(d = 0.02, m_flow_nom = 0.14, l = 30, useInput=true, N_cv= 6) annotation (
     Placement(transformation(extent = {{-606, 155}, {-626, 174}})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Split split39 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 270, origin = {-590, 154})));
   TransiEnt.Components.Heat.VolumesValvesFittings.Fittings.Join join40 annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-590, 179})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe57_60(d = 0.08, m_flow_nom = 5.3, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe57_60(d = 0.08, m_flow_nom = 5.3, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 90, origin = {-540, 124})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe57_60R(d = 0.08, m_flow_nom = 5.3, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe57_60R(d = 0.08, m_flow_nom = 5.3, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 90, origin = {-558, 124})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe172_173(d = 0.15, m_flow_nom = 24.64, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe172_173(d = 0.15, m_flow_nom = 24.64, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{-10, -10}, {10, 10}}, rotation = 0, origin = {-72, -136})));
-  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe172_173R(d = 0.15, m_flow_nom = 24.64, l = 25, MassFlowState = false, N_cv = 5) annotation (
+  TransiEnt.Components.Heat.VolumesValvesFittings.Pipes.DHN_Pipe_L4 pipe172_173R(d = 0.15, m_flow_nom = 24.64, l = 25, MassFlowState = false, useInput=true, N_cv= 5) annotation (
     Placement(transformation(extent = {{10, -10}, {-10, 10}}, rotation = 0, origin = {-72, -156})));
-  TransiEnt.Components.Boundaries.FluidFlow.FluidSink sink annotation (
-    Placement(transformation(extent = {{-298, -16}, {-278, 4}})));
-  Modelica.Blocks.Sources.RealExpression realExpression(y = 6e5) annotation (
-    Placement(transformation(extent = {{-324, -16}, {-304, 4}})));
-  Modelica.Blocks.Sources.RealExpression realExpression9(y = heatpump1.inlet.m_flow*((4186*(T_s - 273.15)) - inStream(heatpump1.inlet.h_outflow))) annotation (
-    Placement(transformation(extent = {{-340, -146}, {-320, -126}})));
-  Modelica.Blocks.Sources.RealExpression realExpression6(y = 0.1e5) annotation (
-    Placement(transformation(extent = {{-290, -48}, {-270, -28}})));
-  Modelica.Blocks.Sources.RealExpression realExpression7(y = (consumer_1.inlet.p - consumer_1.outlet.p)) annotation (
-    Placement(transformation(extent = {{-280, -70}, {-260, -50}})));
+  TransiEnt.Components.Boundaries.FluidFlow.FluidSink ReturnPressureBoundary annotation (Placement(transformation(extent={{-298,-16},{-278,4}})));
+  Modelica.Blocks.Sources.RealExpression ConstantReturnPressure(y=6e5) annotation (Placement(transformation(extent={{-324,-16},{-304,4}})));
+  Modelica.Blocks.Sources.RealExpression HeatFlowRate_Input(y=heatpump1.inlet.m_flow*((4186*(T_s - 273.15)) - inStream(heatpump1.inlet.h_outflow))) annotation (Placement(transformation(extent={{-340,-146},{-320,-126}})));
+  Modelica.Blocks.Sources.RealExpression MinPressureDifference(y=0.1e5) annotation (Placement(transformation(extent={{-290,-48},{-270,-28}})));
+  Modelica.Blocks.Sources.RealExpression MeasPressureDifference(y=(consumer_1.inlet.p - consumer_1.outlet.p)) annotation (Placement(transformation(extent={{-280,-70},{-260,-50}})));
   Modelica.Blocks.Continuous.LimPID PID(controllerType = Modelica.Blocks.Types.SimpleController.PI, k = 10, Ti = 1000, yMax = 24e5, yMin = 0.0001) annotation (
     Placement(transformation(extent = {{-260, -48}, {-240, -28}})));
   TransiEnt.Producer.Heat.Power2Heat.Heatpump.Heatpump_DHN heatpump1(P_el_max(displayUnit = "MW") = 200000000, P_el_min = 0.00001) annotation (
-    Placement(transformation(extent = {{-300, -172}, {-230, -102}})));
-  Modelica.Blocks.Sources.RealExpression realExpression3(y=T_s)            annotation (
-    Placement(transformation(extent = {{-300, -84}, {-280, -64}})));
-  Modelica.Blocks.Sources.Step step(height = 10, offset = 60, startTime = 86400) annotation (
-    Placement(transformation(extent = {{-366, -80}, {-346, -60}})));
-  Modelica.Blocks.Sources.CombiTimeTable T_amb(tableOnFile = true, tableName = "default", fileName = path, smoothness = Modelica.Blocks.Types.Smoothness.ContinuousDerivative, timeScale = 3600) annotation (
+    Placement(transformation(extent={{-300,-170},{-230,-100}})));
+  Modelica.Blocks.Sources.RealExpression SupplyTemperature(y=T_s) annotation (Placement(transformation(extent={{-316,-86},{-296,-66}})));
+  Modelica.Blocks.Sources.CombiTimeTable T_amb(tableOnFile = true, tableName = "default",
+    fileName=pathOutdoor,                                                                                  smoothness = Modelica.Blocks.Types.Smoothness.ContinuousDerivative, timeScale = 3600) annotation (
     Placement(transformation(extent = {{-368, -16}, {-348, 4}})));
+  Modelica.Blocks.Sources.CombiTimeTable T_soil_C(
+    tableOnFile=true,
+    tableName="tab1",
+    fileName=pathSoil,
+    smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative,
+    timeScale=3600) annotation (Placement(transformation(extent={{-368,40},{-348,60}})));
+  Modelica.Blocks.Math.Add T_soil annotation (Placement(transformation(extent={{-318,30},{-302,46}})));
+  Modelica.Blocks.Sources.RealExpression Kelvin(y=273.15) annotation (Placement(transformation(extent={{-366,16},{-346,36}})));
 equation
   T_s = max(a*T_amb.y[1] + b, T_s_min) + 273.15;
   connect(consumer_34.inlet, pipe65_67.outlet) annotation (
@@ -3578,36 +3584,452 @@ equation
     Line(points = {{-62, -136}, {-16, -136}}, color = {0, 0, 0}));
   connect(pipe172_173R.inlet, join130.outlet) annotation (
     Line(points = {{-62, -156}, {2, -156}}, color = {0, 0, 0}));
-  connect(sink.p_in, realExpression.y) annotation (
-    Line(points = {{-296, -6}, {-303, -6}}, color = {0, 0, 127}));
+  connect(ReturnPressureBoundary.p_in, ConstantReturnPressure.y) annotation (Line(points={{-296,-6},{-303,-6}}, color={0,0,127}));
   connect(PID.y, heatpump1.dp) annotation (
-    Line(points = {{-239, -38}, {-214, -38}, {-214, -102}, {-265, -102}}, color = {0, 0, 127}));
-  connect(realExpression6.y, PID.u_s) annotation (
-    Line(points = {{-269, -38}, {-262, -38}}, color = {0, 0, 127}));
-  connect(realExpression7.y, PID.u_m) annotation (
-    Line(points = {{-259, -60}, {-250, -60}, {-250, -50}}, color = {0, 0, 127}));
-  connect(realExpression3.y, heatpump1.T_set_variable) annotation (
-    Line(points = {{-279, -74}, {-279, -102}}, color = {0, 0, 127}));
-  connect(realExpression9.y, heatpump1.Q_flow_set) annotation (
-    Line(points = {{-319, -136}, {-306, -136}, {-306, -137}, {-293, -137}}, color = {0, 0, 127}));
+    Line(points={{-239,-38},{-224,-38},{-224,-74},{-266,-74},{-266,-100},{-265,-100}},
+                                                                          color = {0, 0, 127}));
+  connect(MinPressureDifference.y, PID.u_s) annotation (Line(points={{-269,-38},{-262,-38}}, color={0,0,127}));
+  connect(MeasPressureDifference.y, PID.u_m) annotation (Line(points={{-259,-60},{-250,-60},{-250,-50}}, color={0,0,127}));
+  connect(SupplyTemperature.y, heatpump1.T_set_variable) annotation (Line(points={{-295,-76},{-279,-76},{-279,-100}}, color={0,0,127}));
+  connect(HeatFlowRate_Input.y, heatpump1.Q_flow_set) annotation (Line(points={{-319,-136},{-306,-136},{-306,-135},{-293,-135}}, color={0,0,127}));
   connect(heatpump1.outlet, pipe172_173.inlet) annotation (
-    Line(points = {{-230.7, -116}, {-116, -116}, {-116, -136}, {-82, -136}}, color = {0, 0, 0}));
+    Line(points={{-230.7,-114},{-116,-114},{-116,-136},{-82,-136}},          color = {0, 0, 0}));
   connect(heatpump1.inlet, pipe172_173R.outlet) annotation (
-    Line(points = {{-230, -158.7}, {-184, -158.7}, {-184, -156}, {-82, -156}}, color = {0, 0, 0}));
-  connect(sink.port_a, pipe172_173R.outlet) annotation (
-    Line(points = {{-278, -6}, {-184, -6}, {-184, -158}, {-186, -158}, {-186, -158.7}, {-184, -158.7}, {-184, -156}, {-82, -156}}, color = {0, 0, 0}));
+    Line(points={{-230,-156.7},{-184,-156.7},{-184,-156},{-82,-156}},          color = {0, 0, 0}));
+  connect(ReturnPressureBoundary.port_a, pipe172_173R.outlet) annotation (Line(points={{-278,-6},{-184,-6},{-184,-158},{-186,-158},{-186,-158.7},{-184,-158.7},{-184,-156},{-82,-156}}, color={0,0,0}));
+  // Connect soil temperature to all pipes
+  connect(T_soil.y, pipe101_103.soilTemp);
+  connect(T_soil.y, pipe101_103R.soilTemp);
+  connect(T_soil.y, pipe102_104.soilTemp);
+  connect(T_soil.y, pipe102_104R.soilTemp);
+  connect(T_soil.y, pipe102_105.soilTemp);
+  connect(T_soil.y, pipe102_105R.soilTemp);
+  connect(T_soil.y, pipe105_107.soilTemp);
+  connect(T_soil.y, pipe105_107R.soilTemp);
+  connect(T_soil.y, pipe106_108.soilTemp);
+  connect(T_soil.y, pipe106_108R.soilTemp);
+  connect(T_soil.y, pipe106_109.soilTemp);
+  connect(T_soil.y, pipe106_109R.soilTemp);
+  connect(T_soil.y, pipe109_111.soilTemp);
+  connect(T_soil.y, pipe109_111R.soilTemp);
+  connect(T_soil.y, pipe110_112.soilTemp);
+  connect(T_soil.y, pipe110_112R.soilTemp);
+  connect(T_soil.y, pipe110_113.soilTemp);
+  connect(T_soil.y, pipe110_113R.soilTemp);
+  connect(T_soil.y, pipe113_115.soilTemp);
+  connect(T_soil.y, pipe113_115R.soilTemp);
+  connect(T_soil.y, pipe114_116.soilTemp);
+  connect(T_soil.y, pipe114_116R.soilTemp);
+  connect(T_soil.y, pipe114_117.soilTemp);
+  connect(T_soil.y, pipe114_117R.soilTemp);
+  connect(T_soil.y, pipe117_119.soilTemp);
+  connect(T_soil.y, pipe117_199R.soilTemp);
+  connect(T_soil.y, pipe118_120.soilTemp);
+  connect(T_soil.y, pipe118_120R.soilTemp);
+  connect(T_soil.y, pipe118_121.soilTemp);
+  connect(T_soil.y, pipe118_121R.soilTemp);
+  connect(T_soil.y, pipe121_123.soilTemp);
+  connect(T_soil.y, pipe121_123R.soilTemp);
+  connect(T_soil.y, pipe122_124.soilTemp);
+  connect(T_soil.y, pipe122_124R.soilTemp);
+  connect(T_soil.y, pipe122_125.soilTemp);
+  connect(T_soil.y, pipe122_125R.soilTemp);
+  connect(T_soil.y, pipe125_127.soilTemp);
+  connect(T_soil.y, pipe125_127R.soilTemp);
+  connect(T_soil.y, pipe126_128.soilTemp);
+  connect(T_soil.y, pipe126_128R.soilTemp);
+  connect(T_soil.y, pipe126_129.soilTemp);
+  connect(T_soil.y, pipe126_129R.soilTemp);
+  connect(T_soil.y, pipe129_131.soilTemp);
+  connect(T_soil.y, pipe129_131R.soilTemp);
+  connect(T_soil.y, pipe12_14.soilTemp);
+  connect(T_soil.y, pipe12_14R.soilTemp);
+  connect(T_soil.y, pipe130_132.soilTemp);
+  connect(T_soil.y, pipe130_132R.soilTemp);
+  connect(T_soil.y, pipe130_133.soilTemp);
+  connect(T_soil.y, pipe130_133R.soilTemp);
+  connect(T_soil.y, pipe133_135.soilTemp);
+  connect(T_soil.y, pipe133_135R.soilTemp);
+  connect(T_soil.y, pipe134_136.soilTemp);
+  connect(T_soil.y, pipe134_136R.soilTemp);
+  connect(T_soil.y, pipe134_137.soilTemp);
+  connect(T_soil.y, pipe134_137R.soilTemp);
+  connect(T_soil.y, pipe137_139.soilTemp);
+  connect(T_soil.y, pipe137_139R.soilTemp);
+  connect(T_soil.y, pipe138_140.soilTemp);
+  connect(T_soil.y, pipe138_140R.soilTemp);
+  connect(T_soil.y, pipe138_141.soilTemp);
+  connect(T_soil.y, pipe13_15.soilTemp);
+  connect(T_soil.y, pipe13_15R.soilTemp);
+  connect(T_soil.y, pipe13_16.soilTemp);
+  connect(T_soil.y, pipe13_16R.soilTemp);
+  connect(T_soil.y, pipe141_143.soilTemp);
+  connect(T_soil.y, pipe141_143R.soilTemp);
+  connect(T_soil.y, pipe142_144.soilTemp);
+  connect(T_soil.y, pipe142_144R.soilTemp);
+  connect(T_soil.y, pipe142_145.soilTemp);
+  connect(T_soil.y, pipe142_145R.soilTemp);
+  connect(T_soil.y, pipe145_147.soilTemp);
+  connect(T_soil.y, pipe145_147R.soilTemp);
+  connect(T_soil.y, pipe146_148.soilTemp);
+  connect(T_soil.y, pipe146_148R.soilTemp);
+  connect(T_soil.y, pipe146_149.soilTemp);
+  connect(T_soil.y, pipe146_149R.soilTemp);
+  connect(T_soil.y, pipe149_151.soilTemp);
+  connect(T_soil.y, pipe149_151R.soilTemp);
+  connect(T_soil.y, pipe150_152.soilTemp);
+  connect(T_soil.y, pipe150_152R.soilTemp);
+  connect(T_soil.y, pipe150_153.soilTemp);
+  connect(T_soil.y, pipe150_153R.soilTemp);
+  connect(T_soil.y, pipe153_155.soilTemp);
+  connect(T_soil.y, pipe153_155R.soilTemp);
+  connect(T_soil.y, pipe154_156.soilTemp);
+  connect(T_soil.y, pipe154_156R.soilTemp);
+  connect(T_soil.y, pipe154_157.soilTemp);
+  connect(T_soil.y, pipe154_157R.soilTemp);
+  connect(T_soil.y, pipe157_158.soilTemp);
+  connect(T_soil.y, pipe157_158R.soilTemp);
+  connect(T_soil.y, pipe157_159.soilTemp);
+  connect(T_soil.y, pipe157_159R.soilTemp);
+  connect(T_soil.y, pipe160_162.soilTemp);
+  connect(T_soil.y, pipe160_162R.soilTemp);
+  connect(T_soil.y, pipe161_163.soilTemp);
+  connect(T_soil.y, pipe161_163R.soilTemp);
+  connect(T_soil.y, pipe161_164.soilTemp);
+  connect(T_soil.y, pipe161_164R.soilTemp);
+  connect(T_soil.y, pipe164_166.soilTemp);
+  connect(T_soil.y, pipe164_166R.soilTemp);
+  connect(T_soil.y, pipe165_167.soilTemp);
+  connect(T_soil.y, pipe165_167R.soilTemp);
+  connect(T_soil.y, pipe165_168.soilTemp);
+  connect(T_soil.y, pipe165_168R.soilTemp);
+  connect(T_soil.y, pipe168_170.soilTemp);
+  connect(T_soil.y, pipe168_170R.soilTemp);
+  connect(T_soil.y, pipe169_171.soilTemp);
+  connect(T_soil.y, pipe169_171R.soilTemp);
+  connect(T_soil.y, pipe169_172.soilTemp);
+  connect(T_soil.y, pipe169_172R.soilTemp);
+  connect(T_soil.y, pipe16_18.soilTemp);
+  connect(T_soil.y, pipe16_18R.soilTemp);
+  connect(T_soil.y, pipe172_173.soilTemp);
+  connect(T_soil.y, pipe172_173R.soilTemp);
+  connect(T_soil.y, pipe172_174.soilTemp);
+  connect(T_soil.y, pipe172_174R.soilTemp);
+  connect(T_soil.y, pipe174_176.soilTemp);
+  connect(T_soil.y, pipe174_176R.soilTemp);
+  connect(T_soil.y, pipe175_177.soilTemp);
+  connect(T_soil.y, pipe175_177R.soilTemp);
+  connect(T_soil.y, pipe175_178.soilTemp);
+  connect(T_soil.y, pipe175_178R.soilTemp);
+  connect(T_soil.y, pipe178_180.soilTemp);
+  connect(T_soil.y, pipe178_180R.soilTemp);
+  connect(T_soil.y, pipe179_181.soilTemp);
+  connect(T_soil.y, pipe179_181R.soilTemp);
+  connect(T_soil.y, pipe179_182.soilTemp);
+  connect(T_soil.y, pipe179_182R.soilTemp);
+  connect(T_soil.y, pipe17_19.soilTemp);
+  connect(T_soil.y, pipe17_19R.soilTemp);
+  connect(T_soil.y, pipe17_20.soilTemp);
+  connect(T_soil.y, pipe17_20R.soilTemp);
+  connect(T_soil.y, pipe182_199.soilTemp);
+  connect(T_soil.y, pipe182_199R.soilTemp);
+  connect(T_soil.y, pipe183_184.soilTemp);
+  connect(T_soil.y, pipe183_184R.soilTemp);
+  connect(T_soil.y, pipe183_209.soilTemp);
+  connect(T_soil.y, pipe183_209R.soilTemp);
+  connect(T_soil.y, pipe184_186.soilTemp);
+  connect(T_soil.y, pipe184_186R.soilTemp);
+  connect(T_soil.y, pipe185_187.soilTemp);
+  connect(T_soil.y, pipe185_187R.soilTemp);
+  connect(T_soil.y, pipe185_188.soilTemp);
+  connect(T_soil.y, pipe185_188R.soilTemp);
+  connect(T_soil.y, pipe188_190.soilTemp);
+  connect(T_soil.y, pipe188_190R.soilTemp);
+  connect(T_soil.y, pipe189_191.soilTemp);
+  connect(T_soil.y, pipe189_191R.soilTemp);
+  connect(T_soil.y, pipe189_192.soilTemp);
+  connect(T_soil.y, pipe189_192R.soilTemp);
+  connect(T_soil.y, pipe18_141R.soilTemp);
+  connect(T_soil.y, pipe192_194.soilTemp);
+  connect(T_soil.y, pipe192_194R.soilTemp);
+  connect(T_soil.y, pipe193_195.soilTemp);
+  connect(T_soil.y, pipe193_195R.soilTemp);
+  connect(T_soil.y, pipe193_196.soilTemp);
+  connect(T_soil.y, pipe193_196R.soilTemp);
+  connect(T_soil.y, pipe196_197.soilTemp);
+  connect(T_soil.y, pipe196_197R.soilTemp);
+  connect(T_soil.y, pipe196_198.soilTemp);
+  connect(T_soil.y, pipe196_198R.soilTemp);
+  connect(T_soil.y, pipe199_201.soilTemp);
+  connect(T_soil.y, pipe199_201R.soilTemp);
+  connect(T_soil.y, pipe1_2.soilTemp);
+  connect(T_soil.y, pipe1_2R.soilTemp);
+  connect(T_soil.y, pipe200_202.soilTemp);
+  connect(T_soil.y, pipe200_202R.soilTemp);
+  connect(T_soil.y, pipe200_203.soilTemp);
+  connect(T_soil.y, pipe200_203R.soilTemp);
+  connect(T_soil.y, pipe203_205.soilTemp);
+  connect(T_soil.y, pipe203_205R.soilTemp);
+  connect(T_soil.y, pipe204_206.soilTemp);
+  connect(T_soil.y, pipe204_206R.soilTemp);
+  connect(T_soil.y, pipe204_207.soilTemp);
+  connect(T_soil.y, pipe204_207R.soilTemp);
+  connect(T_soil.y, pipe207_208.soilTemp);
+  connect(T_soil.y, pipe207_208R.soilTemp);
+  connect(T_soil.y, pipe207_209.soilTemp);
+  connect(T_soil.y, pipe207_209R.soilTemp);
+  connect(T_soil.y, pipe209_210.soilTemp);
+  connect(T_soil.y, pipe209_210R.soilTemp);
+  connect(T_soil.y, pipe209_211.soilTemp);
+  connect(T_soil.y, pipe209_211R.soilTemp);
+  connect(T_soil.y, pipe20_22.soilTemp);
+  connect(T_soil.y, pipe20_22R.soilTemp);
+  connect(T_soil.y, pipe211_213.soilTemp);
+  connect(T_soil.y, pipe211_213R.soilTemp);
+  connect(T_soil.y, pipe212_214.soilTemp);
+  connect(T_soil.y, pipe212_214R.soilTemp);
+  connect(T_soil.y, pipe212_215.soilTemp);
+  connect(T_soil.y, pipe212_215R.soilTemp);
+  connect(T_soil.y, pipe215_217.soilTemp);
+  connect(T_soil.y, pipe215_217R.soilTemp);
+  connect(T_soil.y, pipe216_218.soilTemp);
+  connect(T_soil.y, pipe216_218R.soilTemp);
+  connect(T_soil.y, pipe216_219.soilTemp);
+  connect(T_soil.y, pipe216_219R.soilTemp);
+  connect(T_soil.y, pipe219_221.soilTemp);
+  connect(T_soil.y, pipe219_221R.soilTemp);
+  connect(T_soil.y, pipe21_23.soilTemp);
+  connect(T_soil.y, pipe21_23R.soilTemp);
+  connect(T_soil.y, pipe21_24.soilTemp);
+  connect(T_soil.y, pipe21_24R.soilTemp);
+  connect(T_soil.y, pipe220_222.soilTemp);
+  connect(T_soil.y, pipe220_222R.soilTemp);
+  connect(T_soil.y, pipe220_223.soilTemp);
+  connect(T_soil.y, pipe220_223R.soilTemp);
+  connect(T_soil.y, pipe223_225.soilTemp);
+  connect(T_soil.y, pipe223_225R.soilTemp);
+  connect(T_soil.y, pipe224_226.soilTemp);
+  connect(T_soil.y, pipe224_226R.soilTemp);
+  connect(T_soil.y, pipe224_227.soilTemp);
+  connect(T_soil.y, pipe224_227R.soilTemp);
+  connect(T_soil.y, pipe227_228.soilTemp);
+  connect(T_soil.y, pipe227_228R.soilTemp);
+  connect(T_soil.y, pipe227_247.soilTemp);
+  connect(T_soil.y, pipe227_247R.soilTemp);
+  connect(T_soil.y, pipe228_230.soilTemp);
+  connect(T_soil.y, pipe228_230R.soilTemp);
+  connect(T_soil.y, pipe229_231.soilTemp);
+  connect(T_soil.y, pipe229_231R.soilTemp);
+  connect(T_soil.y, pipe229_232.soilTemp);
+  connect(T_soil.y, pipe229_232R.soilTemp);
+  connect(T_soil.y, pipe232_234.soilTemp);
+  connect(T_soil.y, pipe232_234R.soilTemp);
+  connect(T_soil.y, pipe233_235.soilTemp);
+  connect(T_soil.y, pipe233_235R.soilTemp);
+  connect(T_soil.y, pipe233_236.soilTemp);
+  connect(T_soil.y, pipe233_236R.soilTemp);
+  connect(T_soil.y, pipe236_238.soilTemp);
+  connect(T_soil.y, pipe236_238R.soilTemp);
+  connect(T_soil.y, pipe237_239.soilTemp);
+  connect(T_soil.y, pipe237_239R.soilTemp);
+  connect(T_soil.y, pipe237_240.soilTemp);
+  connect(T_soil.y, pipe237_240R.soilTemp);
+  connect(T_soil.y, pipe240_242.soilTemp);
+  connect(T_soil.y, pipe240_242R.soilTemp);
+  connect(T_soil.y, pipe241_243.soilTemp);
+  connect(T_soil.y, pipe241_243R.soilTemp);
+  connect(T_soil.y, pipe241_244.soilTemp);
+  connect(T_soil.y, pipe241_244R.soilTemp);
+  connect(T_soil.y, pipe244_245.soilTemp);
+  connect(T_soil.y, pipe244_245R.soilTemp);
+  connect(T_soil.y, pipe244_246.soilTemp);
+  connect(T_soil.y, pipe244_246R.soilTemp);
+  connect(T_soil.y, pipe247_249.soilTemp);
+  connect(T_soil.y, pipe247_249R.soilTemp);
+  connect(T_soil.y, pipe248_250.soilTemp);
+  connect(T_soil.y, pipe248_250R.soilTemp);
+  connect(T_soil.y, pipe248_251.soilTemp);
+  connect(T_soil.y, pipe248_251R.soilTemp);
+  connect(T_soil.y, pipe24_26.soilTemp);
+  connect(T_soil.y, pipe24_26R.soilTemp);
+  connect(T_soil.y, pipe251_253.soilTemp);
+  connect(T_soil.y, pipe251_253R.soilTemp);
+  connect(T_soil.y, pipe252_254.soilTemp);
+  connect(T_soil.y, pipe252_254R.soilTemp);
+  connect(T_soil.y, pipe252_255.soilTemp);
+  connect(T_soil.y, pipe252_255R.soilTemp);
+  connect(T_soil.y, pipe255_257.soilTemp);
+  connect(T_soil.y, pipe255_257R.soilTemp);
+  connect(T_soil.y, pipe256_258.soilTemp);
+  connect(T_soil.y, pipe256_258R.soilTemp);
+  connect(T_soil.y, pipe256_259.soilTemp);
+  connect(T_soil.y, pipe256_259R.soilTemp);
+  connect(T_soil.y, pipe259_261.soilTemp);
+  connect(T_soil.y, pipe259_261R.soilTemp);
+  connect(T_soil.y, pipe25_27.soilTemp);
+  connect(T_soil.y, pipe25_27R.soilTemp);
+  connect(T_soil.y, pipe25_28.soilTemp);
+  connect(T_soil.y, pipe25_28R.soilTemp);
+  connect(T_soil.y, pipe260_262.soilTemp);
+  connect(T_soil.y, pipe260_262R.soilTemp);
+  connect(T_soil.y, pipe260_263.soilTemp);
+  connect(T_soil.y, pipe260_263R.soilTemp);
+  connect(T_soil.y, pipe263_264.soilTemp);
+  connect(T_soil.y, pipe263_264R.soilTemp);
+  connect(T_soil.y, pipe263_265.soilTemp);
+  connect(T_soil.y, pipe263_265R.soilTemp);
+  connect(T_soil.y, pipe266_267.soilTemp);
+  connect(T_soil.y, pipe266_267R.soilTemp);
+  connect(T_soil.y, pipe28_30.soilTemp);
+  connect(T_soil.y, pipe28_30R.soilTemp);
+  connect(T_soil.y, pipe29_31.soilTemp);
+  connect(T_soil.y, pipe29_31R.soilTemp);
+  connect(T_soil.y, pipe29_32.soilTemp);
+  connect(T_soil.y, pipe29_32R.soilTemp);
+  connect(T_soil.y, pipe2_3.soilTemp);
+  connect(T_soil.y, pipe2_3R.soilTemp);
+  connect(T_soil.y, pipe2_4.soilTemp);
+  connect(T_soil.y, pipe2_4R.soilTemp);
+  connect(T_soil.y, pipe32_34.soilTemp);
+  connect(T_soil.y, pipe32_34R.soilTemp);
+  connect(T_soil.y, pipe33_35.soilTemp);
+  connect(T_soil.y, pipe33_35R.soilTemp);
+  connect(T_soil.y, pipe33_36.soilTemp);
+  connect(T_soil.y, pipe33_36R.soilTemp);
+  connect(T_soil.y, pipe36_38.soilTemp);
+  connect(T_soil.y, pipe36_38R.soilTemp);
+  connect(T_soil.y, pipe37_39.soilTemp);
+  connect(T_soil.y, pipe37_39R.soilTemp);
+  connect(T_soil.y, pipe37_40.soilTemp);
+  connect(T_soil.y, pipe37_40R.soilTemp);
+  connect(T_soil.y, pipe40_42.soilTemp);
+  connect(T_soil.y, pipe40_42R.soilTemp);
+  connect(T_soil.y, pipe41_43.soilTemp);
+  connect(T_soil.y, pipe41_43R.soilTemp);
+  connect(T_soil.y, pipe41_44.soilTemp);
+  connect(T_soil.y, pipe41_44R.soilTemp);
+  connect(T_soil.y, pipe44_46.soilTemp);
+  connect(T_soil.y, pipe44_46R.soilTemp);
+  connect(T_soil.y, pipe45_47.soilTemp);
+  connect(T_soil.y, pipe45_47R.soilTemp);
+  connect(T_soil.y, pipe45_48.soilTemp);
+  connect(T_soil.y, pipe45_48R.soilTemp);
+  connect(T_soil.y, pipe48_50.soilTemp);
+  connect(T_soil.y, pipe48_50R.soilTemp);
+  connect(T_soil.y, pipe49_51.soilTemp);
+  connect(T_soil.y, pipe49_51R.soilTemp);
+  connect(T_soil.y, pipe49_52.soilTemp);
+  connect(T_soil.y, pipe49_52R.soilTemp);
+  connect(T_soil.y, pipe4_6.soilTemp);
+  connect(T_soil.y, pipe4_6R.soilTemp);
+  connect(T_soil.y, pipe52_54.soilTemp);
+  connect(T_soil.y, pipe52_54R.soilTemp);
+  connect(T_soil.y, pipe53_55.soilTemp);
+  connect(T_soil.y, pipe53_55R.soilTemp);
+  connect(T_soil.y, pipe53_56.soilTemp);
+  connect(T_soil.y, pipe53_56R.soilTemp);
+  connect(T_soil.y, pipe56_58.soilTemp);
+  connect(T_soil.y, pipe56_58R.soilTemp);
+  connect(T_soil.y, pipe57_59.soilTemp);
+  connect(T_soil.y, pipe57_59R.soilTemp);
+  connect(T_soil.y, pipe57_60.soilTemp);
+  connect(T_soil.y, pipe57_60R.soilTemp);
+  connect(T_soil.y, pipe5_7.soilTemp);
+  connect(T_soil.y, pipe5_7R.soilTemp);
+  connect(T_soil.y, pipe5_8.soilTemp);
+  connect(T_soil.y, pipe5_8R.soilTemp);
+  connect(T_soil.y, pipe60_62.soilTemp);
+  connect(T_soil.y, pipe60_62R.soilTemp);
+  connect(T_soil.y, pipe61_63.soilTemp);
+  connect(T_soil.y, pipe61_64.soilTemp);
+  connect(T_soil.y, pipe61_64R.soilTemp);
+  connect(T_soil.y, pipe64_66.soilTemp);
+  connect(T_soil.y, pipe64_66R.soilTemp);
+  connect(T_soil.y, pipe65_67.soilTemp);
+  connect(T_soil.y, pipe65_67R.soilTemp);
+  connect(T_soil.y, pipe65_68.soilTemp);
+  connect(T_soil.y, pipe65_68R.soilTemp);
+  connect(T_soil.y, pipe68_70.soilTemp);
+  connect(T_soil.y, pipe68_70R.soilTemp);
+  connect(T_soil.y, pipe69_71.soilTemp);
+  connect(T_soil.y, pipe69_71R.soilTemp);
+  connect(T_soil.y, pipe69_72.soilTemp);
+  connect(T_soil.y, pipe69_72R.soilTemp);
+  connect(T_soil.y, pipe72_74.soilTemp);
+  connect(T_soil.y, pipe72_74R.soilTemp);
+  connect(T_soil.y, pipe73_75.soilTemp);
+  connect(T_soil.y, pipe73_75R.soilTemp);
+  connect(T_soil.y, pipe73_76.soilTemp);
+  connect(T_soil.y, pipe73_76R.soilTemp);
+  connect(T_soil.y, pipe76_78.soilTemp);
+  connect(T_soil.y, pipe76_78R.soilTemp);
+  connect(T_soil.y, pipe77_79.soilTemp);
+  connect(T_soil.y, pipe77_79R.soilTemp);
+  connect(T_soil.y, pipe77_80.soilTemp);
+  connect(T_soil.y, pipe77_80R.soilTemp);
+  connect(T_soil.y, pipe80_160.soilTemp);
+  connect(T_soil.y, pipe80_160R.soilTemp);
+  connect(T_soil.y, pipe80_81.soilTemp);
+  connect(T_soil.y, pipe80_81R.soilTemp);
+  connect(T_soil.y, pipe81_83.soilTemp);
+  connect(T_soil.y, pipe81_83R.soilTemp);
+  connect(T_soil.y, pipe82_84.soilTemp);
+  connect(T_soil.y, pipe82_84R.soilTemp);
+  connect(T_soil.y, pipe82_85.soilTemp);
+  connect(T_soil.y, pipe82_85R.soilTemp);
+  connect(T_soil.y, pipe85_87.soilTemp);
+  connect(T_soil.y, pipe85_87R.soilTemp);
+  connect(T_soil.y, pipe86_88.soilTemp);
+  connect(T_soil.y, pipe86_88R.soilTemp);
+  connect(T_soil.y, pipe86_89.soilTemp);
+  connect(T_soil.y, pipe86_89R.soilTemp);
+  connect(T_soil.y, pipe89_91.soilTemp);
+  connect(T_soil.y, pipe89_91R.soilTemp);
+  connect(T_soil.y, pipe8_10.soilTemp);
+  connect(T_soil.y, pipe8_10R.soilTemp);
+  connect(T_soil.y, pipe90_92.soilTemp);
+  connect(T_soil.y, pipe90_92R.soilTemp);
+  connect(T_soil.y, pipe90_93.soilTemp);
+  connect(T_soil.y, pipe90_93R.soilTemp);
+  connect(T_soil.y, pipe93_95.soilTemp);
+  connect(T_soil.y, pipe93_95R.soilTemp);
+  connect(T_soil.y, pipe94_96.soilTemp);
+  connect(T_soil.y, pipe94_96R.soilTemp);
+  connect(T_soil.y, pipe94_97.soilTemp);
+  connect(T_soil.y, pipe94_97R.soilTemp);
+  connect(T_soil.y, pipe97_99.soilTemp);
+  connect(T_soil.y, pipe97_99R.soilTemp);
+  connect(T_soil.y, pipe98_100.soilTemp);
+  connect(T_soil.y, pipe98_100R.soilTemp);
+  connect(T_soil.y, pipe98_101.soilTemp);
+  connect(T_soil.y, pipe98_101R.soilTemp);
+  connect(T_soil.y, pipe9_11.soilTemp);
+  connect(T_soil.y, pipe9_11R.soilTemp);
+  connect(T_soil.y, pipe9_12.soilTemp);
+  connect(T_soil.y, pipe9_12R.soilTemp);
+  connect(T_soil.y, simplePipe_L4_122.soilTemp);
+
+  connect(T_soil_C.y[1], T_soil.u1) annotation (Line(points={{-347,50},{-336,50},{-336,42.8},{-319.6,42.8}},
+                                                                                                        color={0,0,127}));
+  connect(Kelvin.y, T_soil.u2) annotation (Line(points={{-345,26},{-336,26},{-336,33.2},{-319.6,33.2}}, color={0,0,127}));
   annotation (
     Diagram(coordinateSystem(extent = {{-800, -1440}, {860, 380}})),
     Icon(coordinateSystem(extent = {{-800, -1440}, {860, 380}}), graphics={  Ellipse(lineColor = {0, 125, 125}, fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid, extent = {{-384, -910}, {392, -154}}), Polygon(origin = {58, -462}, lineColor = {78, 138, 73}, fillColor = {0, 124, 124}, fillPattern = FillPattern.Solid, points = {{-224, 202}, {238, -82}, {-224, -332}, {-224, 202}})}),
     experiment(StopTime = 3.156e+07, StartTime = 0, Tolerance = 0.0001, Interval = 3600),
     Documentation(info="<html>
 <h4><span style=\"color: #008000\">Purpose of model</span></h4>
-<p>An example model of a district heating network. It represents a topology of single family houses and is based on TransiEnt.Grid.Heat.HeatGridTopology.TopologyD_Ports. It is supplied by a heat pump. The consumer model uses a standard load profile as an input. The supply temperature is calculated based on the ambient temperature. The model was tested in OpenModelica and can be simulated there. A simulation takes approximately 20 minutes for a year in OpenModelica. The supply temperature used in this model is not an optimized one. Feel free to find a better one. The pressure losses and the heat losses at the junctions are neglected or very small. The heat losses of the pipes are calculated considering the soil temperature and the varying supply temperature. Constant fluid properties are assumed for this simulation. </p>
-<p>Look at the following variables:</p>
-<p>T_amb.y[1]</p>
+<p>An example model of a district heating network. It represents a topology of single family houses and is based on TransiEnt.Grid.Heat.HeatGridTopology.TopologyD_Ports. It is supplied by a heat pump. The consumer model uses a standard load profile as an input. The supply temperature is calculated based on the ambient temperature. The model was tested in OpenModelica and can be simulated there. A simulation takes approximately 20 minutes for a year in OpenModelica. The supply temperature used in this model is not an optimized one. Feel free to find a better one. The pressure losses and the heat losses at the junctions are neglected or very small. The heat losses of the pipes are calculated considering the soil temperature and the varying supply temperature. Constant fluid properties are assumed for this simulation. The following results can be for example obtained with this DHN model:</p>
+<p>1. The heat losses of the DHN considering a varying soil and supply temperature as well as the thermal inertia of the pipes.</p>
+<p>2. The pumping power needed for the circulation of the heat carrier considering non-linear pressure losses.</p>
+<p>3. Hydraulic and thermal constraints for individual pipes and substations.</p>
+<p>4. The electric power consumed by the heat pump for providing the necessary heat flow rate. </p>
+<h4>Look at the following variables:</h4>
+<p>T_amb.y[1]: Input for the simulation</p>
+<p>T_soil_C.y[1]: Input for the simulation</p>
 <p>T_s</p>
 <p>pipe172_173R.controlVolumeL4_HeatLoss.T[1]</p>
 <p>heatpump1.Q_flow</p>
+<p>heatpump1.P_el</p>
 <p>consumer_1.heatExchanger.T_s</p>
 <p>consumer_1.heatExchanger.T_r</p>
 <h4><span style=\"color: #008c48\">References</span></h4>

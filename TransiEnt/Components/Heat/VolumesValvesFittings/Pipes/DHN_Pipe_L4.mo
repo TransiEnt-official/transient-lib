@@ -43,7 +43,7 @@ model DHN_Pipe_L4 "Model of a DHN pipe for efficient largescale simulations"
   parameter Real L=l/controlVolumeL4_HeatLoss.A "Inertance, reluctance of the mass flow rate to change";
   parameter Boolean MassFlowState=false "Boolean parameter for switching the momentum balance";
   parameter Integer N_cv=10 "Number of control volumes";
-  parameter Real u=0.15 "Heat loss factor of the pipe in W/(mK)";
+  parameter Real u( final unit="W/(mK)")=0.15  "Heat loss factor of the pipe in W/(mK)";
   parameter SI.MassFlowRate m_flow_start=1 "Start value for the mass flow rate";
   parameter SI.Density rho_pipe=960 "Density of the fluid";
   parameter SI.DynamicViscosity eta=4.66e-4 "Dynamic viscosity of the heat carrier";
