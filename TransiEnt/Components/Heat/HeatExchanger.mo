@@ -17,7 +17,7 @@ model HeatExchanger "Simple heat exchanger model based on EN442 with simple flui
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -35,7 +35,7 @@ model HeatExchanger "Simple heat exchanger model based on EN442 with simple flui
 
   parameter SI.MassFlowRate m_flow_nom = 1 "Nominal mass flow rate of the water";
   parameter SI.PressureDifference delta_p_nom = 0.02e3 "Pressure drop in the heat exchanger (Unused)";
-  parameter SI.Volume V = 0.5 "Volume of the heat exchanger";
+  parameter SI.Volume V = 0.005 "Volume of the heat exchanger";
   parameter SI.Density rho = 983 "Density of the water";
   parameter SI.TemperatureDifference delta_T_nom = 8 "Nominal temperature difference between supply and return temperature8";
   parameter SI.HeatFlowRate Q_flow_nom = 4e3 "Nominal heat flow rate at a given temperature difference";
@@ -58,7 +58,7 @@ model HeatExchanger "Simple heat exchanger model based on EN442 with simple flui
   //         Interfaces
   // _____________________________________________
 
-  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn_simple inlet annotation (Placement(
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn_simple inlet "Inlet for the heat carrier (supply)" annotation (Placement(
       visible=true,
       transformation(
         origin={-100,0},
@@ -68,7 +68,7 @@ model HeatExchanger "Simple heat exchanger model based on EN442 with simple flui
         origin={-100,0},
         extent={{-10,-10},{10,10}},
         rotation=0)));
-  TransiEnt.Basics.Interfaces.Thermal.FluidPortOut_simple outlet annotation (Placement(
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortOut_simple outlet "Outlet for the heat carrier (return)" annotation (Placement(
       visible=true,
       transformation(
         origin={100,0},

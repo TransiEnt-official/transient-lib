@@ -33,34 +33,33 @@ model Heatpump_DHN "Simple model of a heat pump for a district heating network w
   //             Visible Parameters
   // _____________________________________________
 
-  //parameter SI.Temperature T_set=273.15+60;
-  parameter SI.TemperatureDifference Delta_T_internal=5;
-  parameter SI.Temperature T_source_internal=273.15+20;
-  parameter Real COP_n=3;
-  final parameter Real eta_HP=COP_n/((273.15 + 40)/(40 - 2));
-  parameter SI.ActivePower P_el_max=3.3e3;
-  parameter SI.ActivePower P_el_min=1e3;
-  parameter Real eta_hydraulic_pump=0.9;
-  parameter SI.Density rho=981;
+
+  parameter SI.TemperatureDifference Delta_T_internal=5 "Internal temperature difference in the heat pump for the heat exchangers";
+  parameter SI.Temperature T_source_internal=273.15+20 "Temperature of the heat source of the heat pump";
+  parameter Real eta_HP=0.45 "Constant efficiency factor for the calculation of the COP";
+  parameter SI.ActivePower P_el_max=3.3e3 "Max. electric power of the heat pump";
+  parameter SI.ActivePower P_el_min=1e3 "Min. electric power of the heat pump";
+  parameter Real eta_hydraulic_pump=0.9 "Constant efficiency of the circulation pump for the DHN";
+  parameter SI.Density rho=981 "Density of the heat carrier (water) of the DHN";
 
   // _____________________________________________
   //
   //             Variables
   // _____________________________________________
 
-  SI.ActivePower P_el;
-  SI.ActivePower P_pump;
-  Real COP_Carnot;
-  Real COP;
-  Real COP_Real;
-  SI.HeatFlowRate Q_flow;
+  SI.ActivePower P_el "Electric power consumed by the heat pump (electric power of the circulation pump is not included)";
+  SI.ActivePower P_pump "Power of the circulation pump of the DHN";
+  Real COP_Carnot "Carnot COP of the heat pump";
+  Real COP "COP calculated from the Carnot COP and the efficiency factor";
+  Real COP_Real "COP considering the limited electric power";
+  SI.HeatFlowRate Q_flow "Heat flow rate provided by the heat pump";
 
   // _____________________________________________
   //
   //           Instances of other classes
   // _____________________________________________
 
-  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn_simple inlet annotation (Placement(
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn_simple inlet "Inlet for the fluid (return)" annotation (Placement(
       visible=true,
       transformation(
         origin={100,-40},
@@ -70,7 +69,7 @@ model Heatpump_DHN "Simple model of a heat pump for a district heating network w
         origin={100,-62},
         extent={{-10,-10},{10,10}},
         rotation=0)));
-  TransiEnt.Basics.Interfaces.Thermal.FluidPortOut_simple outlet annotation (Placement(
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortOut_simple outlet "Outlet for the fluid (supply)" annotation (Placement(
       visible=true,
       transformation(
         origin={100,40},
@@ -80,14 +79,14 @@ model Heatpump_DHN "Simple model of a heat pump for a district heating network w
         origin={98,60},
         extent={{-10,-10},{10,10}},
         rotation=0)));
-  Modelica.Blocks.Interfaces.RealInput Q_flow_set annotation (Placement(transformation(extent={{-100,-20},{-60,20}}), iconTransformation(extent={{-100,-20},{-60,20}})));
-  Modelica.Blocks.Interfaces.RealInput dp annotation (Placement(transformation(
+  Modelica.Blocks.Interfaces.RealInput Q_flow_set( final quantity= "HeatFlowRate", final unit="W", displayUnit="kW") "Set value for the heat flow rate that shall be provided by the heat pump" annotation (Placement(transformation(extent={{-100,-20},{-60,20}}), iconTransformation(extent={{-100,-20},{-60,20}})));
+  Modelica.Blocks.Interfaces.RealInput dp(final quantity="PressureDifference", final unit="Pa", displayUnit="bar") "Pressure difference that shall be provided by the circulation pump of the DHN" annotation (Placement(transformation(
         extent={{-20,-20},{20,20}},
         rotation=270,
         origin={0,100})));
-  Modelica.Blocks.Sources.RealExpression realExpression1(y=P_el) annotation (Placement(transformation(extent={{-32,-2},{-12,18}})));
-  Modelica.Blocks.Nonlinear.Limiter limiter(uMax=P_el_max, uMin=P_el_min) annotation (Placement(transformation(extent={{-4,-2},{16,18}})));
-  Modelica.Blocks.Interfaces.RealInput T_set_variable annotation (Placement(transformation(
+  Modelica.Blocks.Sources.RealExpression realExpression1(y=P_el) annotation (Placement(transformation(extent={{-38,-10},{-18,10}})));
+  Modelica.Blocks.Nonlinear.Limiter limiter(uMax=P_el_max, uMin=P_el_min) annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+  Modelica.Blocks.Interfaces.RealInput T_set_variable(final quantity="Temperature", final unit="K", displayUnit="degC") "Temperature input for calculating the carnot COP" annotation (Placement(transformation(
         extent={{-20,-20},{20,20}},
         rotation=270,
         origin={-40,100})));
@@ -101,14 +100,14 @@ equation
   P_el=Q_flow_set/COP;
   P_pump=((inlet.m_flow/rho)*dp)/eta_hydraulic_pump;
   limiter.y*COP=Q_flow;
-  COP_Real=inlet.m_flow*(inStream(inlet.h_outflow) - outlet.h_outflow)/limiter.y;
+  COP_Real=inlet.m_flow*(-inStream(inlet.h_outflow) + outlet.h_outflow)/limiter.y;
   COP=eta_HP*COP_Carnot;
   COP_Carnot=(T_set_variable+ Delta_T_internal)/max(2*Delta_T_internal, T_set_variable+ 2*Delta_T_internal - T_source_internal);
   0 = inlet.m_flow + outlet.m_flow;
   outlet.h_outflow = inStream(inlet.h_outflow) + Q_flow/inlet.m_flow;
   inlet.p + dp = outlet.p;
   inlet.h_outflow = -1 "Reverse flow not supported";
-  connect(limiter.u, realExpression1.y) annotation (Line(points={{-6,8},{-11,8}}, color={0,0,127}));
+  connect(limiter.u, realExpression1.y) annotation (Line(points={{-12,0},{-17,0}},color={0,0,127}));
   annotation (                                                                                                                   Documentation(info="<html>
 <h4><span style=\"color: #008000\">Purpose of model</span></h4>
 <p>A simple model of a heat pump. A pump for the circulation of the district heating network heat carrier is included. The model calculates the electric power of the heat pump from a given heat flow rate and a coefficient of performance. The COP is calculated based on the Carnot COP and a constant efficiency factor (parameter). The Carnot COP depends on the supply temperature, that is given by an input and the temperature of the heat source. The pressure difference set by the circulation pump of the hydraulic grid is set with an input. An electric power consumed by the circulation pump is calculated. </p>
@@ -124,7 +123,7 @@ equation
 <p>T_set_variable: The temperature of the heat sink</p>
 <p>dp: The pressure difference that has to be provided by the pump inside the producer</p>
 <h4><span style=\"color: #008c48\">Governing Equations:</span></h4>
-<p>COP_Carnot=(T_set_variable +273.15+ Delta_T_internal)/(T_set_variable +273.15+ 2*Delta_T_internal - T_source_internal)</p>
+<p>COP_Carnot=(T_set_variable + Delta_T_internal)/(T_set_variable + 2*Delta_T_internal - T_source_internal)</p>
 <p>COP=eta_HP*COP_Carnot</p>
 <p>P_el=Q_flow_set/COP;</p>
 <p>Mass balance: m_in+m_out=0</p>

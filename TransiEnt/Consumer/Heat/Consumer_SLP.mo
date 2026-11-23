@@ -36,7 +36,7 @@ model Consumer_SLP "Simple model of a thermal consumer with a table-based heat f
 
  parameter SI.MassFlowRate m_flow_nom = 0.18 "Nominal mass flow rate of the water (used to limit the output of the P-Controller)";
  parameter SI.HeatFlowRate Q_flow_nom = 8e3 "Nominal heat flow rate (used in the heat exchanger)";
- parameter SI.HeatFlowRate Q_flow_Ref = 5796.75;//6.0563e3 "Reference for peak load of the used heat profile";
+ parameter SI.HeatFlowRate Q_flow_Ref = 5796.75 "Reference for peak load of the used heat profile;";
  parameter Real gain_k=Q_flow_nom/Q_flow_Ref;
  parameter SI.Density rho=983 "Density of the fluid";
  parameter SI.HeatCapacity C=1 "Unused in this model, just for better interchangeability of the consumer models";
@@ -45,7 +45,6 @@ model Consumer_SLP "Simple model of a thermal consumer with a table-based heat f
  parameter Real a=1/3 "Parameter (mulitplication factor) for calculating the return temperature";
  parameter Real b=23.33 "Parameter (constant) for calculating the return temperature";
  //parameters of controller
-public
  parameter Real k = 20 "Constant for proportional part of PI-controller";
  parameter SI.SpecificHeatCapacity cp=4183 "Specific heat capacity of the fluid";
  parameter Boolean useInput=false;
@@ -103,15 +102,15 @@ public
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-54,0})));
- Modelica.Blocks.Sources.RealExpression SetTemperature2(y=heatExchanger.T_r)
-                                                                            annotation (
-   Placement(visible = true, transformation(origin={24,44},    extent = {{10, -10}, {-10, 10}}, rotation = 0)));
-  Modelica.Blocks.Sources.CombiTimeTable combiTimeTable(
+ Modelica.Blocks.Sources.RealExpression ReturnTemperature_Measured(y=heatExchanger.T_r) annotation (Placement(visible=true, transformation(
+        origin={24,44},
+        extent={{10,-10},{-10,10}},
+        rotation=0)));
+  Modelica.Blocks.Sources.CombiTimeTable heatload(
     tableOnFile=true,
     tableName="default",
     fileName=path,
-    smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative) if not useInput annotation (Placement(transformation(extent={{28,-10},
-            {8,10}})));
+    smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative) if not useInput annotation (Placement(transformation(extent={{28,-10},{8,10}})));
   Modelica.Blocks.Math.Gain gain(k=gain_k)
     annotation (Placement(transformation(extent={{-12,-10},{-32,10}})));
  Modelica.Blocks.Continuous.LimPID PID1(
@@ -125,9 +124,10 @@ public
     y_start=0.0003,
     strict=true)                                                                                                                                                   annotation (
    Placement(transformation(extent={{14,58},{-6,78}})));
- Modelica.Blocks.Sources.RealExpression SetTemperature1(y=(a*(heatExchanger.T_s - 273.15) + b) + 273.15)
-                                                                            annotation (
-   Placement(visible = true, transformation(origin={40,68},    extent = {{10, -10}, {-10, 10}}, rotation = 0)));
+ Modelica.Blocks.Sources.RealExpression SetReturnTemperature(y=(a*(heatExchanger.T_s - 273.15) + b) + 273.15) annotation (Placement(visible=true, transformation(
+        origin={40,68},
+        extent={{10,-10},{-10,10}},
+        rotation=0)));
 
  Modelica.Blocks.Sources.RealExpression SetTemperature3(y=273.15 + 30)      annotation (
    Placement(visible = true, transformation(origin={40,86},    extent = {{10, -10}, {-10, 10}}, rotation = 0)));
@@ -144,11 +144,9 @@ equation
     annotation (Line(points={{-54,15.8},{-54,10}}, color={0,0,0}));
   connect(heatExchanger.outlet, outlet)
     annotation (Line(points={{-54,-10},{-54,-40},{-100,-40}}, color={0,0,0}));
-  connect(SetTemperature2.y, PID1.u_m)
-    annotation (Line(points={{13,44},{4,44},{4,56}}, color={0,0,127}));
+  connect(ReturnTemperature_Measured.y, PID1.u_m) annotation (Line(points={{13,44},{4,44},{4,56}}, color={0,0,127}));
   if useInput==false then
-  connect(combiTimeTable.y[1], gain.u)
-    annotation (Line(points={{7,0},{-10,0}}, color={0,0,127}));
+    connect(heatload.y[1], gain.u) annotation (Line(points={{7,0},{-10,0}}, color={0,0,127}));
   else
     connect(Q_flow_demand, gain.u);
   end if;
@@ -157,7 +155,7 @@ equation
 
   connect(PID1.y, pump.m_flow)
     annotation (Line(points={{-7,68},{-48,68},{-48,35.4}}, color={0,0,127}));
-  connect(SetTemperature1.y, PID1.u_s) annotation (Line(points={{29,68},{16,68}}, color={0,0,127}));
+  connect(SetReturnTemperature.y, PID1.u_s) annotation (Line(points={{29,68},{16,68}}, color={0,0,127}));
  annotation (
    Icon(coordinateSystem(extent={{-100,-100},{180,100}}),      graphics={  Ellipse(extent = {{100, -100}, {-100, 100}}, endAngle = 360), Line(origin = {-10, 10}, points = {{-70, -70}, {70, 70}, {70, 70}}), Line(origin = {10, -10}, points = {{-70, -70}, {70, 70}})}),
    Diagram(coordinateSystem(extent={{-100,-100},{180,100}})),
