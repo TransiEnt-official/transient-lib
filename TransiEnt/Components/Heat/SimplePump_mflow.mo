@@ -17,7 +17,7 @@ model SimplePump_mflow "A simple model of a pump with an input for the mass flow
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -34,10 +34,10 @@ model SimplePump_mflow "A simple model of a pump with an input for the mass flow
   //             Visible Parameters
   // _____________________________________________
 
-  parameter SI.Density rho = 1000 "Density of the fluid";
-  parameter Real eta_mech=0.98;
-  parameter Real eta_el=0.97;
-  parameter Real delta_p_eps=100 "small pressure difference for linearization around zero";
+  parameter SI.Density rho = 983 "Density of the fluid";
+  parameter Real eta_mech=0.98 "Mechanical efficiency of the pump";
+  parameter Real eta_el=0.97 "Electric efficiency of the pump";
+  parameter Real delta_p_eps=10 "Small pressure difference for linearization around zero";
 
   // _____________________________________________
   //
@@ -54,7 +54,7 @@ model SimplePump_mflow "A simple model of a pump with an input for the mass flow
   //         Interfaces
   // _____________________________________________
 
-  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn_simple inlet annotation (Placement(
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn_simple inlet "Inlet for the fluid" annotation (Placement(
       visible=true,
       transformation(
         origin={-98,0},
@@ -64,7 +64,7 @@ model SimplePump_mflow "A simple model of a pump with an input for the mass flow
         origin={-102,0},
         extent={{-10,-10},{10,10}},
         rotation=0)));
-  TransiEnt.Basics.Interfaces.Thermal.FluidPortOut_simple outlet annotation (Placement(
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortOut_simple outlet "Outlet for the fluid" annotation (Placement(
       visible=true,
       transformation(
         origin={100,0},
@@ -74,7 +74,7 @@ model SimplePump_mflow "A simple model of a pump with an input for the mass flow
         origin={102,0},
         extent={{-10,-10},{10,10}},
         rotation=0)));
-  Modelica.Blocks.Interfaces.RealInput m_flow annotation (
+  Modelica.Blocks.Interfaces.RealInput m_flow(final quantity="MassFlowRate", final unit="kg/s", displayUnit="kg/s") "Input for the mass flow rate flowing throught the pump" annotation (
     Placement(visible = true, transformation(origin = {0, 100}, extent = {{-20, -20}, {20, 20}}, rotation = -90), iconTransformation(origin = {-94, 60}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
 
 equation
@@ -97,7 +97,6 @@ outlet.h_outflow = inStream(inlet.h_outflow);
 <h4><span style=\"color: #008000\">Purpose of model</span></h4>
 <p>This model represents a fluid pump. It is a simple model of a pump that can be used to calculate the electric power necessary to set a given mass flow rate. It uses a static mass and momentum balance. No enthalpy changes over the pump are considered.</p>
 <h4><span style=\"color: #008000\">Level of detail, physical effects considered, and physical insight</span></h4>
-<p>The model was changed to work with changing compositions and a constant electrical efficiency was added. Also, more inputs are available. </p>
 <ul>
 <li>mechanical and electrical efficiency of the pump</li>
 <li>no enthalpy changes over the pump considered</li>
@@ -105,7 +104,7 @@ outlet.h_outflow = inStream(inlet.h_outflow);
 <li>static mass balance</li>
 </ul>
 <h4><span style=\"color: #008000\">Limits of validity </span></h4>
-<p>Only valid for fluids and positive pressure differences. Variable efficiencies and time-dependent behavior are not considered.</p>
+<p>Only valid for fluids and positive pressure differences. Variable efficiencies and time-dependent behavior are not considered. A small pressure loss delta_p_eps is set for linearization around zero. This parameter creates a small error, which should be noted when working with small pressure differences. </p>
 <h4><span style=\"color: #008000\">Interfaces</span></h4>
 <p>m_flow: input for mass flow rate in kg/s</p>
 <p>inlet: for inflowing fluid</p>

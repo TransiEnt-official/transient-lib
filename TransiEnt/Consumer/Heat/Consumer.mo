@@ -36,15 +36,16 @@ model Consumer "Simple model of a thermal consumer with simple fluid ports"
  parameter Real multiplicationFactor = 1 "Factor for the heat flow rate multiplication (for upscaling of consumer)";
  parameter Real G = 155.737 "Thermal Conuctivity of the thermal resistor";
  parameter SI.HeatCapacity C = 570000 "Thermal capacity of the heat capacitor";
- parameter SI.PressureDifference delta_p_nom = 0.1e5 "Nominal pressure difference of the valve inside the consumer";
- parameter SI.MassFlowRate m_flow_nom = 0.18 "Nominal mass flow rate of the water (used in the valve)";
+ parameter SI.MassFlowRate m_flow_nom = 0.18 "Nominal mass flow rate of the water (used for the P-controller)";
  parameter SI.HeatFlowRate Q_flow_nom = 8e3 "Nominal heat flow rate (used in the heat exchanger)";
+ parameter SI.TemperatureDifference delta_T_nom=8 "Nominal temperature difference used in the heat exchanger";
  parameter SI.Temperature T_room=295.15 "Set value for room temperature";
- parameter SI.SpecificHeatCapacity cp=4186;
- parameter Boolean useInput=false;
+ parameter SI.SpecificHeatCapacity cp=4186 "Specific heat capacity of the fluid";
+ parameter Boolean useInput=false "Boolean parameter for turning on the Ambient temperature input";
+ parameter SI.Density rho=983 "Density of the fluid";
+ parameter SI.Volume V=0.01 "Volume of the heat exchanger in the consumer";
  //parameters of controller
- parameter SI.Time tau_i = 1000 "Constant for integrator part of PI-controller";
- parameter Real k = 20 "Constant for proportional part of PI-controller";
+ parameter Real k = 20 "Constant for proportional part of P-controller";
  parameter Real y_max = m_flow_nom "Max. value for the P-Controller";//
  parameter Real y_min = 0.0001 "Min. value for the P-Controller";
 
@@ -91,29 +92,33 @@ model Consumer "Simple model of a thermal consumer with simple fluid ports"
   Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature AmbientTemperature1
                                                                                  annotation (
     Placement(transformation(extent={{110,46},{90,66}})));
-  TransiEnt.Components.Heat.SimplePump_mflow pump annotation (Placement(transformation(
+  TransiEnt.Components.Heat.SimplePump_mflow pump(rho=rho)
+                                                  annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-54,26})));
  Modelica.Blocks.Sources.RealExpression SetTemperature(y=T_room - 273.15)   annotation (
-   Placement(visible = true, transformation(origin={4,64},     extent = {{10, -10}, {-10, 10}}, rotation = 0)));
+   Placement(visible = true, transformation(origin={20,64},    extent = {{10, -10}, {-10, 10}}, rotation = 0)));
  Modelica.Thermal.HeatTransfer.Celsius.TemperatureSensor temperatureSensor1 annotation (
-   Placement(visible = true, transformation(origin={0,-22},    extent = {{-6, -6}, {6, 6}}, rotation = 180)));
-  TransiEnt.Components.Heat.HeatExchanger heatExchanger1(V=0.01, Q_flow_nom=Q_flow_nom) annotation (Placement(visible=true, transformation(
+   Placement(visible = true, transformation(origin={14,-24},   extent = {{-6, -6}, {6, 6}}, rotation = 180)));
+  TransiEnt.Components.Heat.HeatExchanger heatExchanger1(
+    m_flow_nom=m_flow_nom,
+    V=V,
+    rho=rho,
+    delta_T_nom=delta_T_nom,                                     Q_flow_nom=Q_flow_nom,
+    cp=cp)                                                                              annotation (Placement(visible=true, transformation(
         origin={-54,0},
         extent={{-10,-10},{10,10}},
         rotation=-90)));
  Modelica.Blocks.Continuous.LimPID PID1(
     controllerType=Modelica.Blocks.Types.SimpleController.P,
     k=k,
-    Ti=tau_i,
-    Td=0.1,
     yMax=y_max,
     yMin=y_min,
     initType=Modelica.Blocks.Types.Init.InitialOutput,
     y_start=0.1,
     strict=true)                                                                                                                                                   annotation (
-   Placement(transformation(extent={{-14,54},{-34,74}})));
+   Placement(transformation(extent={{-2,54},{-22,74}})));
  Modelica.Blocks.Sources.RealExpression SetTemperature2(y=273.15 - 4.4)     annotation (
    Placement(visible = true, transformation(origin={130,38},   extent = {{10, -10}, {-10, 10}}, rotation = 0)));
  Modelica.Blocks.Sources.RealExpression SetTemperature3(y=273.15 + 2.2)     annotation (
@@ -130,7 +135,7 @@ model Consumer "Simple model of a thermal consumer with simple fluid ports"
     offset=273.15,
     startTime=86400) if not useInput
     annotation (Placement(transformation(extent={{104,76},{124,96}})));
-  Modelica.Blocks.Interfaces.RealInput AmbientTemperatureIn if useInput annotation (Placement(transformation(
+  Modelica.Blocks.Interfaces.RealInput AmbientTemperatureIn(final quantity="Temperature", final unit="K", displayUnit="degC") if useInput "Conditional input for the ambient temperature" annotation (Placement(transformation(
         extent={{-20,-20},{20,20}},
         rotation=180,
         origin={180,56})));
@@ -150,10 +155,10 @@ equation
    Line(points = {{-16, -5.55112e-16}, {7, -5.55112e-16}, {7, 0}, {30, 0}}, color = {191, 0, 0}));
   connect(heatExchanger1.inlet, pump.outlet) annotation (Line(points={{-54,10},{-54,15.8}}, color={0,0,0}));
   connect(inlet, pump.inlet) annotation (Line(points={{-100,40},{-54,40},{-54,36.2}}, color={0,0,0}));
-  connect(PID1.u_s, SetTemperature.y) annotation (Line(points={{-12,64},{-7,64}}, color={0,0,127}));
-  connect(temperatureSensor1.port, heatCapacitor1.port) annotation (Line(points={{6,-22},{10,-22},{10,-12},{14,-12},{14,0},{30,0}}, color={191,0,0}));
-  connect(temperatureSensor1.T, PID1.u_m) annotation (Line(points={{-6,-22},{-12,-22},{-12,36},{-24,36},{-24,52}}, color={0,0,127}));
-  connect(PID1.y, pump.m_flow) annotation (Line(points={{-35,64},{-48,64},{-48,35.4}}, color={0,0,127}));
+  connect(PID1.u_s, SetTemperature.y) annotation (Line(points={{0,64},{9,64}},    color={0,0,127}));
+  connect(temperatureSensor1.port, heatCapacitor1.port) annotation (Line(points={{20,-24},{30,-24},{30,0}},                         color={191,0,0}));
+  connect(temperatureSensor1.T, PID1.u_m) annotation (Line(points={{8,-24},{-12,-24},{-12,52}},                    color={0,0,127}));
+  connect(PID1.y, pump.m_flow) annotation (Line(points={{-23,64},{-48,64},{-48,35.4}}, color={0,0,127}));
   connect(thermalConductor1.port_b, AmbientTemperature1.port) annotation (Line(points={{72,0},{
           84,0},{84,56},{90,56}},                                                                                      color={191,0,0}));
   connect(thermalConductor1.port_a, heatCapacitor1.port) annotation (Line(points={{52,0},{30,0}}, color={191,0,0}));
