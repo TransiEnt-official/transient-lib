@@ -115,6 +115,9 @@ model DHN_HeatGenerationUnit
         rotation=180)));
   ElectricBoiler.ElectricBoiler_Simple electricBoiler                               annotation (Placement(transformation(extent={{68,12},{88,32}})));
   TransiEnt.Producer.Heat.Power2Heat.Heatpump.Heatpump_DHN_HeatLimited producer(COP_n=3.5, Q_flow_max_const(displayUnit="MW") = 20000000) annotation (Placement(transformation(extent={{68,-26},{88,-6}})));
+  Modelica.Blocks.Math.Add add annotation (Placement(transformation(extent={{-38,72},{-30,80}})));
+  Modelica.Blocks.Sources.RealExpression PressureDifference1(y=273.15)
+                                                                     annotation (Placement(transformation(extent={{-70,56},{-50,76}})));
 equation
   // _____________________________________________
   //
@@ -140,7 +143,9 @@ equation
   connect(SetTemperature4.y, producer.T_set_variable) annotation (Line(points={{45,6},{74,6},{74,-6}},               color={0,0,127}));
   connect(T_outdoor.y[1], gain.u) annotation (Line(points={{-47,-30},{-38,-30}},
                                                                               color={0,0,127}));
-  connect(soilTemperature.y[1], soilTemp) annotation (Line(points={{-51,88},{-26,88},{-26,76},{-14,76}}, color={0,0,127}));
+  connect(add.y, soilTemp) annotation (Line(points={{-29.6,76},{-14,76}}, color={0,0,127}));
+  connect(soilTemperature.y[1], add.u1) annotation (Line(points={{-51,88},{-44,88},{-44,78.4},{-38.8,78.4}}, color={0,0,127}));
+  connect(PressureDifference1.y, add.u2) annotation (Line(points={{-49,66},{-44,66},{-44,73.6},{-38.8,73.6}}, color={0,0,127}));
   annotation (
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{280,100}}), graphics={
                      Rectangle(fillColor = {85, 85, 0}, fillPattern = FillPattern.Solid, extent={{-100,100},{100,-100}})}),
