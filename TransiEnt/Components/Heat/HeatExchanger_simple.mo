@@ -17,7 +17,7 @@ model HeatExchanger_simple "Simple heat exchanger model"
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -33,13 +33,10 @@ model HeatExchanger_simple "Simple heat exchanger model"
   //             Visible Parameters
   // _____________________________________________
 
-  parameter SI.MassFlowRate m_flow_nom = 1 "Nominal mass flow rate of the water";
+  parameter SI.MassFlowRate m_flow_nom = 1 "Nominal mass flow rate of the heat carrier";
   parameter SI.Volume V = 0.01 "Volume of the heat exchanger";
-  parameter SI.Density rho = 1000 "Density of the water";
-  parameter SI.TemperatureDifference delta_T_nom = 35 "Nominal temperature difference between supply and return temperature";
-  parameter SI.HeatFlowRate Q_flow_nom = 5e3*100 "Nominal heat flow rate at a given temperature difference";
-  parameter Real n = 1.333 "Exponent for radiators";
-  parameter SI.SpecificHeatCapacity cp = 4200 "Specific heat capacity";
+  parameter SI.Density rho = 983 "Density of the heat carrier";
+  parameter SI.SpecificHeatCapacity cp = 4183 "Specific heat capacity of the heat carrier";
 
   // _____________________________________________
   //
@@ -56,7 +53,7 @@ model HeatExchanger_simple "Simple heat exchanger model"
   //            Interfaces
   // _____________________________________________
 
-  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn_simple inlet annotation (Placement(
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn_simple inlet "Inlet for the heat carrier (supply)" annotation (Placement(
       visible=true,
       transformation(
         origin={-100,0},
@@ -66,7 +63,7 @@ model HeatExchanger_simple "Simple heat exchanger model"
         origin={-100,0},
         extent={{-10,-10},{10,10}},
         rotation=0)));
-  TransiEnt.Basics.Interfaces.Thermal.FluidPortOut_simple outlet annotation (Placement(
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortOut_simple outlet "Outlet for the heat carrier (return)" annotation (Placement(
       visible=true,
       transformation(
         origin={100,0},
@@ -76,7 +73,7 @@ model HeatExchanger_simple "Simple heat exchanger model"
         origin={100,0},
         extent={{-10,-10},{10,10}},
         rotation=0)));
-  Modelica.Blocks.Interfaces.RealInput Q_flow annotation (Placement(transformation(
+  Modelica.Blocks.Interfaces.RealInput Q_flow(final quantity= "HeatFlowRate", final unit="W", displayUnit="kW") annotation (Placement(transformation(
         extent={{-20,-20},{20,20}},
         rotation=270,
         origin={0,100})));
@@ -89,7 +86,7 @@ equation
 
   //No pressure losses considered
   inlet.p- outlet.p=0;
-  //Energy balance
+  //Energy balance, no reverse flow supported
   V*rho*der(h) = inlet.m_flow * inStream(inlet.h_outflow) + outlet.m_flow * outlet.h_outflow - Q_flow;
   //Connectors
   h = inlet.h_outflow;
@@ -104,7 +101,7 @@ equation
   annotation (
     Icon(coordinateSystem(initialScale = 0.1), graphics={  Rectangle(origin = {-60, 0}, extent = {{-40, 100}, {160, -100}}), Rectangle(extent = {{-58, 50}, {-58, 50}}), Rectangle(extent = {{-92, 64}, {-92, 64}}), Line(origin = {-10, 10}, points = {{-90, -90}, {90, 90}}), Line(origin = {10, -10}, points = {{-90, -90}, {90, 90}})}), Documentation(info="<html>
 <h4><span style=\"color: #008000\">Purpose of model</span></h4>
-<p>A model of a heat exchanger. It consists of two fluid ports and a heat port. The model is based on the three balance equations of mass, energy and momentum. A dynamic energy balance is assumed. The mass and momentum balance are assumed to be static. No pressure losses are considered.It is used for the modeling of radiators and the modeling of substations in district heating networks.</p>
+<p>A model of a heat exchanger. It consists of two fluid ports and a heat port. The model is based on the three balance equations of mass, energy and momentum. A dynamic energy balance is assumed. The mass and momentum balance are assumed to be static. No pressure losses are considered.It is used for the modeling of radiators and the modeling of substations in district heating networks. Reverse flow is not supported. </p>
 <h4><span style=\"color: #008c48\">Level of detail, physical effects considered, and physical insight</span></h4>
 <p>L2 (defined in the CodingConventions)</p>
 <ul>
@@ -112,7 +109,6 @@ equation
 <li>static mass balance</li>
 <li>constant fluid properties</li>
 <li>dynamic energy balance</li>
-<li>heat transport according to EN442</li>
 </ul>
 <h4><span style=\"color: #008000\">Interfaces</span></h4>
 <p>inlet: A fluid inlet for the inflowing heat carrier medium</p>

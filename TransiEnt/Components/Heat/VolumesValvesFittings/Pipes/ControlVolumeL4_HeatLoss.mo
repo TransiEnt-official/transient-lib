@@ -37,23 +37,23 @@ model ControlVolumeL4_HeatLoss "Discretized control volume of a district heating
   parameter SI.Length l = 10 "Length of the pipe";
   parameter SI.Length d = 0.3 "Inner diameter of the pipe";
   final parameter SI.Area A = Modelica.Constants.pi*(d/2)^2 "Cross sectional area of the pipe";
-  final parameter SI.Area A_s=2*Modelica.Constants.pi*(d/2)*l;
-  final parameter SI.Volume V_pipe = l*A "Volume of the pipe";
-  parameter SI.Density rho = 1000 "Density of the water";
+  final parameter SI.Area A_s=2*Modelica.Constants.pi*(d/2)*l "Surface area of the pipe";
+  final parameter SI.Volume V_pipe = l*A "Volume of the water in the pipe";
+  parameter SI.Density rho = 1000 "Density of the heat carrier (water)";
   parameter Real delta_p_nom=100 "Nominal pressure drop at a nominal mass flow rate";
   parameter SI.MassFlowRate m_flow_nom=100 "Nominal mass flow rate";
-  parameter Real k = 0.02 "Rouhgness factor for the surface";
+  parameter Real k = 0.02 "Rouhgness factor of the surface";
   parameter SI.SpecificHeatCapacity cp=4200 "Specific heat capacity of the water";
-  parameter Boolean MassFlowState=true;
-  parameter Integer N_cv=30;
-  parameter Real u=0.15 "heat loss factor in watt per meter kelvin";
-  parameter SI.MassFlowRate m_flow_start=1;
-  parameter SI.DynamicViscosity eta=4.66e-4;
-  parameter SI.Density rho_pipe=960;
-  parameter SI.SpecificHeatCapacity c_pipe=1900;
-  parameter SI.Length wall_thickness=0.0026;
-  parameter SI.Volume V_pipe_wall=Modelica.Constants.pi*(((d+2*wall_thickness)/2)^2-(d/2)^2)*l;
-  parameter SI.Volume V_pipe_w=(V_pipe_wall*c_pipe)*rho_pipe/(cp*rho);
+  parameter Boolean MassFlowState=true "Boolean parameter for switching the momentum balance";
+  parameter Integer N_cv=30 "Number of control volumes";
+  parameter Real u=0.15 "Heat loss factor in watt per meter kelvin";
+  parameter SI.MassFlowRate m_flow_start=1 "Start value for the mass flow rate";
+  parameter SI.DynamicViscosity eta=4.66e-4 "Dynamic viscosity of the heat carrier (water)";
+  parameter SI.Density rho_pipe=960 "Density of the pipe material";
+  parameter SI.SpecificHeatCapacity c_pipe=1900 "Specific heat capacity of the pipe material";
+  parameter SI.Length wall_thickness=0.0026 "Thickness of the pipe wall";
+  final parameter SI.Volume V_pipe_wall=Modelica.Constants.pi*(((d+2*wall_thickness)/2)^2-(d/2)^2)*l "Volume of the pipe wall";
+  final parameter SI.Volume V_pipe_w=(V_pipe_wall*c_pipe)*rho_pipe/(cp*rho) "Equivalent water volume considering the heat capacity of the pipe wall";
 
   // _____________________________________________
   //
@@ -72,7 +72,7 @@ model ControlVolumeL4_HeatLoss "Discretized control volume of a district heating
   //         Interfaces
   // _____________________________________________
 
-  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn_simple inlet annotation (Placement(
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn_simple inlet "Inlet for the heat carrier" annotation (Placement(
       visible=true,
       transformation(
         origin={-100,0},
@@ -82,7 +82,7 @@ model ControlVolumeL4_HeatLoss "Discretized control volume of a district heating
         origin={-100,0},
         extent={{-10,-10},{10,10}},
         rotation=0)));
-  TransiEnt.Basics.Interfaces.Thermal.FluidPortOut_simple outlet annotation (Placement(
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortOut_simple outlet "Outlet for the heat carrier" annotation (Placement(
       visible=true,
       transformation(
         origin={100,0},
@@ -96,11 +96,7 @@ model ControlVolumeL4_HeatLoss "Discretized control volume of a district heating
     Placement(transformation(extent = {{-30, -66}, {-10, -46}})));
   Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_IN_var inVar(rho = rho, eta=eta)    annotation (
     Placement(transformation(extent = {{10, -66}, {30, -46}})));
-  Modelica.Blocks.Interfaces.RealOutput y annotation (Placement(transformation(extent={{-10,-10},{10,10}},
-      rotation=90,
-      origin={0,100})));
-
-  Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort[N_cv] annotation (Placement(transformation(extent={{30,90},{50,110}})));
+  Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort[N_cv] "Heat port for transfering the heat losses" annotation (Placement(transformation(extent={{30,90},{50,110}})));
 equation
 
   // _____________________________________________
@@ -110,9 +106,9 @@ equation
 
   //Momentum balance, a mass flow state can be activated to improve the numerics of large models
     if MassFlowState then
-  inlet.p - outlet.p =L*der(m_flow)+Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_DP(inCon, inVar, m_flow);//m_flow* delta_p_nom*l / m_flow_nom;// Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_DP(inCon, inVar, m_flow);////
+  inlet.p - outlet.p =L*der(m_flow)+Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_DP(inCon, inVar, m_flow);
   else
-    inlet.p - outlet.p =Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_DP(inCon, inVar, m_flow);//m_flow * delta_p_nom*l / m_flow_nom;// Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_DP(inCon, inVar, m_flow);//
+    inlet.p - outlet.p =Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_DP(inCon, inVar, m_flow);
   end if;
   //Energy balance for N_cv control volumes
   (V_pipe+V_pipe_w)/N_cv*rho*der(h[1]) =abs(semiLinear(
@@ -136,7 +132,6 @@ equation
   inlet.m_flow = m_flow;
   inStream(inlet.h_outflow)/cp + 273.15 = T_in;
   outlet.h_outflow/cp + 273.15 = T_out;
-  y=m_flow;
   v=inlet.m_flow/(Modelica.Constants.pi*(d/2)^2*rho);
 
  //Calculation of temperatures

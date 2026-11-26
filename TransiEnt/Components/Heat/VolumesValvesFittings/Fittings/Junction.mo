@@ -17,7 +17,7 @@ model Junction "Simple model of a junction with no pressure loss, static mass ba
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -33,9 +33,7 @@ model Junction "Simple model of a junction with no pressure loss, static mass ba
   //          Visible Parameters
   // _____________________________________________
 
-  parameter Integer n_ports=3 "number of edges this junction is connected to";
-  parameter SI.MassFlowRate m_flow_nom = 1 "Nominal mass flow rate of the water";
-  parameter SI.PressureDifference delta_p_nom = 0.1e1 "Nominal pressure drop in the junction";
+  parameter Integer n_ports=3 "Number of edges this junction is connected to";
   parameter SI.Volume V = 0.005 "Volume of the junction";
   parameter SI.Density rho = 983 "Density of the water";
 
@@ -52,7 +50,7 @@ model Junction "Simple model of a junction with no pressure loss, static mass ba
   //         Instances of other classes
   // _____________________________________________
 
-  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn_simple fluidPort[n_ports] annotation (Placement(
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn_simple fluidPort[n_ports] "Array for the fluid ports of the junction" annotation (Placement(
       visible=true,
       transformation(extent={{-10,-10},{10,10}}, rotation=0),
       iconTransformation(

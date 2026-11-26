@@ -17,7 +17,7 @@ model SimpleValve "Simple valve model for calculating a mass flow rate out of a 
 // Institute of Electrical Power and Energy Technology                            //
 // (Hamburg University of Technology)                                             //
 // Fraunhofer Institute for Environmental, Safety, and Energy Technology UMSICHT, //
-// Gas- und WÃ¤rme-Institut Essen						  //
+// Gas- und WÃ¤rme-Institut Essen                                                  //
 // and                                                                            //
 // XRG Simulation GmbH (Hamburg, Germany).                                        //
 //________________________________________________________________________________//
@@ -34,10 +34,9 @@ model SimpleValve "Simple valve model for calculating a mass flow rate out of a 
   // _____________________________________________
 
  parameter SI.Pressure delta_p_nom "Nominal pressure drop in the valve";
- parameter Real OpeningValve = 0.2 "Opening of the valve between 0 and 1 (unused)";
+ parameter Real OpeningValve = 0.2 "Opening of the valve between 0 and 1 (only used when useValveInput is false)";
  parameter SI.MassFlowRate m_flow_nom = 1 "Nominal mass flow rate of the water";
  parameter Boolean useValveInput = true;
- parameter Boolean checkValve=false;
 
   // _____________________________________________
   //
@@ -51,7 +50,7 @@ model SimpleValve "Simple valve model for calculating a mass flow rate out of a 
   //         Interfaces
   // _____________________________________________
 
-  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn_simple inlet annotation (Placement(
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortIn_simple inlet "Inlet for the fluid" annotation (Placement(
       visible=true,
       transformation(
         origin={-100,0},
@@ -61,7 +60,7 @@ model SimpleValve "Simple valve model for calculating a mass flow rate out of a 
         origin={-100,0},
         extent={{-10,-10},{10,10}},
         rotation=0)));
-  TransiEnt.Basics.Interfaces.Thermal.FluidPortOut_simple outlet annotation (Placement(
+  TransiEnt.Basics.Interfaces.Thermal.FluidPortOut_simple outlet "Outlet for the fluid" annotation (Placement(
       visible=true,
       transformation(
         origin={100,0},
@@ -71,7 +70,7 @@ model SimpleValve "Simple valve model for calculating a mass flow rate out of a 
         origin={100,0},
         extent={{-10,-10},{10,10}},
         rotation=0)));
- Modelica.Blocks.Interfaces.RealInput OpeningValveIn  annotation (
+ Modelica.Blocks.Interfaces.RealInput OpeningValveIn "Input for the opening of the valvee (value between 0 and 1)" annotation (
    Placement(visible = true, transformation(origin = {0, 100}, extent = {{-20, -20}, {20, 20}}, rotation = -90), iconTransformation(origin = {0, 100}, extent = {{-20, -20}, {20, 20}}, rotation = -90)));
 equation
 
@@ -95,7 +94,7 @@ equation
  annotation (
    Icon(graphics={  Line(points = {{-100, 60}, {100, -60}, {100, 60}, {-100, -60}, {-100, 58}, {-100, 60}, {-100, 60}})}), Documentation(info="<html>
 <h4><span style=\"color: #008000\">Purpose of model</span></h4>
-<p>A simple model of a valve with two fluid ports. The pressure loss is dependent on the opening of the valve. The opening of the valve is defined by a Real Input with values between 0 and 1. The pressure loss over the pipe can be influenced by changing the parameters m_flow_nom or delta_p_nom.</p>
+<p>A simple model of a valve with two fluid ports. The pressure loss is dependent on the opening of the valve. The opening of the valve is defined by a Real Input with values between 0 and 1. The pressure loss over the pipe can be influenced by changing the parameters m_flow_nom or delta_p_nom. The model uses a linear pressure loss calculation.</p>
 <h4><span style=\"color: #008000\">Level of detail, physical effects considered, and physical insight</span></h4>
 <p>L2 (defined in the CodingConventions)</p>
 <ul>
